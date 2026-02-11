@@ -36,13 +36,12 @@ BillableEntityApi::~BillableEntityApi()
 {
 }
 
-pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::createBillableEntity(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey) const
+pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::createBillableEntity(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billable/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billable/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -207,13 +206,12 @@ pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::createBil
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> BillableEntityApi::deleteBillableEntity(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> BillableEntityApi::deleteBillableEntity(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billable/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billable/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -338,13 +336,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> BillableEntityApi::deleteBillableEnt
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::getBillableEntity(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeCounts, boost::optional<bool> includePayments) const
+pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::getBillableEntity(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeCounts, boost::optional<bool> includePayments) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billable/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billable/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -477,13 +474,12 @@ pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::getBillab
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::updateBillableEntity(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey) const
+pplx::task<std::shared_ptr<BillableEntityResponse>> BillableEntityApi::updateBillableEntity(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billable/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billable/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

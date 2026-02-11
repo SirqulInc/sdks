@@ -52,10 +52,8 @@ public:
     /// <remarks>
     /// Create a new shipment batch
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ShipmentBatch>> createShipmentBatch(
-        double version,
         boost::optional<std::shared_ptr<ShipmentBatch>> body
     ) const;
     /// <summary>
@@ -64,10 +62,8 @@ public:
     /// <remarks>
     /// Search for shipment batches
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="batchId">the id of the shipment batch to delete</param>
     pplx::task<void> deleteShipmentBatch(
-        double version,
         int64_t batchId
     ) const;
     /// <summary>
@@ -76,10 +72,8 @@ public:
     /// <remarks>
     /// Get an existing shipment batch
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="batchId">the id of the shipment batch to get</param>
     pplx::task<std::shared_ptr<ShipmentBatch>> getShipmentBatch(
-        double version,
         int64_t batchId
     ) const;
     /// <summary>
@@ -88,7 +82,6 @@ public:
     /// <remarks>
     /// Get the import status list of the import shipment batch
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="batchId">The id of the requested shipment batch</param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="sortField">The field to sort by</param>
@@ -102,7 +95,6 @@ public:
     /// <param name="hasRoute">Has route associate to the status (optional, default to false)</param>
     /// <param name="keyword">The keyword to search for (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<ShipmentImportStatus>>> getShipmentBatchStatus(
-        double version,
         int64_t batchId,
         int64_t accountId,
         utility::string_t sortField,
@@ -122,14 +114,12 @@ public:
     /// <remarks>
     /// Search for shipment batches
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="hubId">The associated service hub</param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
     /// <param name="limit">The limit for pagination</param>
     pplx::task<std::vector<std::shared_ptr<ShipmentBatch>>> searchShipmentBatch(
-        double version,
         int64_t hubId,
         utility::string_t sortField,
         bool descending,

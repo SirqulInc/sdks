@@ -51,11 +51,9 @@ public:
     /// <remarks>
     /// Create a new vehicle type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="vehicleType">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<VehicleType>> createVehicleType(
-        double version,
         utility::string_t vehicleType,
         boost::optional<std::shared_ptr<VehicleType>> body
     ) const;
@@ -65,10 +63,8 @@ public:
     /// <remarks>
     /// Delete a vehicle type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
     pplx::task<void> deleteVehicleType(
-        double version,
         int64_t vehicleTypeId
     ) const;
     /// <summary>
@@ -77,10 +73,8 @@ public:
     /// <remarks>
     /// Get a vehicle type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="vehicleTypeId">The id of the requested vehicle type</param>
     pplx::task<std::shared_ptr<VehicleType>> getVehicleType(
-        double version,
         int64_t vehicleTypeId
     ) const;
     /// <summary>
@@ -89,7 +83,6 @@ public:
     /// <remarks>
     /// Search for types of vehicles
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -98,7 +91,6 @@ public:
     /// <param name="retailerId">Filter by retailer (optional, default to 0L)</param>
     /// <param name="hubId">Filter by service hub (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<VehicleType>>> searchVehicleTypes(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -113,12 +105,10 @@ public:
     /// <remarks>
     /// Update a vehicle type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="vehicleTypeId">The id of the vehicle type to update</param>
     /// <param name="vehicleType">The new data for the vehicle type to update to. A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;width\&quot;: 100,   \&quot;height\&quot;: 200,   \&quot;depth\&quot;: 200,   \&quot;maxWeight\&quot;: 5000,   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<VehicleType>> updateVehicleType(
-        double version,
         int64_t vehicleTypeId,
         utility::string_t vehicleType,
         boost::optional<std::shared_ptr<VehicleType>> body

@@ -52,13 +52,11 @@ public:
     /// <remarks>
     /// Assign An existing account to be an employee
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="managerAccountId">The account id of the manager to assign under</param>
     /// <param name="employeeAccountId">The account id of the user to be assigned as employee</param>
     /// <param name="role">The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<EmployeeResponse>> assignEmployee(
-        double version,
         int64_t accountId,
         int64_t managerAccountId,
         int64_t employeeAccountId,
@@ -70,13 +68,11 @@ public:
     /// <remarks>
     /// Assign or unassign the account to a retailer location.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="retailerLocationId">The retailer location to apply the change to</param>
     /// <param name="employeeAccountId">The account id of the user to apply the change to (optional, default to 0L)</param>
     /// <param name="assign">If true (default) assign to the location, otherwise remove from the retailer (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> assignToLocationEmployee(
-        double version,
         int64_t accountId,
         int64_t retailerLocationId,
         boost::optional<int64_t> employeeAccountId,
@@ -88,7 +84,6 @@ public:
     /// <remarks>
     /// Create a new account record with the provided information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="managerAccountId">The account id of the manager to assign under</param>
     /// <param name="username">The username/email for the new user. This must be unique across the entire the system.</param>
@@ -120,7 +115,6 @@ public:
     /// <param name="appBlob">external custom client defined data (per Application) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<EmployeeResponse>> createEmployee(
-        double version,
         int64_t accountId,
         int64_t managerAccountId,
         utility::string_t username,
@@ -158,11 +152,9 @@ public:
     /// <remarks>
     /// Set the deleted date field which marks the record as deleted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="employeeAccountId">the id of the employee to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteEmployee(
-        double version,
         int64_t accountId,
         int64_t employeeAccountId
     ) const;
@@ -172,12 +164,10 @@ public:
     /// <remarks>
     /// Get the account record for the account id provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of logged in user</param>
     /// <param name="employeeAccountId">the id of the employee account to get</param>
     /// <param name="settingsAppKey">Determines whether to return the application settings for the employee for a particular application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<EmployeeResponse>> getEmployee(
-        double version,
         int64_t accountId,
         int64_t employeeAccountId,
         boost::optional<utility::string_t> settingsAppKey
@@ -188,7 +178,6 @@ public:
     /// <remarks>
     /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="role">The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="retailerId">Filters employees by retailer (optional, default to 0L)</param>
@@ -207,7 +196,6 @@ public:
     /// <param name="categoryIds">Comma separated list of category ids to filter results (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="query">Legacy/reporting query parameter used for formatting employee responses (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<EmployeeResponse>>> searchEmployees(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> role,
         boost::optional<int64_t> retailerId,
@@ -232,11 +220,9 @@ public:
     /// <remarks>
     /// Unassign An existing account to be an employee
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="employeeAccountId">The account id of the user to be unassigned</param>
     pplx::task<std::shared_ptr<EmployeeResponse>> unassignEmployee(
-        double version,
         int64_t accountId,
         int64_t employeeAccountId
     ) const;
@@ -246,7 +232,6 @@ public:
     /// <remarks>
     /// Update the account record with the provided information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="employeeAccountId">the id of the employee account</param>
     /// <param name="managerAccountId">The account id of the manager to assign under (optional, default to 0L)</param>
@@ -278,7 +263,6 @@ public:
     /// <param name="appBlob">external custom client defined data (per Application) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="assignedDeviceId">The device id to assign to the user (used for IPS beacon tracking) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<EmployeeResponse>> updateEmployee(
-        double version,
         int64_t accountId,
         int64_t employeeAccountId,
         boost::optional<int64_t> managerAccountId,

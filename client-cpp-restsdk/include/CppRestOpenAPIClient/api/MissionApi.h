@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Create a user defined mission.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="title">The title of the mission</param>
     /// <param name="description">The description of the mission (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -81,7 +80,6 @@ public:
     /// <param name="locations">List of lat/long pairs for mission locations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="radius">Comma separated list of radii for locations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MissionResponse>> createMission(
-        double version,
         int64_t accountId,
         utility::string_t title,
         boost::optional<utility::string_t> description,
@@ -115,11 +113,9 @@ public:
     /// <remarks>
     /// Delete a mission.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="missionId">the id of the mission to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteMission(
-        double version,
         int64_t accountId,
         int64_t missionId
     ) const;
@@ -129,7 +125,6 @@ public:
     /// <remarks>
     /// Get a set of ad filtered by the parameters provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
     /// <param name="suffix">The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="type">The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -150,7 +145,6 @@ public:
     /// <param name="missionIds">return only ads from the specified campaigns. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="audienceOperator">will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MissionResponse>> findMissions(
-        double version,
         utility::string_t appKey,
         boost::optional<utility::string_t> suffix,
         boost::optional<utility::string_t> type,
@@ -177,12 +171,10 @@ public:
     /// <remarks>
     /// Get a mission.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="missionId">The id of the mission to return.</param>
     /// <param name="returnCreative">Return creatives associated with the mission when true (optional, default to false)</param>
     pplx::task<std::shared_ptr<MissionResponse>> getMission(
-        double version,
         int64_t accountId,
         int64_t missionId,
         boost::optional<bool> returnCreative
@@ -193,7 +185,6 @@ public:
     /// <remarks>
     /// Create a mission using a source item such as an offer location.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="latitude">The current location of the requesting device</param>
     /// <param name="longitude">The current location of the requesting device</param>
@@ -203,7 +194,6 @@ public:
     /// <param name="limit">The total number of records to return. Default is 20. (optional, default to 0)</param>
     /// <param name="adSize">the size of the ad (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> importMission(
-        double version,
         int64_t accountId,
         double latitude,
         double longitude,
@@ -219,12 +209,10 @@ public:
     /// <remarks>
     /// Searches on pre-defined mission formats
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="start">The starting index in the result set to return. Default is 0.</param>
     /// <param name="limit">The total number of records to return. Default is 20.</param>
     /// <param name="activeOnly">Determines whether to return only active results. Default is false.</param>
     pplx::task<std::vector<std::shared_ptr<MissionFormatResponse>>> searchMissionFormats(
-        double version,
         int32_t start,
         int32_t limit,
         bool activeOnly
@@ -235,7 +223,6 @@ public:
     /// <remarks>
     /// Get the list missions available to the account.  
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="keyword">Filter by keyword (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="subType">Custom string client apps can use for searching/filtering missions (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -248,7 +235,6 @@ public:
     /// <param name="sortField">The field to sort the search on (for example TITLE) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="descending">Whether to sort in descending order (default true) (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<MissionResponse>>> searchMissions(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> subType,
@@ -267,7 +253,6 @@ public:
     /// <remarks>
     /// Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="keyword">Filter by keyword (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
@@ -279,7 +264,6 @@ public:
     /// <param name="sortField">The field to sort the search on (for example TITLE) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="descending">Whether to sort in descending order (default true) (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<MissionResponse>>> searchMissionsByBillableEntity(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<int32_t> start,
@@ -297,7 +281,6 @@ public:
     /// <remarks>
     /// Update a mission.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="missionId">The id of the mission to update.</param>
     /// <param name="title">The title of the mission (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -324,7 +307,6 @@ public:
     /// <param name="locations">List of lat/long pairs for mission locations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="radius">Comma separated list of radii for locations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MissionResponse>> updateMission(
-        double version,
         int64_t accountId,
         int64_t missionId,
         boost::optional<utility::string_t> title,

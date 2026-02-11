@@ -36,13 +36,12 @@ RouteSettingApi::~RouteSettingApi()
 {
 }
 
-pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::createRouteSettings(double version, boost::optional<std::shared_ptr<RouteSettings>> body) const
+pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::createRouteSettings(boost::optional<std::shared_ptr<RouteSettings>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/setting");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/setting");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::createRouteSettings(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Object>> RouteSettingApi::deleteRouteSettings(double version, int64_t routeSettingsId) const
+pplx::task<std::shared_ptr<Object>> RouteSettingApi::deleteRouteSettings(int64_t routeSettingsId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/setting/{routeSettingsId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/setting/{routeSettingsId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeSettingsId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeSettingsId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -299,13 +297,12 @@ pplx::task<std::shared_ptr<Object>> RouteSettingApi::deleteRouteSettings(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::getRouteSettings(double version, int64_t routeSettingsId) const
+pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::getRouteSettings(int64_t routeSettingsId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/setting/{routeSettingsId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/setting/{routeSettingsId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeSettingsId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeSettingsId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -423,13 +420,12 @@ pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::getRouteSettings(dou
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RouteSettings>>> RouteSettingApi::searchRouteSettings(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> hubId, boost::optional<int64_t> programId, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<RouteSettings>>> RouteSettingApi::searchRouteSettings(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> hubId, boost::optional<int64_t> programId, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/setting");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/setting");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -577,13 +573,12 @@ pplx::task<std::vector<std::shared_ptr<RouteSettings>>> RouteSettingApi::searchR
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::updateRouteSettings(double version, int64_t routeSettingsId, boost::optional<std::shared_ptr<RouteSettings>> body) const
+pplx::task<std::shared_ptr<RouteSettings>> RouteSettingApi::updateRouteSettings(int64_t routeSettingsId, boost::optional<std::shared_ptr<RouteSettings>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/setting/{routeSettingsId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/setting/{routeSettingsId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeSettingsId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeSettingsId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

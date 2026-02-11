@@ -51,10 +51,8 @@ public:
     /// <remarks>
     /// Create a new trip
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Trip>> createTrip(
-        double version,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
     /// <summary>
@@ -63,11 +61,9 @@ public:
     /// <remarks>
     /// Update trip preference to drive, also create a route and assign the trip to the route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
     pplx::task<std::shared_ptr<Trip>> driveTrip(
-        double version,
         int64_t id,
         bool recurrence
     ) const;
@@ -77,11 +73,9 @@ public:
     /// <remarks>
     /// Update trip preference to flexible.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
     pplx::task<std::shared_ptr<Trip>> flexibleTrip(
-        double version,
         int64_t id,
         bool recurrence
     ) const;
@@ -91,10 +85,8 @@ public:
     /// <remarks>
     /// Get an existing trip
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip to get</param>
     pplx::task<std::shared_ptr<Trip>> getTrip(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -103,7 +95,6 @@ public:
     /// <remarks>
     /// Get matching trips of specific trip
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">The id The id of the trip to search for matches for</param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -113,7 +104,6 @@ public:
     /// <param name="matchedHasRoute">Only return matchings that already have route assigned (optional, default to false)</param>
     /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> getTripMatches(
-        double version,
         int64_t id,
         utility::string_t sortField,
         bool descending,
@@ -129,12 +119,10 @@ public:
     /// <remarks>
     /// Process trip matching, assign trips with no route to matched trips with route.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="startDate">The lower bound date to process matchings (optional, default to 0L)</param>
     /// <param name="endDate">The upper bound date to process matchings (optional, default to 0L)</param>
     /// <param name="tripId">the id of the trip to process (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> processTripMatches(
-        double version,
         boost::optional<int64_t> startDate,
         boost::optional<int64_t> endDate,
         boost::optional<int64_t> tripId
@@ -145,10 +133,8 @@ public:
     /// <remarks>
     /// Delete an existing trip
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip to delete</param>
     pplx::task<void> r_delete(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -157,11 +143,9 @@ public:
     /// <remarks>
     /// Update trip preference to ride.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="recurrence">the frequency of the trip (e.g. weekly, until 2018-08-09)</param>
     pplx::task<std::shared_ptr<Trip>> ride(
-        double version,
         int64_t id,
         bool recurrence
     ) const;
@@ -171,7 +155,6 @@ public:
     /// <remarks>
     /// Search for trips
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The owner of the trips</param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -182,7 +165,6 @@ public:
     /// <param name="endDate">The upper bound limit of time (optional, default to 0L)</param>
     /// <param name="hasNotifications">whether to search on trips that have notifications or not (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> search(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -199,7 +181,6 @@ public:
     /// <remarks>
     /// Search for trips with matching information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The owner of the trips</param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -211,7 +192,6 @@ public:
     /// <param name="matchedHasRoute">Only return matchings that already have route assigned (optional, default to false)</param>
     /// <param name="matchedHasDriver">Only return matchings that already have driver assigned (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> searchTrips(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -229,11 +209,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip to update locations for</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Trip>> updateLocations(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
@@ -243,11 +221,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> updateRecurrenceLocations(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
@@ -257,11 +233,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::vector<std::shared_ptr<Trip>>> updateRecurrenceShipments(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
@@ -271,11 +245,9 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip shipments to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Trip>> updateShipments(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
@@ -285,11 +257,9 @@ public:
     /// <remarks>
     /// Update an existing trip. Does not support recurring trip update.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Trip>> updateTrip(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Trip>> body
     ) const;
@@ -299,11 +269,9 @@ public:
     /// <remarks>
     /// Update the trip notifications
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the trip</param>
     /// <param name="notifications">the notifications to update on the trip (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<Trip>> updateTripNotifications(
-        double version,
         int64_t id,
         boost::optional<utility::string_t> notifications
     ) const;

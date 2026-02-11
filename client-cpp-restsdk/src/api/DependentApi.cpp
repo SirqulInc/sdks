@@ -36,13 +36,12 @@ DependentApi::~DependentApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::create(double version, int64_t accountId, boost::optional<std::shared_ptr<Account>> body) const
+pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::create(int64_t accountId, boost::optional<std::shared_ptr<Account>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/dependent/{accountId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/dependent/{accountId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("accountId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(accountId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -176,13 +175,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::create(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::getDependents(double version, int64_t accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::getDependents(int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/dependent/{accountId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/dependent/{accountId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("accountId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(accountId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -300,13 +298,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> DependentApi::getDependents(double v
         return localVarResult;
     });
 }
-pplx::task<void> DependentApi::removeDependent(double version, int64_t accountId, int64_t dependentId) const
+pplx::task<void> DependentApi::removeDependent(int64_t accountId, int64_t dependentId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/dependent/{accountId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/dependent/{accountId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("accountId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(accountId)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("dependentId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(dependentId)));
 

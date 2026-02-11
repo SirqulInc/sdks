@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Adds a user to a permissionable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="permissionableType">the permissionable type of the object</param>
     /// <param name="permissionableId">the id of the permissionable object</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -71,7 +70,6 @@ public:
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     /// <param name="audienceIds">comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> addUsersToPermissionable(
-        double version,
         utility::string_t permissionableType,
         int64_t permissionableId,
         boost::optional<utility::string_t> deviceId,
@@ -96,14 +94,12 @@ public:
     /// <remarks>
     /// Sets the approval status of a permissionable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="permissionableType">The permissionable type of the object</param>
     /// <param name="permissionableId">The id of the permissionable object</param>
     /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> approvePermissionable(
-        double version,
         utility::string_t permissionableType,
         int64_t permissionableId,
         boost::optional<utility::string_t> deviceId,
@@ -116,7 +112,6 @@ public:
     /// <remarks>
     /// Used when the user wants to leave from someone else&#39;s permissionable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="permissionableType">the permissionable type PermissionableType</param>
     /// <param name="permissionableId">the id of the permissionable object</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -124,7 +119,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> leaveFromPermissionable(
-        double version,
         utility::string_t permissionableType,
         int64_t permissionableId,
         boost::optional<utility::string_t> deviceId,
@@ -138,7 +132,6 @@ public:
     /// <remarks>
     /// Used to remove someone (assuming they have permission) from a permissionable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="permissionableType">the permissionable type of the object</param>
     /// <param name="permissionableId">the id of the permissionable object</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -151,7 +144,6 @@ public:
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     /// <param name="audienceIds">comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeUsersFromPermissionable(
-        double version,
         utility::string_t permissionableType,
         int64_t permissionableId,
         boost::optional<utility::string_t> deviceId,
@@ -170,7 +162,6 @@ public:
     /// <remarks>
     /// Search on UserPermissions
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="connectionAccountId">Filter results for a specific user account (optional, default to 0L)</param>
@@ -185,7 +176,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> searchPermissionables(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> connectionAccountId,
@@ -206,7 +196,6 @@ public:
     /// <remarks>
     /// Search on UserPermissions by distance
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="latitude">The latitude of the current account</param>
     /// <param name="longitude">The longitude of the current account</param>
     /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -222,7 +211,6 @@ public:
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> searchPermissionablesFollowingDistance(
-        double version,
         double latitude,
         double longitude,
         boost::optional<utility::string_t> deviceId,

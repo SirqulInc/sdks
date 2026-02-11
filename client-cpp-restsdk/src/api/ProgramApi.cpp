@@ -36,13 +36,12 @@ ProgramApi::~ProgramApi()
 {
 }
 
-pplx::task<std::shared_ptr<Program>> ProgramApi::createProgram(double version, boost::optional<std::shared_ptr<Program>> body) const
+pplx::task<std::shared_ptr<Program>> ProgramApi::createProgram(boost::optional<std::shared_ptr<Program>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<Program>> ProgramApi::createProgram(double version, b
         return localVarResult;
     });
 }
-pplx::task<void> ProgramApi::deleteProgram(double version, int64_t id) const
+pplx::task<void> ProgramApi::deleteProgram(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -280,13 +278,12 @@ pplx::task<void> ProgramApi::deleteProgram(double version, int64_t id) const
         return void();
     });
 }
-pplx::task<std::shared_ptr<Program>> ProgramApi::getProgram(double version, int64_t id) const
+pplx::task<std::shared_ptr<Program>> ProgramApi::getProgram(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -404,13 +401,12 @@ pplx::task<std::shared_ptr<Program>> ProgramApi::getProgram(double version, int6
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Program>> ProgramApi::postProgram(double version, int64_t id, boost::optional<std::shared_ptr<Program>> body) const
+pplx::task<std::shared_ptr<Program>> ProgramApi::postProgram(int64_t id, boost::optional<std::shared_ptr<Program>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -544,13 +540,12 @@ pplx::task<std::shared_ptr<Program>> ProgramApi::postProgram(double version, int
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Program>> ProgramApi::putProgram(double version, int64_t id, boost::optional<std::shared_ptr<Program>> body) const
+pplx::task<std::shared_ptr<Program>> ProgramApi::putProgram(int64_t id, boost::optional<std::shared_ptr<Program>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -684,13 +679,12 @@ pplx::task<std::shared_ptr<Program>> ProgramApi::putProgram(double version, int6
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Program>>> ProgramApi::searchPrograms(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<Program>>> ProgramApi::searchPrograms(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/program");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/program");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ TerritoryApi::~TerritoryApi()
 {
 }
 
-pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::createTerritory(double version, int64_t accountId, utility::string_t name, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::createTerritory(int64_t accountId, utility::string_t name, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/territory/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/territory/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -169,13 +168,12 @@ pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::createTerritory(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TerritoryApi::deleteTerritory(double version, int64_t accountId, int64_t territoryId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TerritoryApi::deleteTerritory(int64_t accountId, int64_t territoryId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/territory/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/territory/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -298,13 +296,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TerritoryApi::deleteTerritory(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::getTerritory(double version, int64_t territoryId) const
+pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::getTerritory(int64_t territoryId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/territory/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/territory/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -424,13 +421,12 @@ pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::getTerritory(double
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<TerritoryResponse>>> TerritoryApi::searchTerritories(double version, utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<TerritoryResponse>>> TerritoryApi::searchTerritories(utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/territory/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/territory/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -569,13 +565,12 @@ pplx::task<std::vector<std::shared_ptr<TerritoryResponse>>> TerritoryApi::search
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::updateTerritory(double version, int64_t accountId, int64_t territoryId, boost::optional<utility::string_t> name, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TerritoryResponse>> TerritoryApi::updateTerritory(int64_t accountId, int64_t territoryId, boost::optional<utility::string_t> name, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/territory/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/territory/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ PackApi::~PackApi()
 {
 }
 
-pplx::task<std::shared_ptr<PackResponse>> PackApi::createPack(double version, int64_t accountId, utility::string_t title, int64_t packOrder, int32_t price, bool highest, bool allocateTickets, int64_t ticketCount, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<bool> active, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> packType, boost::optional<utility::string_t> sequenceType, boost::optional<int64_t> backgroundId, boost::optional<int64_t> imageId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> authorOverride, boost::optional<utility::string_t> priceType, boost::optional<utility::string_t> gameLevelIds, boost::optional<bool> inGame, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
+pplx::task<std::shared_ptr<PackResponse>> PackApi::createPack(int64_t accountId, utility::string_t title, int64_t packOrder, int32_t price, bool highest, bool allocateTickets, int64_t ticketCount, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<bool> active, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> packType, boost::optional<utility::string_t> sequenceType, boost::optional<int64_t> backgroundId, boost::optional<int64_t> imageId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> authorOverride, boost::optional<utility::string_t> priceType, boost::optional<utility::string_t> gameLevelIds, boost::optional<bool> inGame, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/pack/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/pack/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -248,13 +247,12 @@ pplx::task<std::shared_ptr<PackResponse>> PackApi::createPack(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> PackApi::deletePack(double version, int64_t accountId, int64_t packId) const
+pplx::task<std::shared_ptr<SirqulResponse>> PackApi::deletePack(int64_t accountId, int64_t packId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/pack/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/pack/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -377,13 +375,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> PackApi::deletePack(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PackResponse>> PackApi::getPack(double version, int64_t accountId, int64_t packId, bool includeGameData) const
+pplx::task<std::shared_ptr<PackResponse>> PackApi::getPack(int64_t accountId, int64_t packId, bool includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/pack/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/pack/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -509,13 +506,12 @@ pplx::task<std::shared_ptr<PackResponse>> PackApi::getPack(double version, int64
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<PackResponse>>> PackApi::searchPacks(double version, int64_t accountId, utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> packType, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeGameData, boost::optional<bool> includeInactive, boost::optional<utility::string_t> appKey) const
+pplx::task<std::vector<std::shared_ptr<PackResponse>>> PackApi::searchPacks(int64_t accountId, utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> packType, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeGameData, boost::optional<bool> includeInactive, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/pack/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/pack/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -673,13 +669,12 @@ pplx::task<std::vector<std::shared_ptr<PackResponse>>> PackApi::searchPacks(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PackResponse>> PackApi::updatePack(double version, int64_t accountId, int64_t packId, bool allocateTickets, int64_t ticketCount, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<bool> active, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> packType, boost::optional<int64_t> packOrder, boost::optional<utility::string_t> sequenceType, boost::optional<int64_t> backgroundId, boost::optional<int64_t> imageId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> authorOverride, boost::optional<int32_t> price, boost::optional<utility::string_t> priceType, boost::optional<utility::string_t> gameLevelIds, boost::optional<bool> inGame, boost::optional<bool> highest, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
+pplx::task<std::shared_ptr<PackResponse>> PackApi::updatePack(int64_t accountId, int64_t packId, bool allocateTickets, int64_t ticketCount, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<bool> active, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> packType, boost::optional<int64_t> packOrder, boost::optional<utility::string_t> sequenceType, boost::optional<int64_t> backgroundId, boost::optional<int64_t> imageId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> authorOverride, boost::optional<int32_t> price, boost::optional<utility::string_t> priceType, boost::optional<utility::string_t> gameLevelIds, boost::optional<bool> inGame, boost::optional<bool> highest, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/pack/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/pack/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

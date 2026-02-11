@@ -36,13 +36,12 @@ UserPermissionsApi::~UserPermissionsApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::addUsersToPermissionable(double version, utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> read, boost::optional<bool> write, boost::optional<bool> r_delete, boost::optional<bool> add, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<bool> includeFriendGroup, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIds) const
+pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::addUsersToPermissionable(utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> read, boost::optional<bool> write, boost::optional<bool> r_delete, boost::optional<bool> add, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<bool> includeFriendGroup, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/permissions/add");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/permissions/add");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -225,13 +224,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::addUsersToPermis
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::approvePermissionable(double version, utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> approvalStatus) const
+pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::approvePermissionable(utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> approvalStatus) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/permissionable/approve");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/permissionable/approve");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -366,13 +364,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::approvePermissio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::leaveFromPermissionable(double version, utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::leaveFromPermissionable(utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/permissions/leave");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/permissions/leave");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -511,13 +508,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::leaveFromPermiss
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::removeUsersFromPermissionable(double version, utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<bool> removeFriendGroup, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIds) const
+pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::removeUsersFromPermissionable(utility::string_t permissionableType, int64_t permissionableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<bool> removeFriendGroup, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/permissions/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/permissions/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -676,13 +672,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> UserPermissionsApi::removeUsersFromP
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> UserPermissionsApi::searchPermissionables(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> UserPermissionsApi::searchPermissionables(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/permissions/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/permissions/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -855,13 +850,12 @@ pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> UserPermission
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> UserPermissionsApi::searchPermissionablesFollowingDistance(double version, double latitude, double longitude, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<double> searchRange, boost::optional<utility::string_t> keyword, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<UserPermissionsResponse>>> UserPermissionsApi::searchPermissionablesFollowingDistance(double latitude, double longitude, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<double> searchRange, boost::optional<utility::string_t> keyword, boost::optional<bool> pending, boost::optional<bool> admin, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/permissions/distancesearch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/permissions/distancesearch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

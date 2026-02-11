@@ -36,13 +36,12 @@ PreviewPersonaApi::~PreviewPersonaApi()
 {
 }
 
-pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::createPersona(double version, int64_t accountId, utility::string_t title, boost::optional<utility::string_t> previewAccounts, boost::optional<int64_t> date, boost::optional<int32_t> age, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::createPersona(int64_t accountId, utility::string_t title, boost::optional<utility::string_t> previewAccounts, boost::optional<int64_t> date, boost::optional<int32_t> age, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/persona/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/persona/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -193,13 +192,12 @@ pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::createPer
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> PreviewPersonaApi::deletePersona(double version, int64_t accountId, int64_t personaId) const
+pplx::task<std::shared_ptr<SirqulResponse>> PreviewPersonaApi::deletePersona(int64_t accountId, int64_t personaId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/persona/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/persona/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -322,13 +320,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> PreviewPersonaApi::deletePersona(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::getPersonaList(double version, int64_t accountId, int64_t personaId) const
+pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::getPersonaList(int64_t accountId, int64_t personaId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/persona/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/persona/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -451,13 +448,12 @@ pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::getPerson
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::searchPersona(double version, int64_t accountId, int32_t start, int32_t limit) const
+pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::searchPersona(int64_t accountId, int32_t start, int32_t limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/persona/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/persona/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -583,13 +579,12 @@ pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::searchPer
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::updatePersona(double version, int64_t accountId, int64_t personaId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> previewAccounts, boost::optional<bool> active, boost::optional<int64_t> date, boost::optional<int32_t> age, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<PreviewPersonaResponse>> PreviewPersonaApi::updatePersona(int64_t accountId, int64_t personaId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> previewAccounts, boost::optional<bool> active, boost::optional<int64_t> date, boost::optional<int32_t> age, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/persona/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/persona/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

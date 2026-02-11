@@ -50,11 +50,9 @@ public:
     /// <remarks>
     /// Create a Stripe checkout session
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="stripeParameters">Stripe Parameters</param>
     pplx::task<std::shared_ptr<SirqulResponse>> createStripeCheckoutSession(
-        double version,
         utility::string_t appKey,
         utility::string_t stripeParameters
     ) const;

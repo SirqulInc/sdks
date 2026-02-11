@@ -36,13 +36,12 @@ ReservationApi::~ReservationApi()
 {
 }
 
-pplx::task<void> ReservationApi::createReservation(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> metaData) const
+pplx::task<void> ReservationApi::createReservation(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservation/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservation/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -172,13 +171,12 @@ pplx::task<void> ReservationApi::createReservation(double version, boost::option
         return void();
     });
 }
-pplx::task<void> ReservationApi::deleteReservation(double version, int64_t reservationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<void> ReservationApi::deleteReservation(int64_t reservationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservation/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservation/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -287,13 +285,12 @@ pplx::task<void> ReservationApi::deleteReservation(double version, int64_t reser
         return void();
     });
 }
-pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::reservableAvailability(double version, int64_t reservableId, utility::string_t reservableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
+pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::reservableAvailability(int64_t reservableId, utility::string_t reservableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservable/availability/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservable/availability/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -436,13 +433,12 @@ pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::r
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::searchAvailability(double version, int64_t reservableId, utility::string_t reservableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::searchAvailability(int64_t reservableId, utility::string_t reservableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservable/availability/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservable/availability/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -593,13 +589,12 @@ pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> ReservationApi::s
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ReservationResponse>>> ReservationApi::searchReservations(double version, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> accountId, boost::optional<int64_t> filterAccountId, boost::optional<int64_t> reservableId, boost::optional<utility::string_t> reservableType, boost::optional<utility::string_t> keyword, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<ReservationResponse>>> ReservationApi::searchReservations(boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> accountId, boost::optional<int64_t> filterAccountId, boost::optional<int64_t> reservableId, boost::optional<utility::string_t> reservableType, boost::optional<utility::string_t> keyword, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservation/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservation/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -764,13 +759,12 @@ pplx::task<std::vector<std::shared_ptr<ReservationResponse>>> ReservationApi::se
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<TimeSlotResponse>>> ReservationApi::searchSchedule(double version, int64_t reservableId, utility::string_t reservableType, int64_t startDate, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> timeBucketMins) const
+pplx::task<std::vector<std::shared_ptr<TimeSlotResponse>>> ReservationApi::searchSchedule(int64_t reservableId, utility::string_t reservableType, int64_t startDate, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> timeBucketMins) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/reservable/schedule/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/reservable/schedule/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

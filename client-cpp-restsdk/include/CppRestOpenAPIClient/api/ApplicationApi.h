@@ -57,7 +57,6 @@ public:
     /// <remarks>
     /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appName">The name of the application</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -138,7 +137,6 @@ public:
     /// <param name="twilioSenderPhoneNumber">Twilio Sender Phone Number (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="openAISecretKey">OpenAI Secret API Key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ApplicationResponse>> createApplication(
-        double version,
         utility::string_t appName,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -225,7 +223,6 @@ public:
     /// <remarks>
     /// Creates a new ad placement for an application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The appKey of the application the ad placement is for</param>
     /// <param name="size">The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -238,7 +235,6 @@ public:
     /// <param name="defaultImageId">Default Image Id (optional, default to 0L)</param>
     /// <param name="active">Active (optional, default to false)</param>
     pplx::task<std::shared_ptr<PlacementResponse>> createApplicationPlacement(
-        double version,
         utility::string_t appKey,
         utility::string_t size,
         boost::optional<utility::string_t> deviceId,
@@ -257,11 +253,9 @@ public:
     /// <remarks>
     /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional, default to 0L)</param>
     /// <param name="appKey">The key of the application to be deleted (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteApplication(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey
     ) const;
@@ -271,12 +265,10 @@ public:
     /// <remarks>
     /// Deletes an ad placement for an application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="placementId">The id of the placement to delete, the user must have rights to the application the ad placement is for</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PlacementResponse>> deleteApplicationPlacement(
-        double version,
         int64_t placementId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -287,11 +279,9 @@ public:
     /// <remarks>
     /// Get a specific application by appKey
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The key of the application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="applicationId">Application Id (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<ApplicationResponse>> getApplication(
-        double version,
         boost::optional<utility::string_t> appKey,
         boost::optional<int64_t> applicationId
     ) const;
@@ -301,12 +291,10 @@ public:
     /// <remarks>
     /// Get details of an ad placement
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="placementId">The id of the placement</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PlacementResponse>> getApplicationPlacement(
-        double version,
         int64_t placementId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -317,9 +305,7 @@ public:
     /// <remarks>
     /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
     /// </remarks>
-    /// <param name="version"></param>
     pplx::task<std::shared_ptr<SirqulResponse>> getApplicationVersions(
-        double version
     ) const;
     /// <summary>
     /// Search Application Users
@@ -327,7 +313,6 @@ public:
     /// <remarks>
     /// Get a list of users per application
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key</param>
     /// <param name="q">Q (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">The keyword used to search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -337,7 +322,6 @@ public:
     /// <param name="l">the limit of the index (optional, default to 0)</param>
     /// <param name="limit">The limit of the pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<AccountListResponse>> getUniqueUsersByApp(
-        double version,
         utility::string_t appKey,
         boost::optional<utility::string_t> q,
         boost::optional<utility::string_t> keyword,
@@ -353,7 +337,6 @@ public:
     /// <remarks>
     /// List active applications matching the criteria (as a consumer)
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the application owner/manager (optional, default to 0L)</param>
     /// <param name="q">Q (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">The keyword used to search for title, about, and description fields (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -375,7 +358,6 @@ public:
     /// <param name="hasObjectStore">Only include applications with a object store (default is false) (optional, default to false)</param>
     /// <param name="activeOnly">Return only active results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<ApplicationShortResponse>>> listApplications(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> q,
         boost::optional<utility::string_t> keyword,
@@ -403,14 +385,12 @@ public:
     /// <remarks>
     /// Searches placements for an application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The key of the application</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="start">The start of the pagination (optional, default to 0)</param>
     /// <param name="limit">The limit of the pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<PlacementResponse>>> searchApplicationPlacement(
-        double version,
         utility::string_t appKey,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -423,7 +403,6 @@ public:
     /// <remarks>
     /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="connectionAccountId">The account id used to view another person&#39;s account (optional, default to 0L)</param>
@@ -433,7 +412,6 @@ public:
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit per result set for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<ApplicationSettingsResponse>> searchApplicationSettings(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> connectionAccountId,
@@ -449,7 +427,6 @@ public:
     /// <remarks>
     /// Search for applications matching the criteria that the logged in user has access to
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">The location of the device (optional, default to 0.0)</param>
@@ -467,7 +444,6 @@ public:
     /// <param name="publicNotifications">Filter results on whether the application is available for public trigger notifications (optional, default to false)</param>
     /// <param name="activeOnly">Return only active results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<ApplicationResponse>>> searchApplications(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
@@ -491,7 +467,6 @@ public:
     /// <remarks>
     /// Update an application record
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key for updating an existing application</param>
     /// <param name="appName">The name of the application</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -573,7 +548,6 @@ public:
     /// <param name="twilioSenderPhoneNumber">Twilio Sender Phone Number (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="openAISecretKey">OpenAI Secret API Key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ApplicationResponse>> updateApplication(
-        double version,
         utility::string_t appKey,
         utility::string_t appName,
         boost::optional<utility::string_t> deviceId,
@@ -661,12 +635,10 @@ public:
     /// <remarks>
     /// Set the application&#39;s active flag to true/false. This effectively activates or deactivates the application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the application.</param>
     /// <param name="appKey">The key of the application to be deleted</param>
     /// <param name="active">If true then set to active, false otherwise</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateApplicationActive(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         bool active
@@ -677,7 +649,6 @@ public:
     /// <remarks>
     /// Updates an ad placement for an application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="placementId">The id of the placement to update, the user must have rights to the application the ad placement is for</param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -690,7 +661,6 @@ public:
     /// <param name="defaultImageId">Default Image Id (optional, default to 0L)</param>
     /// <param name="active">Active (optional, default to false)</param>
     pplx::task<std::shared_ptr<PlacementResponse>> updateApplicationPlacement(
-        double version,
         int64_t placementId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -709,13 +679,11 @@ public:
     /// <remarks>
     /// Uploads a certificate for an application that the user has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The key of the application</param>
     /// <param name="deviceId">Device Id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the application. (optional, default to 0L)</param>
     /// <param name="certificate">Certificate (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> uploadApplicationCertificate(
-        double version,
         utility::string_t appKey,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

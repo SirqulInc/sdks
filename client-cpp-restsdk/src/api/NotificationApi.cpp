@@ -36,13 +36,12 @@ NotificationApi::~NotificationApi()
 {
 }
 
-pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::createNotificationTemplate(double version, int64_t accountId, utility::string_t conduit, utility::string_t title, utility::string_t body, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> event, boost::optional<utility::string_t> tags) const
+pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::createNotificationTemplate(int64_t accountId, utility::string_t conduit, utility::string_t title, utility::string_t body, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> event, boost::optional<utility::string_t> tags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/template/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/template/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -183,13 +182,12 @@ pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::creat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::createOrUpdateBlockedNotifications(double version, utility::string_t appKey, utility::string_t data, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::createOrUpdateBlockedNotifications(utility::string_t appKey, utility::string_t data, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/blocked/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/blocked/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -316,13 +314,12 @@ pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::create
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::deleteNotificationTemplate(double version, int64_t accountId, int64_t notificationTemplateId) const
+pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::deleteNotificationTemplate(int64_t accountId, int64_t notificationTemplateId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/template/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/template/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -445,13 +442,12 @@ pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::delet
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::getNotificationTemplate(double version, int64_t accountId, int64_t notificationTemplateId) const
+pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::getNotificationTemplate(int64_t accountId, int64_t notificationTemplateId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/template/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/template/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -574,13 +570,12 @@ pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::getNo
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationMessageListResponse>> NotificationApi::getNotifications(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> parentTypes, boost::optional<utility::string_t> actionCategory, boost::optional<utility::string_t> conduits, boost::optional<utility::string_t> keyword, boost::optional<bool> returnReadMessages, boost::optional<bool> markAsRead, boost::optional<int64_t> fromDate, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnSent, boost::optional<bool> ignoreFlagged, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<NotificationMessageListResponse>> NotificationApi::getNotifications(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> parentTypes, boost::optional<utility::string_t> actionCategory, boost::optional<utility::string_t> conduits, boost::optional<utility::string_t> keyword, boost::optional<bool> returnReadMessages, boost::optional<bool> markAsRead, boost::optional<int64_t> fromDate, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnSent, boost::optional<bool> ignoreFlagged, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -781,13 +776,12 @@ pplx::task<std::shared_ptr<NotificationMessageListResponse>> NotificationApi::ge
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::registerNotificationToken(double version, utility::string_t token, utility::string_t pushType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> environment, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> gameType, boost::optional<bool> active, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::registerNotificationToken(utility::string_t token, utility::string_t pushType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> environment, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> gameType, boost::optional<bool> active, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/token");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/token");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -942,13 +936,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::registerNotificatio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::searchBlockedNotifications(double version, utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> events, boost::optional<utility::string_t> conduits, boost::optional<utility::string_t> customTypes, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::searchBlockedNotifications(utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> events, boost::optional<utility::string_t> conduits, boost::optional<utility::string_t> customTypes, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/blocked/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/blocked/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1112,13 +1105,12 @@ pplx::task<std::shared_ptr<BlockedNotificationResponse>> NotificationApi::search
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::searchNotificationTemplate(double version, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> event, boost::optional<utility::string_t> conduit, boost::optional<bool> globalOnly, boost::optional<bool> reservedOnly, boost::optional<utility::string_t> keyword) const
+pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::searchNotificationTemplate(int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> event, boost::optional<utility::string_t> conduit, boost::optional<bool> globalOnly, boost::optional<bool> reservedOnly, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/template/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/template/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1274,13 +1266,12 @@ pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::searc
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<NotificationRecipientResponse>>> NotificationApi::searchRecipients(double version, utility::string_t sortField, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> conduit, boost::optional<utility::string_t> keyword, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> recipientAccountIds, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<NotificationRecipientResponse>>> NotificationApi::searchRecipients(utility::string_t sortField, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> conduit, boost::optional<utility::string_t> keyword, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> recipientAccountIds, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/recipient/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/recipient/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1452,13 +1443,12 @@ pplx::task<std::vector<std::shared_ptr<NotificationRecipientResponse>>> Notifica
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationRecipientResponseListResponse>> NotificationApi::searchRecipientsCount(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> conduit, boost::optional<utility::string_t> keyword, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<NotificationRecipientResponseListResponse>> NotificationApi::searchRecipientsCount(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> conduit, boost::optional<utility::string_t> keyword, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/recipient/search/count");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/recipient/search/count");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1623,13 +1613,12 @@ pplx::task<std::shared_ptr<NotificationRecipientResponseListResponse>> Notificat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendBatchNotifications(double version, int64_t accountId, utility::string_t appKey, utility::string_t customMessage, boost::optional<utility::string_t> conduit, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType) const
+pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendBatchNotifications(int64_t accountId, utility::string_t appKey, utility::string_t customMessage, boost::optional<utility::string_t> conduit, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1779,13 +1768,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendBatchNotificati
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendCustomNotifications(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> receiverAccountIds, boost::optional<bool> includeFriendGroup, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> conduit, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> actionCategory, boost::optional<utility::string_t> subject, boost::optional<utility::string_t> customMessage, boost::optional<bool> friendOnlyAPNS, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendCustomNotifications(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> receiverAccountIds, boost::optional<bool> includeFriendGroup, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> conduit, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> actionCategory, boost::optional<utility::string_t> subject, boost::optional<utility::string_t> customMessage, boost::optional<bool> friendOnlyAPNS, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/custom");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/custom");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1974,13 +1962,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NotificationApi::sendCustomNotificat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::updateNotificationTemplate(double version, int64_t accountId, int64_t notificationTemplateId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> body, boost::optional<utility::string_t> tags) const
+pplx::task<std::shared_ptr<NotificationTemplateResponse>> NotificationApi::updateNotificationTemplate(int64_t accountId, int64_t notificationTemplateId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> body, boost::optional<utility::string_t> tags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/template/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/template/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

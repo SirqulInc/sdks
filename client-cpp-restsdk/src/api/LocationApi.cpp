@@ -36,13 +36,12 @@ LocationApi::~LocationApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationData(double version, utility::string_t udid, boost::optional<int64_t> sourceTime, boost::optional<int32_t> minimumSampleSize, boost::optional<utility::string_t> data, boost::optional<std::shared_ptr<HttpContent>> dataFile) const
+pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationData(utility::string_t udid, boost::optional<int64_t> sourceTime, boost::optional<int32_t> minimumSampleSize, boost::optional<utility::string_t> data, boost::optional<std::shared_ptr<HttpContent>> dataFile) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/trilaterate/cache");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/trilaterate/cache");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -178,13 +177,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationData(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationDataGzip(double version, boost::optional<std::shared_ptr<TrilatCacheRequest>> body) const
+pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationDataGzip(boost::optional<std::shared_ptr<TrilatCacheRequest>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/trilaterate/cache/submit");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/trilaterate/cache/submit");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -317,13 +315,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> LocationApi::cacheTrilaterationDataG
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CoordsResponse>> LocationApi::getLocationByIp(double version, boost::optional<utility::string_t> ip) const
+pplx::task<std::shared_ptr<CoordsResponse>> LocationApi::getLocationByIp(boost::optional<utility::string_t> ip) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/ip");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/ip");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -444,13 +441,12 @@ pplx::task<std::shared_ptr<CoordsResponse>> LocationApi::getLocationByIp(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GeoPointResponse>> LocationApi::getLocationByTrilateration(double version, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> data, boost::optional<utility::string_t> responseFilters) const
+pplx::task<std::shared_ptr<GeoPointResponse>> LocationApi::getLocationByTrilateration(boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> data, boost::optional<utility::string_t> responseFilters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/location/trilaterate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/location/trilaterate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -587,13 +583,12 @@ pplx::task<std::shared_ptr<GeoPointResponse>> LocationApi::getLocationByTrilater
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LocationSearchResponse>> LocationApi::getLocations(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> currentlatitude, boost::optional<double> currentlongitude, boost::optional<double> currentLatitude, boost::optional<double> currentLongitude, boost::optional<utility::string_t> query, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> zipCode, boost::optional<double> selectedMaplatitude, boost::optional<double> selectedMaplongitude, boost::optional<double> selectedMapLatitude, boost::optional<double> selectedMapLongitude, boost::optional<double> searchRange, boost::optional<bool> useGeocode, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<LocationSearchResponse>> LocationApi::getLocations(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> currentlatitude, boost::optional<double> currentlongitude, boost::optional<double> currentLatitude, boost::optional<double> currentLongitude, boost::optional<utility::string_t> query, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> zipCode, boost::optional<double> selectedMaplatitude, boost::optional<double> selectedMaplongitude, boost::optional<double> selectedMapLatitude, boost::optional<double> selectedMapLongitude, boost::optional<double> searchRange, boost::optional<bool> useGeocode, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

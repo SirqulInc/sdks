@@ -36,13 +36,12 @@ EmployeeApi::~EmployeeApi()
 {
 }
 
-pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::assignEmployee(double version, int64_t accountId, int64_t managerAccountId, int64_t employeeAccountId, boost::optional<utility::string_t> role) const
+pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::assignEmployee(int64_t accountId, int64_t managerAccountId, int64_t employeeAccountId, boost::optional<utility::string_t> role) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/assign");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/assign");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -172,13 +171,12 @@ pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::assignEmployee(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::assignToLocationEmployee(double version, int64_t accountId, int64_t retailerLocationId, boost::optional<int64_t> employeeAccountId, boost::optional<bool> assign) const
+pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::assignToLocationEmployee(int64_t accountId, int64_t retailerLocationId, boost::optional<int64_t> employeeAccountId, boost::optional<bool> assign) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/assignToLocation");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/assignToLocation");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -309,13 +307,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::assignToLocationEmploye
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::createEmployee(double version, int64_t accountId, int64_t managerAccountId, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> aboutUs, boost::optional<int64_t> assetId, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> role, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> appBlob, boost::optional<utility::string_t> assignedDeviceId) const
+pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::createEmployee(int64_t accountId, int64_t managerAccountId, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> aboutUs, boost::optional<int64_t> assetId, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> role, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> appBlob, boost::optional<utility::string_t> assignedDeviceId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -548,13 +545,12 @@ pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::createEmployee(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::deleteEmployee(double version, int64_t accountId, int64_t employeeAccountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::deleteEmployee(int64_t accountId, int64_t employeeAccountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -677,13 +673,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> EmployeeApi::deleteEmployee(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::getEmployee(double version, int64_t accountId, int64_t employeeAccountId, boost::optional<utility::string_t> settingsAppKey) const
+pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::getEmployee(int64_t accountId, int64_t employeeAccountId, boost::optional<utility::string_t> settingsAppKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -810,13 +805,12 @@ pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::getEmployee(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<EmployeeResponse>>> EmployeeApi::searchEmployees(double version, int64_t accountId, boost::optional<utility::string_t> role, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> managedOnly, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> query) const
+pplx::task<std::vector<std::shared_ptr<EmployeeResponse>>> EmployeeApi::searchEmployees(int64_t accountId, boost::optional<utility::string_t> role, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> managedOnly, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> query) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1004,13 +998,12 @@ pplx::task<std::vector<std::shared_ptr<EmployeeResponse>>> EmployeeApi::searchEm
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::unassignEmployee(double version, int64_t accountId, int64_t employeeAccountId) const
+pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::unassignEmployee(int64_t accountId, int64_t employeeAccountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/unassign");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/unassign");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1133,13 +1126,12 @@ pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::unassignEmployee(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::updateEmployee(double version, int64_t accountId, int64_t employeeAccountId, boost::optional<int64_t> managerAccountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<int64_t> assetId, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> password, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> appBlob, boost::optional<utility::string_t> assignedDeviceId) const
+pplx::task<std::shared_ptr<EmployeeResponse>> EmployeeApi::updateEmployee(int64_t accountId, int64_t employeeAccountId, boost::optional<int64_t> managerAccountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<int64_t> assetId, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> password, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> settingsAppKey, boost::optional<utility::string_t> appBlob, boost::optional<utility::string_t> assignedDeviceId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/employee/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/employee/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

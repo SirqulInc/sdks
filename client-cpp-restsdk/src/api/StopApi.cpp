@@ -36,13 +36,12 @@ StopApi::~StopApi()
 {
 }
 
-pplx::task<std::shared_ptr<Stop>> StopApi::getStop(double version, int64_t id) const
+pplx::task<std::shared_ptr<Stop>> StopApi::getStop(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/stop/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/stop/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -160,13 +159,12 @@ pplx::task<std::shared_ptr<Stop>> StopApi::getStop(double version, int64_t id) c
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Stop>> StopApi::updateStop(double version, int64_t id, boost::optional<std::shared_ptr<Stop>> body) const
+pplx::task<std::shared_ptr<Stop>> StopApi::updateStop(int64_t id, boost::optional<std::shared_ptr<Stop>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/stop/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/stop/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

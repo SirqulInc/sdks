@@ -36,13 +36,12 @@ ScoreApi::~ScoreApi()
 {
 }
 
-pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::createScore(double version, int64_t accountId, utility::string_t appKey, int32_t points, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<int32_t> timeTaken, boost::optional<bool> highest) const
+pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::createScore(int64_t accountId, utility::string_t appKey, int32_t points, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<int32_t> timeTaken, boost::optional<bool> highest) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/score/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/score/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -196,13 +195,12 @@ pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::createScore(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::getScore(double version, int64_t accountId, utility::string_t appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<utility::string_t> scoreObjectType, boost::optional<utility::string_t> scoreStatus) const
+pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::getScore(int64_t accountId, utility::string_t appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<utility::string_t> scoreObjectType, boost::optional<utility::string_t> scoreStatus) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/score/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/score/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -353,13 +351,12 @@ pplx::task<std::shared_ptr<ScoreResponse>> ScoreApi::getScore(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ScoreResponse>>> ScoreApi::searchScores(double version, int64_t accountId, utility::string_t appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId) const
+pplx::task<std::vector<std::shared_ptr<ScoreResponse>>> ScoreApi::searchScores(int64_t accountId, utility::string_t appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/score/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/score/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

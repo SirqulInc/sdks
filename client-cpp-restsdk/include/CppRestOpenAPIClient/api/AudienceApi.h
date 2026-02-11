@@ -56,7 +56,6 @@ public:
     /// <remarks>
     /// Create a user defined audience.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the audience</param>
     /// <param name="description">The description of the audience (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -87,7 +86,6 @@ public:
     /// <param name="trilaterationTypes">Trilateration types (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="uniqueName">If true, makes sure the audience name is unique (optional, default to false)</param>
     pplx::task<std::shared_ptr<AudienceResponse>> createAudience(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> description,
@@ -124,11 +122,9 @@ public:
     /// <remarks>
     /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="audienceId">The id of the audience to delete.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteAudience(
-        double version,
         int64_t accountId,
         int64_t audienceId
     ) const;
@@ -138,9 +134,7 @@ public:
     /// <remarks>
     /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
     /// </remarks>
-    /// <param name="version"></param>
     pplx::task<std::vector<std::shared_ptr<AgeGroupResponse>>> getAgeGroups(
-        double version
     ) const;
     /// <summary>
     /// Get Audience
@@ -148,7 +142,6 @@ public:
     /// <remarks>
     /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="audienceId">The id of the audience to return.</param>
     /// <param name="appKey">The application key (optional). If provided, results may be scoped to this application. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -156,7 +149,6 @@ public:
     /// <param name="returnAlbumCount">(boolean) set to true to include the albumCount associated with current audience of the current app (optional, default to false)</param>
     /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AudienceResponse>> getAudience(
-        double version,
         int64_t accountId,
         int64_t audienceId,
         boost::optional<utility::string_t> appKey,
@@ -170,7 +162,6 @@ public:
     /// <remarks>
     /// Get the list audiences owned by the account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user. (optional, default to 0L)</param>
     /// <param name="albumIds">Comma separated list of album IDs to filter results with (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">The keyword used to search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -191,7 +182,6 @@ public:
     /// <param name="returnAlbumCount">(boolean) set to true to include the albumCount associated with current audience of the current app (optional, default to false)</param>
     /// <param name="albumTypesForCount">(String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<SearchResponse>>> getAudienceList(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> albumIds,
         boost::optional<utility::string_t> keyword,
@@ -218,10 +208,8 @@ public:
     /// <remarks>
     /// Gets the list of available devices that can be selected by consumers and retailers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="includeInactive">If true return inactive record as well. default is false.</param>
     pplx::task<std::vector<std::shared_ptr<AudienceDeviceResponse>>> getDevices(
-        double version,
         bool includeInactive
     ) const;
     /// <summary>
@@ -230,9 +218,7 @@ public:
     /// <remarks>
     /// Gets the list of available experiences that can be selected by consumers and retailers.
     /// </remarks>
-    /// <param name="version"></param>
     pplx::task<std::shared_ptr<SirqulResponse>> getExperiences(
-        double version
     ) const;
     /// <summary>
     /// Get GroupedAudiences
@@ -240,11 +226,9 @@ public:
     /// <remarks>
     /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="audienceGroupingId">The audience grouping id to return.</param>
     pplx::task<std::shared_ptr<AudienceResponse>> getGroupedAudiences(
-        double version,
         int64_t accountId,
         utility::string_t audienceGroupingId
     ) const;
@@ -254,12 +238,10 @@ public:
     /// <remarks>
     /// List either Missions or Offers that the user matches the assigned audience.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account to match offers for.</param>
     /// <param name="limit">the limit of the index</param>
     /// <param name="suggestionType">the type of suggestion</param>
     pplx::task<std::shared_ptr<OfferListResponse>> listByAccount(
-        double version,
         int64_t accountId,
         int32_t limit,
         utility::string_t suggestionType
@@ -270,7 +252,6 @@ public:
     /// <remarks>
     /// Get a list of offer locations based on audience information provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="limit">this is the limit of the index</param>
     /// <param name="gender">this is the gender to list offers by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="age">this is the age to list offers by (optional, default to 0)</param>
@@ -278,7 +259,6 @@ public:
     /// <param name="latitude">this is the latitude to list offers by (optional, default to 0.0)</param>
     /// <param name="longitude">this is the longitude to list offers by (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<OfferListResponse>> listByAudience(
-        double version,
         int32_t limit,
         boost::optional<utility::string_t> gender,
         boost::optional<int32_t> age,
@@ -292,12 +272,10 @@ public:
     /// <remarks>
     /// Return list of recent trigger suggestions that have been sent to the user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account to match offers for.</param>
     /// <param name="timeframe">The timeframe in seconds of the latest suggestions</param>
     /// <param name="suggestionType">The type of trigger suggestions to return</param>
     pplx::task<std::shared_ptr<OfferListResponse>> listLastestByAccount(
-        double version,
         int64_t accountId,
         int32_t timeframe,
         utility::string_t suggestionType
@@ -308,12 +286,10 @@ public:
     /// <remarks>
     /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account to match offers for.</param>
     /// <param name="latitude">the latitude</param>
     /// <param name="longitude">the longitude</param>
     pplx::task<std::shared_ptr<SirqulResponse>> sendByAccount(
-        double version,
         int64_t accountId,
         double latitude,
         double longitude
@@ -324,7 +300,6 @@ public:
     /// <remarks>
     /// Update a user defined audience.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="audienceId">The id of the audience to update.</param>
     /// <param name="name">The name of the audience (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -357,7 +332,6 @@ public:
     /// <param name="trilaterationTypes">Trilateration types (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="uniqueName">If true, makes sure the audience name is unique (optional, default to false)</param>
     pplx::task<std::shared_ptr<AudienceResponse>> updateAudience(
-        double version,
         int64_t accountId,
         int64_t audienceId,
         boost::optional<utility::string_t> name,

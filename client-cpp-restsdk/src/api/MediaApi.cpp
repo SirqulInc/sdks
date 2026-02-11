@@ -36,13 +36,12 @@ MediaApi::~MediaApi()
 {
 }
 
-pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::createMedia(double version, int64_t accountId, utility::string_t title, utility::string_t barcodeType, bool noExpiration, int32_t availableLimit, int32_t availableLimitPerUser, int32_t addedLimit, int32_t viewLimit, int32_t maxPrints, int64_t ticketPrice, double fullPrice, double discountPrice, utility::string_t specialOfferType, utility::string_t offerVisibility, bool active, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<utility::string_t> ticketPriceType, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> availabilityDate, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
+pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::createMedia(int64_t accountId, utility::string_t title, utility::string_t barcodeType, bool noExpiration, int32_t availableLimit, int32_t availableLimitPerUser, int32_t addedLimit, int32_t viewLimit, int32_t maxPrints, int64_t ticketPrice, double fullPrice, double discountPrice, utility::string_t specialOfferType, utility::string_t offerVisibility, bool active, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<utility::string_t> ticketPriceType, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> availabilityDate, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/media/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/media/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -372,13 +371,12 @@ pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::createMedia(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> MediaApi::deleteMedia(double version, int64_t accountId, int64_t mediaId) const
+pplx::task<std::shared_ptr<SirqulResponse>> MediaApi::deleteMedia(int64_t accountId, int64_t mediaId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/media/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/media/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -501,13 +499,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> MediaApi::deleteMedia(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::getMedia(double version, int64_t accountId, int64_t mediaId) const
+pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::getMedia(int64_t accountId, int64_t mediaId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/media/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/media/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -630,13 +627,12 @@ pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::getMedia(double versio
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<MediaOfferResponse>>> MediaApi::searchMedia(double version, int64_t accountId, bool activeOnly, utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<MediaOfferResponse>>> MediaApi::searchMedia(int64_t accountId, bool activeOnly, utility::string_t sortField, bool descending, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/media/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/media/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -789,13 +785,12 @@ pplx::task<std::vector<std::shared_ptr<MediaOfferResponse>>> MediaApi::searchMed
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::updateMedia(double version, int64_t accountId, int64_t mediaId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<bool> noExpiration, boost::optional<int32_t> availableLimit, boost::optional<int32_t> availableLimitPerUser, boost::optional<int32_t> addedLimit, boost::optional<int32_t> viewLimit, boost::optional<int32_t> maxPrints, boost::optional<utility::string_t> ticketPriceType, boost::optional<int64_t> ticketPrice, boost::optional<double> fullPrice, boost::optional<double> discountPrice, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> offerVisibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<int64_t> availabilityDate, boost::optional<utility::string_t> parentalRating, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
+pplx::task<std::shared_ptr<MediaOfferResponse>> MediaApi::updateMedia(int64_t accountId, int64_t mediaId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<bool> noExpiration, boost::optional<int32_t> availableLimit, boost::optional<int32_t> availableLimitPerUser, boost::optional<int32_t> addedLimit, boost::optional<int32_t> viewLimit, boost::optional<int32_t> maxPrints, boost::optional<utility::string_t> ticketPriceType, boost::optional<int64_t> ticketPrice, boost::optional<double> fullPrice, boost::optional<double> discountPrice, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> offerVisibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<int64_t> availabilityDate, boost::optional<utility::string_t> parentalRating, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/media/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/media/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ OfferStatusApi::~OfferStatusApi()
 {
 }
 
-pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::createOfferTransactionStatus(double version, utility::string_t name, int32_t code, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> description, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> applicationIds) const
+pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::createOfferTransactionStatus(utility::string_t name, int32_t code, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> description, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> applicationIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/status/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/status/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -197,13 +196,12 @@ pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::crea
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> OfferStatusApi::deleteOfferTransactionStatus(double version, int64_t statusId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferStatusApi::deleteOfferTransactionStatus(int64_t statusId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/status/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/status/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -339,13 +337,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> OfferStatusApi::deleteOfferTransacti
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::getOfferTransactionStatus(double version, int64_t statusId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::getOfferTransactionStatus(int64_t statusId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/status/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/status/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -481,13 +478,12 @@ pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::getO
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferTransactionStatusResponse>>> OfferStatusApi::searchOfferTransactionStatuses(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> role, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeInactive) const
+pplx::task<std::vector<std::shared_ptr<OfferTransactionStatusResponse>>> OfferStatusApi::searchOfferTransactionStatuses(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> role, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeInactive) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/status/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/status/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -656,13 +652,12 @@ pplx::task<std::vector<std::shared_ptr<OfferTransactionStatusResponse>>> OfferSt
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::updateOfferTransactionStatus(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> statusId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int32_t> code, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> applicationIds) const
+pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> OfferStatusApi::updateOfferTransactionStatus(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> statusId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int32_t> code, boost::optional<utility::string_t> role, boost::optional<bool> active, boost::optional<utility::string_t> applicationIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/status/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/status/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

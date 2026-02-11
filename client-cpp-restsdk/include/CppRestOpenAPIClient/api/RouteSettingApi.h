@@ -52,10 +52,8 @@ public:
     /// <remarks>
     /// Create a new route setting
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<RouteSettings>> createRouteSettings(
-        double version,
         boost::optional<std::shared_ptr<RouteSettings>> body
     ) const;
     /// <summary>
@@ -64,10 +62,8 @@ public:
     /// <remarks>
     /// Delete an existing route setting
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeSettingsId">the id of the route setting to delete</param>
     pplx::task<std::shared_ptr<Object>> deleteRouteSettings(
-        double version,
         int64_t routeSettingsId
     ) const;
     /// <summary>
@@ -76,10 +72,8 @@ public:
     /// <remarks>
     /// Get an existing route settings
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeSettingsId">the id of the route settings to get</param>
     pplx::task<std::shared_ptr<RouteSettings>> getRouteSettings(
-        double version,
         int64_t routeSettingsId
     ) const;
     /// <summary>
@@ -88,7 +82,6 @@ public:
     /// <remarks>
     /// Search for route settings
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -98,7 +91,6 @@ public:
     /// <param name="programId">The program that the route belongs under (optional, default to 0L)</param>
     /// <param name="keyword">The keyword to search for the route (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<RouteSettings>>> searchRouteSettings(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -114,11 +106,9 @@ public:
     /// <remarks>
     /// Update an existing route setting
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeSettingsId">the id of the route settings to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<RouteSettings>> updateRouteSettings(
-        double version,
         int64_t routeSettingsId,
         boost::optional<std::shared_ptr<RouteSettings>> body
     ) const;

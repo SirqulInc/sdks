@@ -36,13 +36,12 @@ ScheduledNotificationApi::~ScheduledNotificationApi()
 {
 }
 
-pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::createScheduledNotification(double version, int64_t accountId, utility::string_t name, utility::string_t type, utility::string_t message, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> albumIds, boost::optional<int64_t> reportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> cronType, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> templateType, boost::optional<utility::string_t> visibility, boost::optional<bool> active, boost::optional<bool> sendNow, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> deepLinkURI, boost::optional<bool> sendToAll) const
+pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::createScheduledNotification(int64_t accountId, utility::string_t name, utility::string_t type, utility::string_t message, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> albumIds, boost::optional<int64_t> reportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> cronType, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> templateType, boost::optional<utility::string_t> visibility, boost::optional<bool> active, boost::optional<bool> sendNow, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> deepLinkURI, boost::optional<bool> sendToAll) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -291,13 +290,12 @@ pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotifica
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::deleteScheduledNotification(double version, int64_t accountId, int64_t scheduledNotificationId, boost::optional<bool> deleteByGroupingId) const
+pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::deleteScheduledNotification(int64_t accountId, int64_t scheduledNotificationId, boost::optional<bool> deleteByGroupingId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -424,13 +422,12 @@ pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotifica
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::getScheduledNotification(double version, int64_t accountId, int64_t scheduledNotificationId) const
+pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::getScheduledNotification(int64_t accountId, int64_t scheduledNotificationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -553,13 +550,12 @@ pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotifica
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ScheduledNotificationApi::scheduleNotificationListings(double version, int64_t accountId, utility::string_t appKey, utility::string_t reportName, utility::string_t message, int32_t offset, int64_t recipientReportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> type) const
+pplx::task<std::shared_ptr<SirqulResponse>> ScheduledNotificationApi::scheduleNotificationListings(int64_t accountId, utility::string_t appKey, utility::string_t reportName, utility::string_t message, int32_t offset, int64_t recipientReportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> type) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/generate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/generate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -702,13 +698,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ScheduledNotificationApi::scheduleNo
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::searchScheduledNotifications(double version, int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> types, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> parentTypes, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> groupByGroupingId, boost::optional<bool> returnAudienceAccountCount) const
+pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::searchScheduledNotifications(int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> types, boost::optional<utility::string_t> contentIds, boost::optional<utility::string_t> contentTypes, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> parentTypes, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> groupByGroupingId, boost::optional<bool> returnAudienceAccountCount) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -904,13 +899,12 @@ pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotifica
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::updateScheduledNotification(double version, int64_t scheduledNotificationId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> type, boost::optional<utility::string_t> message, boost::optional<utility::string_t> payload, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> albumIds, boost::optional<int64_t> reportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> endpointURL, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> cronType, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> templateType, boost::optional<utility::string_t> visibility, boost::optional<bool> active, boost::optional<utility::string_t> errorMessage, boost::optional<utility::string_t> status, boost::optional<bool> updateByGroupingId, boost::optional<bool> sendNow, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> deepLinkURI, boost::optional<bool> sendToAll) const
+pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> ScheduledNotificationApi::updateScheduledNotification(int64_t scheduledNotificationId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> type, boost::optional<utility::string_t> message, boost::optional<utility::string_t> payload, boost::optional<int64_t> contentId, boost::optional<utility::string_t> contentName, boost::optional<utility::string_t> contentType, boost::optional<int64_t> parentId, boost::optional<utility::string_t> parentType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> connectionGroupIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> albumIds, boost::optional<int64_t> reportId, boost::optional<utility::string_t> reportParams, boost::optional<utility::string_t> endpointURL, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> cronType, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> templateType, boost::optional<utility::string_t> visibility, boost::optional<bool> active, boost::optional<utility::string_t> errorMessage, boost::optional<utility::string_t> status, boost::optional<bool> updateByGroupingId, boost::optional<bool> sendNow, boost::optional<utility::string_t> eventType, boost::optional<utility::string_t> deepLinkURI, boost::optional<bool> sendToAll) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/notification/schedule/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/notification/schedule/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

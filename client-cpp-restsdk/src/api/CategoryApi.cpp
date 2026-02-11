@@ -36,13 +36,12 @@ CategoryApi::~CategoryApi()
 {
 }
 
-pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::categoryDistanceSearch(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> parentCategoryIds, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> responseGroup, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> returnExternal, boost::optional<bool> exactMatch, boost::optional<utility::string_t> type, boost::optional<utility::string_t> externalType, boost::optional<int32_t> minOfferCount, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range) const
+pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::categoryDistanceSearch(boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> parentCategoryIds, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> responseGroup, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> returnExternal, boost::optional<bool> exactMatch, boost::optional<utility::string_t> type, boost::optional<utility::string_t> externalType, boost::optional<int32_t> minOfferCount, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/distancesearch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/distancesearch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -243,13 +242,12 @@ pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::category
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::createCategory(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentCategoryId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> type, boost::optional<int64_t> assetId, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<utility::string_t> externalCategorySlug, boost::optional<utility::string_t> sqootSlug, boost::optional<bool> active, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> searchTags) const
+pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::createCategory(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentCategoryId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> type, boost::optional<int64_t> assetId, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<utility::string_t> externalCategorySlug, boost::optional<utility::string_t> sqootSlug, boost::optional<bool> active, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> searchTags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -420,13 +418,12 @@ pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::createCategory(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> CategoryApi::deleteCategory(double version, int64_t accountId, int64_t categoryId) const
+pplx::task<std::shared_ptr<SirqulResponse>> CategoryApi::deleteCategory(int64_t accountId, int64_t categoryId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -549,13 +546,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> CategoryApi::deleteCategory(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::duplicateCategory(double version, int64_t accountId, int64_t categoryId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentCategoryId) const
+pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::duplicateCategory(int64_t accountId, int64_t categoryId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentCategoryId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/duplicate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/duplicate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -686,13 +682,12 @@ pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::duplicateCategory
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::getCategory(double version, int64_t categoryId, boost::optional<bool> returnExternal) const
+pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::getCategory(int64_t categoryId, boost::optional<bool> returnExternal) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -816,13 +811,12 @@ pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::getCategory(doubl
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::searchCategories(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> parentCategoryIds, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> responseGroup, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> returnExternal, boost::optional<bool> exactMatch, boost::optional<utility::string_t> type, boost::optional<utility::string_t> externalType, boost::optional<bool> excludeExternalType, boost::optional<int32_t> minOfferCount, boost::optional<int32_t> searchDepth, boost::optional<utility::string_t> searchMode) const
+pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::searchCategories(boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> parentCategoryIds, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> responseGroup, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<bool> returnExternal, boost::optional<bool> exactMatch, boost::optional<utility::string_t> type, boost::optional<utility::string_t> externalType, boost::optional<bool> excludeExternalType, boost::optional<int32_t> minOfferCount, boost::optional<int32_t> searchDepth, boost::optional<utility::string_t> searchMode) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1027,13 +1021,12 @@ pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> CategoryApi::searchCa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::updateCategory(double version, int64_t accountId, int64_t categoryId, boost::optional<int64_t> parentCategoryId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> type, boost::optional<int64_t> assetId, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<utility::string_t> externalCategorySlug, boost::optional<utility::string_t> sqootSlug, boost::optional<bool> active, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> searchTags) const
+pplx::task<std::shared_ptr<CategoryTreeResponse>> CategoryApi::updateCategory(int64_t accountId, int64_t categoryId, boost::optional<int64_t> parentCategoryId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> type, boost::optional<int64_t> assetId, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<utility::string_t> externalCategorySlug, boost::optional<utility::string_t> sqootSlug, boost::optional<bool> active, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> searchTags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/category/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/category/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

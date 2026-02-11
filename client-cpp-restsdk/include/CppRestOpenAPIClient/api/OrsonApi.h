@@ -61,7 +61,6 @@ public:
     /// <remarks>
     /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="movieName">Movie Name</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -70,7 +69,6 @@ public:
     /// <param name="url">A recording file to download and analyze (Size limit: 1GB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> addMovie(
-        double version,
         int64_t accountId,
         utility::string_t movieName,
         boost::optional<utility::string_t> thirdPartyAccountId,
@@ -85,14 +83,12 @@ public:
     /// <remarks>
     /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="doc">Doc</param>
     /// <param name="returnTopics">Return Topics (optional, default to false)</param>
     /// <param name="limit">Limit (optional, default to 0)</param>
     /// <param name="offset">Offset (optional, default to 0)</param>
     pplx::task<std::shared_ptr<OrsonAiProtoResponse>> aiDocs(
-        double version,
         int64_t accountId,
         utility::string_t doc,
         boost::optional<bool> returnTopics,
@@ -105,14 +101,12 @@ public:
     /// <remarks>
     /// Returns a list of URIs of images that match the text.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="text">Text</param>
     /// <param name="parseFlag">Parse Flag (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="fetchFlag">Fetch Flag (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="size">Size (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiProtoResponse>> aiFindImages(
-        double version,
         int64_t accountId,
         utility::string_t text,
         boost::optional<utility::string_t> parseFlag,
@@ -125,14 +119,12 @@ public:
     /// <remarks>
     /// Search the tags column of user provided tags using this endpoint.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="tags">Tags</param>
     /// <param name="conditional">Conditional (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="limit">Limit (optional, default to 0)</param>
     /// <param name="offset">Offset (optional, default to 0)</param>
     pplx::task<std::shared_ptr<OrsonAiProtoResponse>> aiTags(
-        double version,
         int64_t accountId,
         utility::string_t tags,
         boost::optional<utility::string_t> conditional,
@@ -145,14 +137,12 @@ public:
     /// <remarks>
     /// Search the movie text column of movie text using this endpoint.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="terms">Terms</param>
     /// <param name="conditional">Conditional (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="limit">Limit (optional, default to 0)</param>
     /// <param name="offset">Offset (optional, default to 0)</param>
     pplx::task<std::shared_ptr<OrsonAiProtoResponse>> aiText(
-        double version,
         int64_t accountId,
         utility::string_t terms,
         boost::optional<utility::string_t> conditional,
@@ -165,7 +155,6 @@ public:
     /// <remarks>
     /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="limit">The number of topics to return (optional, default to 0)</param>
@@ -174,7 +163,6 @@ public:
     /// <param name="url">A recording file to download and analyze (Size limit: 1GB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiBatchResponse>> batch(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> thirdPartyAccountId,
         boost::optional<int32_t> limit,
@@ -189,11 +177,9 @@ public:
     /// <remarks>
     /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="data">Request Data String</param>
     pplx::task<std::shared_ptr<OrsonEpisodeResponse>> createInstantEpisode(
-        double version,
         int64_t accountId,
         utility::string_t data
     ) const;
@@ -203,7 +189,6 @@ public:
     /// <remarks>
     /// Create VoiceCanvas images for provided text, file upload, or file URL
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="dimensions">Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -214,7 +199,6 @@ public:
     /// <param name="fetchFlag">When true, fetches images instead of generating them (optional, default to false)</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> createVoiceCanvas(
-        double version,
         int64_t accountId,
         utility::string_t dimensions,
         boost::optional<utility::string_t> thirdPartyAccountId,
@@ -231,14 +215,12 @@ public:
     /// <remarks>
     /// Detects emotions in an audio or video recording.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="file">An uploaded recording to analyze (Currently limited to 10MB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="url">A recording file to download and analyze (Size limit: 1GB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> emotion(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> thirdPartyAccountId,
         boost::optional<std::shared_ptr<HttpContent>> file,
@@ -251,11 +233,9 @@ public:
     /// <remarks>
     /// Get the result of an in progress Add Movie request from an earlier POST.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> getAddMovieResult(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -265,11 +245,9 @@ public:
     /// <remarks>
     /// Gets the completed Video Batch results, if done, or an error or status update if not.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiBatchResponse>> getBatch(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -279,11 +257,9 @@ public:
     /// <remarks>
     /// Checks the Emotion analysis and returns in progress, results, or error.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> getEmotion(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -293,11 +269,9 @@ public:
     /// <remarks>
     /// Gets a summary of the episode&#39;s status, including any renders.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="episodeId">Episode ID</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonEpisodeResponse>> getEpisodeStatus(
-        double version,
         int64_t episodeId,
         int64_t accountId
     ) const;
@@ -307,11 +281,9 @@ public:
     /// <remarks>
     /// Gets a summary of the episode&#39;s status, including any renders.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="renderId">Render ID</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonRenderResponse>> getRenderStatus(
-        double version,
         utility::string_t renderId,
         int64_t accountId
     ) const;
@@ -321,11 +293,9 @@ public:
     /// <remarks>
     /// The results of the video transcription and optional translation.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiSTTResponse>> getSTT(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -335,11 +305,9 @@ public:
     /// <remarks>
     /// Check the status of an in progress Text-to-Speech call or download the result.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiTTSResponse>> getTTS(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -349,11 +317,9 @@ public:
     /// <remarks>
     /// Get a result or continue waiting for a pending request for TechTune analysis.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> getTechTune(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -363,11 +329,9 @@ public:
     /// <remarks>
     /// Get the result of an in progress Topics Analysis from an earlier POST.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> getTopics(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -377,11 +341,9 @@ public:
     /// <remarks>
     /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="requestId">Orson Request Id</param>
     /// <param name="accountId">Sirqul Account Id</param>
     pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> getVoiceCanvas(
-        double version,
         utility::string_t requestId,
         int64_t accountId
     ) const;
@@ -391,11 +353,9 @@ public:
     /// <remarks>
     /// Starts a StoryStitch video render to produce your final video, returning the status details.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="data">Request Data String</param>
     pplx::task<std::shared_ptr<OrsonRenderResponse>> startVideoRender(
-        double version,
         int64_t accountId,
         utility::string_t data
     ) const;
@@ -405,7 +365,6 @@ public:
     /// <remarks>
     /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="sourceLanguage">Source Language (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -414,7 +373,6 @@ public:
     /// <param name="url">A recording file to download and analyze (Size limit: 1GB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiSTTResponse>> stt(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> thirdPartyAccountId,
         boost::optional<utility::string_t> sourceLanguage,
@@ -429,7 +387,6 @@ public:
     /// <remarks>
     /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="doc">The text to get topics for. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -439,7 +396,6 @@ public:
     /// <param name="offset">The starting offset into the total result set to start from (optional, default to 0)</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> summarizeTopics(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> thirdPartyAccountId,
         boost::optional<utility::string_t> doc,
@@ -455,7 +411,6 @@ public:
     /// <remarks>
     /// Analyses a movie file to detect technical issues, such as too few people in frame.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="numFacesExpected">Number of expected faces</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -463,7 +418,6 @@ public:
     /// <param name="url">A recording file to download and analyze (Size limit: 1GB) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> techTune(
-        double version,
         int64_t accountId,
         int32_t numFacesExpected,
         boost::optional<utility::string_t> thirdPartyAccountId,
@@ -477,7 +431,6 @@ public:
     /// <remarks>
     /// Creates an audio file for the given text, with the option of language and voice selection.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="text">Text</param>
     /// <param name="thirdPartyAccountId">A third-party account id that is meaningful to your systems (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -485,7 +438,6 @@ public:
     /// <param name="voice">A language-specific voice to use, or picks the language default if not provided (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="callback">When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrsonAiTTSResponse>> tts(
-        double version,
         int64_t accountId,
         utility::string_t text,
         boost::optional<utility::string_t> thirdPartyAccountId,

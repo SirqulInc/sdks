@@ -36,13 +36,12 @@ RetailerLocationApi::~RetailerLocationApi()
 {
 }
 
-pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::createRetailerLocationConsumer(double version, utility::string_t appKey, utility::string_t name, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<utility::string_t> tags, boost::optional<int64_t> logoAssetId, boost::optional<int64_t> picture1AssetId, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> metaData, boost::optional<bool> publicLocation, boost::optional<bool> active, boost::optional<utility::string_t> locationType, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::createRetailerLocationConsumer(utility::string_t appKey, utility::string_t name, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<utility::string_t> tags, boost::optional<int64_t> logoAssetId, boost::optional<int64_t> picture1AssetId, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> metaData, boost::optional<bool> publicLocation, boost::optional<bool> active, boost::optional<utility::string_t> locationType, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -273,13 +272,12 @@ pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::creat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::createRetailerLocations(double version, int64_t retailerId, utility::string_t name, utility::string_t streetAddress, utility::string_t city, utility::string_t state, utility::string_t postalCode, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> internalId, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<std::shared_ptr<HttpContent>> logo, boost::optional<int64_t> logoAssetId, boost::optional<std::shared_ptr<HttpContent>> picture1, boost::optional<int64_t> picture1AssetId, boost::optional<std::shared_ptr<HttpContent>> picture2, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> building, boost::optional<utility::string_t> googlePlaceId, boost::optional<utility::string_t> yelpId, boost::optional<bool> active, boost::optional<bool> publicLocation, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<utility::string_t> responseFormat, boost::optional<utility::string_t> responseIncludes) const
+pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::createRetailerLocations(int64_t retailerId, utility::string_t name, utility::string_t streetAddress, utility::string_t city, utility::string_t state, utility::string_t postalCode, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> internalId, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<std::shared_ptr<HttpContent>> logo, boost::optional<int64_t> logoAssetId, boost::optional<std::shared_ptr<HttpContent>> picture1, boost::optional<int64_t> picture1AssetId, boost::optional<std::shared_ptr<HttpContent>> picture2, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> building, boost::optional<utility::string_t> googlePlaceId, boost::optional<utility::string_t> yelpId, boost::optional<bool> active, boost::optional<bool> publicLocation, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<utility::string_t> responseFormat, boost::optional<utility::string_t> responseIncludes) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -546,13 +544,12 @@ pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::creat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> RetailerLocationApi::deleteRetailerLocation(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> retailerLocationId) const
+pplx::task<std::shared_ptr<SirqulResponse>> RetailerLocationApi::deleteRetailerLocation(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> retailerLocationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -681,13 +678,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> RetailerLocationApi::deleteRetailerL
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRetailerLocation(double version, int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> retailerLocationToken) const
+pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRetailerLocation(int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> retailerLocationToken) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -819,13 +815,12 @@ pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRe
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRetailerLocationConsumer(double version, int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRetailerLocationConsumer(int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -953,13 +948,12 @@ pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::getRe
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::indexedRetailerLocationDistanceSearch(double version, double latitude, double longitude, double searchRange, int32_t start, int32_t limit, boost::optional<int64_t> accountId, boost::optional<utility::string_t> address, boost::optional<bool> hasOffers, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> audiences, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordOperator, boost::optional<utility::string_t> searchExpression, boost::optional<utility::string_t> distanceUnit, boost::optional<bool> returnFavorited, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> returnExternalCategoryData, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
+pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::indexedRetailerLocationDistanceSearch(double latitude, double longitude, double searchRange, int32_t start, int32_t limit, boost::optional<int64_t> accountId, boost::optional<utility::string_t> address, boost::optional<bool> hasOffers, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> audiences, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordOperator, boost::optional<utility::string_t> searchExpression, boost::optional<utility::string_t> distanceUnit, boost::optional<bool> returnFavorited, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> returnExternalCategoryData, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/idistancesearch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/idistancesearch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1211,13 +1205,12 @@ pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocat
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::indexedRetailerLocationSearch(double version, boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> hasOffers, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> audiences, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordOperator, boost::optional<utility::string_t> searchExpression, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> returnExternalCategoryData, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
+pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::indexedRetailerLocationSearch(boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> hasOffers, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> audiences, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordOperator, boost::optional<utility::string_t> searchExpression, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> returnExternalCategoryData, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/isearch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/isearch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1450,13 +1443,12 @@ pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocat
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::searchRetailerLocations(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> showPublicLocations, boost::optional<bool> activeOnly, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
+pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocationApi::searchRetailerLocations(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> showPublicLocations, boost::optional<bool> activeOnly, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters, boost::optional<bool> returnAudiences, boost::optional<bool> returnQrCode, boost::optional<bool> includeFavorite, boost::optional<bool> includeLiked, boost::optional<bool> includeRating) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1677,13 +1669,12 @@ pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> RetailerLocat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::updateRetailerLocations(double version, int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> internalId, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<std::shared_ptr<HttpContent>> logo, boost::optional<int64_t> logoAssetId, boost::optional<std::shared_ptr<HttpContent>> picture1, boost::optional<int64_t> picture1AssetId, boost::optional<std::shared_ptr<HttpContent>> picture2, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> building, boost::optional<utility::string_t> googlePlaceId, boost::optional<utility::string_t> yelpId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> paymentProvider, boost::optional<bool> active, boost::optional<bool> publicLocation, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<utility::string_t> responseFormat, boost::optional<utility::string_t> tags) const
+pplx::task<std::shared_ptr<RetailerLocationResponse>> RetailerLocationApi::updateRetailerLocations(int64_t retailerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> businessPhoneExt, boost::optional<utility::string_t> website, boost::optional<utility::string_t> email, boost::optional<utility::string_t> internalId, boost::optional<utility::string_t> detailsHeader, boost::optional<utility::string_t> detailsBody, boost::optional<utility::string_t> hours, boost::optional<std::shared_ptr<HttpContent>> logo, boost::optional<int64_t> logoAssetId, boost::optional<std::shared_ptr<HttpContent>> picture1, boost::optional<int64_t> picture1AssetId, boost::optional<std::shared_ptr<HttpContent>> picture2, boost::optional<int64_t> picture2AssetId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> building, boost::optional<utility::string_t> googlePlaceId, boost::optional<utility::string_t> yelpId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> paymentProvider, boost::optional<bool> active, boost::optional<bool> publicLocation, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<utility::string_t> responseFormat, boost::optional<utility::string_t> tags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/location/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/location/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

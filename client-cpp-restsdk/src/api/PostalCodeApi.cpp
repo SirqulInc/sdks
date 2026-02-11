@@ -36,13 +36,12 @@ PostalCodeApi::~PostalCodeApi()
 {
 }
 
-pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::createPostalCode(double version, int64_t accountId, utility::string_t code, double latitude, double longitude, boost::optional<utility::string_t> stateCode, boost::optional<utility::string_t> city, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::createPostalCode(int64_t accountId, utility::string_t code, double latitude, double longitude, boost::optional<utility::string_t> stateCode, boost::optional<utility::string_t> city, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/postalCode/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/postalCode/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -183,13 +182,12 @@ pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::createPostalCode(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> PostalCodeApi::deletePostalCode(double version, int64_t accountId, int64_t postalCodeId) const
+pplx::task<std::shared_ptr<SirqulResponse>> PostalCodeApi::deletePostalCode(int64_t accountId, int64_t postalCodeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/postalCode/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/postalCode/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -312,13 +310,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> PostalCodeApi::deletePostalCode(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::getPostalCode(double version, int64_t postalCodeId) const
+pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::getPostalCode(int64_t postalCodeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/postalCode/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/postalCode/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -438,13 +435,12 @@ pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::getPostalCode(dou
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<PostalCodeResponse>>> PostalCodeApi::getPostalCodes(double version, utility::string_t sortField, bool descending, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword, boost::optional<double> miles, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<PostalCodeResponse>>> PostalCodeApi::getPostalCodes(utility::string_t sortField, bool descending, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword, boost::optional<double> miles, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/postalCode/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/postalCode/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -595,13 +591,12 @@ pplx::task<std::vector<std::shared_ptr<PostalCodeResponse>>> PostalCodeApi::getP
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::updatePostalCode(double version, int64_t accountId, int64_t postalCodeId, boost::optional<utility::string_t> code, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> stateCode, boost::optional<utility::string_t> city, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<PostalCodeResponse>> PostalCodeApi::updatePostalCode(int64_t accountId, int64_t postalCodeId, boost::optional<utility::string_t> code, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> stateCode, boost::optional<utility::string_t> city, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/postalCode/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/postalCode/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

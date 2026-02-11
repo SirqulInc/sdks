@@ -36,13 +36,12 @@ AssignmentApi::~AssignmentApi()
 {
 }
 
-pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> AssignmentApi::assigmentAssigneeAccountSearch(double version, int64_t accountId, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> AssignmentApi::assigmentAssigneeAccountSearch(int64_t accountId, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/assignee/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/assignee/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -170,13 +169,12 @@ pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> AssignmentApi::ass
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentCreate(double version, int64_t accountId, utility::string_t name, int64_t assigneeAccountId, boost::optional<utility::string_t> description, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> tags, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentCreate(int64_t accountId, utility::string_t name, int64_t assigneeAccountId, boost::optional<utility::string_t> description, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> tags, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -318,13 +316,12 @@ pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentCreate(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentDelete(double version, int64_t accountId, int64_t assignmentId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentDelete(int64_t accountId, int64_t assignmentId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -447,13 +444,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentDelete(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentGet(double version, int64_t accountId, int64_t assignmentId) const
+pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentGet(int64_t accountId, int64_t assignmentId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -576,13 +572,12 @@ pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentGet(dou
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AssignmentResponse>>> AssignmentApi::assignmentSearch(double version, int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<int64_t> creatorAccountId, boost::optional<utility::string_t> assigneeAccountIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> currentStatusType, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<AssignmentResponse>>> AssignmentApi::assignmentSearch(int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<int64_t> creatorAccountId, boost::optional<utility::string_t> assigneeAccountIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> currentStatusType, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -741,13 +736,12 @@ pplx::task<std::vector<std::shared_ptr<AssignmentResponse>>> AssignmentApi::assi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusCreate(double version, int64_t accountId, int64_t assignmentId, boost::optional<int64_t> scheduledNotificationId, boost::optional<utility::string_t> toDo, boost::optional<utility::string_t> connection, boost::optional<utility::string_t> method, boost::optional<utility::string_t> status, boost::optional<utility::string_t> closure, boost::optional<utility::string_t> message, boost::optional<int64_t> followUp, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusCreate(int64_t accountId, int64_t assignmentId, boost::optional<int64_t> scheduledNotificationId, boost::optional<utility::string_t> toDo, boost::optional<utility::string_t> connection, boost::optional<utility::string_t> method, boost::optional<utility::string_t> status, boost::optional<utility::string_t> closure, boost::optional<utility::string_t> message, boost::optional<int64_t> followUp, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/status/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/status/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -906,13 +900,12 @@ pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentS
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentStatusDelete(double version, int64_t accountId, int64_t assignmentStatusId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentStatusDelete(int64_t accountId, int64_t assignmentStatusId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/status/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/status/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1035,13 +1028,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AssignmentApi::assignmentStatusDelet
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusGet(double version, int64_t accountId, int64_t assignmentStatusId) const
+pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusGet(int64_t accountId, int64_t assignmentStatusId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/status/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/status/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1164,13 +1156,12 @@ pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentS
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AssignmentStatusResponse>>> AssignmentApi::assignmentStatusSearch(double version, int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<int64_t> assignmentId, boost::optional<int64_t> creatorAccountId, boost::optional<int64_t> assigneeAccountId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> statusType, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<AssignmentStatusResponse>>> AssignmentApi::assignmentStatusSearch(int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<int64_t> assignmentId, boost::optional<int64_t> creatorAccountId, boost::optional<int64_t> assigneeAccountId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> statusType, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/status/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/status/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1333,13 +1324,12 @@ pplx::task<std::vector<std::shared_ptr<AssignmentStatusResponse>>> AssignmentApi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusUpdate(double version, int64_t accountId, int64_t assignmentStatusId, boost::optional<int64_t> scheduledNotificationId, boost::optional<utility::string_t> toDo, boost::optional<utility::string_t> connection, boost::optional<utility::string_t> method, boost::optional<utility::string_t> status, boost::optional<utility::string_t> closure, boost::optional<utility::string_t> message, boost::optional<int64_t> followUp, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentStatusUpdate(int64_t accountId, int64_t assignmentStatusId, boost::optional<int64_t> scheduledNotificationId, boost::optional<utility::string_t> toDo, boost::optional<utility::string_t> connection, boost::optional<utility::string_t> method, boost::optional<utility::string_t> status, boost::optional<utility::string_t> closure, boost::optional<utility::string_t> message, boost::optional<int64_t> followUp, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/status/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/status/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1498,13 +1488,12 @@ pplx::task<std::shared_ptr<AssignmentStatusResponse>> AssignmentApi::assignmentS
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentUpdate(double version, int64_t accountId, int64_t assignmentId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> assigneeAccountId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> tags, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<AssignmentResponse>> AssignmentApi::assignmentUpdate(int64_t accountId, int64_t assignmentId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> assigneeAccountId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> tags, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/assignment/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/assignment/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

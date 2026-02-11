@@ -36,13 +36,12 @@ AnalyticsApi::~AnalyticsApi()
 {
 }
 
-pplx::task<std::vector<std::shared_ptr<UserActivityResponse>>> AnalyticsApi::activities(double version, int32_t start, int32_t limit, int64_t accountId) const
+pplx::task<std::vector<std::shared_ptr<UserActivityResponse>>> AnalyticsApi::activities(int32_t start, int32_t limit, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/analytics/useractivity");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/analytics/useractivity");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -172,13 +171,12 @@ pplx::task<std::vector<std::shared_ptr<UserActivityResponse>>> AnalyticsApi::act
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::aggregatedFilteredUsage(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroup, boost::optional<utility::string_t> country, boost::optional<utility::string_t> state, boost::optional<utility::string_t> city, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> model, boost::optional<utility::string_t> tag, boost::optional<int64_t> userAccountId, boost::optional<utility::string_t> userAccountDisplay, boost::optional<utility::string_t> userAccountUsername, boost::optional<utility::string_t> groupByRoot, boost::optional<utility::string_t> groupBy, boost::optional<utility::string_t> distinctCount, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> hideUnknown, boost::optional<utility::string_t> responseFormat, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::aggregatedFilteredUsage(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroup, boost::optional<utility::string_t> country, boost::optional<utility::string_t> state, boost::optional<utility::string_t> city, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> model, boost::optional<utility::string_t> tag, boost::optional<int64_t> userAccountId, boost::optional<utility::string_t> userAccountDisplay, boost::optional<utility::string_t> userAccountUsername, boost::optional<utility::string_t> groupByRoot, boost::optional<utility::string_t> groupBy, boost::optional<utility::string_t> distinctCount, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> hideUnknown, boost::optional<utility::string_t> responseFormat, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/analytics/aggregatedFilteredUsage");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/analytics/aggregatedFilteredUsage");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -419,13 +417,12 @@ pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::aggregatedFilteredUsage(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::filteredUsage(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroup, boost::optional<utility::string_t> country, boost::optional<utility::string_t> state, boost::optional<utility::string_t> city, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> model, boost::optional<utility::string_t> tag, boost::optional<int64_t> userAccountId, boost::optional<utility::string_t> userAccountDisplay, boost::optional<utility::string_t> userAccountUsername, boost::optional<int64_t> customId, boost::optional<utility::string_t> customType, boost::optional<double> customValue, boost::optional<double> customValue2, boost::optional<int64_t> customLong, boost::optional<int64_t> customLong2, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> customMessage2, boost::optional<utility::string_t> groupBy, boost::optional<utility::string_t> distinctCount, boost::optional<utility::string_t> sumColumn, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> hideUnknown, boost::optional<utility::string_t> responseFormat, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::filteredUsage(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroup, boost::optional<utility::string_t> country, boost::optional<utility::string_t> state, boost::optional<utility::string_t> city, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> model, boost::optional<utility::string_t> tag, boost::optional<int64_t> userAccountId, boost::optional<utility::string_t> userAccountDisplay, boost::optional<utility::string_t> userAccountUsername, boost::optional<int64_t> customId, boost::optional<utility::string_t> customType, boost::optional<double> customValue, boost::optional<double> customValue2, boost::optional<int64_t> customLong, boost::optional<int64_t> customLong2, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> customMessage2, boost::optional<utility::string_t> groupBy, boost::optional<utility::string_t> distinctCount, boost::optional<utility::string_t> sumColumn, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> hideUnknown, boost::optional<utility::string_t> responseFormat, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/analytics/filteredUsage");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/analytics/filteredUsage");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -698,13 +695,12 @@ pplx::task<std::shared_ptr<ChartData>> AnalyticsApi::filteredUsage(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AnalyticsApi::usage(double version, utility::string_t tag, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> model, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> customId, boost::optional<utility::string_t> customType, boost::optional<int64_t> achievementIncrement, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> country, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> locationDescription, boost::optional<int64_t> clientTime, boost::optional<utility::string_t> errorMessage, boost::optional<utility::string_t> ip, boost::optional<utility::string_t> userAgent, boost::optional<bool> backgroundEvent, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> customMessage2, boost::optional<double> customValue, boost::optional<double> customValue2, boost::optional<int64_t> customLong, boost::optional<int64_t> customLong2) const
+pplx::task<std::shared_ptr<SirqulResponse>> AnalyticsApi::usage(utility::string_t tag, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> applicationId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> device, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> model, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> customId, boost::optional<utility::string_t> customType, boost::optional<int64_t> achievementIncrement, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> country, boost::optional<utility::string_t> zip, boost::optional<utility::string_t> locationDescription, boost::optional<int64_t> clientTime, boost::optional<utility::string_t> errorMessage, boost::optional<utility::string_t> ip, boost::optional<utility::string_t> userAgent, boost::optional<bool> backgroundEvent, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> customMessage2, boost::optional<double> customValue, boost::optional<double> customValue2, boost::optional<int64_t> customLong, boost::optional<int64_t> customLong2) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/analytics/usage");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/analytics/usage");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -944,13 +940,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AnalyticsApi::usage(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AnalyticsApi::usageBatch(double version, utility::string_t appKey, utility::string_t device, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> model, boost::optional<bool> updateRanking, boost::optional<bool> returnSummaryResponse) const
+pplx::task<std::shared_ptr<SirqulResponse>> AnalyticsApi::usageBatch(utility::string_t appKey, utility::string_t device, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> deviceType, boost::optional<utility::string_t> deviceOS, boost::optional<utility::string_t> model, boost::optional<bool> updateRanking, boost::optional<bool> returnSummaryResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/analytics/usage/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/analytics/usage/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

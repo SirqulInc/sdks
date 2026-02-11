@@ -36,13 +36,12 @@ ApplicationApi::~ApplicationApi()
 {
 }
 
-pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::createApplication(double version, utility::string_t appName, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> about, boost::optional<utility::string_t> bundleId, boost::optional<int64_t> appIconAssetId, boost::optional<int64_t> appLogoAssetId, boost::optional<utility::string_t> facebookAppId, boost::optional<utility::string_t> facebookAppSecret, boost::optional<utility::string_t> googleApiKey, boost::optional<bool> updateEULADate, boost::optional<utility::string_t> eulaVersion, boost::optional<utility::string_t> landingPageUrl, boost::optional<bool> showInActivities, boost::optional<utility::string_t> activityDescription, boost::optional<utility::string_t> inviteWelcomeText, boost::optional<utility::string_t> invitePageUrl, boost::optional<utility::string_t> urlScheme, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> downloadUrls, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> scoringType, boost::optional<int32_t> hintCost, boost::optional<int32_t> maxScore, boost::optional<float> ticketsPerPoint, boost::optional<bool> hasGameData, boost::optional<bool> publicNotifications, boost::optional<bool> useMatchingAlgorithm, boost::optional<bool> globalTickets, boost::optional<float> buildVersion, boost::optional<float> apiVersion, boost::optional<utility::string_t> placementName, boost::optional<utility::string_t> placementDescription, boost::optional<utility::string_t> placementSize, boost::optional<int32_t> placementHeight, boost::optional<int32_t> placementWidth, boost::optional<int32_t> placementRefreshInterval, boost::optional<bool> createObjectStore, boost::optional<bool> publicContentApproval, boost::optional<bool> productionMode, boost::optional<int32_t> minimumSessionLength, boost::optional<int32_t> sessionGapLength, boost::optional<bool> localAdsEnabled, boost::optional<utility::string_t> sqootApiKey, boost::optional<utility::string_t> trilatProcessingType, boost::optional<int32_t> maxSampleSize, boost::optional<double> minRSSI, boost::optional<utility::string_t> modules, boost::optional<int32_t> authorizedCount, boost::optional<utility::string_t> authorizedServers, boost::optional<utility::string_t> defaultTimezone, boost::optional<utility::string_t> smtpPass, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> placementMetaData, boost::optional<bool> ipsFloor, boost::optional<bool> enableAPNSBadge, boost::optional<bool> includeInReport, boost::optional<int64_t> defaultAppFilterId, boost::optional<bool> enableWelcomeEmail, boost::optional<utility::string_t> appleAppId, boost::optional<utility::string_t> appleTeamId, boost::optional<utility::string_t> appleAuthKeyId, boost::optional<std::shared_ptr<HttpContent>> appleAuthKey, boost::optional<utility::string_t> appleIssuerId, boost::optional<utility::string_t> appStoreKeyId, boost::optional<std::shared_ptr<HttpContent>> appStoreKey, boost::optional<std::shared_ptr<HttpContent>> googlePrivateKeyFile, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey, boost::optional<utility::string_t> emailSender, boost::optional<utility::string_t> smtpUser, boost::optional<utility::string_t> smtpHost, boost::optional<utility::string_t> vatomBusinessId, boost::optional<utility::string_t> vatomRestClientId, boost::optional<utility::string_t> vatomRestSecretKey, boost::optional<utility::string_t> twilioAccountSID, boost::optional<utility::string_t> twilioAuthToken, boost::optional<utility::string_t> twilioSenderPhoneNumber, boost::optional<utility::string_t> openAISecretKey) const
+pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::createApplication(utility::string_t appName, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> about, boost::optional<utility::string_t> bundleId, boost::optional<int64_t> appIconAssetId, boost::optional<int64_t> appLogoAssetId, boost::optional<utility::string_t> facebookAppId, boost::optional<utility::string_t> facebookAppSecret, boost::optional<utility::string_t> googleApiKey, boost::optional<bool> updateEULADate, boost::optional<utility::string_t> eulaVersion, boost::optional<utility::string_t> landingPageUrl, boost::optional<bool> showInActivities, boost::optional<utility::string_t> activityDescription, boost::optional<utility::string_t> inviteWelcomeText, boost::optional<utility::string_t> invitePageUrl, boost::optional<utility::string_t> urlScheme, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> downloadUrls, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> scoringType, boost::optional<int32_t> hintCost, boost::optional<int32_t> maxScore, boost::optional<float> ticketsPerPoint, boost::optional<bool> hasGameData, boost::optional<bool> publicNotifications, boost::optional<bool> useMatchingAlgorithm, boost::optional<bool> globalTickets, boost::optional<float> buildVersion, boost::optional<float> apiVersion, boost::optional<utility::string_t> placementName, boost::optional<utility::string_t> placementDescription, boost::optional<utility::string_t> placementSize, boost::optional<int32_t> placementHeight, boost::optional<int32_t> placementWidth, boost::optional<int32_t> placementRefreshInterval, boost::optional<bool> createObjectStore, boost::optional<bool> publicContentApproval, boost::optional<bool> productionMode, boost::optional<int32_t> minimumSessionLength, boost::optional<int32_t> sessionGapLength, boost::optional<bool> localAdsEnabled, boost::optional<utility::string_t> sqootApiKey, boost::optional<utility::string_t> trilatProcessingType, boost::optional<int32_t> maxSampleSize, boost::optional<double> minRSSI, boost::optional<utility::string_t> modules, boost::optional<int32_t> authorizedCount, boost::optional<utility::string_t> authorizedServers, boost::optional<utility::string_t> defaultTimezone, boost::optional<utility::string_t> smtpPass, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> placementMetaData, boost::optional<bool> ipsFloor, boost::optional<bool> enableAPNSBadge, boost::optional<bool> includeInReport, boost::optional<int64_t> defaultAppFilterId, boost::optional<bool> enableWelcomeEmail, boost::optional<utility::string_t> appleAppId, boost::optional<utility::string_t> appleTeamId, boost::optional<utility::string_t> appleAuthKeyId, boost::optional<std::shared_ptr<HttpContent>> appleAuthKey, boost::optional<utility::string_t> appleIssuerId, boost::optional<utility::string_t> appStoreKeyId, boost::optional<std::shared_ptr<HttpContent>> appStoreKey, boost::optional<std::shared_ptr<HttpContent>> googlePrivateKeyFile, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey, boost::optional<utility::string_t> emailSender, boost::optional<utility::string_t> smtpUser, boost::optional<utility::string_t> smtpHost, boost::optional<utility::string_t> vatomBusinessId, boost::optional<utility::string_t> vatomRestClientId, boost::optional<utility::string_t> vatomRestSecretKey, boost::optional<utility::string_t> twilioAccountSID, boost::optional<utility::string_t> twilioAuthToken, boost::optional<utility::string_t> twilioSenderPhoneNumber, boost::optional<utility::string_t> openAISecretKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -474,13 +473,12 @@ pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::createApplicati
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::createApplicationPlacement(double version, utility::string_t appKey, utility::string_t size, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int32_t> height, boost::optional<int32_t> width, boost::optional<int32_t> refreshInterval, boost::optional<int64_t> defaultImageId, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::createApplicationPlacement(utility::string_t appKey, utility::string_t size, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int32_t> height, boost::optional<int32_t> width, boost::optional<int32_t> refreshInterval, boost::optional<int64_t> defaultImageId, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/placement/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/placement/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -639,13 +637,12 @@ pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::createApplication
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::deleteApplication(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::deleteApplication(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -770,13 +767,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::deleteApplication(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::deleteApplicationPlacement(double version, int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::deleteApplicationPlacement(int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/placement/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/placement/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -904,13 +900,12 @@ pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::deleteApplication
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::getApplication(double version, boost::optional<utility::string_t> appKey, boost::optional<int64_t> applicationId) const
+pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::getApplication(boost::optional<utility::string_t> appKey, boost::optional<int64_t> applicationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1035,13 +1030,12 @@ pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::getApplication(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::getApplicationPlacement(double version, int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::getApplicationPlacement(int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/placement/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/placement/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1169,13 +1163,12 @@ pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::getApplicationPla
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::getApplicationVersions(double version) const
+pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::getApplicationVersions() const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/versions");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/versions");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1292,13 +1285,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::getApplicationVersio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AccountListResponse>> ApplicationApi::getUniqueUsersByApp(double version, utility::string_t appKey, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> since, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<AccountListResponse>> ApplicationApi::getUniqueUsersByApp(utility::string_t appKey, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> since, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/users");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/users");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1446,13 +1438,12 @@ pplx::task<std::shared_ptr<AccountListResponse>> ApplicationApi::getUniqueUsersB
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ApplicationShortResponse>>> ApplicationApi::listApplications(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> sortField, boost::optional<bool> hasAds, boost::optional<bool> publicNotifications, boost::optional<bool> filterBillable, boost::optional<bool> filterContentAdmin, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<utility::string_t> applicationIds, boost::optional<bool> hasObjectStore, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<ApplicationShortResponse>>> ApplicationApi::listApplications(boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> sortField, boost::optional<bool> hasAds, boost::optional<bool> publicNotifications, boost::optional<bool> filterBillable, boost::optional<bool> filterContentAdmin, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<utility::string_t> applicationIds, boost::optional<bool> hasObjectStore, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1653,13 +1644,12 @@ pplx::task<std::vector<std::shared_ptr<ApplicationShortResponse>>> ApplicationAp
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<PlacementResponse>>> ApplicationApi::searchApplicationPlacement(double version, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<PlacementResponse>>> ApplicationApi::searchApplicationPlacement(utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/placement/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/placement/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1799,13 +1789,12 @@ pplx::task<std::vector<std::shared_ptr<PlacementResponse>>> ApplicationApi::sear
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationSettingsResponse>> ApplicationApi::searchApplicationSettings(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<ApplicationSettingsResponse>> ApplicationApi::searchApplicationSettings(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/settings/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/settings/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1954,13 +1943,12 @@ pplx::task<std::shared_ptr<ApplicationSettingsResponse>> ApplicationApi::searchA
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ApplicationResponse>>> ApplicationApi::searchApplications(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> qSearchFields, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> hasAds, boost::optional<bool> publicNotifications, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<ApplicationResponse>>> ApplicationApi::searchApplications(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> qSearchFields, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<bool> hasAds, boost::optional<bool> publicNotifications, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2145,13 +2133,12 @@ pplx::task<std::vector<std::shared_ptr<ApplicationResponse>>> ApplicationApi::se
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::updateApplication(double version, utility::string_t appKey, utility::string_t appName, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> about, boost::optional<utility::string_t> bundleId, boost::optional<int64_t> appIconAssetId, boost::optional<int64_t> appLogoAssetId, boost::optional<utility::string_t> facebookAppId, boost::optional<utility::string_t> facebookAppSecret, boost::optional<utility::string_t> googleApiKey, boost::optional<bool> updateEULADate, boost::optional<utility::string_t> eulaVersion, boost::optional<utility::string_t> landingPageUrl, boost::optional<bool> showInActivities, boost::optional<utility::string_t> activityDescription, boost::optional<utility::string_t> inviteWelcomeText, boost::optional<utility::string_t> invitePageUrl, boost::optional<utility::string_t> urlScheme, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> downloadUrls, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> scoringType, boost::optional<int32_t> hintCost, boost::optional<int32_t> maxScore, boost::optional<float> ticketsPerPoint, boost::optional<bool> hasGameData, boost::optional<bool> publicNotifications, boost::optional<bool> useMatchingAlgorithm, boost::optional<bool> globalTickets, boost::optional<float> buildVersion, boost::optional<float> apiVersion, boost::optional<utility::string_t> placementName, boost::optional<utility::string_t> placementDescription, boost::optional<utility::string_t> placementSize, boost::optional<int32_t> placementHeight, boost::optional<int32_t> placementWidth, boost::optional<int32_t> placementRefreshInterval, boost::optional<bool> createObjectStore, boost::optional<bool> publicContentApproval, boost::optional<bool> productionMode, boost::optional<int32_t> minimumSessionLength, boost::optional<int32_t> sessionGapLength, boost::optional<bool> localAdsEnabled, boost::optional<utility::string_t> sqootApiKey, boost::optional<utility::string_t> trilatProcessingType, boost::optional<int32_t> maxSampleSize, boost::optional<double> minRSSI, boost::optional<utility::string_t> modules, boost::optional<int32_t> authorizedCount, boost::optional<utility::string_t> authorizedServers, boost::optional<utility::string_t> defaultTimezone, boost::optional<utility::string_t> smtpPass, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> placementMetaData, boost::optional<bool> ipsFloor, boost::optional<bool> enableAPNSBadge, boost::optional<bool> includeInReport, boost::optional<int64_t> defaultAppFilterId, boost::optional<bool> enableWelcomeEmail, boost::optional<utility::string_t> appleAppId, boost::optional<utility::string_t> appleTeamId, boost::optional<utility::string_t> appleAuthKeyId, boost::optional<std::shared_ptr<HttpContent>> appleAuthKey, boost::optional<utility::string_t> appleIssuerId, boost::optional<utility::string_t> appStoreKeyId, boost::optional<std::shared_ptr<HttpContent>> appStoreKey, boost::optional<std::shared_ptr<HttpContent>> googlePrivateKeyFile, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey, boost::optional<utility::string_t> emailSender, boost::optional<utility::string_t> smtpUser, boost::optional<utility::string_t> smtpHost, boost::optional<utility::string_t> vatomBusinessId, boost::optional<utility::string_t> vatomRestClientId, boost::optional<utility::string_t> vatomRestSecretKey, boost::optional<utility::string_t> twilioAccountSID, boost::optional<utility::string_t> twilioAuthToken, boost::optional<utility::string_t> twilioSenderPhoneNumber, boost::optional<utility::string_t> openAISecretKey) const
+pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::updateApplication(utility::string_t appKey, utility::string_t appName, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> about, boost::optional<utility::string_t> bundleId, boost::optional<int64_t> appIconAssetId, boost::optional<int64_t> appLogoAssetId, boost::optional<utility::string_t> facebookAppId, boost::optional<utility::string_t> facebookAppSecret, boost::optional<utility::string_t> googleApiKey, boost::optional<bool> updateEULADate, boost::optional<utility::string_t> eulaVersion, boost::optional<utility::string_t> landingPageUrl, boost::optional<bool> showInActivities, boost::optional<utility::string_t> activityDescription, boost::optional<utility::string_t> inviteWelcomeText, boost::optional<utility::string_t> invitePageUrl, boost::optional<utility::string_t> urlScheme, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> downloadUrls, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> scoringType, boost::optional<int32_t> hintCost, boost::optional<int32_t> maxScore, boost::optional<float> ticketsPerPoint, boost::optional<bool> hasGameData, boost::optional<bool> publicNotifications, boost::optional<bool> useMatchingAlgorithm, boost::optional<bool> globalTickets, boost::optional<float> buildVersion, boost::optional<float> apiVersion, boost::optional<utility::string_t> placementName, boost::optional<utility::string_t> placementDescription, boost::optional<utility::string_t> placementSize, boost::optional<int32_t> placementHeight, boost::optional<int32_t> placementWidth, boost::optional<int32_t> placementRefreshInterval, boost::optional<bool> createObjectStore, boost::optional<bool> publicContentApproval, boost::optional<bool> productionMode, boost::optional<int32_t> minimumSessionLength, boost::optional<int32_t> sessionGapLength, boost::optional<bool> localAdsEnabled, boost::optional<utility::string_t> sqootApiKey, boost::optional<utility::string_t> trilatProcessingType, boost::optional<int32_t> maxSampleSize, boost::optional<double> minRSSI, boost::optional<utility::string_t> modules, boost::optional<int32_t> authorizedCount, boost::optional<utility::string_t> authorizedServers, boost::optional<utility::string_t> defaultTimezone, boost::optional<utility::string_t> smtpPass, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> placementMetaData, boost::optional<bool> ipsFloor, boost::optional<bool> enableAPNSBadge, boost::optional<bool> includeInReport, boost::optional<int64_t> defaultAppFilterId, boost::optional<bool> enableWelcomeEmail, boost::optional<utility::string_t> appleAppId, boost::optional<utility::string_t> appleTeamId, boost::optional<utility::string_t> appleAuthKeyId, boost::optional<std::shared_ptr<HttpContent>> appleAuthKey, boost::optional<utility::string_t> appleIssuerId, boost::optional<utility::string_t> appStoreKeyId, boost::optional<std::shared_ptr<HttpContent>> appStoreKey, boost::optional<std::shared_ptr<HttpContent>> googlePrivateKeyFile, boost::optional<utility::string_t> authorizeNetApiKey, boost::optional<utility::string_t> authorizeNetTransactionKey, boost::optional<utility::string_t> emailSender, boost::optional<utility::string_t> smtpUser, boost::optional<utility::string_t> smtpHost, boost::optional<utility::string_t> vatomBusinessId, boost::optional<utility::string_t> vatomRestClientId, boost::optional<utility::string_t> vatomRestSecretKey, boost::optional<utility::string_t> twilioAccountSID, boost::optional<utility::string_t> twilioAuthToken, boost::optional<utility::string_t> twilioSenderPhoneNumber, boost::optional<utility::string_t> openAISecretKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2586,13 +2573,12 @@ pplx::task<std::shared_ptr<ApplicationResponse>> ApplicationApi::updateApplicati
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::updateApplicationActive(double version, int64_t accountId, utility::string_t appKey, bool active) const
+pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::updateApplicationActive(int64_t accountId, utility::string_t appKey, bool active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/active");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/active");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2718,13 +2704,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::updateApplicationAct
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::updateApplicationPlacement(double version, int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> size, boost::optional<int32_t> height, boost::optional<int32_t> width, boost::optional<int32_t> refreshInterval, boost::optional<int64_t> defaultImageId, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::updateApplicationPlacement(int64_t placementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> size, boost::optional<int32_t> height, boost::optional<int32_t> width, boost::optional<int32_t> refreshInterval, boost::optional<int64_t> defaultImageId, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/placement/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/placement/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2884,13 +2869,12 @@ pplx::task<std::shared_ptr<PlacementResponse>> ApplicationApi::updateApplication
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::uploadApplicationCertificate(double version, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> certificate) const
+pplx::task<std::shared_ptr<SirqulResponse>> ApplicationApi::uploadApplicationCertificate(utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> certificate) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/application/certificate/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/application/certificate/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

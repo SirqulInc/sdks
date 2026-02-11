@@ -36,13 +36,12 @@ DisbursementApi::~DisbursementApi()
 {
 }
 
-pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::checkDisbursements(double version, int64_t disbursementId) const
+pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::checkDisbursements(int64_t disbursementId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/disbursement/check");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/disbursement/check");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -162,13 +161,12 @@ pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::checkDisburse
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::createDisbursement(double version, int64_t accountId, int64_t receiverAccountId, int64_t originalSenderAccountId, double amount, utility::string_t provider, boost::optional<int64_t> scheduledDate, boost::optional<utility::string_t> title, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> introspectionParams) const
+pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::createDisbursement(int64_t accountId, int64_t receiverAccountId, int64_t originalSenderAccountId, double amount, utility::string_t provider, boost::optional<int64_t> scheduledDate, boost::optional<utility::string_t> title, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> introspectionParams) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/disbursement/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/disbursement/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -320,13 +318,12 @@ pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::createDisburs
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::getDisbursement(double version, int64_t accountId, int64_t disbursementId) const
+pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::getDisbursement(int64_t accountId, int64_t disbursementId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/disbursement/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/disbursement/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -449,13 +446,12 @@ pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::getDisburseme
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<DisbursementResponse>>> DisbursementApi::searchDisbursements(double version, int64_t accountId, boost::optional<int64_t> receiverAccountId, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> providers, boost::optional<int64_t> beforeDate, boost::optional<int64_t> afterDate, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<utility::string_t> externalId) const
+pplx::task<std::vector<std::shared_ptr<DisbursementResponse>>> DisbursementApi::searchDisbursements(int64_t accountId, boost::optional<int64_t> receiverAccountId, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> providers, boost::optional<int64_t> beforeDate, boost::optional<int64_t> afterDate, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<utility::string_t> externalId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/disbursement/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/disbursement/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -615,13 +611,12 @@ pplx::task<std::vector<std::shared_ptr<DisbursementResponse>>> DisbursementApi::
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::updateDisbursement(double version, int64_t accountId, int64_t disbursementId, boost::optional<double> amount, boost::optional<utility::string_t> provider, boost::optional<int64_t> scheduledDate, boost::optional<utility::string_t> title, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> externalId, boost::optional<bool> retry, boost::optional<utility::string_t> introspectionParams) const
+pplx::task<std::shared_ptr<DisbursementResponse>> DisbursementApi::updateDisbursement(int64_t accountId, int64_t disbursementId, boost::optional<double> amount, boost::optional<utility::string_t> provider, boost::optional<int64_t> scheduledDate, boost::optional<utility::string_t> title, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> externalId, boost::optional<bool> retry, boost::optional<utility::string_t> introspectionParams) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/disbursement/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/disbursement/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

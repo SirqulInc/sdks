@@ -57,12 +57,10 @@ public:
     /// <remarks>
     /// Batch update offer locations.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="data">JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; </param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> batchUpdateOfferLocations(
-        double version,
         utility::string_t data,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -73,7 +71,6 @@ public:
     /// <remarks>
     /// Create an offer and assign it to the provided retailer locations.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
     /// <param name="title">The title (255 char limit)</param>
     /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -161,7 +158,6 @@ public:
     /// <param name="availability"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="availabilitySummary"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerOfferResponse>> createOffer(
-        double version,
         bool includeOfferLocations,
         utility::string_t title,
         utility::string_t barcodeType,
@@ -255,12 +251,10 @@ public:
     /// <remarks>
     /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerId">The ID of the offer to be deleted</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteOffer(
-        double version,
         int64_t offerId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -271,12 +265,10 @@ public:
     /// <remarks>
     /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerLocationId">The ID of the offer location to be deleted</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the offer location. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteOfferLocation(
-        double version,
         int64_t offerLocationId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -287,13 +279,11 @@ public:
     /// <remarks>
     /// Gets the details of an offer that the user has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerId">The id of the offer</param>
     /// <param name="includeOfferLocations"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<RetailerOfferResponse>> getOffer(
-        double version,
         int64_t offerId,
         bool includeOfferLocations,
         boost::optional<utility::string_t> deviceId,
@@ -305,7 +295,6 @@ public:
     /// <remarks>
     /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional, default to 0L)</param>
     /// <param name="offerId">The offer id (either offeLocationId or offerId must be provided) (optional, default to 0L)</param>
@@ -317,7 +306,6 @@ public:
     /// <param name="includeRetailerLocations">Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work) (optional, default to false)</param>
     /// <param name="includeChildOffers">Determines whether to include child offers in the response (optional, default to false)</param>
     pplx::task<std::shared_ptr<OfferResponse>> getOfferDetails(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> offerId,
@@ -335,13 +323,11 @@ public:
     /// <remarks>
     /// Gets the offer list counts.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="latitude">The latitude of where the search will center at</param>
     /// <param name="longitude">The longitude of where the search will center at</param>
     /// <param name="searchRange">The range of the search (optional, default to 0.0)</param>
     /// <param name="distanceUnit">The units to use for distance calculations (e.g. MILES, KILOMETERS) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ListCountResponse>> getOfferListCounts(
-        double version,
         double latitude,
         double longitude,
         boost::optional<double> searchRange,
@@ -353,11 +339,9 @@ public:
     /// <remarks>
     /// Gets the offer location by offer location id or udid (of a device)
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerLocationId">the id of the offer location to get (optional, default to 0L)</param>
     /// <param name="udid">the UDID of the device (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferShortResponse>> getOfferLocation(
-        double version,
         boost::optional<int64_t> offerLocationId,
         boost::optional<utility::string_t> udid
     ) const;
@@ -367,7 +351,6 @@ public:
     /// <remarks>
     /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
     /// <param name="descending">The order to return the results. Default is false, which will return the results in ascending order.</param>
     /// <param name="start">The index into the record set to start with. Default is 0.</param>
@@ -389,7 +372,6 @@ public:
     /// <param name="needsNotificationSent"> (optional, default to false)</param>
     /// <param name="lastNotificationSent"> (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> getOfferLocationsForRetailers(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -417,7 +399,6 @@ public:
     /// <remarks>
     /// Searches on offers that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerVisibility"></param>
     /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY</param>
     /// <param name="descending">The order to return the search results</param>
@@ -450,7 +431,6 @@ public:
     /// <param name="needsNotificationSent"> (optional, default to false)</param>
     /// <param name="lastNotificationSent"> (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<OfferResponse>>> getOffersForRetailers(
-        double version,
         utility::string_t offerVisibility,
         utility::string_t sortField,
         bool descending,
@@ -489,14 +469,12 @@ public:
     /// <remarks>
     /// Redeems an offer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerTransactionId">the OfferTransaction ID of the transaction being redeemed</param>
     /// <param name="status">the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="offerLocationId">the OfferLocation ID where the offer is being redeemed (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> redeemOfferTransaction(
-        double version,
         int64_t offerTransactionId,
         int32_t status,
         boost::optional<utility::string_t> deviceId,
@@ -509,7 +487,6 @@ public:
     /// <remarks>
     /// Searches on offer transactions for offers that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}</param>
     /// <param name="descending">Determines whether the results are in descending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -535,7 +512,6 @@ public:
     /// <param name="i">This parameter is deprecated. (optional, default to 0)</param>
     /// <param name="l">This parameter is deprecated. (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> searchOfferTransactionsForRetailers(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -567,7 +543,6 @@ public:
     /// <remarks>
     /// Searches for offers as a consumer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="latitude">The latitude of where the search will center at</param>
     /// <param name="longitude">The longitude of where the search will center at</param>
     /// <param name="recommendationType">The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available</param>
@@ -600,7 +575,6 @@ public:
     /// <param name="searchExpression"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="groupBy">groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferListResponse>> searchOffersForConsumer(
-        double version,
         double latitude,
         double longitude,
         utility::string_t recommendationType,
@@ -639,11 +613,9 @@ public:
     /// <remarks>
     /// Gets the top active offers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="start">The index into the record set to start with. Default is 0. (optional, default to 0)</param>
     /// <param name="limit">The total number of record to return. Default id 20. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<OfferListResponse>> topOfferTransactions(
-        double version,
         boost::optional<int32_t> start,
         boost::optional<int32_t> limit
     ) const;
@@ -653,7 +625,6 @@ public:
     /// <remarks>
     /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerId">The offer to update</param>
     /// <param name="includeOfferLocations">If true return all the offer locations associated with the offer</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -742,7 +713,6 @@ public:
     /// <param name="availability"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="availabilitySummary"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerOfferResponse>> updateOffer(
-        double version,
         int64_t offerId,
         bool includeOfferLocations,
         boost::optional<utility::string_t> deviceId,
@@ -837,13 +807,11 @@ public:
     /// <remarks>
     /// Sets the activated date on offers. This will make offers visible for consumers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerIds">Comma separated list of offer ids</param>
     /// <param name="active">Determines whether to make the offer active as well</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account used to perform the activation, must have rights to edit the offer. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateOfferStatus(
-        double version,
         utility::string_t offerIds,
         bool active,
         boost::optional<utility::string_t> deviceId,

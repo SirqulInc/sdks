@@ -55,7 +55,6 @@ public:
     /// <remarks>
     /// Create an entry for the batch for offline report
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user for passing account related params</param>
     /// <param name="status">the status of the report</param>
     /// <param name="previewLimit">the limit on how much you can preview of the batch report</param>
@@ -68,7 +67,6 @@ public:
     /// <param name="description">the description of the batch report (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="pageUrl"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ReportBatchResponse>> createBatch(
-        double version,
         int64_t accountId,
         utility::string_t status,
         int32_t previewLimit,
@@ -87,10 +85,8 @@ public:
     /// <remarks>
     /// Create an entry for the batch for offline report
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ReportRegionLegSummaryBatchResponse>> createRegionLegSummaryBatch(
-        double version,
         boost::optional<std::vector<std::shared_ptr<RegionLegSummary>>> body
     ) const;
     /// <summary>
@@ -99,11 +95,9 @@ public:
     /// <remarks>
     /// Deletes a batch report.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account</param>
     /// <param name="batchId">the id of the batch to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteBatch(
-        double version,
         int64_t accountId,
         int64_t batchId
     ) const;
@@ -113,12 +107,10 @@ public:
     /// <remarks>
     /// Checks status of batch report.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="batchId">returned by /report/batch/create</param>
     /// <param name="allResults">whether to return all batch results or not</param>
     pplx::task<std::shared_ptr<ReportBatchResponse>> getReportBatch(
-        double version,
         int64_t accountId,
         int64_t batchId,
         bool allResults
@@ -129,7 +121,6 @@ public:
     /// <remarks>
     ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="desc">If true then descending order, false is ascending</param>
     /// <param name="accountId">The account id of the user for passing account related params (optional, default to 0L)</param>
     /// <param name="query">The named identifier of the query (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -139,7 +130,6 @@ public:
     /// <param name="limit">The limit of the pagination (optional, default to 0L)</param>
     /// <param name="responseFormat">Determines what response format to return. Options are: JSON or CSV (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ReportResponse>> runReport(
-        double version,
         bool desc,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> query,
@@ -155,7 +145,6 @@ public:
     /// <remarks>
     /// Retrieves batches for a user..
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account logged in</param>
     /// <param name="start">the start of the index and/or pagination</param>
     /// <param name="limit">the limit of the index and/or pagination</param>
@@ -166,7 +155,6 @@ public:
     /// <param name="startDate">the start date of the report batch to search on (optional, default to 0L)</param>
     /// <param name="endDate">the end date of the report batch to search on (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<ReportBatchResponse>>> searchBatch(
-        double version,
         int64_t accountId,
         int32_t start,
         int32_t limit,

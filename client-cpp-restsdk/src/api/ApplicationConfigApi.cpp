@@ -36,13 +36,12 @@ ApplicationConfigApi::~ApplicationConfigApi()
 {
 }
 
-pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::createApplicationConfig(double version, int64_t accountId, utility::string_t appKey, utility::string_t configVersion, int64_t assetId, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid) const
+pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::createApplicationConfig(int64_t accountId, utility::string_t appKey, utility::string_t configVersion, int64_t assetId, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -183,13 +182,12 @@ pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::cre
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ApplicationConfigApi::deleteApplicationConfig(double version, int64_t accountId, int64_t configId) const
+pplx::task<std::shared_ptr<SirqulResponse>> ApplicationConfigApi::deleteApplicationConfig(int64_t accountId, int64_t configId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -312,13 +310,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ApplicationConfigApi::deleteApplicat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::getApplicationConfig(double version, int64_t accountId, int64_t configId) const
+pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::getApplicationConfig(int64_t accountId, int64_t configId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -441,13 +438,12 @@ pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::get
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::getApplicationConfigByConfigVersion(double version, utility::string_t appKey, utility::string_t configVersion, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid, boost::optional<bool> allowOlderVersions) const
+pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::getApplicationConfigByConfigVersion(utility::string_t appKey, utility::string_t configVersion, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid, boost::optional<bool> allowOlderVersions) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/getbyversion");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/getbyversion");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -586,13 +582,12 @@ pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::get
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ApplicationConfigResponse>>> ApplicationConfigApi::searchApplicationConfig(double version, int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> configVersion, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<ApplicationConfigResponse>>> ApplicationConfigApi::searchApplicationConfig(int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> configVersion, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -752,13 +747,12 @@ pplx::task<std::vector<std::shared_ptr<ApplicationConfigResponse>>> ApplicationC
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::updateApplicationConfig(double version, int64_t accountId, int64_t configId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> configVersion, boost::optional<int64_t> assetId, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid) const
+pplx::task<std::shared_ptr<ApplicationConfigResponse>> ApplicationConfigApi::updateApplicationConfig(int64_t accountId, int64_t configId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> configVersion, boost::optional<int64_t> assetId, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> udid) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/appconfig/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/appconfig/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

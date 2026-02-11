@@ -52,14 +52,12 @@ public:
     /// <remarks>
     /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     /// <param name="missionId">The mission to find the invite for. (optional, default to 0L)</param>
     /// <param name="joinCode">code to be entered for user to join the mission (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="includeGameData">Include the game level data with the mission. (optional, default to false)</param>
     pplx::task<std::shared_ptr<MissionResponse>> createMissionInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> missionId,
@@ -72,14 +70,12 @@ public:
     /// <remarks>
     /// Update the mission invite status to quit.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional, default to 0L)</param>
     /// <param name="missionInviteId">The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried). (optional, default to 0L)</param>
     /// <param name="includeGameData">Include the game level data with the mission. (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteMissionInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> missionId,
@@ -92,7 +88,6 @@ public:
     /// <remarks>
     /// Get the mission invite. An account can only be invited to a mission one time.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     /// <param name="missionId">The mission to find the invite for (missionId or missionInviteId requried). (optional, default to 0L)</param>
@@ -100,7 +95,6 @@ public:
     /// <param name="includeGameData">Include the game level data with the mission. (optional, default to false)</param>
     /// <param name="includeScores">include the scores with the mission (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MissionResponse>> getMissionInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> missionId,
@@ -114,7 +108,6 @@ public:
     /// <remarks>
     /// Get a list of mission invites that the account has.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     /// <param name="appKey">the app to retrieve the data for, use your application key. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -129,7 +122,6 @@ public:
     /// <param name="filterByBillable">filter results by the account&#39;s billable (optional, default to false)</param>
     /// <param name="includeGameData">Include the game level data with the mission. (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<MissionResponse>>> searchMissionInvites(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -150,7 +142,6 @@ public:
     /// <remarks>
     /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -163,7 +154,6 @@ public:
     /// <param name="permissionableId">The id of the content being submitted. (optional, default to 0L)</param>
     /// <param name="includeGameData">Include the game level data with the mission. (optional, default to false)</param>
     pplx::task<std::shared_ptr<MissionResponse>> updateMissionInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,

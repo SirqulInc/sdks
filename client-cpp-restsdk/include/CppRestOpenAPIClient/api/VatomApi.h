@@ -49,12 +49,10 @@ public:
     /// <remarks>
     /// Create following.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> createFollowing(
-        double version,
         int64_t accountId,
         utility::string_t vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -65,13 +63,11 @@ public:
     /// <remarks>
     /// Create a Vatom space.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> createSpace(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomParameters,
@@ -83,13 +79,11 @@ public:
     /// <remarks>
     /// Create a Vatom event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> createVatomEvent(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomParameters,
@@ -101,12 +95,10 @@ public:
     /// <remarks>
     /// Delete following.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomRelsKey">Vatom Rels Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> deleteFollowing(
-        double version,
         int64_t accountId,
         utility::string_t vatomRelsKey,
         boost::optional<bool> returnRawResponse
@@ -117,13 +109,11 @@ public:
     /// <remarks>
     /// Reset All Points Balance.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> deletePointsBalance(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -135,13 +125,11 @@ public:
     /// <remarks>
     /// Delete a Vatom space.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomSpaceId">Vatom Space Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> deleteSpace(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomSpaceId,
@@ -153,13 +141,11 @@ public:
     /// <remarks>
     /// Delete a Vatom event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomEventId">Vatom Event Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> deleteVatomEvent(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomEventId,
@@ -171,12 +157,10 @@ public:
     /// <remarks>
     /// Delete Vatom NFT
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomId">Vatom NFT Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> deleteVatomNFT(
-        double version,
         int64_t accountId,
         utility::string_t vatomId,
         boost::optional<bool> returnRawResponse
@@ -187,13 +171,11 @@ public:
     /// <remarks>
     /// Execute Action on NFT.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomId">Vatom NFT Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> executeActionOnNFT(
-        double version,
         int64_t accountId,
         utility::string_t vatomId,
         utility::string_t vatomParameters,
@@ -205,12 +187,10 @@ public:
     /// <remarks>
     /// Search Vatom Geo Map
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> geomapSearch(
-        double version,
         int64_t accountId,
         utility::string_t vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -221,12 +201,10 @@ public:
     /// <remarks>
     /// Gets the behaviors of a business.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getBusinessBehaviors(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<bool> returnRawResponse
@@ -237,12 +215,10 @@ public:
     /// <remarks>
     /// Get the coins for a Businesss.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getBusinessCoinsBalance(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<bool> returnRawResponse
@@ -253,11 +229,9 @@ public:
     /// <remarks>
     /// Get the business ids the logged in user has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getBusinessIds(
-        double version,
         int64_t accountId,
         boost::optional<bool> returnRawResponse
     ) const;
@@ -267,13 +241,11 @@ public:
     /// <remarks>
     /// Gets the business info tied to this account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getBusinessInfo(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> vatomParameters,
@@ -285,12 +257,10 @@ public:
     /// <remarks>
     /// Gets the users of a business.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getBusinessUsers(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<bool> returnRawResponse
@@ -301,13 +271,11 @@ public:
     /// <remarks>
     /// Get campaign group entities.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getCampaignGroupEntities(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -319,13 +287,11 @@ public:
     /// <remarks>
     /// Get campaign group rules.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getCampaignGroupRules(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -337,13 +303,11 @@ public:
     /// <remarks>
     /// Get campaign group stats.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getCampaignGroupStats(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -355,13 +319,11 @@ public:
     /// <remarks>
     /// Gets the info on a campaign.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getCampaignInfo(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -373,13 +335,11 @@ public:
     /// <remarks>
     /// Gets the guest list of an event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomEventId">Vatom Event Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getEventGuestList(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomEventId,
@@ -391,12 +351,10 @@ public:
     /// <remarks>
     /// Gets the logged in user&#39;s Vatom Inventory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getInventory(
-        double version,
         int64_t accountId,
         utility::string_t vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -407,11 +365,9 @@ public:
     /// <remarks>
     /// Get following.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getMyFollowing(
-        double version,
         int64_t accountId,
         boost::optional<bool> returnRawResponse
     ) const;
@@ -421,13 +377,11 @@ public:
     /// <remarks>
     /// Gets the points balance of a Vatom user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getPointsBalance(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t vatomCampaignId,
@@ -439,14 +393,12 @@ public:
     /// <remarks>
     /// Gets the points balance of a Vatom user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getPointsBalanceAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomUserId,
@@ -459,13 +411,11 @@ public:
     /// <remarks>
     /// Gets the details of a space.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomSpaceId">Vatom Space Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getSpace(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomSpaceId,
@@ -477,13 +427,11 @@ public:
     /// <remarks>
     /// Get the coins for a user (as a Business).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserCoinsAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t appKey,
@@ -495,13 +443,11 @@ public:
     /// <remarks>
     /// Gets the coins balance for a Vatom User.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserCoinsBalance(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         boost::optional<utility::string_t> vatomParameters,
@@ -513,12 +459,10 @@ public:
     /// <remarks>
     /// Get user followers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserFollowers(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         boost::optional<bool> returnRawResponse
@@ -529,12 +473,10 @@ public:
     /// <remarks>
     /// Get user following.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserFollowing(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         boost::optional<bool> returnRawResponse
@@ -545,12 +487,10 @@ public:
     /// <remarks>
     /// Get a User&#39;s Info.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserInfo(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         boost::optional<bool> returnRawResponse
@@ -561,11 +501,9 @@ public:
     /// <remarks>
     /// Gets the logged in user&#39;s profile in Vatom.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getUserProfile(
-        double version,
         int64_t accountId,
         boost::optional<bool> returnRawResponse
     ) const;
@@ -575,13 +513,11 @@ public:
     /// <remarks>
     /// Gets the details of a event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomEventId">Vatom Event Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getVatomEvent(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomEventId,
@@ -593,12 +529,10 @@ public:
     /// <remarks>
     /// Get Vatom NFT Details
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomId">Vatom NFT Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> getVatomNFT(
-        double version,
         int64_t accountId,
         utility::string_t vatomId,
         boost::optional<bool> returnRawResponse
@@ -609,13 +543,11 @@ public:
     /// <remarks>
     /// Gets the communities tied to a business.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> listCommunities(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> vatomParameters,
@@ -627,13 +559,11 @@ public:
     /// <remarks>
     /// Gets the events tied to a business.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> listEvents(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> vatomParameters,
@@ -645,13 +575,11 @@ public:
     /// <remarks>
     /// Gets the spaces tied to a business.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> listSpaces(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> vatomParameters,
@@ -663,13 +591,11 @@ public:
     /// <remarks>
     /// Gets the logged in user&#39;s Vatom coin transactions.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> listUserCoinTransactions(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         boost::optional<utility::string_t> vatomParameters,
@@ -681,14 +607,12 @@ public:
     /// <remarks>
     /// List coin transactions for a user (as a Business).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> listUserCoinTransactionsAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t appKey,
@@ -701,14 +625,12 @@ public:
     /// <remarks>
     /// Perform Action on NFT.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomId">Vatom NFT Id</param>
     /// <param name="vatomAction">Vatom Action</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> performActionOnNFT(
-        double version,
         int64_t accountId,
         utility::string_t vatomId,
         utility::string_t vatomAction,
@@ -721,13 +643,11 @@ public:
     /// <remarks>
     /// Redeem an NFT.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> redeemNFT(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomParameters,
@@ -739,14 +659,12 @@ public:
     /// <remarks>
     /// Redeem the coins for a user (as a Business).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> redeemUserCoinsAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t appKey,
@@ -759,12 +677,10 @@ public:
     /// <remarks>
     /// Searches for Vatom businesses.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> searchBusinesses(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -775,12 +691,10 @@ public:
     /// <remarks>
     /// Search campaign groups.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> searchCampaignGroups(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<bool> returnRawResponse
@@ -791,11 +705,9 @@ public:
     /// <remarks>
     /// Search User Identities.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> searchIdentities(
-        double version,
         int64_t accountId,
         boost::optional<bool> returnRawResponse
     ) const;
@@ -805,12 +717,10 @@ public:
     /// <remarks>
     /// Searches the logged in user&#39;s Vatom Inventory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> searchInventory(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -821,14 +731,12 @@ public:
     /// <remarks>
     /// Send an NFT.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomCampaignId">Vatom Campaign Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> sendNFT(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomCampaignId,
@@ -841,7 +749,6 @@ public:
     /// <remarks>
     /// Sets the points balance of a Vatom user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomUserId">Vatom User Id</param>
@@ -849,7 +756,6 @@ public:
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> setPointsBalanceAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomUserId,
@@ -863,13 +769,11 @@ public:
     /// <remarks>
     /// Transfer coins from Vatom Users.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> transferUserCoins(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t vatomParameters,
@@ -881,13 +785,11 @@ public:
     /// <remarks>
     /// Fund/update coins for a Businesss.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateBusinessCoins(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomParameters,
@@ -899,14 +801,12 @@ public:
     /// <remarks>
     /// Update the guest list of an event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomEventId">Vatom Event Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateEventGuestList(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomEventId,
@@ -919,14 +819,12 @@ public:
     /// <remarks>
     /// Update a Vatom space.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomSpaceId">Vatom Space Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateSpace(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomSpaceId,
@@ -939,14 +837,12 @@ public:
     /// <remarks>
     /// Update the coins for a user (as a Business).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomUserId">Vatom User Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateUserCoinsAsBusiness(
-        double version,
         int64_t accountId,
         utility::string_t vatomUserId,
         utility::string_t appKey,
@@ -959,12 +855,10 @@ public:
     /// <remarks>
     /// Gets the logged in user&#39;s profile in Vatom.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateUserProfile(
-        double version,
         int64_t accountId,
         utility::string_t vatomParameters,
         boost::optional<bool> returnRawResponse
@@ -975,14 +869,12 @@ public:
     /// <remarks>
     /// Update a Vatom event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="appKey">Sirqul Application Key</param>
     /// <param name="vatomEventId">Vatom Event Id</param>
     /// <param name="vatomParameters">Vatom Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<void> updateVatomEvent(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t vatomEventId,

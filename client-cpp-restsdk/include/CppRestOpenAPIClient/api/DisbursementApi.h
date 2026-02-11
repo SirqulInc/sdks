@@ -51,10 +51,8 @@ public:
     /// <remarks>
     /// Checks the status of a captured disbrusement to see if it has been settled.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="disbursementId">the ID of the disbursement being checked on</param>
     pplx::task<std::shared_ptr<DisbursementResponse>> checkDisbursements(
-        double version,
         int64_t disbursementId
     ) const;
     /// <summary>
@@ -63,7 +61,6 @@ public:
     /// <remarks>
     /// Creates a Disbursement for sending money to a retailer
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the ID of the logging in user (must be an EXECUTIVE account)</param>
     /// <param name="receiverAccountId">the ID of the account receiving the disbursement</param>
     /// <param name="originalSenderAccountId">the ID of the original sender account</param>
@@ -75,7 +72,6 @@ public:
     /// <param name="externalId">external ID, which can be used as a way to reference the disbursement (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="introspectionParams">This is for specifying parameters to make an http callback request for validating that the disbursement is valid (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<DisbursementResponse>> createDisbursement(
-        double version,
         int64_t accountId,
         int64_t receiverAccountId,
         int64_t originalSenderAccountId,
@@ -93,11 +89,9 @@ public:
     /// <remarks>
     /// Get Disbursement details
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="disbursementId">the id of the disbursement</param>
     pplx::task<std::shared_ptr<DisbursementResponse>> getDisbursement(
-        double version,
         int64_t accountId,
         int64_t disbursementId
     ) const;
@@ -107,7 +101,6 @@ public:
     /// <remarks>
     /// Search Disbursements
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="receiverAccountId">filter results by the id of the account receiving the disbursement (optional, default to 0L)</param>
     /// <param name="statuses">comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -119,7 +112,6 @@ public:
     /// <param name="activeOnly">search on disbursements that are active only (optional, default to false)</param>
     /// <param name="externalId">search results by this external ID (that can be used to reference the disbursement) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<DisbursementResponse>>> searchDisbursements(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> receiverAccountId,
         boost::optional<utility::string_t> statuses,
@@ -137,7 +129,6 @@ public:
     /// <remarks>
     /// Update Disbursement
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="disbursementId">the id of the disbursement being updated</param>
     /// <param name="amount">the disbursement dollar amount being updated (optional, default to 0.0)</param>
@@ -149,7 +140,6 @@ public:
     /// <param name="retry">determines whether to try sending the disbursement again in the case of a previous failure (optional, default to false)</param>
     /// <param name="introspectionParams">for specifying parameters to make an http callback request for validating that the disbursement is valid (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<DisbursementResponse>> updateDisbursement(
-        double version,
         int64_t accountId,
         int64_t disbursementId,
         boost::optional<double> amount,

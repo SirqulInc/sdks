@@ -36,13 +36,12 @@ MissionInviteApi::~MissionInviteApi()
 {
 }
 
-pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::createMissionInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<utility::string_t> joinCode, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::createMissionInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<utility::string_t> joinCode, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/mission/invite/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mission/invite/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -179,13 +178,12 @@ pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::createMissionInvi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> MissionInviteApi::deleteMissionInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<SirqulResponse>> MissionInviteApi::deleteMissionInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/mission/invite/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mission/invite/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -322,13 +320,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> MissionInviteApi::deleteMissionInvit
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::getMissionInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<bool> includeGameData, boost::optional<utility::string_t> includeScores) const
+pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::getMissionInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<bool> includeGameData, boost::optional<utility::string_t> includeScores) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/mission/invite/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mission/invite/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -469,13 +466,12 @@ pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::getMissionInvite(
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<MissionResponse>>> MissionInviteApi::searchMissionInvites(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId, boost::optional<utility::string_t> status, boost::optional<int64_t> lastUpdated, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> missionTypes, boost::optional<bool> filterByBillable, boost::optional<bool> includeGameData) const
+pplx::task<std::vector<std::shared_ptr<MissionResponse>>> MissionInviteApi::searchMissionInvites(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId, boost::optional<utility::string_t> status, boost::optional<int64_t> lastUpdated, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> missionTypes, boost::optional<bool> filterByBillable, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/mission/invite/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mission/invite/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -648,13 +644,12 @@ pplx::task<std::vector<std::shared_ptr<MissionResponse>>> MissionInviteApi::sear
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::updateMissionInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<utility::string_t> status, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<MissionResponse>> MissionInviteApi::updateMissionInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> missionId, boost::optional<int64_t> missionInviteId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<utility::string_t> status, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/mission/invite/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/mission/invite/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

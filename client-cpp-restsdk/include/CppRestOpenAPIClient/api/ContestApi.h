@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Creates or updates a contest.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="publicRead">determines whether the contest&#39;s participants has read permissions</param>
     /// <param name="publicWrite">determines whether the contest&#39;s participants has write permissions</param>
     /// <param name="publicDelete">determines whether the contest&#39;s participants has delete permissions</param>
@@ -79,7 +78,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<AlbumContestResponse>> addOrUpdateAlbumContest(
-        double version,
         bool publicRead,
         bool publicWrite,
         bool publicDelete,
@@ -112,13 +110,11 @@ public:
     /// <remarks>
     /// Sets the approval status of a contest.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumContestId">The ID of the album contest</param>
     /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}</param>
     /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> approveAlbumContest(
-        double version,
         int64_t albumContestId,
         utility::string_t approvalStatus,
         boost::optional<utility::string_t> deviceId,
@@ -130,14 +126,12 @@ public:
     /// <remarks>
     /// Deletes a contest.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumContestId">the album contest ID</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteContest(
-        double version,
         int64_t albumContestId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -150,14 +144,12 @@ public:
     /// <remarks>
     /// Gets the contest object including the likes and notes
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumContestId">the album contest ID</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<AlbumContestResponse>> getAlbumContest(
-        double version,
         int64_t albumContestId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -170,7 +162,6 @@ public:
     /// <remarks>
     /// Searches on contests.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="filter">a comma separated list of Ownership</param>
     /// <param name="sortField">the field to sort by. See AlbumContestApiMap</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -191,7 +182,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<AlbumContestListResponse>> getAlbumContests(
-        double version,
         utility::string_t filter,
         utility::string_t sortField,
         bool descending,
@@ -218,7 +208,6 @@ public:
     /// <remarks>
     /// Vote on a collection in a contest.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumContestId">the album contest ID</param>
     /// <param name="albumId">the ID of the album to vote on</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -227,7 +216,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<AlbumContestResponse>> voteOnAlbumContest(
-        double version,
         int64_t albumContestId,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,

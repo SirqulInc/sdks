@@ -36,13 +36,12 @@ NoteApi::~NoteApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::batchOperation(double version, int64_t notableId, utility::string_t notableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> batchOperation) const
+pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::batchOperation(int64_t notableId, utility::string_t notableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> batchOperation) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -177,13 +176,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::batchOperation(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NoteResponse>> NoteApi::createNote(double version, utility::string_t comment, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> notableType, boost::optional<int64_t> notableId, boost::optional<utility::string_t> noteType, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> receiverAccountIds, boost::optional<bool> returnFullResponse, boost::optional<bool> initializeAsset, boost::optional<bool> assetReturnNulls, boost::optional<int64_t> assetAlbumId, boost::optional<int64_t> assetCollectionId, boost::optional<utility::string_t> assetAddToDefaultAlbum, boost::optional<bool> assetAddToMediaLibrary, boost::optional<int32_t> assetVersionCode, boost::optional<utility::string_t> assetVersionName, boost::optional<utility::string_t> assetMetaData, boost::optional<utility::string_t> assetCaption, boost::optional<std::shared_ptr<HttpContent>> assetMedia, boost::optional<utility::string_t> assetMediaUrl, boost::optional<utility::string_t> assetMediaString, boost::optional<utility::string_t> assetMediaStringFileName, boost::optional<utility::string_t> assetMediaStringContentType, boost::optional<std::shared_ptr<HttpContent>> assetAttachedMedia, boost::optional<utility::string_t> assetAttachedMediaUrl, boost::optional<utility::string_t> assetAttachedMediaString, boost::optional<utility::string_t> assetAttachedMediaStringFileName, boost::optional<utility::string_t> assetAttachedMediaStringContentType, boost::optional<utility::string_t> assetLocationDescription, boost::optional<utility::string_t> assetApp, boost::optional<utility::string_t> assetSearchTags, boost::optional<double> assetLatitude, boost::optional<double> assetLongitude) const
+pplx::task<std::shared_ptr<NoteResponse>> NoteApi::createNote(utility::string_t comment, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> notableType, boost::optional<int64_t> notableId, boost::optional<utility::string_t> noteType, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> receiverAccountIds, boost::optional<bool> returnFullResponse, boost::optional<bool> initializeAsset, boost::optional<bool> assetReturnNulls, boost::optional<int64_t> assetAlbumId, boost::optional<int64_t> assetCollectionId, boost::optional<utility::string_t> assetAddToDefaultAlbum, boost::optional<bool> assetAddToMediaLibrary, boost::optional<int32_t> assetVersionCode, boost::optional<utility::string_t> assetVersionName, boost::optional<utility::string_t> assetMetaData, boost::optional<utility::string_t> assetCaption, boost::optional<std::shared_ptr<HttpContent>> assetMedia, boost::optional<utility::string_t> assetMediaUrl, boost::optional<utility::string_t> assetMediaString, boost::optional<utility::string_t> assetMediaStringFileName, boost::optional<utility::string_t> assetMediaStringContentType, boost::optional<std::shared_ptr<HttpContent>> assetAttachedMedia, boost::optional<utility::string_t> assetAttachedMediaUrl, boost::optional<utility::string_t> assetAttachedMediaString, boost::optional<utility::string_t> assetAttachedMediaStringFileName, boost::optional<utility::string_t> assetAttachedMediaStringContentType, boost::optional<utility::string_t> assetLocationDescription, boost::optional<utility::string_t> assetApp, boost::optional<utility::string_t> assetSearchTags, boost::optional<double> assetLatitude, boost::optional<double> assetLongitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -467,13 +465,12 @@ pplx::task<std::shared_ptr<NoteResponse>> NoteApi::createNote(double version, ut
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::deleteNote(double version, int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::deleteNote(int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -613,13 +610,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::deleteNote(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::getNote(double version, int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> returnFullResponse) const
+pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::getNote(int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> returnFullResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -751,13 +747,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> NoteApi::getNote(double version, int
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<NoteResponse>>> NoteApi::searchNotes(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> notableType, boost::optional<int64_t> notableId, boost::optional<utility::string_t> noteTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> flagsExceedThreshold, boost::optional<bool> includeInactive, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> returnFullResponse, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<NoteResponse>>> NoteApi::searchNotes(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> notableType, boost::optional<int64_t> notableId, boost::optional<utility::string_t> noteTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> flagsExceedThreshold, boost::optional<bool> includeInactive, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> returnFullResponse, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -946,13 +941,12 @@ pplx::task<std::vector<std::shared_ptr<NoteResponse>>> NoteApi::searchNotes(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<NoteResponse>> NoteApi::updateNote(double version, int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> noteType, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<bool> returnFullResponse, boost::optional<bool> active, boost::optional<bool> updateAsset, boost::optional<bool> assetReturnNulls, boost::optional<int64_t> assetAlbumId, boost::optional<int64_t> assetCollectionId, boost::optional<utility::string_t> assetAddToDefaultAlbum, boost::optional<bool> assetAddToMediaLibrary, boost::optional<int32_t> assetVersionCode, boost::optional<utility::string_t> assetVersionName, boost::optional<utility::string_t> assetMetaData, boost::optional<utility::string_t> assetCaption, boost::optional<std::shared_ptr<HttpContent>> assetMedia, boost::optional<utility::string_t> assetMediaUrl, boost::optional<utility::string_t> assetMediaString, boost::optional<utility::string_t> assetMediaStringFileName, boost::optional<utility::string_t> assetMediaStringContentType, boost::optional<std::shared_ptr<HttpContent>> assetAttachedMedia, boost::optional<utility::string_t> assetAttachedMediaUrl, boost::optional<utility::string_t> assetAttachedMediaString, boost::optional<utility::string_t> assetAttachedMediaStringFileName, boost::optional<utility::string_t> assetAttachedMediaStringContentType, boost::optional<utility::string_t> assetLocationDescription, boost::optional<utility::string_t> assetApp, boost::optional<utility::string_t> assetSearchTags, boost::optional<double> assetLatitude, boost::optional<double> assetLongitude) const
+pplx::task<std::shared_ptr<NoteResponse>> NoteApi::updateNote(int64_t noteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> comment, boost::optional<utility::string_t> noteType, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<bool> returnFullResponse, boost::optional<bool> active, boost::optional<bool> updateAsset, boost::optional<bool> assetReturnNulls, boost::optional<int64_t> assetAlbumId, boost::optional<int64_t> assetCollectionId, boost::optional<utility::string_t> assetAddToDefaultAlbum, boost::optional<bool> assetAddToMediaLibrary, boost::optional<int32_t> assetVersionCode, boost::optional<utility::string_t> assetVersionName, boost::optional<utility::string_t> assetMetaData, boost::optional<utility::string_t> assetCaption, boost::optional<std::shared_ptr<HttpContent>> assetMedia, boost::optional<utility::string_t> assetMediaUrl, boost::optional<utility::string_t> assetMediaString, boost::optional<utility::string_t> assetMediaStringFileName, boost::optional<utility::string_t> assetMediaStringContentType, boost::optional<std::shared_ptr<HttpContent>> assetAttachedMedia, boost::optional<utility::string_t> assetAttachedMediaUrl, boost::optional<utility::string_t> assetAttachedMediaString, boost::optional<utility::string_t> assetAttachedMediaStringFileName, boost::optional<utility::string_t> assetAttachedMediaStringContentType, boost::optional<utility::string_t> assetLocationDescription, boost::optional<utility::string_t> assetApp, boost::optional<utility::string_t> assetSearchTags, boost::optional<double> assetLatitude, boost::optional<double> assetLongitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/note/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/note/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

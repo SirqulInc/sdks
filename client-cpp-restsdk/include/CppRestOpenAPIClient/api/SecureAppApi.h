@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Create a secure application record.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The unique id of the user making the request</param>
     /// <param name="appKey">The application to secure</param>
     /// <param name="keyCert"></param>
@@ -65,7 +64,6 @@ public:
     /// <param name="biometricPosition">The position for the biometric file uploaded (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> createSecureApplication(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         std::shared_ptr<HttpContent> keyCert,
@@ -83,11 +81,9 @@ public:
     /// <remarks>
     /// Delete a secure application record.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The unique id of the user making the request</param>
     /// <param name="appKey">The application to secure</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteSecureApplication(
-        double version,
         int64_t accountId,
         utility::string_t appKey
     ) const;
@@ -97,7 +93,6 @@ public:
     /// <remarks>
     /// Login via Clear.me. Creates a new account if logging in for the first time.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application making the request, defines what type and position is required to make a secure login the request.</param>
     /// <param name="biometricFile">The data file used to perform authentication</param>
     /// <param name="deviceId">The unique id of the device making the request (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -108,7 +103,6 @@ public:
     /// <param name="latitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> loginSecure(
-        double version,
         utility::string_t appKey,
         std::shared_ptr<HttpContent> biometricFile,
         boost::optional<utility::string_t> deviceId,
@@ -125,10 +119,8 @@ public:
     /// <remarks>
     /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body">The payment request object</param>
     pplx::task<std::shared_ptr<ProfileResponse>> purchaseSecure(
-        double version,
         std::shared_ptr<PaymentRequest> body
     ) const;
     /// <summary>
@@ -137,11 +129,9 @@ public:
     /// <remarks>
     /// Reset a secure application client.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The unique id of the user making the request</param>
     /// <param name="appKey">The application to secure</param>
     pplx::task<std::shared_ptr<SirqulResponse>> resetSecure(
-        double version,
         int64_t accountId,
         utility::string_t appKey
     ) const;
@@ -151,7 +141,6 @@ public:
     /// <remarks>
     /// Update a secure application record.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The unique id of the user making the request</param>
     /// <param name="appKey">The application to secure</param>
     /// <param name="active"> (optional, default to false)</param>
@@ -163,7 +152,6 @@ public:
     /// <param name="biometricPosition">The position for the biometric file uploaded (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="biometricPosition2">The position for each the biometric2 file uploaded (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateSecureApplication(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<bool> active,

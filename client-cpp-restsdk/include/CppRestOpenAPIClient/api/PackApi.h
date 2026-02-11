@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a pack.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="title">The title of the pack</param>
     /// <param name="packOrder">The order of the pack</param>
@@ -78,7 +77,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a pack (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PackResponse>> createPack(
-        double version,
         int64_t accountId,
         utility::string_t title,
         int64_t packOrder,
@@ -110,11 +108,9 @@ public:
     /// <remarks>
     /// Delete a pack.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="packId">the id of the pack to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deletePack(
-        double version,
         int64_t accountId,
         int64_t packId
     ) const;
@@ -124,12 +120,10 @@ public:
     /// <remarks>
     /// Get a pack.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="packId">The id of the pack to return.</param>
     /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false.</param>
     pplx::task<std::shared_ptr<PackResponse>> getPack(
-        double version,
         int64_t accountId,
         int64_t packId,
         bool includeGameData
@@ -140,7 +134,6 @@ public:
     /// <remarks>
     /// Search on packs.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="sortField">The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -152,7 +145,6 @@ public:
     /// <param name="includeInactive">Determines whether to include inactive results (optional, default to false)</param>
     /// <param name="appKey">The application to filter results on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<PackResponse>>> searchPacks(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -170,7 +162,6 @@ public:
     /// <remarks>
     /// Update a pack.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="packId">The id of the pack to update.</param>
     /// <param name="allocateTickets">Flag to indicate owner should receive tickets for completed packs</param>
@@ -197,7 +188,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a pack (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PackResponse>> updatePack(
-        double version,
         int64_t accountId,
         int64_t packId,
         bool allocateTickets,

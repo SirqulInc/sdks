@@ -36,13 +36,12 @@ ConnectionApi::~ConnectionApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionToGroup(double version, bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionToGroup(bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/addConnection");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/addConnection");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -193,13 +192,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionToGroup(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionsToGroup(double version, int64_t connectionGroupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionsToGroup(int64_t connectionGroupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/connection/group/addConnections");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/connection/group/addConnections");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -343,13 +341,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::addConnectionsToGroup
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::addSubGroups(double version, bool returnNulls, int64_t groupId, utility::string_t subGroupIds, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::addSubGroups(bool returnNulls, int64_t groupId, utility::string_t subGroupIds, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/addSubGroup");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/addSubGroup");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -491,13 +488,12 @@ pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::addSubGroups
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionResponse>> ConnectionApi::createOrUpdateConnection(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<int64_t> groupId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> isTrusted, boost::optional<bool> ignoreFriendRequest, boost::optional<bool> isContact, boost::optional<bool> isBlocked, boost::optional<bool> isFollowing, boost::optional<bool> connectionResponse) const
+pplx::task<std::shared_ptr<ConnectionResponse>> ConnectionApi::createOrUpdateConnection(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<int64_t> groupId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> isTrusted, boost::optional<bool> ignoreFriendRequest, boost::optional<bool> isContact, boost::optional<bool> isBlocked, boost::optional<bool> isFollowing, boost::optional<bool> connectionResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/add");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/add");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -670,13 +666,12 @@ pplx::task<std::shared_ptr<ConnectionResponse>> ConnectionApi::createOrUpdateCon
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::createOrUpdateGroup(double version, bool returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<int64_t> groupId, boost::optional<int64_t> assetId, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> description, boost::optional<bool> canViewProfileInfo, boost::optional<bool> canViewGameInfo, boost::optional<bool> canViewFriendInfo, boost::optional<bool> active, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::createOrUpdateGroup(bool returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<int64_t> groupId, boost::optional<int64_t> assetId, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> description, boost::optional<bool> canViewProfileInfo, boost::optional<bool> canViewGameInfo, boost::optional<bool> canViewFriendInfo, boost::optional<bool> active, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -848,13 +843,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::createOrUpdateGroup(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followAccept(double version, int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followAccept(int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/follow/accept");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/follow/accept");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -980,13 +974,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followAccept(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followReject(double version, int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followReject(int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/follow/reject");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/follow/reject");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1112,13 +1105,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followReject(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRemove(double version, int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRemove(int64_t accountId, int64_t connectionAccountId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/follow/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/follow/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1244,13 +1236,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRemove(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRequest(double version, int64_t accountId, int64_t connectionAccountId, utility::string_t appKey, boost::optional<bool> approvalNeeded) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRequest(int64_t accountId, int64_t connectionAccountId, utility::string_t appKey, boost::optional<bool> approvalNeeded) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/follow/request");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/follow/request");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1380,13 +1371,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::followRequest(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendAccept(double version, int64_t friendAccountId, bool notifyFriend, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> notificationMessage) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendAccept(int64_t friendAccountId, bool notifyFriend, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> notificationMessage) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/friend/accept");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/friend/accept");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1529,13 +1519,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendAccept(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendReject(double version, int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> notifyFriend, boost::optional<utility::string_t> notificationMessage) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendReject(int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> notifyFriend, boost::optional<utility::string_t> notificationMessage) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/friend/reject");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/friend/reject");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1679,13 +1668,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendReject(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRemove(double version, int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> notifyFriend, boost::optional<bool> removeFromGroups) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRemove(int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> notifyFriend, boost::optional<bool> removeFromGroups) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/friend/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/friend/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1821,13 +1809,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRemove(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRequest(double version, int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> notificationMessage) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRequest(int64_t friendAccountId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> notificationMessage) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/friend/request");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/friend/request");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1967,13 +1954,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::friendRequest(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnectionSentFriendRequests(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnectionSentFriendRequests(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/getRequested");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/getRequested");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2098,13 +2084,12 @@ pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnection
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnections(double version, bool returnNulls, utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnections(bool returnNulls, utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2275,13 +2260,12 @@ pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::getConnection
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::getGroupDetails(double version, bool combineConnections, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> groupId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::getGroupDetails(bool combineConnections, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> groupId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/details/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/details/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2421,13 +2405,12 @@ pplx::task<std::shared_ptr<ConnectionGroupResponse>> ConnectionApi::getGroupDeta
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ConnectionInfoResponse>>> ConnectionApi::groupSearch(double version, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<ConnectionInfoResponse>>> ConnectionApi::groupSearch(utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/connection/group/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/connection/group/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2583,13 +2566,12 @@ pplx::task<std::vector<std::shared_ptr<ConnectionInfoResponse>>> ConnectionApi::
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionFromGroup(double version, bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionFromGroup(bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> pendingId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/removeConnection");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/removeConnection");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2740,13 +2722,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionFromG
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionsFromGroup(double version, int64_t connectionGroupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionsFromGroup(int64_t connectionGroupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionAccountIds, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/connection/group/removeConnections");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/connection/group/removeConnections");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2890,13 +2871,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeConnectionsFrom
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeGroup(double version, bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeGroup(bool returnNulls, int64_t groupId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3035,13 +3015,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeGroup(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeSubGroups(double version, bool returnNulls, int64_t groupId, utility::string_t subGroupIds, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeSubGroups(bool returnNulls, int64_t groupId, utility::string_t subGroupIds, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/connection/group/removeSubGroup");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/connection/group/removeSubGroup");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3183,13 +3162,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ConnectionApi::removeSubGroups(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::searchConnections(double version, bool returnNulls, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<utility::string_t> sortField, boost::optional<bool> hasLocation) const
+pplx::task<std::shared_ptr<ConnectionListResponse>> ConnectionApi::searchConnections(bool returnNulls, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<utility::string_t> sortField, boost::optional<bool> hasLocation) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/connection/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/connection/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

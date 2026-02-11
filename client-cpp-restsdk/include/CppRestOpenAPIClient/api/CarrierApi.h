@@ -51,14 +51,12 @@ public:
     /// <remarks>
     /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="keyword">The keyword to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order (optional, default to false)</param>
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return inactive results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<CellCarrierResponse>>> searchCarriers(
-        double version,
         boost::optional<utility::string_t> keyword,
         boost::optional<bool> descending,
         boost::optional<int32_t> start,

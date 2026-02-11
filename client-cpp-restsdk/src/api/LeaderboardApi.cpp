@@ -36,13 +36,12 @@ LeaderboardApi::~LeaderboardApi()
 {
 }
 
-pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::createLeaderboard(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<std::shared_ptr<HttpContent>> iconMedia, boost::optional<int64_t> iconAssetId, boost::optional<std::shared_ptr<HttpContent>> bannerMedia, boost::optional<int64_t> bannerAssetId, boost::optional<int32_t> limitation, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::createLeaderboard(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<std::shared_ptr<HttpContent>> iconMedia, boost::optional<int64_t> iconAssetId, boost::optional<std::shared_ptr<HttpContent>> bannerMedia, boost::optional<int64_t> bannerAssetId, boost::optional<int32_t> limitation, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/leaderboard/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/leaderboard/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -211,13 +210,12 @@ pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::createLeaderboa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> LeaderboardApi::deleteLeaderboard(double version, int64_t leaderboardId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> LeaderboardApi::deleteLeaderboard(int64_t leaderboardId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/leaderboard/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/leaderboard/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -341,13 +339,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> LeaderboardApi::deleteLeaderboard(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::getLeaderboard(double version, int64_t leaderboardId, boost::optional<int64_t> accountId, boost::optional<bool> includeFullRankingList) const
+pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::getLeaderboard(int64_t leaderboardId, boost::optional<int64_t> accountId, boost::optional<bool> includeFullRankingList) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/leaderboard/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/leaderboard/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -475,13 +472,12 @@ pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::getLeaderboard(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::searchLeaderboards(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<bool> globalOnly, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> leaderboardIds, boost::optional<utility::string_t> rankTypes, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> includeInactive, boost::optional<bool> includeAppResponse, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::searchLeaderboards(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<bool> globalOnly, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> leaderboardIds, boost::optional<utility::string_t> rankTypes, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> includeInactive, boost::optional<bool> includeAppResponse, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/leaderboard/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/leaderboard/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -646,13 +642,12 @@ pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::searchLeaderboa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::updateLeaderboard(double version, int64_t leaderboardId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> sortField, boost::optional<std::shared_ptr<HttpContent>> iconMedia, boost::optional<int64_t> iconAssetId, boost::optional<std::shared_ptr<HttpContent>> bannerMedia, boost::optional<int64_t> bannerAssetId, boost::optional<int32_t> limitation, boost::optional<bool> active, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<LeaderboardResponse>> LeaderboardApi::updateLeaderboard(int64_t leaderboardId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> sortField, boost::optional<std::shared_ptr<HttpContent>> iconMedia, boost::optional<int64_t> iconAssetId, boost::optional<std::shared_ptr<HttpContent>> bannerMedia, boost::optional<int64_t> bannerAssetId, boost::optional<int32_t> limitation, boost::optional<bool> active, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/leaderboard/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/leaderboard/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

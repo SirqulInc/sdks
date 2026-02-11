@@ -36,13 +36,12 @@ TicketApi::~TicketApi()
 {
 }
 
-pplx::task<std::shared_ptr<CountResponse>> TicketApi::getTicketCount(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> ticketType) const
+pplx::task<std::shared_ptr<CountResponse>> TicketApi::getTicketCount(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> ticketType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ticket/count");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ticket/count");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -179,13 +178,12 @@ pplx::task<std::shared_ptr<CountResponse>> TicketApi::getTicketCount(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TicketListResponse>> TicketApi::getTicketList(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> ticketObjectType, boost::optional<utility::string_t> actionType, boost::optional<utility::string_t> ticketIds, boost::optional<utility::string_t> objectIds, boost::optional<utility::string_t> receiptTokens, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<TicketListResponse>> TicketApi::getTicketList(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> ticketObjectType, boost::optional<utility::string_t> actionType, boost::optional<utility::string_t> ticketIds, boost::optional<utility::string_t> objectIds, boost::optional<utility::string_t> receiptTokens, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ticket/getList");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ticket/getList");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -338,13 +336,12 @@ pplx::task<std::shared_ptr<TicketListResponse>> TicketApi::getTicketList(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TicketApi::giftPurchase(double version, int64_t receiverAccountId, int64_t ticketId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> assetId, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> TicketApi::giftPurchase(int64_t receiverAccountId, int64_t ticketId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> assetId, boost::optional<utility::string_t> customMessage, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/purchase/gift");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/purchase/gift");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -491,13 +488,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TicketApi::giftPurchase(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicket(double version, utility::string_t actionType, utility::string_t ticketObjectType, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int64_t> objectId, boost::optional<utility::string_t> purchaseCode, boost::optional<utility::string_t> receiptToken, boost::optional<utility::string_t> receiptData, boost::optional<int64_t> count, boost::optional<utility::string_t> ticketType, boost::optional<utility::string_t> purchaseProvider, boost::optional<utility::string_t> purchaseType, boost::optional<bool> returnProfileResponse, boost::optional<bool> includeProfileResponse, boost::optional<utility::string_t> appVersion) const
+pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicket(utility::string_t actionType, utility::string_t ticketObjectType, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int64_t> objectId, boost::optional<utility::string_t> purchaseCode, boost::optional<utility::string_t> receiptToken, boost::optional<utility::string_t> receiptData, boost::optional<int64_t> count, boost::optional<utility::string_t> ticketType, boost::optional<utility::string_t> purchaseProvider, boost::optional<utility::string_t> purchaseType, boost::optional<bool> returnProfileResponse, boost::optional<bool> includeProfileResponse, boost::optional<utility::string_t> appVersion) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ticket/save");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ticket/save");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -684,13 +680,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicket(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicketViaFileUpload(double version, utility::string_t actionType, utility::string_t ticketObjectType, std::shared_ptr<HttpContent> receiptData, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int64_t> objectId, boost::optional<utility::string_t> purchaseCode, boost::optional<utility::string_t> receiptToken, boost::optional<int64_t> count, boost::optional<utility::string_t> ticketType, boost::optional<utility::string_t> purchaseProvider, boost::optional<utility::string_t> purchaseType, boost::optional<bool> returnProfileResponse, boost::optional<bool> includeProfileResponse, boost::optional<utility::string_t> appVersion) const
+pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicketViaFileUpload(utility::string_t actionType, utility::string_t ticketObjectType, std::shared_ptr<HttpContent> receiptData, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<int64_t> objectId, boost::optional<utility::string_t> purchaseCode, boost::optional<utility::string_t> receiptToken, boost::optional<int64_t> count, boost::optional<utility::string_t> ticketType, boost::optional<utility::string_t> purchaseProvider, boost::optional<utility::string_t> purchaseType, boost::optional<bool> returnProfileResponse, boost::optional<bool> includeProfileResponse, boost::optional<utility::string_t> appVersion) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ticket/save/fileUpload");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ticket/save/fileUpload");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -876,13 +871,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> TicketApi::saveTicketViaFileUpload(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TicketOfferResponse>> TicketApi::ticketOffers(double version) const
+pplx::task<std::shared_ptr<TicketOfferResponse>> TicketApi::ticketOffers() const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ticket/ticketoffers");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ticket/ticketoffers");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

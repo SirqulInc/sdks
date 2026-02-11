@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Creates a reservation on an offer object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="startDate">The start date (optional, default to 0L)</param>
@@ -63,7 +62,6 @@ public:
     /// <param name="appKey">The application requesting the reservation (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="metaData">External custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<void> createReservation(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> startDate,
@@ -79,12 +77,10 @@ public:
     /// <remarks>
     /// Deleted a reservation on a reservation object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="reservationId">The reservation id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<void> deleteReservation(
-        double version,
         int64_t reservationId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -95,7 +91,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="reservableId">the id of the reservation</param>
     /// <param name="reservableType">the type of reservation</param>
     /// <param name="deviceId">the device id of the reservation (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -103,7 +98,6 @@ public:
     /// <param name="availability">Availability (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="availabilitySummary">Availability Summary (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> reservableAvailability(
-        double version,
         int64_t reservableId,
         utility::string_t reservableType,
         boost::optional<utility::string_t> deviceId,
@@ -117,7 +111,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="reservableId">the id of the reservation</param>
     /// <param name="reservableType">the reservable type</param>
     /// <param name="deviceId">the device ID that the reservation is on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -127,7 +120,6 @@ public:
     /// <param name="start">the start of the index and/or pagination (optional, default to 0)</param>
     /// <param name="limit">the limit of the index and/or pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<AvailabilityResponse>>> searchAvailability(
-        double version,
         int64_t reservableId,
         utility::string_t reservableType,
         boost::optional<utility::string_t> deviceId,
@@ -143,7 +135,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">Device Id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">Appilcation Key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the id of the logged in user (optional, default to 0L)</param>
@@ -156,7 +147,6 @@ public:
     /// <param name="start">the start of the index and/or pagination (optional, default to 0)</param>
     /// <param name="limit">the limit of the index and/or pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<ReservationResponse>>> searchReservations(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<utility::string_t> appKey,
         boost::optional<int64_t> accountId,
@@ -175,7 +165,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="reservableId">the id of the reservation</param>
     /// <param name="reservableType">the reservation type</param>
     /// <param name="startDate">the start date of the reservation</param>
@@ -184,7 +173,6 @@ public:
     /// <param name="accountId">the id of the logged in user (optional, default to 0L)</param>
     /// <param name="timeBucketMins">the length of time in minutes to search on for reservation (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<TimeSlotResponse>>> searchSchedule(
-        double version,
         int64_t reservableId,
         utility::string_t reservableType,
         int64_t startDate,

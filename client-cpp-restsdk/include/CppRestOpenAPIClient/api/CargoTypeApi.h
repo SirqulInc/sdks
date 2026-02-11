@@ -51,10 +51,8 @@ public:
     /// <remarks>
     /// Create new cargo type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<CargoType>> createCargoType(
-        double version,
         boost::optional<std::shared_ptr<CargoType>> body
     ) const;
     /// <summary>
@@ -63,10 +61,8 @@ public:
     /// <remarks>
     /// Delete a type of cargo
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="cargoTypeId">the ID of the cargo type</param>
     pplx::task<void> deleteCargoType(
-        double version,
         int64_t cargoTypeId
     ) const;
     /// <summary>
@@ -75,10 +71,8 @@ public:
     /// <remarks>
     /// Get an existing cargo type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="cargoTypeId">the cargo type ID</param>
     pplx::task<std::shared_ptr<CargoType>> getCargoType(
-        double version,
         int64_t cargoTypeId
     ) const;
     /// <summary>
@@ -87,7 +81,6 @@ public:
     /// <remarks>
     /// Search for types of cargo
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">the sort field to use for the cargo type</param>
     /// <param name="descending">if the cargo type should be should be in descending order</param>
     /// <param name="start">the start of the search</param>
@@ -96,7 +89,6 @@ public:
     /// <param name="retailerId">the id of the retailer location (optional, default to 0L)</param>
     /// <param name="hubId">the ID of the hub (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<CargoType>>> searchCargoTypes(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -111,11 +103,9 @@ public:
     /// <remarks>
     /// Update an existing cargo type
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="cargoTypeId">the ID of the cargo type</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<CargoType>> updateCargoType(
-        double version,
         int64_t cargoTypeId,
         boost::optional<std::shared_ptr<CargoType>> body
     ) const;

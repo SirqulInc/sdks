@@ -51,13 +51,11 @@ public:
     /// <remarks>
     /// Gets a user&#39;s Facebook token.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<TokenResponse>> getToken(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
@@ -69,7 +67,6 @@ public:
     /// <remarks>
     /// Make Facebook posts on behalf of the user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="event">the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -81,7 +78,6 @@ public:
     /// <param name="latitude">used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> graphInterface(
-        double version,
         utility::string_t event,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

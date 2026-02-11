@@ -54,7 +54,6 @@ public:
     /// <remarks>
     ///  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appKey">The application of where to send notifications about the attend action (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="latitude">The location of the status update (optional, default to 0.0)</param>
     /// <param name="longitude">The location of the status update (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<OfferResponse>> attendEvent(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -84,7 +82,6 @@ public:
     /// <remarks>
     /// Create a private event to share with associates.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="title">The event title</param>
     /// <param name="retailerLocationIds">The retailer location to have the event at (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -98,7 +95,6 @@ public:
     /// <param name="redeemableEnd">The event end date/time (optional, default to 0L)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferResponse>> createEvent(
-        double version,
         int64_t accountId,
         utility::string_t title,
         boost::optional<utility::string_t> retailerLocationIds,
@@ -118,11 +114,9 @@ public:
     /// <remarks>
     /// Delete an event that the user has permissions to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="eventId">the id of the event to update</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteEvent(
-        double version,
         int64_t accountId,
         int64_t eventId
     ) const;
@@ -132,11 +126,9 @@ public:
     /// <remarks>
     /// Get an event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="eventId">The id of the event to return</param>
     pplx::task<std::shared_ptr<OfferResponse>> getEvent(
-        double version,
         int64_t accountId,
         int64_t eventId
     ) const;
@@ -146,7 +138,6 @@ public:
     /// <remarks>
     /// Searches on event type transactions. This can be used to see who is attending an event.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appKey">The application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -167,7 +158,6 @@ public:
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<EventAttendanceResponse>>> searchEventTransactions(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -194,7 +184,6 @@ public:
     /// <remarks>
     /// Searches on events that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="keyword">The keyword used to search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="activeOnly">Return only active results (optional, default to false)</param>
@@ -209,7 +198,6 @@ public:
     /// <param name="start">The record to begin the return set on (optional, default to 0)</param>
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> searchEvents(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<bool> activeOnly,
@@ -230,7 +218,6 @@ public:
     /// <remarks>
     /// Update a private event to share with associates.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="eventId">The id of the event to update</param>
     /// <param name="retailerLocationIds">The retailer location to have the event at (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -244,7 +231,6 @@ public:
     /// <param name="redeemableStart">The event start date/time (optional, default to 0L)</param>
     /// <param name="redeemableEnd">The event end date/time (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<OfferResponse>> updateEvent(
-        double version,
         int64_t accountId,
         int64_t eventId,
         boost::optional<utility::string_t> retailerLocationIds,

@@ -36,13 +36,12 @@ RouteApi::~RouteApi()
 {
 }
 
-pplx::task<std::shared_ptr<Route>> RouteApi::approveRoute(double version, int64_t routeId) const
+pplx::task<std::shared_ptr<Route>> RouteApi::approveRoute(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/approve");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/approve");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -160,13 +159,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::approveRoute(double version, int64_
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::copyRoute(double version, int64_t routeId, boost::optional<std::shared_ptr<Route>> body) const
+pplx::task<std::shared_ptr<Route>> RouteApi::copyRoute(int64_t routeId, boost::optional<std::shared_ptr<Route>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/copy");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/copy");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -300,13 +298,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::copyRoute(double version, int64_t r
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::createRoute(double version, boost::optional<std::shared_ptr<Route>> body) const
+pplx::task<std::shared_ptr<Route>> RouteApi::createRoute(boost::optional<std::shared_ptr<Route>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -439,13 +436,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::createRoute(double version, boost::
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::createRouteDirections(double version, int64_t routeId) const
+pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::createRouteDirections(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/directions");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/directions");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -567,13 +563,12 @@ pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::createRouteDirecti
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::createRoutePolyline(double version, int64_t routeId) const
+pplx::task<std::shared_ptr<Route>> RouteApi::createRoutePolyline(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/polyline");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/polyline");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -691,13 +686,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::createRoutePolyline(double version,
         return localVarResult;
     });
 }
-pplx::task<void> RouteApi::deleteRoute(double version, int64_t routeId) const
+pplx::task<void> RouteApi::deleteRoute(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -796,13 +790,12 @@ pplx::task<void> RouteApi::deleteRoute(double version, int64_t routeId) const
         return void();
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::disapproveRoute(double version, int64_t routeId) const
+pplx::task<std::shared_ptr<Route>> RouteApi::disapproveRoute(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/disapprove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/disapprove");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -920,13 +913,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::disapproveRoute(double version, int
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::getRoute(double version, int64_t routeId, bool showInheritedProperties) const
+pplx::task<std::shared_ptr<Route>> RouteApi::getRoute(int64_t routeId, bool showInheritedProperties) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1047,13 +1039,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::getRoute(double version, int64_t ro
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::getRouteDirections(double version, int64_t routeId) const
+pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::getRouteDirections(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/directions");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/directions");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1175,13 +1166,12 @@ pplx::task<std::vector<std::shared_ptr<Direction>>> RouteApi::getRouteDirections
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getRouteShipments(double version, int64_t routeId) const
+pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getRouteShipments(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/shipments");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/shipments");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1303,13 +1293,12 @@ pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getRouteShipments(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Stop>> RouteApi::getRouteStop(double version, int64_t routeId, int64_t stopId) const
+pplx::task<std::shared_ptr<Stop>> RouteApi::getRouteStop(int64_t routeId, int64_t stopId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stop/{stopId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stop/{stopId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("stopId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(stopId)));
 
@@ -1428,13 +1417,12 @@ pplx::task<std::shared_ptr<Stop>> RouteApi::getRouteStop(double version, int64_t
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::getRouteStops(double version, int64_t routeId, bool confirmedOnly) const
+pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::getRouteStops(int64_t routeId, bool confirmedOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stops");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stops");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1559,13 +1547,12 @@ pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::getRouteStops(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getShipmentsAtStop(double version, int64_t routeId, int64_t stopId) const
+pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getShipmentsAtStop(int64_t routeId, int64_t stopId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stop/{stopId}/shipments");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stop/{stopId}/shipments");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("stopId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(stopId)));
 
@@ -1688,13 +1675,12 @@ pplx::task<std::vector<std::shared_ptr<Shipment>>> RouteApi::getShipmentsAtStop(
         return localVarResult;
     });
 }
-pplx::task<void> RouteApi::optimizeRoute(double version, int64_t routeId) const
+pplx::task<void> RouteApi::optimizeRoute(int64_t routeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/optimize");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/optimize");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1793,13 +1779,12 @@ pplx::task<void> RouteApi::optimizeRoute(double version, int64_t routeId) const
         return void();
     });
 }
-pplx::task<void> RouteApi::removeStop(double version, int64_t routeId, int64_t stopId) const
+pplx::task<void> RouteApi::removeStop(int64_t routeId, int64_t stopId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stop/{stopId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stop/{stopId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("stopId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(stopId)));
 
@@ -1899,13 +1884,12 @@ pplx::task<void> RouteApi::removeStop(double version, int64_t routeId, int64_t s
         return void();
     });
 }
-pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPatch(double version, int64_t routeId, boost::optional<std::vector<std::shared_ptr<Stop>>> body) const
+pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPatch(int64_t routeId, boost::optional<std::vector<std::shared_ptr<Stop>>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stops/reorder");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stops/reorder");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2054,13 +2038,12 @@ pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPatch(
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPost(double version, int64_t routeId, boost::optional<std::vector<std::shared_ptr<Stop>>> body) const
+pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPost(int64_t routeId, boost::optional<std::vector<std::shared_ptr<Stop>>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stops/reorder");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stops/reorder");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2209,13 +2192,12 @@ pplx::task<std::vector<std::shared_ptr<Stop>>> RouteApi::reorderRouteStopsPost(d
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Route>>> RouteApi::searchRoutes(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, boost::optional<int64_t> hubId, boost::optional<int64_t> programId, boost::optional<int64_t> scheduledStart, boost::optional<int64_t> scheduledEnd, boost::optional<int64_t> updatedStart, boost::optional<int64_t> updatedEnd, boost::optional<bool> featured, boost::optional<int32_t> seatCount, boost::optional<bool> approved, boost::optional<bool> started, boost::optional<bool> completed, boost::optional<bool> valid, boost::optional<int64_t> parentId) const
+pplx::task<std::vector<std::shared_ptr<Route>>> RouteApi::searchRoutes(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool includesEmpty, bool rootOnly, bool showInheritedProperties, boost::optional<int64_t> hubId, boost::optional<int64_t> programId, boost::optional<int64_t> scheduledStart, boost::optional<int64_t> scheduledEnd, boost::optional<int64_t> updatedStart, boost::optional<int64_t> updatedEnd, boost::optional<bool> featured, boost::optional<int32_t> seatCount, boost::optional<bool> approved, boost::optional<bool> started, boost::optional<bool> completed, boost::optional<bool> valid, boost::optional<int64_t> parentId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2412,13 +2394,12 @@ pplx::task<std::vector<std::shared_ptr<Route>>> RouteApi::searchRoutes(double ve
         return localVarResult;
     });
 }
-pplx::task<void> RouteApi::setDriver(double version, int64_t id, int64_t driverId) const
+pplx::task<void> RouteApi::setDriver(int64_t id, int64_t driverId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{id}/driver/{driverId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{id}/driver/{driverId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("driverId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(driverId)));
 
@@ -2518,13 +2499,12 @@ pplx::task<void> RouteApi::setDriver(double version, int64_t id, int64_t driverI
         return void();
     });
 }
-pplx::task<std::shared_ptr<Route>> RouteApi::updateRoute(double version, int64_t routeId, boost::optional<std::shared_ptr<Route>> body) const
+pplx::task<std::shared_ptr<Route>> RouteApi::updateRoute(int64_t routeId, boost::optional<std::shared_ptr<Route>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2658,13 +2638,12 @@ pplx::task<std::shared_ptr<Route>> RouteApi::updateRoute(double version, int64_t
         return localVarResult;
     });
 }
-pplx::task<void> RouteApi::updateRouteStop(double version, int64_t routeId, int64_t stopId, boost::optional<std::shared_ptr<Stop>> body) const
+pplx::task<void> RouteApi::updateRouteStop(int64_t routeId, int64_t stopId, boost::optional<std::shared_ptr<Stop>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/route/{routeId}/stop/{stopId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/route/{routeId}/stop/{stopId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("routeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(routeId)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("stopId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(stopId)));
 

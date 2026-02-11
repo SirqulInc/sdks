@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="publicRead">determines whether the theme&#39;s participants have read permissions</param>
     /// <param name="publicWrite">determines whether the theme&#39;s participants have write permissions</param>
     /// <param name="publicDelete">determines whether the theme&#39;s participants have delete permissions</param>
@@ -82,7 +81,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ThemeDescriptorResponse>> addOrUpdateThemeDescriptor(
-        double version,
         bool publicRead,
         bool publicWrite,
         bool publicDelete,
@@ -117,7 +115,6 @@ public:
     /// <remarks>
     /// Gets a theme.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="themeDescriptorId">the theme id</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -125,7 +122,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<PurchaseItemListResponse>> getThemeDescriptor(
-        double version,
         int64_t themeDescriptorId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -139,7 +135,6 @@ public:
     /// <remarks>
     /// Searches for themes.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="filter">a comma separated list of Ownership</param>
     /// <param name="sortField">the field to sort by. See ThemeDescriptorApiMap</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -159,7 +154,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<PurchaseItemListResponse>> getThemeDescriptors(
-        double version,
         utility::string_t filter,
         utility::string_t sortField,
         bool descending,
@@ -185,7 +179,6 @@ public:
     /// <remarks>
     /// Removes a theme.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="themeDescriptorId">the theme id to remove</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -193,7 +186,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeThemeDescriptor(
-        double version,
         int64_t themeDescriptorId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

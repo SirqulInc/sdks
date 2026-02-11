@@ -54,7 +54,6 @@ public:
     /// <remarks>
     /// Creates a listing.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user&#39;s account ID</param>
     /// <param name="name">the name of the listing</param>
     /// <param name="filterIds">comma separated list of filter IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -70,7 +69,6 @@ public:
     /// <param name="active">Sets the active flag (optional, default to false)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ListingFullResponse>> createListing(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> filterIds,
@@ -92,11 +90,9 @@ public:
     /// <remarks>
     /// Delete a listing.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="listingId">the id of the listing to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteListing(
-        double version,
         int64_t accountId,
         int64_t listingId
     ) const;
@@ -106,10 +102,8 @@ public:
     /// <remarks>
     /// Get a listing by id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="listingId">the id of the listing to get</param>
     pplx::task<std::shared_ptr<ListingFullResponse>> getListing(
-        double version,
         int64_t listingId
     ) const;
     /// <summary>
@@ -118,7 +112,6 @@ public:
     /// <remarks>
     /// Search for event listings from the start time to end time
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user (optional, default to 0L)</param>
     /// <param name="keyword">search the event name and description for this keyword (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="start">the record to begin the return set on (optional, default to 0)</param>
@@ -135,7 +128,6 @@ public:
     /// <param name="externalId2">secondary external identifier used by a third party (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="externalGroupId">external group identifier used by a third party (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<ListingResponse>>> searchListing(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<int32_t> start,
@@ -158,14 +150,12 @@ public:
     /// <remarks>
     /// Search for a list of summary listings from the start time up to 8 days out.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user (optional, default to 0L)</param>
     /// <param name="startDate">the start date to search from (optional, default to 0L)</param>
     /// <param name="categoryIds">the list of categories to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="daysToInclude">how far out to search, in days (optional, default to 0)</param>
     /// <param name="useListingOrderIds">determines whether to use configured listing order ids (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<ListingGroupResponse>>> summaryListing(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> startDate,
         boost::optional<utility::string_t> categoryIds,
@@ -178,7 +168,6 @@ public:
     /// <remarks>
     /// Updates a listing.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user&#39;s account ID</param>
     /// <param name="listingId">the listing to update</param>
     /// <param name="filterIds">comma separated list of filter IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -195,7 +184,6 @@ public:
     /// <param name="active">Sets the active flag (optional, default to false)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ListingFullResponse>> updateListing(
-        double version,
         int64_t accountId,
         int64_t listingId,
         boost::optional<utility::string_t> filterIds,

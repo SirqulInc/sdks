@@ -36,13 +36,12 @@ TriggerApi::~TriggerApi()
 {
 }
 
-pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::createTrigger(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::createTrigger(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trigger/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trigger/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -209,13 +208,12 @@ pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::createTrigger(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TriggerApi::deleteTrigger(double version, int64_t accountId, int64_t triggerId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TriggerApi::deleteTrigger(int64_t accountId, int64_t triggerId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trigger/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trigger/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -338,13 +336,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TriggerApi::deleteTrigger(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::getTrigger(double version, int64_t accountId, int64_t triggerId) const
+pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::getTrigger(int64_t accountId, int64_t triggerId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trigger/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trigger/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -467,13 +464,12 @@ pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::getTrigger(double versi
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<TriggerResponse>>> TriggerApi::searchTriggers(double version, int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<TriggerResponse>>> TriggerApi::searchTriggers(int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trigger/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trigger/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -641,13 +637,12 @@ pplx::task<std::vector<std::shared_ptr<TriggerResponse>>> TriggerApi::searchTrig
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::updateTrigger(double version, int64_t triggerId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TriggerResponse>> TriggerApi::updateTrigger(int64_t triggerId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> conditionalInput, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trigger/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trigger/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

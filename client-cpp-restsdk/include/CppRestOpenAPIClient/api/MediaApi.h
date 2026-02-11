@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a media offering.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the logged in user</param>
     /// <param name="title">The title (255 char limit)</param>
     /// <param name="barcodeType">The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}</param>
@@ -111,7 +110,6 @@ public:
     /// <param name="availability">ability to assign if this media should active or not (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="availabilitySummary">ability to assign when the media expires (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MediaOfferResponse>> createMedia(
-        double version,
         int64_t accountId,
         utility::string_t title,
         utility::string_t barcodeType,
@@ -176,11 +174,9 @@ public:
     /// <remarks>
     /// Delete a media offering that the user has permissions to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="mediaId">the ID of the media to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteMedia(
-        double version,
         int64_t accountId,
         int64_t mediaId
     ) const;
@@ -190,11 +186,9 @@ public:
     /// <remarks>
     /// Get a media offering.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="mediaId">the id of the media to get</param>
     pplx::task<std::shared_ptr<MediaOfferResponse>> getMedia(
-        double version,
         int64_t accountId,
         int64_t mediaId
     ) const;
@@ -204,7 +198,6 @@ public:
     /// <remarks>
     /// Searches on events that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="activeOnly">Return only active results</param>
     /// <param name="sortField">The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE</param>
@@ -215,7 +208,6 @@ public:
     /// <param name="start">The record to begin the return set on (optional, default to 0)</param>
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<MediaOfferResponse>>> searchMedia(
-        double version,
         int64_t accountId,
         bool activeOnly,
         utility::string_t sortField,
@@ -232,7 +224,6 @@ public:
     /// <remarks>
     /// Update a media offering.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)</param>
     /// <param name="mediaId"></param>
     /// <param name="retailerLocationIds">Comma separated list of retailer location ids. This will assign the offer to these retailer locations. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -293,7 +284,6 @@ public:
     /// <param name="availability"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="availabilitySummary"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<MediaOfferResponse>> updateMedia(
-        double version,
         int64_t accountId,
         int64_t mediaId,
         boost::optional<utility::string_t> retailerLocationIds,

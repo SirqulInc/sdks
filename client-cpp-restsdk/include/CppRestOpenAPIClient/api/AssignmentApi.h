@@ -54,11 +54,9 @@ public:
     /// <remarks>
     /// Search for avaiable users for creating or updating assignment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id sending the request</param>
     /// <param name="keyword">The keyword to filter the returned results (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> assigmentAssigneeAccountSearch(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword
     ) const;
@@ -68,7 +66,6 @@ public:
     /// <remarks>
     /// Create an assignment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="name">the name for the assignment</param>
     /// <param name="assigneeAccountId">the account id to assign to</param>
@@ -77,7 +74,6 @@ public:
     /// <param name="tags">the tags (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">determines whether the assignment is active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<AssignmentResponse>> assignmentCreate(
-        double version,
         int64_t accountId,
         utility::string_t name,
         int64_t assigneeAccountId,
@@ -92,11 +88,9 @@ public:
     /// <remarks>
     /// Delete an assignment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentId">the assignment id</param>
     pplx::task<std::shared_ptr<SirqulResponse>> assignmentDelete(
-        double version,
         int64_t accountId,
         int64_t assignmentId
     ) const;
@@ -106,11 +100,9 @@ public:
     /// <remarks>
     /// Get the details of an assignment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentId">the assignment id</param>
     pplx::task<std::shared_ptr<AssignmentResponse>> assignmentGet(
-        double version,
         int64_t accountId,
         int64_t assignmentId
     ) const;
@@ -120,7 +112,6 @@ public:
     /// <remarks>
     /// Search for assignments by the given parameters.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account sending the request</param>
     /// <param name="sortField">sort by table field</param>
     /// <param name="descending">return results in descending order or not</param>
@@ -133,7 +124,6 @@ public:
     /// <param name="currentStatusType">filter results by assignment status (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">filter results by keyword search that matches the assignee, creator, or retailer location name (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AssignmentResponse>>> assignmentSearch(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -152,7 +142,6 @@ public:
     /// <remarks>
     /// Create an assignment status.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentId">the assignment id</param>
     /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional, default to 0L)</param>
@@ -165,7 +154,6 @@ public:
     /// <param name="followUp">the date to follow up by (optional, default to 0L)</param>
     /// <param name="active">determines whether the assignment status is active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<AssignmentStatusResponse>> assignmentStatusCreate(
-        double version,
         int64_t accountId,
         int64_t assignmentId,
         boost::optional<int64_t> scheduledNotificationId,
@@ -184,11 +172,9 @@ public:
     /// <remarks>
     /// Deletes an assignment status.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentStatusId">the assignment status id</param>
     pplx::task<std::shared_ptr<SirqulResponse>> assignmentStatusDelete(
-        double version,
         int64_t accountId,
         int64_t assignmentStatusId
     ) const;
@@ -198,11 +184,9 @@ public:
     /// <remarks>
     /// Get an assignment status.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentStatusId">the assignment status id</param>
     pplx::task<std::shared_ptr<AssignmentStatusResponse>> assignmentStatusGet(
-        double version,
         int64_t accountId,
         int64_t assignmentStatusId
     ) const;
@@ -212,7 +196,6 @@ public:
     /// <remarks>
     /// Search on assignment statuses.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="sortField">the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -226,7 +209,6 @@ public:
     /// <param name="statusType">filter results by the status type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">filter results by keyword search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AssignmentStatusResponse>>> assignmentStatusSearch(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -246,7 +228,6 @@ public:
     /// <remarks>
     /// Updates an assignment status.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentStatusId">the assignment status id</param>
     /// <param name="scheduledNotificationId">the scheduled notification id for reminders (optional, default to 0L)</param>
@@ -259,7 +240,6 @@ public:
     /// <param name="followUp">the date to follow up by (optional, default to 0L)</param>
     /// <param name="active">determines whether the assignment status is active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<AssignmentStatusResponse>> assignmentStatusUpdate(
-        double version,
         int64_t accountId,
         int64_t assignmentStatusId,
         boost::optional<int64_t> scheduledNotificationId,
@@ -278,7 +258,6 @@ public:
     /// <remarks>
     /// Updates an assignment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the user account id</param>
     /// <param name="assignmentId">the assignment id</param>
     /// <param name="name">the name of the assignment (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -288,7 +267,6 @@ public:
     /// <param name="tags">the tags (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">determines whether the assignment is active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<AssignmentResponse>> assignmentUpdate(
-        double version,
         int64_t accountId,
         int64_t assignmentId,
         boost::optional<utility::string_t> name,

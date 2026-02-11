@@ -50,14 +50,12 @@ public:
     /// <remarks>
     /// Runs a published executable workflow
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user</param>
     /// <param name="workflowId">the workflow to run</param>
     /// <param name="skuId">this runs a particular sku on the workflow (optional, default to 0L)</param>
     /// <param name="versionCode">this runs a particular sku version on the workflow (optional, default to 0)</param>
     /// <param name="parameters">Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60;  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> runWorkflow(
-        double version,
         int64_t accountId,
         int64_t workflowId,
         boost::optional<int64_t> skuId,

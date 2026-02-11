@@ -36,13 +36,12 @@ LocationApiV2Api::~LocationApiV2Api()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> LocationApiV2Api::createLocationV2(double version, boost::optional<std::shared_ptr<Location>> body) const
+pplx::task<std::shared_ptr<SirqulResponse>> LocationApiV2Api::createLocationV2(boost::optional<std::shared_ptr<Location>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> LocationApiV2Api::createLocationV2(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> LocationApiV2Api::updateLocationV2(double version, int64_t id, boost::optional<std::shared_ptr<Location>> body) const
+pplx::task<std::shared_ptr<SirqulResponse>> LocationApiV2Api::updateLocationV2(int64_t id, boost::optional<std::shared_ptr<Location>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

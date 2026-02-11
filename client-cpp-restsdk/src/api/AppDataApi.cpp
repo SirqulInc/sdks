@@ -36,13 +36,12 @@ AppDataApi::~AppDataApi()
 {
 }
 
-pplx::task<std::shared_ptr<AppResponse>> AppDataApi::getAppData(double version, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<bool> includeGameData, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<bool> gameObjectCount, boost::optional<utility::string_t> filter, boost::optional<int64_t> dateCreated, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> missionIds, boost::optional<utility::string_t> gameIds, boost::optional<utility::string_t> packIds, boost::optional<utility::string_t> gameLevelIds, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeHigherVersionPacks, boost::optional<bool> includeHigherVersionLevels, boost::optional<utility::string_t> responseGroups, boost::optional<utility::string_t> purchaseType) const
+pplx::task<std::shared_ptr<AppResponse>> AppDataApi::getAppData(int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<bool> includeGameData, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<bool> gameObjectCount, boost::optional<utility::string_t> filter, boost::optional<int64_t> dateCreated, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> missionIds, boost::optional<utility::string_t> gameIds, boost::optional<utility::string_t> packIds, boost::optional<utility::string_t> gameLevelIds, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeHigherVersionPacks, boost::optional<bool> includeHigherVersionLevels, boost::optional<utility::string_t> responseGroups, boost::optional<utility::string_t> purchaseType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/app/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/app/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -257,13 +256,12 @@ pplx::task<std::shared_ptr<AppResponse>> AppDataApi::getAppData(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AppResponse>> AppDataApi::postAppData(double version, utility::string_t gameType, int32_t start, int32_t limit, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeGameData, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<bool> gameObjectCount, boost::optional<utility::string_t> filter, boost::optional<int64_t> dateCreated, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> missionIds, boost::optional<utility::string_t> gameIds, boost::optional<utility::string_t> packIds, boost::optional<utility::string_t> gameLevelIds, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeHigherVersionPacks, boost::optional<bool> includeHigherVersionLevels, boost::optional<utility::string_t> responseGroups, boost::optional<utility::string_t> purchaseType) const
+pplx::task<std::shared_ptr<AppResponse>> AppDataApi::postAppData(utility::string_t gameType, int32_t start, int32_t limit, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeGameData, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<bool> gameObjectCount, boost::optional<utility::string_t> filter, boost::optional<int64_t> dateCreated, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> missionIds, boost::optional<utility::string_t> gameIds, boost::optional<utility::string_t> packIds, boost::optional<utility::string_t> gameLevelIds, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeHigherVersionPacks, boost::optional<bool> includeHigherVersionLevels, boost::optional<utility::string_t> responseGroups, boost::optional<utility::string_t> purchaseType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/app/post");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/app/post");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -480,13 +478,12 @@ pplx::task<std::shared_ptr<AppResponse>> AppDataApi::postAppData(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AppDataApi::regenAppData(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> buildVersion, boost::optional<utility::string_t> apiVersion) const
+pplx::task<std::shared_ptr<SirqulResponse>> AppDataApi::regenAppData(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> buildVersion, boost::optional<utility::string_t> apiVersion) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/app/regen");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/app/regen");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -54,10 +54,8 @@ public:
     /// <remarks>
     /// Approve a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to approve</param>
     pplx::task<std::shared_ptr<Route>> approveRoute(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -66,11 +64,9 @@ public:
     /// <remarks>
     /// Make an copy of the given route with optional overriding properties
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to duplicate</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Route>> copyRoute(
-        double version,
         int64_t routeId,
         boost::optional<std::shared_ptr<Route>> body
     ) const;
@@ -80,10 +76,8 @@ public:
     /// <remarks>
     /// Create new route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Route>> createRoute(
-        double version,
         boost::optional<std::shared_ptr<Route>> body
     ) const;
     /// <summary>
@@ -92,10 +86,8 @@ public:
     /// <remarks>
     /// Regenerate the directions of a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to update directions for</param>
     pplx::task<std::vector<std::shared_ptr<Direction>>> createRouteDirections(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -104,10 +96,8 @@ public:
     /// <remarks>
     /// Update the polyline of the requested route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to create a polyline for</param>
     pplx::task<std::shared_ptr<Route>> createRoutePolyline(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -116,10 +106,8 @@ public:
     /// <remarks>
     /// Delete an existing route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     pplx::task<void> deleteRoute(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -128,10 +116,8 @@ public:
     /// <remarks>
     /// Disapprove a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to reject</param>
     pplx::task<std::shared_ptr<Route>> disapproveRoute(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -140,11 +126,9 @@ public:
     /// <remarks>
     /// Get an existing route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to get</param>
     /// <param name="showInheritedProperties">return inherited properties from parent or not</param>
     pplx::task<std::shared_ptr<Route>> getRoute(
-        double version,
         int64_t routeId,
         bool showInheritedProperties
     ) const;
@@ -154,10 +138,8 @@ public:
     /// <remarks>
     /// Get the directions of a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to get directions for</param>
     pplx::task<std::vector<std::shared_ptr<Direction>>> getRouteDirections(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -166,10 +148,8 @@ public:
     /// <remarks>
     /// Get the shipments on the requested route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to get shipments for</param>
     pplx::task<std::vector<std::shared_ptr<Shipment>>> getRouteShipments(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -178,11 +158,9 @@ public:
     /// <remarks>
     /// Get the specific stop on a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to get stops for</param>
     /// <param name="stopId">the id of the specific stop on the route</param>
     pplx::task<std::shared_ptr<Stop>> getRouteStop(
-        double version,
         int64_t routeId,
         int64_t stopId
     ) const;
@@ -192,11 +170,9 @@ public:
     /// <remarks>
     /// The stops of the route requested
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="confirmedOnly">only get stops that have been confirmed or not</param>
     pplx::task<std::vector<std::shared_ptr<Stop>>> getRouteStops(
-        double version,
         int64_t routeId,
         bool confirmedOnly
     ) const;
@@ -206,11 +182,9 @@ public:
     /// <remarks>
     /// Get the list of shipments on the requested route at a stop
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="stopId">the id of the stop to get shipments on</param>
     pplx::task<std::vector<std::shared_ptr<Shipment>>> getShipmentsAtStop(
-        double version,
         int64_t routeId,
         int64_t stopId
     ) const;
@@ -220,10 +194,8 @@ public:
     /// <remarks>
     /// Optimize a route. The optimization method based on how the server is configured.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to optimize</param>
     pplx::task<void> optimizeRoute(
-        double version,
         int64_t routeId
     ) const;
     /// <summary>
@@ -232,11 +204,9 @@ public:
     /// <remarks>
     /// Delete a stop on a route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="stopId">the id of the specific stop to delete on the route</param>
     pplx::task<void> removeStop(
-        double version,
         int64_t routeId,
         int64_t stopId
     ) const;
@@ -246,11 +216,9 @@ public:
     /// <remarks>
     /// Reordering the stops on the route with and update route distance, time, direction, and polyline
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::vector<std::shared_ptr<Stop>>> reorderRouteStopsPatch(
-        double version,
         int64_t routeId,
         boost::optional<std::vector<std::shared_ptr<Stop>>> body
     ) const;
@@ -260,11 +228,9 @@ public:
     /// <remarks>
     /// Reordering the stops on the route with and update route distance, time, direction, and polyline
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::vector<std::shared_ptr<Stop>>> reorderRouteStopsPost(
-        double version,
         int64_t routeId,
         boost::optional<std::vector<std::shared_ptr<Stop>>> body
     ) const;
@@ -274,7 +240,6 @@ public:
     /// <remarks>
     /// Search for routes.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -297,7 +262,6 @@ public:
     /// <param name="valid">Is valid or not (optional, default to false)</param>
     /// <param name="parentId">If it is a recurring route based on the parent route (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<Route>>> searchRoutes(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -326,11 +290,9 @@ public:
     /// <remarks>
     /// Update the driver of the route.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the route</param>
     /// <param name="driverId">the id of the driver</param>
     pplx::task<void> setDriver(
-        double version,
         int64_t id,
         int64_t driverId
     ) const;
@@ -340,11 +302,9 @@ public:
     /// <remarks>
     /// Update an existing route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Route>> updateRoute(
-        double version,
         int64_t routeId,
         boost::optional<std::shared_ptr<Route>> body
     ) const;
@@ -354,12 +314,10 @@ public:
     /// <remarks>
     /// Update a stop on a specified route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="routeId">the id of the route to update stops for</param>
     /// <param name="stopId">the id of the specific stop to update on the route</param>
     /// <param name="body"> (optional)</param>
     pplx::task<void> updateRouteStop(
-        double version,
         int64_t routeId,
         int64_t stopId,
         boost::optional<std::shared_ptr<Stop>> body

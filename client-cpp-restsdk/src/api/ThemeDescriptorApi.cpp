@@ -36,13 +36,12 @@ ThemeDescriptorApi::~ThemeDescriptorApi()
 {
 }
 
-pplx::task<std::shared_ptr<ThemeDescriptorResponse>> ThemeDescriptorApi::addOrUpdateThemeDescriptor(double version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, utility::string_t visibility, bool includeFriendGroup, bool completeWithDefaultValues, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<int64_t> themeDescriptorId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> connectionIdsToAdd, boost::optional<utility::string_t> connectionGroupIdsToAdd, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> colorValueJson, boost::optional<utility::string_t> stringReplacerJson, boost::optional<utility::string_t> customJsonObjects, boost::optional<std::shared_ptr<HttpContent>> iconImage, boost::optional<std::shared_ptr<HttpContent>> sceneAtlasImage, boost::optional<std::shared_ptr<HttpContent>> bgImage, boost::optional<std::shared_ptr<HttpContent>> bgSound, boost::optional<utility::string_t> musicSelection, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ThemeDescriptorResponse>> ThemeDescriptorApi::addOrUpdateThemeDescriptor(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, utility::string_t visibility, bool includeFriendGroup, bool completeWithDefaultValues, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<int64_t> themeDescriptorId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> connectionIdsToAdd, boost::optional<utility::string_t> connectionGroupIdsToAdd, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> colorValueJson, boost::optional<utility::string_t> stringReplacerJson, boost::optional<utility::string_t> customJsonObjects, boost::optional<std::shared_ptr<HttpContent>> iconImage, boost::optional<std::shared_ptr<HttpContent>> sceneAtlasImage, boost::optional<std::shared_ptr<HttpContent>> bgImage, boost::optional<std::shared_ptr<HttpContent>> bgSound, boost::optional<utility::string_t> musicSelection, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/theme");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/theme");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -260,13 +259,12 @@ pplx::task<std::shared_ptr<ThemeDescriptorResponse>> ThemeDescriptorApi::addOrUp
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThemeDescriptor(double version, int64_t themeDescriptorId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThemeDescriptor(int64_t themeDescriptorId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/theme/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/theme/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -406,13 +404,12 @@ pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThe
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThemeDescriptors(double version, utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> contestType, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<int64_t> dateCreated, boost::optional<utility::string_t> appVersion, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThemeDescriptors(utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> contestType, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<int64_t> dateCreated, boost::optional<utility::string_t> appVersion, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/theme/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/theme/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -596,13 +593,12 @@ pplx::task<std::shared_ptr<PurchaseItemListResponse>> ThemeDescriptorApi::getThe
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ThemeDescriptorApi::removeThemeDescriptor(double version, int64_t themeDescriptorId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ThemeDescriptorApi::removeThemeDescriptor(int64_t themeDescriptorId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/theme/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/theme/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

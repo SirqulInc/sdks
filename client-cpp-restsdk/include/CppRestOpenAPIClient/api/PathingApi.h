@@ -50,13 +50,11 @@ public:
     /// <remarks>
     /// Calculates the shortest path from point to point on a grid
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="data">the data to with start, end point and exclusion points</param>
     /// <param name="units">the system of measurement for directions: {METRIC, IMPERIAL}</param>
     /// <param name="reducePath">determines whether to reduce the path to go in diagonal lines</param>
     /// <param name="directions">determines whether to return text directions</param>
     pplx::task<std::shared_ptr<PathingResponse>> computePath(
-        double version,
         utility::string_t data,
         utility::string_t units,
         bool reducePath,

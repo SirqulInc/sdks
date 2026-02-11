@@ -54,7 +54,6 @@ public:
     /// <remarks>
     /// Adds an offer, offer location, retailer location, or category to your favorites.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="favoritableId">The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}</param>
     /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}</param>
     /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -62,7 +61,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<WrappedResponse>> addFavorite(
-        double version,
         int64_t favoritableId,
         utility::string_t favoritableType,
         boost::optional<utility::string_t> deviceId,
@@ -76,14 +74,12 @@ public:
     /// <remarks>
     /// Removes a favorited item from the user&#39;s favorites list.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="favoriteId">The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead) (optional, default to 0L)</param>
     /// <param name="favoritableId">The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in) (optional, default to 0L)</param>
     /// <param name="favoritableType">The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteFavorite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> favoriteId,
@@ -96,14 +92,12 @@ public:
     /// <remarks>
     /// Retrieves a single favorited item.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="favoriteId">The ID of the favorite reference record</param>
     /// <param name="deviceId">The unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<WrappedResponse>> getFavorite(
-        double version,
         int64_t favoriteId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -116,7 +110,6 @@ public:
     /// <remarks>
     /// Searches on the user&#39;s favorites.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
     /// <param name="sortField">Determines what to sort the results by {CREATED, UPDATED, DISPLAY}</param>
     /// <param name="descending">Determines whether the results are in descending order</param>
@@ -132,7 +125,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SearchResponse>> searchFavorites(
-        double version,
         utility::string_t favoritableType,
         utility::string_t sortField,
         bool descending,
@@ -154,7 +146,6 @@ public:
     /// <remarks>
     /// Searches for everyone that has favorited an item
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="favoritableId">The ID of the favoritableType to search on</param>
     /// <param name="favoritableType">The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}</param>
     /// <param name="start">The start index for pagination</param>
@@ -165,7 +156,6 @@ public:
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     /// <param name="keyword">The keyword to limit that account list (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AccountResponse>>> whoHasFavorited(
-        double version,
         int64_t favoritableId,
         utility::string_t favoritableType,
         int32_t start,

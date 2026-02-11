@@ -36,13 +36,12 @@ CSVImportApi::~CSVImportApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> CSVImportApi::getStatusCSV(double version, int64_t accountId, int64_t batchId, utility::string_t responseGroup, int64_t start, int64_t limit) const
+pplx::task<std::shared_ptr<SirqulResponse>> CSVImportApi::getStatusCSV(int64_t accountId, int64_t batchId, utility::string_t responseGroup, int64_t start, int64_t limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/csvimport/batch/status/details");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/csvimport/batch/status/details");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -174,13 +173,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> CSVImportApi::getStatusCSV(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::listStatusCSV(double version, int64_t accountId, int32_t start, int32_t limit) const
+pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::listStatusCSV(int64_t accountId, int32_t start, int32_t limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/csvimport/batch/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/csvimport/batch/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -306,13 +304,12 @@ pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::listStatusCSV(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::statusCSV(double version, int64_t accountId, int64_t batchId) const
+pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::statusCSV(int64_t accountId, int64_t batchId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/csvimport/batch/status");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/csvimport/batch/status");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -435,13 +432,12 @@ pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::statusCSV(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::uploadCSV(double version, int64_t accountId, utility::string_t uploadType, std::shared_ptr<HttpContent> importFile, utility::string_t fileFormat, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<CsvImportResponse>> CSVImportApi::uploadCSV(int64_t accountId, utility::string_t uploadType, std::shared_ptr<HttpContent> importFile, utility::string_t fileFormat, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/csvimport/upload");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/csvimport/upload");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

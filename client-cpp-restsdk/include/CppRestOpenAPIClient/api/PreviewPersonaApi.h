@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Creates a new persona. If the given params are null those attributes will be override by null.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user</param>
     /// <param name="title">the title of the persona</param>
     /// <param name="previewAccounts">the accounts that are able to preview from this persona (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -62,7 +61,6 @@ public:
     /// <param name="latitude">the specified latitude of the persona (optional, default to 0.0)</param>
     /// <param name="longitude">the specified longitude of the persona (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<PreviewPersonaResponse>> createPersona(
-        double version,
         int64_t accountId,
         utility::string_t title,
         boost::optional<utility::string_t> previewAccounts,
@@ -79,11 +77,9 @@ public:
     /// <remarks>
     /// Mark the persona for deletion.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="personaId">the id of the persona to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deletePersona(
-        double version,
         int64_t accountId,
         int64_t personaId
     ) const;
@@ -93,11 +89,9 @@ public:
     /// <remarks>
     /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user</param>
     /// <param name="personaId">the persona ID of the persona</param>
     pplx::task<std::shared_ptr<PreviewPersonaResponse>> getPersonaList(
-        double version,
         int64_t accountId,
         int64_t personaId
     ) const;
@@ -107,12 +101,10 @@ public:
     /// <remarks>
     /// Search for persona that the account owns by the given account ID.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user</param>
     /// <param name="start">the start index for pagination</param>
     /// <param name="limit">the limit for pagination (There is a hard limit of 100)</param>
     pplx::task<std::shared_ptr<PreviewPersonaResponse>> searchPersona(
-        double version,
         int64_t accountId,
         int32_t start,
         int32_t limit
@@ -123,7 +115,6 @@ public:
     /// <remarks>
     /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user</param>
     /// <param name="personaId">the persona ID of the persona to update</param>
     /// <param name="title">the title of the persona (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -136,7 +127,6 @@ public:
     /// <param name="latitude">the specified latitude of the persona (optional, default to 0.0)</param>
     /// <param name="longitude">the specified longitude of the persona (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<PreviewPersonaResponse>> updatePersona(
-        double version,
         int64_t accountId,
         int64_t personaId,
         boost::optional<utility::string_t> title,

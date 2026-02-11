@@ -36,13 +36,12 @@ RatingApi::~RatingApi()
 {
 }
 
-pplx::task<std::shared_ptr<RatingResponse>> RatingApi::createRating(double version, utility::string_t ratableType, int64_t ratableId, int32_t ratingValue, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> categoryId, boost::optional<utility::string_t> display, boost::optional<utility::string_t> description, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<RatingResponse>> RatingApi::createRating(utility::string_t ratableType, int64_t ratableId, int32_t ratingValue, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> categoryId, boost::optional<utility::string_t> display, boost::optional<utility::string_t> description, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/rating/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/rating/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -200,13 +199,12 @@ pplx::task<std::shared_ptr<RatingResponse>> RatingApi::createRating(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> RatingApi::deleteRating(double version, int64_t ratingId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> RatingApi::deleteRating(int64_t ratingId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/rating/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/rating/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -334,13 +332,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> RatingApi::deleteRating(double versi
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchLocationRatingIndexes(double version, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> searchRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnOverallRating, boost::optional<utility::string_t> distanceUnit, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters) const
+pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchLocationRatingIndexes(boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> locationType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> searchRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnOverallRating, boost::optional<utility::string_t> distanceUnit, boost::optional<bool> returnRetailer, boost::optional<bool> returnAssets, boost::optional<bool> returnOffers, boost::optional<bool> returnCategories, boost::optional<bool> returnFilters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/location/rating/index/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/location/rating/index/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -529,13 +526,12 @@ pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchL
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchRatingIndexes(double version, utility::string_t ratableType, boost::optional<utility::string_t> ratableIds, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> secondaryType, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnRatable, boost::optional<bool> returnOverallRating) const
+pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchRatingIndexes(utility::string_t ratableType, boost::optional<utility::string_t> ratableIds, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> secondaryType, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnRatable, boost::optional<bool> returnOverallRating) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/rating/index/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/rating/index/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -707,13 +703,12 @@ pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> RatingApi::searchR
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RatingResponse>>> RatingApi::searchRatings(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> filterAccountId, boost::optional<utility::string_t> ratableType, boost::optional<int64_t> ratableId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<RatingResponse>>> RatingApi::searchRatings(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> filterAccountId, boost::optional<utility::string_t> ratableType, boost::optional<int64_t> ratableId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/rating/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/rating/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -878,13 +873,12 @@ pplx::task<std::vector<std::shared_ptr<RatingResponse>>> RatingApi::searchRating
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RatingResponse>> RatingApi::updateRating(double version, int64_t ratingId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> ratingValue, boost::optional<int64_t> categoryId, boost::optional<utility::string_t> display, boost::optional<utility::string_t> description, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<RatingResponse>> RatingApi::updateRating(int64_t ratingId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> ratingValue, boost::optional<int64_t> categoryId, boost::optional<utility::string_t> display, boost::optional<utility::string_t> description, boost::optional<utility::string_t> locationDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/rating/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/rating/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

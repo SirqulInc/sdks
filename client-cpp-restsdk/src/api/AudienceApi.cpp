@@ -36,13 +36,12 @@ AudienceApi::~AudienceApi()
 {
 }
 
-pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::createAudience(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroups, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> applicationIds, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<utility::string_t> devices, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> locations, boost::optional<utility::string_t> radius, boost::optional<int32_t> startTimeOffset, boost::optional<int32_t> endTimeOffset, boost::optional<bool> sendSuggestion, boost::optional<utility::string_t> associateDescription, boost::optional<utility::string_t> associateType, boost::optional<int64_t> associateId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> audienceType, boost::optional<bool> useOrder, boost::optional<utility::string_t> cohortRegionsData, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> trilaterationTypes, boost::optional<bool> uniqueName) const
+pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::createAudience(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroups, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> applicationIds, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<utility::string_t> devices, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> locations, boost::optional<utility::string_t> radius, boost::optional<int32_t> startTimeOffset, boost::optional<int32_t> endTimeOffset, boost::optional<bool> sendSuggestion, boost::optional<utility::string_t> associateDescription, boost::optional<utility::string_t> associateType, boost::optional<int64_t> associateId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> audienceType, boost::optional<bool> useOrder, boost::optional<utility::string_t> cohortRegionsData, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> trilaterationTypes, boost::optional<bool> uniqueName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -273,13 +272,12 @@ pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::createAudience(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::deleteAudience(double version, int64_t accountId, int64_t audienceId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::deleteAudience(int64_t accountId, int64_t audienceId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -402,13 +400,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::deleteAudience(double v
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AgeGroupResponse>>> AudienceApi::getAgeGroups(double version) const
+pplx::task<std::vector<std::shared_ptr<AgeGroupResponse>>> AudienceApi::getAgeGroups() const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/ageGroups");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/ageGroups");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -529,13 +526,12 @@ pplx::task<std::vector<std::shared_ptr<AgeGroupResponse>>> AudienceApi::getAgeGr
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getAudience(double version, int64_t accountId, int64_t audienceId, boost::optional<utility::string_t> appKey, boost::optional<bool> returnAccountCount, boost::optional<bool> returnAlbumCount, boost::optional<utility::string_t> albumTypesForCount) const
+pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getAudience(int64_t accountId, int64_t audienceId, boost::optional<utility::string_t> appKey, boost::optional<bool> returnAccountCount, boost::optional<bool> returnAlbumCount, boost::optional<utility::string_t> albumTypesForCount) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -674,13 +670,12 @@ pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getAudience(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<SearchResponse>>> AudienceApi::getAudienceList(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordFields, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> sendSuggestion, boost::optional<bool> activeOnly, boost::optional<bool> groupByGroupingId, boost::optional<utility::string_t> appKey, boost::optional<bool> returnGlobal, boost::optional<bool> exactKeyword, boost::optional<utility::string_t> audienceType, boost::optional<utility::string_t> audienceTypes, boost::optional<bool> returnAccountCount, boost::optional<bool> returnAlbumCount, boost::optional<utility::string_t> albumTypesForCount) const
+pplx::task<std::vector<std::shared_ptr<SearchResponse>>> AudienceApi::getAudienceList(boost::optional<int64_t> accountId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> keywordFields, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> sendSuggestion, boost::optional<bool> activeOnly, boost::optional<bool> groupByGroupingId, boost::optional<utility::string_t> appKey, boost::optional<bool> returnGlobal, boost::optional<bool> exactKeyword, boost::optional<utility::string_t> audienceType, boost::optional<utility::string_t> audienceTypes, boost::optional<bool> returnAccountCount, boost::optional<bool> returnAlbumCount, boost::optional<utility::string_t> albumTypesForCount) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -877,13 +872,12 @@ pplx::task<std::vector<std::shared_ptr<SearchResponse>>> AudienceApi::getAudienc
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AudienceDeviceResponse>>> AudienceApi::getDevices(double version, bool includeInactive) const
+pplx::task<std::vector<std::shared_ptr<AudienceDeviceResponse>>> AudienceApi::getDevices(bool includeInactive) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/devices");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/devices");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1007,13 +1001,12 @@ pplx::task<std::vector<std::shared_ptr<AudienceDeviceResponse>>> AudienceApi::ge
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::getExperiences(double version) const
+pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::getExperiences() const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/experiences");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/experiences");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1130,13 +1123,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::getExperiences(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getGroupedAudiences(double version, int64_t accountId, utility::string_t audienceGroupingId) const
+pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getGroupedAudiences(int64_t accountId, utility::string_t audienceGroupingId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/grouped/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/grouped/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1259,13 +1251,12 @@ pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::getGroupedAudiences(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAccount(double version, int64_t accountId, int32_t limit, utility::string_t suggestionType) const
+pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAccount(int64_t accountId, int32_t limit, utility::string_t suggestionType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/suggestion/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/suggestion/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1391,13 +1382,12 @@ pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAccount(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAudience(double version, int32_t limit, boost::optional<utility::string_t> gender, boost::optional<int32_t> age, boost::optional<utility::string_t> categoryIds, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAudience(int32_t limit, boost::optional<utility::string_t> gender, boost::optional<int32_t> age, boost::optional<utility::string_t> categoryIds, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/suggestion/offersByAudience");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/suggestion/offersByAudience");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1537,13 +1527,12 @@ pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listByAudience(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listLastestByAccount(double version, int64_t accountId, int32_t timeframe, utility::string_t suggestionType) const
+pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listLastestByAccount(int64_t accountId, int32_t timeframe, utility::string_t suggestionType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/suggestion/latest");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/suggestion/latest");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1669,13 +1658,12 @@ pplx::task<std::shared_ptr<OfferListResponse>> AudienceApi::listLastestByAccount
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::sendByAccount(double version, int64_t accountId, double latitude, double longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::sendByAccount(int64_t accountId, double latitude, double longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/suggestion/send");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/suggestion/send");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1801,13 +1789,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AudienceApi::sendByAccount(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::updateAudience(double version, int64_t accountId, int64_t audienceId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroups, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> applicationIds, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<utility::string_t> devices, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> locations, boost::optional<utility::string_t> radius, boost::optional<bool> active, boost::optional<bool> sendSuggestion, boost::optional<int32_t> startTimeOffset, boost::optional<int32_t> endTimeOffset, boost::optional<utility::string_t> associateDescription, boost::optional<utility::string_t> associateType, boost::optional<int64_t> associateId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> audienceType, boost::optional<bool> useOrder, boost::optional<utility::string_t> cohortRegionsData, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> trilaterationTypes, boost::optional<bool> uniqueName) const
+pplx::task<std::shared_ptr<AudienceResponse>> AudienceApi::updateAudience(int64_t accountId, int64_t audienceId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> ageGroups, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> applicationIds, boost::optional<utility::string_t> gameExperienceLevel, boost::optional<utility::string_t> devices, boost::optional<utility::string_t> deviceIds, boost::optional<utility::string_t> deviceVersions, boost::optional<utility::string_t> locations, boost::optional<utility::string_t> radius, boost::optional<bool> active, boost::optional<bool> sendSuggestion, boost::optional<int32_t> startTimeOffset, boost::optional<int32_t> endTimeOffset, boost::optional<utility::string_t> associateDescription, boost::optional<utility::string_t> associateType, boost::optional<int64_t> associateId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> audienceType, boost::optional<bool> useOrder, boost::optional<utility::string_t> cohortRegionsData, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> trilaterationTypes, boost::optional<bool> uniqueName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/audience/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/audience/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

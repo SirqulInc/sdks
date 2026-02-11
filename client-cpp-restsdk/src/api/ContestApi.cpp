@@ -36,13 +36,12 @@ ContestApi::~ContestApi()
 {
 }
 
-pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::addOrUpdateAlbumContest(double version, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, utility::string_t visibility, bool includeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> contestType, boost::optional<int64_t> albumContestId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> albumId1, boost::optional<bool> removeAlbum1, boost::optional<int64_t> albumId2, boost::optional<bool> removeAlbum2, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> connectionIdsToAdd, boost::optional<utility::string_t> connectionGroupIdsToAdd, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::addOrUpdateAlbumContest(bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, utility::string_t visibility, bool includeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> contestType, boost::optional<int64_t> albumContestId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> albumId1, boost::optional<bool> removeAlbum1, boost::optional<int64_t> albumId2, boost::optional<bool> removeAlbum2, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> connectionIdsToAdd, boost::optional<utility::string_t> connectionGroupIdsToAdd, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -253,13 +252,12 @@ pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::addOrUpdateAlbumCo
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::approveAlbumContest(double version, int64_t albumContestId, utility::string_t approvalStatus, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::approveAlbumContest(int64_t albumContestId, utility::string_t approvalStatus, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest/approve");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest/approve");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -390,13 +388,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::approveAlbumContest(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::deleteContest(double version, int64_t albumContestId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::deleteContest(int64_t albumContestId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -532,13 +529,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ContestApi::deleteContest(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::getAlbumContest(double version, int64_t albumContestId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::getAlbumContest(int64_t albumContestId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -674,13 +670,12 @@ pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::getAlbumContest(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AlbumContestListResponse>> ContestApi::getAlbumContests(double version, utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appType, boost::optional<utility::string_t> contestType, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<int64_t> dateCreated, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<AlbumContestListResponse>> ContestApi::getAlbumContests(utility::string_t filter, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appType, boost::optional<utility::string_t> contestType, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<int64_t> dateCreated, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -868,13 +863,12 @@ pplx::task<std::shared_ptr<AlbumContestListResponse>> ContestApi::getAlbumContes
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::voteOnAlbumContest(double version, int64_t albumContestId, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> contestType, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<AlbumContestResponse>> ContestApi::voteOnAlbumContest(int64_t albumContestId, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> contestType, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/album/contest/vote");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/album/contest/vote");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

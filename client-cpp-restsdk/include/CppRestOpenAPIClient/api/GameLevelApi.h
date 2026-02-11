@@ -54,7 +54,6 @@ public:
     /// <remarks>
     /// Create a game level. Currently does NOT support game objects.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the level.</param>
     /// <param name="gameData">The game level data: xml, json, or other text based format.</param>
@@ -82,7 +81,6 @@ public:
     /// <param name="offerId">id of the offer (optional, default to 0L)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<GameLevelResponse>> createGameLevel(
-        double version,
         int64_t accountId,
         utility::string_t name,
         utility::string_t gameData,
@@ -116,11 +114,9 @@ public:
     /// <remarks>
     /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="levelId">The id of the level to return.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteGameLevel(
-        double version,
         int64_t accountId,
         int64_t levelId
     ) const;
@@ -130,12 +126,10 @@ public:
     /// <remarks>
     /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="levelId">The id of the level to return.</param>
     /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional, default to false)</param>
     pplx::task<std::shared_ptr<GameLevelResponse>> getGameLevel(
-        double version,
         int64_t accountId,
         int64_t levelId,
         boost::optional<bool> includeGameData
@@ -146,7 +140,6 @@ public:
     /// <remarks>
     /// Get a list of levels for an application, just those the account has permissions to view.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">the application key</param>
     /// <param name="keyword">Match the keyword to the owner name or level name. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -158,7 +151,6 @@ public:
     /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional, default to false)</param>
     /// <param name="filters"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<GameLevelListResponse>> getGameLevelsByApplication(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> keyword,
@@ -176,7 +168,6 @@ public:
     /// <remarks>
     /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">The keyword used to search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -186,7 +177,6 @@ public:
     /// <param name="start">The record to begin the return set on (optional, default to 0L)</param>
     /// <param name="limit">The number of records to return (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<GameLevelResponse>> getGameLevelsByBillableEntity(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<utility::string_t> keyword,
@@ -202,11 +192,9 @@ public:
     /// <remarks>
     /// Get questions within a level.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="levelId">the id of the level to get questions from</param>
     /// <param name="accountId">the id of the logged in user</param>
     pplx::task<std::shared_ptr<QuestionResponse>> getQuestionsInLevel(
-        double version,
         int64_t levelId,
         int64_t accountId
     ) const;
@@ -216,11 +204,9 @@ public:
     /// <remarks>
     /// Get words within a level.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="levelId">the id of the level to get words for</param>
     /// <param name="accountId">the id of the logged in user</param>
     pplx::task<std::shared_ptr<WordzWordResponse>> getWordsInLevel(
-        double version,
         int64_t levelId,
         int64_t accountId
     ) const;
@@ -230,7 +216,6 @@ public:
     /// <remarks>
     /// Update a game level. Currently does NOT support game objects.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="levelId">If update then include the level Id.</param>
     /// <param name="appKey">The game application key to save the level for. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -259,7 +244,6 @@ public:
     /// <param name="offerId"> (optional, default to 0L)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<GameLevelResponse>> updateGameLevel(
-        double version,
         int64_t accountId,
         int64_t levelId,
         boost::optional<utility::string_t> appKey,
@@ -294,12 +278,10 @@ public:
     /// <remarks>
     /// Updates a level with question game objects.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="levelId">the id of the level to update questions on</param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="questionIds">the IDs of the questions to update</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateQuestionsInLevel(
-        double version,
         int64_t levelId,
         int64_t accountId,
         utility::string_t questionIds
@@ -310,12 +292,10 @@ public:
     /// <remarks>
     /// Updates a level with word game objects.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="levelId">the id of the level to update words for</param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="wordIds">the ids of the words to update for the level</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateWordsInLevel(
-        double version,
         int64_t levelId,
         int64_t accountId,
         utility::string_t wordIds

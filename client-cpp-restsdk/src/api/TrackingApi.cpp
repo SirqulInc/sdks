@@ -36,13 +36,12 @@ TrackingApi::~TrackingApi()
 {
 }
 
-pplx::task<std::vector<std::shared_ptr<Leg>>> TrackingApi::batchSaveTracking(double version, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> generateAccounts, boost::optional<bool> updateAccountLocations, boost::optional<utility::string_t> defaultTag, boost::optional<utility::string_t> slaveUID) const
+pplx::task<std::vector<std::shared_ptr<Leg>>> TrackingApi::batchSaveTracking(utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> generateAccounts, boost::optional<bool> updateAccountLocations, boost::optional<utility::string_t> defaultTag, boost::optional<utility::string_t> slaveUID) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/batch/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/batch/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -190,13 +189,12 @@ pplx::task<std::vector<std::shared_ptr<Leg>>> TrackingApi::batchSaveTracking(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PredictedLocationResponse>> TrackingApi::getPredictedLocations(double version, int64_t accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> dateCheck, boost::optional<utility::string_t> hourCheck, boost::optional<int64_t> threshold, boost::optional<utility::string_t> distanceUnit, boost::optional<double> searchRange, boost::optional<utility::string_t> sortOrder) const
+pplx::task<std::shared_ptr<PredictedLocationResponse>> TrackingApi::getPredictedLocations(int64_t accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> dateCheck, boost::optional<utility::string_t> hourCheck, boost::optional<int64_t> threshold, boost::optional<utility::string_t> distanceUnit, boost::optional<double> searchRange, boost::optional<utility::string_t> sortOrder) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/predicted/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/predicted/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -348,13 +346,12 @@ pplx::task<std::shared_ptr<PredictedLocationResponse>> TrackingApi::getPredicted
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<StepResponse>>> TrackingApi::getPredictedPath(double version, int64_t accountId, int64_t startStepId, int64_t endStepId) const
+pplx::task<std::vector<std::shared_ptr<StepResponse>>> TrackingApi::getPredictedPath(int64_t accountId, int64_t startStepId, int64_t endStepId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/path/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/path/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -484,13 +481,12 @@ pplx::task<std::vector<std::shared_ptr<StepResponse>>> TrackingApi::getPredicted
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<PreferredLocationResponse>>> TrackingApi::getPreferredLocations(double version, int64_t accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> dateCheck, boost::optional<utility::string_t> hourCheck, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> searchRange, boost::optional<utility::string_t> distanceUnit) const
+pplx::task<std::vector<std::shared_ptr<PreferredLocationResponse>>> TrackingApi::getPreferredLocations(int64_t accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> dateCheck, boost::optional<utility::string_t> hourCheck, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> searchRange, boost::optional<utility::string_t> distanceUnit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/preferred/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/preferred/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -654,13 +650,12 @@ pplx::task<std::vector<std::shared_ptr<PreferredLocationResponse>>> TrackingApi:
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<LegResponse>>> TrackingApi::getTrackingLegs(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> trackingDeviceId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<bool> getLastPoint) const
+pplx::task<std::vector<std::shared_ptr<LegResponse>>> TrackingApi::getTrackingLegs(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> trackingDeviceId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<bool> getLastPoint) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -813,13 +808,12 @@ pplx::task<std::vector<std::shared_ptr<LegResponse>>> TrackingApi::getTrackingLe
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingLeg(double version, double startLat, double startLng, int64_t startDate, double endLat, double endLng, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> distance, boost::optional<int64_t> duration, boost::optional<utility::string_t> steps, boost::optional<utility::string_t> tags) const
+pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingLeg(double startLat, double startLng, int64_t startDate, double endLat, double endLng, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> distance, boost::optional<int64_t> duration, boost::optional<utility::string_t> steps, boost::optional<utility::string_t> tags) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/leg/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/leg/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -978,13 +972,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingLeg(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingStep(double version, int64_t legId, double startLat, double startLng, int64_t startDate, double endLat, double endLng, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> distance, boost::optional<int64_t> duration) const
+pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingStep(int64_t legId, double startLat, double startLng, int64_t startDate, double endLat, double endLng, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> distance, boost::optional<int64_t> duration) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/step/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/step/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1138,13 +1131,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TrackingApi::saveTrackingStep(double
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> TrackingApi::searchAccountsWithTrackingLegs(double version, int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> audienceIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> TrackingApi::searchAccountsWithTrackingLegs(int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> audienceIds, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1320,13 +1312,12 @@ pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> TrackingApi::searc
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<LegResponse>>> TrackingApi::searchTrackingLegs(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> trackingDeviceId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<LegResponse>>> TrackingApi::searchTrackingLegs(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> trackingDeviceId, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tracking/searchByBillable");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tracking/searchByBillable");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

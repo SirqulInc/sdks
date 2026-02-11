@@ -50,10 +50,8 @@ public:
     /// <remarks>
     /// Creates a reference for an entity for syncing data between servers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body">The entity reference object</param>
     pplx::task<std::shared_ptr<ActivityResponse>> createEntityReference(
-        double version,
         std::shared_ptr<EntityReference> body
     ) const;
 

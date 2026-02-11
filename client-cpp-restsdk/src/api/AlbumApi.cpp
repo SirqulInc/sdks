@@ -36,13 +36,12 @@ AlbumApi::~AlbumApi()
 {
 }
 
-pplx::task<std::shared_ptr<SearchResponse>> AlbumApi::addAlbumCollection(double version, utility::string_t title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> assetsToAdd, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaURL, boost::optional<int64_t> assetId, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaURL, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> description, boost::optional<utility::string_t> albumType, boost::optional<int64_t> albumTypeId, boost::optional<utility::string_t> subType, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> fullAddress, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<bool> includeAllAppUsersAsMembers, boost::optional<bool> includeAudiencesAsMembers, boost::optional<utility::string_t> audienceOperator, boost::optional<utility::string_t> approvalStatus, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId) const
+pplx::task<std::shared_ptr<SearchResponse>> AlbumApi::addAlbumCollection(utility::string_t title, bool coverAssetNullable, bool includeCoverInAssetList, bool publicRead, bool publicWrite, bool publicDelete, bool publicAdd, bool anonymous, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> assetsToAdd, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaURL, boost::optional<int64_t> assetId, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaURL, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> description, boost::optional<utility::string_t> albumType, boost::optional<int64_t> albumTypeId, boost::optional<utility::string_t> subType, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> fullAddress, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<bool> includeAllAppUsersAsMembers, boost::optional<bool> includeAudiencesAsMembers, boost::optional<utility::string_t> audienceOperator, boost::optional<utility::string_t> approvalStatus, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -335,13 +334,12 @@ pplx::task<std::shared_ptr<SearchResponse>> AlbumApi::addAlbumCollection(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::addAlbumUsers(double version, int64_t albumId, bool includeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> read, boost::optional<bool> write, boost::optional<bool> r_delete, boost::optional<bool> add, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> connectionGroups) const
+pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::addAlbumUsers(int64_t albumId, bool includeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> read, boost::optional<bool> write, boost::optional<bool> r_delete, boost::optional<bool> add, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> connectionGroups) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/user/add");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/user/add");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -496,13 +494,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::addAlbumUsers(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::approveAlbum(double version, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> approvalStatus, boost::optional<bool> verified) const
+pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::approveAlbum(int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> approvalStatus, boost::optional<bool> verified) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/approve");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/approve");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -638,13 +635,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::approveAlbum(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AlbumFullResponse>> AlbumApi::getAlbumCollection(double version, bool returnNulls, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> likePreviewSize, boost::optional<int32_t> assetPreviewSize, boost::optional<int32_t> notePreviewSize, boost::optional<int32_t> connectionPreviewSize, boost::optional<int32_t> audiencePreviewSize) const
+pplx::task<std::shared_ptr<AlbumFullResponse>> AlbumApi::getAlbumCollection(bool returnNulls, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> likePreviewSize, boost::optional<int32_t> assetPreviewSize, boost::optional<int32_t> notePreviewSize, boost::optional<int32_t> connectionPreviewSize, boost::optional<int32_t> audiencePreviewSize) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -795,13 +791,12 @@ pplx::task<std::shared_ptr<AlbumFullResponse>> AlbumApi::getAlbumCollection(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::leaveAlbum(double version, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::leaveAlbum(int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/user/leave");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/user/leave");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -929,13 +924,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::leaveAlbum(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbum(double version, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbum(int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1063,13 +1057,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbum(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbumUsers(double version, int64_t albumId, bool removeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> connectionGroups) const
+pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbumUsers(int64_t albumId, bool removeFriendGroup, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connections, boost::optional<utility::string_t> connectionGroups) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/user/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/user/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1208,13 +1201,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AlbumApi::removeAlbumUsers(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AlbumFullResponse>>> AlbumApi::searchAlbums(double version, utility::string_t filter, int64_t albumTypeId, utility::string_t subType, bool includeInactive, utility::string_t sortField, bool descending, int32_t start, int32_t limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int32_t likePreviewSize, int32_t assetPreviewSize, int32_t notePreviewSize, int32_t connectionPreviewSize, int32_t audiencePreviewSize, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> excludeAlbumIds, boost::optional<int64_t> mediaId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> albumType, boost::optional<int32_t> limitPerAlbumType, boost::optional<int64_t> dateCreated, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int64_t> createdSince, boost::optional<int64_t> createdBefore, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> excludeAudienceIds, boost::optional<bool> includeCompletable, boost::optional<bool> includeRating, boost::optional<utility::string_t> searchMode, boost::optional<bool> stackSearch, boost::optional<int32_t> stackWindowSize, boost::optional<int32_t> minStackPerPage, boost::optional<utility::string_t> stackPaginationIdentifier, boost::optional<bool> stackDetails, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> removeFlaggedContent, boost::optional<bool> verifiedFilter, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId, boost::optional<int64_t> orderAudienceId, boost::optional<bool> ignoreDefaultAppFilter, boost::optional<utility::string_t> searchExpression, boost::optional<bool> generateAlbums) const
+pplx::task<std::vector<std::shared_ptr<AlbumFullResponse>>> AlbumApi::searchAlbums(utility::string_t filter, int64_t albumTypeId, utility::string_t subType, bool includeInactive, utility::string_t sortField, bool descending, int32_t start, int32_t limit, double range, bool includeLiked, bool includeFavorited, bool includePermissions, int32_t likePreviewSize, int32_t assetPreviewSize, int32_t notePreviewSize, int32_t connectionPreviewSize, int32_t audiencePreviewSize, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> excludeAlbumIds, boost::optional<int64_t> mediaId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> albumType, boost::optional<int32_t> limitPerAlbumType, boost::optional<int64_t> dateCreated, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int64_t> createdSince, boost::optional<int64_t> createdBefore, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> excludeAudienceIds, boost::optional<bool> includeCompletable, boost::optional<bool> includeRating, boost::optional<utility::string_t> searchMode, boost::optional<bool> stackSearch, boost::optional<int32_t> stackWindowSize, boost::optional<int32_t> minStackPerPage, boost::optional<utility::string_t> stackPaginationIdentifier, boost::optional<bool> stackDetails, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> removeFlaggedContent, boost::optional<bool> verifiedFilter, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId, boost::optional<int64_t> orderAudienceId, boost::optional<bool> ignoreDefaultAppFilter, boost::optional<utility::string_t> searchExpression, boost::optional<bool> generateAlbums) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1558,13 +1550,12 @@ pplx::task<std::vector<std::shared_ptr<AlbumFullResponse>>> AlbumApi::searchAlbu
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AlbumResponse>> AlbumApi::updateAlbumCollection(double version, int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> assetsToAdd, boost::optional<utility::string_t> assetsToRemove, boost::optional<int64_t> assetId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaURL, boost::optional<bool> active, boost::optional<utility::string_t> title, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> description, boost::optional<utility::string_t> albumType, boost::optional<int64_t> albumTypeId, boost::optional<utility::string_t> subType, boost::optional<bool> publicRead, boost::optional<bool> publicWrite, boost::optional<bool> publicDelete, boost::optional<bool> publicAdd, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> fullAddress, boost::optional<bool> anonymous, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<bool> includeAllAppUsersAsMembers, boost::optional<bool> includeAudiencesAsMembers, boost::optional<utility::string_t> audienceOperator, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId, boost::optional<bool> indexNow) const
+pplx::task<std::shared_ptr<AlbumResponse>> AlbumApi::updateAlbumCollection(int64_t albumId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> assetsToAdd, boost::optional<utility::string_t> assetsToRemove, boost::optional<int64_t> assetId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaURL, boost::optional<bool> active, boost::optional<utility::string_t> title, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> description, boost::optional<utility::string_t> albumType, boost::optional<int64_t> albumTypeId, boost::optional<utility::string_t> subType, boost::optional<bool> publicRead, boost::optional<bool> publicWrite, boost::optional<bool> publicDelete, boost::optional<bool> publicAdd, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> fullAddress, boost::optional<bool> anonymous, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> categoryFilterIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<bool> includeAllAppUsersAsMembers, boost::optional<bool> includeAudiencesAsMembers, boost::optional<utility::string_t> audienceOperator, boost::optional<utility::string_t> linkedObjectType, boost::optional<int64_t> linkedObjectId, boost::optional<bool> indexNow) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/album/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/album/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

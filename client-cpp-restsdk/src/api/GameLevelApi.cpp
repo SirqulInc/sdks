@@ -36,13 +36,12 @@ GameLevelApi::~GameLevelApi()
 {
 }
 
-pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::createGameLevel(double version, int64_t accountId, utility::string_t name, utility::string_t gameData, utility::string_t gameDataSuffix, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> description, boost::optional<utility::string_t> difficulty, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> assetImageId, boost::optional<int64_t> assetIconId, boost::optional<utility::string_t> visibility, boost::optional<bool> friendGroup, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<double> balance, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<int64_t> ticketCount, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points, boost::optional<utility::string_t> tutorialTitle, boost::optional<utility::string_t> tutorialMessage, boost::optional<utility::string_t> tutorialAlignment, boost::optional<int64_t> tutorialImageAssetId, boost::optional<int64_t> offerId, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::createGameLevel(int64_t accountId, utility::string_t name, utility::string_t gameData, utility::string_t gameDataSuffix, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> description, boost::optional<utility::string_t> difficulty, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> assetImageId, boost::optional<int64_t> assetIconId, boost::optional<utility::string_t> visibility, boost::optional<bool> friendGroup, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<double> balance, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<int64_t> ticketCount, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points, boost::optional<utility::string_t> tutorialTitle, boost::optional<utility::string_t> tutorialMessage, boost::optional<utility::string_t> tutorialAlignment, boost::optional<int64_t> tutorialImageAssetId, boost::optional<int64_t> offerId, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -259,13 +258,12 @@ pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::createGameLevel(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::deleteGameLevel(double version, int64_t accountId, int64_t levelId) const
+pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::deleteGameLevel(int64_t accountId, int64_t levelId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -388,13 +386,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::deleteGameLevel(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevel(double version, int64_t accountId, int64_t levelId, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevel(int64_t accountId, int64_t levelId, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -521,13 +518,12 @@ pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevel(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameLevelListResponse>> GameLevelApi::getGameLevelsByApplication(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeGameData, boost::optional<utility::string_t> filters) const
+pplx::task<std::shared_ptr<GameLevelListResponse>> GameLevelApi::getGameLevelsByApplication(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeGameData, boost::optional<utility::string_t> filters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -682,13 +678,12 @@ pplx::task<std::shared_ptr<GameLevelListResponse>> GameLevelApi::getGameLevelsBy
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevelsByBillableEntity(double version, int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> activeOnly, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
+pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevelsByBillableEntity(int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> activeOnly, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/searchByBillableEntity");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/searchByBillableEntity");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -836,13 +831,12 @@ pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::getGameLevelsByBill
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QuestionResponse>> GameLevelApi::getQuestionsInLevel(double version, int64_t levelId, int64_t accountId) const
+pplx::task<std::shared_ptr<QuestionResponse>> GameLevelApi::getQuestionsInLevel(int64_t levelId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/questions/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/questions/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -965,13 +959,12 @@ pplx::task<std::shared_ptr<QuestionResponse>> GameLevelApi::getQuestionsInLevel(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<WordzWordResponse>> GameLevelApi::getWordsInLevel(double version, int64_t levelId, int64_t accountId) const
+pplx::task<std::shared_ptr<WordzWordResponse>> GameLevelApi::getWordsInLevel(int64_t levelId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/words/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/words/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1094,13 +1087,12 @@ pplx::task<std::shared_ptr<WordzWordResponse>> GameLevelApi::getWordsInLevel(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::updateGameLevel(double version, int64_t accountId, int64_t levelId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> difficulty, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> assetImageId, boost::optional<int64_t> assetIconId, boost::optional<utility::string_t> gameData, boost::optional<utility::string_t> gameDataSuffix, boost::optional<utility::string_t> visibility, boost::optional<bool> friendGroup, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<double> balance, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<int64_t> ticketCount, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points, boost::optional<utility::string_t> tutorialTitle, boost::optional<utility::string_t> tutorialMessage, boost::optional<utility::string_t> tutorialAlignment, boost::optional<int64_t> tutorialImageAssetId, boost::optional<int64_t> offerId, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::updateGameLevel(int64_t accountId, int64_t levelId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> difficulty, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> assetImageId, boost::optional<int64_t> assetIconId, boost::optional<utility::string_t> gameData, boost::optional<utility::string_t> gameDataSuffix, boost::optional<utility::string_t> visibility, boost::optional<bool> friendGroup, boost::optional<utility::string_t> connectionIds, boost::optional<utility::string_t> connectionGroupIds, boost::optional<double> balance, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<int64_t> ticketCount, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points, boost::optional<utility::string_t> tutorialTitle, boost::optional<utility::string_t> tutorialMessage, boost::optional<utility::string_t> tutorialAlignment, boost::optional<int64_t> tutorialImageAssetId, boost::optional<int64_t> offerId, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1323,13 +1315,12 @@ pplx::task<std::shared_ptr<GameLevelResponse>> GameLevelApi::updateGameLevel(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::updateQuestionsInLevel(double version, int64_t levelId, int64_t accountId, utility::string_t questionIds) const
+pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::updateQuestionsInLevel(int64_t levelId, int64_t accountId, utility::string_t questionIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/questions/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/questions/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1455,13 +1446,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::updateQuestionsInLevel
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::updateWordsInLevel(double version, int64_t levelId, int64_t accountId, utility::string_t wordIds) const
+pplx::task<std::shared_ptr<SirqulResponse>> GameLevelApi::updateWordsInLevel(int64_t levelId, int64_t accountId, utility::string_t wordIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/level/words/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/level/words/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

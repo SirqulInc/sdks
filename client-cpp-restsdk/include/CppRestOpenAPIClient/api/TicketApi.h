@@ -55,14 +55,12 @@ public:
     /// <remarks>
     /// Gets the ticket count.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the id of the device that owns the tickets (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the id of the account that owns the tickets (optional, default to 0L)</param>
     /// <param name="gameType">this is deprecated. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the applicationkey (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="ticketType">the type of ticket (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<CountResponse>> getTicketCount(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> gameType,
@@ -75,7 +73,6 @@ public:
     /// <remarks>
     /// Gets the list of tickets.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the id of the device that owns the tickets (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the id of the account that owns the tickets (optional, default to 0L)</param>
     /// <param name="ticketObjectType">comma separated list of TicketObjectType (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -86,7 +83,6 @@ public:
     /// <param name="gameType"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<TicketListResponse>> getTicketList(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> ticketObjectType,
@@ -103,7 +99,6 @@ public:
     /// <remarks>
     /// Gift tickets to another user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="receiverAccountId">the id of the account receiving the tickets</param>
     /// <param name="ticketId">the id of the tickets</param>
     /// <param name="deviceId">the id of the device (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -113,7 +108,6 @@ public:
     /// <param name="gameType">the type of game associated with the tickets (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> giftPurchase(
-        double version,
         int64_t receiverAccountId,
         int64_t ticketId,
         boost::optional<utility::string_t> deviceId,
@@ -129,7 +123,6 @@ public:
     /// <remarks>
     /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="actionType">the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER</param>
     /// <param name="ticketObjectType">the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM</param>
     /// <param name="returnNulls">whether to return nulls or not (optional, default to false)</param>
@@ -149,7 +142,6 @@ public:
     /// <param name="includeProfileResponse">if returnProfileResponse is false, will return an AppResponse with profile data if true (optional, default to false)</param>
     /// <param name="appVersion">the application version (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> saveTicket(
-        double version,
         utility::string_t actionType,
         utility::string_t ticketObjectType,
         boost::optional<bool> returnNulls,
@@ -175,7 +167,6 @@ public:
     /// <remarks>
     /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="actionType">the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }</param>
     /// <param name="ticketObjectType">the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}</param>
     /// <param name="receiptData">the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.</param>
@@ -195,7 +186,6 @@ public:
     /// <param name="includeProfileResponse">if returnProfileResponse is false, will return an AppResponse with profile data if true (optional, default to false)</param>
     /// <param name="appVersion">the application version (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> saveTicketViaFileUpload(
-        double version,
         utility::string_t actionType,
         utility::string_t ticketObjectType,
         std::shared_ptr<HttpContent> receiptData,
@@ -221,9 +211,7 @@ public:
     /// <remarks>
     /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
     /// </remarks>
-    /// <param name="version"></param>
     pplx::task<std::shared_ptr<TicketOfferResponse>> ticketOffers(
-        double version
     ) const;
 
 protected:

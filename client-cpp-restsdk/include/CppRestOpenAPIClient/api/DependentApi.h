@@ -50,11 +50,9 @@ public:
     /// <remarks>
     /// Create dependent of the account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the parent account to create a dependent for</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> create(
-        double version,
         int64_t accountId,
         boost::optional<std::shared_ptr<Account>> body
     ) const;
@@ -64,10 +62,8 @@ public:
     /// <remarks>
     /// Get the dependent list of an account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the parent account to get a list of dependents</param>
     pplx::task<std::shared_ptr<SirqulResponse>> getDependents(
-        double version,
         int64_t accountId
     ) const;
     /// <summary>
@@ -76,11 +72,9 @@ public:
     /// <remarks>
     /// Delete the Dependent
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the parent account tied to the dependent</param>
     /// <param name="dependentId">the id of the dependent to delete</param>
     pplx::task<void> removeDependent(
-        double version,
         int64_t accountId,
         int64_t dependentId
     ) const;

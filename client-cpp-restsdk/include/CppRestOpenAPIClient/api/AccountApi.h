@@ -57,7 +57,6 @@ public:
     /// <remarks>
     /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="q">Deprecated - legacy query parameter (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -93,7 +92,6 @@ public:
     /// <param name="verifiedUserOnly">Returns only verified users (optional, default to false)</param>
     /// <param name="contentAdminOnly">Returns only content admin users (optional, default to false)</param>
     pplx::task<std::shared_ptr<UserLocationSearchResponse>> accountLocationSearch(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> q,
@@ -135,7 +133,6 @@ public:
     /// <remarks>
     /// Moves or removes an account into the user&#39;s blocked group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountIdBeingBlocked">The id of the account to be blocked/unblocked</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -144,7 +141,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> blockAccount(
-        double version,
         int64_t accountIdBeingBlocked,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -159,7 +155,6 @@ public:
     /// <remarks>
     /// Create a new account by role.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="username">The access token to authenticate with (ex: username)</param>
     /// <param name="password">The secret to authenticate with (ex: password)</param>
     /// <param name="name">The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -233,7 +228,6 @@ public:
     /// <param name="appNickname">The nickname used in the application for this account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="personalAudienceId">Personal audience id to associate with this account (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<AccountLoginResponse>> createAccount(
-        double version,
         utility::string_t username,
         utility::string_t password,
         boost::optional<utility::string_t> name,
@@ -313,7 +307,6 @@ public:
     /// <remarks>
     /// Edit the user&#39;s profile information
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="connectionAccountId">The account id used to edit another person&#39;s account (optional, default to 0L)</param>
@@ -397,7 +390,6 @@ public:
     /// <param name="personalAudienceId">Personal Audience (optional, default to 0L)</param>
     /// <param name="nonGuestUsername">The user&#39;s username to update with if they currently have a guest username (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileInfoResponse>> editAccount(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> connectionAccountId,
@@ -487,13 +479,11 @@ public:
     /// <remarks>
     /// Update account&#39;s own username and/or emailAddress
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="emailAddress">the user&#39;s contact email address (NOT the username) which is also used for email validation (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="username">the user&#39;s username to update with if they currently have a guest username (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> editUsername(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> emailAddress,
@@ -505,7 +495,6 @@ public:
     /// <remarks>
     /// Gets a user&#39;s account profile. Application settings and account settings will also be returned for the owner of the account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">Return Nulls (optional, default to false)</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -519,7 +508,6 @@ public:
     /// <param name="latitude">Latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">Longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> getAccount(
-        double version,
         boost::optional<bool> returnNulls,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -539,7 +527,6 @@ public:
     /// <remarks>
     /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">Determines whether to return null fields in the response (optional, default to false)</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -555,7 +542,6 @@ public:
     /// <param name="l">_l (optional, default to 0)</param>
     /// <param name="limit">Limit of the pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<AssetListResponse>> getProfileAssets(
-        double version,
         boost::optional<bool> returnNulls,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -577,7 +563,6 @@ public:
     /// <remarks>
     /// Gets a user&#39;s account profile and their referral List.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appKey">The application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="retrieveType">one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it&#39;s parents, recursively - GET_ALL will get all of the above (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -590,7 +575,6 @@ public:
     /// <param name="childrenListLimit">pagination limit for children list (optional, default to 0.0)</param>
     /// <param name="childrenChildren">if true, on each item in ancestor and children list, return the childrenTotalNumber and ancestorTotalNumber for that item (optional, default to false)</param>
     pplx::task<void> getReferralList(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<utility::string_t> retrieveType,
@@ -609,13 +593,11 @@ public:
     /// <remarks>
     /// Get the account settings for a user
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<UserSettingsResponse>> getSettings(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
@@ -627,7 +609,6 @@ public:
     /// <remarks>
     /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accessToken"></param>
     /// <param name="appKey"></param>
     /// <param name="deviceId"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -640,7 +621,6 @@ public:
     /// <param name="latitude"> (optional, default to 0.0)</param>
     /// <param name="longitude"> (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> loginDelegate(
-        double version,
         utility::string_t accessToken,
         utility::string_t appKey,
         boost::optional<utility::string_t> deviceId,
@@ -659,7 +639,6 @@ public:
     /// <remarks>
     /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accessToken">The access token to authenticate with (ex: username or fb token)</param>
     /// <param name="networkUID">The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE </param>
     /// <param name="appKey">The application key</param>
@@ -674,7 +653,6 @@ public:
     /// <param name="chosenAccountId">Chosen account Id sent from the app - pass in the 2nd request to choose an account from multiple accounts matching the email - use one of the account id from the previous request (optional, default to 0L)</param>
     /// <param name="thirdPartyCredentialId">Third-party credential Id, pass in the 2nd request to choose an account from multiple accounts matching the email - use the id from the previous call ThirdPartyCredential object (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> loginGeneral(
-        double version,
         utility::string_t accessToken,
         utility::string_t networkUID,
         utility::string_t appKey,
@@ -695,7 +673,6 @@ public:
     /// <remarks>
     /// Login to system with an account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="username">the user&#39;s email address they used to sign-up</param>
     /// <param name="password">the password</param>
     /// <param name="deviceId">the device id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -707,7 +684,6 @@ public:
     /// <param name="returnProfile">the profile to return (optional, default to false)</param>
     /// <param name="responseFilters">a comma separated list of ProfileFilters for filtering the returned response data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> loginUsername(
-        double version,
         utility::string_t username,
         utility::string_t password,
         boost::optional<utility::string_t> deviceId,
@@ -725,14 +701,12 @@ public:
     /// <remarks>
     /// Cleans up the users data for logging out.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="deviceIdType">Device Id Type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> logout(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<utility::string_t> deviceIdType,
         boost::optional<int64_t> accountId,
@@ -745,13 +719,11 @@ public:
     /// <remarks>
     /// Merges the analytics, achievements, leaderboards of two accounts.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="mergeAccountId">The id of the account to being merged</param>
     /// <param name="appKey">The application key</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> mergeAccount(
-        double version,
         int64_t mergeAccountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> deviceId,
@@ -763,13 +735,11 @@ public:
     /// <remarks>
     /// Update the account password.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account to update</param>
     /// <param name="oldPassword">The current password, used to validate access</param>
     /// <param name="newPassword">The new password to set, cannot be empty</param>
     /// <param name="confirmPassword">The new password to confirm, must match newPassword</param>
     pplx::task<std::shared_ptr<SirqulResponse>> passwordChange(
-        double version,
         int64_t accountId,
         utility::string_t oldPassword,
         utility::string_t newPassword,
@@ -781,12 +751,10 @@ public:
     /// <remarks>
     /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="token">The token associated with the account to update, good for 24 hours</param>
     /// <param name="password">The new password to set, cannot be empty</param>
     /// <param name="confirm">The new password to confirm, must match newPassword</param>
     pplx::task<std::shared_ptr<SirqulResponse>> passwordReset(
-        double version,
         utility::string_t token,
         utility::string_t password,
         utility::string_t confirm
@@ -797,14 +765,12 @@ public:
     /// <remarks>
     /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="email">The email/username of the account</param>
     /// <param name="from">this is the sender email (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="domain">this is the domain (like dev.sirqul.com) used to generate the password reset link (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="subUrl">this is the the subUrl (like resetpassword) used to generate a password reset link (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="referer">this is used to generate a password reset link (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> requestPasswordReset(
-        double version,
         utility::string_t email,
         boost::optional<utility::string_t> from,
         boost::optional<utility::string_t> domain,
@@ -817,10 +783,8 @@ public:
     /// <remarks>
     /// Send an email to validate a user&#39;s account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     pplx::task<std::shared_ptr<SirqulResponse>> requestValidateAccount(
-        double version,
         int64_t accountId
     ) const;
     /// <summary>
@@ -829,7 +793,6 @@ public:
     /// <remarks>
     /// Search for account profiles.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The id of the account requesting</param>
     /// <param name="appKey">The application key</param>
     /// <param name="keyword">The keyword for for querying the account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -849,7 +812,6 @@ public:
     /// <param name="limit">The total number of record to return. (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<ProfileResponse>>> searchAccounts(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> keyword,
@@ -875,7 +837,6 @@ public:
     /// <remarks>
     /// ogin with encrypted user-name and password.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="username">The user&#39;s encrypted email address they used to sign-up</param>
     /// <param name="password">The encrypted password</param>
     /// <param name="gameType">The application key</param>
@@ -886,7 +847,6 @@ public:
     /// <param name="returnProfile">Return Profile (optional, default to false)</param>
     /// <param name="responseFilters">A comma separated list of ProfileFilters for filtering the returned response data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> secureLogin(
-        double version,
         utility::string_t username,
         utility::string_t password,
         utility::string_t gameType,
@@ -903,7 +863,6 @@ public:
     /// <remarks>
     /// Create a new account by role (with encrypted user-name and password)
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id</param>
     /// <param name="username">The encrypted email of the user, this is what will be used when they login</param>
     /// <param name="password">The encrypted password of the user</param>
@@ -966,7 +925,6 @@ public:
     /// <param name="appVersion">App Version (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="responseType">Response Type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileInfoResponse>> secureSignup(
-        double version,
         utility::string_t deviceId,
         utility::string_t username,
         utility::string_t password,
@@ -1035,7 +993,6 @@ public:
     /// <remarks>
     /// Save user&#39;s match token to be used for profile match making
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="matchToken">A string of numbers (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -1044,7 +1001,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> setMatchToken(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> matchToken,
@@ -1059,14 +1015,12 @@ public:
     /// <remarks>
     /// Activate or deactivate an account (requires appropriate permissions).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
     /// <param name="connectionAccountId">The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)</param>
     /// <param name="active">true will activate the user and false will deactivate</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the application key that the user belongs to (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateActveStatus(
-        double version,
         int64_t accountId,
         int64_t connectionAccountId,
         bool active,
@@ -1079,14 +1033,12 @@ public:
     /// <remarks>
     /// Update the account location
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     /// <param name="clientTime">The time of the update (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateLocation(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
@@ -1099,7 +1051,6 @@ public:
     /// <remarks>
     /// Update the account settings for a user
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="blockedNotifications">The notifications to be blocked (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -1113,7 +1064,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<UserSettingsResponse>> updateSettings(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> blockedNotifications,
@@ -1133,10 +1083,8 @@ public:
     /// <remarks>
     /// Validate the account&#39;s email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="token">The token associated with the account to update, good for 24 hours</param>
     pplx::task<std::shared_ptr<AccountLoginResponse>> validateAccountSignup(
-        double version,
         utility::string_t token
     ) const;
     /// <summary>
@@ -1145,10 +1093,8 @@ public:
     /// <remarks>
     /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="token">The token associated with the account to update, good for 24 hours</param>
     pplx::task<std::shared_ptr<SirqulResponse>> validatePasswordReset(
-        double version,
         utility::string_t token
     ) const;
 

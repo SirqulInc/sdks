@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application requesting the purchase</param>
     /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="externalDate">External Date (optional, default to 0L)</param>
     /// <param name="promoCode">The Promo Code (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrderResponse>> createOrder(
-        double version,
         utility::string_t appKey,
         utility::string_t cart,
         boost::optional<utility::string_t> deviceId,
@@ -86,12 +84,10 @@ public:
     /// <remarks>
     /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="orderId">Order Id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteOrder(
-        double version,
         int64_t orderId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -102,13 +98,11 @@ public:
     /// <remarks>
     /// Get an order record
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="orderId">The order id to get details of, either orderId or externalOrderId must be provided (optional, default to 0L)</param>
     /// <param name="externalOrderId">The external order id to get details of, either orderId or externalOrderId must be provided (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrderResponse>> getOrder(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> orderId,
@@ -120,7 +114,6 @@ public:
     /// <remarks>
     /// Previews a purchase to see the total cost before making it.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application requesting the purchase</param>
     /// <param name="cart">A JSON list of items to purchase</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -134,7 +127,6 @@ public:
     /// <param name="externalDate">External Date (optional, default to 0L)</param>
     /// <param name="promoCode">The Promo Code (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OrderResponse>> previewOrder(
-        double version,
         utility::string_t appKey,
         utility::string_t cart,
         boost::optional<utility::string_t> deviceId,
@@ -154,7 +146,6 @@ public:
     /// <remarks>
     /// Search on active orders by customer
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application requesting the purchase</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -187,7 +178,6 @@ public:
     /// <param name="endedSince">Filter results by the offer end date (optional, default to 0L)</param>
     /// <param name="endedBefore">Filter results by the offer end date (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<OrderResponse>>> searchOrders(
-        double version,
         utility::string_t appKey,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -226,7 +216,6 @@ public:
     /// <remarks>
     /// Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="orderId">The order to add the purchase to, leave null for new order.</param>
     /// <param name="appKey">The application requesting the purchase</param>
     /// <param name="cart">&#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; </param>
@@ -239,7 +228,6 @@ public:
     /// <param name="externalPaymentId">Store identifier from external system (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="externalDate">External Date (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<OrderResponse>> updateOrder(
-        double version,
         int64_t orderId,
         utility::string_t appKey,
         utility::string_t cart,

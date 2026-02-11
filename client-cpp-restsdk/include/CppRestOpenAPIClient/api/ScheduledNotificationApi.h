@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the scheduled notification</param>
     /// <param name="type">The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages</param>
@@ -87,7 +86,6 @@ public:
     /// <param name="deepLinkURI">The payload deep link URI that can be used by the client app to direct users to a screen in the app (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional, default to false)</param>
     pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> createScheduledNotification(
-        double version,
         int64_t accountId,
         utility::string_t name,
         utility::string_t type,
@@ -129,12 +127,10 @@ public:
     /// <remarks>
     /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="scheduledNotificationId">the id of the scheduled notification to delete</param>
     /// <param name="deleteByGroupingId">If set to true, also deletes Scheduled Notifications under the same account with the same groupingId. (optional, default to false)</param>
     pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> deleteScheduledNotification(
-        double version,
         int64_t accountId,
         int64_t scheduledNotificationId,
         boost::optional<bool> deleteByGroupingId
@@ -145,11 +141,9 @@ public:
     /// <remarks>
     /// Get a ScheduledNotification
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account logged in</param>
     /// <param name="scheduledNotificationId">the id of the scheduled notification to get</param>
     pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> getScheduledNotification(
-        double version,
         int64_t accountId,
         int64_t scheduledNotificationId
     ) const;
@@ -159,7 +153,6 @@ public:
     /// <remarks>
     /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">The application to target</param>
     /// <param name="reportName">The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail</param>
@@ -169,7 +162,6 @@ public:
     /// <param name="reportParams">The parameters of the report used to identify events in a json structure, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;: \&quot;value\&quot;,   \&quot;number\&quot;: 3.345,   \&quot;date\&quot;: \&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="type">The type of scheduled notification; supported values are: MOBILE_NOTIFICATION (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> scheduleNotificationListings(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t reportName,
@@ -185,7 +177,6 @@ public:
     /// <remarks>
     /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="audienceId">Filter results by audience (optional, default to 0L)</param>
@@ -207,7 +198,6 @@ public:
     /// <param name="groupByGroupingId">Determines whether to group results with the same groupingId together. (optional, default to false)</param>
     /// <param name="returnAudienceAccountCount">If true, include audience account counts in the response (optional, default to false)</param>
     pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> searchScheduledNotifications(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> groupingId,
         boost::optional<int64_t> audienceId,
@@ -235,7 +225,6 @@ public:
     /// <remarks>
     /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="scheduledNotificationId">The id of scheduled notification to update</param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the scheduled notification (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -275,7 +264,6 @@ public:
     /// <param name="deepLinkURI">The payload deep link URI that can be used by the client app to direct users to a screen in the app (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="sendToAll">Determines whether to send to all users of the app if set to true for push notifications (appKey is required) (optional, default to false)</param>
     pplx::task<std::shared_ptr<ScheduledNotificationFullResponse>> updateScheduledNotification(
-        double version,
         int64_t scheduledNotificationId,
         int64_t accountId,
         boost::optional<utility::string_t> name,

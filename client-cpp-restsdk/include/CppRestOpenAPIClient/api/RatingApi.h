@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="ratableType">The ratable object type {RETAILER_LOCATION}</param>
     /// <param name="ratableId">The id of the ratable object</param>
     /// <param name="ratingValue">The integer value of 0-100</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<RatingResponse>> createRating(
-        double version,
         utility::string_t ratableType,
         int64_t ratableId,
         int32_t ratingValue,
@@ -85,12 +83,10 @@ public:
     /// <remarks>
     /// Sets a rating as deleted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="ratingId">The ID of the rating to delete</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteRating(
-        double version,
         int64_t ratingId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -101,7 +97,6 @@ public:
     /// <remarks>
     /// Search for retailer locations by averages near you.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">The keyword used to search (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="locationType">The type of location to filter the results by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -120,7 +115,6 @@ public:
     /// <param name="returnCategories">whether to return the categories or not (optional, default to false)</param>
     /// <param name="returnFilters">whether to return the filters or not (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> searchLocationRatingIndexes(
-        double version,
         boost::optional<utility::string_t> categoryIds,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> locationType,
@@ -145,7 +139,6 @@ public:
     /// <remarks>
     /// Search for ratable items by averages.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="ratableType">Filter results by a ratable type {RETAILER_LOCATION}</param>
     /// <param name="ratableIds">Comma separated list of ratable ids to filter the resuts by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="categoryIds">Comma separated list of category ids to filter the results by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -160,7 +153,6 @@ public:
     /// <param name="returnRatable">Determines whether to return the ratable object in the response (optional, default to false)</param>
     /// <param name="returnOverallRating">Determines whether to return the overall rating record instead (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<RatingIndexResponse>>> searchRatingIndexes(
-        double version,
         utility::string_t ratableType,
         boost::optional<utility::string_t> ratableIds,
         boost::optional<utility::string_t> categoryIds,
@@ -181,7 +173,6 @@ public:
     /// <remarks>
     /// Search for ratings on a ratable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="filterAccountId">Filter results for a particular account (optional, default to 0L)</param>
@@ -194,7 +185,6 @@ public:
     /// <param name="start">The record to begin the return set on (optional, default to 0)</param>
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<RatingResponse>>> searchRatings(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> filterAccountId,
@@ -213,7 +203,6 @@ public:
     /// <remarks>
     /// Update an existing rating. Only the creator of the rating have permission to update.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="ratingId">The id of the rating (Note: this is not the ratable object id)</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
@@ -225,7 +214,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<RatingResponse>> updateRating(
-        double version,
         int64_t ratingId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

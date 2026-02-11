@@ -54,12 +54,10 @@ public:
     /// <remarks>
     /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the create, must be the responsible manager</param>
     /// <param name="planId">The plan to subscribe to, if null use default plan (optional, default to 0L)</param>
     /// <param name="promoCode">Set a promo code for a discount. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SubscriptionResponse>> createSubscription(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> planId,
         boost::optional<utility::string_t> promoCode
@@ -70,10 +68,8 @@ public:
     /// <remarks>
     /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the delete, must be the responsible manager</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteSubscription(
-        double version,
         int64_t accountId
     ) const;
     /// <summary>
@@ -82,10 +78,8 @@ public:
     /// <remarks>
     /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the lookup</param>
     pplx::task<std::shared_ptr<SubscriptionResponse>> getSubscription(
-        double version,
         int64_t accountId
     ) const;
     /// <summary>
@@ -94,10 +88,8 @@ public:
     /// <remarks>
     /// Get the matched subscription plan
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="planId">The ID of the plan to get</param>
     pplx::task<std::shared_ptr<SubscriptionPlanResponse>> getSubscriptionPlan(
-        double version,
         int64_t planId
     ) const;
     /// <summary>
@@ -106,11 +98,9 @@ public:
     /// <remarks>
     /// Get the matched subscription plan
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="visible">Include visible only (true), hidden only (false), or all (null) (optional, default to false)</param>
     /// <param name="role">The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<SubscriptionPlanResponse>>> getSubscriptionPlans(
-        double version,
         boost::optional<bool> visible,
         boost::optional<utility::string_t> role
     ) const;
@@ -120,13 +110,11 @@ public:
     /// <remarks>
     /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the lookup</param>
     /// <param name="applicationId">Get for just 1 application instead of the BillableEntity (optional, default to 0L)</param>
     /// <param name="start">The start time frame (optional, default to 0L)</param>
     /// <param name="end">The end time frame (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<ApplicationUsageResponse>> getSubscriptionUsage(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> applicationId,
         boost::optional<int64_t> start,
@@ -138,13 +126,11 @@ public:
     /// <remarks>
     /// Updates the subscription for the billable entity for an account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the update, must be the responsible manager</param>
     /// <param name="planId">The plan to subscribe to (optional, default to 0L)</param>
     /// <param name="promoCode">Set a promo code for a discount. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">Set active status (optional, default to false)</param>
     pplx::task<std::shared_ptr<SubscriptionResponse>> updateSubscription(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> planId,
         boost::optional<utility::string_t> promoCode,

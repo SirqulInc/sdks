@@ -53,11 +53,9 @@ public:
     /// <remarks>
     /// Enable this ad for preview for this account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account</param>
     /// <param name="creativeId">The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> addPreview(
-        double version,
         int64_t accountId,
         int64_t creativeId
     ) const;
@@ -67,7 +65,6 @@ public:
     /// <remarks>
     /// Get a set of ad filtered by the parameters provided.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.</param>
     /// <param name="randomize">return a random set of results, default is true. If false returns in nature order.</param>
     /// <param name="targetedAdsOnly">return only ads targets to the specific app, no global ads.</param>
@@ -85,7 +82,6 @@ public:
     /// <param name="allocatesTickets">If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both. (optional, default to false)</param>
     /// <param name="missionIds">return only ads from the specified campaigns. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<MissionResponse>>> adsFind(
-        double version,
         utility::string_t appKey,
         bool randomize,
         bool targetedAdsOnly,
@@ -109,7 +105,6 @@ public:
     /// <remarks>
     /// Create a creative
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the level.</param>
     /// <param name="active">If true set the game level as active. Default is false.</param>
@@ -126,7 +121,6 @@ public:
     /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional, default to 0L)</param>
     /// <param name="offerId">the id of the offer (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<CreativeResponse>> createCreative(
-        double version,
         int64_t accountId,
         utility::string_t name,
         bool active,
@@ -149,11 +143,9 @@ public:
     /// <remarks>
     /// Delete a creative
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="creativeId">the id of the creative to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteCreative(
-        double version,
         int64_t accountId,
         int64_t creativeId
     ) const;
@@ -163,11 +155,9 @@ public:
     /// <remarks>
     /// Get a creative
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="creativeId">the ID of the creative to get</param>
     pplx::task<std::shared_ptr<CreativeResponse>> getCreative(
-        double version,
         int64_t accountId,
         int64_t creativeId
     ) const;
@@ -177,7 +167,6 @@ public:
     /// <remarks>
     /// Get a list of levels for an application, just those the account has permissions to view.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">the application key</param>
     /// <param name="start">Start the result set at some index.</param>
@@ -185,7 +174,6 @@ public:
     /// <param name="missionId">Creatives contained in the provided mission. (optional, default to 0L)</param>
     /// <param name="keyword">Match the keyword to the owner name or level name. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<CreativeResponse>>> getCreativesByApplication(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int32_t start,
@@ -199,11 +187,9 @@ public:
     /// <remarks>
     /// Remove this ad for preview for this account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the ID of the logged in user</param>
     /// <param name="creativeId">the ID of the creative to remove preview</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removePreview(
-        double version,
         int64_t accountId,
         int64_t creativeId
     ) const;
@@ -213,7 +199,6 @@ public:
     /// <remarks>
     /// Update a creative
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="creativeId">the creative Id to upate.</param>
     /// <param name="name">The name of the level. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -229,7 +214,6 @@ public:
     /// <param name="appVersion">The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="missionId">Assign the creative to a campaign for timing and audience matching. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<CreativeResponse>> updateCreative(
-        double version,
         int64_t accountId,
         int64_t creativeId,
         boost::optional<utility::string_t> name,

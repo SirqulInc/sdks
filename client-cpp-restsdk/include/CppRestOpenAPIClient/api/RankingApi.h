@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Get historical leaderboard rankings by time-frame.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key for filtering results by application</param>
     /// <param name="rankType">the rank type to return</param>
     /// <param name="startDate">timestamp in milliseconds to filter results with</param>
@@ -64,7 +63,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<RankFullResponse>> getHistoricalRankings(
-        double version,
         utility::string_t appKey,
         utility::string_t rankType,
         int64_t startDate,
@@ -82,7 +80,6 @@ public:
     /// <remarks>
     /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="gameType">This parameter is deprecated. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -102,7 +99,6 @@ public:
     /// <param name="l">This parameter is deprecated. (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<RankFullResponse>> getRankings(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> gameType,
@@ -128,7 +124,6 @@ public:
     /// <remarks>
     /// Returns the user&#39;s ranks for one or more rank types and modes.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (optional, default to 0L)</param>
     /// <param name="appKey">the application key for filtering results by application (required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -141,7 +136,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<Object>> getUserRank(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -160,7 +154,6 @@ public:
     /// <remarks>
     /// Allows an admin of an application to override a user&#39;s scores for a leaderboard.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the logged in user&#39;s account id (must have permissions to manage data for the application)</param>
     /// <param name="ownerAccountId">the end user&#39;s account id to override</param>
     /// <param name="appKey">the application key the leaderboard is for</param>
@@ -184,7 +177,6 @@ public:
     /// <param name="startDate">the start date to update (optional, default to 0L)</param>
     /// <param name="endDate">the end date to update (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> overrideUserRank(
-        double version,
         int64_t accountId,
         int64_t ownerAccountId,
         utility::string_t appKey,
@@ -214,7 +206,6 @@ public:
     /// <remarks>
     /// Update the rank value 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="appKey">the application key for filtering results by application</param>
     /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS</param>
@@ -226,7 +217,6 @@ public:
     /// <param name="updateGlobal">update the global rankings if true, default is false (optional, default to false)</param>
     /// <param name="createLeaderboard">create the leaderboard if it does not exist (default false) (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateRankings(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t rankType,

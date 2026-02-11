@@ -36,13 +36,12 @@ SimulationApi::~SimulationApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> SimulationApi::simulation(double version, utility::string_t data, bool realTime) const
+pplx::task<std::shared_ptr<SirqulResponse>> SimulationApi::simulation(utility::string_t data, bool realTime) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/simulation/routing");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/simulation/routing");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

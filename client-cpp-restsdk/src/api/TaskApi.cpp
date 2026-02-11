@@ -36,13 +36,12 @@ TaskApi::~TaskApi()
 {
 }
 
-pplx::task<std::shared_ptr<TaskResponse>> TaskApi::createTask(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TaskResponse>> TaskApi::createTask(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/task/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/task/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -205,13 +204,12 @@ pplx::task<std::shared_ptr<TaskResponse>> TaskApi::createTask(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TaskApi::deleteTask(double version, int64_t accountId, int64_t taskId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TaskApi::deleteTask(int64_t accountId, int64_t taskId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/task/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/task/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -334,13 +332,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TaskApi::deleteTask(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TaskResponse>> TaskApi::getTask(double version, int64_t accountId, int64_t taskId) const
+pplx::task<std::shared_ptr<TaskResponse>> TaskApi::getTask(int64_t accountId, int64_t taskId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/task/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/task/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -463,13 +460,12 @@ pplx::task<std::shared_ptr<TaskResponse>> TaskApi::getTask(double version, int64
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<TaskResponse>>> TaskApi::searchTasks(double version, int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<TaskResponse>>> TaskApi::searchTasks(int64_t accountId, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> templateTypes, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/task/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/task/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -637,13 +633,12 @@ pplx::task<std::vector<std::shared_ptr<TaskResponse>>> TaskApi::searchTasks(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TaskResponse>> TaskApi::updateTask(double version, int64_t taskId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<TaskResponse>> TaskApi::updateTask(int64_t taskId, int64_t accountId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> groupingId, boost::optional<utility::string_t> endpointURL, boost::optional<utility::string_t> payload, boost::optional<int64_t> scheduledDate, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> cronExpression, boost::optional<utility::string_t> visibility, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/task/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/task/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

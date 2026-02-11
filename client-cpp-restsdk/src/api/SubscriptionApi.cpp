@@ -36,13 +36,12 @@ SubscriptionApi::~SubscriptionApi()
 {
 }
 
-pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::createSubscription(double version, int64_t accountId, boost::optional<int64_t> planId, boost::optional<utility::string_t> promoCode) const
+pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::createSubscription(int64_t accountId, boost::optional<int64_t> planId, boost::optional<utility::string_t> promoCode) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -170,13 +169,12 @@ pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::createSubscri
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> SubscriptionApi::deleteSubscription(double version, int64_t accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> SubscriptionApi::deleteSubscription(int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -296,13 +294,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> SubscriptionApi::deleteSubscription(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::getSubscription(double version, int64_t accountId) const
+pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::getSubscription(int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -422,13 +419,12 @@ pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::getSubscripti
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SubscriptionPlanResponse>> SubscriptionApi::getSubscriptionPlan(double version, int64_t planId) const
+pplx::task<std::shared_ptr<SubscriptionPlanResponse>> SubscriptionApi::getSubscriptionPlan(int64_t planId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/plan/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/plan/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -548,13 +544,12 @@ pplx::task<std::shared_ptr<SubscriptionPlanResponse>> SubscriptionApi::getSubscr
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<SubscriptionPlanResponse>>> SubscriptionApi::getSubscriptionPlans(double version, boost::optional<bool> visible, boost::optional<utility::string_t> role) const
+pplx::task<std::vector<std::shared_ptr<SubscriptionPlanResponse>>> SubscriptionApi::getSubscriptionPlans(boost::optional<bool> visible, boost::optional<utility::string_t> role) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/plan/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/plan/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -683,13 +678,12 @@ pplx::task<std::vector<std::shared_ptr<SubscriptionPlanResponse>>> SubscriptionA
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ApplicationUsageResponse>> SubscriptionApi::getSubscriptionUsage(double version, int64_t accountId, boost::optional<int64_t> applicationId, boost::optional<int64_t> start, boost::optional<int64_t> end) const
+pplx::task<std::shared_ptr<ApplicationUsageResponse>> SubscriptionApi::getSubscriptionUsage(int64_t accountId, boost::optional<int64_t> applicationId, boost::optional<int64_t> start, boost::optional<int64_t> end) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/usage/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/usage/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -821,13 +815,12 @@ pplx::task<std::shared_ptr<ApplicationUsageResponse>> SubscriptionApi::getSubscr
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::updateSubscription(double version, int64_t accountId, boost::optional<int64_t> planId, boost::optional<utility::string_t> promoCode, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<SubscriptionResponse>> SubscriptionApi::updateSubscription(int64_t accountId, boost::optional<int64_t> planId, boost::optional<utility::string_t> promoCode, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/subscription/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/subscription/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

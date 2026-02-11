@@ -52,14 +52,12 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="batchId">the id of the batch</param>
     /// <param name="responseGroup">The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL</param>
     /// <param name="start">the start of the pagination</param>
     /// <param name="limit">the limit of the pagination</param>
     pplx::task<std::shared_ptr<SirqulResponse>> getStatusCSV(
-        double version,
         int64_t accountId,
         int64_t batchId,
         utility::string_t responseGroup,
@@ -72,12 +70,10 @@ public:
     /// <remarks>
     /// Retrieves batches for a user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account</param>
     /// <param name="start">the start of the pagination</param>
     /// <param name="limit">the limit of the pagination</param>
     pplx::task<std::shared_ptr<CsvImportResponse>> listStatusCSV(
-        double version,
         int64_t accountId,
         int32_t start,
         int32_t limit
@@ -88,11 +84,9 @@ public:
     /// <remarks>
     /// Checks status of batch upload.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account</param>
     /// <param name="batchId">the id of the batch to get its status</param>
     pplx::task<std::shared_ptr<CsvImportResponse>> statusCSV(
-        double version,
         int64_t accountId,
         int64_t batchId
     ) const;
@@ -102,14 +96,12 @@ public:
     /// <remarks>
     /// Uploads a CSV import file.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account</param>
     /// <param name="uploadType">the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS</param>
     /// <param name="importFile">the import file to reference</param>
     /// <param name="fileFormat">the format of the file</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<CsvImportResponse>> uploadCSV(
-        double version,
         int64_t accountId,
         utility::string_t uploadType,
         std::shared_ptr<HttpContent> importFile,

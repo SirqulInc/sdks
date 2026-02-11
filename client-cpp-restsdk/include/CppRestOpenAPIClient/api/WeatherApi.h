@@ -49,13 +49,11 @@ public:
     /// <remarks>
     /// Search the weather forcast for the next 5 days
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="regionId">Region Id (optional, default to 0L)</param>
     /// <param name="latitude">Latitude (optional, default to 0.0)</param>
     /// <param name="longitude">Longitude (optional, default to 0.0)</param>
     /// <param name="timezoneOffset">Timezone Offset (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<WeatherResponse>> searchWeather(
-        double version,
         boost::optional<int64_t> regionId,
         boost::optional<double> latitude,
         boost::optional<double> longitude,

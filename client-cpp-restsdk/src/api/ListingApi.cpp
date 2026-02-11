@@ -36,13 +36,12 @@ ListingApi::~ListingApi()
 {
 }
 
-pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::createListing(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> description, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> locationName, boost::optional<utility::string_t> locationDescription, boost::optional<bool> isPrivate, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::createListing(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> description, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> locationName, boost::optional<utility::string_t> locationDescription, boost::optional<bool> isPrivate, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -213,13 +212,12 @@ pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::createListing(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ListingApi::deleteListing(double version, int64_t accountId, int64_t listingId) const
+pplx::task<std::shared_ptr<SirqulResponse>> ListingApi::deleteListing(int64_t accountId, int64_t listingId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -342,13 +340,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ListingApi::deleteListing(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::getListing(double version, int64_t listingId) const
+pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::getListing(int64_t listingId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -468,13 +465,12 @@ pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::getListing(double v
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ListingResponse>>> ListingApi::searchListing(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> useListingOrderIds, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId) const
+pplx::task<std::vector<std::shared_ptr<ListingResponse>>> ListingApi::searchListing(boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> useListingOrderIds, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -655,13 +651,12 @@ pplx::task<std::vector<std::shared_ptr<ListingResponse>>> ListingApi::searchList
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ListingGroupResponse>>> ListingApi::summaryListing(double version, boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<utility::string_t> categoryIds, boost::optional<int32_t> daysToInclude, boost::optional<bool> useListingOrderIds) const
+pplx::task<std::vector<std::shared_ptr<ListingGroupResponse>>> ListingApi::summaryListing(boost::optional<int64_t> accountId, boost::optional<int64_t> startDate, boost::optional<utility::string_t> categoryIds, boost::optional<int32_t> daysToInclude, boost::optional<bool> useListingOrderIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/summary");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/summary");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -802,13 +797,12 @@ pplx::task<std::vector<std::shared_ptr<ListingGroupResponse>>> ListingApi::summa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::updateListing(double version, int64_t accountId, int64_t listingId, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> locationName, boost::optional<utility::string_t> locationDescription, boost::optional<bool> isPrivate, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<ListingFullResponse>> ListingApi::updateListing(int64_t accountId, int64_t listingId, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> locationName, boost::optional<utility::string_t> locationDescription, boost::optional<bool> isPrivate, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalId2, boost::optional<utility::string_t> externalGroupId, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/listing/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/listing/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

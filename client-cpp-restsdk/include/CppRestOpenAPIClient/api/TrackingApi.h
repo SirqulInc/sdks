@@ -57,7 +57,6 @@ public:
     /// <remarks>
     /// Batch create tracking legs
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="data">JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; </param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="defaultTag">The default tag to apply to incoming legs when no tag is provided (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="slaveUID"> (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<Leg>>> batchSaveTracking(
-        double version,
         utility::string_t data,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -81,7 +79,6 @@ public:
     /// <remarks>
     /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the customer</param>
     /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional, default to 0.0)</param>
@@ -92,7 +89,6 @@ public:
     /// <param name="searchRange">Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (optional, default to 0.0)</param>
     /// <param name="sortOrder">The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<PredictedLocationResponse>> getPredictedLocations(
-        double version,
         int64_t accountId,
         boost::optional<double> latitude,
         boost::optional<double> longitude,
@@ -109,12 +105,10 @@ public:
     /// <remarks>
     /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the customer</param>
     /// <param name="startStepId">The stepId to begin from</param>
     /// <param name="endStepId">The stepId to end with</param>
     pplx::task<std::vector<std::shared_ptr<StepResponse>>> getPredictedPath(
-        double version,
         int64_t accountId,
         int64_t startStepId,
         int64_t endStepId
@@ -125,7 +119,6 @@ public:
     /// <remarks>
     /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the customer</param>
     /// <param name="latitude">latitude to return a more likely result set based on the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude to return a more likely result set based on the user&#39;s current location (optional, default to 0.0)</param>
@@ -138,7 +131,6 @@ public:
     /// <param name="searchRange">Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction. (optional, default to 0.0)</param>
     /// <param name="distanceUnit">Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<PreferredLocationResponse>>> getPreferredLocations(
-        double version,
         int64_t accountId,
         boost::optional<double> latitude,
         boost::optional<double> longitude,
@@ -157,7 +149,6 @@ public:
     /// <remarks>
     /// Retrieve tracking data to be able to show where a user has been.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="ownerId">the account id of the person the user wants to tracking data for (optional, default to 0L)</param>
@@ -167,7 +158,6 @@ public:
     /// <param name="tags">filter results by tag (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="getLastPoint">gets the last known location of the user (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<LegResponse>>> getTrackingLegs(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> ownerId,
@@ -183,7 +173,6 @@ public:
     /// <remarks>
     /// Send tracking points to be able to generate pathing data
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="startLat">the latitude of the first point</param>
     /// <param name="startLng">the longitude of the first point</param>
     /// <param name="startDate">the start date (in UTC milliseconds) of the first point</param>
@@ -197,7 +186,6 @@ public:
     /// <param name="steps">JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60;  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="tags">name the leg for searching (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> saveTrackingLeg(
-        double version,
         double startLat,
         double startLng,
         int64_t startDate,
@@ -217,7 +205,6 @@ public:
     /// <remarks>
     /// Send tracking points to be able to generate pathing data
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="legId">the leg to add the step to</param>
     /// <param name="startLat">the latitude of the first point</param>
     /// <param name="startLng">the longitude of the first point</param>
@@ -230,7 +217,6 @@ public:
     /// <param name="distance">the total distance (optional, default to 0.0)</param>
     /// <param name="duration">the total duration (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> saveTrackingStep(
-        double version,
         int64_t legId,
         double startLat,
         double startLng,
@@ -249,7 +235,6 @@ public:
     /// <remarks>
     /// Search for all accounts that have tracking legs data by the given constraints.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="keyword">Used for LIKE search of first or last name on the acocunt (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="startDate">Range to begin in UTC milliseconds (optional, default to 0L)</param>
@@ -265,7 +250,6 @@ public:
     /// <param name="limit">The total number of records to return. Default is 20. (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return only active results. Default is false. (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<AccountMiniResponse>>> searchAccountsWithTrackingLegs(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<int64_t> startDate,
@@ -287,7 +271,6 @@ public:
     /// <remarks>
     /// Retrieve tracking data for billable/account scoped queries.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id to search tracking for</param>
     /// <param name="appKey">The application key</param>
     /// <param name="trackingDeviceId">The id of the tracking device (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -297,7 +280,6 @@ public:
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<LegResponse>>> searchTrackingLegs(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> trackingDeviceId,

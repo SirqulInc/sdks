@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Adds offers to the wallet
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional, default to 0L)</param>
@@ -65,7 +64,6 @@ public:
     /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="status">Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership) (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> createOfferTransaction(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> offerId,
@@ -84,12 +82,10 @@ public:
     /// <remarks>
     /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="transactionId">The offer transaction id to remove</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteOfferTransaction(
-        double version,
         int64_t transactionId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -100,7 +96,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="transactionId">The offer transaction id to get details of</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -109,7 +104,6 @@ public:
     /// <param name="longitude">The latitude location of the user (optional, default to 0.0)</param>
     /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to false)</param>
     pplx::task<std::shared_ptr<OfferTransactionResponse>> getOfferTransaction(
-        double version,
         int64_t transactionId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -124,7 +118,6 @@ public:
     /// <remarks>
     /// Preview the final cost of a transaction without charging the user
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="offerId">The id of the offer being added (offerId or offeLocationId required) (optional, default to 0L)</param>
@@ -136,7 +129,6 @@ public:
     /// <param name="metaData">External custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">The application requesting the purchase, required when currencyType is TICKETS (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> previewOfferTransaction(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> offerId,
@@ -154,7 +146,6 @@ public:
     /// <remarks>
     /// Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="keyword">The keyword to search for (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -197,7 +188,6 @@ public:
     /// <param name="recurringExpirationSince">Filter results by the recurring billing expiration date (optional, default to 0L)</param>
     /// <param name="recurringExpirationBefore">Filter results by the recurring billing expiration date (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> searchOfferTransactions(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> keyword,
@@ -246,7 +236,6 @@ public:
     /// <remarks>
     /// Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="transactionId">The offer transaction id to remove</param>
     /// <param name="status">The status value to change to (0 or 1)</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -261,7 +250,6 @@ public:
     /// <param name="returnFullResponse">Determines whether to return a detailed version of the response (optional, default to false)</param>
     /// <param name="exceptionMembershipOfferIds">Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferTransactionResponse>> updateOfferTransaction(
-        double version,
         int64_t transactionId,
         int32_t status,
         boost::optional<utility::string_t> deviceId,

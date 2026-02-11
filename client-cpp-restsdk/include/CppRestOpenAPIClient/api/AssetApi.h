@@ -55,10 +55,8 @@ public:
     /// <remarks>
     /// Downloads an asset from the server for assets that have been uploaded to the server.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="filename">the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}</param>
     pplx::task<std::shared_ptr<SirqulResponse>> assetDownload(
-        double version,
         utility::string_t filename
     ) const;
     /// <summary>
@@ -67,7 +65,6 @@ public:
     /// <remarks>
     /// Converts an offer image + text into a creative image.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="offerId">offer id used for inserting offer text/flavor</param>
     /// <param name="adSize">the ad size used for selecting a format for the creative image</param>
     /// <param name="creativeId">used for inserting the newly created image into (optional, default to 0L)</param>
@@ -76,7 +73,6 @@ public:
     /// <param name="backgroundSize">the size of the background (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="r_template">the template to use (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AssetShortResponse>> assetMorph(
-        double version,
         int64_t offerId,
         utility::string_t adSize,
         boost::optional<int64_t> creativeId,
@@ -91,7 +87,6 @@ public:
     /// <remarks>
     /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">to return nulls (optional, default to false)</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -127,7 +122,6 @@ public:
     /// <param name="latitude">the latitude (optional) (optional, default to 0.0)</param>
     /// <param name="longitude">the longitude (optional) (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<AssetResponse>> createAsset(
-        double version,
         boost::optional<bool> returnNulls,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -169,14 +163,12 @@ public:
     /// <remarks>
     /// Delete an asset.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="assetId">the id of the asset to delete</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteAsset(
-        double version,
         utility::string_t assetId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -189,13 +181,11 @@ public:
     /// <remarks>
     /// Gets the full asset response including attached likes and notes.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="assetId">the asset ID</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="noteDescending">determines whether the notes on the asset are in descending order (optional, default to false)</param>
     pplx::task<std::shared_ptr<AssetFullResponse>> getAsset(
-        double version,
         int64_t assetId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -207,7 +197,6 @@ public:
     /// <remarks>
     /// Remove assets from collections
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="assetId">the id of the asset to remove</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -217,7 +206,6 @@ public:
     /// <param name="latitude">latitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeAsset(
-        double version,
         utility::string_t assetId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -233,7 +221,6 @@ public:
     /// <remarks>
     /// Searches for assets
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="albumIds">comma separated list of album ids to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -259,7 +246,6 @@ public:
     /// <param name="approvalStatus">filter by approval status (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="assignedAccountId">filter results by an assigned account id (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<AssetResponse>>> searchAssets(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> albumIds,
@@ -291,7 +277,6 @@ public:
     /// <remarks>
     /// Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="assetId">the ID of the asset to update</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -324,7 +309,6 @@ public:
     /// <param name="latitude">latitude used to update the asset&#39;s location (optional, default to 0.0)</param>
     /// <param name="longitude">longitude used to update the asset&#39;s location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateAsset(
-        double version,
         int64_t assetId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

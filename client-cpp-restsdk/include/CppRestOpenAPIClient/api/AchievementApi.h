@@ -56,7 +56,6 @@ public:
     /// <remarks>
     /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -68,8 +67,7 @@ public:
     /// <param name="descendingGoal">determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement) (optional, default to false)</param>
     /// <param name="start">The start of the index for pagination (optional, default to 0L)</param>
     /// <param name="limit">the limit for pagination (has a hard limit of 1000) (optional, default to 0L)</param>
-    pplx::task<std::shared_ptr<AchievementTierResponse>> apiVersionAchievementTierSearchPost(
-        double version,
+    pplx::task<std::shared_ptr<AchievementTierResponse>> achievementTierSearchPost(
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -88,7 +86,6 @@ public:
     /// <remarks>
     /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key the achievement is for</param>
     /// <param name="title">the title of the achievement (255 character limit)</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -103,7 +100,6 @@ public:
     /// <param name="active">achievement is active or inactive (optional, default to false)</param>
     /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AchievementResponse>> createAchievement(
-        double version,
         utility::string_t appKey,
         utility::string_t title,
         boost::optional<utility::string_t> deviceId,
@@ -124,7 +120,6 @@ public:
     /// <remarks>
     /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="achievementId">the achievement id for adding a new tier</param>
     /// <param name="scoreAllInstances">score all instances</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -140,7 +135,6 @@ public:
     /// <param name="gameLevelId">The ID of the game level to associate with the achievement (optional, default to 0L)</param>
     /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional, default to 0)</param>
     pplx::task<std::shared_ptr<AchievementTierResponse>> createAchievementTier(
-        double version,
         int64_t achievementId,
         bool scoreAllInstances,
         boost::optional<utility::string_t> deviceId,
@@ -162,11 +156,9 @@ public:
     /// <remarks>
     /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="achievementId">The ID of the achievement</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteAchievement(
-        double version,
         int64_t achievementId,
         boost::optional<int64_t> accountId
     ) const;
@@ -176,11 +168,9 @@ public:
     /// <remarks>
     /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="achievementTierId">the achievement id for deletion</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required). (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteAchievementTier(
-        double version,
         int64_t achievementTierId,
         boost::optional<int64_t> accountId
     ) const;
@@ -190,13 +180,11 @@ public:
     /// <remarks>
     /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="achievementId">The ID of the achievement</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="achievementType">achievementType (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AchievementTierResponse>> getAchievement(
-        double version,
         int64_t achievementId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -208,11 +196,9 @@ public:
     /// <remarks>
     /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required)</param>
     /// <param name="achievementTierId">the achievement tier id that is being retrieved</param>
     pplx::task<std::shared_ptr<AchievementTierResponse>> getAchievementTier(
-        double version,
         int64_t accountId,
         int64_t achievementTierId
     ) const;
@@ -222,7 +208,6 @@ public:
     /// <remarks>
     /// Gets a list of user achievements.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">determines whether to return null fields in the response</param>
     /// <param name="appKey">the application key for filtering results by application</param>
     /// <param name="includeUndiscovered">determines whether to return achievements that the user has not discovered yet</param>
@@ -235,7 +220,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::vector<std::shared_ptr<AchievementProgressResponse>>> getUserAchievements(
-        double version,
         bool returnNulls,
         utility::string_t appKey,
         bool includeUndiscovered,
@@ -254,10 +238,8 @@ public:
     /// <remarks>
     /// List achievement tags by application
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">filter results by application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> listAchievementTags(
-        double version,
         boost::optional<utility::string_t> appKey
     ) const;
     /// <summary>
@@ -266,7 +248,6 @@ public:
     /// <remarks>
     /// List achievements by billable.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">the start index for pagination</param>
@@ -279,7 +260,6 @@ public:
     /// <param name="achievementType">filter results by the achievementType (these are exact case sensitive matches) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> listAchievements(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -298,7 +278,6 @@ public:
     /// <remarks>
     /// Searches achievements by application for consumers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key</param>
     /// <param name="sortField">the field to sort by. See AchievementApiMap</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
@@ -312,7 +291,6 @@ public:
     /// <param name="achievementType">filter results by the achievementType (these are exact case sensitive matches) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="rankType">filter results by the rankType (these are exact case sensitive matches) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> searchAchievements(
-        double version,
         utility::string_t appKey,
         utility::string_t sortField,
         bool descending,
@@ -332,7 +310,6 @@ public:
     /// <remarks>
     /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="achievementId">the achievement ID for updating an existing achievement (optional, default to 0L)</param>
@@ -349,7 +326,6 @@ public:
     /// <param name="active">if it&#39;s active or inactive (optional, default to false)</param>
     /// <param name="triggerDefinition">if provided will define what triggers to run after a tier is completed (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AchievementResponse>> updateAchievement(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> achievementId,
@@ -372,7 +348,6 @@ public:
     /// <remarks>
     /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="achievementTierId">the achievement tier id for updating</param>
     /// <param name="deviceId">a unique id given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -388,7 +363,6 @@ public:
     /// <param name="gameObjectId">The ID of the game object to associate with the achievement (optional, default to 0L)</param>
     /// <param name="scoreAllInstances">score all instances (optional, default to false)</param>
     pplx::task<std::shared_ptr<AchievementTierResponse>> updateAchievementTier(
-        double version,
         int64_t achievementTierId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -410,7 +384,6 @@ public:
     /// <remarks>
     /// Update user achievement progress.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="achievementId">the achievement id (achievementId or tag required) (optional, default to 0L)</param>
     /// <param name="tag">the analytic tag to identify an achievement (achievementId or tag required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -420,7 +393,6 @@ public:
     /// <param name="endDate">a custom end date that the client can set (not yet used in server logic) (optional, default to 0L)</param>
     /// <param name="returnProgress">determines whether to return the achievement progress response (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateUserAchievement(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> achievementId,
         boost::optional<utility::string_t> tag,

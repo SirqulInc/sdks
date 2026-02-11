@@ -36,13 +36,12 @@ RegionApi::~RegionApi()
 {
 }
 
-pplx::task<std::shared_ptr<RegionResponse>> RegionApi::createRegion(double version, int64_t accountId, utility::string_t regionClass, utility::string_t shortName, boost::optional<utility::string_t> fullName, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> childrenIds, boost::optional<utility::string_t> postalCodeIds, boost::optional<utility::string_t> locations, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> polygon, boost::optional<utility::string_t> metaData, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> versionCode, boost::optional<bool> root, boost::optional<bool> active) const
+pplx::task<std::shared_ptr<RegionResponse>> RegionApi::createRegion(int64_t accountId, utility::string_t regionClass, utility::string_t shortName, boost::optional<utility::string_t> fullName, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> childrenIds, boost::optional<utility::string_t> postalCodeIds, boost::optional<utility::string_t> locations, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> polygon, boost::optional<utility::string_t> metaData, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> versionCode, boost::optional<bool> root, boost::optional<bool> active) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/region/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/region/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -240,13 +239,12 @@ pplx::task<std::shared_ptr<RegionResponse>> RegionApi::createRegion(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RegionResponse>> RegionApi::deleteRegion(double version, int64_t accountId, int64_t regionId) const
+pplx::task<std::shared_ptr<RegionResponse>> RegionApi::deleteRegion(int64_t accountId, int64_t regionId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/region/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/region/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -369,13 +367,12 @@ pplx::task<std::shared_ptr<RegionResponse>> RegionApi::deleteRegion(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RegionResponse>> RegionApi::getRegion(double version, int64_t regionId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<RegionResponse>> RegionApi::getRegion(int64_t regionId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/region/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/region/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -499,13 +496,12 @@ pplx::task<std::shared_ptr<RegionResponse>> RegionApi::getRegion(double version,
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<RegionResponse>>> RegionApi::searchRegions(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> query, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range, boost::optional<utility::string_t> regionClass, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> includeParent, boost::optional<bool> includeChildren, boost::optional<bool> includePostalCodes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int32_t> versionCode, boost::optional<bool> activeOnly, boost::optional<bool> showDeleted, boost::optional<int64_t> lastUpdatedSince, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<RegionResponse>>> RegionApi::searchRegions(boost::optional<int64_t> accountId, boost::optional<utility::string_t> query, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> range, boost::optional<utility::string_t> regionClass, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> includeParent, boost::optional<bool> includeChildren, boost::optional<bool> includePostalCodes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int32_t> versionCode, boost::optional<bool> activeOnly, boost::optional<bool> showDeleted, boost::optional<int64_t> lastUpdatedSince, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/region/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/region/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -714,13 +710,12 @@ pplx::task<std::vector<std::shared_ptr<RegionResponse>>> RegionApi::searchRegion
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RegionResponse>> RegionApi::updateRegion(double version, int64_t accountId, int64_t regionId, boost::optional<utility::string_t> regionClass, boost::optional<utility::string_t> shortName, boost::optional<utility::string_t> fullName, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> childrenIds, boost::optional<utility::string_t> postalCodeIds, boost::optional<utility::string_t> locations, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> polygon, boost::optional<utility::string_t> metaData, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> versionCode, boost::optional<bool> root, boost::optional<bool> active, boost::optional<bool> clearLists) const
+pplx::task<std::shared_ptr<RegionResponse>> RegionApi::updateRegion(int64_t accountId, int64_t regionId, boost::optional<utility::string_t> regionClass, boost::optional<utility::string_t> shortName, boost::optional<utility::string_t> fullName, boost::optional<utility::string_t> parentIds, boost::optional<utility::string_t> childrenIds, boost::optional<utility::string_t> postalCodeIds, boost::optional<utility::string_t> locations, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> visibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> start, boost::optional<int64_t> end, boost::optional<utility::string_t> polygon, boost::optional<utility::string_t> metaData, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> versionCode, boost::optional<bool> root, boost::optional<bool> active, boost::optional<bool> clearLists) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/region/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/region/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

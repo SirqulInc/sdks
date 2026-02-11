@@ -55,7 +55,6 @@ public:
     /// <remarks>
     /// Adds a connection to a group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="groupId">the group id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> addConnectionToGroup(
-        double version,
         bool returnNulls,
         int64_t groupId,
         boost::optional<utility::string_t> deviceId,
@@ -83,7 +81,6 @@ public:
     /// <remarks>
     /// Adds a list of connections to a group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="connectionGroupId">the connection group ID</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -92,7 +89,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> addConnectionsToGroup(
-        double version,
         int64_t connectionGroupId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -107,7 +103,6 @@ public:
     /// <remarks>
     /// Add sub groups to a group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="groupId">the parent group id</param>
     /// <param name="subGroupIds">comma separated list of group IDs to add to the parent group</param>
@@ -116,7 +111,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ConnectionGroupResponse>> addSubGroups(
-        double version,
         bool returnNulls,
         int64_t groupId,
         utility::string_t subGroupIds,
@@ -131,7 +125,6 @@ public:
     /// <remarks>
     /// Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="connectionId">the connection id for editing (optional, default to 0L)</param>
@@ -147,7 +140,6 @@ public:
     /// <param name="isFollowing">determines whether the user is following this account (optional, default to false)</param>
     /// <param name="connectionResponse">whether to return the connection response or not (optional, default to false)</param>
     pplx::task<std::shared_ptr<ConnectionResponse>> createOrUpdateConnection(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> connectionId,
@@ -169,7 +161,6 @@ public:
     /// <remarks>
     /// Creates a new private group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -185,7 +176,6 @@ public:
     /// <param name="latitude">the latitude of the group (optional, default to 0.0)</param>
     /// <param name="longitude">the longitude of the group (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> createOrUpdateGroup(
-        double version,
         bool returnNulls,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -207,12 +197,10 @@ public:
     /// <remarks>
     /// Accept someone&#39;s follow request.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
     /// <param name="appKey">the application key for sending notifications</param>
     pplx::task<std::shared_ptr<SirqulResponse>> followAccept(
-        double version,
         int64_t accountId,
         int64_t connectionAccountId,
         utility::string_t appKey
@@ -223,12 +211,10 @@ public:
     /// <remarks>
     /// Reject someone&#39;s follow request or remove them as a follower.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="connectionAccountId">the account ID of the user who initiated the follow</param>
     /// <param name="appKey">the application key for sending notifications</param>
     pplx::task<std::shared_ptr<SirqulResponse>> followReject(
-        double version,
         int64_t accountId,
         int64_t connectionAccountId,
         utility::string_t appKey
@@ -239,12 +225,10 @@ public:
     /// <remarks>
     /// Unfollow someone you are following or remove them as a follower.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="connectionAccountId">the account ID of the user who you want to unfollow</param>
     /// <param name="appKey">the application key for sending notifications</param>
     pplx::task<std::shared_ptr<SirqulResponse>> followRemove(
-        double version,
         int64_t accountId,
         int64_t connectionAccountId,
         utility::string_t appKey
@@ -255,13 +239,11 @@ public:
     /// <remarks>
     /// Send a request to follow someone.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user</param>
     /// <param name="connectionAccountId">the account ID of the user who you want to follow</param>
     /// <param name="appKey">the application key for sending notifications</param>
     /// <param name="approvalNeeded">determines if the other user needs to confirm the follow request (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> followRequest(
-        double version,
         int64_t accountId,
         int64_t connectionAccountId,
         utility::string_t appKey,
@@ -273,7 +255,6 @@ public:
     /// <remarks>
     /// Accept a friend request and optionally sends a notification.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="friendAccountId">the friend&#39;s account id</param>
     /// <param name="notifyFriend">determines whether to send a notification to the afflicting party</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -282,7 +263,6 @@ public:
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="notificationMessage">optional message to send in a notification (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> friendAccept(
-        double version,
         int64_t friendAccountId,
         bool notifyFriend,
         boost::optional<utility::string_t> deviceId,
@@ -297,7 +277,6 @@ public:
     /// <remarks>
     /// Request a friend request and optionally sends a notification.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="friendAccountId">the friend&#39;s account id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -306,7 +285,6 @@ public:
     /// <param name="notifyFriend">determines whether to send a notification to the afflicting party (optional, default to false)</param>
     /// <param name="notificationMessage">optional message to send in a notification (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> friendReject(
-        double version,
         int64_t friendAccountId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -321,14 +299,12 @@ public:
     /// <remarks>
     /// Removes a friend from the user&#39;s friends list.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="friendAccountId">the account ID of the friend to remove</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="notifyFriend">optionally notifies the connection that they have been removed as a friend (optional, default to false)</param>
     /// <param name="removeFromGroups">optionally removes the connection from the user&#39;s groups (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> friendRemove(
-        double version,
         int64_t friendAccountId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -341,7 +317,6 @@ public:
     /// <remarks>
     /// Sends a friend request notification to another user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="friendAccountId">the friend&#39;s account id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -349,7 +324,6 @@ public:
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="notificationMessage">optional message to send in a notification (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> friendRequest(
-        double version,
         int64_t friendAccountId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -363,11 +337,9 @@ public:
     /// <remarks>
     /// Gets the connection sent friend requests.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the ID of the device (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the id of the account (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<ConnectionListResponse>> getConnectionSentFriendRequests(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
     ) const;
@@ -377,7 +349,6 @@ public:
     /// <remarks>
     /// Gets the connections.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="filter">a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)</param>
     /// <param name="sortField">sorts the response list by ConnectionApiMap</param>
@@ -394,7 +365,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ConnectionListResponse>> getConnections(
-        double version,
         bool returnNulls,
         utility::string_t filter,
         utility::string_t sortField,
@@ -417,7 +387,6 @@ public:
     /// <remarks>
     /// 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="combineConnections">whether to combine connections or not</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -425,7 +394,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ConnectionGroupResponse>> getGroupDetails(
-        double version,
         bool combineConnections,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -439,7 +407,6 @@ public:
     /// <remarks>
     /// Gets a user&#39;s private groups and default groups.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">the field to sort by</param>
     /// <param name="descending">whether to return results in descending or ascending order</param>
     /// <param name="activeOnly">to search on active only or not</param>
@@ -451,7 +418,6 @@ public:
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     /// <param name="keyword">keyword search string (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<ConnectionInfoResponse>>> groupSearch(
-        double version,
         utility::string_t sortField,
         bool descending,
         bool activeOnly,
@@ -469,7 +435,6 @@ public:
     /// <remarks>
     /// Removes the connection from group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="groupId">the group id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -480,7 +445,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeConnectionFromGroup(
-        double version,
         bool returnNulls,
         int64_t groupId,
         boost::optional<utility::string_t> deviceId,
@@ -497,7 +461,6 @@ public:
     /// <remarks>
     /// Remove a list of connections from a group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="connectionGroupId">connection group id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -506,7 +469,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeConnectionsFromGroup(
-        double version,
         int64_t connectionGroupId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -521,7 +483,6 @@ public:
     /// <remarks>
     /// Remove a user&#39;s group.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="groupId">the group id</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -529,7 +490,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeGroup(
-        double version,
         bool returnNulls,
         int64_t groupId,
         boost::optional<utility::string_t> deviceId,
@@ -543,7 +503,6 @@ public:
     /// <remarks>
     /// Remove sub groups from a group
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">whether to return nulls or not</param>
     /// <param name="groupId">the parent group id</param>
     /// <param name="subGroupIds">comma separated list of group IDs to remove from the parent group</param>
@@ -552,7 +511,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeSubGroups(
-        double version,
         bool returnNulls,
         int64_t groupId,
         utility::string_t subGroupIds,
@@ -567,7 +525,6 @@ public:
     /// <remarks>
     /// Search for accounts that the user may not have a connection with.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">return all json attributes if true. defualt is true.</param>
     /// <param name="start">start index of the pagination</param>
     /// <param name="limit">limit of the pagination</param>
@@ -584,7 +541,6 @@ public:
     /// <param name="sortField">the field to sort on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="hasLocation">whether the search has location or not (optional, default to false)</param>
     pplx::task<std::shared_ptr<ConnectionListResponse>> searchConnections(
-        double version,
         bool returnNulls,
         int32_t start,
         int32_t limit,

@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
     /// <param name="flagableId">The flagable object id</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -61,7 +60,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> createFlag(
-        double version,
         utility::string_t flagableType,
         int64_t flagableId,
         boost::optional<utility::string_t> deviceId,
@@ -76,7 +74,6 @@ public:
     /// <remarks>
     /// Deletes a flag.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
     /// <param name="itemBeingFlaggedType">This parameter is deprecated. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -84,7 +81,6 @@ public:
     /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="flagableId">The flagable object id (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteFlag(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> itemBeingFlaggedType,
@@ -98,7 +94,6 @@ public:
     /// <remarks>
     /// Gets the details on whether the user has flagged a particular flagable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="flagableType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}</param>
     /// <param name="flagableId">The flagable object id</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -106,7 +101,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<FlagResponse>> getFlag(
-        double version,
         utility::string_t flagableType,
         int64_t flagableId,
         boost::optional<utility::string_t> deviceId,
@@ -120,11 +114,9 @@ public:
     /// <remarks>
     /// Get the flag threshold value on an object type for a particular application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
     /// <param name="appKey">The application key</param>
     pplx::task<std::shared_ptr<CountResponse>> getFlagThreshold(
-        double version,
         utility::string_t itemBeingFlaggedType,
         utility::string_t appKey
     ) const;
@@ -134,14 +126,12 @@ public:
     /// <remarks>
     /// Update the flag threshold on an object type for a particular application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="itemBeingFlaggedType">The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}</param>
     /// <param name="threshold">The threshold value</param>
     /// <param name="appKey">The application key</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<CountResponse>> updateFlagThreshold(
-        double version,
         utility::string_t itemBeingFlaggedType,
         int64_t threshold,
         utility::string_t appKey,

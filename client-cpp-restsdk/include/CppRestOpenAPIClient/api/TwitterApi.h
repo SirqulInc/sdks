@@ -51,10 +51,8 @@ public:
     /// <remarks>
     /// Makes an authorization call to twitter for a user to login and allow any app permissions.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key</param>
     pplx::task<std::shared_ptr<SirqulResponse>> authorizeTwitter(
-        double version,
         utility::string_t appKey
     ) const;
     /// <summary>
@@ -63,7 +61,6 @@ public:
     /// <remarks>
     /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accessToken">The access token</param>
     /// <param name="accessTokenSecret">The secret access token</param>
     /// <param name="appKey">The application key</param>
@@ -72,7 +69,6 @@ public:
     /// <param name="latitude">The current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> loginTwitter(
-        double version,
         utility::string_t accessToken,
         utility::string_t accessTokenSecret,
         utility::string_t appKey,

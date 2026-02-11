@@ -36,13 +36,12 @@ EventApi::~EventApi()
 {
 }
 
-pplx::task<std::shared_ptr<OfferResponse>> EventApi::attendEvent(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> listingId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> transactionId, boost::optional<int32_t> status, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<OfferResponse>> EventApi::attendEvent(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> listingId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> transactionId, boost::optional<int32_t> status, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/attend");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/attend");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -199,13 +198,12 @@ pplx::task<std::shared_ptr<OfferResponse>> EventApi::attendEvent(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferResponse>> EventApi::createEvent(double version, int64_t accountId, utility::string_t title, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<OfferResponse>> EventApi::createEvent(int64_t accountId, utility::string_t title, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -368,13 +366,12 @@ pplx::task<std::shared_ptr<OfferResponse>> EventApi::createEvent(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> EventApi::deleteEvent(double version, int64_t accountId, int64_t eventId) const
+pplx::task<std::shared_ptr<SirqulResponse>> EventApi::deleteEvent(int64_t accountId, int64_t eventId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -497,13 +494,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> EventApi::deleteEvent(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferResponse>> EventApi::getEvent(double version, int64_t accountId, int64_t eventId) const
+pplx::task<std::shared_ptr<OfferResponse>> EventApi::getEvent(int64_t accountId, int64_t eventId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -626,13 +622,12 @@ pplx::task<std::shared_ptr<OfferResponse>> EventApi::getEvent(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<EventAttendanceResponse>>> EventApi::searchEventTransactions(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> excludeRetailerLocationId, boost::optional<int64_t> listingId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> customerAccountIds, boost::optional<utility::string_t> affiliatedCategoryIds, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<EventAttendanceResponse>>> EventApi::searchEventTransactions(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> excludeRetailerLocationId, boost::optional<int64_t> listingId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> customerAccountIds, boost::optional<utility::string_t> affiliatedCategoryIds, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/attendance/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/attendance/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -829,13 +824,12 @@ pplx::task<std::vector<std::shared_ptr<EventAttendanceResponse>>> EventApi::sear
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> EventApi::searchEvents(double version, int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<bool> activeOnly, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> transactionAudienceIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> EventApi::searchEvents(int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<bool> activeOnly, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> transactionAudienceIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1007,13 +1001,12 @@ pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> EventApi::searchEve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferResponse>> EventApi::updateEvent(double version, int64_t accountId, int64_t eventId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd) const
+pplx::task<std::shared_ptr<OfferResponse>> EventApi::updateEvent(int64_t accountId, int64_t eventId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/event/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/event/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

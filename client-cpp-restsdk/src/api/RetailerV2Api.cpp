@@ -36,13 +36,12 @@ RetailerV2Api::~RetailerV2Api()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> RetailerV2Api::getRetaokiler(double version, int64_t retailerId, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
+pplx::task<std::shared_ptr<SirqulResponse>> RetailerV2Api::getRetaokiler(int64_t retailerId, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

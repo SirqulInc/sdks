@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create an offer status record
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="name">The name of the status</param>
     /// <param name="code">The status code, must be unique </param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -64,7 +63,6 @@ public:
     /// <param name="active">The active status (optional, default to false)</param>
     /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> createOfferTransactionStatus(
-        double version,
         utility::string_t name,
         int32_t code,
         boost::optional<utility::string_t> deviceId,
@@ -82,14 +80,12 @@ public:
     /// <remarks>
     /// Mark an offer status record as deleted
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="statusId">The id of the record to delete</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteOfferTransactionStatus(
-        double version,
         int64_t statusId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -102,14 +98,12 @@ public:
     /// <remarks>
     /// Get an offer status record
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="statusId">The id of the record to get </param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     /// <param name="longitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> getOfferTransactionStatus(
-        double version,
         int64_t statusId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -122,7 +116,6 @@ public:
     /// <remarks>
     /// Search for the available offer statuses
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
@@ -136,7 +129,6 @@ public:
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     /// <param name="includeInactive">If true include inactive items (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<OfferTransactionStatusResponse>>> searchOfferTransactionStatuses(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
@@ -156,7 +148,6 @@ public:
     /// <remarks>
     /// Update an offer status record
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="latitude">Used to update the user&#39;s current location (optional, default to 0.0)</param>
@@ -169,7 +160,6 @@ public:
     /// <param name="active">The active status (optional, default to false)</param>
     /// <param name="applicationIds">The applications to associate the status with, if null then for all. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<OfferTransactionStatusResponse>> updateOfferTransactionStatus(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,

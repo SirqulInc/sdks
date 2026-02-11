@@ -36,13 +36,12 @@ ThirdPartyCredentialsApi::~ThirdPartyCredentialsApi()
 {
 }
 
-pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::createCredential(double version, utility::string_t thirdPartyId, utility::string_t thirdPartyToken, utility::string_t networkUID, utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> sessionId, boost::optional<utility::string_t> thirdPartyName, boost::optional<utility::string_t> emailAddress, boost::optional<bool> signinOnlyMode, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> thirdPartyRefreshToken, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove) const
+pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::createCredential(utility::string_t thirdPartyId, utility::string_t thirdPartyToken, utility::string_t networkUID, utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> sessionId, boost::optional<utility::string_t> thirdPartyName, boost::optional<utility::string_t> emailAddress, boost::optional<bool> signinOnlyMode, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> thirdPartyRefreshToken, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -223,13 +222,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::createCre
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::createNetwork(double version, int64_t accountId, utility::string_t name, bool enableIntrospection, boost::optional<utility::string_t> description, boost::optional<utility::string_t> introspectionMethod, boost::optional<utility::string_t> introspectionURL, boost::optional<utility::string_t> introspectionParams, boost::optional<utility::string_t> requiredRootField, boost::optional<bool> enableMFA, boost::optional<int32_t> sizeMFA, boost::optional<int32_t> shelfLifeMFA, boost::optional<utility::string_t> oauthTokenURL, boost::optional<std::shared_ptr<HttpContent>> oauthPrivateKey, boost::optional<std::shared_ptr<HttpContent>> oauthPublicKey, boost::optional<utility::string_t> oauthClientId, boost::optional<utility::string_t> oauthSecretKey, boost::optional<utility::string_t> body) const
+pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::createNetwork(int64_t accountId, utility::string_t name, bool enableIntrospection, boost::optional<utility::string_t> description, boost::optional<utility::string_t> introspectionMethod, boost::optional<utility::string_t> introspectionURL, boost::optional<utility::string_t> introspectionParams, boost::optional<utility::string_t> requiredRootField, boost::optional<bool> enableMFA, boost::optional<int32_t> sizeMFA, boost::optional<int32_t> shelfLifeMFA, boost::optional<utility::string_t> oauthTokenURL, boost::optional<std::shared_ptr<HttpContent>> oauthPrivateKey, boost::optional<std::shared_ptr<HttpContent>> oauthPublicKey, boost::optional<utility::string_t> oauthClientId, boost::optional<utility::string_t> oauthSecretKey, boost::optional<utility::string_t> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/network/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/network/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -418,13 +416,12 @@ pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi:
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteCredential(double version, int64_t accountId, utility::string_t networkUID, utility::string_t thirdPartyId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteCredential(int64_t accountId, utility::string_t networkUID, utility::string_t thirdPartyId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -553,13 +550,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteCred
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteNetwork(double version, int64_t accountId, utility::string_t networkUID) const
+pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteNetwork(int64_t accountId, utility::string_t networkUID) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/network/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/network/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -682,13 +678,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::deleteNetw
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::getCredential(double version, utility::string_t networkUID, utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> sessionId, boost::optional<int64_t> thirdPartyCredentialId, boost::optional<utility::string_t> thirdPartyToken, boost::optional<utility::string_t> thirdPartySecret, boost::optional<bool> createNewAccount, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<int64_t> referralAccountId) const
+pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::getCredential(utility::string_t networkUID, utility::string_t appKey, boost::optional<int64_t> accountId, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> sessionId, boost::optional<int64_t> thirdPartyCredentialId, boost::optional<utility::string_t> thirdPartyToken, boost::optional<utility::string_t> thirdPartySecret, boost::optional<bool> createNewAccount, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<int64_t> referralAccountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -863,13 +858,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::getCreden
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::getNetwork(double version, int64_t accountId, utility::string_t networkUID) const
+pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::getNetwork(int64_t accountId, utility::string_t networkUID) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/network/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/network/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -992,13 +986,12 @@ pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi:
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ThirdPartyCredentialResponse>>> ThirdPartyCredentialsApi::searchCredentials(double version, int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> networkUID, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::vector<std::shared_ptr<ThirdPartyCredentialResponse>>> ThirdPartyCredentialsApi::searchCredentials(int64_t accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> networkUID, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1142,13 +1135,12 @@ pplx::task<std::vector<std::shared_ptr<ThirdPartyCredentialResponse>>> ThirdPart
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ThirdPartyNetworkShortResponse>>> ThirdPartyCredentialsApi::searchNetworks(double version, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<bool> filterBillable) const
+pplx::task<std::vector<std::shared_ptr<ThirdPartyNetworkShortResponse>>> ThirdPartyCredentialsApi::searchNetworks(int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<bool> filterBillable) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/network/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/network/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1295,13 +1287,12 @@ pplx::task<std::vector<std::shared_ptr<ThirdPartyNetworkShortResponse>>> ThirdPa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::sendMFAChallenge(double version, utility::string_t networkUID, utility::string_t appKey, boost::optional<utility::string_t> thirdPartyToken, boost::optional<int64_t> thirdPartyCredentialId, boost::optional<utility::string_t> deviceId) const
+pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::sendMFAChallenge(utility::string_t networkUID, utility::string_t appKey, boost::optional<utility::string_t> thirdPartyToken, boost::optional<int64_t> thirdPartyCredentialId, boost::optional<utility::string_t> deviceId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/mfa/send");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/mfa/send");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1436,13 +1427,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ThirdPartyCredentialsApi::sendMFACha
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::updateCredential(double version, utility::string_t networkUID, utility::string_t thirdPartyId, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> thirdPartyName, boost::optional<utility::string_t> thirdPartyToken, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> thirdPartyRefreshToken) const
+pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::updateCredential(utility::string_t networkUID, utility::string_t thirdPartyId, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> thirdPartyName, boost::optional<utility::string_t> thirdPartyToken, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> thirdPartyRefreshToken) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/credential/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/credential/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1592,13 +1582,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> ThirdPartyCredentialsApi::updateCre
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::updateNetwork(double version, int64_t accountId, utility::string_t networkUID, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<bool> enableIntrospection, boost::optional<utility::string_t> introspectionMethod, boost::optional<utility::string_t> introspectionURL, boost::optional<utility::string_t> introspectionParams, boost::optional<utility::string_t> requiredRootField, boost::optional<bool> enableMFA, boost::optional<int32_t> sizeMFA, boost::optional<int32_t> shelfLifeMFA, boost::optional<utility::string_t> oauthTokenURL, boost::optional<std::shared_ptr<HttpContent>> oauthPrivateKey, boost::optional<std::shared_ptr<HttpContent>> oauthPublicKey, boost::optional<utility::string_t> oauthClientId, boost::optional<utility::string_t> oauthSecretKey, boost::optional<utility::string_t> body) const
+pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> ThirdPartyCredentialsApi::updateNetwork(int64_t accountId, utility::string_t networkUID, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<bool> enableIntrospection, boost::optional<utility::string_t> introspectionMethod, boost::optional<utility::string_t> introspectionURL, boost::optional<utility::string_t> introspectionParams, boost::optional<utility::string_t> requiredRootField, boost::optional<bool> enableMFA, boost::optional<int32_t> sizeMFA, boost::optional<int32_t> shelfLifeMFA, boost::optional<utility::string_t> oauthTokenURL, boost::optional<std::shared_ptr<HttpContent>> oauthPrivateKey, boost::optional<std::shared_ptr<HttpContent>> oauthPublicKey, boost::optional<utility::string_t> oauthClientId, boost::optional<utility::string_t> oauthSecretKey, boost::optional<utility::string_t> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/thirdparty/network/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/thirdparty/network/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

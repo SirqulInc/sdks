@@ -36,13 +36,12 @@ WalletApi::~WalletApi()
 {
 }
 
-pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::createOfferTransaction(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerCart, boost::optional<utility::string_t> promoCode, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey, boost::optional<int32_t> status) const
+pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::createOfferTransaction(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerCart, boost::optional<utility::string_t> promoCode, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey, boost::optional<int32_t> status) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -207,13 +206,12 @@ pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::cr
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> WalletApi::deleteOfferTransaction(double version, int64_t transactionId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> WalletApi::deleteOfferTransaction(int64_t transactionId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -341,13 +339,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> WalletApi::deleteOfferTransaction(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferTransactionResponse>> WalletApi::getOfferTransaction(double version, int64_t transactionId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeMission, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnFullResponse) const
+pplx::task<std::shared_ptr<OfferTransactionResponse>> WalletApi::getOfferTransaction(int64_t transactionId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> includeMission, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnFullResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -491,13 +488,12 @@ pplx::task<std::shared_ptr<OfferTransactionResponse>> WalletApi::getOfferTransac
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::previewOfferTransaction(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerCart, boost::optional<utility::string_t> promoCode, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey) const
+pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::previewOfferTransaction(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerCart, boost::optional<utility::string_t> promoCode, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/preview");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/preview");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -658,13 +654,12 @@ pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::pr
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::searchOfferTransactions(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<utility::string_t> retailerIds, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> excludeRetailerLocationIds, boost::optional<int64_t> offerId, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerLocationIds, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> specialOfferTypes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<bool> filterByParentOffer, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore, boost::optional<bool> redeemed, boost::optional<utility::string_t> statuses, boost::optional<bool> reservationsOnly, boost::optional<bool> activeOnly, boost::optional<bool> returnFullResponse, boost::optional<int64_t> recurringStartedSince, boost::optional<int64_t> recurringStartedBefore, boost::optional<int64_t> recurringExpirationSince, boost::optional<int64_t> recurringExpirationBefore) const
+pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::searchOfferTransactions(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<utility::string_t> retailerIds, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> excludeRetailerLocationIds, boost::optional<int64_t> offerId, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> offerLocationIds, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> specialOfferTypes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<bool> filterByParentOffer, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore, boost::optional<bool> redeemed, boost::optional<utility::string_t> statuses, boost::optional<bool> reservationsOnly, boost::optional<bool> activeOnly, boost::optional<bool> returnFullResponse, boost::optional<int64_t> recurringStartedSince, boost::optional<int64_t> recurringStartedBefore, boost::optional<int64_t> recurringExpirationSince, boost::optional<int64_t> recurringExpirationBefore) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -949,13 +944,12 @@ pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> WalletApi::se
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferTransactionResponse>> WalletApi::updateOfferTransaction(double version, int64_t transactionId, int32_t status, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<bool> returnFullResponse, boost::optional<utility::string_t> exceptionMembershipOfferIds) const
+pplx::task<std::shared_ptr<OfferTransactionResponse>> WalletApi::updateOfferTransaction(int64_t transactionId, int32_t status, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> currencyType, boost::optional<bool> usePoints, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> metaData, boost::optional<bool> returnFullResponse, boost::optional<utility::string_t> exceptionMembershipOfferIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/wallet/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/wallet/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

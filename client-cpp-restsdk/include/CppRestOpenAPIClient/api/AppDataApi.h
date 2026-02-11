@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="start">start the search results at a record.</param>
     /// <param name="limit">limit the search results to some number.</param>
     /// <param name="deviceId">the device id (deviceId or accountId required). (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -78,7 +77,6 @@ public:
     /// <param name="responseGroups">use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AppResponse>> getAppData(
-        double version,
         int32_t start,
         int32_t limit,
         boost::optional<utility::string_t> deviceId,
@@ -111,7 +109,6 @@ public:
     /// <remarks>
     /// Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user&#39;s profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user&#39;s   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="gameType">the game to retrieve the data for, use your application key.</param>
     /// <param name="start">start the search results at a record.</param>
     /// <param name="limit">limit the search results to some number.</param>
@@ -139,7 +136,6 @@ public:
     /// <param name="responseGroups">use response groups to include large parts of the structure. possible values are: * MISSION_DEFAULT (default) - include the default mission (built-in packs), excludes all other mission groups * MISSION_DEFAULT_LEVELS_SAVED - include saved levels, excludes all other mission groups * MISSION_DEFAULT_LEVELS_COMMUNITY - include community levels, excludes all other mission groups * MISSION_INVITED (default) - include challenges sent to user * PROFILE (default) - include entire profile * PROFILE_DATA - only include profile date (exclude friends) * PROFILE_FRIENDS - include friends list  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="purchaseType">the will return the correct in app purchases for the device, possible values are: * SIRQUL (default) - purchasing from the sirqul store using tickets * IOS - purchasing from the itunes store for iPhone, iPod, iPod Touch * GOOGLE - purchasing from the google android store * AMAZON - purchasing from the amazon android store * MAC - purchasing from the itunes store for OSX * FREE - the item is free to purchase  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AppResponse>> postAppData(
-        double version,
         utility::string_t gameType,
         int32_t start,
         int32_t limit,
@@ -173,13 +169,11 @@ public:
     /// <remarks>
     /// Regenerate the app data cache for apps
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account id of the user (optional, default to 0L)</param>
     /// <param name="appKey">process a specific application, if null process all apps with caches (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="buildVersion">create a specific version, if null use current version. Be careful if processing all (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="apiVersion">create a specific version, if null use current version. Be careful if processing all (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> regenAppData(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<utility::string_t> buildVersion,

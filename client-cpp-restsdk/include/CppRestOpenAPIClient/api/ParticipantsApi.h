@@ -51,12 +51,10 @@ public:
     /// <remarks>
     /// Processes all supported participant feeds.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="appKey">The application key used to identify the application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> processAllParticipants(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<bool> useShortNameAsID
@@ -67,14 +65,12 @@ public:
     /// <remarks>
     /// Processes a participant feed or uploaded file for a specific league.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="league">The league identifier to process</param>
     /// <param name="appKey">The application key used to identify the application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="useShortNameAsID">Whether to use short name as the participant ID (optional, default to false)</param>
     /// <param name="file">Multipart file containing participant feed contents (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> processParticipants(
-        double version,
         int64_t accountId,
         utility::string_t league,
         boost::optional<utility::string_t> appKey,

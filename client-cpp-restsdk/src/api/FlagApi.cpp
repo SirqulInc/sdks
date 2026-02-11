@@ -36,13 +36,12 @@ FlagApi::~FlagApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::createFlag(double version, utility::string_t flagableType, int64_t flagableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> flagDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::createFlag(utility::string_t flagableType, int64_t flagableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> flagDescription, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/flag/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/flag/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -185,13 +184,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::createFlag(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::deleteFlag(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> itemBeingFlaggedType, boost::optional<int64_t> itemBeingFlaggedId, boost::optional<utility::string_t> flagableType, boost::optional<int64_t> flagableId) const
+pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::deleteFlag(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> itemBeingFlaggedType, boost::optional<int64_t> itemBeingFlaggedId, boost::optional<utility::string_t> flagableType, boost::optional<int64_t> flagableId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/flag/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/flag/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -332,13 +330,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> FlagApi::deleteFlag(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<FlagResponse>> FlagApi::getFlag(double version, utility::string_t flagableType, int64_t flagableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<FlagResponse>> FlagApi::getFlag(utility::string_t flagableType, int64_t flagableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/flag/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/flag/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -477,13 +474,12 @@ pplx::task<std::shared_ptr<FlagResponse>> FlagApi::getFlag(double version, utili
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CountResponse>> FlagApi::getFlagThreshold(double version, utility::string_t itemBeingFlaggedType, utility::string_t appKey) const
+pplx::task<std::shared_ptr<CountResponse>> FlagApi::getFlagThreshold(utility::string_t itemBeingFlaggedType, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/flag/threshold/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/flag/threshold/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -606,13 +602,12 @@ pplx::task<std::shared_ptr<CountResponse>> FlagApi::getFlagThreshold(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CountResponse>> FlagApi::updateFlagThreshold(double version, utility::string_t itemBeingFlaggedType, int64_t threshold, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<CountResponse>> FlagApi::updateFlagThreshold(utility::string_t itemBeingFlaggedType, int64_t threshold, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/flag/threshold/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/flag/threshold/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

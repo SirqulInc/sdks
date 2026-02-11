@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a trigger
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user</param>
     /// <param name="name">The name of the trigger</param>
     /// <param name="appKey">The application to target (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -67,7 +66,6 @@ public:
     /// <param name="visibility">The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to false)</param>
     pplx::task<std::shared_ptr<TriggerResponse>> createTrigger(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> appKey,
@@ -88,11 +86,9 @@ public:
     /// <remarks>
     /// Mark a trigger as deleted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="triggerId">The id of the trigger to delete.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteTrigger(
-        double version,
         int64_t accountId,
         int64_t triggerId
     ) const;
@@ -102,11 +98,9 @@ public:
     /// <remarks>
     /// Get a trigger
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="triggerId">The id of the Trigger to return.</param>
     pplx::task<std::shared_ptr<TriggerResponse>> getTrigger(
-        double version,
         int64_t accountId,
         int64_t triggerId
     ) const;
@@ -116,7 +110,6 @@ public:
     /// <remarks>
     /// Search for triggers
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="filter">A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -130,7 +123,6 @@ public:
     /// <param name="limit">Limit the result to some number. (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return only active results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<TriggerResponse>>> searchTriggers(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> groupingId,
         boost::optional<utility::string_t> filter,
@@ -150,7 +142,6 @@ public:
     /// <remarks>
     /// Update a trigger
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="triggerId">The trigger to update</param>
     /// <param name="accountId">The logged in user</param>
     /// <param name="name">The name of the trigger (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -166,7 +157,6 @@ public:
     /// <param name="visibility">The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">Sets whether the Trigger is active or not (inactive Triggers are not processed) (optional, default to false)</param>
     pplx::task<std::shared_ptr<TriggerResponse>> updateTrigger(
-        double version,
         int64_t triggerId,
         int64_t accountId,
         boost::optional<utility::string_t> name,

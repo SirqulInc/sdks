@@ -36,13 +36,12 @@ TwitterApi::~TwitterApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> TwitterApi::authorizeTwitter(double version, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> TwitterApi::authorizeTwitter(utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/twitter/authorize");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/twitter/authorize");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -162,13 +161,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TwitterApi::authorizeTwitter(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> TwitterApi::loginTwitter(double version, utility::string_t accessToken, utility::string_t accessTokenSecret, utility::string_t appKey, utility::string_t responseFilters, boost::optional<utility::string_t> deviceId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ProfileResponse>> TwitterApi::loginTwitter(utility::string_t accessToken, utility::string_t accessTokenSecret, utility::string_t appKey, utility::string_t responseFilters, boost::optional<utility::string_t> deviceId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/twitter/login");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/twitter/login");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ OrsonApi::~OrsonApi()
 {
 }
 
-pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::addMovie(double version, int64_t accountId, utility::string_t movieName, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> tags, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::addMovie(int64_t accountId, utility::string_t movieName, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> tags, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/addMovie");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/addMovie");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -185,13 +184,12 @@ pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::addMovie(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiDocs(double version, int64_t accountId, utility::string_t doc, boost::optional<bool> returnTopics, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
+pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiDocs(int64_t accountId, utility::string_t doc, boost::optional<bool> returnTopics, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/docs");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/docs");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -326,13 +324,12 @@ pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiDocs(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiFindImages(double version, int64_t accountId, utility::string_t text, boost::optional<utility::string_t> parseFlag, boost::optional<utility::string_t> fetchFlag, boost::optional<utility::string_t> size) const
+pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiFindImages(int64_t accountId, utility::string_t text, boost::optional<utility::string_t> parseFlag, boost::optional<utility::string_t> fetchFlag, boost::optional<utility::string_t> size) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/img");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/img");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -467,13 +464,12 @@ pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiFindImages(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiTags(double version, int64_t accountId, utility::string_t tags, boost::optional<utility::string_t> conditional, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
+pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiTags(int64_t accountId, utility::string_t tags, boost::optional<utility::string_t> conditional, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/tags");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/tags");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -608,13 +604,12 @@ pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiTags(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiText(double version, int64_t accountId, utility::string_t terms, boost::optional<utility::string_t> conditional, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
+pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiText(int64_t accountId, utility::string_t terms, boost::optional<utility::string_t> conditional, boost::optional<int32_t> limit, boost::optional<int32_t> offset) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/text");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/text");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -749,13 +744,12 @@ pplx::task<std::shared_ptr<OrsonAiProtoResponse>> OrsonApi::aiText(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::batch(double version, int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<int32_t> limit, boost::optional<utility::string_t> operations, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::batch(int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<int32_t> limit, boost::optional<utility::string_t> operations, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -899,13 +893,12 @@ pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::batch(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::createInstantEpisode(double version, int64_t accountId, utility::string_t data) const
+pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::createInstantEpisode(int64_t accountId, utility::string_t data) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/stories/episodes/instant");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/stories/episodes/instant");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1028,13 +1021,12 @@ pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::createInstantEpisode
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::createVoiceCanvas(double version, int64_t accountId, utility::string_t dimensions, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> text, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<bool> parseFlag, boost::optional<bool> fetchFlag, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::createVoiceCanvas(int64_t accountId, utility::string_t dimensions, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> text, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<bool> parseFlag, boost::optional<bool> fetchFlag, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/voiceCanvas");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/voiceCanvas");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1185,13 +1177,12 @@ pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::createVoiceCan
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::emotion(double version, int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::emotion(int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/emotion");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/emotion");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1327,13 +1318,12 @@ pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::emotion(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::getAddMovieResult(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::getAddMovieResult(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/addMovie/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/addMovie/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1454,13 +1444,12 @@ pplx::task<std::shared_ptr<OrsonAiAddMovieResponse>> OrsonApi::getAddMovieResult
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::getBatch(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::getBatch(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/batch/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/batch/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1581,13 +1570,12 @@ pplx::task<std::shared_ptr<OrsonAiBatchResponse>> OrsonApi::getBatch(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::getEmotion(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::getEmotion(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/emotion/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/emotion/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1708,13 +1696,12 @@ pplx::task<std::shared_ptr<OrsonAiEmotionsResponse>> OrsonApi::getEmotion(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::getEpisodeStatus(double version, int64_t episodeId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::getEpisodeStatus(int64_t episodeId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/stories/episodes/{episodeId}/status");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/stories/episodes/{episodeId}/status");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("episodeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(episodeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1835,13 +1822,12 @@ pplx::task<std::shared_ptr<OrsonEpisodeResponse>> OrsonApi::getEpisodeStatus(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::getRenderStatus(double version, utility::string_t renderId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::getRenderStatus(utility::string_t renderId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/stories/renders/{renderId}/status");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/stories/renders/{renderId}/status");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("renderId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(renderId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1962,13 +1948,12 @@ pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::getRenderStatus(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::getSTT(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::getSTT(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/stt/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/stt/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2089,13 +2074,12 @@ pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::getSTT(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTTSResponse>> OrsonApi::getTTS(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiTTSResponse>> OrsonApi::getTTS(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/tts/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/tts/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2216,13 +2200,12 @@ pplx::task<std::shared_ptr<OrsonAiTTSResponse>> OrsonApi::getTTS(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::getTechTune(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::getTechTune(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/techTune/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/techTune/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2343,13 +2326,12 @@ pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::getTechTune(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::getTopics(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::getTopics(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/topics/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/topics/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2470,13 +2452,12 @@ pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::getTopics(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::getVoiceCanvas(double version, utility::string_t requestId, int64_t accountId) const
+pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::getVoiceCanvas(utility::string_t requestId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/voiceCanvas/{requestId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/voiceCanvas/{requestId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("requestId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(requestId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2597,13 +2578,12 @@ pplx::task<std::shared_ptr<OrsonAiVoiceCanvasResponse>> OrsonApi::getVoiceCanvas
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::startVideoRender(double version, int64_t accountId, utility::string_t data) const
+pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::startVideoRender(int64_t accountId, utility::string_t data) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/stories/renders");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/stories/renders");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2726,13 +2706,12 @@ pplx::task<std::shared_ptr<OrsonRenderResponse>> OrsonApi::startVideoRender(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::stt(double version, int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> sourceLanguage, boost::optional<utility::string_t> targetLanguage, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::stt(int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> sourceLanguage, boost::optional<utility::string_t> targetLanguage, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/stt");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/stt");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2876,13 +2855,12 @@ pplx::task<std::shared_ptr<OrsonAiSTTResponse>> OrsonApi::stt(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::summarizeTopics(double version, int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> doc, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<int32_t> limit, boost::optional<int32_t> offset, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::summarizeTopics(int64_t accountId, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> doc, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<int32_t> limit, boost::optional<int32_t> offset, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/topics");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/topics");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3030,13 +3008,12 @@ pplx::task<std::shared_ptr<OrsonAiTopicsResponse>> OrsonApi::summarizeTopics(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::techTune(double version, int64_t accountId, int32_t numFacesExpected, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::techTune(int64_t accountId, int32_t numFacesExpected, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<std::shared_ptr<HttpContent>> file, boost::optional<utility::string_t> url, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/techTune");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/techTune");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3175,13 +3152,12 @@ pplx::task<std::shared_ptr<OrsonAiTechTuneResponse>> OrsonApi::techTune(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrsonAiTTSResponse>> OrsonApi::tts(double version, int64_t accountId, utility::string_t text, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> language, boost::optional<utility::string_t> voice, boost::optional<utility::string_t> callback) const
+pplx::task<std::shared_ptr<OrsonAiTTSResponse>> OrsonApi::tts(int64_t accountId, utility::string_t text, boost::optional<utility::string_t> thirdPartyAccountId, boost::optional<utility::string_t> language, boost::optional<utility::string_t> voice, boost::optional<utility::string_t> callback) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/orson/ai/tts");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/orson/ai/tts");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

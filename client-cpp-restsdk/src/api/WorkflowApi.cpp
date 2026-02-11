@@ -36,13 +36,12 @@ WorkflowApi::~WorkflowApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> WorkflowApi::runWorkflow(double version, int64_t accountId, int64_t workflowId, boost::optional<int64_t> skuId, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> parameters) const
+pplx::task<std::shared_ptr<SirqulResponse>> WorkflowApi::runWorkflow(int64_t accountId, int64_t workflowId, boost::optional<int64_t> skuId, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> parameters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/workflow/run");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/workflow/run");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

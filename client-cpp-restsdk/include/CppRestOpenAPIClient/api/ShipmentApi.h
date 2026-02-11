@@ -52,10 +52,8 @@ public:
     /// <remarks>
     /// Remove shipment from route
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the shipment to cancel</param>
     pplx::task<void> cancelShipment(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -64,10 +62,8 @@ public:
     /// <remarks>
     /// Create new shipment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Shipment>> createShipment(
-        double version,
         boost::optional<std::shared_ptr<Shipment>> body
     ) const;
     /// <summary>
@@ -76,10 +72,8 @@ public:
     /// <remarks>
     /// Delete an existing shipment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the shipment to delete</param>
     pplx::task<void> deleteShipment(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -88,10 +82,8 @@ public:
     /// <remarks>
     /// Get an existing shipment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the shipment to get</param>
     pplx::task<std::shared_ptr<Shipment>> getShipment(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -100,7 +92,6 @@ public:
     /// <remarks>
     /// Search for shipments
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -110,7 +101,6 @@ public:
     /// <param name="riderId">The rider associate to this shipment (optional, default to 0L)</param>
     /// <param name="routeId">The route associate to this shipment (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<Shipment>>> searchShipments(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,
@@ -126,11 +116,9 @@ public:
     /// <remarks>
     /// Update an existing shipment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the shipment to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Shipment>> updateShipment(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Shipment>> body
     ) const;
@@ -140,11 +128,9 @@ public:
     /// <remarks>
     /// Update status of an existing shipment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the shipment to update status</param>
     /// <param name="body"> (optional)</param>
     pplx::task<void> updateShipmentStatus(
-        double version,
         int64_t id,
         boost::optional<std::map<utility::string_t, bool>> body
     ) const;

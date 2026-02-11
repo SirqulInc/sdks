@@ -36,13 +36,12 @@ InviteApi::~InviteApi()
 {
 }
 
-pplx::task<std::shared_ptr<ConsumerInviteResponse>> InviteApi::acceptInvite(double version, utility::string_t token, int64_t accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> missionId, boost::optional<int64_t> albumContestId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> appKey, boost::optional<bool> autoFriend, boost::optional<bool> autoAttendEvent, boost::optional<bool> autoFavoriteOffer, boost::optional<bool> autoFavoriteOfferLocation, boost::optional<bool> autoFavoriteRetailerLocation) const
+pplx::task<std::shared_ptr<ConsumerInviteResponse>> InviteApi::acceptInvite(utility::string_t token, int64_t accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> missionId, boost::optional<int64_t> albumContestId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> appKey, boost::optional<bool> autoFriend, boost::optional<bool> autoAttendEvent, boost::optional<bool> autoFavoriteOffer, boost::optional<bool> autoFavoriteOfferLocation, boost::optional<bool> autoFavoriteRetailerLocation) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/accept");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/accept");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -213,13 +212,12 @@ pplx::task<std::shared_ptr<ConsumerInviteResponse>> InviteApi::acceptInvite(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumContestInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> albumContestId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumContestInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> albumContestId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/albumContest");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/albumContest");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -364,13 +362,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumContestInvite(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> albumId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> albumId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/album");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/album");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -515,13 +512,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::albumInvite(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::eventInvite(double version, int64_t accountId, utility::string_t appKey, int64_t listingId, boost::optional<utility::string_t> receiverAccountIds, boost::optional<int64_t> retailerLocationId) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::eventInvite(int64_t accountId, utility::string_t appKey, int64_t listingId, boost::optional<utility::string_t> receiverAccountIds, boost::optional<int64_t> retailerLocationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/event");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/event");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -655,13 +651,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::eventInvite(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::gameInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> gameLevelId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::gameInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> gameLevelId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/gameLevel");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/gameLevel");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -806,13 +801,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::gameInvite(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> InviteApi::getInvite(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> token, boost::optional<int64_t> albumId, boost::optional<int64_t> missionId, boost::optional<int64_t> albumContestId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> InviteApi::getInvite(boost::optional<int64_t> accountId, boost::optional<utility::string_t> token, boost::optional<int64_t> albumId, boost::optional<int64_t> missionId, boost::optional<int64_t> albumContestId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -965,13 +959,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> InviteApi::getInvite(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::missionInvite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> missionId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::missionInvite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> appId, boost::optional<utility::string_t> appKey, boost::optional<int64_t> missionId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/mission");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/mission");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1116,13 +1109,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::missionInvite(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerInvite(double version, int64_t accountId, utility::string_t appKey, int64_t offerId) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerInvite(int64_t accountId, utility::string_t appKey, int64_t offerId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/offer");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/offer");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1248,13 +1240,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerInvite(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerLocationInvite(double version, int64_t accountId, utility::string_t appKey, int64_t offerLocationId) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerLocationInvite(int64_t accountId, utility::string_t appKey, int64_t offerLocationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/offerLocation");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/offerLocation");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1380,13 +1371,12 @@ pplx::task<std::shared_ptr<InviteResponse>> InviteApi::offerLocationInvite(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<InviteResponse>> InviteApi::retailerLocationInvite(double version, int64_t accountId, utility::string_t appKey, int64_t retailerLocationId, boost::optional<int64_t> albumId) const
+pplx::task<std::shared_ptr<InviteResponse>> InviteApi::retailerLocationInvite(int64_t accountId, utility::string_t appKey, int64_t retailerLocationId, boost::optional<int64_t> albumId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/invite/retailerLocation");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/invite/retailerLocation");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

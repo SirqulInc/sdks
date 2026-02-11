@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="token">the invite token</param>
     /// <param name="accountId">the accountId of the user who is accepting the invite</param>
     /// <param name="albumId">the album id associated with this invite (if applicable) (optional, default to 0L)</param>
@@ -68,7 +67,6 @@ public:
     /// <param name="autoFavoriteOfferLocation">whether to mark the offer location as favorited automatically after invite is accepted (optional, default to false)</param>
     /// <param name="autoFavoriteRetailerLocation">whether to mark the retailer location as favorited automatically after invite is accepted (optional, default to false)</param>
     pplx::task<std::shared_ptr<ConsumerInviteResponse>> acceptInvite(
-        double version,
         utility::string_t token,
         int64_t accountId,
         boost::optional<int64_t> albumId,
@@ -90,7 +88,6 @@ public:
     /// <remarks>
     /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -99,7 +96,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<InviteResponse>> albumContestInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> appId,
@@ -114,7 +110,6 @@ public:
     /// <remarks>
     /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -123,7 +118,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<InviteResponse>> albumInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> appId,
@@ -138,14 +132,12 @@ public:
     /// <remarks>
     /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user making the share</param>
     /// <param name="appKey">the application key</param>
     /// <param name="listingId">The ID of the event listing</param>
     /// <param name="receiverAccountIds">the account ID of a Sirqul user they would like to share an event with (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="retailerLocationId">The retailer location id of where the event will take place (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<InviteResponse>> eventInvite(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t listingId,
@@ -158,7 +150,6 @@ public:
     /// <remarks>
     /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -167,7 +158,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<InviteResponse>> gameInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> appId,
@@ -182,7 +172,6 @@ public:
     /// <remarks>
     /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Account ID of the user if they are logged in (optional, default to 0L)</param>
     /// <param name="token">the invite token (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="albumId">album id to match the invite against (if applicable) (optional, default to 0L)</param>
@@ -193,7 +182,6 @@ public:
     /// <param name="retailerLocationId">retailer location id to match the invite against (if applicable) (optional, default to 0L)</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> getInvite(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> token,
         boost::optional<int64_t> albumId,
@@ -210,7 +198,6 @@ public:
     /// <remarks>
     /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -219,7 +206,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<InviteResponse>> missionInvite(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> appId,
@@ -234,12 +220,10 @@ public:
     /// <remarks>
     /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user making the share</param>
     /// <param name="appKey">the application key</param>
     /// <param name="offerId">the ID of the offer used to invite to favorite</param>
     pplx::task<std::shared_ptr<InviteResponse>> offerInvite(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t offerId
@@ -250,12 +234,10 @@ public:
     /// <remarks>
     /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user making the share</param>
     /// <param name="appKey">the application key</param>
     /// <param name="offerLocationId">the id of the offer location to share</param>
     pplx::task<std::shared_ptr<InviteResponse>> offerLocationInvite(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t offerLocationId
@@ -266,13 +248,11 @@ public:
     /// <remarks>
     /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID of the user making the share</param>
     /// <param name="appKey">the application key</param>
     /// <param name="retailerLocationId">The retailer location id of where the event will take place</param>
     /// <param name="albumId">Optional album id to link with the invite (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<InviteResponse>> retailerLocationInvite(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t retailerLocationId,

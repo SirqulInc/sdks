@@ -56,7 +56,6 @@ public:
     /// <remarks>
     /// This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="thirdPartyId">the third party user account id</param>
     /// <param name="thirdPartyToken">the access token to authenticate with (ex: username or fb token or phone number)</param>
     /// <param name="networkUID">the access provider to authenticate against</param>
@@ -75,7 +74,6 @@ public:
     /// <param name="audienceIdsToAdd">audience ids to add to the account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> createCredential(
-        double version,
         utility::string_t thirdPartyId,
         utility::string_t thirdPartyToken,
         utility::string_t networkUID,
@@ -100,7 +98,6 @@ public:
     /// <remarks>
     /// Creates a custom third party network.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id making the request</param>
     /// <param name="name">The name of the network</param>
     /// <param name="enableIntrospection">Whether the network uses introspection calls</param>
@@ -119,7 +116,6 @@ public:
     /// <param name="oauthSecretKey">OAuth secret key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> createNetwork(
-        double version,
         int64_t accountId,
         utility::string_t name,
         bool enableIntrospection,
@@ -144,13 +140,11 @@ public:
     /// <remarks>
     /// Delete a third party network on a Sirqul account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="networkUID">The third party network identifier</param>
     /// <param name="thirdPartyId">The third party user id</param>
     /// <param name="appKey">the application key</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteCredential(
-        double version,
         int64_t accountId,
         utility::string_t networkUID,
         utility::string_t thirdPartyId,
@@ -162,11 +156,9 @@ public:
     /// <remarks>
     /// Marks a custom third party network as deleted. Only the network owners and managers have access to this.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteNetwork(
-        double version,
         int64_t accountId,
         utility::string_t networkUID
     ) const;
@@ -176,7 +168,6 @@ public:
     /// <remarks>
     /// Gets the account information given a third party token.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="networkUID">the access provider to authenticate against</param>
     /// <param name="appKey">the application key</param>
     /// <param name="accountId">the unique account id of a specific account that will be bound to the third-party credentials (optional, default to 0L)</param>
@@ -193,7 +184,6 @@ public:
     /// <param name="audienceIdsToRemove">audience ids to remove from the account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="referralAccountId">account id of the referrer (inviter-invitee relationship) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<ProfileResponse>> getCredential(
-        double version,
         utility::string_t networkUID,
         utility::string_t appKey,
         boost::optional<int64_t> accountId,
@@ -216,11 +206,9 @@ public:
     /// <remarks>
     /// Get the details of a third party network. Only the network owners and managers have access to this.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id making the request</param>
     /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
     pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> getNetwork(
-        double version,
         int64_t accountId,
         utility::string_t networkUID
     ) const;
@@ -230,7 +218,6 @@ public:
     /// <remarks>
     /// Search on a user&#39;s linked third party networks.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="keyword">The keyword used to search on the third party name and network string (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="networkUID">The network UID to filter results with (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -238,7 +225,6 @@ public:
     /// <param name="start">The start of the pagination (optional, default to 0)</param>
     /// <param name="limit">The limit of the pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<ThirdPartyCredentialResponse>>> searchCredentials(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> networkUID,
@@ -252,7 +238,6 @@ public:
     /// <remarks>
     /// Search on supported third party networks and custom networks from external users.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id making the request</param>
     /// <param name="sortField">The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME</param>
     /// <param name="descending">The order to return the search results</param>
@@ -262,7 +247,6 @@ public:
     /// <param name="keyword">The keyword used to search on the network name and description fields (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="filterBillable">Determines whether to only return applications that the user has access to (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<ThirdPartyNetworkShortResponse>>> searchNetworks(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -278,14 +262,12 @@ public:
     /// <remarks>
     /// Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="networkUID">the third party network provider that has MFA enabled</param>
     /// <param name="appKey">the application key</param>
     /// <param name="thirdPartyToken">the access token to authenticate with (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="thirdPartyCredentialId">optional id of the existing third party credential (optional, default to 0L)</param>
     /// <param name="deviceId">the unique id of the device making the request (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> sendMFAChallenge(
-        double version,
         utility::string_t networkUID,
         utility::string_t appKey,
         boost::optional<utility::string_t> thirdPartyToken,
@@ -298,7 +280,6 @@ public:
     /// <remarks>
     /// Updates a third-party login for an account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="networkUID">the access provider to authenticate against</param>
     /// <param name="thirdPartyId">the third party user account id</param>
     /// <param name="appKey">the application key</param>
@@ -309,7 +290,6 @@ public:
     /// <param name="metaData">External custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="thirdPartyRefreshToken">optional refresh token for the third party (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ProfileResponse>> updateCredential(
-        double version,
         utility::string_t networkUID,
         utility::string_t thirdPartyId,
         utility::string_t appKey,
@@ -326,7 +306,6 @@ public:
     /// <remarks>
     /// Updates a custom third party network. Only the network owners and managers have access to this.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id making the request</param>
     /// <param name="networkUID">The unique identifier for the third party network defined by Sirqul</param>
     /// <param name="name">The name of the network (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -346,7 +325,6 @@ public:
     /// <param name="oauthSecretKey">OAuth secret key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ThirdPartyNetworkResponse>> updateNetwork(
-        double version,
         int64_t accountId,
         utility::string_t networkUID,
         boost::optional<utility::string_t> name,

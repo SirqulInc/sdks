@@ -55,7 +55,6 @@ public:
     /// <remarks>
     /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="name">The name of the retailer</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -90,7 +89,6 @@ public:
     /// <param name="createDefaultLocation">Determines whether to create a default location using the retailer information (optional, default to false)</param>
     /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerFullResponse>> createRetailer(
-        double version,
         utility::string_t name,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -131,12 +129,10 @@ public:
     /// <remarks>
     /// Set the deleted timestamp to current time.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account used to perform the delete, must have rights to edit the retailer. (optional, default to 0L)</param>
     /// <param name="retailerId">The ID of the retailer to be deleted (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteRetailer(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> retailerId
@@ -147,13 +143,11 @@ public:
     /// <remarks>
     /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerId">the ID of the retailer</param>
     /// <param name="deviceId">the device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="includeCounts">Determines whether to include counts in the response (default true) (optional, default to false)</param>
     pplx::task<std::shared_ptr<RetailerFullResponse>> getRetailer(
-        double version,
         int64_t retailerId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -165,7 +159,6 @@ public:
     /// <remarks>
     /// earches on retailers that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="visibility"></param>
     /// <param name="sortField">The column to sort the search on</param>
     /// <param name="descending">The order to return the search results</param>
@@ -181,7 +174,6 @@ public:
     /// <param name="i">This parameter is deprecated. (optional, default to 0)</param>
     /// <param name="l">This parameter is deprecated. (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<RetailerResponse>>> getRetailers(
-        double version,
         utility::string_t visibility,
         utility::string_t sortField,
         bool descending,
@@ -203,7 +195,6 @@ public:
     /// <remarks>
     /// Retailer login check.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="username">the user&#39;s email address they used to sign-up</param>
     /// <param name="password">the password</param>
     /// <param name="deviceId">the device id (optional) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -211,7 +202,6 @@ public:
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     /// <param name="appKey">the application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<AccountLoginResponse>> retailerLoginCheck(
-        double version,
         utility::string_t username,
         utility::string_t password,
         boost::optional<utility::string_t> deviceId,
@@ -225,7 +215,6 @@ public:
     /// <remarks>
     /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerId">The ID of the retailer to update</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -259,7 +248,6 @@ public:
     /// <param name="active">Sets whether the retailer is active or inactive (hidden from consumers) (optional, default to false)</param>
     /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerFullResponse>> updateRetailer(
-        double version,
         int64_t retailerId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Create a connection to an existing amqp queue and register as a consumer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
     /// <param name="name">The name of the queue to connect to</param>
     /// <param name="hostname">The hostname of the server the queue is hosted on</param>
@@ -67,7 +66,6 @@ public:
     /// <param name="workers">The number of workers to generate  (optional, default to 0)</param>
     /// <param name="useSSL">Use SSL (optional, default to false)</param>
     pplx::task<std::shared_ptr<QueueResponse>> consumerCreate(
-        double version,
         utility::string_t appKey,
         utility::string_t name,
         utility::string_t hostname,
@@ -89,7 +87,6 @@ public:
     /// <remarks>
     /// Update an existing amqp queue&#39;s data mapping.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.</param>
     /// <param name="queueId">The queue to update</param>
     /// <param name="dataMapping">The data mapping information in the format of AMQPRequest</param>
@@ -97,7 +94,6 @@ public:
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
     /// <param name="useSSL">Use SSL (optional, default to false)</param>
     pplx::task<std::shared_ptr<QueueResponse>> consumerUpdate(
-        double version,
         utility::string_t appKey,
         int64_t queueId,
         utility::string_t dataMapping,
@@ -111,7 +107,6 @@ public:
     /// <remarks>
     /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key unique to each application.</param>
     /// <param name="name">The name of the queue to create</param>
     /// <param name="deviceId">The client deviceID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -125,7 +120,6 @@ public:
     /// <param name="virtualHost">The virtual host defined on the server to queue (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="useSSL">Use SSL (optional, default to false)</param>
     pplx::task<std::shared_ptr<QueueResponse>> queueCreate(
-        double version,
         utility::string_t appKey,
         utility::string_t name,
         boost::optional<utility::string_t> deviceId,
@@ -145,12 +139,10 @@ public:
     /// <remarks>
     /// Delete the stored queue record and close any active connections to the AMQP servers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="queueId">The id of the queue to find</param>
     /// <param name="deviceId">The client device ID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> queueDelete(
-        double version,
         int64_t queueId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -161,7 +153,6 @@ public:
     /// <remarks>
     /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The client device ID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
     /// <param name="queueId">The id of the queue to find (optional, default to 0L)</param>
@@ -170,7 +161,6 @@ public:
     /// <param name="hostname">The hostname of the queue to find (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="virtualHost">The virtual host of the queue to find (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<QueueResponse>> queueGet(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> queueId,
@@ -185,7 +175,6 @@ public:
     /// <remarks>
     /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="message">The payload to send to the queue</param>
     /// <param name="queueId">The id of the queue to publish to (optional, default to 0L)</param>
     /// <param name="appKey">The application key the queue was assigned to (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -193,7 +182,6 @@ public:
     /// <param name="hostname">The hostname of the server the queue is hosted on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="virtualHost">The virtual host defined on the server to queue (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> queuePublish(
-        double version,
         utility::string_t message,
         boost::optional<int64_t> queueId,
         boost::optional<utility::string_t> appKey,
@@ -207,7 +195,6 @@ public:
     /// <remarks>
     /// Get the queues setup for the BillableEntity&#39;s applications.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="queueId">The id of the queue to find (optional, default to 0L)</param>
     /// <param name="deviceId">The client device ID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
@@ -215,7 +202,6 @@ public:
     /// <param name="start">Start of the index (optional, default to 0)</param>
     /// <param name="limit">Limit of the index (optional, default to 0)</param>
     pplx::task<std::shared_ptr<QueueResponse>> queueSearch(
-        double version,
         boost::optional<int64_t> queueId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -229,7 +215,6 @@ public:
     /// <remarks>
     /// Update the basic AMQP queue.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="queueId">The id of the queue to update</param>
     /// <param name="deviceId">The client deviceID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
@@ -243,7 +228,6 @@ public:
     /// <param name="virtualHost">The virtual host defined on the server to queue (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="useSSL">the SSL to use (optional, default to false)</param>
     pplx::task<std::shared_ptr<QueueResponse>> queueUpdate(
-        double version,
         int64_t queueId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

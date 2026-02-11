@@ -55,14 +55,12 @@ public:
     /// <remarks>
     /// Creates trilateration samples for a source device (i.e. a router).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="udid">The unique identifier of the source device</param>
     /// <param name="sourceTime">The current timestamp of the source device (optional, default to 0L)</param>
     /// <param name="minimumSampleSize">the minimum number of Edysen devices that must be used to be able to trilaterate a device (optional, default to 0)</param>
     /// <param name="data">The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="dataFile">Binary file containing data (multipart upload) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> cacheTrilaterationData(
-        double version,
         utility::string_t udid,
         boost::optional<int64_t> sourceTime,
         boost::optional<int32_t> minimumSampleSize,
@@ -75,10 +73,8 @@ public:
     /// <remarks>
     /// Creates trilateration samples for a source device (i.e. a router).
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> cacheTrilaterationDataGzip(
-        double version,
         boost::optional<std::shared_ptr<TrilatCacheRequest>> body
     ) const;
     /// <summary>
@@ -87,10 +83,8 @@ public:
     /// <remarks>
     /// Get location information based on an IP address.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="ip">the ip address of the client device (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<CoordsResponse>> getLocationByIp(
-        double version,
         boost::optional<utility::string_t> ip
     ) const;
     /// <summary>
@@ -99,14 +93,12 @@ public:
     /// <remarks>
     /// Send in device data and calculate a position based on signal strengths.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account making the request, if provided the last know location will be updated (optional, default to 0L)</param>
     /// <param name="latitude">The known GPS latitude to compare to the calculated version (optional, default to 0.0)</param>
     /// <param name="longitude">The known GPS longitude to compare to the calculated version (optional, default to 0.0)</param>
     /// <param name="data">The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="responseFilters">Optional response filters (not used currently) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<GeoPointResponse>> getLocationByTrilateration(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<double> latitude,
         boost::optional<double> longitude,
@@ -119,7 +111,6 @@ public:
     /// <remarks>
     /// Searches geographic locations by proximity via address or keyword.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account id (optional, default to 0L)</param>
     /// <param name="currentlatitude">This parameter is deprecated. (optional, default to 0.0)</param>
@@ -140,7 +131,6 @@ public:
     /// <param name="l">This parameter is deprecated. (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<LocationSearchResponse>> getLocations(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<double> currentlatitude,

@@ -36,13 +36,12 @@ AchievementApi::~AchievementApi()
 {
 }
 
-pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionAchievementTierSearchPost(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> achievementType, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> descendingGoal, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
+pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::achievementTierSearchPost(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<int64_t> achievementType, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> descendingGoal, boost::optional<int64_t> start, boost::optional<int64_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tier/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tier/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -71,7 +70,7 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionA
     }
     else
     {
-        throw ApiException(400, utility::conversions::to_string_t("AchievementApi->apiVersionAchievementTierSearchPost does not produce any supported media type"));
+        throw ApiException(400, utility::conversions::to_string_t("AchievementApi->achievementTierSearchPost does not produce any supported media type"));
     }
 
     localVarHeaderParams[utility::conversions::to_string_t("Accept")] = localVarResponseHttpContentType;
@@ -142,7 +141,7 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionA
     }
     else
     {
-        throw ApiException(415, utility::conversions::to_string_t("AchievementApi->apiVersionAchievementTierSearchPost does not consume any supported media type"));
+        throw ApiException(415, utility::conversions::to_string_t("AchievementApi->achievementTierSearchPost does not consume any supported media type"));
     }
 
 
@@ -162,7 +161,7 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionA
         if (localVarResponse.status_code() >= 400)
         {
             throw ApiException(localVarResponse.status_code()
-                , utility::conversions::to_string_t("error calling apiVersionAchievementTierSearchPost: ") + localVarResponse.reason_phrase()
+                , utility::conversions::to_string_t("error calling achievementTierSearchPost: ") + localVarResponse.reason_phrase()
                 , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
         }
 
@@ -173,7 +172,7 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionA
             if( localVarContentType.find(localVarResponseHttpContentType) == std::string::npos )
             {
                 throw ApiException(500
-                    , utility::conversions::to_string_t("error calling apiVersionAchievementTierSearchPost: unexpected response type: ") + localVarContentType
+                    , utility::conversions::to_string_t("error calling achievementTierSearchPost: unexpected response type: ") + localVarContentType
                     , std::make_shared<std::stringstream>(localVarResponse.extract_utf8string(true).get()));
             }
         }
@@ -197,19 +196,18 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::apiVersionA
         else
         {
             throw ApiException(500
-                , utility::conversions::to_string_t("error calling apiVersionAchievementTierSearchPost: unsupported response type"));
+                , utility::conversions::to_string_t("error calling achievementTierSearchPost: unsupported response type"));
         }
 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::createAchievement(double version, utility::string_t appKey, utility::string_t title, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> analyticsTag, boost::optional<utility::string_t> description, boost::optional<utility::string_t> rankType, boost::optional<int32_t> rankIncrement, boost::optional<int32_t> minIncrement, boost::optional<int32_t> maxIncrement, boost::optional<bool> validate, boost::optional<bool> active, boost::optional<utility::string_t> triggerDefinition) const
+pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::createAchievement(utility::string_t appKey, utility::string_t title, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> analyticsTag, boost::optional<utility::string_t> description, boost::optional<utility::string_t> rankType, boost::optional<int32_t> rankIncrement, boost::optional<int32_t> minIncrement, boost::optional<int32_t> maxIncrement, boost::optional<bool> validate, boost::optional<bool> active, boost::optional<utility::string_t> triggerDefinition) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -376,13 +374,12 @@ pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::createAchieveme
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::createAchievementTier(double version, int64_t achievementId, bool scoreAllInstances, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> icon, boost::optional<int64_t> iconAssetId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> goalCount, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int32_t> gameObjectId) const
+pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::createAchievementTier(int64_t achievementId, bool scoreAllInstances, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> icon, boost::optional<int64_t> iconAssetId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> goalCount, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int32_t> gameObjectId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tier/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tier/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -553,13 +550,12 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::createAchie
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievement(double version, int64_t achievementId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievement(int64_t achievementId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -683,13 +679,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievement(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievementTier(double version, int64_t achievementTierId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievementTier(int64_t achievementTierId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tier/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tier/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -813,13 +808,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::deleteAchievementTie
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievement(double version, int64_t achievementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> achievementType) const
+pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievement(int64_t achievementId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> achievementType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -951,13 +945,12 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievem
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievementTier(double version, int64_t accountId, int64_t achievementTierId) const
+pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievementTier(int64_t accountId, int64_t achievementTierId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tier/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tier/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1080,13 +1073,12 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::getAchievem
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AchievementProgressResponse>>> AchievementApi::getUserAchievements(double version, bool returnNulls, utility::string_t appKey, bool includeUndiscovered, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountEmail, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> achievementType, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::vector<std::shared_ptr<AchievementProgressResponse>>> AchievementApi::getUserAchievements(bool returnNulls, utility::string_t appKey, bool includeUndiscovered, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountEmail, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> achievementType, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/progress/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/progress/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1248,13 +1240,12 @@ pplx::task<std::vector<std::shared_ptr<AchievementProgressResponse>>> Achievemen
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::listAchievementTags(double version, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::listAchievementTags(boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tag/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tag/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1375,13 +1366,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::listAchievementTags(
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementApi::listAchievements(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> achievementType, boost::optional<utility::string_t> rankType) const
+pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementApi::listAchievements(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> achievementType, boost::optional<utility::string_t> rankType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1541,13 +1531,12 @@ pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementAp
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementApi::searchAchievements(double version, utility::string_t appKey, utility::string_t sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> achievementType, boost::optional<utility::string_t> rankType) const
+pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementApi::searchAchievements(utility::string_t appKey, utility::string_t sortField, bool descending, bool includeTiers, bool includeInactiveTiers, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> achievementType, boost::optional<utility::string_t> rankType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1709,13 +1698,12 @@ pplx::task<std::vector<std::shared_ptr<AchievementShortResponse>>> AchievementAp
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::updateAchievement(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> achievementId, boost::optional<utility::string_t> analyticsTag, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> rankType, boost::optional<int32_t> rankIncrement, boost::optional<int32_t> minIncrement, boost::optional<bool> nullMinIncrement, boost::optional<int32_t> maxIncrement, boost::optional<bool> nullMaxIncrement, boost::optional<bool> validate, boost::optional<bool> active, boost::optional<utility::string_t> triggerDefinition) const
+pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::updateAchievement(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> achievementId, boost::optional<utility::string_t> analyticsTag, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> rankType, boost::optional<int32_t> rankIncrement, boost::optional<int32_t> minIncrement, boost::optional<bool> nullMinIncrement, boost::optional<int32_t> maxIncrement, boost::optional<bool> nullMaxIncrement, boost::optional<bool> validate, boost::optional<bool> active, boost::optional<utility::string_t> triggerDefinition) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1892,13 +1880,12 @@ pplx::task<std::shared_ptr<AchievementResponse>> AchievementApi::updateAchieveme
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::updateAchievementTier(double version, int64_t achievementTierId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> icon, boost::optional<int64_t> iconAssetId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> goalCount, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<bool> scoreAllInstances) const
+pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::updateAchievementTier(int64_t achievementTierId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<std::shared_ptr<HttpContent>> icon, boost::optional<int64_t> iconAssetId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<int64_t> goalCount, boost::optional<int64_t> missionId, boost::optional<int64_t> gameId, boost::optional<int64_t> packId, boost::optional<int64_t> gameLevelId, boost::optional<int64_t> gameObjectId, boost::optional<bool> scoreAllInstances) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/tier/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/tier/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2070,13 +2057,12 @@ pplx::task<std::shared_ptr<AchievementTierResponse>> AchievementApi::updateAchie
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::updateUserAchievement(double version, int64_t accountId, boost::optional<int64_t> achievementId, boost::optional<utility::string_t> tag, boost::optional<int64_t> customId, boost::optional<int64_t> increment, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> returnProgress) const
+pplx::task<std::shared_ptr<SirqulResponse>> AchievementApi::updateUserAchievement(int64_t accountId, boost::optional<int64_t> achievementId, boost::optional<utility::string_t> tag, boost::optional<int64_t> customId, boost::optional<int64_t> increment, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> returnProgress) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/achievement/progress/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/achievement/progress/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

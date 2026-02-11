@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a question and related answers by the given params.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="question">the text of the question</param>
     /// <param name="answers">&#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; </param>
@@ -65,7 +64,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<QuestionResponse>> createQuestion(
-        double version,
         int64_t accountId,
         utility::string_t question,
         utility::string_t answers,
@@ -84,11 +82,9 @@ public:
     /// <remarks>
     /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="questionId">the id of the question to delete</param>
     /// <param name="accountId">the id of the account that can execute this request</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteQuestion(
-        double version,
         int64_t questionId,
         int64_t accountId
     ) const;
@@ -98,11 +94,9 @@ public:
     /// <remarks>
     /// Get a question by the given id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="questionId">the id of the question to get</param>
     /// <param name="accountId">the id of the account that can make this request</param>
     pplx::task<std::shared_ptr<QuestionResponse>> getQuestion(
-        double version,
         int64_t questionId,
         int64_t accountId
     ) const;
@@ -112,7 +106,6 @@ public:
     /// <remarks>
     /// Search for questions by the given params.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="sortField">The column to sort the search on</param>
     /// <param name="descending">The order to return the search results</param>
@@ -121,7 +114,6 @@ public:
     /// <param name="limit">The number of records to return.</param>
     /// <param name="keyword">The keyword for searching questions with matching tags or question text. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<QuestionResponse>>> searchQuestions(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -136,7 +128,6 @@ public:
     /// <remarks>
     /// Update a question and related answers.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="questionId">The id of the question to update.</param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="ticketCount">The number of tickets to reward</param>
@@ -150,7 +141,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<QuestionResponse>> updateQuestion(
-        double version,
         int64_t questionId,
         int64_t accountId,
         int64_t ticketCount,

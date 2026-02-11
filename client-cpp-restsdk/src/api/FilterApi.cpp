@@ -36,13 +36,12 @@ FilterApi::~FilterApi()
 {
 }
 
-pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::createFilter(double version, int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentFilterId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::createFilter(int64_t accountId, utility::string_t name, boost::optional<utility::string_t> appKey, boost::optional<int64_t> parentFilterId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/filter/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/filter/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -193,13 +192,12 @@ pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::createFilter(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> FilterApi::deleteFilter(double version, int64_t accountId, int64_t filterId) const
+pplx::task<std::shared_ptr<SirqulResponse>> FilterApi::deleteFilter(int64_t accountId, int64_t filterId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/filter/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/filter/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -322,13 +320,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> FilterApi::deleteFilter(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::getFilter(double version, int64_t filterId) const
+pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::getFilter(int64_t filterId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/filter/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/filter/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -448,13 +445,12 @@ pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::getFilter(double vers
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<FilterResponse>>> FilterApi::searchFilters(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> responseGroup, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<FilterResponse>>> FilterApi::searchFilters(boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> responseGroup, boost::optional<bool> rootOnly, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/filter/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/filter/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -615,13 +611,12 @@ pplx::task<std::vector<std::shared_ptr<FilterResponse>>> FilterApi::searchFilter
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::updateFilter(double version, int64_t accountId, int64_t filterId, boost::optional<int64_t> parentFilterId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<FilterTreeResponse>> FilterApi::updateFilter(int64_t accountId, int64_t filterId, boost::optional<int64_t> parentFilterId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> externalType, boost::optional<bool> active, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/filter/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/filter/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

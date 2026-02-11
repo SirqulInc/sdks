@@ -49,10 +49,8 @@ public:
     /// <remarks>
     /// Get an existing stop
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the stop to get</param>
     pplx::task<std::shared_ptr<Stop>> getStop(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -61,11 +59,9 @@ public:
     /// <remarks>
     /// Update an existing stop
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the stop to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Stop>> updateStop(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Stop>> body
     ) const;

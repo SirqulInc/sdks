@@ -53,14 +53,12 @@ public:
     /// <remarks>
     /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="notableId">The id of the notable object the batch operation will affect</param>
     /// <param name="notableType">The notable object type (for example ALBUM, ASSET, OFFER, etc.)</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="batchOperation">The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> batchOperation(
-        double version,
         int64_t notableId,
         utility::string_t notableType,
         boost::optional<utility::string_t> deviceId,
@@ -73,7 +71,6 @@ public:
     /// <remarks>
     /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="comment">The message the user wishes to leave a comment on</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
@@ -117,7 +114,6 @@ public:
     /// <param name="assetLatitude">the latitude of the asset (optional, default to 0.0)</param>
     /// <param name="assetLongitude">the longitude of the asset (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<NoteResponse>> createNote(
-        double version,
         utility::string_t comment,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -167,7 +163,6 @@ public:
     /// <remarks>
     /// Sets a comment (note) as deleted.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="noteId">The ID of the note to delete</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
@@ -175,7 +170,6 @@ public:
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="appKey">The application key used to identify the application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteNote(
-        double version,
         int64_t noteId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -189,13 +183,11 @@ public:
     /// <remarks>
     /// Get for a note based on its Id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="noteId">the id of the note to get</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
     /// <param name="returnFullResponse">Determines whether to return the NoteFullResponse for the item (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> getNote(
-        double version,
         int64_t noteId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -207,7 +199,6 @@ public:
     /// <remarks>
     /// Search for notes on a notable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="notableType">The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -226,7 +217,6 @@ public:
     /// <param name="start">The record to begin the return set on (optional, default to 0)</param>
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<NoteResponse>>> searchNotes(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> notableType,
@@ -251,7 +241,6 @@ public:
     /// <remarks>
     /// Update an existing comment (note). Only the creator of the note have permission to update.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="noteId">The id of the note, used when editing a comment</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The unique accountId that made the request (either deviceId or accountId must be used) (optional, default to 0L)</param>
@@ -294,7 +283,6 @@ public:
     /// <param name="assetLatitude">the latitude of the asset (optional, default to 0.0)</param>
     /// <param name="assetLongitude">the longitude of the asset (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<NoteResponse>> updateNote(
-        double version,
         int64_t noteId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

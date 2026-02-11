@@ -36,13 +36,12 @@ TwilioApi::~TwilioApi()
 {
 }
 
-pplx::task<std::shared_ptr<TwiMLResponse>> TwilioApi::smsBuyOffer(double version, utility::string_t appKey, utility::string_t body, utility::string_t from, utility::string_t currencyType) const
+pplx::task<std::shared_ptr<TwiMLResponse>> TwilioApi::smsBuyOffer(utility::string_t appKey, utility::string_t body, utility::string_t from, utility::string_t currencyType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/sms/buyoffer/{appKey}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/sms/buyoffer/{appKey}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("appKey") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(appKey)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

@@ -36,13 +36,12 @@ TournamentApi::~TournamentApi()
 {
 }
 
-pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::createTournament(double version, int64_t accountId, utility::string_t appKey, utility::string_t title, int32_t costToPlay, int64_t startDate, boost::optional<utility::string_t> subType, boost::optional<int64_t> imageAssetId, boost::optional<int32_t> secondsBetweenLevels, boost::optional<int32_t> secondsForTieBreaker, boost::optional<int32_t> secondsBetweenPacks, boost::optional<int32_t> maximumLevelLength, boost::optional<utility::string_t> costToPlayType, boost::optional<int32_t> minimumToPlay, boost::optional<int32_t> startingLimit, boost::optional<int32_t> availableLimit, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> audienceIds, boost::optional<bool> active, boost::optional<bool> enableBuyBack, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerAssetId, boost::optional<bool> fixedReward, boost::optional<utility::string_t> splitReward, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> tournamentData, boost::optional<utility::string_t> missionType, boost::optional<utility::string_t> visibility, boost::optional<int32_t> preliminaryGroups, boost::optional<utility::string_t> preliminaryGroupAdvancements, boost::optional<bool> enableMultipleEntries, boost::optional<bool> enableMultipleVotes, boost::optional<bool> featured, boost::optional<utility::string_t> winnerTag, boost::optional<utility::string_t> tieTag) const
+pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::createTournament(int64_t accountId, utility::string_t appKey, utility::string_t title, int32_t costToPlay, int64_t startDate, boost::optional<utility::string_t> subType, boost::optional<int64_t> imageAssetId, boost::optional<int32_t> secondsBetweenLevels, boost::optional<int32_t> secondsForTieBreaker, boost::optional<int32_t> secondsBetweenPacks, boost::optional<int32_t> maximumLevelLength, boost::optional<utility::string_t> costToPlayType, boost::optional<int32_t> minimumToPlay, boost::optional<int32_t> startingLimit, boost::optional<int32_t> availableLimit, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> audienceIds, boost::optional<bool> active, boost::optional<bool> enableBuyBack, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerAssetId, boost::optional<bool> fixedReward, boost::optional<utility::string_t> splitReward, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> tournamentData, boost::optional<utility::string_t> missionType, boost::optional<utility::string_t> visibility, boost::optional<int32_t> preliminaryGroups, boost::optional<utility::string_t> preliminaryGroupAdvancements, boost::optional<bool> enableMultipleEntries, boost::optional<bool> enableMultipleVotes, boost::optional<bool> featured, boost::optional<utility::string_t> winnerTag, boost::optional<utility::string_t> tieTag) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -294,13 +293,12 @@ pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::createTournament(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::deleteTournament(double version, int64_t accountId, int64_t missionId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::deleteTournament(int64_t accountId, int64_t missionId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -423,13 +421,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::deleteTournament(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::getTournament(double version, int64_t accountId, boost::optional<int64_t> missionId, boost::optional<utility::string_t> joinCode, boost::optional<utility::string_t> includeScores, boost::optional<int32_t> objectPreviewSize) const
+pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::getTournament(int64_t accountId, boost::optional<int64_t> missionId, boost::optional<utility::string_t> joinCode, boost::optional<utility::string_t> includeScores, boost::optional<int32_t> objectPreviewSize) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -565,13 +562,12 @@ pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::getTournament(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchObjects(double version, int64_t accountId, int64_t gameLevelId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchObjects(int64_t accountId, int64_t gameLevelId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/object/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/object/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -710,13 +706,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchObjects(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchRounds(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> status, boost::optional<utility::string_t> missionType, boost::optional<bool> currentOnly, boost::optional<utility::string_t> visibilities, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchRounds(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> status, boost::optional<utility::string_t> missionType, boost::optional<bool> currentOnly, boost::optional<utility::string_t> visibilities, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/round/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/round/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -863,13 +858,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::searchRounds(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<MissionShortResponse>> TournamentApi::searchTournaments(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> subType, boost::optional<bool> includeInactive, boost::optional<utility::string_t> missionTypes, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> visibility, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<MissionShortResponse>> TournamentApi::searchTournaments(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> subType, boost::optional<bool> includeInactive, boost::optional<utility::string_t> missionTypes, boost::optional<utility::string_t> filter, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> visibility, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1032,13 +1026,12 @@ pplx::task<std::shared_ptr<MissionShortResponse>> TournamentApi::searchTournamen
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentScore(double version, int64_t accountId, utility::string_t appKey, int64_t missionId, int64_t gameId, int64_t packId, utility::string_t scores, boost::optional<int64_t> gameLevelId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentScore(int64_t accountId, utility::string_t appKey, int64_t missionId, int64_t gameId, int64_t packId, utility::string_t scores, boost::optional<int64_t> gameLevelId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/score");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/score");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1177,13 +1170,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentScore
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentVote(double version, int64_t accountId, utility::string_t appKey, int64_t missionId, int64_t gameObjectId, boost::optional<utility::string_t> deviceId, boost::optional<bool> checkIfDeviceAlreadyVoted) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentVote(int64_t accountId, utility::string_t appKey, int64_t missionId, int64_t gameObjectId, boost::optional<utility::string_t> deviceId, boost::optional<bool> checkIfDeviceAlreadyVoted) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/vote");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/vote");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1320,13 +1312,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::submitTournamentVote(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::substituteTournamentPlayer(double version, int64_t accountId, int64_t missionId, int64_t packId, int64_t gameLevelId) const
+pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::substituteTournamentPlayer(int64_t accountId, int64_t missionId, int64_t packId, int64_t gameLevelId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/substitute");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/substitute");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1455,13 +1446,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> TournamentApi::substituteTournamentP
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::updateTournament(double version, int64_t accountId, int64_t missionId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subType, boost::optional<int64_t> imageAssetId, boost::optional<int32_t> secondsBetweenLevels, boost::optional<int32_t> secondsForTieBreaker, boost::optional<int32_t> secondsBetweenPacks, boost::optional<int32_t> maximumLevelLength, boost::optional<int32_t> costToPlay, boost::optional<utility::string_t> costToPlayType, boost::optional<int32_t> minimumToPlay, boost::optional<int32_t> startingLimit, boost::optional<int32_t> availableLimit, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<int64_t> startDate, boost::optional<utility::string_t> audienceIds, boost::optional<bool> active, boost::optional<bool> enableBuyBack, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerAssetId, boost::optional<bool> fixedReward, boost::optional<utility::string_t> splitReward, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> tournamentData, boost::optional<utility::string_t> visibility, boost::optional<int32_t> preliminaryGroups, boost::optional<utility::string_t> preliminaryGroupAdvancements, boost::optional<bool> enableMultipleEntries, boost::optional<bool> enableMultipleVotes, boost::optional<bool> featured, boost::optional<utility::string_t> winnerTag, boost::optional<utility::string_t> tieTag) const
+pplx::task<std::shared_ptr<TournamentResponse>> TournamentApi::updateTournament(int64_t accountId, int64_t missionId, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subType, boost::optional<int64_t> imageAssetId, boost::optional<int32_t> secondsBetweenLevels, boost::optional<int32_t> secondsForTieBreaker, boost::optional<int32_t> secondsBetweenPacks, boost::optional<int32_t> maximumLevelLength, boost::optional<int32_t> costToPlay, boost::optional<utility::string_t> costToPlayType, boost::optional<int32_t> minimumToPlay, boost::optional<int32_t> startingLimit, boost::optional<int32_t> availableLimit, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<int64_t> startDate, boost::optional<utility::string_t> audienceIds, boost::optional<bool> active, boost::optional<bool> enableBuyBack, boost::optional<utility::string_t> offerIds, boost::optional<int64_t> offerAssetId, boost::optional<bool> fixedReward, boost::optional<utility::string_t> splitReward, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> tournamentData, boost::optional<utility::string_t> visibility, boost::optional<int32_t> preliminaryGroups, boost::optional<utility::string_t> preliminaryGroupAdvancements, boost::optional<bool> enableMultipleEntries, boost::optional<bool> enableMultipleVotes, boost::optional<bool> featured, boost::optional<utility::string_t> winnerTag, boost::optional<utility::string_t> tieTag) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/tournament/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/tournament/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

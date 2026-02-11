@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a Task
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the task</param>
     /// <param name="appKey">The application to target (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -66,7 +65,6 @@ public:
     /// <param name="visibility">The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to false)</param>
     pplx::task<std::shared_ptr<TaskResponse>> createTask(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> appKey,
@@ -86,11 +84,9 @@ public:
     /// <remarks>
     /// Delete a Task
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="taskId">The id of the Task to delete.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteTask(
-        double version,
         int64_t accountId,
         int64_t taskId
     ) const;
@@ -100,11 +96,9 @@ public:
     /// <remarks>
     /// Get a Task
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="taskId">The id of the Task to return.</param>
     pplx::task<std::shared_ptr<TaskResponse>> getTask(
-        double version,
         int64_t accountId,
         int64_t taskId
     ) const;
@@ -114,7 +108,6 @@ public:
     /// <remarks>
     /// Search on Tasks
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="groupingId">Filter results by a grouping identifier defined by the client (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="filter">A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks  (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -128,7 +121,6 @@ public:
     /// <param name="limit">Limit the result to some number. (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return only active results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<TaskResponse>>> searchTasks(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> groupingId,
         boost::optional<utility::string_t> filter,
@@ -148,7 +140,6 @@ public:
     /// <remarks>
     /// Update a Task
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="taskId">Task Id</param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the task (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -163,7 +154,6 @@ public:
     /// <param name="visibility">The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">Sets whether the Task is active or not (inactive Tasks are not processed) (optional, default to false)</param>
     pplx::task<std::shared_ptr<TaskResponse>> updateTask(
-        double version,
         int64_t taskId,
         int64_t accountId,
         boost::optional<utility::string_t> name,

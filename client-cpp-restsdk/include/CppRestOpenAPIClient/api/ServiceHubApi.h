@@ -52,10 +52,8 @@ public:
     /// <remarks>
     /// Create new service hub
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ServiceHub>> createServiceHub(
-        double version,
         boost::optional<std::shared_ptr<ServiceHub>> body
     ) const;
     /// <summary>
@@ -64,10 +62,8 @@ public:
     /// <remarks>
     /// Delete an existing service hub
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the service hub to delete</param>
     pplx::task<void> deleteServiceHub(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -76,10 +72,8 @@ public:
     /// <remarks>
     /// Get an existing service hub
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the service hub to get</param>
     pplx::task<std::shared_ptr<Object>> getServiceHub(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -88,11 +82,9 @@ public:
     /// <remarks>
     /// Update an existing service hub
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the service hub</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ServiceHub>> postServiceHub(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<ServiceHub>> body
     ) const;
@@ -102,11 +94,9 @@ public:
     /// <remarks>
     /// Update an existing service hub
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the service hub</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ServiceHub>> putServiceHub(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<ServiceHub>> body
     ) const;
@@ -116,7 +106,6 @@ public:
     /// <remarks>
     /// Search for service hubs.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -125,7 +114,6 @@ public:
     /// <param name="keyword">The keyword to search for (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="retailerId">The retailer belongs to (optional, default to 0L)</param>
     pplx::task<std::vector<std::shared_ptr<ServiceHub>>> searchServiceHubs(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,

@@ -36,13 +36,12 @@ FavoriteApi::~FavoriteApi()
 {
 }
 
-pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::addFavorite(double version, int64_t favoritableId, utility::string_t favoritableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::addFavorite(int64_t favoritableId, utility::string_t favoritableType, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/favorite/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/favorite/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -181,13 +180,12 @@ pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::addFavorite(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> FavoriteApi::deleteFavorite(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> favoriteId, boost::optional<int64_t> favoritableId, boost::optional<utility::string_t> favoritableType) const
+pplx::task<std::shared_ptr<SirqulResponse>> FavoriteApi::deleteFavorite(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> favoriteId, boost::optional<int64_t> favoritableId, boost::optional<utility::string_t> favoritableType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/favorite/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/favorite/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -324,13 +322,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> FavoriteApi::deleteFavorite(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::getFavorite(double version, int64_t favoriteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::getFavorite(int64_t favoriteId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/favorite/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/favorite/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -466,13 +463,12 @@ pplx::task<std::shared_ptr<WrappedResponse>> FavoriteApi::getFavorite(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SearchResponse>> FavoriteApi::searchFavorites(double version, utility::string_t favoritableType, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool returnFullResponse, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> secondaryType, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SearchResponse>> FavoriteApi::searchFavorites(utility::string_t favoritableType, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool returnFullResponse, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> secondaryType, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/favorite/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/favorite/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -638,13 +634,12 @@ pplx::task<std::shared_ptr<SearchResponse>> FavoriteApi::searchFavorites(double 
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AccountResponse>>> FavoriteApi::whoHasFavorited(double version, int64_t favoritableId, utility::string_t favoritableType, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<AccountResponse>>> FavoriteApi::whoHasFavorited(int64_t favoritableId, utility::string_t favoritableType, int32_t start, int32_t limit, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/favorite/whois");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/favorite/whois");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ WeatherApi::~WeatherApi()
 {
 }
 
-pplx::task<std::shared_ptr<WeatherResponse>> WeatherApi::searchWeather(double version, boost::optional<int64_t> regionId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> timezoneOffset) const
+pplx::task<std::shared_ptr<WeatherResponse>> WeatherApi::searchWeather(boost::optional<int64_t> regionId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> timezoneOffset) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/weather/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/weather/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

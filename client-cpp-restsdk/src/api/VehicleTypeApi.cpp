@@ -36,13 +36,12 @@ VehicleTypeApi::~VehicleTypeApi()
 {
 }
 
-pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::createVehicleType(double version, utility::string_t vehicleType, boost::optional<std::shared_ptr<VehicleType>> body) const
+pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::createVehicleType(utility::string_t vehicleType, boost::optional<std::shared_ptr<VehicleType>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vehicle/type");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vehicle/type");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -178,13 +177,12 @@ pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::createVehicleType(doubl
         return localVarResult;
     });
 }
-pplx::task<void> VehicleTypeApi::deleteVehicleType(double version, int64_t vehicleTypeId) const
+pplx::task<void> VehicleTypeApi::deleteVehicleType(int64_t vehicleTypeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vehicle/type/{vehicleTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vehicle/type/{vehicleTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("vehicleTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(vehicleTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -283,13 +281,12 @@ pplx::task<void> VehicleTypeApi::deleteVehicleType(double version, int64_t vehic
         return void();
     });
 }
-pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::getVehicleType(double version, int64_t vehicleTypeId) const
+pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::getVehicleType(int64_t vehicleTypeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vehicle/type/{vehicleTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vehicle/type/{vehicleTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("vehicleTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(vehicleTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -407,13 +404,12 @@ pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::getVehicleType(double v
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<VehicleType>>> VehicleTypeApi::searchVehicleTypes(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> retailerId, boost::optional<int64_t> hubId) const
+pplx::task<std::vector<std::shared_ptr<VehicleType>>> VehicleTypeApi::searchVehicleTypes(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> retailerId, boost::optional<int64_t> hubId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vehicle/type");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vehicle/type");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -557,13 +553,12 @@ pplx::task<std::vector<std::shared_ptr<VehicleType>>> VehicleTypeApi::searchVehi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::updateVehicleType(double version, int64_t vehicleTypeId, utility::string_t vehicleType, boost::optional<std::shared_ptr<VehicleType>> body) const
+pplx::task<std::shared_ptr<VehicleType>> VehicleTypeApi::updateVehicleType(int64_t vehicleTypeId, utility::string_t vehicleType, boost::optional<std::shared_ptr<VehicleType>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vehicle/type/{vehicleTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vehicle/type/{vehicleTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("vehicleTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(vehicleTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

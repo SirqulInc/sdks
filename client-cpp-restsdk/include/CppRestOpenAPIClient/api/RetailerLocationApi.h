@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Creates a location record for an application that can support crowd sourced locations.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key</param>
     /// <param name="name">The name of the retailer location</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -84,7 +83,6 @@ public:
     /// <param name="latitude">The latitude to center the search on (optional, default to 0.0)</param>
     /// <param name="longitude">The longitude to center the search on (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<RetailerLocationResponse>> createRetailerLocationConsumer(
-        double version,
         utility::string_t appKey,
         utility::string_t name,
         boost::optional<utility::string_t> deviceId,
@@ -121,7 +119,6 @@ public:
     /// <remarks>
     /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerId">The ID of the retailer</param>
     /// <param name="name">The name of the retailer location</param>
     /// <param name="streetAddress">The street address of the retailer location</param>
@@ -162,7 +159,6 @@ public:
     /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="responseIncludes">Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerLocationResponse>> createRetailerLocations(
-        double version,
         int64_t retailerId,
         utility::string_t name,
         utility::string_t streetAddress,
@@ -209,12 +205,10 @@ public:
     /// <remarks>
     /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">the device id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the id of the logged in user (optional, default to 0L)</param>
     /// <param name="retailerLocationId">the id of the retailer location to delete (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteRetailerLocation(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> retailerLocationId
@@ -225,13 +219,11 @@ public:
     /// <remarks>
     /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerLocationId">The ID of the retailer location</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="retailerLocationToken">the unique token of the retailer location (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerLocationResponse>> getRetailerLocation(
-        double version,
         int64_t retailerLocationId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -243,12 +235,10 @@ public:
     /// <remarks>
     /// Gets the details of a retailer location as a consumer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerLocationId">The retailer location id</param>
     /// <param name="deviceId">The device id for returning account information (i.e. favorites) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id for returning account information (i.e. favorites) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<RetailerLocationResponse>> getRetailerLocationConsumer(
-        double version,
         int64_t retailerLocationId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -259,7 +249,6 @@ public:
     /// <remarks>
     /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="latitude">The latitude to center the search on</param>
     /// <param name="longitude">The longitude to center the search on</param>
     /// <param name="searchRange">The search range in the distanceUnit specified; default is MILES.</param>
@@ -295,7 +284,6 @@ public:
     /// <param name="includeLiked">Include liked flag in response (optional, default to false)</param>
     /// <param name="includeRating">Include rating info in response (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> indexedRetailerLocationDistanceSearch(
-        double version,
         double latitude,
         double longitude,
         double searchRange,
@@ -337,7 +325,6 @@ public:
     /// <remarks>
     /// Retailer location (faster) indexed search. This searches all retailer locations.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (optional, default to 0L)</param>
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
@@ -367,7 +354,6 @@ public:
     /// <param name="includeLiked">Include liked flag in response (optional, default to false)</param>
     /// <param name="includeRating">Include rating info in response (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> indexedRetailerLocationSearch(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<int32_t> start,
         boost::optional<int32_t> limit,
@@ -403,7 +389,6 @@ public:
     /// <remarks>
     /// Searches on retailer locations that the account has access to.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="q">This parameter is deprecated. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -430,7 +415,6 @@ public:
     /// <param name="includeLiked">Include liked flag in response (optional, default to false)</param>
     /// <param name="includeRating">Include rating info in response (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<RetailerLocationResponse>>> searchRetailerLocations(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> q,
@@ -463,7 +447,6 @@ public:
     /// <remarks>
     /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerLocationId">The ID of the retailer location</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -506,7 +489,6 @@ public:
     /// <param name="responseFormat">The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="tags">Custom string field for doing full-text searches (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<RetailerLocationResponse>> updateRetailerLocations(
-        double version,
         int64_t retailerLocationId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

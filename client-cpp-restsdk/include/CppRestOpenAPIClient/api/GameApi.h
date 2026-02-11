@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Create a Game.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user. (optional, default to 0L)</param>
     /// <param name="appKey">The game application key to save the level for. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="title">Title of the game. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -60,7 +59,6 @@ public:
     /// <param name="packIds">comma separated String of pack Ids that will associate with the game. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="includeGameData">Show more details in response. (optional, default to false)</param>
     pplx::task<std::shared_ptr<GameResponse>> createGame(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<utility::string_t> title,
@@ -75,11 +73,9 @@ public:
     /// <remarks>
     /// Delete a game.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="gameId">the updating game&#39;s id.</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteGame(
-        double version,
         int64_t accountId,
         int64_t gameId
     ) const;
@@ -89,12 +85,10 @@ public:
     /// <remarks>
     /// Get a Game by id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="gameId">the updating game&#39;s id.</param>
     /// <param name="includeGameData">If true include the game level data, otherwise don&#39;t. default is false. (optional, default to false)</param>
     pplx::task<std::shared_ptr<GameResponse>> getGame(
-        double version,
         int64_t accountId,
         int64_t gameId,
         boost::optional<bool> includeGameData
@@ -105,7 +99,6 @@ public:
     /// <remarks>
     /// Get a list of games for an application, just those the account has permissions to view.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">the application key</param>
     /// <param name="start">Start the result set at some index.</param>
@@ -115,7 +108,6 @@ public:
     /// <param name="includeGameData">more details in response (optional, default to false)</param>
     /// <param name="includeInactive">more details in response (optional, default to false)</param>
     pplx::task<std::shared_ptr<GameResponse>> searchGames(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int32_t start,
@@ -131,7 +123,6 @@ public:
     /// <remarks>
     /// Update a Game
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user. (optional, default to 0L)</param>
     /// <param name="gameId">the updating game&#39;s id (optional, default to 0L)</param>
     /// <param name="appKey">The game application key to save the level for. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -141,7 +132,6 @@ public:
     /// <param name="packIds">comma separated String of pack Ids that will associate with the game. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="includeGameData">show more details in response. (optional, default to false)</param>
     pplx::task<std::shared_ptr<GameResponse>> updateGame(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> gameId,
         boost::optional<utility::string_t> appKey,

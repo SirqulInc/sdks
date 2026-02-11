@@ -36,13 +36,12 @@ AssetApi::~AssetApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::assetDownload(double version, utility::string_t filename) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::assetDownload(utility::string_t filename) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/download/{filename}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/download/{filename}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("filename") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(filename)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -160,13 +159,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::assetDownload(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssetShortResponse>> AssetApi::assetMorph(double version, int64_t offerId, utility::string_t adSize, boost::optional<int64_t> creativeId, boost::optional<int32_t> width, boost::optional<int32_t> height, boost::optional<utility::string_t> backgroundSize, boost::optional<utility::string_t> r_template) const
+pplx::task<std::shared_ptr<AssetShortResponse>> AssetApi::assetMorph(int64_t offerId, utility::string_t adSize, boost::optional<int64_t> creativeId, boost::optional<int32_t> width, boost::optional<int32_t> height, boost::optional<utility::string_t> backgroundSize, boost::optional<utility::string_t> r_template) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/morph");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/morph");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -309,13 +307,12 @@ pplx::task<std::shared_ptr<AssetShortResponse>> AssetApi::assetMorph(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssetResponse>> AssetApi::createAsset(double version, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> collectionId, boost::optional<utility::string_t> addToDefaultAlbum, boost::optional<bool> addToMediaLibrary, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> caption, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaUrl, boost::optional<utility::string_t> mediaString, boost::optional<utility::string_t> mediaStringFileName, boost::optional<utility::string_t> mediaStringContentType, boost::optional<int32_t> mediaHeight, boost::optional<int32_t> mediaWidth, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaUrl, boost::optional<utility::string_t> attachedMediaString, boost::optional<utility::string_t> attachedMediaStringFileName, boost::optional<utility::string_t> attachedMediaStringContentType, boost::optional<int32_t> attachedMediaHeight, boost::optional<int32_t> attachedMediaWidth, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> app, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> searchTags, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<AssetResponse>> AssetApi::createAsset(boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> collectionId, boost::optional<utility::string_t> addToDefaultAlbum, boost::optional<bool> addToMediaLibrary, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> caption, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaUrl, boost::optional<utility::string_t> mediaString, boost::optional<utility::string_t> mediaStringFileName, boost::optional<utility::string_t> mediaStringContentType, boost::optional<int32_t> mediaHeight, boost::optional<int32_t> mediaWidth, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaUrl, boost::optional<utility::string_t> attachedMediaString, boost::optional<utility::string_t> attachedMediaStringFileName, boost::optional<utility::string_t> attachedMediaStringContentType, boost::optional<int32_t> attachedMediaHeight, boost::optional<int32_t> attachedMediaWidth, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> app, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> searchTags, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -568,13 +565,12 @@ pplx::task<std::shared_ptr<AssetResponse>> AssetApi::createAsset(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::deleteAsset(double version, utility::string_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::deleteAsset(utility::string_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -710,13 +706,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::deleteAsset(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssetFullResponse>> AssetApi::getAsset(double version, int64_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> noteDescending) const
+pplx::task<std::shared_ptr<AssetFullResponse>> AssetApi::getAsset(int64_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> noteDescending) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -848,13 +843,12 @@ pplx::task<std::shared_ptr<AssetFullResponse>> AssetApi::getAsset(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::removeAsset(double version, utility::string_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> collectionId, boost::optional<bool> removeFromDefaultAlbums, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::removeAsset(utility::string_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> collectionId, boost::optional<bool> removeFromDefaultAlbums, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/remove");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/remove");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1002,13 +996,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::removeAsset(double version
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<AssetResponse>>> AssetApi::searchAssets(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> mediaType, boost::optional<utility::string_t> mimeType, boost::optional<utility::string_t> keyword, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> searchMediaLibrary, boost::optional<bool> filterByBillable, boost::optional<bool> activeOnly, boost::optional<bool> returnApp, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId) const
+pplx::task<std::vector<std::shared_ptr<AssetResponse>>> AssetApi::searchAssets(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> albumIds, boost::optional<utility::string_t> assetIds, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> mediaType, boost::optional<utility::string_t> mimeType, boost::optional<utility::string_t> keyword, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<bool> searchMediaLibrary, boost::optional<bool> filterByBillable, boost::optional<bool> activeOnly, boost::optional<bool> returnApp, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1225,13 +1218,12 @@ pplx::task<std::vector<std::shared_ptr<AssetResponse>>> AssetApi::searchAssets(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::updateAsset(double version, int64_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> attachedAssetId, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> caption, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaUrl, boost::optional<utility::string_t> mediaString, boost::optional<utility::string_t> mediaStringFileName, boost::optional<utility::string_t> mediaStringContentType, boost::optional<int32_t> mediaHeight, boost::optional<int32_t> mediaWidth, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaUrl, boost::optional<utility::string_t> attachedMediaString, boost::optional<utility::string_t> attachedMediaStringFileName, boost::optional<utility::string_t> attachedMediaStringContentType, boost::optional<int32_t> attachedMediaHeight, boost::optional<int32_t> attachedMediaWidth, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AssetApi::updateAsset(int64_t assetId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> albumId, boost::optional<int64_t> attachedAssetId, boost::optional<int32_t> versionCode, boost::optional<utility::string_t> versionName, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> caption, boost::optional<utility::string_t> assetType, boost::optional<utility::string_t> approvalStatus, boost::optional<int64_t> assignedAccountId, boost::optional<std::shared_ptr<HttpContent>> media, boost::optional<utility::string_t> mediaUrl, boost::optional<utility::string_t> mediaString, boost::optional<utility::string_t> mediaStringFileName, boost::optional<utility::string_t> mediaStringContentType, boost::optional<int32_t> mediaHeight, boost::optional<int32_t> mediaWidth, boost::optional<std::shared_ptr<HttpContent>> attachedMedia, boost::optional<utility::string_t> attachedMediaUrl, boost::optional<utility::string_t> attachedMediaString, boost::optional<utility::string_t> attachedMediaStringFileName, boost::optional<utility::string_t> attachedMediaStringContentType, boost::optional<int32_t> attachedMediaHeight, boost::optional<int32_t> attachedMediaWidth, boost::optional<utility::string_t> locationDescription, boost::optional<utility::string_t> searchTags, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/asset/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/asset/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

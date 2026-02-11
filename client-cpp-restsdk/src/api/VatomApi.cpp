@@ -36,13 +36,12 @@ VatomApi::~VatomApi()
 {
 }
 
-pplx::task<void> VatomApi::createFollowing(double version, int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::createFollowing(int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/rels/following/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/rels/following/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -150,13 +149,12 @@ pplx::task<void> VatomApi::createFollowing(double version, int64_t accountId, ut
         return void();
     });
 }
-pplx::task<void> VatomApi::createSpace(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::createSpace(int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/spaces/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/spaces/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -267,13 +265,12 @@ pplx::task<void> VatomApi::createSpace(double version, int64_t accountId, utilit
         return void();
     });
 }
-pplx::task<void> VatomApi::createVatomEvent(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::createVatomEvent(int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -384,13 +381,12 @@ pplx::task<void> VatomApi::createVatomEvent(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::deleteFollowing(double version, int64_t accountId, utility::string_t vatomRelsKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::deleteFollowing(int64_t accountId, utility::string_t vatomRelsKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/rels/following/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/rels/following/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -498,13 +494,12 @@ pplx::task<void> VatomApi::deleteFollowing(double version, int64_t accountId, ut
         return void();
     });
 }
-pplx::task<void> VatomApi::deletePointsBalance(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::deletePointsBalance(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign/points/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign/points/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -615,13 +610,12 @@ pplx::task<void> VatomApi::deletePointsBalance(double version, int64_t accountId
         return void();
     });
 }
-pplx::task<void> VatomApi::deleteSpace(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::deleteSpace(int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/spaces/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/spaces/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -732,13 +726,12 @@ pplx::task<void> VatomApi::deleteSpace(double version, int64_t accountId, utilit
         return void();
     });
 }
-pplx::task<void> VatomApi::deleteVatomEvent(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::deleteVatomEvent(int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -849,13 +842,12 @@ pplx::task<void> VatomApi::deleteVatomEvent(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::deleteVatomNFT(double version, int64_t accountId, utility::string_t vatomId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::deleteVatomNFT(int64_t accountId, utility::string_t vatomId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/vatoms/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/vatoms/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -963,13 +955,12 @@ pplx::task<void> VatomApi::deleteVatomNFT(double version, int64_t accountId, uti
         return void();
     });
 }
-pplx::task<void> VatomApi::executeActionOnNFT(double version, int64_t accountId, utility::string_t vatomId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::executeActionOnNFT(int64_t accountId, utility::string_t vatomId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/vatoms/execute-action");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/vatoms/execute-action");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1080,13 +1071,12 @@ pplx::task<void> VatomApi::executeActionOnNFT(double version, int64_t accountId,
         return void();
     });
 }
-pplx::task<void> VatomApi::geomapSearch(double version, int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::geomapSearch(int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/vatoms/geo-map/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/vatoms/geo-map/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1194,13 +1184,12 @@ pplx::task<void> VatomApi::geomapSearch(double version, int64_t accountId, utili
         return void();
     });
 }
-pplx::task<void> VatomApi::getBusinessBehaviors(double version, int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getBusinessBehaviors(int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/behaviors");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/behaviors");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1308,13 +1297,12 @@ pplx::task<void> VatomApi::getBusinessBehaviors(double version, int64_t accountI
         return void();
     });
 }
-pplx::task<void> VatomApi::getBusinessCoinsBalance(double version, int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getBusinessCoinsBalance(int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/coins/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/coins/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1422,13 +1410,12 @@ pplx::task<void> VatomApi::getBusinessCoinsBalance(double version, int64_t accou
         return void();
     });
 }
-pplx::task<void> VatomApi::getBusinessIds(double version, int64_t accountId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getBusinessIds(int64_t accountId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/businesses");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/businesses");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1533,13 +1520,12 @@ pplx::task<void> VatomApi::getBusinessIds(double version, int64_t accountId, boo
         return void();
     });
 }
-pplx::task<void> VatomApi::getBusinessInfo(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getBusinessInfo(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1651,13 +1637,12 @@ pplx::task<void> VatomApi::getBusinessInfo(double version, int64_t accountId, ut
         return void();
     });
 }
-pplx::task<void> VatomApi::getBusinessUsers(double version, int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getBusinessUsers(int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/users");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/users");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1765,13 +1750,12 @@ pplx::task<void> VatomApi::getBusinessUsers(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::getCampaignGroupEntities(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getCampaignGroupEntities(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign-groups/entities");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign-groups/entities");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1882,13 +1866,12 @@ pplx::task<void> VatomApi::getCampaignGroupEntities(double version, int64_t acco
         return void();
     });
 }
-pplx::task<void> VatomApi::getCampaignGroupRules(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getCampaignGroupRules(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign-groups/rules");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign-groups/rules");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1999,13 +1982,12 @@ pplx::task<void> VatomApi::getCampaignGroupRules(double version, int64_t account
         return void();
     });
 }
-pplx::task<void> VatomApi::getCampaignGroupStats(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getCampaignGroupStats(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign-groups/stats");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign-groups/stats");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2116,13 +2098,12 @@ pplx::task<void> VatomApi::getCampaignGroupStats(double version, int64_t account
         return void();
     });
 }
-pplx::task<void> VatomApi::getCampaignInfo(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getCampaignInfo(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign-groups/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign-groups/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2233,13 +2214,12 @@ pplx::task<void> VatomApi::getCampaignInfo(double version, int64_t accountId, ut
         return void();
     });
 }
-pplx::task<void> VatomApi::getEventGuestList(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getEventGuestList(int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/guests/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/guests/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2350,13 +2330,12 @@ pplx::task<void> VatomApi::getEventGuestList(double version, int64_t accountId, 
         return void();
     });
 }
-pplx::task<void> VatomApi::getInventory(double version, int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getInventory(int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/inventory");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/inventory");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2464,13 +2443,12 @@ pplx::task<void> VatomApi::getInventory(double version, int64_t accountId, utili
         return void();
     });
 }
-pplx::task<void> VatomApi::getMyFollowing(double version, int64_t accountId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getMyFollowing(int64_t accountId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/rels/following");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/rels/following");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2575,13 +2553,12 @@ pplx::task<void> VatomApi::getMyFollowing(double version, int64_t accountId, boo
         return void();
     });
 }
-pplx::task<void> VatomApi::getPointsBalance(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getPointsBalance(int64_t accountId, utility::string_t vatomUserId, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/u/campaign/points/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/u/campaign/points/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2692,13 +2669,12 @@ pplx::task<void> VatomApi::getPointsBalance(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::getPointsBalanceAsBusiness(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomUserId, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getPointsBalanceAsBusiness(int64_t accountId, utility::string_t appKey, utility::string_t vatomUserId, utility::string_t vatomCampaignId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign/u/points/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign/u/points/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2812,13 +2788,12 @@ pplx::task<void> VatomApi::getPointsBalanceAsBusiness(double version, int64_t ac
         return void();
     });
 }
-pplx::task<void> VatomApi::getSpace(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getSpace(int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/spaces/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/spaces/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2929,13 +2904,12 @@ pplx::task<void> VatomApi::getSpace(double version, int64_t accountId, utility::
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserCoinsAsBusiness(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserCoinsAsBusiness(int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/users/coins/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/users/coins/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3046,13 +3020,12 @@ pplx::task<void> VatomApi::getUserCoinsAsBusiness(double version, int64_t accoun
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserCoinsBalance(double version, int64_t accountId, utility::string_t vatomUserId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserCoinsBalance(int64_t accountId, utility::string_t vatomUserId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/u/coins/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/u/coins/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3164,13 +3137,12 @@ pplx::task<void> VatomApi::getUserCoinsBalance(double version, int64_t accountId
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserFollowers(double version, int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserFollowers(int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/users/rels/followers");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/users/rels/followers");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3278,13 +3250,12 @@ pplx::task<void> VatomApi::getUserFollowers(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserFollowing(double version, int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserFollowing(int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/users/rels/following");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/users/rels/following");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3392,13 +3363,12 @@ pplx::task<void> VatomApi::getUserFollowing(double version, int64_t accountId, u
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserInfo(double version, int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserInfo(int64_t accountId, utility::string_t vatomUserId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/user/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/user/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3506,13 +3476,12 @@ pplx::task<void> VatomApi::getUserInfo(double version, int64_t accountId, utilit
         return void();
     });
 }
-pplx::task<void> VatomApi::getUserProfile(double version, int64_t accountId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getUserProfile(int64_t accountId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3617,13 +3586,12 @@ pplx::task<void> VatomApi::getUserProfile(double version, int64_t accountId, boo
         return void();
     });
 }
-pplx::task<void> VatomApi::getVatomEvent(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getVatomEvent(int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3734,13 +3702,12 @@ pplx::task<void> VatomApi::getVatomEvent(double version, int64_t accountId, util
         return void();
     });
 }
-pplx::task<void> VatomApi::getVatomNFT(double version, int64_t accountId, utility::string_t vatomId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::getVatomNFT(int64_t accountId, utility::string_t vatomId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/vatoms/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/vatoms/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3848,13 +3815,12 @@ pplx::task<void> VatomApi::getVatomNFT(double version, int64_t accountId, utilit
         return void();
     });
 }
-pplx::task<void> VatomApi::listCommunities(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::listCommunities(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/communities/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/communities/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3966,13 +3932,12 @@ pplx::task<void> VatomApi::listCommunities(double version, int64_t accountId, ut
         return void();
     });
 }
-pplx::task<void> VatomApi::listEvents(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::listEvents(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4084,13 +4049,12 @@ pplx::task<void> VatomApi::listEvents(double version, int64_t accountId, utility
         return void();
     });
 }
-pplx::task<void> VatomApi::listSpaces(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::listSpaces(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/spaces/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/spaces/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4202,13 +4166,12 @@ pplx::task<void> VatomApi::listSpaces(double version, int64_t accountId, utility
         return void();
     });
 }
-pplx::task<void> VatomApi::listUserCoinTransactions(double version, int64_t accountId, utility::string_t vatomUserId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::listUserCoinTransactions(int64_t accountId, utility::string_t vatomUserId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/u/coins/txns/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/u/coins/txns/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4320,13 +4283,12 @@ pplx::task<void> VatomApi::listUserCoinTransactions(double version, int64_t acco
         return void();
     });
 }
-pplx::task<void> VatomApi::listUserCoinTransactionsAsBusiness(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::listUserCoinTransactionsAsBusiness(int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/users/coins/txns/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/users/coins/txns/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4441,13 +4403,12 @@ pplx::task<void> VatomApi::listUserCoinTransactionsAsBusiness(double version, in
         return void();
     });
 }
-pplx::task<void> VatomApi::performActionOnNFT(double version, int64_t accountId, utility::string_t vatomId, utility::string_t vatomAction, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::performActionOnNFT(int64_t accountId, utility::string_t vatomId, utility::string_t vatomAction, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/vatoms/actions");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/vatoms/actions");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4561,13 +4522,12 @@ pplx::task<void> VatomApi::performActionOnNFT(double version, int64_t accountId,
         return void();
     });
 }
-pplx::task<void> VatomApi::redeemNFT(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::redeemNFT(int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/redemptions");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/redemptions");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4678,13 +4638,12 @@ pplx::task<void> VatomApi::redeemNFT(double version, int64_t accountId, utility:
         return void();
     });
 }
-pplx::task<void> VatomApi::redeemUserCoinsAsBusiness(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::redeemUserCoinsAsBusiness(int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/users/coins/redeem");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/users/coins/redeem");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4798,13 +4757,12 @@ pplx::task<void> VatomApi::redeemUserCoinsAsBusiness(double version, int64_t acc
         return void();
     });
 }
-pplx::task<void> VatomApi::searchBusinesses(double version, int64_t accountId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::searchBusinesses(int64_t accountId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4913,13 +4871,12 @@ pplx::task<void> VatomApi::searchBusinesses(double version, int64_t accountId, b
         return void();
     });
 }
-pplx::task<void> VatomApi::searchCampaignGroups(double version, int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::searchCampaignGroups(int64_t accountId, utility::string_t appKey, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign-groups/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign-groups/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5027,13 +4984,12 @@ pplx::task<void> VatomApi::searchCampaignGroups(double version, int64_t accountI
         return void();
     });
 }
-pplx::task<void> VatomApi::searchIdentities(double version, int64_t accountId, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::searchIdentities(int64_t accountId, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/identities/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/identities/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5138,13 +5094,12 @@ pplx::task<void> VatomApi::searchIdentities(double version, int64_t accountId, b
         return void();
     });
 }
-pplx::task<void> VatomApi::searchInventory(double version, int64_t accountId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::searchInventory(int64_t accountId, boost::optional<utility::string_t> vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/user-inventory/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/user-inventory/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5253,13 +5208,12 @@ pplx::task<void> VatomApi::searchInventory(double version, int64_t accountId, bo
         return void();
     });
 }
-pplx::task<void> VatomApi::sendNFT(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::sendNFT(int64_t accountId, utility::string_t appKey, utility::string_t vatomCampaignId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaigns/send");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaigns/send");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5373,13 +5327,12 @@ pplx::task<void> VatomApi::sendNFT(double version, int64_t accountId, utility::s
         return void();
     });
 }
-pplx::task<void> VatomApi::setPointsBalanceAsBusiness(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomUserId, utility::string_t vatomCampaignId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::setPointsBalanceAsBusiness(int64_t accountId, utility::string_t appKey, utility::string_t vatomUserId, utility::string_t vatomCampaignId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/campaign/u/points/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/campaign/u/points/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5496,13 +5449,12 @@ pplx::task<void> VatomApi::setPointsBalanceAsBusiness(double version, int64_t ac
         return void();
     });
 }
-pplx::task<void> VatomApi::transferUserCoins(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::transferUserCoins(int64_t accountId, utility::string_t vatomUserId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/u/coins/transfer");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/u/coins/transfer");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5613,13 +5565,12 @@ pplx::task<void> VatomApi::transferUserCoins(double version, int64_t accountId, 
         return void();
     });
 }
-pplx::task<void> VatomApi::updateBusinessCoins(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateBusinessCoins(int64_t accountId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/coins/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/coins/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5730,13 +5681,12 @@ pplx::task<void> VatomApi::updateBusinessCoins(double version, int64_t accountId
         return void();
     });
 }
-pplx::task<void> VatomApi::updateEventGuestList(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateEventGuestList(int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/guests/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/guests/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5850,13 +5800,12 @@ pplx::task<void> VatomApi::updateEventGuestList(double version, int64_t accountI
         return void();
     });
 }
-pplx::task<void> VatomApi::updateSpace(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateSpace(int64_t accountId, utility::string_t appKey, utility::string_t vatomSpaceId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/spaces/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/spaces/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -5970,13 +5919,12 @@ pplx::task<void> VatomApi::updateSpace(double version, int64_t accountId, utilit
         return void();
     });
 }
-pplx::task<void> VatomApi::updateUserCoinsAsBusiness(double version, int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateUserCoinsAsBusiness(int64_t accountId, utility::string_t vatomUserId, utility::string_t appKey, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/users/coins/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/users/coins/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -6090,13 +6038,12 @@ pplx::task<void> VatomApi::updateUserCoinsAsBusiness(double version, int64_t acc
         return void();
     });
 }
-pplx::task<void> VatomApi::updateUserProfile(double version, int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateUserProfile(int64_t accountId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/me/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/me/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -6204,13 +6151,12 @@ pplx::task<void> VatomApi::updateUserProfile(double version, int64_t accountId, 
         return void();
     });
 }
-pplx::task<void> VatomApi::updateVatomEvent(double version, int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
+pplx::task<void> VatomApi::updateVatomEvent(int64_t accountId, utility::string_t appKey, utility::string_t vatomEventId, utility::string_t vatomParameters, boost::optional<bool> returnRawResponse) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/vatom/b/events/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/vatom/b/events/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

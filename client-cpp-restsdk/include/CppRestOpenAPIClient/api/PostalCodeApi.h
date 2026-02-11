@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a Postal Code
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="code">the postal code</param>
     /// <param name="latitude">the latitude of the postal code</param>
@@ -61,7 +60,6 @@ public:
     /// <param name="city">the city that the postal code is located (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">whether the postal code created should be active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<PostalCodeResponse>> createPostalCode(
-        double version,
         int64_t accountId,
         utility::string_t code,
         double latitude,
@@ -76,11 +74,9 @@ public:
     /// <remarks>
     /// Delete a Postal Code
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="postalCodeId">the id of the postal code to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deletePostalCode(
-        double version,
         int64_t accountId,
         int64_t postalCodeId
     ) const;
@@ -90,10 +86,8 @@ public:
     /// <remarks>
     /// Get a Postal Code
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="postalCodeId">the id of the postal code to get</param>
     pplx::task<std::shared_ptr<PostalCodeResponse>> getPostalCode(
-        double version,
         int64_t postalCodeId
     ) const;
     /// <summary>
@@ -102,7 +96,6 @@ public:
     /// <remarks>
     /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">the field to sort the results on</param>
     /// <param name="descending">whether to order results in ascending or descending order</param>
     /// <param name="latitude">the latitude of the postal code to search on (optional, default to 0.0)</param>
@@ -112,7 +105,6 @@ public:
     /// <param name="start">the start of the index and/or pagination (optional, default to 0)</param>
     /// <param name="limit">the limit of the index and/or pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<PostalCodeResponse>>> getPostalCodes(
-        double version,
         utility::string_t sortField,
         bool descending,
         boost::optional<double> latitude,
@@ -128,7 +120,6 @@ public:
     /// <remarks>
     /// Update a Postal Code
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="postalCodeId">the id of the postal code to update</param>
     /// <param name="code">the postal code to update (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -138,7 +129,6 @@ public:
     /// <param name="city">the city where the postal code is located (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">whether the postal code is active or inactive (optional, default to false)</param>
     pplx::task<std::shared_ptr<PostalCodeResponse>> updatePostalCode(
-        double version,
         int64_t accountId,
         int64_t postalCodeId,
         boost::optional<utility::string_t> code,

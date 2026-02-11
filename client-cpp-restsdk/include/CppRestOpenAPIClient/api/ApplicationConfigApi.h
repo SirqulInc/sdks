@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account ID of the user</param>
     /// <param name="appKey">The application key that the newly created applicationConfig will be associated to</param>
     /// <param name="configVersion">The application configuration, has to be unique within the application</param>
@@ -61,7 +60,6 @@ public:
     /// <param name="retailerLocationId">The retailer location id for retailer location specific configurations (optional, default to 0L)</param>
     /// <param name="udid">The device udid for device specific configurations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ApplicationConfigResponse>> createApplicationConfig(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t configVersion,
@@ -76,11 +74,9 @@ public:
     /// <remarks>
     /// Mark the application configuration for deletion.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account ID of the user</param>
     /// <param name="configId">The config ID of the application configuration to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteApplicationConfig(
-        double version,
         int64_t accountId,
         int64_t configId
     ) const;
@@ -90,11 +86,9 @@ public:
     /// <remarks>
     /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account ID of the user</param>
     /// <param name="configId">The config ID of the application configuration</param>
     pplx::task<std::shared_ptr<ApplicationConfigResponse>> getApplicationConfig(
-        double version,
         int64_t accountId,
         int64_t configId
     ) const;
@@ -104,7 +98,6 @@ public:
     /// <remarks>
     /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key</param>
     /// <param name="configVersion">The version of the application configuration</param>
     /// <param name="retailerId">Only returns the config that matches the given retailer (optional, default to 0L)</param>
@@ -112,7 +105,6 @@ public:
     /// <param name="udid">Only returns only returns the config that matches the given device udid (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="allowOlderVersions">Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version. (optional, default to false)</param>
     pplx::task<std::shared_ptr<ApplicationConfigResponse>> getApplicationConfigByConfigVersion(
-        double version,
         utility::string_t appKey,
         utility::string_t configVersion,
         boost::optional<int64_t> retailerId,
@@ -126,7 +118,6 @@ public:
     /// <remarks>
     /// Gets all versions of application configurations in a particular app by the given appKey.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account ID of the user</param>
     /// <param name="appKey">The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="retailerId">Only returns the configs that matches the given retailer (optional, default to 0L)</param>
@@ -138,7 +129,6 @@ public:
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (There is a hard limit of 100) (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<ApplicationConfigResponse>>> searchApplicationConfig(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<int64_t> retailerId,
@@ -156,7 +146,6 @@ public:
     /// <remarks>
     /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account ID of the user</param>
     /// <param name="configId">The config ID of the application configuration to update</param>
     /// <param name="appKey">The application key that the updated applicationConfig will be associated to (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -166,7 +155,6 @@ public:
     /// <param name="retailerLocationId">The retailer location id for retailer location specific configurations (optional, default to 0L)</param>
     /// <param name="udid">The device udid for device specific configurations (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<ApplicationConfigResponse>> updateApplicationConfig(
-        double version,
         int64_t accountId,
         int64_t configId,
         boost::optional<utility::string_t> appKey,

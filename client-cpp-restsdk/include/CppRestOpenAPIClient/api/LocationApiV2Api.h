@@ -50,10 +50,8 @@ public:
     /// <remarks>
     /// Create a new location from a real object location.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> createLocationV2(
-        double version,
         boost::optional<std::shared_ptr<Location>> body
     ) const;
     /// <summary>
@@ -62,11 +60,9 @@ public:
     /// <remarks>
     /// Update an existing location
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the location to update</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> updateLocationV2(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Location>> body
     ) const;

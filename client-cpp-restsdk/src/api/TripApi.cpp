@@ -36,13 +36,12 @@ TripApi::~TripApi()
 {
 }
 
-pplx::task<std::shared_ptr<Trip>> TripApi::createTrip(double version, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::shared_ptr<Trip>> TripApi::createTrip(boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::createTrip(double version, boost::opt
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::driveTrip(double version, int64_t id, bool recurrence) const
+pplx::task<std::shared_ptr<Trip>> TripApi::driveTrip(int64_t id, bool recurrence) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/drive");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/drive");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -302,13 +300,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::driveTrip(double version, int64_t id,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::flexibleTrip(double version, int64_t id, bool recurrence) const
+pplx::task<std::shared_ptr<Trip>> TripApi::flexibleTrip(int64_t id, bool recurrence) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/flexible");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/flexible");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -429,13 +426,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::flexibleTrip(double version, int64_t 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::getTrip(double version, int64_t id) const
+pplx::task<std::shared_ptr<Trip>> TripApi::getTrip(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -553,13 +549,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::getTrip(double version, int64_t id) c
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::getTripMatches(double version, int64_t id, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<bool> matchedHasRoute, boost::optional<bool> matchedHasDriver) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::getTripMatches(int64_t id, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<bool> matchedHasRoute, boost::optional<bool> matchedHasDriver) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/match");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/match");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -704,13 +699,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::getTripMatches(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::processTripMatches(double version, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int64_t> tripId) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::processTripMatches(boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<int64_t> tripId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/match/process");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/match/process");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -843,13 +837,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::processTripMatches(doubl
         return localVarResult;
     });
 }
-pplx::task<void> TripApi::r_delete(double version, int64_t id) const
+pplx::task<void> TripApi::r_delete(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -948,13 +941,12 @@ pplx::task<void> TripApi::r_delete(double version, int64_t id) const
         return void();
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::ride(double version, int64_t id, bool recurrence) const
+pplx::task<std::shared_ptr<Trip>> TripApi::ride(int64_t id, bool recurrence) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/ride");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/ride");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1075,13 +1067,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::ride(double version, int64_t id, bool
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::search(double version, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> hasNotifications) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::search(int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> hasNotifications) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1232,13 +1223,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::search(double version, i
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::searchTrips(double version, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> matchedHasRoute, boost::optional<bool> matchedHasDriver) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::searchTrips(int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> matchedHasRoute, boost::optional<bool> matchedHasDriver) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/match");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/match");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1393,13 +1383,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::searchTrips(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::updateLocations(double version, int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::shared_ptr<Trip>> TripApi::updateLocations(int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/locations");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/locations");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1533,13 +1522,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::updateLocations(double version, int64
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceLocations(double version, int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceLocations(int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/locations/recurrence");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/locations/recurrence");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1677,13 +1665,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceLocation
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceShipments(double version, int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceShipments(int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/shipments/recurrence");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/shipments/recurrence");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1821,13 +1808,12 @@ pplx::task<std::vector<std::shared_ptr<Trip>>> TripApi::updateRecurrenceShipment
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::updateShipments(double version, int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::shared_ptr<Trip>> TripApi::updateShipments(int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}/shipments");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}/shipments");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1961,13 +1947,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::updateShipments(double version, int64
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::updateTrip(double version, int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
+pplx::task<std::shared_ptr<Trip>> TripApi::updateTrip(int64_t id, boost::optional<std::shared_ptr<Trip>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -2101,13 +2086,12 @@ pplx::task<std::shared_ptr<Trip>> TripApi::updateTrip(double version, int64_t id
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Trip>> TripApi::updateTripNotifications(double version, int64_t id, boost::optional<utility::string_t> notifications) const
+pplx::task<std::shared_ptr<Trip>> TripApi::updateTripNotifications(int64_t id, boost::optional<utility::string_t> notifications) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/trip/notifications");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/trip/notifications");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

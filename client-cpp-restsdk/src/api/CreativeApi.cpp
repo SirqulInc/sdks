@@ -36,13 +36,12 @@ CreativeApi::~CreativeApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::addPreview(double version, int64_t accountId, int64_t creativeId) const
+pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::addPreview(int64_t accountId, int64_t creativeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/addpreview");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/addpreview");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -165,13 +164,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::addPreview(double versi
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<MissionResponse>>> CreativeApi::adsFind(double version, utility::string_t appKey, bool randomize, bool targetedAdsOnly, boost::optional<utility::string_t> type, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appVersion, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> device, boost::optional<int64_t> deviceIdentifier, boost::optional<utility::string_t> deviceVersion, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeAudiences, boost::optional<bool> allocatesTickets, boost::optional<utility::string_t> missionIds) const
+pplx::task<std::vector<std::shared_ptr<MissionResponse>>> CreativeApi::adsFind(utility::string_t appKey, bool randomize, bool targetedAdsOnly, boost::optional<utility::string_t> type, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appVersion, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> device, boost::optional<int64_t> deviceIdentifier, boost::optional<utility::string_t> deviceVersion, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> includeAudiences, boost::optional<bool> allocatesTickets, boost::optional<utility::string_t> missionIds) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ads/find");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ads/find");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -353,13 +351,12 @@ pplx::task<std::vector<std::shared_ptr<MissionResponse>>> CreativeApi::adsFind(d
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::createCreative(double version, int64_t accountId, utility::string_t name, bool active, bool waitForAsset, boost::optional<utility::string_t> description, boost::optional<int64_t> assetImageId, boost::optional<utility::string_t> action, boost::optional<utility::string_t> data, boost::optional<utility::string_t> suffix, boost::optional<utility::string_t> type, boost::optional<double> balance, boost::optional<int64_t> referenceId, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId, boost::optional<int64_t> offerId) const
+pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::createCreative(int64_t accountId, utility::string_t name, bool active, bool waitForAsset, boost::optional<utility::string_t> description, boost::optional<int64_t> assetImageId, boost::optional<utility::string_t> action, boost::optional<utility::string_t> data, boost::optional<utility::string_t> suffix, boost::optional<utility::string_t> type, boost::optional<double> balance, boost::optional<int64_t> referenceId, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId, boost::optional<int64_t> offerId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -532,13 +529,12 @@ pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::createCreative(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::deleteCreative(double version, int64_t accountId, int64_t creativeId) const
+pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::deleteCreative(int64_t accountId, int64_t creativeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -661,13 +657,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::deleteCreative(double v
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::getCreative(double version, int64_t accountId, int64_t creativeId) const
+pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::getCreative(int64_t accountId, int64_t creativeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -790,13 +785,12 @@ pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::getCreative(double ve
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<CreativeResponse>>> CreativeApi::getCreativesByApplication(double version, int64_t accountId, utility::string_t appKey, int32_t start, int32_t limit, boost::optional<int64_t> missionId, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<CreativeResponse>>> CreativeApi::getCreativesByApplication(int64_t accountId, utility::string_t appKey, int32_t start, int32_t limit, boost::optional<int64_t> missionId, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -937,13 +931,12 @@ pplx::task<std::vector<std::shared_ptr<CreativeResponse>>> CreativeApi::getCreat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::removePreview(double version, int64_t accountId, int64_t creativeId) const
+pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::removePreview(int64_t accountId, int64_t creativeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/removepreview");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/removepreview");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1066,13 +1059,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> CreativeApi::removePreview(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::updateCreative(double version, int64_t accountId, int64_t creativeId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> assetImageId, boost::optional<utility::string_t> action, boost::optional<utility::string_t> data, boost::optional<utility::string_t> suffix, boost::optional<utility::string_t> type, boost::optional<double> balance, boost::optional<bool> active, boost::optional<int64_t> referenceId, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId) const
+pplx::task<std::shared_ptr<CreativeResponse>> CreativeApi::updateCreative(int64_t accountId, int64_t creativeId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> description, boost::optional<int64_t> assetImageId, boost::optional<utility::string_t> action, boost::optional<utility::string_t> data, boost::optional<utility::string_t> suffix, boost::optional<utility::string_t> type, boost::optional<double> balance, boost::optional<bool> active, boost::optional<int64_t> referenceId, boost::optional<utility::string_t> appVersion, boost::optional<int64_t> missionId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/creative/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/creative/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

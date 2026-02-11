@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user creating the leaderboard. (optional, default to 0L)</param>
     /// <param name="appKey">The application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="rankType">a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -67,7 +66,6 @@ public:
     /// <param name="description">leaderboard&#39;s description (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="metaData">custom meta data for the leaderboard (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<LeaderboardResponse>> createLeaderboard(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<utility::string_t> rankType,
@@ -88,11 +86,9 @@ public:
     /// <remarks>
     /// Removes a leader board id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="leaderboardId">The leaderboard id to delete.</param>
     /// <param name="accountId">The account id of the user making the request. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteLeaderboard(
-        double version,
         int64_t leaderboardId,
         boost::optional<int64_t> accountId
     ) const;
@@ -102,12 +98,10 @@ public:
     /// <remarks>
     /// Read a leaderboard by id and retrieve the matching ranking list
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="leaderboardId">The leaderboard id.</param>
     /// <param name="accountId">A valid account. (optional, default to 0L)</param>
     /// <param name="includeFullRankingList">set to true if need to return the leaderboard&#39;s full ranking list (optional, default to false)</param>
     pplx::task<std::shared_ptr<LeaderboardResponse>> getLeaderboard(
-        double version,
         int64_t leaderboardId,
         boost::optional<int64_t> accountId,
         boost::optional<bool> includeFullRankingList
@@ -118,7 +112,6 @@ public:
     /// <remarks>
     /// Search leaderboard and retrieve the matching ranking list
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user requesting the search. (optional, default to 0L)</param>
     /// <param name="appKey">The application key. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="globalOnly">only include global leaderboards (this overrides the appKey filter) (optional, default to false)</param>
@@ -132,7 +125,6 @@ public:
     /// <param name="start">Start the result set at some index. (optional, default to 0)</param>
     /// <param name="limit">Limit the result to some number. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<LeaderboardResponse>> searchLeaderboards(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
         boost::optional<bool> globalOnly,
@@ -152,7 +144,6 @@ public:
     /// <remarks>
     /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="leaderboardId">The leaderboard id to update.</param>
     /// <param name="accountId">The account id of the user updating the leaderboard. (optional, default to 0L)</param>
     /// <param name="appKey">The application key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -169,7 +160,6 @@ public:
     /// <param name="description">leaderboard&#39;s description (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="metaData">custom meta data for the leaderboard (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<LeaderboardResponse>> updateLeaderboard(
-        double version,
         int64_t leaderboardId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,

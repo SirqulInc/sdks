@@ -36,13 +36,12 @@ WordApi::~WordApi()
 {
 }
 
-pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::createWord(double version, int64_t accountId, utility::string_t word, utility::string_t definition, bool active, bool allocateTickets, int64_t ticketCount, boost::optional<int64_t> assetId, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
+pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::createWord(int64_t accountId, utility::string_t word, utility::string_t definition, bool active, bool allocateTickets, int64_t ticketCount, boost::optional<int64_t> assetId, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/word/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/word/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -189,13 +188,12 @@ pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::createWord(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> WordApi::deleteWord(double version, int64_t wordId, int64_t accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> WordApi::deleteWord(int64_t wordId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/word/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/word/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -318,13 +316,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> WordApi::deleteWord(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::getWord(double version, int64_t wordId, int64_t accountId) const
+pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::getWord(int64_t wordId, int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/word/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/word/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -447,13 +444,12 @@ pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::getWord(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<WordzWordResponse>>> WordApi::getWords(double version, int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<WordzWordResponse>>> WordApi::getWords(int64_t accountId, utility::string_t sortField, bool descending, bool activeOnly, int32_t start, int32_t limit, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/word/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/word/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -596,13 +592,12 @@ pplx::task<std::vector<std::shared_ptr<WordzWordResponse>>> WordApi::getWords(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::updateWord(double version, int64_t wordId, int64_t accountId, int64_t ticketCount, boost::optional<utility::string_t> wordText, boost::optional<utility::string_t> definition, boost::optional<int64_t> assetId, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
+pplx::task<std::shared_ptr<WordzWordResponse>> WordApi::updateWord(int64_t wordId, int64_t accountId, int64_t ticketCount, boost::optional<utility::string_t> wordText, boost::optional<utility::string_t> definition, boost::optional<int64_t> assetId, boost::optional<bool> active, boost::optional<bool> allocateTickets, boost::optional<utility::string_t> ticketType, boost::optional<int64_t> points) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/word/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/word/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

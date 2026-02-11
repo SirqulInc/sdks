@@ -36,13 +36,12 @@ PurchaseOrderApi::~PurchaseOrderApi()
 {
 }
 
-pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::createOrder(double version, utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalOrderId, boost::optional<utility::string_t> externalPaymentId, boost::optional<utility::string_t> remoteRefType, boost::optional<int64_t> externalDate, boost::optional<utility::string_t> promoCode) const
+pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::createOrder(utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalOrderId, boost::optional<utility::string_t> externalPaymentId, boost::optional<utility::string_t> remoteRefType, boost::optional<int64_t> externalDate, boost::optional<utility::string_t> promoCode) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -205,13 +204,12 @@ pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::createOrder(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> PurchaseOrderApi::deleteOrder(double version, int64_t orderId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> PurchaseOrderApi::deleteOrder(int64_t orderId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -339,13 +337,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> PurchaseOrderApi::deleteOrder(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::getOrder(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> orderId, boost::optional<utility::string_t> externalOrderId) const
+pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::getOrder(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> orderId, boost::optional<utility::string_t> externalOrderId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -478,13 +475,12 @@ pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::getOrder(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::previewOrder(double version, utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalOrderId, boost::optional<utility::string_t> externalPaymentId, boost::optional<utility::string_t> remoteRefType, boost::optional<int64_t> externalDate, boost::optional<utility::string_t> promoCode) const
+pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::previewOrder(utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalOrderId, boost::optional<utility::string_t> externalPaymentId, boost::optional<utility::string_t> remoteRefType, boost::optional<int64_t> externalDate, boost::optional<utility::string_t> promoCode) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/preview");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/preview");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -647,13 +643,12 @@ pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::previewOrder(double
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OrderResponse>>> PurchaseOrderApi::searchOrders(double version, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> descending, boost::optional<bool> activeOnly, boost::optional<bool> ignoreCustomerFilter, boost::optional<utility::string_t> orderItemTypes, boost::optional<utility::string_t> orderItemIds, boost::optional<utility::string_t> orderCustomTypes, boost::optional<utility::string_t> orderCustomIds, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferTypes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> transactionAudienceIds, boost::optional<utility::string_t> offerIds, boost::optional<utility::string_t> offerLocationIds, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> keyword, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore) const
+pplx::task<std::vector<std::shared_ptr<OrderResponse>>> PurchaseOrderApi::searchOrders(utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> descending, boost::optional<bool> activeOnly, boost::optional<bool> ignoreCustomerFilter, boost::optional<utility::string_t> orderItemTypes, boost::optional<utility::string_t> orderItemIds, boost::optional<utility::string_t> orderCustomTypes, boost::optional<utility::string_t> orderCustomIds, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferTypes, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> offerAudienceIds, boost::optional<utility::string_t> transactionAudienceIds, boost::optional<utility::string_t> offerIds, boost::optional<utility::string_t> offerLocationIds, boost::optional<utility::string_t> retailerIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> statuses, boost::optional<utility::string_t> keyword, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<int64_t> startedSince, boost::optional<int64_t> startedBefore, boost::optional<int64_t> endedSince, boost::optional<int64_t> endedBefore) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -897,13 +892,12 @@ pplx::task<std::vector<std::shared_ptr<OrderResponse>>> PurchaseOrderApi::search
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::updateOrder(double version, int64_t orderId, utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> paymentTransactionId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalPaymentId, boost::optional<int64_t> externalDate) const
+pplx::task<std::shared_ptr<OrderResponse>> PurchaseOrderApi::updateOrder(int64_t orderId, utility::string_t appKey, utility::string_t cart, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> paymentTransactionId, boost::optional<utility::string_t> description, boost::optional<utility::string_t> currencyType, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> externalPaymentId, boost::optional<int64_t> externalDate) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/order/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/order/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

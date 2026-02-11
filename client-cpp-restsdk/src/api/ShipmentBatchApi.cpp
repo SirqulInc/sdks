@@ -36,13 +36,12 @@ ShipmentBatchApi::~ShipmentBatchApi()
 {
 }
 
-pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::createShipmentBatch(double version, boost::optional<std::shared_ptr<ShipmentBatch>> body) const
+pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::createShipmentBatch(boost::optional<std::shared_ptr<ShipmentBatch>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/shipment/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/shipment/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::createShipmentBatch
         return localVarResult;
     });
 }
-pplx::task<void> ShipmentBatchApi::deleteShipmentBatch(double version, int64_t batchId) const
+pplx::task<void> ShipmentBatchApi::deleteShipmentBatch(int64_t batchId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/shipment/batch/{batchId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/shipment/batch/{batchId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("batchId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(batchId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -280,13 +278,12 @@ pplx::task<void> ShipmentBatchApi::deleteShipmentBatch(double version, int64_t b
         return void();
     });
 }
-pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::getShipmentBatch(double version, int64_t batchId) const
+pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::getShipmentBatch(int64_t batchId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/shipment/batch/{batchId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/shipment/batch/{batchId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("batchId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(batchId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -404,13 +401,12 @@ pplx::task<std::shared_ptr<ShipmentBatch>> ShipmentBatchApi::getShipmentBatch(do
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ShipmentImportStatus>>> ShipmentBatchApi::getShipmentBatchStatus(double version, int64_t batchId, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<bool> valid, boost::optional<bool> started, boost::optional<bool> completed, boost::optional<bool> hasShipment, boost::optional<bool> hasRoute, boost::optional<utility::string_t> keyword) const
+pplx::task<std::vector<std::shared_ptr<ShipmentImportStatus>>> ShipmentBatchApi::getShipmentBatchStatus(int64_t batchId, int64_t accountId, utility::string_t sortField, bool descending, int32_t start, int32_t limit, boost::optional<bool> valid, boost::optional<bool> started, boost::optional<bool> completed, boost::optional<bool> hasShipment, boost::optional<bool> hasRoute, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/shipment/batch/{batchId}/status");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/shipment/batch/{batchId}/status");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("batchId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(batchId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -571,13 +567,12 @@ pplx::task<std::vector<std::shared_ptr<ShipmentImportStatus>>> ShipmentBatchApi:
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ShipmentBatch>>> ShipmentBatchApi::searchShipmentBatch(double version, int64_t hubId, utility::string_t sortField, bool descending, int32_t start, int32_t limit) const
+pplx::task<std::vector<std::shared_ptr<ShipmentBatch>>> ShipmentBatchApi::searchShipmentBatch(int64_t hubId, utility::string_t sortField, bool descending, int32_t start, int32_t limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/shipment/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/shipment/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

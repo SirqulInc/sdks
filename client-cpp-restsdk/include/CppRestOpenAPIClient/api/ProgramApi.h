@@ -51,10 +51,8 @@ public:
     /// <remarks>
     /// Create a new program
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Program>> createProgram(
-        double version,
         boost::optional<std::shared_ptr<Program>> body
     ) const;
     /// <summary>
@@ -63,10 +61,8 @@ public:
     /// <remarks>
     /// Delete an existing program
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the program</param>
     pplx::task<void> deleteProgram(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -75,10 +71,8 @@ public:
     /// <remarks>
     /// Get an existing program
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the program</param>
     pplx::task<std::shared_ptr<Program>> getProgram(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -87,11 +81,9 @@ public:
     /// <remarks>
     /// Update an existing program
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the program</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Program>> postProgram(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Program>> body
     ) const;
@@ -101,11 +93,9 @@ public:
     /// <remarks>
     /// Update an existing program
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">the id of the program</param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Program>> putProgram(
-        double version,
         int64_t id,
         boost::optional<std::shared_ptr<Program>> body
     ) const;
@@ -115,7 +105,6 @@ public:
     /// <remarks>
     /// Search for programs
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
     /// <param name="start">The start index for pagination</param>
@@ -123,7 +112,6 @@ public:
     /// <param name="activeOnly">Return only active results</param>
     /// <param name="keyword">The keyword to filter results by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<Program>>> searchPrograms(
-        double version,
         utility::string_t sortField,
         bool descending,
         int32_t start,

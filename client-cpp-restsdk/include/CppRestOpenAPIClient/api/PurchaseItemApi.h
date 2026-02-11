@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Creates a purchase item for in app purchases
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key that the purchase can be used in</param>
     /// <param name="name">The name of the purchase item</param>
     /// <param name="purchaseType">The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;</param>
@@ -75,7 +74,6 @@ public:
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PurchaseItemFullResponse>> createPurchaseItem(
-        double version,
         utility::string_t appKey,
         utility::string_t name,
         utility::string_t purchaseType,
@@ -103,12 +101,10 @@ public:
     /// <remarks>
     /// Marks the purchase item as deleted
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="purchaseItemId">The purchase item id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deletePurchaseItem(
-        double version,
         int64_t purchaseItemId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -119,12 +115,10 @@ public:
     /// <remarks>
     /// Get detailed information about a purchase item
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="purchaseItemId">The purchase item id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PurchaseItemFullResponse>> getPurchaseItem(
-        double version,
         int64_t purchaseItemId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -135,7 +129,6 @@ public:
     /// <remarks>
     /// Search for purchasable items from the system
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="appKey">The application key to filter results by application (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -149,7 +142,6 @@ public:
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     /// <param name="activeOnly">Return only active results (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<PurchaseItemResponse>>> searchPurchaseItems(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> appKey,
@@ -169,7 +161,6 @@ public:
     /// <remarks>
     /// Updates a purchase item for in app purchases
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="purchaseItemId">The purchase item id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -192,7 +183,6 @@ public:
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     /// <param name="offerLocationId">The offer location that will get added to the user&#39;s wallet after purchase. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PurchaseItemFullResponse>> updatePurchaseItem(
-        double version,
         int64_t purchaseItemId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

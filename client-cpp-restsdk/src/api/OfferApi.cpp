@@ -36,13 +36,12 @@ OfferApi::~OfferApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::batchUpdateOfferLocations(double version, utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::batchUpdateOfferLocations(utility::string_t data, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/location/batchUpdate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/location/batchUpdate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -170,13 +169,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::batchUpdateOfferLocations(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::createOffer(double version, bool includeOfferLocations, utility::string_t title, utility::string_t barcodeType, bool noExpiration, int32_t availableLimit, int32_t availableLimitPerUser, int32_t addedLimit, int32_t viewLimit, int32_t maxPrints, int64_t ticketPrice, double fullPrice, double discountPrice, utility::string_t offerType, utility::string_t specialOfferType, utility::string_t offerVisibility, bool active, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> tags, boost::optional<int64_t> parentOfferId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<utility::string_t> ticketPriceType, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> brand, boost::optional<utility::string_t> productType, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> department, boost::optional<utility::string_t> features, boost::optional<double> minimumPrice, boost::optional<double> width, boost::optional<double> height, boost::optional<double> depth, boost::optional<double> weight, boost::optional<utility::string_t> unit, boost::optional<utility::string_t> studio, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> publishDate, boost::optional<int64_t> availabilityDate, boost::optional<int64_t> sizeId, boost::optional<int64_t> listingId, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<int32_t> rebootTimeHour, boost::optional<int32_t> rebootTimeMinute, boost::optional<int32_t> idleTimeoutInSecond, boost::optional<utility::string_t> serialNumber, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> deviceType, boost::optional<double> devicePower, boost::optional<double> deviceInterference, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
+pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::createOffer(bool includeOfferLocations, utility::string_t title, utility::string_t barcodeType, bool noExpiration, int32_t availableLimit, int32_t availableLimitPerUser, int32_t addedLimit, int32_t viewLimit, int32_t maxPrints, int64_t ticketPrice, double fullPrice, double discountPrice, utility::string_t offerType, utility::string_t specialOfferType, utility::string_t offerVisibility, bool active, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> tags, boost::optional<int64_t> parentOfferId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<utility::string_t> ticketPriceType, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> brand, boost::optional<utility::string_t> productType, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> department, boost::optional<utility::string_t> features, boost::optional<double> minimumPrice, boost::optional<double> width, boost::optional<double> height, boost::optional<double> depth, boost::optional<double> weight, boost::optional<utility::string_t> unit, boost::optional<utility::string_t> studio, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> publishDate, boost::optional<int64_t> availabilityDate, boost::optional<int64_t> sizeId, boost::optional<int64_t> listingId, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<int32_t> rebootTimeHour, boost::optional<int32_t> rebootTimeMinute, boost::optional<int32_t> idleTimeoutInSecond, boost::optional<utility::string_t> serialNumber, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> deviceType, boost::optional<double> devicePower, boost::optional<double> deviceInterference, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -621,13 +619,12 @@ pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::createOffer(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOffer(double version, int64_t offerId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOffer(int64_t offerId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -755,13 +752,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOffer(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOfferLocation(double version, int64_t offerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOfferLocation(int64_t offerLocationId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/location/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/location/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -889,13 +885,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::deleteOfferLocation(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::getOffer(double version, int64_t offerId, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::getOffer(int64_t offerId, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1026,13 +1021,12 @@ pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::getOffer(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferResponse>> OfferApi::getOfferDetails(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<double> distance, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> includeOfferLocations, boost::optional<bool> includeRetailerLocations, boost::optional<bool> includeChildOffers) const
+pplx::task<std::shared_ptr<OfferResponse>> OfferApi::getOfferDetails(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<double> distance, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> includeOfferLocations, boost::optional<bool> includeRetailerLocations, boost::optional<bool> includeChildOffers) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1189,13 +1183,12 @@ pplx::task<std::shared_ptr<OfferResponse>> OfferApi::getOfferDetails(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ListCountResponse>> OfferApi::getOfferListCounts(double version, double latitude, double longitude, boost::optional<double> searchRange, boost::optional<utility::string_t> distanceUnit) const
+pplx::task<std::shared_ptr<ListCountResponse>> OfferApi::getOfferListCounts(double latitude, double longitude, boost::optional<double> searchRange, boost::optional<utility::string_t> distanceUnit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/lists/count");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/lists/count");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1326,13 +1319,12 @@ pplx::task<std::shared_ptr<ListCountResponse>> OfferApi::getOfferListCounts(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferShortResponse>> OfferApi::getOfferLocation(double version, boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> udid) const
+pplx::task<std::shared_ptr<OfferShortResponse>> OfferApi::getOfferLocation(boost::optional<int64_t> offerLocationId, boost::optional<utility::string_t> udid) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/location/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/location/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1457,13 +1449,12 @@ pplx::task<std::shared_ptr<OfferShortResponse>> OfferApi::getOfferLocation(doubl
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> OfferApi::getOfferLocationsForRetailers(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool includeRetailerLocation, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> deviceStatus, boost::optional<bool> needsNotificationSent, boost::optional<int64_t> lastNotificationSent) const
+pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> OfferApi::getOfferLocationsForRetailers(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, bool includeRetailerLocation, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> deviceStatus, boost::optional<bool> needsNotificationSent, boost::optional<int64_t> lastNotificationSent) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/location/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/location/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1658,13 +1649,12 @@ pplx::task<std::vector<std::shared_ptr<OfferShortResponse>>> OfferApi::getOfferL
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferResponse>>> OfferApi::getOffersForRetailers(double version, utility::string_t offerVisibility, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> couponType, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferType, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> deviceStatus, boost::optional<bool> needsNotificationSent, boost::optional<int64_t> lastNotificationSent) const
+pplx::task<std::vector<std::shared_ptr<OfferResponse>>> OfferApi::getOffersForRetailers(utility::string_t offerVisibility, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool availableOnly, bool activeOnly, bool includeCategories, bool includeFilters, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<utility::string_t> couponType, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> specialOfferType, boost::optional<int32_t> i, boost::optional<int32_t> l, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> deviceStatus, boost::optional<bool> needsNotificationSent, boost::optional<int64_t> lastNotificationSent) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1899,13 +1889,12 @@ pplx::task<std::vector<std::shared_ptr<OfferResponse>>> OfferApi::getOffersForRe
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::redeemOfferTransaction(double version, int64_t offerTransactionId, int32_t status, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerLocationId) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::redeemOfferTransaction(int64_t offerTransactionId, int32_t status, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> offerLocationId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/transaction/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/transaction/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2040,13 +2029,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::redeemOfferTransaction(dou
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> OfferApi::searchOfferTransactionsForRetailers(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<bool> redeemed, boost::optional<bool> reservationsOnly, boost::optional<utility::string_t> couponType, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> customerAccountIds, boost::optional<utility::string_t> categoryIds, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<int32_t> i, boost::optional<int32_t> l) const
+pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> OfferApi::searchOfferTransactionsForRetailers(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId, boost::optional<int64_t> retailerLocationId, boost::optional<int64_t> offerId, boost::optional<int64_t> offerLocationId, boost::optional<bool> redeemed, boost::optional<bool> reservationsOnly, boost::optional<utility::string_t> couponType, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> customerAccountIds, boost::optional<utility::string_t> categoryIds, boost::optional<int64_t> redeemableStartDate, boost::optional<int64_t> redeemableEndDate, boost::optional<int32_t> i, boost::optional<int32_t> l) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/transaction/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/transaction/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2258,13 +2246,12 @@ pplx::task<std::vector<std::shared_ptr<OfferTransactionResponse>>> OfferApi::sea
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::searchOffersForConsumer(double version, double latitude, double longitude, utility::string_t recommendationType, int64_t locationId, int32_t start, int32_t limit, int32_t maxRecommendations, utility::string_t distanceUnit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> searchRange, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> supportedPostalCodes, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> type, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> recommendOfferIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<int64_t> offerId, boost::optional<bool> includeMission, boost::optional<bool> includeCategories, boost::optional<bool> includeFilters, boost::optional<bool> includeExpired, boost::optional<bool> includeFavorite, boost::optional<bool> closestOfferOnly, boost::optional<utility::string_t> searchExpression, boost::optional<utility::string_t> groupBy) const
+pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::searchOffersForConsumer(double latitude, double longitude, utility::string_t recommendationType, int64_t locationId, int32_t start, int32_t limit, int32_t maxRecommendations, utility::string_t distanceUnit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> searchRange, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> supportedPostalCodes, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> filters, boost::optional<utility::string_t> offerTypes, boost::optional<utility::string_t> type, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> recommendOfferIds, boost::optional<utility::string_t> retailerLocationIds, boost::optional<int64_t> offerId, boost::optional<bool> includeMission, boost::optional<bool> includeCategories, boost::optional<bool> includeFilters, boost::optional<bool> includeExpired, boost::optional<bool> includeFavorite, boost::optional<bool> closestOfferOnly, boost::optional<utility::string_t> searchExpression, boost::optional<utility::string_t> groupBy) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/lists");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/lists");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2497,13 +2484,12 @@ pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::searchOffersForConsumer
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::topOfferTransactions(double version, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::topOfferTransactions(boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/offer/top");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/offer/top");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2628,13 +2614,12 @@ pplx::task<std::shared_ptr<OfferListResponse>> OfferApi::topOfferTransactions(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::updateOffer(double version, int64_t offerId, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> parentOfferId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<bool> noExpiration, boost::optional<int32_t> availableLimit, boost::optional<int32_t> availableLimitPerUser, boost::optional<int32_t> addedLimit, boost::optional<int32_t> viewLimit, boost::optional<int32_t> maxPrints, boost::optional<utility::string_t> ticketPriceType, boost::optional<int64_t> ticketPrice, boost::optional<double> fullPrice, boost::optional<double> discountPrice, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> offerVisibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> brand, boost::optional<utility::string_t> productType, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> department, boost::optional<utility::string_t> features, boost::optional<double> minimumPrice, boost::optional<double> width, boost::optional<double> height, boost::optional<double> depth, boost::optional<double> weight, boost::optional<utility::string_t> unit, boost::optional<utility::string_t> studio, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> publishDate, boost::optional<int64_t> availabilityDate, boost::optional<int64_t> sizeId, boost::optional<int64_t> listingId, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<int32_t> rebootTimeHour, boost::optional<int32_t> rebootTimeMinute, boost::optional<int32_t> idleTimeoutInSecond, boost::optional<utility::string_t> serialNumber, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> deviceType, boost::optional<double> devicePower, boost::optional<double> deviceInterference, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
+pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::updateOffer(int64_t offerId, bool includeOfferLocations, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> parentOfferId, boost::optional<utility::string_t> retailerLocationIds, boost::optional<utility::string_t> offerLocations, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> title, boost::optional<utility::string_t> subTitle, boost::optional<utility::string_t> details, boost::optional<utility::string_t> subDetails, boost::optional<utility::string_t> finePrint, boost::optional<utility::string_t> barcodeType, boost::optional<utility::string_t> barcodeEntry, boost::optional<utility::string_t> externalRedeemOptions, boost::optional<utility::string_t> externalUrl, boost::optional<utility::string_t> externalId, boost::optional<utility::string_t> ticketsRewardType, boost::optional<int64_t> ticketsReward, boost::optional<int64_t> activated, boost::optional<int64_t> expires, boost::optional<bool> noExpiration, boost::optional<int32_t> availableLimit, boost::optional<int32_t> availableLimitPerUser, boost::optional<int32_t> addedLimit, boost::optional<int32_t> viewLimit, boost::optional<int32_t> maxPrints, boost::optional<utility::string_t> ticketPriceType, boost::optional<int64_t> ticketPrice, boost::optional<double> fullPrice, boost::optional<double> discountPrice, boost::optional<bool> showRemaining, boost::optional<bool> showRedeemed, boost::optional<bool> replaced, boost::optional<bool> featured, boost::optional<utility::string_t> offerType, boost::optional<utility::string_t> specialOfferType, boost::optional<utility::string_t> offerVisibility, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> filterIds, boost::optional<bool> active, boost::optional<int64_t> barcodeAssetId, boost::optional<int64_t> imageAssetId, boost::optional<int64_t> imageAssetId1, boost::optional<int64_t> imageAssetId2, boost::optional<int64_t> imageAssetId3, boost::optional<int64_t> imageAssetId4, boost::optional<int64_t> imageAssetId5, boost::optional<utility::string_t> publisher, boost::optional<int64_t> redeemableStart, boost::optional<int64_t> redeemableEnd, boost::optional<utility::string_t> brand, boost::optional<utility::string_t> productType, boost::optional<utility::string_t> conditionType, boost::optional<utility::string_t> isbn, boost::optional<utility::string_t> asin, boost::optional<utility::string_t> catalogNumbers, boost::optional<utility::string_t> department, boost::optional<utility::string_t> features, boost::optional<double> minimumPrice, boost::optional<double> width, boost::optional<double> height, boost::optional<double> depth, boost::optional<double> weight, boost::optional<utility::string_t> unit, boost::optional<utility::string_t> studio, boost::optional<utility::string_t> parentalRating, boost::optional<int64_t> publishDate, boost::optional<int64_t> availabilityDate, boost::optional<int64_t> sizeId, boost::optional<int64_t> listingId, boost::optional<utility::string_t> mediaType, boost::optional<int32_t> duration, boost::optional<utility::string_t> author, boost::optional<int64_t> releaseDate, boost::optional<utility::string_t> collectionIds, boost::optional<int32_t> rebootTimeHour, boost::optional<int32_t> rebootTimeMinute, boost::optional<int32_t> idleTimeoutInSecond, boost::optional<utility::string_t> serialNumber, boost::optional<utility::string_t> udid, boost::optional<utility::string_t> deviceType, boost::optional<double> devicePower, boost::optional<double> deviceInterference, boost::optional<utility::string_t> availability, boost::optional<utility::string_t> availabilitySummary) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3097,13 +3082,12 @@ pplx::task<std::shared_ptr<RetailerOfferResponse>> OfferApi::updateOffer(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::updateOfferStatus(double version, utility::string_t offerIds, bool active, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> OfferApi::updateOfferStatus(utility::string_t offerIds, bool active, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/retailer/offer/status");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/retailer/offer/status");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

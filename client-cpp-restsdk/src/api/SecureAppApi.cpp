@@ -36,13 +36,12 @@ SecureAppApi::~SecureAppApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::createSecureApplication(double version, int64_t accountId, utility::string_t appKey, std::shared_ptr<HttpContent> keyCert, std::shared_ptr<HttpContent> trustStore, utility::string_t username, utility::string_t password, boost::optional<bool> active, boost::optional<utility::string_t> biometricType, boost::optional<utility::string_t> biometricPosition, boost::optional<utility::string_t> biometricPosition2) const
+pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::createSecureApplication(int64_t accountId, utility::string_t appKey, std::shared_ptr<HttpContent> keyCert, std::shared_ptr<HttpContent> trustStore, utility::string_t username, utility::string_t password, boost::optional<bool> active, boost::optional<utility::string_t> biometricType, boost::optional<utility::string_t> biometricPosition, boost::optional<utility::string_t> biometricPosition2) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/application/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/application/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -193,13 +192,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::createSecureApplicatio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::deleteSecureApplication(double version, int64_t accountId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::deleteSecureApplication(int64_t accountId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/application/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/application/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -322,13 +320,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::deleteSecureApplicatio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::loginSecure(double version, utility::string_t appKey, std::shared_ptr<HttpContent> biometricFile, boost::optional<utility::string_t> deviceId, boost::optional<std::shared_ptr<HttpContent>> biometricFile2, boost::optional<int32_t> ageRestriction, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::loginSecure(utility::string_t appKey, std::shared_ptr<HttpContent> biometricFile, boost::optional<utility::string_t> deviceId, boost::optional<std::shared_ptr<HttpContent>> biometricFile2, boost::optional<int32_t> ageRestriction, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/login");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/login");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -479,7 +476,7 @@ pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::loginSecure(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::purchaseSecure(double version, std::shared_ptr<PaymentRequest> body) const
+pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::purchaseSecure(std::shared_ptr<PaymentRequest> body) const
 {
 
     // verify the required parameter 'body' is set
@@ -490,8 +487,7 @@ pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::purchaseSecure(double
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/purchase");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/purchase");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -625,13 +621,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> SecureAppApi::purchaseSecure(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::resetSecure(double version, int64_t accountId, utility::string_t appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::resetSecure(int64_t accountId, utility::string_t appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/application/reset");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/application/reset");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -754,13 +749,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::resetSecure(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::updateSecureApplication(double version, int64_t accountId, utility::string_t appKey, boost::optional<bool> active, boost::optional<std::shared_ptr<HttpContent>> keyCert, boost::optional<std::shared_ptr<HttpContent>> trustStore, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> biometricType, boost::optional<utility::string_t> biometricPosition, boost::optional<utility::string_t> biometricPosition2) const
+pplx::task<std::shared_ptr<SirqulResponse>> SecureAppApi::updateSecureApplication(int64_t accountId, utility::string_t appKey, boost::optional<bool> active, boost::optional<std::shared_ptr<HttpContent>> keyCert, boost::optional<std::shared_ptr<HttpContent>> trustStore, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> biometricType, boost::optional<utility::string_t> biometricPosition, boost::optional<utility::string_t> biometricPosition2) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/secure/application/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/secure/application/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

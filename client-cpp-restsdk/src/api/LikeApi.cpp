@@ -36,13 +36,12 @@ LikeApi::~LikeApi()
 {
 }
 
-pplx::task<std::shared_ptr<LikableResponse>> LikeApi::registerLike(double version, utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<bool> like, boost::optional<utility::string_t> app, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<LikableResponse>> LikeApi::registerLike(utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> permissionableType, boost::optional<int64_t> permissionableId, boost::optional<bool> like, boost::optional<utility::string_t> app, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/like");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/like");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -205,13 +204,12 @@ pplx::task<std::shared_ptr<LikableResponse>> LikeApi::registerLike(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<LikableResponse>> LikeApi::removeLike(double version, utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<LikableResponse>> LikeApi::removeLike(utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/like/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/like/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -350,13 +348,12 @@ pplx::task<std::shared_ptr<LikableResponse>> LikeApi::removeLike(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SearchResponse>> LikeApi::searchLikes(double version, utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<SearchResponse>> LikeApi::searchLikes(utility::string_t likableType, int64_t likableId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountIds, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int64_t> updatedSince, boost::optional<int64_t> updatedBefore, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/like/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/like/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

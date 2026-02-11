@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Search for categories by distance.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (optional, default to 0L)</param>
     /// <param name="keyword">The keyword string to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -75,7 +74,6 @@ public:
     /// <param name="longitude">the longitude of where the search is centered on (optional, default to 0.0)</param>
     /// <param name="range">the maximum range the category can be from the center (optional, default to 0.0)</param>
     pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> categoryDistanceSearch(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> appKey,
@@ -103,7 +101,6 @@ public:
     /// <remarks>
     /// Create a new category.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
     /// <param name="name">The name of the category</param>
     /// <param name="appKey">The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -119,7 +116,6 @@ public:
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="searchTags">user defined strings for searching (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<CategoryTreeResponse>> createCategory(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> appKey,
@@ -141,11 +137,9 @@ public:
     /// <remarks>
     /// Delete a category.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the ID of the account</param>
     /// <param name="categoryId">the ID of the category</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteCategory(
-        double version,
         int64_t accountId,
         int64_t categoryId
     ) const;
@@ -155,13 +149,11 @@ public:
     /// <remarks>
     /// Duplicate a category, including all its children.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
     /// <param name="categoryId">The category ID to duplicate (includes all children)</param>
     /// <param name="appKey">The application to assign the new category to, may be different then the application the source category is assigned to (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="parentCategoryId">The parent category ID to add the target category to. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<CategoryTreeResponse>> duplicateCategory(
-        double version,
         int64_t accountId,
         int64_t categoryId,
         boost::optional<utility::string_t> appKey,
@@ -173,11 +165,9 @@ public:
     /// <remarks>
     /// Get the details of a specific category. Recursively include all child categories and their children.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="categoryId">the ID of the category</param>
     /// <param name="returnExternal">Determines whether to return extra info about the category&#39;s \&quot;Participant\&quot; reference (optional, default to false)</param>
     pplx::task<std::shared_ptr<CategoryTreeResponse>> getCategory(
-        double version,
         int64_t categoryId,
         boost::optional<bool> returnExternal
     ) const;
@@ -187,7 +177,6 @@ public:
     /// <remarks>
     /// Search for categories.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (optional, default to 0L)</param>
     /// <param name="keyword">The string to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the appKey of the application to retrieve categories for, if not specified then search on the global application. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -210,7 +199,6 @@ public:
     /// <param name="searchDepth">When searching by a specific parent category (to return sub children), this determines the number of child layers to search in. The minimum is 1, the maximum is 4. (optional, default to 0)</param>
     /// <param name="searchMode">The search index mode to use (e.g. OPENSEARCH or RDS) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<CategoryResponse>>> searchCategories(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> appKey,
@@ -239,7 +227,6 @@ public:
     /// <remarks>
     /// Update a category.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="categoryId">The ID of the category to edit</param>
     /// <param name="parentCategoryId">The ID of the parent category, if not provided then the parent category will be null (optional, default to 0L)</param>
@@ -255,7 +242,6 @@ public:
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="searchTags">user defined strings for searching (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<CategoryTreeResponse>> updateCategory(
-        double version,
         int64_t accountId,
         int64_t categoryId,
         boost::optional<int64_t> parentCategoryId,

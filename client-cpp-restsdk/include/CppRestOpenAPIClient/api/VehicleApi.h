@@ -51,11 +51,9 @@ public:
     /// <remarks>
     /// Create new vehicle
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="vehicle">A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Vehicle>> createVehicle(
-        double version,
         utility::string_t vehicle,
         boost::optional<std::shared_ptr<Vehicle>> body
     ) const;
@@ -65,10 +63,8 @@ public:
     /// <remarks>
     /// Delete an existing vehicle
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">The id of the vehicle to delete</param>
     pplx::task<void> deleteVehicle(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -77,10 +73,8 @@ public:
     /// <remarks>
     /// Get an existing vehicle
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">The id of the vehicle requested</param>
     pplx::task<std::shared_ptr<Vehicle>> getVehicle(
-        double version,
         int64_t id
     ) const;
     /// <summary>
@@ -89,7 +83,6 @@ public:
     /// <remarks>
     /// Search for vehicles
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="hubId">Filter by service hub</param>
     /// <param name="sortField">The field to sort by</param>
     /// <param name="descending">Determines whether the sorted list is in descending or ascending order</param>
@@ -98,7 +91,6 @@ public:
     /// <param name="activeOnly">Return only active results</param>
     /// <param name="keyword">The keyword to search for (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<Vehicle>>> searchVehicle(
-        double version,
         int64_t hubId,
         utility::string_t sortField,
         bool descending,
@@ -113,12 +105,10 @@ public:
     /// <remarks>
     /// Update an existing vehicle
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="id">The id of the vehicle to update</param>
     /// <param name="vehicle">A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; </param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<Vehicle>> updateVehicle(
-        double version,
         int64_t id,
         utility::string_t vehicle,
         boost::optional<std::shared_ptr<Vehicle>> body

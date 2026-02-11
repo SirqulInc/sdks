@@ -53,12 +53,10 @@ public:
     /// <remarks>
     /// Get the results of the import batch.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="batchID">The batchID for getting the import status of.</param>
     /// <param name="start">The start index for pagination</param>
     /// <param name="limit">The limit for pagination</param>
     pplx::task<std::map<utility::string_t, std::shared_ptr<ShipmentOrder>>> getOptimizationResult(
-        double version,
         utility::string_t batchID,
         int32_t start,
         int32_t limit
@@ -69,10 +67,8 @@ public:
     /// <remarks>
     /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="body"> (optional)</param>
     pplx::task<std::shared_ptr<ImportStatuses>> requestOptimization(
-        double version,
         boost::optional<std::shared_ptr<Orders>> body
     ) const;
 

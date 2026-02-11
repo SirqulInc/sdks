@@ -36,13 +36,12 @@ BidApi::~BidApi()
 {
 }
 
-pplx::task<std::shared_ptr<BidResponse>> BidApi::createBid(double version, utility::string_t biddableType, int64_t biddableId, double amountPerView, double amountPerAction, double budgetAmount, utility::string_t budgetSchedule, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<BidResponse>> BidApi::createBid(utility::string_t biddableType, int64_t biddableId, double amountPerView, double amountPerAction, double budgetAmount, utility::string_t budgetSchedule, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/bid/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/bid/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -185,13 +184,12 @@ pplx::task<std::shared_ptr<BidResponse>> BidApi::createBid(double version, utili
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> BidApi::deleteBid(double version, int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> BidApi::deleteBid(int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/bid/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/bid/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -319,13 +317,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> BidApi::deleteBid(double version, in
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BidResponse>> BidApi::getBid(double version, int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<BidResponse>> BidApi::getBid(int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/bid/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/bid/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -453,13 +450,12 @@ pplx::task<std::shared_ptr<BidResponse>> BidApi::getBid(double version, int64_t 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<BidResponse>> BidApi::updateBid(double version, int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> amountPerView, boost::optional<double> amountPerAction, boost::optional<double> budgetAmount, boost::optional<utility::string_t> budgetSchedule) const
+pplx::task<std::shared_ptr<BidResponse>> BidApi::updateBid(int64_t bidId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> amountPerView, boost::optional<double> amountPerAction, boost::optional<double> budgetAmount, boost::optional<utility::string_t> budgetSchedule) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/bid/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/bid/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

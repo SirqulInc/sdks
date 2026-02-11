@@ -36,13 +36,12 @@ ServiceHubApi::~ServiceHubApi()
 {
 }
 
-pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::createServiceHub(double version, boost::optional<std::shared_ptr<ServiceHub>> body) const
+pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::createServiceHub(boost::optional<std::shared_ptr<ServiceHub>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::createServiceHub(double v
         return localVarResult;
     });
 }
-pplx::task<void> ServiceHubApi::deleteServiceHub(double version, int64_t id) const
+pplx::task<void> ServiceHubApi::deleteServiceHub(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -280,13 +278,12 @@ pplx::task<void> ServiceHubApi::deleteServiceHub(double version, int64_t id) con
         return void();
     });
 }
-pplx::task<std::shared_ptr<Object>> ServiceHubApi::getServiceHub(double version, int64_t id) const
+pplx::task<std::shared_ptr<Object>> ServiceHubApi::getServiceHub(int64_t id) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -404,13 +401,12 @@ pplx::task<std::shared_ptr<Object>> ServiceHubApi::getServiceHub(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::postServiceHub(double version, int64_t id, boost::optional<std::shared_ptr<ServiceHub>> body) const
+pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::postServiceHub(int64_t id, boost::optional<std::shared_ptr<ServiceHub>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -544,13 +540,12 @@ pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::postServiceHub(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::putServiceHub(double version, int64_t id, boost::optional<std::shared_ptr<ServiceHub>> body) const
+pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::putServiceHub(int64_t id, boost::optional<std::shared_ptr<ServiceHub>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub/{id}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub/{id}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("id") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(id)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -684,13 +679,12 @@ pplx::task<std::shared_ptr<ServiceHub>> ServiceHubApi::putServiceHub(double vers
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ServiceHub>>> ServiceHubApi::searchServiceHubs(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId) const
+pplx::task<std::vector<std::shared_ptr<ServiceHub>>> ServiceHubApi::searchServiceHubs(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<utility::string_t> keyword, boost::optional<int64_t> retailerId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/hub");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/hub");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

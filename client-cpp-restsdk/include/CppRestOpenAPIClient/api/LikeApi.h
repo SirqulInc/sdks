@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="likableType">The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
     /// <param name="likableId">The id of the likable object</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -65,7 +64,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<LikableResponse>> registerLike(
-        double version,
         utility::string_t likableType,
         int64_t likableId,
         boost::optional<utility::string_t> deviceId,
@@ -85,7 +83,6 @@ public:
     /// <remarks>
     /// Removes a like. This will make the user \&quot;neutral\&quot;.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
     /// <param name="likableId">The id of the likable object</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -93,7 +90,6 @@ public:
     /// <param name="latitude">The current location of the user (optional, default to 0.0)</param>
     /// <param name="longitude">The current location of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<LikableResponse>> removeLike(
-        double version,
         utility::string_t likableType,
         int64_t likableId,
         boost::optional<utility::string_t> deviceId,
@@ -107,7 +103,6 @@ public:
     /// <remarks>
     /// Search for likes on a likable object.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="likableType">The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}</param>
     /// <param name="likableId">The id of the likable object</param>
     /// <param name="deviceId">The unique device identifier that made the request (either deviceId or accountId must be used) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -120,7 +115,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<SearchResponse>> searchLikes(
-        double version,
         utility::string_t likableType,
         int64_t likableId,
         boost::optional<utility::string_t> deviceId,

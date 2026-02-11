@@ -36,13 +36,12 @@ OptimizeApi::~OptimizeApi()
 {
 }
 
-pplx::task<std::map<utility::string_t, std::shared_ptr<ShipmentOrder>>> OptimizeApi::getOptimizationResult(double version, utility::string_t batchID, int32_t start, int32_t limit) const
+pplx::task<std::map<utility::string_t, std::shared_ptr<ShipmentOrder>>> OptimizeApi::getOptimizationResult(utility::string_t batchID, int32_t start, int32_t limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/optimize/result/{batchID}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/optimize/result/{batchID}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("batchID") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(batchID)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -171,13 +170,12 @@ pplx::task<std::map<utility::string_t, std::shared_ptr<ShipmentOrder>>> Optimize
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ImportStatuses>> OptimizeApi::requestOptimization(double version, boost::optional<std::shared_ptr<Orders>> body) const
+pplx::task<std::shared_ptr<ImportStatuses>> OptimizeApi::requestOptimization(boost::optional<std::shared_ptr<Orders>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/optimize/request");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/optimize/request");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

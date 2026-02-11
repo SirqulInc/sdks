@@ -50,7 +50,6 @@ public:
     /// <remarks>
     /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the the request</param>
     /// <param name="paymentMethodId">Payment Method Id (optional, default to 0L)</param>
     /// <param name="accountName">the name of the account (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -75,7 +74,6 @@ public:
     /// <param name="providerPaymentProfileId">Provider customer payment profile Id (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="metaData">Meta Data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> addPaymentMethod(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> paymentMethodId,
         boost::optional<utility::string_t> accountName,
@@ -106,7 +104,6 @@ public:
     /// <remarks>
     /// Add a new method of payment.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the the request</param>
     /// <param name="accountName">Account Name of the credit card user (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="firstName">The first name on the credit card (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -133,7 +130,6 @@ public:
     /// <param name="metaData">Meta Data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">Application Key (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> createPaymentMethod(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> accountName,
         boost::optional<utility::string_t> firstName,
@@ -166,13 +162,11 @@ public:
     /// <remarks>
     /// Adds a smart contract.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the the request</param>
     /// <param name="tokenName">The token name</param>
     /// <param name="tokenSymbol">The token symbol</param>
     /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> createSmartContract(
-        double version,
         int64_t accountId,
         utility::string_t tokenName,
         utility::string_t tokenSymbol,
@@ -184,12 +178,10 @@ public:
     /// <remarks>
     /// Get the cypto balance details for a user
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the the request</param>
     /// <param name="ownerAccountId">The account to retreive balances for (optional, default to 0L)</param>
     /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> getCryptoBalance(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> ownerAccountId,
         boost::optional<int64_t> paymentMethodId
@@ -200,12 +192,10 @@ public:
     /// <remarks>
     /// Get the details of the user&#39;s payment method or their current default method of payment
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account used to perform the the request</param>
     /// <param name="paymentMethodId">The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned. (optional, default to 0L)</param>
     /// <param name="getCurrentBalance">Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this) (optional, default to false)</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> getPaymentMethod(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> paymentMethodId,
         boost::optional<bool> getCurrentBalance
@@ -216,7 +206,6 @@ public:
     /// <remarks>
     /// Search the payment methods of an account
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Account Id to search on</param>
     /// <param name="provider">Provider to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="type">the type to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -226,7 +215,6 @@ public:
     /// <param name="start">the start of the search (optional, default to 0)</param>
     /// <param name="limit">the limit of the search (optional, default to 0)</param>
     pplx::task<std::shared_ptr<PaymentTypesResponse>> searchPaymentMethod(
-        double version,
         int64_t accountId,
         boost::optional<utility::string_t> provider,
         boost::optional<utility::string_t> type,

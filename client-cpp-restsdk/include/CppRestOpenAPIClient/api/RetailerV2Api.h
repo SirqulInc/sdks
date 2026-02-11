@@ -50,7 +50,6 @@ public:
     /// <remarks>
     /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="retailerId">the id of the retailer</param>
     /// <param name="activeOnly">whether to return results that are active only or all</param>
     /// <param name="keyword">the keyword to search on to get retailer (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -58,7 +57,6 @@ public:
     /// <param name="start">the start of the index and/or pagination (optional, default to 0L)</param>
     /// <param name="limit">the limit of the index and/or pagination (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> getRetaokiler(
-        double version,
         int64_t retailerId,
         bool activeOnly,
         boost::optional<utility::string_t> keyword,

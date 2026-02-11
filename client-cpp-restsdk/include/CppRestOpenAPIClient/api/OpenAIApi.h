@@ -50,12 +50,10 @@ public:
     /// <remarks>
     /// Generate images with OpenAI.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">Sirqul Account Id</param>
     /// <param name="postBody">Post Body Parameters</param>
     /// <param name="returnRawResponse">Return raw response (optional, default to false)</param>
     pplx::task<std::shared_ptr<WrappedProxyItemResponse>> imageGeneration(
-        double version,
         int64_t accountId,
         utility::string_t postBody,
         boost::optional<bool> returnRawResponse

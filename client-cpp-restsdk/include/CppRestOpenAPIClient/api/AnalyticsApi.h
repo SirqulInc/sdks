@@ -53,12 +53,10 @@ public:
     /// <remarks>
     /// Get an activity feed by user.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="start">The start of the pagination</param>
     /// <param name="limit">The limit of the pagination</param>
     /// <param name="accountId">the account id of the user</param>
     pplx::task<std::vector<std::shared_ptr<UserActivityResponse>>> activities(
-        double version,
         int32_t start,
         int32_t limit,
         int64_t accountId
@@ -69,7 +67,6 @@ public:
     /// <remarks>
     /// Query analytics to get data used for nested graphs and charts
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="applicationId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -102,7 +99,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ChartData>> aggregatedFilteredUsage(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> applicationId,
@@ -141,7 +137,6 @@ public:
     /// <remarks>
     /// Query analytics to get data used for graphs and charts
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="deviceId">The unique id of the device making the request (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="applicationId">This parameter is deprecated. (optional, default to 0L)</param>
@@ -182,7 +177,6 @@ public:
     /// <param name="latitude">the current latitude of the user (optional, default to 0.0)</param>
     /// <param name="longitude">the current longitude of the user (optional, default to 0.0)</param>
     pplx::task<std::shared_ptr<ChartData>> filteredUsage(
-        double version,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
         boost::optional<int64_t> applicationId,
@@ -229,7 +223,6 @@ public:
     /// <remarks>
     /// Record an analytic record for a known state within the application.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="tag">The tag to apply: the name of the action or thing being logged.</param>
     /// <param name="deviceId">The client deviceID (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The logged in user ID (optional, default to 0L)</param>
@@ -262,7 +255,6 @@ public:
     /// <param name="customLong">a custom long value for the usage record (optional, default to 0L)</param>
     /// <param name="customLong2">a custom long value for the usage record (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> usage(
-        double version,
         utility::string_t tag,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -301,7 +293,6 @@ public:
     /// <remarks>
     /// Sends multiple analytics. Can be used to send in the user&#39;s stored usage when they did not have internet access. Should not include more than 100 items per batch.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">The application key unique to each application.</param>
     /// <param name="device">The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)</param>
     /// <param name="data">The analytic data AnalyticListResponse</param>
@@ -314,7 +305,6 @@ public:
     /// <param name="updateRanking">Will create a leaderboard if one does not exist for the \&quot;tag\&quot; yet (optional, default to false)</param>
     /// <param name="returnSummaryResponse">Returns a summary response of the achievements that have been completed due to the analytics (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> usageBatch(
-        double version,
         utility::string_t appKey,
         utility::string_t device,
         utility::string_t data,

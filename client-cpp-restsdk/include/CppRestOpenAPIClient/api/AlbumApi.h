@@ -55,7 +55,6 @@ public:
     /// <remarks>
     /// Create an Album.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="title">the title of the album</param>
     /// <param name="coverAssetNullable">determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image</param>
     /// <param name="includeCoverInAssetList">determines whether the cover image should be added to the album asset list</param>
@@ -103,7 +102,6 @@ public:
     /// <param name="linkedObjectType">sets a linked object so that it can be returned as part of the album response (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SearchResponse>> addAlbumCollection(
-        double version,
         utility::string_t title,
         bool coverAssetNullable,
         bool includeCoverInAssetList,
@@ -157,7 +155,6 @@ public:
     /// <remarks>
     /// Add users to an album as participants.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">the album ID</param>
     /// <param name="includeFriendGroup">determines whether to include all friends as participants</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -169,7 +166,6 @@ public:
     /// <param name="connections">comma separated list of connection IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="connectionGroups">comma separated list of connection group IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> addAlbumUsers(
-        double version,
         int64_t albumId,
         bool includeFriendGroup,
         boost::optional<utility::string_t> deviceId,
@@ -187,14 +183,12 @@ public:
     /// <remarks>
     /// Sets the approval status of an Album.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">The ID of the album</param>
     /// <param name="deviceId">A unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     /// <param name="approvalStatus">The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="verified">Sets whether the album should be marked as \&quot;verified\&quot; (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> approveAlbum(
-        double version,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,
@@ -207,7 +201,6 @@ public:
     /// <remarks>
     /// Get an Album.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="returnNulls">This parameter is deprecated.</param>
     /// <param name="albumId">the album to look up</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -218,7 +211,6 @@ public:
     /// <param name="connectionPreviewSize">returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint. (optional, default to 0)</param>
     /// <param name="audiencePreviewSize">returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint. (optional, default to 0)</param>
     pplx::task<std::shared_ptr<AlbumFullResponse>> getAlbumCollection(
-        double version,
         bool returnNulls,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,
@@ -235,12 +227,10 @@ public:
     /// <remarks>
     ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">the album ID</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> leaveAlbum(
-        double version,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -251,12 +241,10 @@ public:
     /// <remarks>
     /// Deletes an Album
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">the album ID to delete</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeAlbum(
-        double version,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -267,7 +255,6 @@ public:
     /// <remarks>
     /// Remove participants of an album.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">the album ID</param>
     /// <param name="removeFriendGroup">remove friend group</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -275,7 +262,6 @@ public:
     /// <param name="connections">comma separated list of connection IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="connectionGroups">comma separated list of connection group IDs (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<SirqulResponse>> removeAlbumUsers(
-        double version,
         int64_t albumId,
         bool removeFriendGroup,
         boost::optional<utility::string_t> deviceId,
@@ -289,7 +275,6 @@ public:
     /// <remarks>
     /// Searches on Albums.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="filter">a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. </param>
     /// <param name="albumTypeId">id of custom albumType</param>
     /// <param name="subType">filter albums with this album sub type</param>
@@ -351,7 +336,6 @@ public:
     /// <param name="searchExpression">Advanced search expression to be used by the server (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="generateAlbums">If true and results are empty, attempt to generate albums via templates (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<AlbumFullResponse>>> searchAlbums(
-        double version,
         utility::string_t filter,
         int64_t albumTypeId,
         utility::string_t subType,
@@ -419,7 +403,6 @@ public:
     /// <remarks>
     /// Update an Album.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="albumId">the ID of the album to update</param>
     /// <param name="deviceId">a unique ID given by the device (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">the account ID of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -466,7 +449,6 @@ public:
     /// <param name="linkedObjectId">sets a linked object id so that it can be returned as part of the album response (optional, default to 0L)</param>
     /// <param name="indexNow">determines whether the album should be indexed immediately (optional, default to false)</param>
     pplx::task<std::shared_ptr<AlbumResponse>> updateAlbumCollection(
-        double version,
         int64_t albumId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

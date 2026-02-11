@@ -36,13 +36,12 @@ AccountApi::~AccountApi()
 {
 }
 
-pplx::task<std::shared_ptr<UserLocationSearchResponse>> AccountApi::accountLocationSearch(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> postalCode, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey, boost::optional<double> range, boost::optional<int64_t> locationLastUpdated, boost::optional<utility::string_t> gender, boost::optional<int32_t> minAge, boost::optional<int32_t> maxAge, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> roles, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> experience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceOperator, boost::optional<bool> updateCurrentLocation, boost::optional<bool> updatePreferredSettings, boost::optional<bool> showExactLocations, boost::optional<bool> showConnectionToSearcher, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> verifiedUserOnly, boost::optional<bool> contentAdminOnly) const
+pplx::task<std::shared_ptr<UserLocationSearchResponse>> AccountApi::accountLocationSearch(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> postalCode, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> appKey, boost::optional<double> range, boost::optional<int64_t> locationLastUpdated, boost::optional<utility::string_t> gender, boost::optional<int32_t> minAge, boost::optional<int32_t> maxAge, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit, boost::optional<utility::string_t> searchMode, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<utility::string_t> roles, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> experience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> audienceIds, boost::optional<utility::string_t> audienceOperator, boost::optional<bool> updateCurrentLocation, boost::optional<bool> updatePreferredSettings, boost::optional<bool> showExactLocations, boost::optional<bool> showConnectionToSearcher, boost::optional<int64_t> flagCountMinimum, boost::optional<bool> verifiedUserOnly, boost::optional<bool> contentAdminOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -295,13 +294,12 @@ pplx::task<std::shared_ptr<UserLocationSearchResponse>> AccountApi::accountLocat
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::blockAccount(double version, int64_t accountIdBeingBlocked, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> blockFlagValue, boost::optional<bool> removeFromGroupsIfBlocked, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::blockAccount(int64_t accountIdBeingBlocked, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> blockFlagValue, boost::optional<bool> removeFromGroupsIfBlocked, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/block");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/block");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -445,13 +443,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::blockAccount(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::createAccount(double version, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> emailAddress, boost::optional<int64_t> assetId, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> gender, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> role, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> inviteToken, boost::optional<int64_t> referralAccountId, boost::optional<bool> sendValidation, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> responseType, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> appBlob, boost::optional<bool> appEnablePush, boost::optional<bool> appEnableSMS, boost::optional<bool> appEnableEmail, boost::optional<utility::string_t> locationVisibility, boost::optional<double> homeLatitude, boost::optional<double> homeLongitude, boost::optional<utility::string_t> appNickname, boost::optional<int64_t> personalAudienceId) const
+pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::createAccount(utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> emailAddress, boost::optional<int64_t> assetId, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> gender, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> role, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> inviteToken, boost::optional<int64_t> referralAccountId, boost::optional<bool> sendValidation, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> responseType, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> appBlob, boost::optional<bool> appEnablePush, boost::optional<bool> appEnableSMS, boost::optional<bool> appEnableEmail, boost::optional<utility::string_t> locationVisibility, boost::optional<double> homeLatitude, boost::optional<double> homeLongitude, boost::optional<utility::string_t> appNickname, boost::optional<int64_t> personalAudienceId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -854,13 +851,12 @@ pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::createAccount(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::editAccount(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> role, boost::optional<int64_t> assetId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> gender, boost::optional<int32_t> age, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<bool> makeProfileInfoPublic, boost::optional<bool> makeGameInfoPublic, boost::optional<bool> makeFriendsInfoPublic, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> matchToken, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> responseFilters, boost::optional<bool> showAsZipcode, boost::optional<bool> showExactLocation, boost::optional<bool> showOthersExactLocation, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> locationVisibility, boost::optional<utility::string_t> appBlob, boost::optional<bool> appEnablePush, boost::optional<bool> appEnableSMS, boost::optional<bool> appEnableEmail, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnProfile, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<int64_t> referralAccountId, boost::optional<utility::string_t> appNickname, boost::optional<int64_t> personalAudienceId, boost::optional<utility::string_t> nonGuestUsername) const
+pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::editAccount(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> role, boost::optional<int64_t> assetId, boost::optional<utility::string_t> name, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> gender, boost::optional<int32_t> age, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> streetAddress, boost::optional<utility::string_t> streetAddress2, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> country, boost::optional<bool> makeProfileInfoPublic, boost::optional<bool> makeGameInfoPublic, boost::optional<bool> makeFriendsInfoPublic, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> matchToken, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categories, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> responseFilters, boost::optional<bool> showAsZipcode, boost::optional<bool> showExactLocation, boost::optional<bool> showOthersExactLocation, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> locationVisibility, boost::optional<utility::string_t> appBlob, boost::optional<bool> appEnablePush, boost::optional<bool> appEnableSMS, boost::optional<bool> appEnableEmail, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnProfile, boost::optional<utility::string_t> audienceIdsToAdd, boost::optional<utility::string_t> audienceIdsToRemove, boost::optional<int64_t> referralAccountId, boost::optional<utility::string_t> appNickname, boost::optional<int64_t> personalAudienceId, boost::optional<utility::string_t> nonGuestUsername) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/profile/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/profile/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1305,13 +1301,12 @@ pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::editAccount(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::editUsername(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> username) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::editUsername(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> emailAddress, boost::optional<utility::string_t> username) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/username/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/username/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1444,13 +1439,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::editUsername(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::getAccount(double version, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountEmail, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> purchaseType, boost::optional<bool> updateViewedDate, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::getAccount(boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> connectionAccountEmail, boost::optional<int64_t> connectionAccountId, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> purchaseType, boost::optional<bool> updateViewedDate, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/profile/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/profile/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1615,13 +1609,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::getAccount(double versi
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AssetListResponse>> AccountApi::getProfileAssets(double version, boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> mediaTypes, boost::optional<utility::string_t> mimeTypes, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<AssetListResponse>> AccountApi::getProfileAssets(boost::optional<bool> returnNulls, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> ownerId, boost::optional<utility::string_t> mediaTypes, boost::optional<utility::string_t> mimeTypes, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/profile/assets");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/profile/assets");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1794,13 +1787,12 @@ pplx::task<std::shared_ptr<AssetListResponse>> AccountApi::getProfileAssets(doub
         return localVarResult;
     });
 }
-pplx::task<void> AccountApi::getReferralList(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> retrieveType, boost::optional<double> levelLimit, boost::optional<double> ancestorLevelLimit, boost::optional<double> childrenLevelLimit, boost::optional<double> ancestorListStart, boost::optional<double> ancestorListLimit, boost::optional<double> childrenListStart, boost::optional<double> childrenListLimit, boost::optional<bool> childrenChildren) const
+pplx::task<void> AccountApi::getReferralList(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> retrieveType, boost::optional<double> levelLimit, boost::optional<double> ancestorLevelLimit, boost::optional<double> childrenLevelLimit, boost::optional<double> ancestorListStart, boost::optional<double> ancestorListLimit, boost::optional<double> childrenListStart, boost::optional<double> childrenListLimit, boost::optional<bool> childrenChildren) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/referral/list");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/referral/list");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1942,13 +1934,12 @@ pplx::task<void> AccountApi::getReferralList(double version, boost::optional<int
         return void();
     });
 }
-pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::getSettings(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::getSettings(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/settings/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/settings/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2081,13 +2072,12 @@ pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::getSettings(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginDelegate(double version, utility::string_t accessToken, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> accessTokenSecret, boost::optional<int64_t> delegatedAccountId, boost::optional<utility::string_t> delegatedUsername, boost::optional<utility::string_t> networkUID, boost::optional<int32_t> ageRestriction, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginDelegate(utility::string_t accessToken, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> accessTokenSecret, boost::optional<int64_t> delegatedAccountId, boost::optional<utility::string_t> delegatedUsername, boost::optional<utility::string_t> networkUID, boost::optional<int32_t> ageRestriction, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/login/delegate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/login/delegate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2246,13 +2236,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginDelegate(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginGeneral(double version, utility::string_t accessToken, utility::string_t networkUID, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> accessTokenSecret, boost::optional<int32_t> ageRestriction, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> emailMatch, boost::optional<int64_t> chosenAccountId, boost::optional<int64_t> thirdPartyCredentialId) const
+pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginGeneral(utility::string_t accessToken, utility::string_t networkUID, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> accessTokenSecret, boost::optional<int32_t> ageRestriction, boost::optional<utility::string_t> responseFilters, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> emailMatch, boost::optional<int64_t> chosenAccountId, boost::optional<int64_t> thirdPartyCredentialId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/login");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/login");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2418,13 +2407,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginGeneral(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginUsername(double version, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> deviceId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> app, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters) const
+pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginUsername(utility::string_t username, utility::string_t password, boost::optional<utility::string_t> deviceId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<utility::string_t> app, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2579,13 +2567,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::loginUsername(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::logout(double version, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::logout(boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> deviceIdType, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/logout");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/logout");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2722,13 +2709,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::logout(double version, b
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::mergeAccount(double version, int64_t mergeAccountId, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::mergeAccount(int64_t mergeAccountId, utility::string_t appKey, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/merge");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/merge");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2859,13 +2845,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::mergeAccount(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordChange(double version, int64_t accountId, utility::string_t oldPassword, utility::string_t newPassword, utility::string_t confirmPassword) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordChange(int64_t accountId, utility::string_t oldPassword, utility::string_t newPassword, utility::string_t confirmPassword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/passwordchange");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/passwordchange");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -2994,13 +2979,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordChange(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordReset(double version, utility::string_t token, utility::string_t password, utility::string_t confirm) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordReset(utility::string_t token, utility::string_t password, utility::string_t confirm) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/passwordreset");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/passwordreset");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3126,13 +3110,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::passwordReset(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestPasswordReset(double version, utility::string_t email, boost::optional<utility::string_t> from, boost::optional<utility::string_t> domain, boost::optional<utility::string_t> subUrl, boost::optional<utility::string_t> referer) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestPasswordReset(utility::string_t email, boost::optional<utility::string_t> from, boost::optional<utility::string_t> domain, boost::optional<utility::string_t> subUrl, boost::optional<utility::string_t> referer) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/requestpasswordreset");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/requestpasswordreset");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3268,13 +3251,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestPasswordReset(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestValidateAccount(double version, int64_t accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestValidateAccount(int64_t accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/requestValidateAccount");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/requestValidateAccount");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3394,13 +3376,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::requestValidateAccount(d
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ProfileResponse>>> AccountApi::searchAccounts(double version, int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> radius, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperience, boost::optional<int32_t> age, boost::optional<utility::string_t> categoryIds, boost::optional<bool> returnNulls, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> purchaseType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
+pplx::task<std::vector<std::shared_ptr<ProfileResponse>>> AccountApi::searchAccounts(int64_t accountId, utility::string_t appKey, boost::optional<utility::string_t> keyword, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<double> radius, boost::optional<utility::string_t> gender, boost::optional<utility::string_t> gameExperience, boost::optional<int32_t> age, boost::optional<utility::string_t> categoryIds, boost::optional<bool> returnNulls, boost::optional<utility::string_t> responseFilters, boost::optional<utility::string_t> purchaseType, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit, boost::optional<bool> activeOnly) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/profile/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/profile/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3591,13 +3572,12 @@ pplx::task<std::vector<std::shared_ptr<ProfileResponse>>> AccountApi::searchAcco
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::secureLogin(double version, utility::string_t username, utility::string_t password, utility::string_t gameType, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> charsetName, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters) const
+pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::secureLogin(utility::string_t username, utility::string_t password, utility::string_t gameType, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> charsetName, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> returnProfile, boost::optional<utility::string_t> responseFilters) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/login/validate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/login/validate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -3747,13 +3727,12 @@ pplx::task<std::shared_ptr<ProfileResponse>> AccountApi::secureLogin(double vers
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::secureSignup(double version, utility::string_t deviceId, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> inviteToken, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> emailAddress, boost::optional<int64_t> assetId, boost::optional<utility::string_t> address, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> gender, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> role, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> charsetName, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> responseType) const
+pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::secureSignup(utility::string_t deviceId, utility::string_t username, utility::string_t password, boost::optional<utility::string_t> name, boost::optional<utility::string_t> inviteToken, boost::optional<utility::string_t> prefixName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> middleName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> suffixName, boost::optional<utility::string_t> title, boost::optional<utility::string_t> deviceIdType, boost::optional<utility::string_t> emailAddress, boost::optional<int64_t> assetId, boost::optional<utility::string_t> address, boost::optional<utility::string_t> zipcode, boost::optional<utility::string_t> gender, boost::optional<int64_t> birthday, boost::optional<utility::string_t> homePhone, boost::optional<utility::string_t> cellPhone, boost::optional<utility::string_t> cellPhoneCarrier, boost::optional<utility::string_t> businessPhone, boost::optional<utility::string_t> role, boost::optional<utility::string_t> platforms, boost::optional<utility::string_t> tags, boost::optional<utility::string_t> aboutUs, boost::optional<utility::string_t> gameExperience, boost::optional<utility::string_t> categoryIds, boost::optional<utility::string_t> hometown, boost::optional<utility::string_t> height, boost::optional<int32_t> heightIndex, boost::optional<utility::string_t> ethnicity, boost::optional<utility::string_t> bodyType, boost::optional<utility::string_t> maritalStatus, boost::optional<utility::string_t> children, boost::optional<utility::string_t> religion, boost::optional<utility::string_t> education, boost::optional<int32_t> educationIndex, boost::optional<utility::string_t> smoke, boost::optional<utility::string_t> drink, boost::optional<utility::string_t> companionship, boost::optional<int32_t> companionshipIndex, boost::optional<int32_t> preferredMinAge, boost::optional<int32_t> preferredMaxAge, boost::optional<int32_t> preferredMinHeight, boost::optional<int32_t> preferredMaxHeight, boost::optional<utility::string_t> preferredGender, boost::optional<utility::string_t> preferredEducation, boost::optional<int32_t> preferredEducationIndex, boost::optional<utility::string_t> preferredBodyType, boost::optional<utility::string_t> preferredEthnicity, boost::optional<utility::string_t> preferredLocation, boost::optional<double> preferredLocationRange, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<bool> acceptedTerms, boost::optional<utility::string_t> charsetName, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> appVersion, boost::optional<utility::string_t> responseType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/create/validate");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/create/validate");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4111,13 +4090,12 @@ pplx::task<std::shared_ptr<ProfileInfoResponse>> AccountApi::secureSignup(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::setMatchToken(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> matchToken, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::setMatchToken(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> matchToken, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/consumer/profile/matchToken");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/consumer/profile/matchToken");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4262,13 +4240,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::setMatchToken(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateActveStatus(double version, int64_t accountId, int64_t connectionAccountId, bool active, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateActveStatus(int64_t accountId, int64_t connectionAccountId, bool active, boost::optional<utility::string_t> deviceId, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/active/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/active/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4402,13 +4379,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateActveStatus(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateLocation(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> clientTime) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateLocation(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<double> latitude, boost::optional<double> longitude, boost::optional<int64_t> clientTime) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/location/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/location/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4545,13 +4521,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::updateLocation(double ve
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::updateSettings(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> blockedNotifications, boost::optional<utility::string_t> suggestionMethod, boost::optional<int32_t> suggestionCount, boost::optional<int32_t> suggestionTimeFrame, boost::optional<bool> showOthersExactLocation, boost::optional<bool> showAsZipcode, boost::optional<bool> showExactLocation, boost::optional<utility::string_t> favoriteVisibility, boost::optional<double> latitude, boost::optional<double> longitude) const
+pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::updateSettings(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> blockedNotifications, boost::optional<utility::string_t> suggestionMethod, boost::optional<int32_t> suggestionCount, boost::optional<int32_t> suggestionTimeFrame, boost::optional<bool> showOthersExactLocation, boost::optional<bool> showAsZipcode, boost::optional<bool> showExactLocation, boost::optional<utility::string_t> favoriteVisibility, boost::optional<double> latitude, boost::optional<double> longitude) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/settings/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/settings/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4716,13 +4691,12 @@ pplx::task<std::shared_ptr<UserSettingsResponse>> AccountApi::updateSettings(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::validateAccountSignup(double version, utility::string_t token) const
+pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::validateAccountSignup(utility::string_t token) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/validateAccountSignup");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/validateAccountSignup");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -4842,13 +4816,12 @@ pplx::task<std::shared_ptr<AccountLoginResponse>> AccountApi::validateAccountSig
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::validatePasswordReset(double version, utility::string_t token) const
+pplx::task<std::shared_ptr<SirqulResponse>> AccountApi::validatePasswordReset(utility::string_t token) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/account/validatepasswordreset");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/account/validatepasswordreset");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

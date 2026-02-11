@@ -36,13 +36,12 @@ ReportingApi::~ReportingApi()
 {
 }
 
-pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::createBatch(double version, int64_t accountId, utility::string_t status, int32_t previewLimit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> endpoint, boost::optional<utility::string_t> parameters, boost::optional<utility::string_t> name, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> description, boost::optional<utility::string_t> pageUrl) const
+pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::createBatch(int64_t accountId, utility::string_t status, int32_t previewLimit, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> endpoint, boost::optional<utility::string_t> parameters, boost::optional<utility::string_t> name, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<utility::string_t> description, boost::optional<utility::string_t> pageUrl) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/batch/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/batch/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -200,13 +199,12 @@ pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::createBatch(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ReportRegionLegSummaryBatchResponse>> ReportingApi::createRegionLegSummaryBatch(double version, boost::optional<std::vector<std::shared_ptr<RegionLegSummary>>> body) const
+pplx::task<std::shared_ptr<ReportRegionLegSummaryBatchResponse>> ReportingApi::createRegionLegSummaryBatch(boost::optional<std::vector<std::shared_ptr<RegionLegSummary>>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/region/summary/batch");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/region/summary/batch");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -350,13 +348,12 @@ pplx::task<std::shared_ptr<ReportRegionLegSummaryBatchResponse>> ReportingApi::c
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ReportingApi::deleteBatch(double version, int64_t accountId, int64_t batchId) const
+pplx::task<std::shared_ptr<SirqulResponse>> ReportingApi::deleteBatch(int64_t accountId, int64_t batchId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/batch/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/batch/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -479,13 +476,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ReportingApi::deleteBatch(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::getReportBatch(double version, int64_t accountId, int64_t batchId, bool allResults) const
+pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::getReportBatch(int64_t accountId, int64_t batchId, bool allResults) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/batch/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/batch/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -611,13 +607,12 @@ pplx::task<std::shared_ptr<ReportBatchResponse>> ReportingApi::getReportBatch(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ReportResponse>> ReportingApi::runReport(double version, bool desc, boost::optional<int64_t> accountId, boost::optional<utility::string_t> query, boost::optional<utility::string_t> parameters, boost::optional<utility::string_t> order, boost::optional<int64_t> start, boost::optional<int64_t> limit, boost::optional<utility::string_t> responseFormat) const
+pplx::task<std::shared_ptr<ReportResponse>> ReportingApi::runReport(bool desc, boost::optional<int64_t> accountId, boost::optional<utility::string_t> query, boost::optional<utility::string_t> parameters, boost::optional<utility::string_t> order, boost::optional<int64_t> start, boost::optional<int64_t> limit, boost::optional<utility::string_t> responseFormat) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/run");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/run");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -765,13 +760,12 @@ pplx::task<std::shared_ptr<ReportResponse>> ReportingApi::runReport(double versi
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<ReportBatchResponse>>> ReportingApi::searchBatch(double version, int64_t accountId, int32_t start, int32_t limit, boost::optional<utility::string_t> names, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> status, boost::optional<bool> globalAppSearch, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate) const
+pplx::task<std::vector<std::shared_ptr<ReportBatchResponse>>> ReportingApi::searchBatch(int64_t accountId, int32_t start, int32_t limit, boost::optional<utility::string_t> names, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> status, boost::optional<bool> globalAppSearch, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/report/batch/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/report/batch/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

@@ -36,13 +36,12 @@ CargoTypeApi::~CargoTypeApi()
 {
 }
 
-pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::createCargoType(double version, boost::optional<std::shared_ptr<CargoType>> body) const
+pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::createCargoType(boost::optional<std::shared_ptr<CargoType>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/type");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/type");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -175,13 +174,12 @@ pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::createCargoType(double vers
         return localVarResult;
     });
 }
-pplx::task<void> CargoTypeApi::deleteCargoType(double version, int64_t cargoTypeId) const
+pplx::task<void> CargoTypeApi::deleteCargoType(int64_t cargoTypeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/type/{cargoTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/type/{cargoTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("cargoTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(cargoTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -280,13 +278,12 @@ pplx::task<void> CargoTypeApi::deleteCargoType(double version, int64_t cargoType
         return void();
     });
 }
-pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::getCargoType(double version, int64_t cargoTypeId) const
+pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::getCargoType(int64_t cargoTypeId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/type/{cargoTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/type/{cargoTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("cargoTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(cargoTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -404,13 +401,12 @@ pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::getCargoType(double version
         return localVarResult;
     });
 }
-pplx::task<std::vector<std::shared_ptr<CargoType>>> CargoTypeApi::searchCargoTypes(double version, utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> retailerId, boost::optional<int64_t> hubId) const
+pplx::task<std::vector<std::shared_ptr<CargoType>>> CargoTypeApi::searchCargoTypes(utility::string_t sortField, bool descending, int32_t start, int32_t limit, bool activeOnly, boost::optional<int64_t> retailerId, boost::optional<int64_t> hubId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/type");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/type");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -554,13 +550,12 @@ pplx::task<std::vector<std::shared_ptr<CargoType>>> CargoTypeApi::searchCargoTyp
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::updateCargoType(double version, int64_t cargoTypeId, boost::optional<std::shared_ptr<CargoType>> body) const
+pplx::task<std::shared_ptr<CargoType>> CargoTypeApi::updateCargoType(int64_t cargoTypeId, boost::optional<std::shared_ptr<CargoType>> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/cargo/type/{cargoTypeId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/cargo/type/{cargoTypeId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("cargoTypeId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(cargoTypeId)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;

@@ -36,13 +36,12 @@ BillingInfoApi::~BillingInfoApi()
 {
 }
 
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::addPaymentMethod(double version, int64_t accountId, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> accountName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> address, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> phone, boost::optional<utility::string_t> creditCardNumber, boost::optional<utility::string_t> expirationDate, boost::optional<utility::string_t> ccv, boost::optional<utility::string_t> accountNumber, boost::optional<utility::string_t> bankName, boost::optional<utility::string_t> routingNumber, boost::optional<bool> defaultPaymentMethod, boost::optional<utility::string_t> paymentMethodNickname, boost::optional<utility::string_t> taxId, boost::optional<utility::string_t> providerCustomerProfileId, boost::optional<utility::string_t> providerPaymentProfileId, boost::optional<utility::string_t> metaData) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::addPaymentMethod(int64_t accountId, boost::optional<int64_t> paymentMethodId, boost::optional<utility::string_t> accountName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> address, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> phone, boost::optional<utility::string_t> creditCardNumber, boost::optional<utility::string_t> expirationDate, boost::optional<utility::string_t> ccv, boost::optional<utility::string_t> accountNumber, boost::optional<utility::string_t> bankName, boost::optional<utility::string_t> routingNumber, boost::optional<bool> defaultPaymentMethod, boost::optional<utility::string_t> paymentMethodNickname, boost::optional<utility::string_t> taxId, boost::optional<utility::string_t> providerCustomerProfileId, boost::optional<utility::string_t> providerPaymentProfileId, boost::optional<utility::string_t> metaData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -250,13 +249,12 @@ pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::addPaymentMeth
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createPaymentMethod(double version, int64_t accountId, boost::optional<utility::string_t> accountName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> address, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> phone, boost::optional<utility::string_t> creditCardNumber, boost::optional<utility::string_t> expirationDate, boost::optional<utility::string_t> ccv, boost::optional<utility::string_t> accountNumber, boost::optional<utility::string_t> bankName, boost::optional<utility::string_t> routingNumber, boost::optional<utility::string_t> paymentMethodNickname, boost::optional<utility::string_t> taxId, boost::optional<bool> defaultPaymentMethod, boost::optional<utility::string_t> authToken, boost::optional<utility::string_t> provider, boost::optional<utility::string_t> providerCustomerProfileId, boost::optional<utility::string_t> providerPaymentProfileId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createPaymentMethod(int64_t accountId, boost::optional<utility::string_t> accountName, boost::optional<utility::string_t> firstName, boost::optional<utility::string_t> lastName, boost::optional<utility::string_t> address, boost::optional<utility::string_t> city, boost::optional<utility::string_t> state, boost::optional<utility::string_t> postalCode, boost::optional<utility::string_t> country, boost::optional<utility::string_t> phone, boost::optional<utility::string_t> creditCardNumber, boost::optional<utility::string_t> expirationDate, boost::optional<utility::string_t> ccv, boost::optional<utility::string_t> accountNumber, boost::optional<utility::string_t> bankName, boost::optional<utility::string_t> routingNumber, boost::optional<utility::string_t> paymentMethodNickname, boost::optional<utility::string_t> taxId, boost::optional<bool> defaultPaymentMethod, boost::optional<utility::string_t> authToken, boost::optional<utility::string_t> provider, boost::optional<utility::string_t> providerCustomerProfileId, boost::optional<utility::string_t> providerPaymentProfileId, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> appKey) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -472,13 +470,12 @@ pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createPaymentM
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createSmartContract(double version, int64_t accountId, utility::string_t tokenName, utility::string_t tokenSymbol, boost::optional<int64_t> paymentMethodId) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createSmartContract(int64_t accountId, utility::string_t tokenName, utility::string_t tokenSymbol, boost::optional<int64_t> paymentMethodId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/crypto/transfer");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/crypto/transfer");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -608,13 +605,12 @@ pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::createSmartCon
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getCryptoBalance(double version, int64_t accountId, boost::optional<int64_t> ownerAccountId, boost::optional<int64_t> paymentMethodId) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getCryptoBalance(int64_t accountId, boost::optional<int64_t> ownerAccountId, boost::optional<int64_t> paymentMethodId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/crypto/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/crypto/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -742,13 +738,12 @@ pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getCryptoBalan
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getPaymentMethod(double version, int64_t accountId, boost::optional<int64_t> paymentMethodId, boost::optional<bool> getCurrentBalance) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getPaymentMethod(int64_t accountId, boost::optional<int64_t> paymentMethodId, boost::optional<bool> getCurrentBalance) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -876,13 +871,12 @@ pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::getPaymentMeth
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::searchPaymentMethod(double version, int64_t accountId, boost::optional<utility::string_t> provider, boost::optional<utility::string_t> type, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<PaymentTypesResponse>> BillingInfoApi::searchPaymentMethod(int64_t accountId, boost::optional<utility::string_t> provider, boost::optional<utility::string_t> type, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/billing/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/billing/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

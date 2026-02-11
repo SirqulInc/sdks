@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a word by the given params.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="word">The text of the word.</param>
     /// <param name="definition">The definition of the word.</param>
@@ -63,7 +62,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<WordzWordResponse>> createWord(
-        double version,
         int64_t accountId,
         utility::string_t word,
         utility::string_t definition,
@@ -80,11 +78,9 @@ public:
     /// <remarks>
     /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="wordId">The id of the word to delete.</param>
     /// <param name="accountId">The account vor validating permission</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteWord(
-        double version,
         int64_t wordId,
         int64_t accountId
     ) const;
@@ -94,11 +90,9 @@ public:
     /// <remarks>
     /// Get a word by the given id.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="wordId">The id of the word to get.</param>
     /// <param name="accountId">The logged in user.</param>
     pplx::task<std::shared_ptr<WordzWordResponse>> getWord(
-        double version,
         int64_t wordId,
         int64_t accountId
     ) const;
@@ -108,7 +102,6 @@ public:
     /// <remarks>
     /// Search for words by the given params.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="sortField">The column to sort the search on</param>
     /// <param name="descending">The order to return the search results</param>
@@ -117,7 +110,6 @@ public:
     /// <param name="limit">The number of records to return.</param>
     /// <param name="keyword">The keyword for searching words with matching definition or word text. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::vector<std::shared_ptr<WordzWordResponse>>> getWords(
-        double version,
         int64_t accountId,
         utility::string_t sortField,
         bool descending,
@@ -132,7 +124,6 @@ public:
     /// <remarks>
     /// Update a word by the given params.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="wordId">The id of the word to update.</param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="ticketCount">The number of tickets to reward</param>
@@ -144,7 +135,6 @@ public:
     /// <param name="ticketType">The type of ticket to reward, null means default type (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="points">The number of points to award for completing a mission (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<WordzWordResponse>> updateWord(
-        double version,
         int64_t wordId,
         int64_t accountId,
         int64_t ticketCount,

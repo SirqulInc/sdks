@@ -52,12 +52,10 @@ public:
     /// <remarks>
     /// Creates a territory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="name">The name of the territory</param>
     /// <param name="active">If true set the game level as active. Default is true. (optional, default to false)</param>
     pplx::task<std::shared_ptr<TerritoryResponse>> createTerritory(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<bool> active
@@ -68,11 +66,9 @@ public:
     /// <remarks>
     /// Deletes a territory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="territoryId">the id of the territory to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteTerritory(
-        double version,
         int64_t accountId,
         int64_t territoryId
     ) const;
@@ -82,10 +78,8 @@ public:
     /// <remarks>
     /// Get a territory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="territoryId">the id of the territory to get</param>
     pplx::task<std::shared_ptr<TerritoryResponse>> getTerritory(
-        double version,
         int64_t territoryId
     ) const;
     /// <summary>
@@ -94,14 +88,12 @@ public:
     /// <remarks>
     /// Searches on territories.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="sortField">the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME</param>
     /// <param name="descending">determines whether the sorted list is in descending or ascending order</param>
     /// <param name="keyword">Return results that match this keyword. (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="start">The start index for pagination (optional, default to 0)</param>
     /// <param name="limit">The limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<TerritoryResponse>>> searchTerritories(
-        double version,
         utility::string_t sortField,
         bool descending,
         boost::optional<utility::string_t> keyword,
@@ -114,13 +106,11 @@ public:
     /// <remarks>
     /// Updates a territory.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="territoryId">the id of the territory to update</param>
     /// <param name="name">The name of the territory (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="active">If true set the game level as active. (optional, default to false)</param>
     pplx::task<std::shared_ptr<TerritoryResponse>> updateTerritory(
-        double version,
         int64_t accountId,
         int64_t territoryId,
         boost::optional<utility::string_t> name,

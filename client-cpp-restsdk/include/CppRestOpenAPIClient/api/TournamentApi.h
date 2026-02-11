@@ -52,7 +52,6 @@ public:
     /// <remarks>
     /// Create a tournament.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">The appKey the tournament is created for.</param>
     /// <param name="title">The title of the tournament</param>
@@ -89,7 +88,6 @@ public:
     /// <param name="winnerTag">This sets what analytic tag is used when a winner is determined (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="tieTag">This sets what analytic tag is used when a tie has occurred (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<TournamentResponse>> createTournament(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         utility::string_t title,
@@ -132,11 +130,9 @@ public:
     /// <remarks>
     /// Delete a tournament.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="missionId">the id of the mission to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteTournament(
-        double version,
         int64_t accountId,
         int64_t missionId
     ) const;
@@ -146,14 +142,12 @@ public:
     /// <remarks>
     /// Get a tournament.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The id of the logged in user</param>
     /// <param name="missionId">The id of the mission to return (either missionId or joinCode is required) (optional, default to 0L)</param>
     /// <param name="joinCode">Optional identifier for getting the tournament (either missionId or joinCode is required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="includeScores">Determines which type of scores are returned. Possible values include: ALL, MINE (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="objectPreviewSize">Determines the max number of game objects that will get returned for each game level response (optional, default to 0)</param>
     pplx::task<std::shared_ptr<TournamentResponse>> getTournament(
-        double version,
         int64_t accountId,
         boost::optional<int64_t> missionId,
         boost::optional<utility::string_t> joinCode,
@@ -166,7 +160,6 @@ public:
     /// <remarks>
     /// Search on game objects of tournaments
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID</param>
     /// <param name="gameLevelId">the game level id to filter results by</param>
     /// <param name="sortField">the field to sort by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -174,7 +167,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> searchObjects(
-        double version,
         int64_t accountId,
         int64_t gameLevelId,
         boost::optional<utility::string_t> sortField,
@@ -188,7 +180,6 @@ public:
     /// <remarks>
     /// Search for the user&#39;s tournament games.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the account ID</param>
     /// <param name="appKey">the application key</param>
     /// <param name="status">comma separated list of statuses to filter results by (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -198,7 +189,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> searchRounds(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> status,
@@ -214,7 +204,6 @@ public:
     /// <remarks>
     /// Search for tournaments
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">The application key</param>
     /// <param name="keyword">the keyword to search tournament on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -228,7 +217,6 @@ public:
     /// <param name="start">Start the result set at some index. (optional, default to 0)</param>
     /// <param name="limit">Limit the result to some number (optional, default to 0)</param>
     pplx::task<std::shared_ptr<MissionShortResponse>> searchTournaments(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         boost::optional<utility::string_t> keyword,
@@ -248,7 +236,6 @@ public:
     /// <remarks>
     /// Submit an array of scores for a tournament match. 
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user account ID.</param>
     /// <param name="appKey">The application key.</param>
     /// <param name="missionId">The missionId to score for</param>
@@ -257,7 +244,6 @@ public:
     /// <param name="scores">a JSON Array of scores to submit for a tournament match &#x60;&#x60;&#x60;json [   {     \&quot;accountId\&quot;: 2,     \&quot;points\&quot;: 3   },   {     \&quot;accountId\&quot;: 1777662,     \&quot;points\&quot;: 7   } ] &#x60;&#x60;&#x60; </param>
     /// <param name="gameLevelId">The gameLevelId to score for (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> submitTournamentScore(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t missionId,
@@ -272,7 +258,6 @@ public:
     /// <remarks>
     /// Submit a vote for a multi-stage album tournament.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="appKey">The application to target</param>
     /// <param name="missionId">The tournament&#39;s primary id</param>
@@ -280,7 +265,6 @@ public:
     /// <param name="deviceId">The unique id of the device making the request (optional) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="checkIfDeviceAlreadyVoted">When true, check if the device already voted to prevent duplicate votes from the same device (optional, default to false)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> submitTournamentVote(
-        double version,
         int64_t accountId,
         utility::string_t appKey,
         int64_t missionId,
@@ -294,13 +278,11 @@ public:
     /// <remarks>
     /// Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the logged in user</param>
     /// <param name="missionId">the id of the mission</param>
     /// <param name="packId">the id of the pack</param>
     /// <param name="gameLevelId">the id of the game level</param>
     pplx::task<std::shared_ptr<SirqulResponse>> substituteTournamentPlayer(
-        double version,
         int64_t accountId,
         int64_t missionId,
         int64_t packId,
@@ -312,7 +294,6 @@ public:
     /// <remarks>
     /// Update a tournament.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The logged in user.</param>
     /// <param name="missionId">The mission/tournament to update</param>
     /// <param name="title">The title of the tournament (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -348,7 +329,6 @@ public:
     /// <param name="winnerTag">This sets what analytic tag is used when a winner is determined (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="tieTag">This sets what analytic tag is used when a winner is determined (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<TournamentResponse>> updateTournament(
-        double version,
         int64_t accountId,
         int64_t missionId,
         boost::optional<utility::string_t> title,

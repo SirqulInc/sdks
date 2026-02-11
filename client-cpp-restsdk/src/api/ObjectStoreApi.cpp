@@ -36,13 +36,12 @@ ObjectStoreApi::~ObjectStoreApi()
 {
 }
 
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::addField(double version, int64_t accountId, utility::string_t appKey, utility::string_t objectName, utility::string_t fieldName, utility::string_t fieldType) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::addField(int64_t accountId, utility::string_t appKey, utility::string_t objectName, utility::string_t fieldName, utility::string_t fieldType) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/field/add");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/field/add");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -174,13 +173,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::addField(double
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createData(double version, utility::string_t objectName, boost::optional<int64_t> accountId, boost::optional<utility::string_t> body) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createData(utility::string_t objectName, boost::optional<int64_t> accountId, boost::optional<utility::string_t> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/data/{objectName}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/data/{objectName}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectName") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectName)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -313,13 +311,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createData(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createObject(double version, int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createObject(int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -445,13 +442,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::createObject(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteData(double version, utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteData(utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/data/{objectName}/{objectId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/data/{objectName}/{objectId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectName") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectName)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectId)));
 
@@ -574,13 +570,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteData(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteField(double version, int64_t accountId, utility::string_t appKey, utility::string_t objectName, utility::string_t fieldName) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteField(int64_t accountId, utility::string_t appKey, utility::string_t objectName, utility::string_t fieldName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/field/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/field/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -709,13 +704,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteField(dou
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteObject(double version, int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteObject(int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -841,13 +835,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::deleteObject(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getData(double version, utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> include) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getData(utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> include) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/data/{objectName}/{objectId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/data/{objectName}/{objectId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectName") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectName)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectId)));
 
@@ -974,13 +967,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getData(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getObject(double version, int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getObject(int64_t accountId, utility::string_t appKey, utility::string_t objectName) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1106,13 +1098,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::getObject(doubl
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchData(double version, utility::string_t objectName, bool count, int64_t start, int64_t limit, boost::optional<int64_t> accountId, boost::optional<utility::string_t> criteria, boost::optional<utility::string_t> order, boost::optional<utility::string_t> include) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchData(utility::string_t objectName, bool count, int64_t start, int64_t limit, boost::optional<int64_t> accountId, boost::optional<utility::string_t> criteria, boost::optional<utility::string_t> order, boost::optional<utility::string_t> include) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/data/{objectName}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/data/{objectName}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectName") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectName)));
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
@@ -1255,13 +1246,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchData(doub
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchObject(double version, int64_t accountId, utility::string_t appKey, int64_t start, int64_t limit, boost::optional<utility::string_t> keyword) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchObject(int64_t accountId, utility::string_t appKey, int64_t start, int64_t limit, boost::optional<utility::string_t> keyword) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1394,13 +1384,12 @@ pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::searchObject(do
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::updateData(double version, utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> body) const
+pplx::task<std::shared_ptr<ObjectStoreResponse>> ObjectStoreApi::updateData(utility::string_t objectName, utility::string_t objectId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> body) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/object/data/{objectName}/{objectId}");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/object/data/{objectName}/{objectId}");
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectName") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectName)));
     boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("objectId") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(objectId)));
 

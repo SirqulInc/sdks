@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Create a region.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The id of the account sending the request</param>
     /// <param name="regionClass">RegionClass of this region</param>
     /// <param name="shortName">Short name of the region. This is optimized for search</param>
@@ -74,7 +73,6 @@ public:
     /// <param name="root">If this is a root region or not. If true means this region has no parent regions (optional, default to false)</param>
     /// <param name="active">Active or inactive status of the region (optional, default to false)</param>
     pplx::task<std::shared_ptr<RegionResponse>> createRegion(
-        double version,
         int64_t accountId,
         utility::string_t regionClass,
         utility::string_t shortName,
@@ -103,11 +101,9 @@ public:
     /// <remarks>
     /// Delete a region.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the id of the account logged in</param>
     /// <param name="regionId">the id of the region</param>
     pplx::task<std::shared_ptr<RegionResponse>> deleteRegion(
-        double version,
         int64_t accountId,
         int64_t regionId
     ) const;
@@ -117,11 +113,9 @@ public:
     /// <remarks>
     /// Get a region.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="regionId">the id of the region to get</param>
     /// <param name="accountId">the id of the logged in user (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<RegionResponse>> getRegion(
-        double version,
         int64_t regionId,
         boost::optional<int64_t> accountId
     ) const;
@@ -131,7 +125,6 @@ public:
     /// <remarks>
     /// Get the list of regions.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">the owner account id of the region to be created (optional, default to 0L)</param>
     /// <param name="query">This parameter is deprecated. deprecated - use \&quot;keyword\&quot; (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="keyword">the keyword to filter results on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -155,7 +148,6 @@ public:
     /// <param name="start">the start index for pagination (optional, default to 0)</param>
     /// <param name="limit">the limit for pagination (optional, default to 0)</param>
     pplx::task<std::vector<std::shared_ptr<RegionResponse>>> searchRegions(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> query,
         boost::optional<utility::string_t> keyword,
@@ -185,7 +177,6 @@ public:
     /// <remarks>
     /// Update a region.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The id of the account sending the request</param>
     /// <param name="regionId">The id of the region to be updated</param>
     /// <param name="regionClass">RegionClass of this region (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -210,7 +201,6 @@ public:
     /// <param name="active">Active or inactive status of the region (optional, default to false)</param>
     /// <param name="clearLists">If true clear the children and postal code lists before add new ones, otherwise just append. (optional, default to false)</param>
     pplx::task<std::shared_ptr<RegionResponse>> updateRegion(
-        double version,
         int64_t accountId,
         int64_t regionId,
         boost::optional<utility::string_t> regionClass,

@@ -36,13 +36,12 @@ RankingApi::~RankingApi()
 {
 }
 
-pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getHistoricalRankings(double version, utility::string_t appKey, utility::string_t rankType, int64_t startDate, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getHistoricalRankings(utility::string_t appKey, utility::string_t rankType, int64_t startDate, int64_t endDate, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ranking/historical/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ranking/historical/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -195,13 +194,12 @@ pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getHistoricalRankings(
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getRankings(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> withinAccountIds, boost::optional<bool> returnUserRank, boost::optional<int64_t> albumId, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getRankings(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> gameType, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> q, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> rankType, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> withinAccountIds, boost::optional<bool> returnUserRank, boost::optional<int64_t> albumId, boost::optional<int64_t> audienceId, boost::optional<utility::string_t> sortField, boost::optional<bool> descending, boost::optional<int32_t> i, boost::optional<int32_t> start, boost::optional<int32_t> l, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ranking/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ranking/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -390,13 +388,12 @@ pplx::task<std::shared_ptr<RankFullResponse>> RankingApi::getRankings(double ver
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<Object>> RankingApi::getUserRank(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<bool> returnUserRank, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> keyword, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<Object>> RankingApi::getUserRank(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> rankType, boost::optional<bool> returnUserRank, boost::optional<utility::string_t> leaderboardMode, boost::optional<utility::string_t> sortField, boost::optional<utility::string_t> keyword, boost::optional<bool> descending, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ranking/personal/ranks");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ranking/personal/ranks");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -557,13 +554,12 @@ pplx::task<std::shared_ptr<Object>> RankingApi::getUserRank(double version, boos
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> RankingApi::overrideUserRank(double version, int64_t accountId, int64_t ownerAccountId, utility::string_t appKey, utility::string_t rankType, boost::optional<int64_t> totalScore, boost::optional<int64_t> totalCount, boost::optional<int64_t> totalTime, boost::optional<int64_t> dailyScore, boost::optional<int64_t> dailyCount, boost::optional<int64_t> dailyTime, boost::optional<int64_t> weeklyScore, boost::optional<int64_t> weeklyCount, boost::optional<int64_t> weeklyTime, boost::optional<int64_t> monthlyScore, boost::optional<int64_t> monthlyCount, boost::optional<int64_t> monthlyTime, boost::optional<int64_t> topScore, boost::optional<int64_t> lowestScore, boost::optional<int64_t> streakCount, boost::optional<int64_t> streakBestCount, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate) const
+pplx::task<std::shared_ptr<SirqulResponse>> RankingApi::overrideUserRank(int64_t accountId, int64_t ownerAccountId, utility::string_t appKey, utility::string_t rankType, boost::optional<int64_t> totalScore, boost::optional<int64_t> totalCount, boost::optional<int64_t> totalTime, boost::optional<int64_t> dailyScore, boost::optional<int64_t> dailyCount, boost::optional<int64_t> dailyTime, boost::optional<int64_t> weeklyScore, boost::optional<int64_t> weeklyCount, boost::optional<int64_t> weeklyTime, boost::optional<int64_t> monthlyScore, boost::optional<int64_t> monthlyCount, boost::optional<int64_t> monthlyTime, boost::optional<int64_t> topScore, boost::optional<int64_t> lowestScore, boost::optional<int64_t> streakCount, boost::optional<int64_t> streakBestCount, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ranking/override");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ranking/override");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -764,13 +760,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> RankingApi::overrideUserRank(double 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> RankingApi::updateRankings(double version, int64_t accountId, utility::string_t appKey, utility::string_t rankType, boost::optional<int64_t> increment, boost::optional<int64_t> timeIncrement, boost::optional<utility::string_t> tag, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> updateGlobal, boost::optional<bool> createLeaderboard) const
+pplx::task<std::shared_ptr<SirqulResponse>> RankingApi::updateRankings(int64_t accountId, utility::string_t appKey, utility::string_t rankType, boost::optional<int64_t> increment, boost::optional<int64_t> timeIncrement, boost::optional<utility::string_t> tag, boost::optional<int64_t> startDate, boost::optional<int64_t> endDate, boost::optional<bool> updateGlobal, boost::optional<bool> createLeaderboard) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/ranking/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/ranking/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

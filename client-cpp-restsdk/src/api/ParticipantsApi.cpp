@@ -36,13 +36,12 @@ ParticipantsApi::~ParticipantsApi()
 {
 }
 
-pplx::task<std::shared_ptr<SirqulResponse>> ParticipantsApi::processAllParticipants(double version, int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<bool> useShortNameAsID) const
+pplx::task<std::shared_ptr<SirqulResponse>> ParticipantsApi::processAllParticipants(int64_t accountId, boost::optional<utility::string_t> appKey, boost::optional<bool> useShortNameAsID) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/participant/process/all");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/participant/process/all");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -170,13 +169,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> ParticipantsApi::processAllParticipa
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> ParticipantsApi::processParticipants(double version, int64_t accountId, utility::string_t league, boost::optional<utility::string_t> appKey, boost::optional<bool> useShortNameAsID, boost::optional<std::shared_ptr<HttpContent>> file) const
+pplx::task<std::shared_ptr<SirqulResponse>> ParticipantsApi::processParticipants(int64_t accountId, utility::string_t league, boost::optional<utility::string_t> appKey, boost::optional<bool> useShortNameAsID, boost::optional<std::shared_ptr<HttpContent>> file) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/participant/process");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/participant/process");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

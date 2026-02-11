@@ -50,13 +50,11 @@ public:
     /// <remarks>
     /// Recieve an SMS payload from Twillio to purchase an offer.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="appKey">the application key</param>
     /// <param name="body">the message of the text</param>
     /// <param name="from">the sender of the sms</param>
     /// <param name="currencyType">the type of currency</param>
     pplx::task<std::shared_ptr<TwiMLResponse>> smsBuyOffer(
-        double version,
         utility::string_t appKey,
         utility::string_t body,
         utility::string_t from,

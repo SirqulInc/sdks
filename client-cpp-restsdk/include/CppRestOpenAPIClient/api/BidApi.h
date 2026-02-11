@@ -51,7 +51,6 @@ public:
     /// <remarks>
     /// Creates a bid on a biddable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="biddableType">A biddable object type. Possible values include: CREATIVE (ads).</param>
     /// <param name="biddableId">The id of the biddable object</param>
     /// <param name="amountPerView">The bid amount for views. For ads, this is the amount that will be taken for each impression.</param>
@@ -61,7 +60,6 @@ public:
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<BidResponse>> createBid(
-        double version,
         utility::string_t biddableType,
         int64_t biddableId,
         double amountPerView,
@@ -77,12 +75,10 @@ public:
     /// <remarks>
     /// Deleted a bid on a biddable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="bidId">The bid id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteBid(
-        double version,
         int64_t bidId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -93,12 +89,10 @@ public:
     /// <remarks>
     /// Get the bid details of a biddable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="bidId">The bid id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
     pplx::task<std::shared_ptr<BidResponse>> getBid(
-        double version,
         int64_t bidId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId
@@ -109,7 +103,6 @@ public:
     /// <remarks>
     /// Updates a bid on a biddable object
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="bidId">The bid id</param>
     /// <param name="deviceId">The device id (deviceId or accountId required) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="accountId">The account id of the user (deviceId or accountId required) (optional, default to 0L)</param>
@@ -118,7 +111,6 @@ public:
     /// <param name="budgetAmount">The allocated budget amount that will be used (optional, default to 0.0)</param>
     /// <param name="budgetSchedule">The schedule for when the allocated budget amount is reset (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<BidResponse>> updateBid(
-        double version,
         int64_t bidId,
         boost::optional<utility::string_t> deviceId,
         boost::optional<int64_t> accountId,

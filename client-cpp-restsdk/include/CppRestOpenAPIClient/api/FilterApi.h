@@ -53,7 +53,6 @@ public:
     /// <remarks>
     /// Create a filter
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (must have permissions to the target application)</param>
     /// <param name="name">The name of the filter</param>
     /// <param name="appKey">The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions) (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -64,7 +63,6 @@ public:
     /// <param name="active">Sets whether the filter is active or inactive (hidden from consumers) (optional, default to false)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<FilterTreeResponse>> createFilter(
-        double version,
         int64_t accountId,
         utility::string_t name,
         boost::optional<utility::string_t> appKey,
@@ -81,11 +79,9 @@ public:
     /// <remarks>
     /// Delete a filter.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (must have permissions to the filter&#39;s assigned application)</param>
     /// <param name="filterId">The ID of the filter to delete</param>
     pplx::task<std::shared_ptr<SirqulResponse>> deleteFilter(
-        double version,
         int64_t accountId,
         int64_t filterId
     ) const;
@@ -95,10 +91,8 @@ public:
     /// <remarks>
     /// Get the details of a specific filter. Recursively include all child filters and their children.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="filterId">the id of the filter to get</param>
     pplx::task<std::shared_ptr<FilterTreeResponse>> getFilter(
-        double version,
         int64_t filterId
     ) const;
     /// <summary>
@@ -107,7 +101,6 @@ public:
     /// <remarks>
     /// Search for filters.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user (optional, default to 0L)</param>
     /// <param name="keyword">The string to search on (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     /// <param name="appKey">the appKey of the application to retrieve filters for (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
@@ -119,7 +112,6 @@ public:
     /// <param name="limit">The number of records to return (optional, default to 0)</param>
     /// <param name="activeOnly">Determines whether to return only active categories (optional, default to false)</param>
     pplx::task<std::vector<std::shared_ptr<FilterResponse>>> searchFilters(
-        double version,
         boost::optional<int64_t> accountId,
         boost::optional<utility::string_t> keyword,
         boost::optional<utility::string_t> appKey,
@@ -137,7 +129,6 @@ public:
     /// <remarks>
     /// Update a filter.
     /// </remarks>
-    /// <param name="version"></param>
     /// <param name="accountId">The account id of the user</param>
     /// <param name="filterId">The ID of the filter to edit</param>
     /// <param name="parentFilterId">The ID of the parent filter, if not provided then the parent filter will be null (optional, default to 0L)</param>
@@ -148,7 +139,6 @@ public:
     /// <param name="active">Sets whether the filter is active or inactive (hidden from consumers) (optional, default to false)</param>
     /// <param name="metaData">external custom client defined data (optional, default to utility::conversions::to_string_t(&quot;&quot;))</param>
     pplx::task<std::shared_ptr<FilterTreeResponse>> updateFilter(
-        double version,
         int64_t accountId,
         int64_t filterId,
         boost::optional<int64_t> parentFilterId,

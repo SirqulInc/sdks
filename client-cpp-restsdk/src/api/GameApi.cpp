@@ -36,13 +36,12 @@ GameApi::~GameApi()
 {
 }
 
-pplx::task<std::shared_ptr<GameResponse>> GameApi::createGame(double version, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> packIds, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<GameResponse>> GameApi::createGame(boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> packIds, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -187,13 +186,12 @@ pplx::task<std::shared_ptr<GameResponse>> GameApi::createGame(double version, bo
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> GameApi::deleteGame(double version, int64_t accountId, int64_t gameId) const
+pplx::task<std::shared_ptr<SirqulResponse>> GameApi::deleteGame(int64_t accountId, int64_t gameId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -316,13 +314,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> GameApi::deleteGame(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameResponse>> GameApi::getGame(double version, int64_t accountId, int64_t gameId, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<GameResponse>> GameApi::getGame(int64_t accountId, int64_t gameId, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -449,13 +446,12 @@ pplx::task<std::shared_ptr<GameResponse>> GameApi::getGame(double version, int64
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameResponse>> GameApi::searchGames(double version, int64_t accountId, utility::string_t appKey, int32_t start, int32_t limit, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeGameData, boost::optional<bool> includeInactive) const
+pplx::task<std::shared_ptr<GameResponse>> GameApi::searchGames(int64_t accountId, utility::string_t appKey, int32_t start, int32_t limit, boost::optional<utility::string_t> keyword, boost::optional<utility::string_t> appVersion, boost::optional<bool> includeGameData, boost::optional<bool> includeInactive) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -600,13 +596,12 @@ pplx::task<std::shared_ptr<GameResponse>> GameApi::searchGames(double version, i
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<GameResponse>> GameApi::updateGame(double version, boost::optional<int64_t> accountId, boost::optional<int64_t> gameId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> packIds, boost::optional<bool> includeGameData) const
+pplx::task<std::shared_ptr<GameResponse>> GameApi::updateGame(boost::optional<int64_t> accountId, boost::optional<int64_t> gameId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> title, boost::optional<utility::string_t> description, boost::optional<utility::string_t> metaData, boost::optional<utility::string_t> packIds, boost::optional<bool> includeGameData) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/game/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/game/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );

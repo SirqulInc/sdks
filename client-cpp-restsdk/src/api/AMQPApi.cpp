@@ -36,13 +36,12 @@ AMQPApi::~AMQPApi()
 {
 }
 
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerCreate(double version, utility::string_t appKey, utility::string_t name, utility::string_t hostname, utility::string_t username, utility::string_t password, utility::string_t dataMapping, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> port, boost::optional<utility::string_t> virtualHost, boost::optional<utility::string_t> exchanger, boost::optional<utility::string_t> exchangerType, boost::optional<int32_t> workers, boost::optional<bool> useSSL) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerCreate(utility::string_t appKey, utility::string_t name, utility::string_t hostname, utility::string_t username, utility::string_t password, utility::string_t dataMapping, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> port, boost::optional<utility::string_t> virtualHost, boost::optional<utility::string_t> exchanger, boost::optional<utility::string_t> exchangerType, boost::optional<int32_t> workers, boost::optional<bool> useSSL) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/consumer/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/consumer/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -209,13 +208,12 @@ pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerCreate(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerUpdate(double version, utility::string_t appKey, int64_t queueId, utility::string_t dataMapping, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> useSSL) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerUpdate(utility::string_t appKey, int64_t queueId, utility::string_t dataMapping, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<bool> useSSL) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/consumer/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/consumer/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -353,13 +351,12 @@ pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::consumerUpdate(double versio
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueCreate(double version, utility::string_t appKey, utility::string_t name, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> workers, boost::optional<utility::string_t> analyticTags, boost::optional<utility::string_t> hostname, boost::optional<int32_t> port, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> virtualHost, boost::optional<bool> useSSL) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueCreate(utility::string_t appKey, utility::string_t name, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int32_t> workers, boost::optional<utility::string_t> analyticTags, boost::optional<utility::string_t> hostname, boost::optional<int32_t> port, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> virtualHost, boost::optional<bool> useSSL) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/create");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/create");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -522,13 +519,12 @@ pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueCreate(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queueDelete(double version, int64_t queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
+pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queueDelete(int64_t queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/delete");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/delete");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -656,13 +652,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queueDelete(double version,
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueGet(double version, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> queueId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> hostname, boost::optional<utility::string_t> virtualHost) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueGet(boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<int64_t> queueId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> hostname, boost::optional<utility::string_t> virtualHost) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/get");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/get");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -807,13 +802,12 @@ pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueGet(double version, boo
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queuePublish(double version, utility::string_t message, boost::optional<int64_t> queueId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> hostname, boost::optional<utility::string_t> virtualHost) const
+pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queuePublish(utility::string_t message, boost::optional<int64_t> queueId, boost::optional<utility::string_t> appKey, boost::optional<utility::string_t> name, boost::optional<utility::string_t> hostname, boost::optional<utility::string_t> virtualHost) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/publish");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/publish");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -953,13 +947,12 @@ pplx::task<std::shared_ptr<SirqulResponse>> AMQPApi::queuePublish(double version
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueSearch(double version, boost::optional<int64_t> queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueSearch(boost::optional<int64_t> queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> name, boost::optional<int32_t> start, boost::optional<int32_t> limit) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/search");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/search");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
@@ -1100,13 +1093,12 @@ pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueSearch(double version, 
         return localVarResult;
     });
 }
-pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueUpdate(double version, int64_t queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int32_t> workers, boost::optional<utility::string_t> analyticTags, boost::optional<utility::string_t> hostname, boost::optional<int32_t> port, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> virtualHost, boost::optional<bool> useSSL) const
+pplx::task<std::shared_ptr<QueueResponse>> AMQPApi::queueUpdate(int64_t queueId, boost::optional<utility::string_t> deviceId, boost::optional<int64_t> accountId, boost::optional<utility::string_t> appKey, boost::optional<int32_t> workers, boost::optional<utility::string_t> analyticTags, boost::optional<utility::string_t> hostname, boost::optional<int32_t> port, boost::optional<utility::string_t> username, boost::optional<utility::string_t> password, boost::optional<utility::string_t> virtualHost, boost::optional<bool> useSSL) const
 {
 
 
     std::shared_ptr<const ApiConfiguration> localVarApiConfiguration( m_ApiClient->getConfiguration() );
-    utility::string_t localVarPath = utility::conversions::to_string_t("/api/{version}/queue/update");
-    boost::replace_all(localVarPath, utility::conversions::to_string_t("{") + utility::conversions::to_string_t("version") + utility::conversions::to_string_t("}"), web::uri::encode_uri(ApiClient::parameterToString(version)));
+    utility::string_t localVarPath = utility::conversions::to_string_t("/queue/update");
 
     std::map<utility::string_t, utility::string_t> localVarQueryParams;
     std::map<utility::string_t, utility::string_t> localVarHeaderParams( localVarApiConfiguration->getDefaultHeaders() );
