@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.OrderResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PurchaseOrderApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class PurchaseOrderApi {
   /**
   * Create Order
   * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
    * @param deviceId The device id (deviceId or accountId required)
@@ -76,13 +74,8 @@ public class PurchaseOrderApi {
    * @param promoCode The Promo Code
    * @return OrderResponse
   */
-  public OrderResponse createOrder (BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderResponse createOrder (String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrder"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createOrder",
@@ -95,7 +88,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,16 +150,11 @@ public class PurchaseOrderApi {
       /**
    * Create Order
    * Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-   * @param version    * @param appKey The application requesting the purchase   * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer.  * VOID: used for when there is no payment involved (ie. for updating the status of a purchase order)  * CASH: use card on file  * POINTS: use account balance  * TICKETS: use tickets  * REFUND: not allowed for a create, requires a paymentTransactionId.  * CREDIT: add to the account balance  * RELOAD: charge a credit card then add to the account balance     * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalOrderId Store identifier from external system   * @param externalPaymentId Store identifier from external system   * @param remoteRefType Remote Reference type   * @param externalDate External Date   * @param promoCode The Promo Code
+   * @param appKey The application requesting the purchase   * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer.  * VOID: used for when there is no payment involved (ie. for updating the status of a purchase order)  * CASH: use card on file  * POINTS: use account balance  * TICKETS: use tickets  * REFUND: not allowed for a create, requires a paymentTransactionId.  * CREDIT: add to the account balance  * RELOAD: charge a credit card then add to the account balance     * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalOrderId Store identifier from external system   * @param externalPaymentId Store identifier from external system   * @param remoteRefType Remote Reference type   * @param externalDate External Date   * @param promoCode The Promo Code
   */
-  public void createOrder (BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOrder (String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrder"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createOrder",
@@ -179,7 +167,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -244,19 +232,13 @@ public class PurchaseOrderApi {
   /**
   * Delete Order
   * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-   * @param version 
    * @param orderId Order Id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteOrder (BigDecimal version, Long orderId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteOrder (Long orderId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOrder"));
-    }
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'orderId' when calling deleteOrder",
@@ -264,7 +246,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -317,16 +299,11 @@ public class PurchaseOrderApi {
       /**
    * Delete Order
    * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-   * @param version    * @param orderId Order Id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param orderId Order Id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void deleteOrder (BigDecimal version, Long orderId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteOrder (Long orderId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOrder"));
-    }
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'orderId' when calling deleteOrder",
@@ -334,7 +311,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -390,23 +367,17 @@ public class PurchaseOrderApi {
   /**
   * Get Order
   * Get an order record
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param orderId The order id to get details of, either orderId or externalOrderId must be provided
    * @param externalOrderId The external order id to get details of, either orderId or externalOrderId must be provided
    * @return OrderResponse
   */
-  public OrderResponse getOrder (BigDecimal version, String deviceId, Long accountId, Long orderId, String externalOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderResponse getOrder (String deviceId, Long accountId, Long orderId, String externalOrderId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOrder"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/order/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,19 +431,14 @@ public class PurchaseOrderApi {
       /**
    * Get Order
    * Get an order record
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param orderId The order id to get details of, either orderId or externalOrderId must be provided   * @param externalOrderId The external order id to get details of, either orderId or externalOrderId must be provided
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param orderId The order id to get details of, either orderId or externalOrderId must be provided   * @param externalOrderId The external order id to get details of, either orderId or externalOrderId must be provided
   */
-  public void getOrder (BigDecimal version, String deviceId, Long accountId, Long orderId, String externalOrderId, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOrder (String deviceId, Long accountId, Long orderId, String externalOrderId, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOrder"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/order/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -529,7 +495,6 @@ public class PurchaseOrderApi {
   /**
   * Preview Order
   * Previews a purchase to see the total cost before making it.
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param cart A JSON list of items to purchase
    * @param deviceId The device id (deviceId or accountId required)
@@ -544,13 +509,8 @@ public class PurchaseOrderApi {
    * @param promoCode The Promo Code
    * @return OrderResponse
   */
-  public OrderResponse previewOrder (BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderResponse previewOrder (String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling previewOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling previewOrder"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling previewOrder",
@@ -563,7 +523,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/preview".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/preview";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -625,16 +585,11 @@ public class PurchaseOrderApi {
       /**
    * Preview Order
    * Previews a purchase to see the total cost before making it.
-   * @param version    * @param appKey The application requesting the purchase   * @param cart A JSON list of items to purchase   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer. &#x60;&#x60;&#x60;json {   \&quot;VOID\&quot;: \&quot;used for when there is no payment involved (ie. for updating the status of a purchase order)\&quot;,   \&quot;CASH\&quot;: \&quot;use card on file\&quot;,   \&quot;POINTS\&quot;: \&quot;use account balance\&quot;,   \&quot;TICKETS\&quot;: \&quot;use tickets\&quot;,   \&quot;REFUND\&quot;: \&quot;not allowed for a create, requires a paymentTransactionId\&quot;,   \&quot;CREDIT\&quot;: \&quot;add to the account balance\&quot;,   \&quot;RELOAD\&quot;: \&quot;charge a credit card then add to the account balance\&quot; } &#x60;&#x60;&#x60;    * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalOrderId Store identifier from external system   * @param externalPaymentId Store identifier from external system   * @param remoteRefType Remote Reference type   * @param externalDate External Date   * @param promoCode The Promo Code
+   * @param appKey The application requesting the purchase   * @param cart A JSON list of items to purchase   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer. &#x60;&#x60;&#x60;json {   \&quot;VOID\&quot;: \&quot;used for when there is no payment involved (ie. for updating the status of a purchase order)\&quot;,   \&quot;CASH\&quot;: \&quot;use card on file\&quot;,   \&quot;POINTS\&quot;: \&quot;use account balance\&quot;,   \&quot;TICKETS\&quot;: \&quot;use tickets\&quot;,   \&quot;REFUND\&quot;: \&quot;not allowed for a create, requires a paymentTransactionId\&quot;,   \&quot;CREDIT\&quot;: \&quot;add to the account balance\&quot;,   \&quot;RELOAD\&quot;: \&quot;charge a credit card then add to the account balance\&quot; } &#x60;&#x60;&#x60;    * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalOrderId Store identifier from external system   * @param externalPaymentId Store identifier from external system   * @param remoteRefType Remote Reference type   * @param externalDate External Date   * @param promoCode The Promo Code
   */
-  public void previewOrder (BigDecimal version, String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void previewOrder (String appKey, String cart, String deviceId, Long accountId, String description, String currencyType, Long paymentMethodId, String externalOrderId, String externalPaymentId, String remoteRefType, Long externalDate, String promoCode, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling previewOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling previewOrder"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling previewOrder",
@@ -647,7 +602,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/preview".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/preview".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -712,7 +667,6 @@ public class PurchaseOrderApi {
   /**
   * Search Orders
   * Search on active orders by customer
-   * @param version 
    * @param appKey The application requesting the purchase
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -746,13 +700,8 @@ public class PurchaseOrderApi {
    * @param endedBefore Filter results by the offer end date
    * @return List<OrderResponse>
   */
-  public List<OrderResponse> searchOrders (BigDecimal version, String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OrderResponse> searchOrders (String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOrders",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOrders"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchOrders",
@@ -760,7 +709,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -841,16 +790,11 @@ public class PurchaseOrderApi {
       /**
    * Search Orders
    * Search on active orders by customer
-   * @param version    * @param appKey The application requesting the purchase   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param start The start index for pagination   * @param limit The limit for pagination   * @param descending Determines whether to return the resulting list in descending or ascending order   * @param activeOnly Only return active orders   * @param ignoreCustomerFilter Determines whether to ignore the customer filter (requires an Admin/Exec account)   * @param orderItemTypes Filter results by orderItemTypes   * @param orderItemIds Filter results by orderItemIds   * @param orderCustomTypes Filter results by orderCustomTypes   * @param orderCustomIds Filter results by orderCustomIds   * @param sortField Determines what to sort the results by   * @param offerTypes Filter results by offer type   * @param specialOfferTypes Filter results by special offer type   * @param categoryIds Filter results by category Ids   * @param filterIds Filter results by filter Ids   * @param offerAudienceIds Filter results by offer audience Ids   * @param transactionAudienceIds Filter results by transaction audience Ids   * @param offerIds Filter results by offer Ids   * @param offerLocationIds Filter results by offer location Ids   * @param retailerIds Filter results by retailer Ids   * @param retailerLocationIds Filter results by retailer location Ids   * @param statuses Filter results by offer transaction status (0: non-redeemable, 1: redeemable, 2: redeemed, 3: user deleted, 4: unclaimed/rewarded, 5: membership active, 6: membership cancelled)   * @param keyword The keyword to search for   * @param redeemableStartDate Filter results by the offer redeemable date   * @param redeemableEndDate Filter results by the offer redeemable date   * @param startedSince Filter results by the offer start date   * @param startedBefore Filter results by the offer start date   * @param endedSince Filter results by the offer end date   * @param endedBefore Filter results by the offer end date
+   * @param appKey The application requesting the purchase   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param start The start index for pagination   * @param limit The limit for pagination   * @param descending Determines whether to return the resulting list in descending or ascending order   * @param activeOnly Only return active orders   * @param ignoreCustomerFilter Determines whether to ignore the customer filter (requires an Admin/Exec account)   * @param orderItemTypes Filter results by orderItemTypes   * @param orderItemIds Filter results by orderItemIds   * @param orderCustomTypes Filter results by orderCustomTypes   * @param orderCustomIds Filter results by orderCustomIds   * @param sortField Determines what to sort the results by   * @param offerTypes Filter results by offer type   * @param specialOfferTypes Filter results by special offer type   * @param categoryIds Filter results by category Ids   * @param filterIds Filter results by filter Ids   * @param offerAudienceIds Filter results by offer audience Ids   * @param transactionAudienceIds Filter results by transaction audience Ids   * @param offerIds Filter results by offer Ids   * @param offerLocationIds Filter results by offer location Ids   * @param retailerIds Filter results by retailer Ids   * @param retailerLocationIds Filter results by retailer location Ids   * @param statuses Filter results by offer transaction status (0: non-redeemable, 1: redeemable, 2: redeemed, 3: user deleted, 4: unclaimed/rewarded, 5: membership active, 6: membership cancelled)   * @param keyword The keyword to search for   * @param redeemableStartDate Filter results by the offer redeemable date   * @param redeemableEndDate Filter results by the offer redeemable date   * @param startedSince Filter results by the offer start date   * @param startedBefore Filter results by the offer start date   * @param endedSince Filter results by the offer end date   * @param endedBefore Filter results by the offer end date
   */
-  public void searchOrders (BigDecimal version, String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, final Response.Listener<List<OrderResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchOrders (String appKey, String deviceId, Long accountId, Integer start, Integer limit, Boolean descending, Boolean activeOnly, Boolean ignoreCustomerFilter, String orderItemTypes, String orderItemIds, String orderCustomTypes, String orderCustomIds, String sortField, String offerTypes, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String offerIds, String offerLocationIds, String retailerIds, String retailerLocationIds, String statuses, String keyword, Long redeemableStartDate, Long redeemableEndDate, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, final Response.Listener<List<OrderResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOrders",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOrders"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchOrders",
@@ -858,7 +802,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -942,7 +886,6 @@ public class PurchaseOrderApi {
   /**
   * Update Order
   * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-   * @param version 
    * @param orderId The order to add the purchase to, leave null for new order.
    * @param appKey The application requesting the purchase
    * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60; 
@@ -956,13 +899,8 @@ public class PurchaseOrderApi {
    * @param externalDate External Date
    * @return OrderResponse
   */
-  public OrderResponse updateOrder (BigDecimal version, Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrderResponse updateOrder (Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOrder"));
-    }
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'orderId' when calling updateOrder",
@@ -980,7 +918,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1041,16 +979,11 @@ public class PurchaseOrderApi {
       /**
    * Update Order
    * Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-   * @param version    * @param orderId The order to add the purchase to, leave null for new order.   * @param appKey The application requesting the purchase   * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param paymentTransactionId The payment transaction to apply the refund to   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer.  * VOID: used for when there is no payment involved (ie. for updating the status of a purchase order)  * CASH: use card on file  * POINTS: use account balance  * TICKETS: use tickets  * REFUND: not allowed for a create, requires a paymentTransactionId.  * CREDIT: add to the account balance  * RELOAD: charge a credit card then add to the account balance     * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalPaymentId Store identifier from external system   * @param externalDate External Date
+   * @param orderId The order to add the purchase to, leave null for new order.   * @param appKey The application requesting the purchase   * @param cart &#x60;&#x60;&#x60;json [   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 234, \&quot;orderCustomType\&quot;: \&quot;OfferLocation\&quot;, \&quot;orderCustomId\&quot;: 123, \&quot;retailerLocationId\&quot;: 1234, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;OFFER\&quot;, \&quot;orderItemId\&quot;: 235, \&quot;quantity\&quot;: 2 },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 10.50, \&quot;orderCustomType\&quot;: \&quot;ServiceFee\&quot; },   { \&quot;orderItemType\&quot;: \&quot;CUSTOM\&quot;, \&quot;amount\&quot;: 25.10, \&quot;quantity\&quot;: 2, \&quot;orderCustomType\&quot;: \&quot;Hat\&quot;, \&quot;orderCustomId\&quot;: 123 } ] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param paymentTransactionId The payment transaction to apply the refund to   * @param description A description of the purchase   * @param currencyType Determines the method of purchasing offer.  * VOID: used for when there is no payment involved (ie. for updating the status of a purchase order)  * CASH: use card on file  * POINTS: use account balance  * TICKETS: use tickets  * REFUND: not allowed for a create, requires a paymentTransactionId.  * CREDIT: add to the account balance  * RELOAD: charge a credit card then add to the account balance     * @param paymentMethodId Use a specific payment method (CASH), if not provided use default   * @param externalPaymentId Store identifier from external system   * @param externalDate External Date
   */
-  public void updateOrder (BigDecimal version, Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateOrder (Long orderId, String appKey, String cart, String deviceId, Long accountId, Long paymentTransactionId, String description, String currencyType, Long paymentMethodId, String externalPaymentId, Long externalDate, final Response.Listener<OrderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOrder",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOrder"));
-    }
     // verify the required parameter 'orderId' is set
     if (orderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'orderId' when calling updateOrder",
@@ -1068,7 +1001,7 @@ public class PurchaseOrderApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/order/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/order/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

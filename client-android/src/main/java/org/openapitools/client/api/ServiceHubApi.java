@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ServiceHub;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ServiceHubApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class ServiceHubApi {
   /**
   * Create Service Hub
   * Create new service hub
-   * @param version 
    * @param body 
    * @return ServiceHub
   */
-  public ServiceHub createServiceHub (BigDecimal version, ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ServiceHub createServiceHub (ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling createServiceHub"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/hub";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class ServiceHubApi {
       /**
    * Create Service Hub
    * Create new service hub
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createServiceHub (BigDecimal version, ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
+  public void createServiceHub (ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling createServiceHub"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/hub".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/hub".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,17 +176,11 @@ public class ServiceHubApi {
   /**
   * Delete Service Hub
   * Delete an existing service hub
-   * @param version 
    * @param id the id of the service hub to delete
    * @return void
   */
-  public void deleteServiceHub (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteServiceHub (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteServiceHub",
@@ -206,7 +188,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -256,16 +238,11 @@ public class ServiceHubApi {
       /**
    * Delete Service Hub
    * Delete an existing service hub
-   * @param version    * @param id the id of the service hub to delete
+   * @param id the id of the service hub to delete
   */
-  public void deleteServiceHub (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteServiceHub (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteServiceHub",
@@ -273,7 +250,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -322,17 +299,11 @@ public class ServiceHubApi {
   /**
   * Get Service Hub
   * Get an existing service hub
-   * @param version 
    * @param id the id of the service hub to get
    * @return Object
   */
-  public Object getServiceHub (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object getServiceHub (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling getServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getServiceHub",
@@ -340,7 +311,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -390,16 +361,11 @@ public class ServiceHubApi {
       /**
    * Get Service Hub
    * Get an existing service hub
-   * @param version    * @param id the id of the service hub to get
+   * @param id the id of the service hub to get
   */
-  public void getServiceHub (BigDecimal version, Long id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void getServiceHub (Long id, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling getServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getServiceHub",
@@ -407,7 +373,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,18 +426,12 @@ public class ServiceHubApi {
   /**
   * Update Service Hub
   * Update an existing service hub
-   * @param version 
    * @param id the id of the service hub
    * @param body 
    * @return ServiceHub
   */
-  public ServiceHub postServiceHub (BigDecimal version, Long id, ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ServiceHub postServiceHub (Long id, ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling postServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling postServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling postServiceHub",
@@ -479,7 +439,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -529,16 +489,11 @@ public class ServiceHubApi {
       /**
    * Update Service Hub
    * Update an existing service hub
-   * @param version    * @param id the id of the service hub   * @param body 
+   * @param id the id of the service hub   * @param body 
   */
-  public void postServiceHub (BigDecimal version, Long id, ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
+  public void postServiceHub (Long id, ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling postServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling postServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling postServiceHub",
@@ -546,7 +501,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -599,18 +554,12 @@ public class ServiceHubApi {
   /**
   * Update Service Hub
   * Update an existing service hub
-   * @param version 
    * @param id the id of the service hub
    * @param body 
    * @return ServiceHub
   */
-  public ServiceHub putServiceHub (BigDecimal version, Long id, ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ServiceHub putServiceHub (Long id, ServiceHub body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling putServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling putServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling putServiceHub",
@@ -618,7 +567,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -668,16 +617,11 @@ public class ServiceHubApi {
       /**
    * Update Service Hub
    * Update an existing service hub
-   * @param version    * @param id the id of the service hub   * @param body 
+   * @param id the id of the service hub   * @param body 
   */
-  public void putServiceHub (BigDecimal version, Long id, ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
+  public void putServiceHub (Long id, ServiceHub body, final Response.Listener<ServiceHub> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling putServiceHub",
-        new ApiException(400, "Missing the required parameter 'version' when calling putServiceHub"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling putServiceHub",
@@ -685,7 +629,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/hub/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -738,7 +682,6 @@ public class ServiceHubApi {
   /**
   * Search Service Hubs
   * Search for service hubs.
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -748,13 +691,8 @@ public class ServiceHubApi {
    * @param retailerId The retailer belongs to
    * @return List<ServiceHub>
   */
-  public List<ServiceHub> searchServiceHubs (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ServiceHub> searchServiceHubs (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchServiceHubs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchServiceHubs"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchServiceHubs",
@@ -782,7 +720,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/hub";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -839,16 +777,11 @@ public class ServiceHubApi {
       /**
    * Search Service Hubs
    * Search for service hubs.
-   * @param version    * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to search for   * @param retailerId The retailer belongs to
+   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to search for   * @param retailerId The retailer belongs to
   */
-  public void searchServiceHubs (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId, final Response.Listener<List<ServiceHub>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchServiceHubs (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Long retailerId, final Response.Listener<List<ServiceHub>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchServiceHubs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchServiceHubs"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchServiceHubs",
@@ -876,7 +809,7 @@ public class ServiceHubApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/hub".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/hub".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

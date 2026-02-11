@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.PaymentRequest;
 import org.openapitools.client.model.ProfileResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class SecureAppApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class SecureAppApi {
   /**
   * Create Secure Application
   * Create a secure application record.
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @param keyCert 
@@ -75,13 +73,8 @@ public class SecureAppApi {
    * @param biometricPosition2 The position for each the biometric2 file uploaded
    * @return SirqulResponse
   */
-  public SirqulResponse createSecureApplication (BigDecimal version, Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse createSecureApplication (Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSecureApplication",
@@ -114,7 +107,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -174,16 +167,11 @@ public class SecureAppApi {
       /**
    * Create Secure Application
    * Create a secure application record.
-   * @param version    * @param accountId The unique id of the user making the request   * @param appKey The application to secure   * @param keyCert    * @param trustStore    * @param username    * @param password    * @param active    * @param biometricType The type of biometric, options are: - FINGERPRINT - IRIS - FACIAL   * @param biometricPosition The position for the biometric file uploaded   * @param biometricPosition2 The position for each the biometric2 file uploaded
+   * @param accountId The unique id of the user making the request   * @param appKey The application to secure   * @param keyCert    * @param trustStore    * @param username    * @param password    * @param active    * @param biometricType The type of biometric, options are: - FINGERPRINT - IRIS - FACIAL   * @param biometricPosition The position for the biometric file uploaded   * @param biometricPosition2 The position for each the biometric2 file uploaded
   */
-  public void createSecureApplication (BigDecimal version, Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createSecureApplication (Long accountId, String appKey, File keyCert, File trustStore, String username, String password, Boolean active, String biometricType, String biometricPosition, String biometricPosition2, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSecureApplication",
@@ -216,7 +204,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -279,18 +267,12 @@ public class SecureAppApi {
   /**
   * Delete Secure Application
   * Delete a secure application record.
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @return SirqulResponse
   */
-  public SirqulResponse deleteSecureApplication (BigDecimal version, Long accountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteSecureApplication (Long accountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSecureApplication",
@@ -303,7 +285,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -355,16 +337,11 @@ public class SecureAppApi {
       /**
    * Delete Secure Application
    * Delete a secure application record.
-   * @param version    * @param accountId The unique id of the user making the request   * @param appKey The application to secure
+   * @param accountId The unique id of the user making the request   * @param appKey The application to secure
   */
-  public void deleteSecureApplication (BigDecimal version, Long accountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteSecureApplication (Long accountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSecureApplication",
@@ -377,7 +354,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -432,7 +409,6 @@ public class SecureAppApi {
   /**
   * Login Clear
   * Login via Clear.me. Creates a new account if logging in for the first time.
-   * @param version 
    * @param appKey The application making the request, defines what type and position is required to make a secure login the request.
    * @param biometricFile The data file used to perform authentication
    * @param deviceId The unique id of the device making the request
@@ -444,13 +420,8 @@ public class SecureAppApi {
    * @param longitude Used to update the user&#39;s current location
    * @return ProfileResponse
   */
-  public ProfileResponse loginSecure (BigDecimal version, String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse loginSecure (String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling loginSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling loginSecure"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling loginSecure",
@@ -463,7 +434,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/login".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/login";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -522,16 +493,11 @@ public class SecureAppApi {
       /**
    * Login Clear
    * Login via Clear.me. Creates a new account if logging in for the first time.
-   * @param version    * @param appKey The application making the request, defines what type and position is required to make a secure login the request.   * @param biometricFile The data file used to perform authentication   * @param deviceId The unique id of the device making the request   * @param biometricFile2 The data file used to perform authentication   * @param ageRestriction Checks user&#39;s birthday to see if they meet an age requirement. If the user is under age, an error message is returned.   * @param returnProfile Determines whether to return a ProfileResponse on success, or a PaymentTypesResponse   * @param responseFilters If returnProfile is set to true, this determines how much of the profile should be returned, see ProfileFilters   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
+   * @param appKey The application making the request, defines what type and position is required to make a secure login the request.   * @param biometricFile The data file used to perform authentication   * @param deviceId The unique id of the device making the request   * @param biometricFile2 The data file used to perform authentication   * @param ageRestriction Checks user&#39;s birthday to see if they meet an age requirement. If the user is under age, an error message is returned.   * @param returnProfile Determines whether to return a ProfileResponse on success, or a PaymentTypesResponse   * @param responseFilters If returnProfile is set to true, this determines how much of the profile should be returned, see ProfileFilters   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
   */
-  public void loginSecure (BigDecimal version, String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void loginSecure (String appKey, File biometricFile, String deviceId, File biometricFile2, Integer ageRestriction, Boolean returnProfile, String responseFilters, Double latitude, Double longitude, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling loginSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling loginSecure"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling loginSecure",
@@ -544,7 +510,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/login".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/login".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -606,17 +572,11 @@ public class SecureAppApi {
   /**
   * Purchase Clear
   * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-   * @param version 
    * @param body The payment request object
    * @return ProfileResponse
   */
-  public ProfileResponse purchaseSecure (BigDecimal version, PaymentRequest body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse purchaseSecure (PaymentRequest body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling purchaseSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling purchaseSecure"));
-    }
     // verify the required parameter 'body' is set
     if (body == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'body' when calling purchaseSecure",
@@ -624,7 +584,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/purchase".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/purchase";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -675,16 +635,11 @@ public class SecureAppApi {
       /**
    * Purchase Clear
    * Purchase via Clear.me. Creates a new account if purchasing for the first time.
-   * @param version    * @param body The payment request object
+   * @param body The payment request object
   */
-  public void purchaseSecure (BigDecimal version, PaymentRequest body, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void purchaseSecure (PaymentRequest body, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling purchaseSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling purchaseSecure"));
-    }
     // verify the required parameter 'body' is set
     if (body == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'body' when calling purchaseSecure",
@@ -692,7 +647,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/purchase".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/purchase".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -745,18 +700,12 @@ public class SecureAppApi {
   /**
   * Rest Secure Application
   * Reset a secure application client.
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @return SirqulResponse
   */
-  public SirqulResponse resetSecure (BigDecimal version, Long accountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse resetSecure (Long accountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling resetSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling resetSecure"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling resetSecure",
@@ -769,7 +718,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/reset".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/reset";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -821,16 +770,11 @@ public class SecureAppApi {
       /**
    * Rest Secure Application
    * Reset a secure application client.
-   * @param version    * @param accountId The unique id of the user making the request   * @param appKey The application to secure
+   * @param accountId The unique id of the user making the request   * @param appKey The application to secure
   */
-  public void resetSecure (BigDecimal version, Long accountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void resetSecure (Long accountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling resetSecure",
-        new ApiException(400, "Missing the required parameter 'version' when calling resetSecure"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling resetSecure",
@@ -843,7 +787,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/reset".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/reset".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -898,7 +842,6 @@ public class SecureAppApi {
   /**
   * Update Secure Application
   * Update a secure application record.
-   * @param version 
    * @param accountId The unique id of the user making the request
    * @param appKey The application to secure
    * @param active 
@@ -911,13 +854,8 @@ public class SecureAppApi {
    * @param biometricPosition2 The position for each the biometric2 file uploaded
    * @return SirqulResponse
   */
-  public SirqulResponse updateSecureApplication (BigDecimal version, Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateSecureApplication (Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSecureApplication",
@@ -930,7 +868,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -990,16 +928,11 @@ public class SecureAppApi {
       /**
    * Update Secure Application
    * Update a secure application record.
-   * @param version    * @param accountId The unique id of the user making the request   * @param appKey The application to secure   * @param active    * @param keyCert    * @param trustStore    * @param username    * @param password    * @param biometricType The type of biometric, options are: - FINGERPRINT - IRIS - FACIAL   * @param biometricPosition The position for the biometric file uploaded   * @param biometricPosition2 The position for each the biometric2 file uploaded
+   * @param accountId The unique id of the user making the request   * @param appKey The application to secure   * @param active    * @param keyCert    * @param trustStore    * @param username    * @param password    * @param biometricType The type of biometric, options are: - FINGERPRINT - IRIS - FACIAL   * @param biometricPosition The position for the biometric file uploaded   * @param biometricPosition2 The position for each the biometric2 file uploaded
   */
-  public void updateSecureApplication (BigDecimal version, Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateSecureApplication (Long accountId, String appKey, Boolean active, File keyCert, File trustStore, String username, String password, String biometricType, String biometricPosition, String biometricPosition2, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSecureApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSecureApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSecureApplication",
@@ -1012,7 +945,7 @@ public class SecureAppApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/secure/application/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/secure/application/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

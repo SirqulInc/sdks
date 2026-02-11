@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CoordsResponse;
 import java.io.File;
 import org.openapitools.client.model.GeoPointResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class LocationApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,7 +63,6 @@ public class LocationApi {
   /**
   * Create Trilateration Data with File
   * Creates trilateration samples for a source device (i.e. a router).
-   * @param version 
    * @param udid The unique identifier of the source device
    * @param sourceTime The current timestamp of the source device
    * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device
@@ -72,13 +70,8 @@ public class LocationApi {
    * @param dataFile Binary file containing data (multipart upload)
    * @return SirqulResponse
   */
-  public SirqulResponse cacheTrilaterationData (BigDecimal version, String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse cacheTrilaterationData (String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cacheTrilaterationData",
-        new ApiException(400, "Missing the required parameter 'version' when calling cacheTrilaterationData"));
-    }
     // verify the required parameter 'udid' is set
     if (udid == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'udid' when calling cacheTrilaterationData",
@@ -86,7 +79,7 @@ public class LocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/trilaterate/cache".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/trilaterate/cache";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -141,16 +134,11 @@ public class LocationApi {
       /**
    * Create Trilateration Data with File
    * Creates trilateration samples for a source device (i.e. a router).
-   * @param version    * @param udid The unique identifier of the source device   * @param sourceTime The current timestamp of the source device   * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device   * @param data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;    * @param dataFile Binary file containing data (multipart upload)
+   * @param udid The unique identifier of the source device   * @param sourceTime The current timestamp of the source device   * @param minimumSampleSize the minimum number of Edysen devices that must be used to be able to trilaterate a device   * @param data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;:\&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;randomizedId\&quot;: true,        \&quot;deviceSignature\&quot;: \&quot;probe:xyz...\&quot;,        \&quot;alternativeId\&quot;: \&quot;adc123\&quot;,        \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;    * @param dataFile Binary file containing data (multipart upload)
   */
-  public void cacheTrilaterationData (BigDecimal version, String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void cacheTrilaterationData (String udid, Long sourceTime, Integer minimumSampleSize, String data, File dataFile, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cacheTrilaterationData",
-        new ApiException(400, "Missing the required parameter 'version' when calling cacheTrilaterationData"));
-    }
     // verify the required parameter 'udid' is set
     if (udid == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'udid' when calling cacheTrilaterationData",
@@ -158,7 +146,7 @@ public class LocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/trilaterate/cache".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/trilaterate/cache".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -216,20 +204,14 @@ public class LocationApi {
   /**
   * Create Trilateration Data with Rest
   * Creates trilateration samples for a source device (i.e. a router).
-   * @param version 
    * @param body 
    * @return SirqulResponse
   */
-  public SirqulResponse cacheTrilaterationDataGzip (BigDecimal version, TrilatCacheRequest body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse cacheTrilaterationDataGzip (TrilatCacheRequest body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cacheTrilaterationDataGzip",
-        new ApiException(400, "Missing the required parameter 'version' when calling cacheTrilaterationDataGzip"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/trilaterate/cache/submit".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/trilaterate/cache/submit";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -279,19 +261,14 @@ public class LocationApi {
       /**
    * Create Trilateration Data with Rest
    * Creates trilateration samples for a source device (i.e. a router).
-   * @param version    * @param body 
+   * @param body 
   */
-  public void cacheTrilaterationDataGzip (BigDecimal version, TrilatCacheRequest body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void cacheTrilaterationDataGzip (TrilatCacheRequest body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cacheTrilaterationDataGzip",
-        new ApiException(400, "Missing the required parameter 'version' when calling cacheTrilaterationDataGzip"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/trilaterate/cache/submit".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/trilaterate/cache/submit".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -344,20 +321,14 @@ public class LocationApi {
   /**
   * Get Location by IP
   * Get location information based on an IP address.
-   * @param version 
    * @param ip the ip address of the client device
    * @return CoordsResponse
   */
-  public CoordsResponse getLocationByIp (BigDecimal version, String ip) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CoordsResponse getLocationByIp (String ip) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocationByIp",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocationByIp"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/ip".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/ip";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -408,19 +379,14 @@ public class LocationApi {
       /**
    * Get Location by IP
    * Get location information based on an IP address.
-   * @param version    * @param ip the ip address of the client device
+   * @param ip the ip address of the client device
   */
-  public void getLocationByIp (BigDecimal version, String ip, final Response.Listener<CoordsResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getLocationByIp (String ip, final Response.Listener<CoordsResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocationByIp",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocationByIp"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/ip".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/ip".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -474,7 +440,6 @@ public class LocationApi {
   /**
   * Get Location by Trilateration
   * Send in device data and calculate a position based on signal strengths.
-   * @param version 
    * @param accountId The account making the request, if provided the last know location will be updated
    * @param latitude The known GPS latitude to compare to the calculated version
    * @param longitude The known GPS longitude to compare to the calculated version
@@ -482,16 +447,11 @@ public class LocationApi {
    * @param responseFilters Optional response filters (not used currently)
    * @return GeoPointResponse
   */
-  public GeoPointResponse getLocationByTrilateration (BigDecimal version, Long accountId, Double latitude, Double longitude, String data, String responseFilters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GeoPointResponse getLocationByTrilateration (Long accountId, Double latitude, Double longitude, String data, String responseFilters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocationByTrilateration",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocationByTrilateration"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/account/location/trilaterate".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/account/location/trilaterate";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -546,19 +506,14 @@ public class LocationApi {
       /**
    * Get Location by Trilateration
    * Send in device data and calculate a position based on signal strengths.
-   * @param version    * @param accountId The account making the request, if provided the last know location will be updated   * @param latitude The known GPS latitude to compare to the calculated version   * @param longitude The known GPS longitude to compare to the calculated version   * @param data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;    * @param responseFilters Optional response filters (not used currently)
+   * @param accountId The account making the request, if provided the last know location will be updated   * @param latitude The known GPS latitude to compare to the calculated version   * @param longitude The known GPS longitude to compare to the calculated version   * @param data The json formated sample data:  &#x60;&#x60;&#x60;json {    \&quot;count\&quot;: 2,   \&quot;timespan\&quot;: 10,    \&quot;samples\&quot;: [     {       \&quot;deviceId\&quot;: \&quot;device1\&quot;,       \&quot;rssi\&quot;: [-63, -75]     },      {       \&quot;deviceId\&quot;: \&quot;device2\&quot;,       \&quot;rssi\&quot;: [-83, -79]     }   ] } &#x60;&#x60;&#x60;    * @param responseFilters Optional response filters (not used currently)
   */
-  public void getLocationByTrilateration (BigDecimal version, Long accountId, Double latitude, Double longitude, String data, String responseFilters, final Response.Listener<GeoPointResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getLocationByTrilateration (Long accountId, Double latitude, Double longitude, String data, String responseFilters, final Response.Listener<GeoPointResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocationByTrilateration",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocationByTrilateration"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/account/location/trilaterate".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/account/location/trilaterate".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -616,7 +571,6 @@ public class LocationApi {
   /**
   * Search Regions or Postal Codes
   * Searches geographic locations by proximity via address or keyword.
-   * @param version 
    * @param deviceId the device id
    * @param accountId the account id
    * @param currentlatitude This parameter is deprecated.
@@ -638,16 +592,11 @@ public class LocationApi {
    * @param limit the limit for pagination
    * @return LocationSearchResponse
   */
-  public LocationSearchResponse getLocations (BigDecimal version, String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LocationSearchResponse getLocations (String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -716,19 +665,14 @@ public class LocationApi {
       /**
    * Search Regions or Postal Codes
    * Searches geographic locations by proximity via address or keyword.
-   * @param version    * @param deviceId the device id   * @param accountId the account id   * @param currentlatitude This parameter is deprecated.   * @param currentlongitude This parameter is deprecated.   * @param currentLatitude the current latitude of the user   * @param currentLongitude the current longitude of the user   * @param query the query results by keyword or address   * @param zipcode This parameter is deprecated.   * @param zipCode the zip code to filter results   * @param selectedMaplatitude This parameter is deprecated.   * @param selectedMaplongitude This parameter is deprecated.   * @param selectedMapLatitude the latitude of where the search should originate from   * @param selectedMapLongitude the longitude of where the search should originate from   * @param searchRange the search range of the search in miles   * @param useGeocode determines whether to allow searches via address   * @param i This parameter is deprecated.   * @param start the start index for pagination   * @param l This parameter is deprecated.   * @param limit the limit for pagination
+   * @param deviceId the device id   * @param accountId the account id   * @param currentlatitude This parameter is deprecated.   * @param currentlongitude This parameter is deprecated.   * @param currentLatitude the current latitude of the user   * @param currentLongitude the current longitude of the user   * @param query the query results by keyword or address   * @param zipcode This parameter is deprecated.   * @param zipCode the zip code to filter results   * @param selectedMaplatitude This parameter is deprecated.   * @param selectedMaplongitude This parameter is deprecated.   * @param selectedMapLatitude the latitude of where the search should originate from   * @param selectedMapLongitude the longitude of where the search should originate from   * @param searchRange the search range of the search in miles   * @param useGeocode determines whether to allow searches via address   * @param i This parameter is deprecated.   * @param start the start index for pagination   * @param l This parameter is deprecated.   * @param limit the limit for pagination
   */
-  public void getLocations (BigDecimal version, String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit, final Response.Listener<LocationSearchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getLocations (String deviceId, Long accountId, Double currentlatitude, Double currentlongitude, Double currentLatitude, Double currentLongitude, String query, String zipcode, String zipCode, Double selectedMaplatitude, Double selectedMaplongitude, Double selectedMapLatitude, Double selectedMapLongitude, Double searchRange, Boolean useGeocode, Integer i, Integer start, Integer l, Integer limit, final Response.Listener<LocationSearchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLocations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

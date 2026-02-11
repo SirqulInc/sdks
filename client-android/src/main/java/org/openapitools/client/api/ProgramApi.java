@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.Program;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ProgramApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class ProgramApi {
   /**
   * Create Program
   * Create a new program
-   * @param version 
    * @param body 
    * @return Program
   */
-  public Program createProgram (BigDecimal version, Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Program createProgram (Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling createProgram"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/program";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class ProgramApi {
       /**
    * Create Program
    * Create a new program
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createProgram (BigDecimal version, Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
+  public void createProgram (Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling createProgram"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/program".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/program".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,17 +176,11 @@ public class ProgramApi {
   /**
   * Delete Program
   * Delete an existing program
-   * @param version 
    * @param id the id of the program
    * @return void
   */
-  public void deleteProgram (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteProgram (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteProgram",
@@ -206,7 +188,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -256,16 +238,11 @@ public class ProgramApi {
       /**
    * Delete Program
    * Delete an existing program
-   * @param version    * @param id the id of the program
+   * @param id the id of the program
   */
-  public void deleteProgram (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteProgram (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteProgram",
@@ -273,7 +250,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -322,17 +299,11 @@ public class ProgramApi {
   /**
   * Get Program
   * Get an existing program
-   * @param version 
    * @param id the id of the program
    * @return Program
   */
-  public Program getProgram (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Program getProgram (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling getProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getProgram",
@@ -340,7 +311,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -390,16 +361,11 @@ public class ProgramApi {
       /**
    * Get Program
    * Get an existing program
-   * @param version    * @param id the id of the program
+   * @param id the id of the program
   */
-  public void getProgram (BigDecimal version, Long id, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
+  public void getProgram (Long id, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling getProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getProgram",
@@ -407,7 +373,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,18 +426,12 @@ public class ProgramApi {
   /**
   * Update Program
   * Update an existing program
-   * @param version 
    * @param id the id of the program
    * @param body 
    * @return Program
   */
-  public Program postProgram (BigDecimal version, Long id, Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Program postProgram (Long id, Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling postProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling postProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling postProgram",
@@ -479,7 +439,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -529,16 +489,11 @@ public class ProgramApi {
       /**
    * Update Program
    * Update an existing program
-   * @param version    * @param id the id of the program   * @param body 
+   * @param id the id of the program   * @param body 
   */
-  public void postProgram (BigDecimal version, Long id, Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
+  public void postProgram (Long id, Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling postProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling postProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling postProgram",
@@ -546,7 +501,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -599,18 +554,12 @@ public class ProgramApi {
   /**
   * Update Program
   * Update an existing program
-   * @param version 
    * @param id the id of the program
    * @param body 
    * @return Program
   */
-  public Program putProgram (BigDecimal version, Long id, Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Program putProgram (Long id, Program body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling putProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling putProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling putProgram",
@@ -618,7 +567,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -668,16 +617,11 @@ public class ProgramApi {
       /**
    * Update Program
    * Update an existing program
-   * @param version    * @param id the id of the program   * @param body 
+   * @param id the id of the program   * @param body 
   */
-  public void putProgram (BigDecimal version, Long id, Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
+  public void putProgram (Long id, Program body, final Response.Listener<Program> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling putProgram",
-        new ApiException(400, "Missing the required parameter 'version' when calling putProgram"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling putProgram",
@@ -685,7 +629,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/program/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -738,7 +682,6 @@ public class ProgramApi {
   /**
   * Search Programs
   * Search for programs
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -747,13 +690,8 @@ public class ProgramApi {
    * @param keyword The keyword to filter results by
    * @return List<Program>
   */
-  public List<Program> searchPrograms (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Program> searchPrograms (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPrograms",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPrograms"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchPrograms",
@@ -781,7 +719,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/program";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -837,16 +775,11 @@ public class ProgramApi {
       /**
    * Search Programs
    * Search for programs
-   * @param version    * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to filter results by
+   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to filter results by
   */
-  public void searchPrograms (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, final Response.Listener<List<Program>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPrograms (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, final Response.Listener<List<Program>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPrograms",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPrograms"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchPrograms",
@@ -874,7 +807,7 @@ public class ProgramApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/program".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/program".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

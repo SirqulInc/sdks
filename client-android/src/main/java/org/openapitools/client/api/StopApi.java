@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Stop;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class StopApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,17 +58,11 @@ public class StopApi {
   /**
   * Get Stop
   * Get an existing stop
-   * @param version 
    * @param id the id of the stop to get
    * @return Stop
   */
-  public Stop getStop (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Stop getStop (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getStop"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getStop",
@@ -77,7 +70,7 @@ public class StopApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -127,16 +120,11 @@ public class StopApi {
       /**
    * Get Stop
    * Get an existing stop
-   * @param version    * @param id the id of the stop to get
+   * @param id the id of the stop to get
   */
-  public void getStop (BigDecimal version, Long id, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
+  public void getStop (Long id, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getStop"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getStop",
@@ -144,7 +132,7 @@ public class StopApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stop/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/stop/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -197,18 +185,12 @@ public class StopApi {
   /**
   * Update Stop
   * Update an existing stop
-   * @param version 
    * @param id the id of the stop to update
    * @param body 
    * @return Stop
   */
-  public Stop updateStop (BigDecimal version, Long id, Stop body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Stop updateStop (Long id, Stop body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateStop"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateStop",
@@ -216,7 +198,7 @@ public class StopApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stop/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/stop/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -266,16 +248,11 @@ public class StopApi {
       /**
    * Update Stop
    * Update an existing stop
-   * @param version    * @param id the id of the stop to update   * @param body 
+   * @param id the id of the stop to update   * @param body 
   */
-  public void updateStop (BigDecimal version, Long id, Stop body, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
+  public void updateStop (Long id, Stop body, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateStop"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateStop",
@@ -283,7 +260,7 @@ public class StopApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stop/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/stop/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

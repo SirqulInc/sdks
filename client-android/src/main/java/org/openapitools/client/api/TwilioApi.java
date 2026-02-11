@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.TwiMLResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TwilioApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,20 +58,14 @@ public class TwilioApi {
   /**
   * Buy Offer by SMS
   * Recieve an SMS payload from Twillio to purchase an offer.
-   * @param version 
    * @param appKey the application key
    * @param body the message of the text
    * @param from the sender of the sms
    * @param currencyType the type of currency
    * @return TwiMLResponse
   */
-  public TwiMLResponse smsBuyOffer (BigDecimal version, String appKey, String body, String from, String currencyType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TwiMLResponse smsBuyOffer (String appKey, String body, String from, String currencyType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling smsBuyOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling smsBuyOffer"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling smsBuyOffer",
@@ -95,7 +88,7 @@ public class TwilioApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/sms/buyoffer/{appKey}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "appKey" + "\\}", apiInvoker.escapeString(appKey.toString()));
+    String path = "/sms/buyoffer/{appKey}".replaceAll("\\{" + "appKey" + "\\}", apiInvoker.escapeString(appKey.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -148,16 +141,11 @@ public class TwilioApi {
       /**
    * Buy Offer by SMS
    * Recieve an SMS payload from Twillio to purchase an offer.
-   * @param version    * @param appKey the application key   * @param body the message of the text   * @param from the sender of the sms   * @param currencyType the type of currency
+   * @param appKey the application key   * @param body the message of the text   * @param from the sender of the sms   * @param currencyType the type of currency
   */
-  public void smsBuyOffer (BigDecimal version, String appKey, String body, String from, String currencyType, final Response.Listener<TwiMLResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void smsBuyOffer (String appKey, String body, String from, String currencyType, final Response.Listener<TwiMLResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling smsBuyOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling smsBuyOffer"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling smsBuyOffer",
@@ -180,7 +168,7 @@ public class TwilioApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/sms/buyoffer/{appKey}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "appKey" + "\\}", apiInvoker.escapeString(appKey.toString()));
+    String path = "/sms/buyoffer/{appKey}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "appKey" + "\\}", apiInvoker.escapeString(appKey.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

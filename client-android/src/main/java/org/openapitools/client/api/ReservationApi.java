@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AvailabilityResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ReservationResponse;
 import org.openapitools.client.model.TimeSlotResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ReservationApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class ReservationApi {
   /**
   * Create Reservation
   * Creates a reservation on an offer object
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param startDate The start date
@@ -73,16 +71,11 @@ public class ReservationApi {
    * @param metaData External custom client defined data
    * @return void
   */
-  public void createReservation (BigDecimal version, String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void createReservation (String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createReservation",
-        new ApiException(400, "Missing the required parameter 'version' when calling createReservation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -140,19 +133,14 @@ public class ReservationApi {
       /**
    * Create Reservation
    * Creates a reservation on an offer object
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param startDate The start date   * @param endDate The end date   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param appKey The application requesting the reservation   * @param metaData External custom client defined data
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param startDate The start date   * @param endDate The end date   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param appKey The application requesting the reservation   * @param metaData External custom client defined data
   */
-  public void createReservation (BigDecimal version, String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void createReservation (String deviceId, Long accountId, Long startDate, Long endDate, Long offerId, Long offerLocationId, String appKey, String metaData, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createReservation",
-        new ApiException(400, "Missing the required parameter 'version' when calling createReservation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -209,19 +197,13 @@ public class ReservationApi {
   /**
   * Delete Reservation
   * Deleted a reservation on a reservation object
-   * @param version 
    * @param reservationId The reservation id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return void
   */
-  public void deleteReservation (BigDecimal version, Long reservationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteReservation (Long reservationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteReservation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteReservation"));
-    }
     // verify the required parameter 'reservationId' is set
     if (reservationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservationId' when calling deleteReservation",
@@ -229,7 +211,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -282,16 +264,11 @@ public class ReservationApi {
       /**
    * Delete Reservation
    * Deleted a reservation on a reservation object
-   * @param version    * @param reservationId The reservation id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param reservationId The reservation id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void deleteReservation (BigDecimal version, Long reservationId, String deviceId, Long accountId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteReservation (Long reservationId, String deviceId, Long accountId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteReservation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteReservation"));
-    }
     // verify the required parameter 'reservationId' is set
     if (reservationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservationId' when calling deleteReservation",
@@ -299,7 +276,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -351,7 +328,6 @@ public class ReservationApi {
   /**
   * Update Availability
   * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the type of reservation
    * @param deviceId the device id of the reservation
@@ -360,13 +336,8 @@ public class ReservationApi {
    * @param availabilitySummary Availability Summary
    * @return List<AvailabilityResponse>
   */
-  public List<AvailabilityResponse> reservableAvailability (BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AvailabilityResponse> reservableAvailability (Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reservableAvailability",
-        new ApiException(400, "Missing the required parameter 'version' when calling reservableAvailability"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling reservableAvailability",
@@ -379,7 +350,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/availability/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/availability/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -435,16 +406,11 @@ public class ReservationApi {
       /**
    * Update Availability
    * 
-   * @param version    * @param reservableId the id of the reservation   * @param reservableType the type of reservation   * @param deviceId the device id of the reservation   * @param accountId the id of the logged in user   * @param availability Availability   * @param availabilitySummary Availability Summary
+   * @param reservableId the id of the reservation   * @param reservableType the type of reservation   * @param deviceId the device id of the reservation   * @param accountId the id of the logged in user   * @param availability Availability   * @param availabilitySummary Availability Summary
   */
-  public void reservableAvailability (BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary, final Response.Listener<List<AvailabilityResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void reservableAvailability (Long reservableId, String reservableType, String deviceId, Long accountId, String availability, String availabilitySummary, final Response.Listener<List<AvailabilityResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reservableAvailability",
-        new ApiException(400, "Missing the required parameter 'version' when calling reservableAvailability"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling reservableAvailability",
@@ -457,7 +423,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/availability/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/availability/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -516,7 +482,6 @@ public class ReservationApi {
   /**
   * Search Availability
   * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the reservable type
    * @param deviceId the device ID that the reservation is on
@@ -527,13 +492,8 @@ public class ReservationApi {
    * @param limit the limit of the index and/or pagination
    * @return List<AvailabilityResponse>
   */
-  public List<AvailabilityResponse> searchAvailability (BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AvailabilityResponse> searchAvailability (Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAvailability",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAvailability"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling searchAvailability",
@@ -546,7 +506,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/availability/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/availability/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -604,16 +564,11 @@ public class ReservationApi {
       /**
    * Search Availability
    * 
-   * @param version    * @param reservableId the id of the reservation   * @param reservableType the reservable type   * @param deviceId the device ID that the reservation is on   * @param accountId the id of the logged in user   * @param startDate the start date of the reservation   * @param endDate the end date of the reservation   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
+   * @param reservableId the id of the reservation   * @param reservableType the reservable type   * @param deviceId the device ID that the reservation is on   * @param accountId the id of the logged in user   * @param startDate the start date of the reservation   * @param endDate the end date of the reservation   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
   */
-  public void searchAvailability (BigDecimal version, Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<AvailabilityResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchAvailability (Long reservableId, String reservableType, String deviceId, Long accountId, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<AvailabilityResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAvailability",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAvailability"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling searchAvailability",
@@ -626,7 +581,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/availability/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/availability/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -687,7 +642,6 @@ public class ReservationApi {
   /**
   * Search Reservations
   * 
-   * @param version 
    * @param deviceId Device Id
    * @param appKey Appilcation Key
    * @param accountId the id of the logged in user
@@ -701,16 +655,11 @@ public class ReservationApi {
    * @param limit the limit of the index and/or pagination
    * @return List<ReservationResponse>
   */
-  public List<ReservationResponse> searchReservations (BigDecimal version, String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ReservationResponse> searchReservations (String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchReservations",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchReservations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -771,19 +720,14 @@ public class ReservationApi {
       /**
    * Search Reservations
    * 
-   * @param version    * @param deviceId Device Id   * @param appKey Appilcation Key   * @param accountId the id of the logged in user   * @param filterAccountId filter reservations by account ID   * @param reservableId the reservation ID   * @param reservableType the type of reservation   * @param keyword the keyword to search the reservation on   * @param startDate the start date of the reservation search   * @param endDate the end date of the reservation search   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
+   * @param deviceId Device Id   * @param appKey Appilcation Key   * @param accountId the id of the logged in user   * @param filterAccountId filter reservations by account ID   * @param reservableId the reservation ID   * @param reservableType the type of reservation   * @param keyword the keyword to search the reservation on   * @param startDate the start date of the reservation search   * @param endDate the end date of the reservation search   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
   */
-  public void searchReservations (BigDecimal version, String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<ReservationResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchReservations (String deviceId, String appKey, Long accountId, Long filterAccountId, Long reservableId, String reservableType, String keyword, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<ReservationResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchReservations",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchReservations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/reservation/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservation/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -847,7 +791,6 @@ public class ReservationApi {
   /**
   * Search Schedule
   * 
-   * @param version 
    * @param reservableId the id of the reservation
    * @param reservableType the reservation type
    * @param startDate the start date of the reservation
@@ -857,13 +800,8 @@ public class ReservationApi {
    * @param timeBucketMins the length of time in minutes to search on for reservation
    * @return List<TimeSlotResponse>
   */
-  public List<TimeSlotResponse> searchSchedule (BigDecimal version, Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<TimeSlotResponse> searchSchedule (Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchSchedule",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchSchedule"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling searchSchedule",
@@ -886,7 +824,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/schedule/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/schedule/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -943,16 +881,11 @@ public class ReservationApi {
       /**
    * Search Schedule
    * 
-   * @param version    * @param reservableId the id of the reservation   * @param reservableType the reservation type   * @param startDate the start date of the reservation   * @param endDate the end date of the reservation   * @param deviceId the id of the device that the reservation is on   * @param accountId the id of the logged in user   * @param timeBucketMins the length of time in minutes to search on for reservation
+   * @param reservableId the id of the reservation   * @param reservableType the reservation type   * @param startDate the start date of the reservation   * @param endDate the end date of the reservation   * @param deviceId the id of the device that the reservation is on   * @param accountId the id of the logged in user   * @param timeBucketMins the length of time in minutes to search on for reservation
   */
-  public void searchSchedule (BigDecimal version, Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins, final Response.Listener<List<TimeSlotResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchSchedule (Long reservableId, String reservableType, Long startDate, Long endDate, String deviceId, Long accountId, Integer timeBucketMins, final Response.Listener<List<TimeSlotResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchSchedule",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchSchedule"));
-    }
     // verify the required parameter 'reservableId' is set
     if (reservableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'reservableId' when calling searchSchedule",
@@ -975,7 +908,7 @@ public class ReservationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/reservable/schedule/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/reservable/schedule/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

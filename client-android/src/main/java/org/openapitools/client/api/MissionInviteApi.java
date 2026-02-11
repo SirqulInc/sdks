@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.MissionResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class MissionInviteApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class MissionInviteApi {
   /**
   * Create Mission Invite
   * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for.
@@ -69,16 +67,11 @@ public class MissionInviteApi {
    * @param includeGameData Include the game level data with the mission.
    * @return MissionResponse
   */
-  public MissionResponse createMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse createMissionInvite (String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -133,19 +126,14 @@ public class MissionInviteApi {
       /**
    * Create Mission Invite
    * Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-   * @param version    * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for.   * @param joinCode code to be entered for user to join the mission   * @param includeGameData Include the game level data with the mission.
+   * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for.   * @param joinCode code to be entered for user to join the mission   * @param includeGameData Include the game level data with the mission.
   */
-  public void createMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createMissionInvite (String deviceId, Long accountId, Long missionId, String joinCode, Boolean includeGameData, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -203,7 +191,6 @@ public class MissionInviteApi {
   /**
   * Delete Mission Invite
   * Update the mission invite status to quit.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
@@ -211,16 +198,11 @@ public class MissionInviteApi {
    * @param includeGameData Include the game level data with the mission.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteMissionInvite (String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -275,19 +257,14 @@ public class MissionInviteApi {
       /**
    * Delete Mission Invite
    * Update the mission invite status to quit.
-   * @param version    * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param includeGameData Include the game level data with the mission.
+   * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param includeGameData Include the game level data with the mission.
   */
-  public void deleteMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteMissionInvite (String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -345,7 +322,6 @@ public class MissionInviteApi {
   /**
   * Get Mission Invite
   * Get the mission invite. An account can only be invited to a mission one time.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param missionId The mission to find the invite for (missionId or missionInviteId requried).
@@ -354,16 +330,11 @@ public class MissionInviteApi {
    * @param includeScores include the scores with the mission
    * @return MissionResponse
   */
-  public MissionResponse getMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse getMissionInvite (String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -419,19 +390,14 @@ public class MissionInviteApi {
       /**
    * Get Mission Invite
    * Get the mission invite. An account can only be invited to a mission one time.
-   * @param version    * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param includeGameData Include the game level data with the mission.   * @param includeScores include the scores with the mission
+   * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param includeGameData Include the game level data with the mission.   * @param includeScores include the scores with the mission
   */
-  public void getMissionInvite (BigDecimal version, String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getMissionInvite (String deviceId, Long accountId, Long missionId, Long missionInviteId, Boolean includeGameData, String includeScores, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -490,7 +456,6 @@ public class MissionInviteApi {
   /**
   * Search Mission Invites
   * Get a list of mission invites that the account has.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param appKey the app to retrieve the data for, use your application key.
@@ -506,16 +471,11 @@ public class MissionInviteApi {
    * @param includeGameData Include the game level data with the mission.
    * @return List<MissionResponse>
   */
-  public List<MissionResponse> searchMissionInvites (BigDecimal version, String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MissionResponse> searchMissionInvites (String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionInvites",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionInvites"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -578,19 +538,14 @@ public class MissionInviteApi {
       /**
    * Search Mission Invites
    * Get a list of mission invites that the account has.
-   * @param version    * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param appKey the app to retrieve the data for, use your application key.   * @param appVersion the application version, used to version the game level data   * @param missionId the mission id to filter on   * @param status The invite status to filter for, comma separated list {AVAILABLE, PENDING, UPDATED, ACCEPTED, ACTIVE, QUIT, COMPLETED, PENDING_REVIEW, REJECTED}   * @param lastUpdated Only return invites that have been updated since this date/time (long)   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param keyword the keyword to search on   * @param missionTypes    * @param filterByBillable filter results by the account&#39;s billable   * @param includeGameData Include the game level data with the mission.
+   * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param appKey the app to retrieve the data for, use your application key.   * @param appVersion the application version, used to version the game level data   * @param missionId the mission id to filter on   * @param status The invite status to filter for, comma separated list {AVAILABLE, PENDING, UPDATED, ACCEPTED, ACTIVE, QUIT, COMPLETED, PENDING_REVIEW, REJECTED}   * @param lastUpdated Only return invites that have been updated since this date/time (long)   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param keyword the keyword to search on   * @param missionTypes    * @param filterByBillable filter results by the account&#39;s billable   * @param includeGameData Include the game level data with the mission.
   */
-  public void searchMissionInvites (BigDecimal version, String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchMissionInvites (String deviceId, Long accountId, String appKey, String appVersion, Long missionId, String status, Long lastUpdated, Integer start, Integer limit, String keyword, String missionTypes, Boolean filterByBillable, Boolean includeGameData, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionInvites",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionInvites"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -656,7 +611,6 @@ public class MissionInviteApi {
   /**
   * Update Mission Invite
   * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required).
    * @param accountId the account id of the user (deviceId or accountId required).
    * @param appKey the application key
@@ -670,16 +624,11 @@ public class MissionInviteApi {
    * @param includeGameData Include the game level data with the mission.
    * @return MissionResponse
   */
-  public MissionResponse updateMissionInvite (BigDecimal version, String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse updateMissionInvite (String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -740,19 +689,14 @@ public class MissionInviteApi {
       /**
    * Update Mission Invite
    * Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-   * @param version    * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param appKey the application key   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param packId the pack id to find the invite for   * @param gameLevelId the game level id to find the invite for   * @param status The invite status to filter for, comma separated list {AVAILABLE, PENDING, UPDATED, ACCEPTED, ACTIVE, QUIT, COMPLETED, PENDING_REVIEW, REJECTED}   * @param permissionableType This is the content type for missions that require user submission. Note that user submitted content must require a status of PENDING_REVIEW to be accpeted. {ACCOUNT, GAMELEVEL, COLLECTION, ALBUM_CONTEST, THEME_DESCRIPTOR, ALBUM}   * @param permissionableId The id of the content being submitted.   * @param includeGameData Include the game level data with the mission.
+   * @param deviceId the device id (deviceId or accountId required).   * @param accountId the account id of the user (deviceId or accountId required).   * @param appKey the application key   * @param missionId The mission to find the invite for (missionId or missionInviteId requried).   * @param missionInviteId The mission invite id. This checks on the user&#39;s billable for permission (missionId or missionInviteId requried).   * @param packId the pack id to find the invite for   * @param gameLevelId the game level id to find the invite for   * @param status The invite status to filter for, comma separated list {AVAILABLE, PENDING, UPDATED, ACCEPTED, ACTIVE, QUIT, COMPLETED, PENDING_REVIEW, REJECTED}   * @param permissionableType This is the content type for missions that require user submission. Note that user submitted content must require a status of PENDING_REVIEW to be accpeted. {ACCOUNT, GAMELEVEL, COLLECTION, ALBUM_CONTEST, THEME_DESCRIPTOR, ALBUM}   * @param permissionableId The id of the content being submitted.   * @param includeGameData Include the game level data with the mission.
   */
-  public void updateMissionInvite (BigDecimal version, String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateMissionInvite (String deviceId, Long accountId, String appKey, Long missionId, Long missionInviteId, Long packId, Long gameLevelId, String status, String permissionableType, Long permissionableId, Boolean includeGameData, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMissionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMissionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/mission/invite/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/invite/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

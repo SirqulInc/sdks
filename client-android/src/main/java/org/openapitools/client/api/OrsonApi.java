@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.OrsonAiAddMovieResponse;
 import org.openapitools.client.model.OrsonAiBatchResponse;
@@ -48,7 +47,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OrsonApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -70,7 +69,6 @@ public class OrsonApi {
   /**
   * Add Movie
   * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param movieName Movie Name
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -80,13 +78,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiAddMovieResponse
   */
-  public OrsonAiAddMovieResponse addMovie (BigDecimal version, Long accountId, String movieName, String thirdPartyAccountId, String tags, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiAddMovieResponse addMovie (Long accountId, String movieName, String thirdPartyAccountId, String tags, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addMovie",
-        new ApiException(400, "Missing the required parameter 'version' when calling addMovie"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addMovie",
@@ -99,7 +92,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/addMovie".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/addMovie";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -156,16 +149,11 @@ public class OrsonApi {
       /**
    * Add Movie
    * Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-   * @param version    * @param accountId Sirqul Account Id   * @param movieName Movie Name   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param tags A user defined list (comma-delimited) of tags associated with the movie   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param movieName Movie Name   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param tags A user defined list (comma-delimited) of tags associated with the movie   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void addMovie (BigDecimal version, Long accountId, String movieName, String thirdPartyAccountId, String tags, File file, String url, String callback, final Response.Listener<OrsonAiAddMovieResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addMovie (Long accountId, String movieName, String thirdPartyAccountId, String tags, File file, String url, String callback, final Response.Listener<OrsonAiAddMovieResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addMovie",
-        new ApiException(400, "Missing the required parameter 'version' when calling addMovie"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addMovie",
@@ -178,7 +166,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/addMovie".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/addMovie".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -238,7 +226,6 @@ public class OrsonApi {
   /**
   * Search Docs
   * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param doc Doc
    * @param returnTopics Return Topics
@@ -246,13 +233,8 @@ public class OrsonApi {
    * @param offset Offset
    * @return OrsonAiProtoResponse
   */
-  public OrsonAiProtoResponse aiDocs (BigDecimal version, Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiProtoResponse aiDocs (Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiDocs",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiDocs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiDocs",
@@ -265,7 +247,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/docs".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/docs";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -320,16 +302,11 @@ public class OrsonApi {
       /**
    * Search Docs
    * Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-   * @param version    * @param accountId Sirqul Account Id   * @param doc Doc   * @param returnTopics Return Topics   * @param limit Limit   * @param offset Offset
+   * @param accountId Sirqul Account Id   * @param doc Doc   * @param returnTopics Return Topics   * @param limit Limit   * @param offset Offset
   */
-  public void aiDocs (BigDecimal version, Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void aiDocs (Long accountId, String doc, Boolean returnTopics, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiDocs",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiDocs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiDocs",
@@ -342,7 +319,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/docs".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/docs".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -400,7 +377,6 @@ public class OrsonApi {
   /**
   * Find images
   * Returns a list of URIs of images that match the text.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param text Text
    * @param parseFlag Parse Flag
@@ -408,13 +384,8 @@ public class OrsonApi {
    * @param size Size
    * @return OrsonAiProtoResponse
   */
-  public OrsonAiProtoResponse aiFindImages (BigDecimal version, Long accountId, String text, String parseFlag, String fetchFlag, String size) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiProtoResponse aiFindImages (Long accountId, String text, String parseFlag, String fetchFlag, String size) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiFindImages",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiFindImages"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiFindImages",
@@ -427,7 +398,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/img".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/img";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -482,16 +453,11 @@ public class OrsonApi {
       /**
    * Find images
    * Returns a list of URIs of images that match the text.
-   * @param version    * @param accountId Sirqul Account Id   * @param text Text   * @param parseFlag Parse Flag   * @param fetchFlag Fetch Flag   * @param size Size
+   * @param accountId Sirqul Account Id   * @param text Text   * @param parseFlag Parse Flag   * @param fetchFlag Fetch Flag   * @param size Size
   */
-  public void aiFindImages (BigDecimal version, Long accountId, String text, String parseFlag, String fetchFlag, String size, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void aiFindImages (Long accountId, String text, String parseFlag, String fetchFlag, String size, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiFindImages",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiFindImages"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiFindImages",
@@ -504,7 +470,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/img".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/img".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -562,7 +528,6 @@ public class OrsonApi {
   /**
   * Search Tags
   * Search the tags column of user provided tags using this endpoint.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param tags Tags
    * @param conditional Conditional
@@ -570,13 +535,8 @@ public class OrsonApi {
    * @param offset Offset
    * @return OrsonAiProtoResponse
   */
-  public OrsonAiProtoResponse aiTags (BigDecimal version, Long accountId, String tags, String conditional, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiProtoResponse aiTags (Long accountId, String tags, String conditional, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiTags",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiTags"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiTags",
@@ -589,7 +549,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tags".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/tags";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -644,16 +604,11 @@ public class OrsonApi {
       /**
    * Search Tags
    * Search the tags column of user provided tags using this endpoint.
-   * @param version    * @param accountId Sirqul Account Id   * @param tags Tags   * @param conditional Conditional   * @param limit Limit   * @param offset Offset
+   * @param accountId Sirqul Account Id   * @param tags Tags   * @param conditional Conditional   * @param limit Limit   * @param offset Offset
   */
-  public void aiTags (BigDecimal version, Long accountId, String tags, String conditional, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void aiTags (Long accountId, String tags, String conditional, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiTags",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiTags"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiTags",
@@ -666,7 +621,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tags".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/tags".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -724,7 +679,6 @@ public class OrsonApi {
   /**
   * Search Text
   * Search the movie text column of movie text using this endpoint.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param terms Terms
    * @param conditional Conditional
@@ -732,13 +686,8 @@ public class OrsonApi {
    * @param offset Offset
    * @return OrsonAiProtoResponse
   */
-  public OrsonAiProtoResponse aiText (BigDecimal version, Long accountId, String terms, String conditional, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiProtoResponse aiText (Long accountId, String terms, String conditional, Integer limit, Integer offset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiText",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiText"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiText",
@@ -751,7 +700,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/text".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/text";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -806,16 +755,11 @@ public class OrsonApi {
       /**
    * Search Text
    * Search the movie text column of movie text using this endpoint.
-   * @param version    * @param accountId Sirqul Account Id   * @param terms Terms   * @param conditional Conditional   * @param limit Limit   * @param offset Offset
+   * @param accountId Sirqul Account Id   * @param terms Terms   * @param conditional Conditional   * @param limit Limit   * @param offset Offset
   */
-  public void aiText (BigDecimal version, Long accountId, String terms, String conditional, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void aiText (Long accountId, String terms, String conditional, Integer limit, Integer offset, final Response.Listener<OrsonAiProtoResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling aiText",
-        new ApiException(400, "Missing the required parameter 'version' when calling aiText"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling aiText",
@@ -828,7 +772,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/text".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/text".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -886,7 +830,6 @@ public class OrsonApi {
   /**
   * Batch Analysis
   * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param limit The number of topics to return
@@ -896,13 +839,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiBatchResponse
   */
-  public OrsonAiBatchResponse batch (BigDecimal version, Long accountId, String thirdPartyAccountId, Integer limit, String operations, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiBatchResponse batch (Long accountId, String thirdPartyAccountId, Integer limit, String operations, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batch",
-        new ApiException(400, "Missing the required parameter 'version' when calling batch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling batch",
@@ -910,7 +848,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -967,16 +905,11 @@ public class OrsonApi {
       /**
    * Batch Analysis
    * Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-   * @param version    * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param limit The number of topics to return   * @param operations The comma-delimited list of A/V batch analysis operations to run on this file. Possible values: Transcript,Topics,Emotions   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param limit The number of topics to return   * @param operations The comma-delimited list of A/V batch analysis operations to run on this file. Possible values: Transcript,Topics,Emotions   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void batch (BigDecimal version, Long accountId, String thirdPartyAccountId, Integer limit, String operations, File file, String url, String callback, final Response.Listener<OrsonAiBatchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void batch (Long accountId, String thirdPartyAccountId, Integer limit, String operations, File file, String url, String callback, final Response.Listener<OrsonAiBatchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batch",
-        new ApiException(400, "Missing the required parameter 'version' when calling batch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling batch",
@@ -984,7 +917,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1044,18 +977,12 @@ public class OrsonApi {
   /**
   * Creates an instant episode
   * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param data Request Data String
    * @return OrsonEpisodeResponse
   */
-  public OrsonEpisodeResponse createInstantEpisode (BigDecimal version, Long accountId, String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonEpisodeResponse createInstantEpisode (Long accountId, String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createInstantEpisode",
-        new ApiException(400, "Missing the required parameter 'version' when calling createInstantEpisode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createInstantEpisode",
@@ -1068,7 +995,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/episodes/instant".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/stories/episodes/instant";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1120,16 +1047,11 @@ public class OrsonApi {
       /**
    * Creates an instant episode
    * Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-   * @param version    * @param accountId Sirqul Account Id   * @param data Request Data String
+   * @param accountId Sirqul Account Id   * @param data Request Data String
   */
-  public void createInstantEpisode (BigDecimal version, Long accountId, String data, final Response.Listener<OrsonEpisodeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createInstantEpisode (Long accountId, String data, final Response.Listener<OrsonEpisodeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createInstantEpisode",
-        new ApiException(400, "Missing the required parameter 'version' when calling createInstantEpisode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createInstantEpisode",
@@ -1142,7 +1064,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/episodes/instant".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/stories/episodes/instant".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1197,7 +1119,6 @@ public class OrsonApi {
   /**
   * Create VoiceCanvas images
   * Create VoiceCanvas images for provided text, file upload, or file URL
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -1209,13 +1130,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiVoiceCanvasResponse
   */
-  public OrsonAiVoiceCanvasResponse createVoiceCanvas (BigDecimal version, Long accountId, String dimensions, String thirdPartyAccountId, String text, File file, String url, Boolean parseFlag, Boolean fetchFlag, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiVoiceCanvasResponse createVoiceCanvas (Long accountId, String dimensions, String thirdPartyAccountId, String text, File file, String url, Boolean parseFlag, Boolean fetchFlag, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVoiceCanvas",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVoiceCanvas"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createVoiceCanvas",
@@ -1228,7 +1144,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/voiceCanvas".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/voiceCanvas";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1287,16 +1203,11 @@ public class OrsonApi {
       /**
    * Create VoiceCanvas images
    * Create VoiceCanvas images for provided text, file upload, or file URL
-   * @param version    * @param accountId Sirqul Account Id   * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param text Provide a transcript or previously extracted topics for image generation   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param parseFlag When false, uses the raw value from text instead of identifying topics to fetch/generate from   * @param fetchFlag When true, fetches images instead of generating them   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param dimensions Enum: \&quot;256x256\&quot; \&quot;512x512\&quot; \&quot;1024x1024\&quot;   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param text Provide a transcript or previously extracted topics for image generation   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param parseFlag When false, uses the raw value from text instead of identifying topics to fetch/generate from   * @param fetchFlag When true, fetches images instead of generating them   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void createVoiceCanvas (BigDecimal version, Long accountId, String dimensions, String thirdPartyAccountId, String text, File file, String url, Boolean parseFlag, Boolean fetchFlag, String callback, final Response.Listener<OrsonAiVoiceCanvasResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createVoiceCanvas (Long accountId, String dimensions, String thirdPartyAccountId, String text, File file, String url, Boolean parseFlag, Boolean fetchFlag, String callback, final Response.Listener<OrsonAiVoiceCanvasResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVoiceCanvas",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVoiceCanvas"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createVoiceCanvas",
@@ -1309,7 +1220,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/voiceCanvas".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/voiceCanvas".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1371,7 +1282,6 @@ public class OrsonApi {
   /**
   * Detect emotions
   * Detects emotions in an audio or video recording.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param file An uploaded recording to analyze (Currently limited to 10MB)
@@ -1379,13 +1289,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiEmotionsResponse
   */
-  public OrsonAiEmotionsResponse emotion (BigDecimal version, Long accountId, String thirdPartyAccountId, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiEmotionsResponse emotion (Long accountId, String thirdPartyAccountId, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling emotion",
-        new ApiException(400, "Missing the required parameter 'version' when calling emotion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling emotion",
@@ -1393,7 +1298,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/emotion".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/emotion";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1448,16 +1353,11 @@ public class OrsonApi {
       /**
    * Detect emotions
    * Detects emotions in an audio or video recording.
-   * @param version    * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void emotion (BigDecimal version, Long accountId, String thirdPartyAccountId, File file, String url, String callback, final Response.Listener<OrsonAiEmotionsResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void emotion (Long accountId, String thirdPartyAccountId, File file, String url, String callback, final Response.Listener<OrsonAiEmotionsResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling emotion",
-        new ApiException(400, "Missing the required parameter 'version' when calling emotion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling emotion",
@@ -1465,7 +1365,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/emotion".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/emotion".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1523,18 +1423,12 @@ public class OrsonApi {
   /**
   * Get Add Movie Result
   * Get the result of an in progress Add Movie request from an earlier POST.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiAddMovieResponse
   */
-  public OrsonAiAddMovieResponse getAddMovieResult (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiAddMovieResponse getAddMovieResult (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAddMovieResult",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAddMovieResult"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getAddMovieResult",
@@ -1547,7 +1441,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/addMovie/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1598,16 +1492,11 @@ public class OrsonApi {
       /**
    * Get Add Movie Result
    * Get the result of an in progress Add Movie request from an earlier POST.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getAddMovieResult (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiAddMovieResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAddMovieResult (String requestId, Long accountId, final Response.Listener<OrsonAiAddMovieResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAddMovieResult",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAddMovieResult"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getAddMovieResult",
@@ -1620,7 +1509,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/addMovie/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/addMovie/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1674,18 +1563,12 @@ public class OrsonApi {
   /**
   * Get Batch Analysis Results
   * Gets the completed Video Batch results, if done, or an error or status update if not.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiBatchResponse
   */
-  public OrsonAiBatchResponse getBatch (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiBatchResponse getBatch (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBatch"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getBatch",
@@ -1698,7 +1581,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/batch/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/batch/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1749,16 +1632,11 @@ public class OrsonApi {
       /**
    * Get Batch Analysis Results
    * Gets the completed Video Batch results, if done, or an error or status update if not.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getBatch (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiBatchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getBatch (String requestId, Long accountId, final Response.Listener<OrsonAiBatchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBatch"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getBatch",
@@ -1771,7 +1649,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/batch/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/batch/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1825,18 +1703,12 @@ public class OrsonApi {
   /**
   * Get Emotion Results
   * Checks the Emotion analysis and returns in progress, results, or error.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiEmotionsResponse
   */
-  public OrsonAiEmotionsResponse getEmotion (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiEmotionsResponse getEmotion (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEmotion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEmotion"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getEmotion",
@@ -1849,7 +1721,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/emotion/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/emotion/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1900,16 +1772,11 @@ public class OrsonApi {
       /**
    * Get Emotion Results
    * Checks the Emotion analysis and returns in progress, results, or error.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getEmotion (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiEmotionsResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getEmotion (String requestId, Long accountId, final Response.Listener<OrsonAiEmotionsResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEmotion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEmotion"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getEmotion",
@@ -1922,7 +1789,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/emotion/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/emotion/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1976,18 +1843,12 @@ public class OrsonApi {
   /**
   * Check episode status
   * Gets a summary of the episode&#39;s status, including any renders.
-   * @param version 
    * @param episodeId Episode ID
    * @param accountId Sirqul Account Id
    * @return OrsonEpisodeResponse
   */
-  public OrsonEpisodeResponse getEpisodeStatus (BigDecimal version, Long episodeId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonEpisodeResponse getEpisodeStatus (Long episodeId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEpisodeStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEpisodeStatus"));
-    }
     // verify the required parameter 'episodeId' is set
     if (episodeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'episodeId' when calling getEpisodeStatus",
@@ -2000,7 +1861,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "episodeId" + "\\}", apiInvoker.escapeString(episodeId.toString()));
+    String path = "/orson/stories/episodes/{episodeId}/status".replaceAll("\\{" + "episodeId" + "\\}", apiInvoker.escapeString(episodeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2051,16 +1912,11 @@ public class OrsonApi {
       /**
    * Check episode status
    * Gets a summary of the episode&#39;s status, including any renders.
-   * @param version    * @param episodeId Episode ID   * @param accountId Sirqul Account Id
+   * @param episodeId Episode ID   * @param accountId Sirqul Account Id
   */
-  public void getEpisodeStatus (BigDecimal version, Long episodeId, Long accountId, final Response.Listener<OrsonEpisodeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getEpisodeStatus (Long episodeId, Long accountId, final Response.Listener<OrsonEpisodeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEpisodeStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEpisodeStatus"));
-    }
     // verify the required parameter 'episodeId' is set
     if (episodeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'episodeId' when calling getEpisodeStatus",
@@ -2073,7 +1929,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/episodes/{episodeId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "episodeId" + "\\}", apiInvoker.escapeString(episodeId.toString()));
+    String path = "/orson/stories/episodes/{episodeId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "episodeId" + "\\}", apiInvoker.escapeString(episodeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2127,18 +1983,12 @@ public class OrsonApi {
   /**
   * Check episode status
   * Gets a summary of the episode&#39;s status, including any renders.
-   * @param version 
    * @param renderId Render ID
    * @param accountId Sirqul Account Id
    * @return OrsonRenderResponse
   */
-  public OrsonRenderResponse getRenderStatus (BigDecimal version, String renderId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonRenderResponse getRenderStatus (String renderId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRenderStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRenderStatus"));
-    }
     // verify the required parameter 'renderId' is set
     if (renderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'renderId' when calling getRenderStatus",
@@ -2151,7 +2001,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "renderId" + "\\}", apiInvoker.escapeString(renderId.toString()));
+    String path = "/orson/stories/renders/{renderId}/status".replaceAll("\\{" + "renderId" + "\\}", apiInvoker.escapeString(renderId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2202,16 +2052,11 @@ public class OrsonApi {
       /**
    * Check episode status
    * Gets a summary of the episode&#39;s status, including any renders.
-   * @param version    * @param renderId Render ID   * @param accountId Sirqul Account Id
+   * @param renderId Render ID   * @param accountId Sirqul Account Id
   */
-  public void getRenderStatus (BigDecimal version, String renderId, Long accountId, final Response.Listener<OrsonRenderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRenderStatus (String renderId, Long accountId, final Response.Listener<OrsonRenderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRenderStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRenderStatus"));
-    }
     // verify the required parameter 'renderId' is set
     if (renderId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'renderId' when calling getRenderStatus",
@@ -2224,7 +2069,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/renders/{renderId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "renderId" + "\\}", apiInvoker.escapeString(renderId.toString()));
+    String path = "/orson/stories/renders/{renderId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "renderId" + "\\}", apiInvoker.escapeString(renderId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2278,18 +2123,12 @@ public class OrsonApi {
   /**
   * Get Speach to Text Result
   * The results of the video transcription and optional translation.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiSTTResponse
   */
-  public OrsonAiSTTResponse getSTT (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiSTTResponse getSTT (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSTT",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSTT"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getSTT",
@@ -2302,7 +2141,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/stt/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/stt/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2353,16 +2192,11 @@ public class OrsonApi {
       /**
    * Get Speach to Text Result
    * The results of the video transcription and optional translation.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getSTT (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiSTTResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getSTT (String requestId, Long accountId, final Response.Listener<OrsonAiSTTResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSTT",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSTT"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getSTT",
@@ -2375,7 +2209,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/stt/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/stt/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2429,18 +2263,12 @@ public class OrsonApi {
   /**
   * Get Text to Speach Result
   * Check the status of an in progress Text-to-Speech call or download the result.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiTTSResponse
   */
-  public OrsonAiTTSResponse getTTS (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTTSResponse getTTS (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTTS",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTTS"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTTS",
@@ -2453,7 +2281,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tts/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/tts/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2504,16 +2332,11 @@ public class OrsonApi {
       /**
    * Get Text to Speach Result
    * Check the status of an in progress Text-to-Speech call or download the result.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getTTS (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiTTSResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTTS (String requestId, Long accountId, final Response.Listener<OrsonAiTTSResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTTS",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTTS"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTTS",
@@ -2526,7 +2349,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tts/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/tts/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2580,18 +2403,12 @@ public class OrsonApi {
   /**
   * Get TechTune Results
   * Get a result or continue waiting for a pending request for TechTune analysis.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiTechTuneResponse
   */
-  public OrsonAiTechTuneResponse getTechTune (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTechTuneResponse getTechTune (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTechTune",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTechTune"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTechTune",
@@ -2604,7 +2421,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/techTune/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/techTune/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2655,16 +2472,11 @@ public class OrsonApi {
       /**
    * Get TechTune Results
    * Get a result or continue waiting for a pending request for TechTune analysis.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getTechTune (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiTechTuneResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTechTune (String requestId, Long accountId, final Response.Listener<OrsonAiTechTuneResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTechTune",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTechTune"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTechTune",
@@ -2677,7 +2489,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/techTune/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/techTune/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2731,18 +2543,12 @@ public class OrsonApi {
   /**
   * Get Topics
   * Get the result of an in progress Topics Analysis from an earlier POST.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiTopicsResponse
   */
-  public OrsonAiTopicsResponse getTopics (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTopicsResponse getTopics (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTopics",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTopics"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTopics",
@@ -2755,7 +2561,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/topics/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/topics/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2806,16 +2612,11 @@ public class OrsonApi {
       /**
    * Get Topics
    * Get the result of an in progress Topics Analysis from an earlier POST.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getTopics (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiTopicsResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTopics (String requestId, Long accountId, final Response.Listener<OrsonAiTopicsResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTopics",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTopics"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getTopics",
@@ -2828,7 +2629,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/topics/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/topics/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2882,18 +2683,12 @@ public class OrsonApi {
   /**
   * Get VoiceCanvas images
   * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-   * @param version 
    * @param requestId Orson Request Id
    * @param accountId Sirqul Account Id
    * @return OrsonAiVoiceCanvasResponse
   */
-  public OrsonAiVoiceCanvasResponse getVoiceCanvas (BigDecimal version, String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiVoiceCanvasResponse getVoiceCanvas (String requestId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVoiceCanvas",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVoiceCanvas"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getVoiceCanvas",
@@ -2906,7 +2701,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2957,16 +2752,11 @@ public class OrsonApi {
       /**
    * Get VoiceCanvas images
    * Get a result or continue waiting for a pending request for VoiceCanvas Images.
-   * @param version    * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
+   * @param requestId Orson Request Id   * @param accountId Sirqul Account Id
   */
-  public void getVoiceCanvas (BigDecimal version, String requestId, Long accountId, final Response.Listener<OrsonAiVoiceCanvasResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getVoiceCanvas (String requestId, Long accountId, final Response.Listener<OrsonAiVoiceCanvasResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVoiceCanvas",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVoiceCanvas"));
-    }
     // verify the required parameter 'requestId' is set
     if (requestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'requestId' when calling getVoiceCanvas",
@@ -2979,7 +2769,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
+    String path = "/orson/ai/voiceCanvas/{requestId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "requestId" + "\\}", apiInvoker.escapeString(requestId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3033,18 +2823,12 @@ public class OrsonApi {
   /**
   * Starts a StoryStitch video render
   * Starts a StoryStitch video render to produce your final video, returning the status details.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param data Request Data String
    * @return OrsonRenderResponse
   */
-  public OrsonRenderResponse startVideoRender (BigDecimal version, Long accountId, String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonRenderResponse startVideoRender (Long accountId, String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling startVideoRender",
-        new ApiException(400, "Missing the required parameter 'version' when calling startVideoRender"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling startVideoRender",
@@ -3057,7 +2841,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/renders".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/stories/renders";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3109,16 +2893,11 @@ public class OrsonApi {
       /**
    * Starts a StoryStitch video render
    * Starts a StoryStitch video render to produce your final video, returning the status details.
-   * @param version    * @param accountId Sirqul Account Id   * @param data Request Data String
+   * @param accountId Sirqul Account Id   * @param data Request Data String
   */
-  public void startVideoRender (BigDecimal version, Long accountId, String data, final Response.Listener<OrsonRenderResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void startVideoRender (Long accountId, String data, final Response.Listener<OrsonRenderResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling startVideoRender",
-        new ApiException(400, "Missing the required parameter 'version' when calling startVideoRender"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling startVideoRender",
@@ -3131,7 +2910,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/stories/renders".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/stories/renders".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3186,7 +2965,6 @@ public class OrsonApi {
   /**
   * Speach to Text
   * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param sourceLanguage Source Language
@@ -3196,13 +2974,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiSTTResponse
   */
-  public OrsonAiSTTResponse stt (BigDecimal version, Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiSTTResponse stt (Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling stt",
-        new ApiException(400, "Missing the required parameter 'version' when calling stt"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling stt",
@@ -3210,7 +2983,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/stt".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/stt";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3267,16 +3040,11 @@ public class OrsonApi {
       /**
    * Speach to Text
    * Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-   * @param version    * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param sourceLanguage Source Language   * @param targetLanguage Target Language   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param sourceLanguage Source Language   * @param targetLanguage Target Language   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void stt (BigDecimal version, Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File file, String url, String callback, final Response.Listener<OrsonAiSTTResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void stt (Long accountId, String thirdPartyAccountId, String sourceLanguage, String targetLanguage, File file, String url, String callback, final Response.Listener<OrsonAiSTTResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling stt",
-        new ApiException(400, "Missing the required parameter 'version' when calling stt"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling stt",
@@ -3284,7 +3052,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/stt".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/stt".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3344,7 +3112,6 @@ public class OrsonApi {
   /**
   * Summarize Topics
   * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
    * @param doc The text to get topics for.
@@ -3355,13 +3122,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiTopicsResponse
   */
-  public OrsonAiTopicsResponse summarizeTopics (BigDecimal version, Long accountId, String thirdPartyAccountId, String doc, File file, String url, Integer limit, Integer offset, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTopicsResponse summarizeTopics (Long accountId, String thirdPartyAccountId, String doc, File file, String url, Integer limit, Integer offset, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling summarizeTopics",
-        new ApiException(400, "Missing the required parameter 'version' when calling summarizeTopics"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling summarizeTopics",
@@ -3369,7 +3131,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/topics".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/topics";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3427,16 +3189,11 @@ public class OrsonApi {
       /**
    * Summarize Topics
    * Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-   * @param version    * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param doc The text to get topics for.   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param limit The number of results to return   * @param offset The starting offset into the total result set to start from   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param doc The text to get topics for.   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param limit The number of results to return   * @param offset The starting offset into the total result set to start from   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void summarizeTopics (BigDecimal version, Long accountId, String thirdPartyAccountId, String doc, File file, String url, Integer limit, Integer offset, String callback, final Response.Listener<OrsonAiTopicsResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void summarizeTopics (Long accountId, String thirdPartyAccountId, String doc, File file, String url, Integer limit, Integer offset, String callback, final Response.Listener<OrsonAiTopicsResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling summarizeTopics",
-        new ApiException(400, "Missing the required parameter 'version' when calling summarizeTopics"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling summarizeTopics",
@@ -3444,7 +3201,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/topics".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/topics".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3505,7 +3262,6 @@ public class OrsonApi {
   /**
   * Detect Technical Issues
   * Analyses a movie file to detect technical issues, such as too few people in frame.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param numFacesExpected Number of expected faces
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -3514,13 +3270,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiTechTuneResponse
   */
-  public OrsonAiTechTuneResponse techTune (BigDecimal version, Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTechTuneResponse techTune (Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File file, String url, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling techTune",
-        new ApiException(400, "Missing the required parameter 'version' when calling techTune"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling techTune",
@@ -3533,7 +3284,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/techTune".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/techTune";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3589,16 +3340,11 @@ public class OrsonApi {
       /**
    * Detect Technical Issues
    * Analyses a movie file to detect technical issues, such as too few people in frame.
-   * @param version    * @param accountId Sirqul Account Id   * @param numFacesExpected Number of expected faces   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param numFacesExpected Number of expected faces   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param file An uploaded recording to analyze (Currently limited to 10MB)   * @param url A recording file to download and analyze (Size limit: 1GB)   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void techTune (BigDecimal version, Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File file, String url, String callback, final Response.Listener<OrsonAiTechTuneResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void techTune (Long accountId, Integer numFacesExpected, String thirdPartyAccountId, File file, String url, String callback, final Response.Listener<OrsonAiTechTuneResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling techTune",
-        new ApiException(400, "Missing the required parameter 'version' when calling techTune"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling techTune",
@@ -3611,7 +3357,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/techTune".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/techTune".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3670,7 +3416,6 @@ public class OrsonApi {
   /**
   * Text to Speach
   * Creates an audio file for the given text, with the option of language and voice selection.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param text Text
    * @param thirdPartyAccountId A third-party account id that is meaningful to your systems
@@ -3679,13 +3424,8 @@ public class OrsonApi {
    * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
    * @return OrsonAiTTSResponse
   */
-  public OrsonAiTTSResponse tts (BigDecimal version, Long accountId, String text, String thirdPartyAccountId, String language, String voice, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OrsonAiTTSResponse tts (Long accountId, String text, String thirdPartyAccountId, String language, String voice, String callback) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling tts",
-        new ApiException(400, "Missing the required parameter 'version' when calling tts"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling tts",
@@ -3698,7 +3438,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tts".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/tts";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3754,16 +3494,11 @@ public class OrsonApi {
       /**
    * Text to Speach
    * Creates an audio file for the given text, with the option of language and voice selection.
-   * @param version    * @param accountId Sirqul Account Id   * @param text Text   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param language The language to use for the speaker and incoming text   * @param voice A language-specific voice to use, or picks the language default if not provided   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
+   * @param accountId Sirqul Account Id   * @param text Text   * @param thirdPartyAccountId A third-party account id that is meaningful to your systems   * @param language The language to use for the speaker and incoming text   * @param voice A language-specific voice to use, or picks the language default if not provided   * @param callback When provided, Orson will return a 202 and POST the results to this URL when complete instead of holding the Request open
   */
-  public void tts (BigDecimal version, Long accountId, String text, String thirdPartyAccountId, String language, String voice, String callback, final Response.Listener<OrsonAiTTSResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void tts (Long accountId, String text, String thirdPartyAccountId, String language, String voice, String callback, final Response.Listener<OrsonAiTTSResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling tts",
-        new ApiException(400, "Missing the required parameter 'version' when calling tts"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling tts",
@@ -3776,7 +3511,7 @@ public class OrsonApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/orson/ai/tts".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/orson/ai/tts".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

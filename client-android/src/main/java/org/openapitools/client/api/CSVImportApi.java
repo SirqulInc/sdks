@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CsvImportResponse;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class CSVImportApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class CSVImportApi {
   /**
   * Detail Status
   * 
-   * @param version 
    * @param accountId the id of the logged in user
    * @param batchId the id of the batch
    * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL
@@ -69,13 +67,8 @@ public class CSVImportApi {
    * @param limit the limit of the pagination
    * @return SirqulResponse
   */
-  public SirqulResponse getStatusCSV (BigDecimal version, Long accountId, Long batchId, String responseGroup, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getStatusCSV (Long accountId, Long batchId, String responseGroup, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getStatusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling getStatusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getStatusCSV",
@@ -103,7 +96,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/status/details".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/status/details";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -158,16 +151,11 @@ public class CSVImportApi {
       /**
    * Detail Status
    * 
-   * @param version    * @param accountId the id of the logged in user   * @param batchId the id of the batch   * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL   * @param start the start of the pagination   * @param limit the limit of the pagination
+   * @param accountId the id of the logged in user   * @param batchId the id of the batch   * @param responseGroup The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL   * @param start the start of the pagination   * @param limit the limit of the pagination
   */
-  public void getStatusCSV (BigDecimal version, Long accountId, Long batchId, String responseGroup, Long start, Long limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getStatusCSV (Long accountId, Long batchId, String responseGroup, Long start, Long limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getStatusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling getStatusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getStatusCSV",
@@ -195,7 +183,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/status/details".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/status/details".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -253,19 +241,13 @@ public class CSVImportApi {
   /**
   * Search Status
   * Retrieves batches for a user.
-   * @param version 
    * @param accountId the id of the account
    * @param start the start of the pagination
    * @param limit the limit of the pagination
    * @return CsvImportResponse
   */
-  public CsvImportResponse listStatusCSV (BigDecimal version, Long accountId, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CsvImportResponse listStatusCSV (Long accountId, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listStatusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling listStatusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listStatusCSV",
@@ -283,7 +265,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -336,16 +318,11 @@ public class CSVImportApi {
       /**
    * Search Status
    * Retrieves batches for a user.
-   * @param version    * @param accountId the id of the account   * @param start the start of the pagination   * @param limit the limit of the pagination
+   * @param accountId the id of the account   * @param start the start of the pagination   * @param limit the limit of the pagination
   */
-  public void listStatusCSV (BigDecimal version, Long accountId, Integer start, Integer limit, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void listStatusCSV (Long accountId, Integer start, Integer limit, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listStatusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling listStatusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listStatusCSV",
@@ -363,7 +340,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -419,18 +396,12 @@ public class CSVImportApi {
   /**
   * Batch Status
   * Checks status of batch upload.
-   * @param version 
    * @param accountId the id of the account
    * @param batchId the id of the batch to get its status
    * @return CsvImportResponse
   */
-  public CsvImportResponse statusCSV (BigDecimal version, Long accountId, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CsvImportResponse statusCSV (Long accountId, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling statusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling statusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling statusCSV",
@@ -443,7 +414,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/status";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -495,16 +466,11 @@ public class CSVImportApi {
       /**
    * Batch Status
    * Checks status of batch upload.
-   * @param version    * @param accountId the id of the account   * @param batchId the id of the batch to get its status
+   * @param accountId the id of the account   * @param batchId the id of the batch to get its status
   */
-  public void statusCSV (BigDecimal version, Long accountId, Long batchId, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void statusCSV (Long accountId, Long batchId, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling statusCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling statusCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling statusCSV",
@@ -517,7 +483,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/batch/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/batch/status".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -572,7 +538,6 @@ public class CSVImportApi {
   /**
   * Upload CSV
   * Uploads a CSV import file.
-   * @param version 
    * @param accountId the id of the account
    * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS
    * @param importFile the import file to reference
@@ -580,13 +545,8 @@ public class CSVImportApi {
    * @param appKey the application key
    * @return CsvImportResponse
   */
-  public CsvImportResponse uploadCSV (BigDecimal version, Long accountId, String uploadType, File importFile, String fileFormat, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CsvImportResponse uploadCSV (Long accountId, String uploadType, File importFile, String fileFormat, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling uploadCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling uploadCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling uploadCSV",
@@ -609,7 +569,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/upload".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/upload";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -664,16 +624,11 @@ public class CSVImportApi {
       /**
    * Upload CSV
    * Uploads a CSV import file.
-   * @param version    * @param accountId the id of the account   * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS   * @param importFile the import file to reference   * @param fileFormat the format of the file   * @param appKey the application key
+   * @param accountId the id of the account   * @param uploadType the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS   * @param importFile the import file to reference   * @param fileFormat the format of the file   * @param appKey the application key
   */
-  public void uploadCSV (BigDecimal version, Long accountId, String uploadType, File importFile, String fileFormat, String appKey, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void uploadCSV (Long accountId, String uploadType, File importFile, String fileFormat, String appKey, final Response.Listener<CsvImportResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling uploadCSV",
-        new ApiException(400, "Missing the required parameter 'version' when calling uploadCSV"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling uploadCSV",
@@ -696,7 +651,7 @@ public class CSVImportApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/csvimport/upload".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/csvimport/upload".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

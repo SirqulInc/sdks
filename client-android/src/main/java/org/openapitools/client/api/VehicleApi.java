@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.Vehicle;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class VehicleApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,18 +59,12 @@ public class VehicleApi {
   /**
   * Create Vehicle
   * Create new vehicle
-   * @param version 
    * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
    * @param body 
    * @return Vehicle
   */
-  public Vehicle createVehicle (BigDecimal version, String vehicle, Vehicle body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Vehicle createVehicle (String vehicle, Vehicle body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVehicle"));
-    }
     // verify the required parameter 'vehicle' is set
     if (vehicle == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'vehicle' when calling createVehicle",
@@ -79,7 +72,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vehicle";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -130,16 +123,11 @@ public class VehicleApi {
       /**
    * Create Vehicle
    * Create new vehicle
-   * @param version    * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;    * @param body 
+   * @param vehicle A JSON representation of cargo type. &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;    * @param body 
   */
-  public void createVehicle (BigDecimal version, String vehicle, Vehicle body, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
+  public void createVehicle (String vehicle, Vehicle body, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVehicle"));
-    }
     // verify the required parameter 'vehicle' is set
     if (vehicle == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'vehicle' when calling createVehicle",
@@ -147,7 +135,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vehicle".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -201,17 +189,11 @@ public class VehicleApi {
   /**
   * Delete Vehicle
   * Delete an existing vehicle
-   * @param version 
    * @param id The id of the vehicle to delete
    * @return void
   */
-  public void deleteVehicle (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteVehicle (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteVehicle",
@@ -219,7 +201,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -269,16 +251,11 @@ public class VehicleApi {
       /**
    * Delete Vehicle
    * Delete an existing vehicle
-   * @param version    * @param id The id of the vehicle to delete
+   * @param id The id of the vehicle to delete
   */
-  public void deleteVehicle (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteVehicle (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteVehicle",
@@ -286,7 +263,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -335,17 +312,11 @@ public class VehicleApi {
   /**
   * Get Vehicle
   * Get an existing vehicle
-   * @param version 
    * @param id The id of the vehicle requested
    * @return Vehicle
   */
-  public Vehicle getVehicle (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Vehicle getVehicle (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getVehicle",
@@ -353,7 +324,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -403,16 +374,11 @@ public class VehicleApi {
       /**
    * Get Vehicle
    * Get an existing vehicle
-   * @param version    * @param id The id of the vehicle requested
+   * @param id The id of the vehicle requested
   */
-  public void getVehicle (BigDecimal version, Long id, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
+  public void getVehicle (Long id, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getVehicle",
@@ -420,7 +386,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -473,7 +439,6 @@ public class VehicleApi {
   /**
   * Search Vehicle
   * Search for vehicles
-   * @param version 
    * @param hubId Filter by service hub
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -483,13 +448,8 @@ public class VehicleApi {
    * @param keyword The keyword to search for
    * @return List<Vehicle>
   */
-  public List<Vehicle> searchVehicle (BigDecimal version, Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Vehicle> searchVehicle (Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchVehicle"));
-    }
     // verify the required parameter 'hubId' is set
     if (hubId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hubId' when calling searchVehicle",
@@ -522,7 +482,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vehicle";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -579,16 +539,11 @@ public class VehicleApi {
       /**
    * Search Vehicle
    * Search for vehicles
-   * @param version    * @param hubId Filter by service hub   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to search for
+   * @param hubId Filter by service hub   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param keyword The keyword to search for
   */
-  public void searchVehicle (BigDecimal version, Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, final Response.Listener<List<Vehicle>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchVehicle (Long hubId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, final Response.Listener<List<Vehicle>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchVehicle"));
-    }
     // verify the required parameter 'hubId' is set
     if (hubId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hubId' when calling searchVehicle",
@@ -621,7 +576,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vehicle".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -681,19 +636,13 @@ public class VehicleApi {
   /**
   * Update Vehicle
   * Update an existing vehicle
-   * @param version 
    * @param id The id of the vehicle to update
    * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60; 
    * @param body 
    * @return Vehicle
   */
-  public Vehicle updateVehicle (BigDecimal version, Long id, String vehicle, Vehicle body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Vehicle updateVehicle (Long id, String vehicle, Vehicle body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateVehicle",
@@ -706,7 +655,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -757,16 +706,11 @@ public class VehicleApi {
       /**
    * Update Vehicle
    * Update an existing vehicle
-   * @param version    * @param id The id of the vehicle to update   * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;    * @param body 
+   * @param id The id of the vehicle to update   * @param vehicle A JSON representation of cargo type, for example: &#x60;&#x60;&#x60;json {   \&quot;name\&quot;: \&quot;Truck\&quot;,   \&quot;vehicleType\&quot;: { \&quot;id\&quot;: 1 },   \&quot;hub\&quot;: { \&quot;id\&quot;: 1 } } &#x60;&#x60;&#x60;    * @param body 
   */
-  public void updateVehicle (BigDecimal version, Long id, String vehicle, Vehicle body, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
+  public void updateVehicle (Long id, String vehicle, Vehicle body, final Response.Listener<Vehicle> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateVehicle",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateVehicle"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateVehicle",
@@ -779,7 +723,7 @@ public class VehicleApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/vehicle/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

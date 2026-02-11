@@ -27,7 +27,6 @@ import org.openapitools.client.model.AchievementProgressResponse;
 import org.openapitools.client.model.AchievementResponse;
 import org.openapitools.client.model.AchievementShortResponse;
 import org.openapitools.client.model.AchievementTierResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
@@ -43,7 +42,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AchievementApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -65,7 +64,6 @@ public class AchievementApi {
   /**
   * Searches an Achievement Tier
   * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param appKey the application key
@@ -79,16 +77,11 @@ public class AchievementApi {
    * @param limit the limit for pagination (has a hard limit of 1000)
    * @return AchievementTierResponse
   */
-  public AchievementTierResponse apiVersionAchievementTierSearchPost (BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementTierResponse achievementTierSearchPost (String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost",
-        new ApiException(400, "Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -149,19 +142,14 @@ public class AchievementApi {
       /**
    * Searches an Achievement Tier
    * Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey the application key   * @param keyword the keyword used to filter resutls with (this returns results that have the keyword in the title or the description of the achievement tier)   * @param achievementType filter results by achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are the exact case sensitive matches)   * @param sortField the field to sort by. See {@link AchievementApiMap}   * @param descending determines whether the sort list is in descending or ascending order (of the achievement)   * @param descendingGoal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement)   * @param start The start of the index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)
+   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey the application key   * @param keyword the keyword used to filter resutls with (this returns results that have the keyword in the title or the description of the achievement tier)   * @param achievementType filter results by achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are the exact case sensitive matches)   * @param sortField the field to sort by. See {@link AchievementApiMap}   * @param descending determines whether the sort list is in descending or ascending order (of the achievement)   * @param descendingGoal determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement)   * @param start The start of the index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)
   */
-  public void apiVersionAchievementTierSearchPost (BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void achievementTierSearchPost (String deviceId, Long accountId, String appKey, String keyword, Long achievementType, String rankType, String sortField, Boolean descending, Boolean descendingGoal, Long start, Long limit, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost",
-        new ApiException(400, "Missing the required parameter 'version' when calling apiVersionAchievementTierSearchPost"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -225,7 +213,6 @@ public class AchievementApi {
   /**
   * Create Achievement
   * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param appKey the application key the achievement is for
    * @param title the title of the achievement (255 character limit)
    * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -241,13 +228,8 @@ public class AchievementApi {
    * @param triggerDefinition if provided will define what triggers to run after a tier is completed
    * @return AchievementResponse
   */
-  public AchievementResponse createAchievement (BigDecimal version, String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementResponse createAchievement (String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAchievement"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createAchievement",
@@ -260,7 +242,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -323,16 +305,11 @@ public class AchievementApi {
       /**
    * Create Achievement
    * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param appKey the application key the achievement is for   * @param title the title of the achievement (255 character limit)   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param analyticsTag the analytics tag that will trigger when a user&#39;s achievement count gets updated   * @param description the description of the achievement   * @param rankType the rank type for updating leader boards   * @param rankIncrement determines how much the rank count is incremented   * @param minIncrement restrict scores to be above or equal to this minimum value   * @param maxIncrement restrict scores to be below or equal to this maximum value   * @param validate determines whether the customId on analytics are used to validate a user&#39;s achievement progress.   * @param active achievement is active or inactive   * @param triggerDefinition if provided will define what triggers to run after a tier is completed
+   * @param appKey the application key the achievement is for   * @param title the title of the achievement (255 character limit)   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param analyticsTag the analytics tag that will trigger when a user&#39;s achievement count gets updated   * @param description the description of the achievement   * @param rankType the rank type for updating leader boards   * @param rankIncrement determines how much the rank count is incremented   * @param minIncrement restrict scores to be above or equal to this minimum value   * @param maxIncrement restrict scores to be below or equal to this maximum value   * @param validate determines whether the customId on analytics are used to validate a user&#39;s achievement progress.   * @param active achievement is active or inactive   * @param triggerDefinition if provided will define what triggers to run after a tier is completed
   */
-  public void createAchievement (BigDecimal version, String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition, final Response.Listener<AchievementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createAchievement (String appKey, String title, String deviceId, Long accountId, String analyticsTag, String description, String rankType, Integer rankIncrement, Integer minIncrement, Integer maxIncrement, Boolean validate, Boolean active, String triggerDefinition, final Response.Listener<AchievementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAchievement"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createAchievement",
@@ -345,7 +322,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -411,7 +388,6 @@ public class AchievementApi {
   /**
   * Create Achievement Tier
   * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param achievementId the achievement id for adding a new tier
    * @param scoreAllInstances score all instances
    * @param deviceId a unique id given by the device (deviceId or accountId required)
@@ -428,13 +404,8 @@ public class AchievementApi {
    * @param gameObjectId The ID of the game object to associate with the achievement
    * @return AchievementTierResponse
   */
-  public AchievementTierResponse createAchievementTier (BigDecimal version, Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementTierResponse createAchievementTier (Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAchievementTier"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling createAchievementTier",
@@ -447,7 +418,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -511,16 +482,11 @@ public class AchievementApi {
       /**
    * Create Achievement Tier
    * Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param achievementId the achievement id for adding a new tier   * @param scoreAllInstances score all instances   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param icon achievement tier icon image file   * @param iconAssetId the icon assetId, if icon is provided, icon will overrule   * @param title the title of the achievement tier   * @param description the description of the achievement tier   * @param goalCount the count requirement for completing the achievement tier   * @param missionId The ID of the mission to associate with the achievement   * @param gameId The ID of the game to associate with the achievement   * @param packId The ID of the pack to associate with the achievement   * @param gameLevelId The ID of the game level to associate with the achievement   * @param gameObjectId The ID of the game object to associate with the achievement
+   * @param achievementId the achievement id for adding a new tier   * @param scoreAllInstances score all instances   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param icon achievement tier icon image file   * @param iconAssetId the icon assetId, if icon is provided, icon will overrule   * @param title the title of the achievement tier   * @param description the description of the achievement tier   * @param goalCount the count requirement for completing the achievement tier   * @param missionId The ID of the mission to associate with the achievement   * @param gameId The ID of the game to associate with the achievement   * @param packId The ID of the pack to associate with the achievement   * @param gameLevelId The ID of the game level to associate with the achievement   * @param gameObjectId The ID of the game object to associate with the achievement
   */
-  public void createAchievementTier (BigDecimal version, Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createAchievementTier (Long achievementId, Boolean scoreAllInstances, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Integer gameObjectId, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAchievementTier"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling createAchievementTier",
@@ -533,7 +499,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -600,18 +566,12 @@ public class AchievementApi {
   /**
   * Delete Achievement
   * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-   * @param version 
    * @param achievementId The ID of the achievement
    * @param accountId the account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteAchievement (BigDecimal version, Long achievementId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteAchievement (Long achievementId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAchievement"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling deleteAchievement",
@@ -619,7 +579,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -671,16 +631,11 @@ public class AchievementApi {
       /**
    * Delete Achievement
    * Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-   * @param version    * @param achievementId The ID of the achievement   * @param accountId the account id of the user (deviceId or accountId required)
+   * @param achievementId The ID of the achievement   * @param accountId the account id of the user (deviceId or accountId required)
   */
-  public void deleteAchievement (BigDecimal version, Long achievementId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteAchievement (Long achievementId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAchievement"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling deleteAchievement",
@@ -688,7 +643,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -743,18 +698,12 @@ public class AchievementApi {
   /**
   * Delete Achievement Tier
   * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-   * @param version 
    * @param achievementTierId the achievement id for deletion
    * @param accountId the account id of the user (deviceId or accountId required).
    * @return SirqulResponse
   */
-  public SirqulResponse deleteAchievementTier (BigDecimal version, Long achievementTierId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteAchievementTier (Long achievementTierId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAchievementTier"));
-    }
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementTierId' when calling deleteAchievementTier",
@@ -762,7 +711,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -814,16 +763,11 @@ public class AchievementApi {
       /**
    * Delete Achievement Tier
    * Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-   * @param version    * @param achievementTierId the achievement id for deletion   * @param accountId the account id of the user (deviceId or accountId required).
+   * @param achievementTierId the achievement id for deletion   * @param accountId the account id of the user (deviceId or accountId required).
   */
-  public void deleteAchievementTier (BigDecimal version, Long achievementTierId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteAchievementTier (Long achievementTierId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAchievementTier"));
-    }
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementTierId' when calling deleteAchievementTier",
@@ -831,7 +775,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -886,20 +830,14 @@ public class AchievementApi {
   /**
   * Get Achievement
   * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param achievementId The ID of the achievement
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementType achievementType
    * @return AchievementTierResponse
   */
-  public AchievementTierResponse getAchievement (BigDecimal version, Long achievementId, String deviceId, Long accountId, String achievementType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementTierResponse getAchievement (Long achievementId, String deviceId, Long accountId, String achievementType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAchievement"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling getAchievement",
@@ -907,7 +845,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -961,16 +899,11 @@ public class AchievementApi {
       /**
    * Get Achievement
    * Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param achievementId The ID of the achievement   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementType achievementType
+   * @param achievementId The ID of the achievement   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementType achievementType
   */
-  public void getAchievement (BigDecimal version, Long achievementId, String deviceId, Long accountId, String achievementType, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAchievement (Long achievementId, String deviceId, Long accountId, String achievementType, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAchievement"));
-    }
     // verify the required parameter 'achievementId' is set
     if (achievementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementId' when calling getAchievement",
@@ -978,7 +911,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1035,18 +968,12 @@ public class AchievementApi {
   /**
   * Gets an achievement tier
   * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementTierId the achievement tier id that is being retrieved
    * @return AchievementTierResponse
   */
-  public AchievementTierResponse getAchievementTier (BigDecimal version, Long accountId, Long achievementTierId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementTierResponse getAchievementTier (Long accountId, Long achievementTierId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAchievementTier"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getAchievementTier",
@@ -1059,7 +986,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1111,16 +1038,11 @@ public class AchievementApi {
       /**
    * Gets an achievement tier
    * Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementTierId the achievement tier id that is being retrieved
+   * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementTierId the achievement tier id that is being retrieved
   */
-  public void getAchievementTier (BigDecimal version, Long accountId, Long achievementTierId, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAchievementTier (Long accountId, Long achievementTierId, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAchievementTier"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getAchievementTier",
@@ -1133,7 +1055,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1188,7 +1110,6 @@ public class AchievementApi {
   /**
   * Get Achievement Progress
   * Gets a list of user achievements.
-   * @param version 
    * @param returnNulls determines whether to return null fields in the response
    * @param appKey the application key for filtering results by application
    * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet
@@ -1202,13 +1123,8 @@ public class AchievementApi {
    * @param longitude the current longitude of the user
    * @return List<AchievementProgressResponse>
   */
-  public List<AchievementProgressResponse> getUserAchievements (BigDecimal version, Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AchievementProgressResponse> getUserAchievements (Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserAchievements"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getUserAchievements",
@@ -1226,7 +1142,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/progress/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/progress/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1287,16 +1203,11 @@ public class AchievementApi {
       /**
    * Get Achievement Progress
    * Gets a list of user achievements.
-   * @param version    * @param returnNulls determines whether to return null fields in the response   * @param appKey the application key for filtering results by application   * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionAccountEmail the email of the account to view achievements   * @param connectionAccountId the id of the account to view achievements   * @param rankType filter results by achievement rankType   * @param achievementType filter results by achievement type   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls determines whether to return null fields in the response   * @param appKey the application key for filtering results by application   * @param includeUndiscovered determines whether to return achievements that the user has not discovered yet   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionAccountEmail the email of the account to view achievements   * @param connectionAccountId the id of the account to view achievements   * @param rankType filter results by achievement rankType   * @param achievementType filter results by achievement type   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void getUserAchievements (BigDecimal version, Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude, final Response.Listener<List<AchievementProgressResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserAchievements (Boolean returnNulls, String appKey, Boolean includeUndiscovered, String deviceId, Long accountId, String connectionAccountEmail, Long connectionAccountId, String rankType, String achievementType, Double latitude, Double longitude, final Response.Listener<List<AchievementProgressResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserAchievements"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getUserAchievements",
@@ -1314,7 +1225,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/progress/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/progress/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1378,20 +1289,14 @@ public class AchievementApi {
   /**
   * List Achievement Tags
   * List achievement tags by application
-   * @param version 
    * @param appKey filter results by application key
    * @return SirqulResponse
   */
-  public SirqulResponse listAchievementTags (BigDecimal version, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse listAchievementTags (String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listAchievementTags",
-        new ApiException(400, "Missing the required parameter 'version' when calling listAchievementTags"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tag/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tag/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1442,19 +1347,14 @@ public class AchievementApi {
       /**
    * List Achievement Tags
    * List achievement tags by application
-   * @param version    * @param appKey filter results by application key
+   * @param appKey filter results by application key
   */
-  public void listAchievementTags (BigDecimal version, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void listAchievementTags (String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listAchievementTags",
-        new ApiException(400, "Missing the required parameter 'version' when calling listAchievementTags"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tag/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tag/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1508,7 +1408,6 @@ public class AchievementApi {
   /**
   * List Achievements
   * List achievements by billable.
-   * @param version 
    * @param sortField the field to sort by. See AchievementApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
    * @param start the start index for pagination
@@ -1522,13 +1421,8 @@ public class AchievementApi {
    * @param rankType filter results by the rankType (these are exact case sensitive matches)
    * @return List<AchievementShortResponse>
   */
-  public List<AchievementShortResponse> listAchievements (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AchievementShortResponse> listAchievements (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling listAchievements"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling listAchievements",
@@ -1556,7 +1450,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1617,16 +1511,11 @@ public class AchievementApi {
       /**
    * List Achievements
    * List achievements by billable.
-   * @param version    * @param sortField the field to sort by. See AchievementApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)   * @param activeOnly Filter results to only return active achievements   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey the application key   * @param keyword the keyword used to filter results with (this returns results that have the keyword in the title or description of the achievement)   * @param achievementType filter results by the achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are exact case sensitive matches)
+   * @param sortField the field to sort by. See AchievementApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)   * @param activeOnly Filter results to only return active achievements   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey the application key   * @param keyword the keyword used to filter results with (this returns results that have the keyword in the title or description of the achievement)   * @param achievementType filter results by the achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are exact case sensitive matches)
   */
-  public void listAchievements (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType, final Response.Listener<List<AchievementShortResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void listAchievements (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String appKey, String keyword, String achievementType, String rankType, final Response.Listener<List<AchievementShortResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling listAchievements"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling listAchievements",
@@ -1654,7 +1543,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1718,7 +1607,6 @@ public class AchievementApi {
   /**
   * Search Achievements
   * Searches achievements by application for consumers.
-   * @param version 
    * @param appKey the application key
    * @param sortField the field to sort by. See AchievementApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -1733,13 +1621,8 @@ public class AchievementApi {
    * @param rankType filter results by the rankType (these are exact case sensitive matches)
    * @return List<AchievementShortResponse>
   */
-  public List<AchievementShortResponse> searchAchievements (BigDecimal version, String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AchievementShortResponse> searchAchievements (String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAchievements"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchAchievements",
@@ -1777,7 +1660,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1839,16 +1722,11 @@ public class AchievementApi {
       /**
    * Search Achievements
    * Searches achievements by application for consumers.
-   * @param version    * @param appKey the application key   * @param sortField the field to sort by. See AchievementApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param includeTiers return tiers, only applicable for version &gt;3.18   * @param includeInactiveTiers return inactive tiers, only applicable when includeTiers is true, only applicable for version &gt;3.18   * @param start the start index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param keyword the keyword used to filter results with (this returns results that have the keyword in the title or description of the achievement)   * @param achievementType filter results by the achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are exact case sensitive matches)
+   * @param appKey the application key   * @param sortField the field to sort by. See AchievementApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param includeTiers return tiers, only applicable for version &gt;3.18   * @param includeInactiveTiers return inactive tiers, only applicable when includeTiers is true, only applicable for version &gt;3.18   * @param start the start index for pagination   * @param limit the limit for pagination (has a hard limit of 1000)   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param keyword the keyword used to filter results with (this returns results that have the keyword in the title or description of the achievement)   * @param achievementType filter results by the achievementType (these are exact case sensitive matches)   * @param rankType filter results by the rankType (these are exact case sensitive matches)
   */
-  public void searchAchievements (BigDecimal version, String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType, final Response.Listener<List<AchievementShortResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchAchievements (String appKey, String sortField, Boolean descending, Boolean includeTiers, Boolean includeInactiveTiers, Integer start, Integer limit, String deviceId, Long accountId, String keyword, String achievementType, String rankType, final Response.Listener<List<AchievementShortResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAchievements",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAchievements"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchAchievements",
@@ -1886,7 +1764,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1951,7 +1829,6 @@ public class AchievementApi {
   /**
   * Update Achievement
   * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param achievementId the achievement ID for updating an existing achievement
@@ -1969,16 +1846,11 @@ public class AchievementApi {
    * @param triggerDefinition if provided will define what triggers to run after a tier is completed
    * @return AchievementResponse
   */
-  public AchievementResponse updateAchievement (BigDecimal version, String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementResponse updateAchievement (String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAchievement"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2043,19 +1915,14 @@ public class AchievementApi {
       /**
    * Update Achievement
    * Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementId the achievement ID for updating an existing achievement   * @param analyticsTag the analytics tag that will trigger when a user&#39;s achievement count gets updated   * @param title the title of the achievement (255 character limit)   * @param description the description of the achievement   * @param rankType the rank type for updating leader boards   * @param rankIncrement determines how much the rank count is incremented   * @param minIncrement restrict scores to be above or equal to this minimum value   * @param nullMinIncrement enable to ignore usage of minIncrement   * @param maxIncrement restrict scores to be below or equal to this maximum value   * @param nullMaxIncrement enable to ignore usage of maxIncrement   * @param validate determines whether the customId on analytics are used to validate a user&#39;s achievement progress.   * @param active if it&#39;s active or inactive   * @param triggerDefinition if provided will define what triggers to run after a tier is completed
+   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param achievementId the achievement ID for updating an existing achievement   * @param analyticsTag the analytics tag that will trigger when a user&#39;s achievement count gets updated   * @param title the title of the achievement (255 character limit)   * @param description the description of the achievement   * @param rankType the rank type for updating leader boards   * @param rankIncrement determines how much the rank count is incremented   * @param minIncrement restrict scores to be above or equal to this minimum value   * @param nullMinIncrement enable to ignore usage of minIncrement   * @param maxIncrement restrict scores to be below or equal to this maximum value   * @param nullMaxIncrement enable to ignore usage of maxIncrement   * @param validate determines whether the customId on analytics are used to validate a user&#39;s achievement progress.   * @param active if it&#39;s active or inactive   * @param triggerDefinition if provided will define what triggers to run after a tier is completed
   */
-  public void updateAchievement (BigDecimal version, String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition, final Response.Listener<AchievementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateAchievement (String deviceId, Long accountId, Long achievementId, String analyticsTag, String title, String description, String rankType, Integer rankIncrement, Integer minIncrement, Boolean nullMinIncrement, Integer maxIncrement, Boolean nullMaxIncrement, Boolean validate, Boolean active, String triggerDefinition, final Response.Listener<AchievementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAchievement"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2123,7 +1990,6 @@ public class AchievementApi {
   /**
   * Update Achievement Tier
   * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version 
    * @param achievementTierId the achievement tier id for updating
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -2140,13 +2006,8 @@ public class AchievementApi {
    * @param scoreAllInstances score all instances
    * @return AchievementTierResponse
   */
-  public AchievementTierResponse updateAchievementTier (BigDecimal version, Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AchievementTierResponse updateAchievementTier (Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAchievementTier"));
-    }
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementTierId' when calling updateAchievementTier",
@@ -2154,7 +2015,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2218,16 +2079,11 @@ public class AchievementApi {
       /**
    * Update Achievement Tier
    * Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-   * @param version    * @param achievementTierId the achievement tier id for updating   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param icon achievement tier icon image file   * @param iconAssetId the icon assetId, if icon is provided, icon will overrule   * @param title the title of the achievement tier   * @param description the description of the achievement tier   * @param goalCount the count requirement for completing the achievement tier   * @param missionId The ID of the mission to associate with the achievement   * @param gameId The ID of the game to associate with the achievement   * @param packId The ID of the pack to associate with the achievement   * @param gameLevelId The ID of the game level to associate with the achievement   * @param gameObjectId The ID of the game object to associate with the achievement   * @param scoreAllInstances score all instances
+   * @param achievementTierId the achievement tier id for updating   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param icon achievement tier icon image file   * @param iconAssetId the icon assetId, if icon is provided, icon will overrule   * @param title the title of the achievement tier   * @param description the description of the achievement tier   * @param goalCount the count requirement for completing the achievement tier   * @param missionId The ID of the mission to associate with the achievement   * @param gameId The ID of the game to associate with the achievement   * @param packId The ID of the pack to associate with the achievement   * @param gameLevelId The ID of the game level to associate with the achievement   * @param gameObjectId The ID of the game object to associate with the achievement   * @param scoreAllInstances score all instances
   */
-  public void updateAchievementTier (BigDecimal version, Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateAchievementTier (Long achievementTierId, String deviceId, Long accountId, File icon, Long iconAssetId, String title, String description, Long goalCount, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Boolean scoreAllInstances, final Response.Listener<AchievementTierResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAchievementTier",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAchievementTier"));
-    }
     // verify the required parameter 'achievementTierId' is set
     if (achievementTierId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'achievementTierId' when calling updateAchievementTier",
@@ -2235,7 +2091,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/tier/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/tier/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2302,7 +2158,6 @@ public class AchievementApi {
   /**
   * Update Achievement Progress
   * Update user achievement progress.
-   * @param version 
    * @param accountId the account id of the user
    * @param achievementId the achievement id (achievementId or tag required)
    * @param tag the analytic tag to identify an achievement (achievementId or tag required)
@@ -2313,13 +2168,8 @@ public class AchievementApi {
    * @param returnProgress determines whether to return the achievement progress response
    * @return SirqulResponse
   */
-  public SirqulResponse updateUserAchievement (BigDecimal version, Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateUserAchievement (Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserAchievement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserAchievement",
@@ -2327,7 +2177,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/progress/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/progress/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2385,16 +2235,11 @@ public class AchievementApi {
       /**
    * Update Achievement Progress
    * Update user achievement progress.
-   * @param version    * @param accountId the account id of the user   * @param achievementId the achievement id (achievementId or tag required)   * @param tag the analytic tag to identify an achievement (achievementId or tag required)   * @param customId a custom identifier used for validation   * @param increment the amount to increment an achievement progress by (if no increment is sent in, the server defaults to using the achievement&#39;s rankIncrement value)   * @param startDate a custom start date that the client can set (not yet used in server logic)   * @param endDate a custom end date that the client can set (not yet used in server logic)   * @param returnProgress determines whether to return the achievement progress response
+   * @param accountId the account id of the user   * @param achievementId the achievement id (achievementId or tag required)   * @param tag the analytic tag to identify an achievement (achievementId or tag required)   * @param customId a custom identifier used for validation   * @param increment the amount to increment an achievement progress by (if no increment is sent in, the server defaults to using the achievement&#39;s rankIncrement value)   * @param startDate a custom start date that the client can set (not yet used in server logic)   * @param endDate a custom end date that the client can set (not yet used in server logic)   * @param returnProgress determines whether to return the achievement progress response
   */
-  public void updateUserAchievement (BigDecimal version, Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateUserAchievement (Long accountId, Long achievementId, String tag, Long customId, Long increment, Long startDate, Long endDate, Boolean returnProgress, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserAchievement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserAchievement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserAchievement",
@@ -2402,7 +2247,7 @@ public class AchievementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/achievement/progress/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/achievement/progress/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ShipmentBatch;
 import org.openapitools.client.model.ShipmentImportStatus;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ShipmentBatchApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,20 +60,14 @@ public class ShipmentBatchApi {
   /**
   * Create Shipment Batch
   * Create a new shipment batch
-   * @param version 
    * @param body 
    * @return ShipmentBatch
   */
-  public ShipmentBatch createShipmentBatch (BigDecimal version, ShipmentBatch body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ShipmentBatch createShipmentBatch (ShipmentBatch body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createShipmentBatch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -124,19 +117,14 @@ public class ShipmentBatchApi {
       /**
    * Create Shipment Batch
    * Create a new shipment batch
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createShipmentBatch (BigDecimal version, ShipmentBatch body, final Response.Listener<ShipmentBatch> responseListener, final Response.ErrorListener errorListener) {
+  public void createShipmentBatch (ShipmentBatch body, final Response.Listener<ShipmentBatch> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createShipmentBatch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -189,17 +177,11 @@ public class ShipmentBatchApi {
   /**
   * Delete Shipment Batch
   * Search for shipment batches
-   * @param version 
    * @param batchId the id of the shipment batch to delete
    * @return void
   */
-  public void deleteShipmentBatch (BigDecimal version, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteShipmentBatch (Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteShipmentBatch"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling deleteShipmentBatch",
@@ -207,7 +189,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -257,16 +239,11 @@ public class ShipmentBatchApi {
       /**
    * Delete Shipment Batch
    * Search for shipment batches
-   * @param version    * @param batchId the id of the shipment batch to delete
+   * @param batchId the id of the shipment batch to delete
   */
-  public void deleteShipmentBatch (BigDecimal version, Long batchId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteShipmentBatch (Long batchId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteShipmentBatch"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling deleteShipmentBatch",
@@ -274,7 +251,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -323,17 +300,11 @@ public class ShipmentBatchApi {
   /**
   * Get Shipment Batch
   * Get an existing shipment batch
-   * @param version 
    * @param batchId the id of the shipment batch to get
    * @return ShipmentBatch
   */
-  public ShipmentBatch getShipmentBatch (BigDecimal version, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ShipmentBatch getShipmentBatch (Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentBatch"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling getShipmentBatch",
@@ -341,7 +312,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}".replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -391,16 +362,11 @@ public class ShipmentBatchApi {
       /**
    * Get Shipment Batch
    * Get an existing shipment batch
-   * @param version    * @param batchId the id of the shipment batch to get
+   * @param batchId the id of the shipment batch to get
   */
-  public void getShipmentBatch (BigDecimal version, Long batchId, final Response.Listener<ShipmentBatch> responseListener, final Response.ErrorListener errorListener) {
+  public void getShipmentBatch (Long batchId, final Response.Listener<ShipmentBatch> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentBatch"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling getShipmentBatch",
@@ -408,7 +374,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -461,7 +427,6 @@ public class ShipmentBatchApi {
   /**
   * Get Shipment Batch Status
   * Get the import status list of the import shipment batch
-   * @param version 
    * @param batchId The id of the requested shipment batch
    * @param accountId the id of the logged in user
    * @param sortField The field to sort by
@@ -476,13 +441,8 @@ public class ShipmentBatchApi {
    * @param keyword The keyword to search for
    * @return List<ShipmentImportStatus>
   */
-  public List<ShipmentImportStatus> getShipmentBatchStatus (BigDecimal version, Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ShipmentImportStatus> getShipmentBatchStatus (Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentBatchStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentBatchStatus"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling getShipmentBatchStatus",
@@ -515,7 +475,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}/status".replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -576,16 +536,11 @@ public class ShipmentBatchApi {
       /**
    * Get Shipment Batch Status
    * Get the import status list of the import shipment batch
-   * @param version    * @param batchId The id of the requested shipment batch   * @param accountId the id of the logged in user   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param valid Valid import status only or not   * @param started Started import status only   * @param completed Completed import status only   * @param hasShipment Has shipment associate to the status   * @param hasRoute Has route associate to the status   * @param keyword The keyword to search for
+   * @param batchId The id of the requested shipment batch   * @param accountId the id of the logged in user   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param valid Valid import status only or not   * @param started Started import status only   * @param completed Completed import status only   * @param hasShipment Has shipment associate to the status   * @param hasRoute Has route associate to the status   * @param keyword The keyword to search for
   */
-  public void getShipmentBatchStatus (BigDecimal version, Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword, final Response.Listener<List<ShipmentImportStatus>> responseListener, final Response.ErrorListener errorListener) {
+  public void getShipmentBatchStatus (Long batchId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean valid, Boolean started, Boolean completed, Boolean hasShipment, Boolean hasRoute, String keyword, final Response.Listener<List<ShipmentImportStatus>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentBatchStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentBatchStatus"));
-    }
     // verify the required parameter 'batchId' is set
     if (batchId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchId' when calling getShipmentBatchStatus",
@@ -618,7 +573,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch/{batchId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
+    String path = "/shipment/batch/{batchId}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "batchId" + "\\}", apiInvoker.escapeString(batchId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -682,7 +637,6 @@ public class ShipmentBatchApi {
   /**
   * Search Shipment Batch
   * Search for shipment batches
-   * @param version 
    * @param hubId The associated service hub
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -690,13 +644,8 @@ public class ShipmentBatchApi {
    * @param limit The limit for pagination
    * @return List<ShipmentBatch>
   */
-  public List<ShipmentBatch> searchShipmentBatch (BigDecimal version, Long hubId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ShipmentBatch> searchShipmentBatch (Long hubId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchShipmentBatch"));
-    }
     // verify the required parameter 'hubId' is set
     if (hubId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hubId' when calling searchShipmentBatch",
@@ -724,7 +673,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -779,16 +728,11 @@ public class ShipmentBatchApi {
       /**
    * Search Shipment Batch
    * Search for shipment batches
-   * @param version    * @param hubId The associated service hub   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param hubId The associated service hub   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void searchShipmentBatch (BigDecimal version, Long hubId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ShipmentBatch>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchShipmentBatch (Long hubId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ShipmentBatch>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchShipmentBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchShipmentBatch"));
-    }
     // verify the required parameter 'hubId' is set
     if (hubId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'hubId' when calling searchShipmentBatch",
@@ -816,7 +760,7 @@ public class ShipmentBatchApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

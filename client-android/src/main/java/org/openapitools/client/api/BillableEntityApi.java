@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.BillableEntityResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class BillableEntityApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class BillableEntityApi {
   /**
   * Create Billable
   * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param name The name of the entity responsible for billing 
@@ -75,16 +73,11 @@ public class BillableEntityApi {
    * @param authorizeNetTransactionKey Authorize Net Transaction Key
    * @return BillableEntityResponse
   */
-  public BillableEntityResponse createBillableEntity (BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BillableEntityResponse createBillableEntity (String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -146,19 +139,14 @@ public class BillableEntityApi {
       /**
    * Create Billable
    * reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-   * @param version    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param name The name of the entity responsible for billing    * @param streetAddress The street address of the billable entity   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)    * @param city The city of the billable entity   * @param state The state of the billable entity   * @param postalCode The postal code of the billable entity   * @param businessPhone The business phone of the billable entity   * @param businessPhoneExt The business phone extension   * @param authorizeNetApiKey Authorize Net Api Key   * @param authorizeNetTransactionKey Authorize Net Transaction Key
+   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param name The name of the entity responsible for billing    * @param streetAddress The street address of the billable entity   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)    * @param city The city of the billable entity   * @param state The state of the billable entity   * @param postalCode The postal code of the billable entity   * @param businessPhone The business phone of the billable entity   * @param businessPhoneExt The business phone extension   * @param authorizeNetApiKey Authorize Net Api Key   * @param authorizeNetTransactionKey Authorize Net Transaction Key
   */
-  public void createBillableEntity (BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createBillableEntity (String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -223,21 +211,15 @@ public class BillableEntityApi {
   /**
   * Delete Billable
   * Mark the billable as deleted
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the billable entity.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteBillableEntity (BigDecimal version, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteBillableEntity (String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -289,19 +271,14 @@ public class BillableEntityApi {
       /**
    * Delete Billable
    * Mark the billable as deleted
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the billable entity.
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the billable entity.
   */
-  public void deleteBillableEntity (BigDecimal version, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteBillableEntity (String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -356,23 +333,17 @@ public class BillableEntityApi {
   /**
   * Get Billable
   * Used to determine the associated BillableEntity of an account
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param includeCounts Determines whether to include the retailer dash board counts into the response
    * @param includePayments Whether to enable payments or not
    * @return BillableEntityResponse
   */
-  public BillableEntityResponse getBillableEntity (BigDecimal version, String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BillableEntityResponse getBillableEntity (String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -426,19 +397,14 @@ public class BillableEntityApi {
       /**
    * Get Billable
    * Used to determine the associated BillableEntity of an account
-   * @param version    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param includeCounts Determines whether to include the retailer dash board counts into the response   * @param includePayments Whether to enable payments or not
+   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param includeCounts Determines whether to include the retailer dash board counts into the response   * @param includePayments Whether to enable payments or not
   */
-  public void getBillableEntity (BigDecimal version, String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getBillableEntity (String deviceId, Long accountId, Boolean includeCounts, Boolean includePayments, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -495,7 +461,6 @@ public class BillableEntityApi {
   /**
   * Update Billable
   * Updates the billable record for an account
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
    * @param name The name of the entity responsible for billing 
@@ -510,16 +475,11 @@ public class BillableEntityApi {
    * @param authorizeNetTransactionKey Authorize Net Transaction Key of the billable entity
    * @return BillableEntityResponse
   */
-  public BillableEntityResponse updateBillableEntity (BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BillableEntityResponse updateBillableEntity (String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -581,19 +541,14 @@ public class BillableEntityApi {
       /**
    * Update Billable
    * Updates the billable record for an account
-   * @param version    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.   * @param name The name of the entity responsible for billing    * @param streetAddress The street address of the billable entity   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)    * @param city The city of the billable entity   * @param state The state of the billable entity   * @param postalCode The postal code of the billable entity   * @param businessPhone The business phone of the billable entity   * @param businessPhoneExt The business phone extension of the billable entity   * @param authorizeNetApiKey Authorize Net Api Key of the billable entity   * @param authorizeNetTransactionKey Authorize Net Transaction Key of the billable entity
+   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.   * @param name The name of the entity responsible for billing    * @param streetAddress The street address of the billable entity   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)    * @param city The city of the billable entity   * @param state The state of the billable entity   * @param postalCode The postal code of the billable entity   * @param businessPhone The business phone of the billable entity   * @param businessPhoneExt The business phone extension of the billable entity   * @param authorizeNetApiKey Authorize Net Api Key of the billable entity   * @param authorizeNetTransactionKey Authorize Net Transaction Key of the billable entity
   */
-  public void updateBillableEntity (BigDecimal version, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateBillableEntity (String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String businessPhone, String businessPhoneExt, String authorizeNetApiKey, String authorizeNetTransactionKey, final Response.Listener<BillableEntityResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBillableEntity"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/billable/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billable/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.EventAttendanceResponse;
 import java.util.*;
 import org.openapitools.client.model.OfferResponse;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class EventApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,7 +62,6 @@ public class EventApi {
   /**
   * Attend Event
   *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id (deviceId or accountId required)
    * @param appKey The application of where to send notifications about the attend action
@@ -76,16 +74,11 @@ public class EventApi {
    * @param longitude The location of the status update
    * @return OfferResponse
   */
-  public OfferResponse attendEvent (BigDecimal version, String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferResponse attendEvent (String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling attendEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling attendEvent"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/event/attend".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/attend";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -145,19 +138,14 @@ public class EventApi {
       /**
    * Attend Event
    *  Specify whether the user is attending an event at a particular location. This can also be used as a \&quot;check-in\&quot; action.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)   * @param appKey The application of where to send notifications about the attend action   * @param listingId The scheduled broadcast or marketing experience id   * @param retailerLocationId The retailer location where the event is being held   * @param offerLocationId The actual event being held   * @param transactionId The wallet item to update the status of, if provided then ignore the listingId, retailerLocationId, and the offerLocationId   * @param status Sets whether the user is: undecided (0), attending (1), attending and checked in (2), or not attending (3)   * @param latitude The location of the status update   * @param longitude The location of the status update
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)   * @param appKey The application of where to send notifications about the attend action   * @param listingId The scheduled broadcast or marketing experience id   * @param retailerLocationId The retailer location where the event is being held   * @param offerLocationId The actual event being held   * @param transactionId The wallet item to update the status of, if provided then ignore the listingId, retailerLocationId, and the offerLocationId   * @param status Sets whether the user is: undecided (0), attending (1), attending and checked in (2), or not attending (3)   * @param latitude The location of the status update   * @param longitude The location of the status update
   */
-  public void attendEvent (BigDecimal version, String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void attendEvent (String deviceId, Long accountId, String appKey, Long listingId, Long retailerLocationId, Long offerLocationId, Long transactionId, Integer status, Double latitude, Double longitude, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling attendEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling attendEvent"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/event/attend".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/attend".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -220,7 +208,6 @@ public class EventApi {
   /**
   * Create Event
   * Create a private event to share with associates.
-   * @param version 
    * @param accountId The logged in user.
    * @param title The event title
    * @param retailerLocationIds The retailer location to have the event at
@@ -235,13 +222,8 @@ public class EventApi {
    * @param metaData external custom client defined data
    * @return OfferResponse
   */
-  public OfferResponse createEvent (BigDecimal version, Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferResponse createEvent (Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createEvent",
@@ -254,7 +236,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -316,16 +298,11 @@ public class EventApi {
       /**
    * Create Event
    * Create a private event to share with associates.
-   * @param version    * @param accountId The logged in user.   * @param title The event title   * @param retailerLocationIds The retailer location to have the event at   * @param subTitle The event sub title   * @param details The event details   * @param categoryIds The categories the associate the event with   * @param filterIds The filters the associate the event with   * @param active Is this event active   * @param imageAssetId The image to show for the event   * @param redeemableStart The event start date/time   * @param redeemableEnd The event end date/time   * @param metaData external custom client defined data
+   * @param accountId The logged in user.   * @param title The event title   * @param retailerLocationIds The retailer location to have the event at   * @param subTitle The event sub title   * @param details The event details   * @param categoryIds The categories the associate the event with   * @param filterIds The filters the associate the event with   * @param active Is this event active   * @param imageAssetId The image to show for the event   * @param redeemableStart The event start date/time   * @param redeemableEnd The event end date/time   * @param metaData external custom client defined data
   */
-  public void createEvent (BigDecimal version, Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createEvent (Long accountId, String title, String retailerLocationIds, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, String metaData, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createEvent",
@@ -338,7 +315,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -403,18 +380,12 @@ public class EventApi {
   /**
   * Delete Event
   * Delete an event that the user has permissions to.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param eventId the id of the event to update
    * @return SirqulResponse
   */
-  public SirqulResponse deleteEvent (BigDecimal version, Long accountId, Long eventId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteEvent (Long accountId, Long eventId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteEvent",
@@ -427,7 +398,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -479,16 +450,11 @@ public class EventApi {
       /**
    * Delete Event
    * Delete an event that the user has permissions to.
-   * @param version    * @param accountId the id of the logged in user   * @param eventId the id of the event to update
+   * @param accountId the id of the logged in user   * @param eventId the id of the event to update
   */
-  public void deleteEvent (BigDecimal version, Long accountId, Long eventId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteEvent (Long accountId, Long eventId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteEvent",
@@ -501,7 +467,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -556,18 +522,12 @@ public class EventApi {
   /**
   * Get Event
   * Get an event.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param eventId The id of the event to return
    * @return OfferResponse
   */
-  public OfferResponse getEvent (BigDecimal version, Long accountId, Long eventId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferResponse getEvent (Long accountId, Long eventId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEvent",
@@ -580,7 +540,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -632,16 +592,11 @@ public class EventApi {
       /**
    * Get Event
    * Get an event.
-   * @param version    * @param accountId the id of the logged in user   * @param eventId The id of the event to return
+   * @param accountId the id of the logged in user   * @param eventId The id of the event to return
   */
-  public void getEvent (BigDecimal version, Long accountId, Long eventId, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getEvent (Long accountId, Long eventId, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEvent",
@@ -654,7 +609,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -709,7 +664,6 @@ public class EventApi {
   /**
   * Search Event Attendance
   * Searches on event type transactions. This can be used to see who is attending an event.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param appKey The application key
@@ -731,16 +685,11 @@ public class EventApi {
    * @param limit The limit for pagination
    * @return List<EventAttendanceResponse>
   */
-  public List<EventAttendanceResponse> searchEventTransactions (BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<EventAttendanceResponse> searchEventTransactions (String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEventTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEventTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/event/attendance/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/attendance/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -809,19 +758,14 @@ public class EventApi {
       /**
    * Search Event Attendance
    * Searches on event type transactions. This can be used to see who is attending an event.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param appKey The application key   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerLocationId Filter results for this retailer location   * @param excludeRetailerLocationId Exclude results from this retailer location   * @param listingId Filter results for this event listing   * @param offerId Filter results for this offer   * @param offerLocationId Filter results for this offer location   * @param customerAccountIds Filter results by accounts   * @param affiliatedCategoryIds Comma separated list of category ids to determine whether the attendee is affiliated with the category   * @param startDate Filter on attendance starting on or after this date (milliseconds since epoch)   * @param endDate Filter on attendance starting on or before this date (milliseconds since epoch)   * @param statuses Comma separated list of transaction statuses to filter on   * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param appKey The application key   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerLocationId Filter results for this retailer location   * @param excludeRetailerLocationId Exclude results from this retailer location   * @param listingId Filter results for this event listing   * @param offerId Filter results for this offer   * @param offerLocationId Filter results for this offer location   * @param customerAccountIds Filter results by accounts   * @param affiliatedCategoryIds Comma separated list of category ids to determine whether the attendee is affiliated with the category   * @param startDate Filter on attendance starting on or after this date (milliseconds since epoch)   * @param endDate Filter on attendance starting on or before this date (milliseconds since epoch)   * @param statuses Comma separated list of transaction statuses to filter on   * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void searchEventTransactions (BigDecimal version, String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<EventAttendanceResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchEventTransactions (String deviceId, Long accountId, String appKey, String keyword, Long retailerId, Long retailerLocationId, Long excludeRetailerLocationId, Long listingId, Long offerId, Long offerLocationId, String customerAccountIds, String affiliatedCategoryIds, Long startDate, Long endDate, String statuses, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<EventAttendanceResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEventTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEventTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/event/attendance/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/attendance/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -893,7 +837,6 @@ public class EventApi {
   /**
   * Search Events
   * Searches on events that the account has access to.
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword The keyword used to search
    * @param activeOnly Return only active results
@@ -909,13 +852,8 @@ public class EventApi {
    * @param limit The number of records to return
    * @return List<OfferShortResponse>
   */
-  public List<OfferShortResponse> searchEvents (BigDecimal version, Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferShortResponse> searchEvents (Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEvents",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEvents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchEvents",
@@ -923,7 +861,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -986,16 +924,11 @@ public class EventApi {
       /**
    * Search Events
    * Searches on events that the account has access to.
-   * @param version    * @param accountId The logged in user.   * @param keyword The keyword used to search   * @param activeOnly Return only active results   * @param categoryIds the IDs of the categories that this event is associated with   * @param filterIds the IDs of the filters that this event is associated with   * @param offerAudienceIds Offer audience ids to filter on   * @param transactionAudienceIds Transaction audience ids to filter on   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param startDate Filter the events to return only those that start on or after the date   * @param endDate Filter the events to return only those that start on or before the date   * @param start The record to begin the return set on   * @param limit The number of records to return
+   * @param accountId The logged in user.   * @param keyword The keyword used to search   * @param activeOnly Return only active results   * @param categoryIds the IDs of the categories that this event is associated with   * @param filterIds the IDs of the filters that this event is associated with   * @param offerAudienceIds Offer audience ids to filter on   * @param transactionAudienceIds Transaction audience ids to filter on   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param startDate Filter the events to return only those that start on or after the date   * @param endDate Filter the events to return only those that start on or before the date   * @param start The record to begin the return set on   * @param limit The number of records to return
   */
-  public void searchEvents (BigDecimal version, Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<OfferShortResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchEvents (Long accountId, String keyword, Boolean activeOnly, String categoryIds, String filterIds, String offerAudienceIds, String transactionAudienceIds, String sortField, Boolean descending, Long startDate, Long endDate, Integer start, Integer limit, final Response.Listener<List<OfferShortResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEvents",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEvents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchEvents",
@@ -1003,7 +936,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1069,7 +1002,6 @@ public class EventApi {
   /**
   * Update Event
   * Update a private event to share with associates.
-   * @param version 
    * @param accountId The logged in user.
    * @param eventId The id of the event to update
    * @param retailerLocationIds The retailer location to have the event at
@@ -1084,13 +1016,8 @@ public class EventApi {
    * @param redeemableEnd The event end date/time
    * @return OfferResponse
   */
-  public OfferResponse updateEvent (BigDecimal version, Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferResponse updateEvent (Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEvent",
@@ -1103,7 +1030,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1165,16 +1092,11 @@ public class EventApi {
       /**
    * Update Event
    * Update a private event to share with associates.
-   * @param version    * @param accountId The logged in user.   * @param eventId The id of the event to update   * @param retailerLocationIds The retailer location to have the event at   * @param title The event title   * @param subTitle The event sub title   * @param details The event details   * @param categoryIds The categories the associate the event with   * @param filterIds The filters the associate the event with   * @param active Is this event active   * @param imageAssetId The image to show for the event   * @param redeemableStart The event start date/time   * @param redeemableEnd The event end date/time
+   * @param accountId The logged in user.   * @param eventId The id of the event to update   * @param retailerLocationIds The retailer location to have the event at   * @param title The event title   * @param subTitle The event sub title   * @param details The event details   * @param categoryIds The categories the associate the event with   * @param filterIds The filters the associate the event with   * @param active Is this event active   * @param imageAssetId The image to show for the event   * @param redeemableStart The event start date/time   * @param redeemableEnd The event end date/time
   */
-  public void updateEvent (BigDecimal version, Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateEvent (Long accountId, Long eventId, String retailerLocationIds, String title, String subTitle, String details, String categoryIds, String filterIds, Boolean active, Long imageAssetId, Long redeemableStart, Long redeemableEnd, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEvent",
@@ -1187,7 +1109,7 @@ public class EventApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/event/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/event/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

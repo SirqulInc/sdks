@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ImportStatuses;
 import java.util.Map;
 import org.openapitools.client.model.Orders;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OptimizeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,19 +61,13 @@ public class OptimizeApi {
   /**
   * Get Optimization Result
   * Get the results of the import batch.
-   * @param version 
    * @param batchID The batchID for getting the import status of.
    * @param start The start index for pagination
    * @param limit The limit for pagination
    * @return Map<String, ShipmentOrder>
   */
-  public Map<String, ShipmentOrder> getOptimizationResult (BigDecimal version, String batchID, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Map<String, ShipmentOrder> getOptimizationResult (String batchID, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOptimizationResult",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOptimizationResult"));
-    }
     // verify the required parameter 'batchID' is set
     if (batchID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchID' when calling getOptimizationResult",
@@ -92,7 +85,7 @@ public class OptimizeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/optimize/result/{batchID}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchID" + "\\}", apiInvoker.escapeString(batchID.toString()));
+    String path = "/optimize/result/{batchID}".replaceAll("\\{" + "batchID" + "\\}", apiInvoker.escapeString(batchID.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -144,16 +137,11 @@ public class OptimizeApi {
       /**
    * Get Optimization Result
    * Get the results of the import batch.
-   * @param version    * @param batchID The batchID for getting the import status of.   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param batchID The batchID for getting the import status of.   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void getOptimizationResult (BigDecimal version, String batchID, Integer start, Integer limit, final Response.Listener<Map<String, ShipmentOrder>> responseListener, final Response.ErrorListener errorListener) {
+  public void getOptimizationResult (String batchID, Integer start, Integer limit, final Response.Listener<Map<String, ShipmentOrder>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOptimizationResult",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOptimizationResult"));
-    }
     // verify the required parameter 'batchID' is set
     if (batchID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'batchID' when calling getOptimizationResult",
@@ -171,7 +159,7 @@ public class OptimizeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/optimize/result/{batchID}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "batchID" + "\\}", apiInvoker.escapeString(batchID.toString()));
+    String path = "/optimize/result/{batchID}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "batchID" + "\\}", apiInvoker.escapeString(batchID.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -226,20 +214,14 @@ public class OptimizeApi {
   /**
   * Request Optimization
   * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-   * @param version 
    * @param body 
    * @return ImportStatuses
   */
-  public ImportStatuses requestOptimization (BigDecimal version, Orders body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ImportStatuses requestOptimization (Orders body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling requestOptimization",
-        new ApiException(400, "Missing the required parameter 'version' when calling requestOptimization"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/optimize/request".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/optimize/request";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -289,19 +271,14 @@ public class OptimizeApi {
       /**
    * Request Optimization
    * Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-   * @param version    * @param body 
+   * @param body 
   */
-  public void requestOptimization (BigDecimal version, Orders body, final Response.Listener<ImportStatuses> responseListener, final Response.ErrorListener errorListener) {
+  public void requestOptimization (Orders body, final Response.Listener<ImportStatuses> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling requestOptimization",
-        new ApiException(400, "Missing the required parameter 'version' when calling requestOptimization"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/optimize/request".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/optimize/request".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

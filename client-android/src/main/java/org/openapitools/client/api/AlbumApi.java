@@ -25,7 +25,6 @@ import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AlbumFullResponse;
 import org.openapitools.client.model.AlbumResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import java.util.*;
 import org.openapitools.client.model.SearchResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AlbumApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,7 +63,6 @@ public class AlbumApi {
   /**
   * Create Album
   * Create an Album.
-   * @param version 
    * @param title the title of the album
    * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image
    * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list
@@ -113,13 +111,8 @@ public class AlbumApi {
    * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response
    * @return SearchResponse
   */
-  public SearchResponse addAlbumCollection (BigDecimal version, String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchResponse addAlbumCollection (String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling addAlbumCollection"));
-    }
     // verify the required parameter 'title' is set
     if (title == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'title' when calling addAlbumCollection",
@@ -162,7 +155,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -258,16 +251,11 @@ public class AlbumApi {
       /**
    * Create Album
    * Create an Album.
-   * @param version    * @param title the title of the album   * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image   * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list   * @param publicRead determines whether the album&#39;s participants has read permissions   * @param publicWrite determines whether the album&#39;s participants has write permissions   * @param publicDelete determines whether the album&#39;s participants has delete permissions   * @param publicAdd determines whether the album&#39;s participants has add permissions   * @param anonymous determines whether the album is posted anonymously   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param assetsToAdd Comma separated list of asset IDs to add to the album&#39;s asset list (use \&quot;assetId\&quot; for setting the cover of the album)   * @param media a MultipartFile containing the cover image of the album (this will only be used if \&quot;assetId\&quot; is empty)   * @param mediaURL this can be used if the \&quot;media\&quot; is a link (this will only be used if \&quot;assetId\&quot; and media are empty)   * @param assetId The asset ID to set the album cover image   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references. Example to upload a video: the \&quot;media\&quot; file should contain a screen capture of the video, and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaURL this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc)   * @param startDate the start date   * @param endDate the end date   * @param tags the tags   * @param description the description of the album   * @param albumType a custom field used for aggregation and searching   * @param albumTypeId a custom indexed number used for aggregation and searching   * @param subType a custom string field used for aggregation and searching   * @param latitude latitude used to update the album&#39;s location   * @param longitude longitude used to update the album&#39;s location   * @param locationDescription the location description   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param gameType @deprecated, use the appKey   * @param appKey the application key   * @param cellPhone the cell phone number   * @param streetAddress The street address of the location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the location   * @param state The state of of the location   * @param postalCode The postal code of the location   * @param fullAddress The full address of the location which should include the street address, city, state, and postal code   * @param metaData External custom client defined data   * @param categoryIds comma separated category ids string associated with the Album   * @param categoryFilterIds comma separated filter ids string associated with the Album   * @param audienceIds comma separated audience ids string associated with the album   * @param includeAllAppUsersAsMembers determines whether to include all app users as members (only admins of the app can do this)   * @param includeAudiencesAsMembers determines whether to include all users of the audiences as members (only admins of the app can do this)   * @param audienceOperator determines whether to use ands or ors when using the audience list to add users   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param linkedObjectType sets a linked object so that it can be returned as part of the album response   * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response
+   * @param title the title of the album   * @param coverAssetNullable determines whether the cover image of the album can be empty, else will use the user&#39;s profile picture as the cover image   * @param includeCoverInAssetList determines whether the cover image should be added to the album asset list   * @param publicRead determines whether the album&#39;s participants has read permissions   * @param publicWrite determines whether the album&#39;s participants has write permissions   * @param publicDelete determines whether the album&#39;s participants has delete permissions   * @param publicAdd determines whether the album&#39;s participants has add permissions   * @param anonymous determines whether the album is posted anonymously   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param assetsToAdd Comma separated list of asset IDs to add to the album&#39;s asset list (use \&quot;assetId\&quot; for setting the cover of the album)   * @param media a MultipartFile containing the cover image of the album (this will only be used if \&quot;assetId\&quot; is empty)   * @param mediaURL this can be used if the \&quot;media\&quot; is a link (this will only be used if \&quot;assetId\&quot; and media are empty)   * @param assetId The asset ID to set the album cover image   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references. Example to upload a video: the \&quot;media\&quot; file should contain a screen capture of the video, and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaURL this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc)   * @param startDate the start date   * @param endDate the end date   * @param tags the tags   * @param description the description of the album   * @param albumType a custom field used for aggregation and searching   * @param albumTypeId a custom indexed number used for aggregation and searching   * @param subType a custom string field used for aggregation and searching   * @param latitude latitude used to update the album&#39;s location   * @param longitude longitude used to update the album&#39;s location   * @param locationDescription the location description   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param gameType @deprecated, use the appKey   * @param appKey the application key   * @param cellPhone the cell phone number   * @param streetAddress The street address of the location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the location   * @param state The state of of the location   * @param postalCode The postal code of the location   * @param fullAddress The full address of the location which should include the street address, city, state, and postal code   * @param metaData External custom client defined data   * @param categoryIds comma separated category ids string associated with the Album   * @param categoryFilterIds comma separated filter ids string associated with the Album   * @param audienceIds comma separated audience ids string associated with the album   * @param includeAllAppUsersAsMembers determines whether to include all app users as members (only admins of the app can do this)   * @param includeAudiencesAsMembers determines whether to include all users of the audiences as members (only admins of the app can do this)   * @param audienceOperator determines whether to use ands or ors when using the audience list to add users   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param linkedObjectType sets a linked object so that it can be returned as part of the album response   * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response
   */
-  public void addAlbumCollection (BigDecimal version, String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addAlbumCollection (String title, Boolean coverAssetNullable, Boolean includeCoverInAssetList, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Boolean anonymous, String deviceId, Long accountId, String assetsToAdd, File media, String mediaURL, Long assetId, File attachedMedia, String attachedMediaURL, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Double latitude, Double longitude, String locationDescription, String visibility, String gameType, String appKey, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String approvalStatus, String linkedObjectType, Long linkedObjectId, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling addAlbumCollection"));
-    }
     // verify the required parameter 'title' is set
     if (title == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'title' when calling addAlbumCollection",
@@ -310,7 +298,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -409,7 +397,6 @@ public class AlbumApi {
   /**
   * Add Album Users
   * Add users to an album as participants.
-   * @param version 
    * @param albumId the album ID
    * @param includeFriendGroup determines whether to include all friends as participants
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -422,13 +409,8 @@ public class AlbumApi {
    * @param connectionGroups comma separated list of connection group IDs
    * @return SirqulResponse
   */
-  public SirqulResponse addAlbumUsers (BigDecimal version, Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse addAlbumUsers (Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addAlbumUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling addAlbumUsers"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling addAlbumUsers",
@@ -441,7 +423,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/add".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/add";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -501,16 +483,11 @@ public class AlbumApi {
       /**
    * Add Album Users
    * Add users to an album as participants.
-   * @param version    * @param albumId the album ID   * @param includeFriendGroup determines whether to include all friends as participants   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param read determines whether the users being added have read permissions   * @param write determines whether the users being added have write permissions   * @param delete determines whether the users being added have delete permissions   * @param add determines whether the users being added have add permissions   * @param connections comma separated list of connection IDs   * @param connectionGroups comma separated list of connection group IDs
+   * @param albumId the album ID   * @param includeFriendGroup determines whether to include all friends as participants   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param read determines whether the users being added have read permissions   * @param write determines whether the users being added have write permissions   * @param delete determines whether the users being added have delete permissions   * @param add determines whether the users being added have add permissions   * @param connections comma separated list of connection IDs   * @param connectionGroups comma separated list of connection group IDs
   */
-  public void addAlbumUsers (BigDecimal version, Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addAlbumUsers (Long albumId, Boolean includeFriendGroup, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connections, String connectionGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addAlbumUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling addAlbumUsers"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling addAlbumUsers",
@@ -523,7 +500,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/add".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/add".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -586,7 +563,6 @@ public class AlbumApi {
   /**
   * Approve Album
   * Sets the approval status of an Album.
-   * @param version 
    * @param albumId The ID of the album
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
@@ -594,13 +570,8 @@ public class AlbumApi {
    * @param verified Sets whether the album should be marked as \&quot;verified\&quot;
    * @return SirqulResponse
   */
-  public SirqulResponse approveAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse approveAlbum (Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling approveAlbum",
@@ -608,7 +579,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/approve".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/approve";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -663,16 +634,11 @@ public class AlbumApi {
       /**
    * Approve Album
    * Sets the approval status of an Album.
-   * @param version    * @param albumId The ID of the album   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param verified Sets whether the album should be marked as \&quot;verified\&quot;
+   * @param albumId The ID of the album   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param verified Sets whether the album should be marked as \&quot;verified\&quot;
   */
-  public void approveAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void approveAlbum (Long albumId, String deviceId, Long accountId, String approvalStatus, Boolean verified, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling approveAlbum",
@@ -680,7 +646,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/approve".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/approve".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -738,7 +704,6 @@ public class AlbumApi {
   /**
   *  Get Album
   * Get an Album.
-   * @param version 
    * @param returnNulls This parameter is deprecated.
    * @param albumId the album to look up
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -750,13 +715,8 @@ public class AlbumApi {
    * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint.
    * @return AlbumFullResponse
   */
-  public AlbumFullResponse getAlbumCollection (BigDecimal version, Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumFullResponse getAlbumCollection (Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumCollection"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getAlbumCollection",
@@ -769,7 +729,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -828,16 +788,11 @@ public class AlbumApi {
       /**
    *  Get Album
    * Get an Album.
-   * @param version    * @param returnNulls This parameter is deprecated.   * @param albumId the album to look up   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param likePreviewSize returns the last X likes. To search on and paginate the remaining likes - please use the \&quot;/like/search\&quot;Â endpoint.   * @param assetPreviewSize returns the first X assets. To search on and paginate the remaining assets - please use the \&quot;/assets/search\&quot;Â endpoint.   * @param notePreviewSize returns the last X notes. To search on and paginate the remaining notes - please use the \&quot;/note/search\&quot; endpoint.   * @param connectionPreviewSize returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint.   * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint.
+   * @param returnNulls This parameter is deprecated.   * @param albumId the album to look up   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param likePreviewSize returns the last X likes. To search on and paginate the remaining likes - please use the \&quot;/like/search\&quot;Â endpoint.   * @param assetPreviewSize returns the first X assets. To search on and paginate the remaining assets - please use the \&quot;/assets/search\&quot;Â endpoint.   * @param notePreviewSize returns the last X notes. To search on and paginate the remaining notes - please use the \&quot;/note/search\&quot; endpoint.   * @param connectionPreviewSize returns the first X users/connections. To search on and paginate the remaining connections - please use the \&quot;/permissions/search\&quot; endpoint.   * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences - please use the \&quot;/audience/search\&quot; endpoint.
   */
-  public void getAlbumCollection (BigDecimal version, Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, final Response.Listener<AlbumFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAlbumCollection (Boolean returnNulls, Long albumId, String deviceId, Long accountId, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, final Response.Listener<AlbumFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumCollection"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getAlbumCollection",
@@ -850,7 +805,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -912,19 +867,13 @@ public class AlbumApi {
   /**
   * Leave Album
   *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-   * @param version 
    * @param albumId the album ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse leaveAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse leaveAlbum (Long albumId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling leaveAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling leaveAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling leaveAlbum",
@@ -932,7 +881,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/leave".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/leave";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -985,16 +934,11 @@ public class AlbumApi {
       /**
    * Leave Album
    *  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-   * @param version    * @param albumId the album ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)
+   * @param albumId the album ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)
   */
-  public void leaveAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void leaveAlbum (Long albumId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling leaveAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling leaveAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling leaveAlbum",
@@ -1002,7 +946,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/leave".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/leave".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1058,19 +1002,13 @@ public class AlbumApi {
   /**
   * Delete Album
   * Deletes an Album
-   * @param version 
    * @param albumId the album ID to delete
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse removeAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeAlbum (Long albumId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling removeAlbum",
@@ -1078,7 +1016,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1131,16 +1069,11 @@ public class AlbumApi {
       /**
    * Delete Album
    * Deletes an Album
-   * @param version    * @param albumId the album ID to delete   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)
+   * @param albumId the album ID to delete   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)
   */
-  public void removeAlbum (BigDecimal version, Long albumId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeAlbum (Long albumId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAlbum",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAlbum"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling removeAlbum",
@@ -1148,7 +1081,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1204,7 +1137,6 @@ public class AlbumApi {
   /**
   * Remove Album Users
   * Remove participants of an album.
-   * @param version 
    * @param albumId the album ID
    * @param removeFriendGroup remove friend group
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -1213,13 +1145,8 @@ public class AlbumApi {
    * @param connectionGroups comma separated list of connection group IDs
    * @return SirqulResponse
   */
-  public SirqulResponse removeAlbumUsers (BigDecimal version, Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeAlbumUsers (Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAlbumUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAlbumUsers"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling removeAlbumUsers",
@@ -1232,7 +1159,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1288,16 +1215,11 @@ public class AlbumApi {
       /**
    * Remove Album Users
    * Remove participants of an album.
-   * @param version    * @param albumId the album ID   * @param removeFriendGroup remove friend group   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param connections comma separated list of connection IDs   * @param connectionGroups comma separated list of connection group IDs
+   * @param albumId the album ID   * @param removeFriendGroup remove friend group   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param connections comma separated list of connection IDs   * @param connectionGroups comma separated list of connection group IDs
   */
-  public void removeAlbumUsers (BigDecimal version, Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeAlbumUsers (Long albumId, Boolean removeFriendGroup, String deviceId, Long accountId, String connections, String connectionGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAlbumUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAlbumUsers"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling removeAlbumUsers",
@@ -1310,7 +1232,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/user/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/user/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1369,7 +1291,6 @@ public class AlbumApi {
   /**
   * Search Albums
   * Searches on Albums.
-   * @param version 
    * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. 
    * @param albumTypeId id of custom albumType
    * @param subType filter albums with this album sub type
@@ -1432,13 +1353,8 @@ public class AlbumApi {
    * @param generateAlbums If true and results are empty, attempt to generate albums via templates
    * @return List<AlbumFullResponse>
   */
-  public List<AlbumFullResponse> searchAlbums (BigDecimal version, String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AlbumFullResponse> searchAlbums (String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAlbums",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAlbums"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling searchAlbums",
@@ -1526,7 +1442,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1636,16 +1552,11 @@ public class AlbumApi {
       /**
    * Search Albums
    * Searches on Albums.
-   * @param version    * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.    * @param albumTypeId id of custom albumType   * @param subType filter albums with this album sub type   * @param includeInactive determines whether to return inactive albums   * @param sortField the field to sort by. See AlbumApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (There is a hard limit of 100)   * @param range the maximum range the album can be from the center (used when sortField&#x3D;ALBUM_DISTANCE)   * @param includeLiked returns whether or not the current logged in user has liked the album   * @param includeFavorited returns whether or not the current logged in user has favorited the album   * @param includePermissions returns permission details on whether they have read/write/delete permissions etc (client app probably doesn&#39;t need this)   * @param likePreviewSize returns the last X likes   * @param assetPreviewSize returns the first X assets   * @param notePreviewSize returns the last X notes   * @param connectionPreviewSize returns the first X users/connections   * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences, please use the \&quot;/audience/search\&quot; endpoint.   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param connectionAccountId the account ID of the user that the results will be based on. This is used to return albums that this account has liked/favorited.   * @param ownerId search on albums that have been created by this account (that the user has permissions to)   * @param albumIds search on album within a comma separated list of album IDs (this does not work with sortField&#x3D;ALBUM_DISTANCE, or when stackSearch&#x3D;true)   * @param excludeAlbumIds Only for CLOUDINDEX mode, exclude albums with ids matching this list   * @param mediaId search on albums that are in a particular media offering   * @param keyword keyword search string   * @param albumType filter albums with this album type   * @param limitPerAlbumType When using multiple album types this sets a per-album-type limit (used with cloud index mode)   * @param dateCreated return items that have been created before this date (time-stamp in milliseconds)   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param createdSince return items that have been created since this date (time-stamp in milliseconds)   * @param createdBefore return items that have been created before this date (time-stamp in milliseconds)   * @param startedSince return items that have been started since this date (time-stamp in milliseconds)   * @param startedBefore return items that have been started before this date (time-stamp in milliseconds)   * @param endedSince return items that have been ended since this date (time-stamp in milliseconds)   * @param endedBefore return items that have been ended before this date (time-stamp in milliseconds)   * @param latitude the latitude of where the search is centered on (used when sortField&#x3D;ALBUM_DISTANCE)   * @param longitude the longitude of where the search is centered on (used when sortField&#x3D;ALBUM_DISTANCE)   * @param appKey the application key to filter results by application. This is required for consumer searches. Leaving this empty will return albums for the applications that the logged in user owns or has access to.   * @param categoryIds return results with categories matching this list   * @param categoryFilterIds return results with filters matching this list   * @param audienceIds return results with audiences matching this list   * @param excludeAudienceIds exclude audiences with ids matching this list   * @param includeCompletable returns the user&#39;s completable object for the album if it exists   * @param includeRating returns the user&#39;s rating for the album if it exists   * @param searchMode The search index mode to use (RDS, LUCENE, or CLOUDINDEX). If not provided will use server default.   * @param stackSearch groups similar albums together that have the same albumTypeId, within a time window defined in stackWindowSize   * @param stackWindowSize size of each window for each stack   * @param minStackPerPage The minimum number of stacks returned in a response. For example,  first call, minStackPerPage &#x3D; 20, the API will return at least 20 results   * @param stackPaginationIdentifier this is used to tell the system where it left off on the previous previous page, since we can&#39;t use start/limit for stackSearch   * @param stackDetails set this to true when making the call to view the albums in the stack   * @param flagCountMinimum Return any results that have a minimum of the specified flag count (even ones that have met the flag threshold)   * @param removeFlaggedContent return items that have flagCount &gt;&#x3D; flagThreshold (controls removal of flagged content)   * @param verifiedFilter setting to true will return only verified albums only, setting to false will return non-verified albums only (leave empty to return both)   * @param linkedObjectType filter results by the linkedObjectType   * @param linkedObjectId filter results by the linkedObjectId   * @param orderAudienceId determines whether to use the order assigned via the /album/order/_* api (which is tied to an audience)   * @param ignoreDefaultAppFilter if true, ignore the application&#39;s default app filter when searching   * @param searchExpression Advanced search expression to be used by the server   * @param generateAlbums If true and results are empty, attempt to generate albums via templates
+   * @param filter a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user&#39;s followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.    * @param albumTypeId id of custom albumType   * @param subType filter albums with this album sub type   * @param includeInactive determines whether to return inactive albums   * @param sortField the field to sort by. See AlbumApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (There is a hard limit of 100)   * @param range the maximum range the album can be from the center (used when sortField&#x3D;ALBUM_DISTANCE)   * @param includeLiked returns whether or not the current logged in user has liked the album   * @param includeFavorited returns whether or not the current logged in user has favorited the album   * @param includePermissions returns permission details on whether they have read/write/delete permissions etc (client app probably doesn&#39;t need this)   * @param likePreviewSize returns the last X likes   * @param assetPreviewSize returns the first X assets   * @param notePreviewSize returns the last X notes   * @param connectionPreviewSize returns the first X users/connections   * @param audiencePreviewSize returns the first X audiences. To search on and paginate the remaining audiences, please use the \&quot;/audience/search\&quot; endpoint.   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param connectionAccountId the account ID of the user that the results will be based on. This is used to return albums that this account has liked/favorited.   * @param ownerId search on albums that have been created by this account (that the user has permissions to)   * @param albumIds search on album within a comma separated list of album IDs (this does not work with sortField&#x3D;ALBUM_DISTANCE, or when stackSearch&#x3D;true)   * @param excludeAlbumIds Only for CLOUDINDEX mode, exclude albums with ids matching this list   * @param mediaId search on albums that are in a particular media offering   * @param keyword keyword search string   * @param albumType filter albums with this album type   * @param limitPerAlbumType When using multiple album types this sets a per-album-type limit (used with cloud index mode)   * @param dateCreated return items that have been created before this date (time-stamp in milliseconds)   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param createdSince return items that have been created since this date (time-stamp in milliseconds)   * @param createdBefore return items that have been created before this date (time-stamp in milliseconds)   * @param startedSince return items that have been started since this date (time-stamp in milliseconds)   * @param startedBefore return items that have been started before this date (time-stamp in milliseconds)   * @param endedSince return items that have been ended since this date (time-stamp in milliseconds)   * @param endedBefore return items that have been ended before this date (time-stamp in milliseconds)   * @param latitude the latitude of where the search is centered on (used when sortField&#x3D;ALBUM_DISTANCE)   * @param longitude the longitude of where the search is centered on (used when sortField&#x3D;ALBUM_DISTANCE)   * @param appKey the application key to filter results by application. This is required for consumer searches. Leaving this empty will return albums for the applications that the logged in user owns or has access to.   * @param categoryIds return results with categories matching this list   * @param categoryFilterIds return results with filters matching this list   * @param audienceIds return results with audiences matching this list   * @param excludeAudienceIds exclude audiences with ids matching this list   * @param includeCompletable returns the user&#39;s completable object for the album if it exists   * @param includeRating returns the user&#39;s rating for the album if it exists   * @param searchMode The search index mode to use (RDS, LUCENE, or CLOUDINDEX). If not provided will use server default.   * @param stackSearch groups similar albums together that have the same albumTypeId, within a time window defined in stackWindowSize   * @param stackWindowSize size of each window for each stack   * @param minStackPerPage The minimum number of stacks returned in a response. For example,  first call, minStackPerPage &#x3D; 20, the API will return at least 20 results   * @param stackPaginationIdentifier this is used to tell the system where it left off on the previous previous page, since we can&#39;t use start/limit for stackSearch   * @param stackDetails set this to true when making the call to view the albums in the stack   * @param flagCountMinimum Return any results that have a minimum of the specified flag count (even ones that have met the flag threshold)   * @param removeFlaggedContent return items that have flagCount &gt;&#x3D; flagThreshold (controls removal of flagged content)   * @param verifiedFilter setting to true will return only verified albums only, setting to false will return non-verified albums only (leave empty to return both)   * @param linkedObjectType filter results by the linkedObjectType   * @param linkedObjectId filter results by the linkedObjectId   * @param orderAudienceId determines whether to use the order assigned via the /album/order/_* api (which is tied to an audience)   * @param ignoreDefaultAppFilter if true, ignore the application&#39;s default app filter when searching   * @param searchExpression Advanced search expression to be used by the server   * @param generateAlbums If true and results are empty, attempt to generate albums via templates
   */
-  public void searchAlbums (BigDecimal version, String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums, final Response.Listener<List<AlbumFullResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchAlbums (String filter, Long albumTypeId, String subType, Boolean includeInactive, String sortField, Boolean descending, Integer start, Integer limit, Double range, Boolean includeLiked, Boolean includeFavorited, Boolean includePermissions, Integer likePreviewSize, Integer assetPreviewSize, Integer notePreviewSize, Integer connectionPreviewSize, Integer audiencePreviewSize, String deviceId, Long accountId, Long connectionAccountId, Long ownerId, String albumIds, String excludeAlbumIds, Long mediaId, String keyword, String albumType, Integer limitPerAlbumType, Long dateCreated, Long updatedSince, Long updatedBefore, Long createdSince, Long createdBefore, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Double latitude, Double longitude, String appKey, String categoryIds, String categoryFilterIds, String audienceIds, String excludeAudienceIds, Boolean includeCompletable, Boolean includeRating, String searchMode, Boolean stackSearch, Integer stackWindowSize, Integer minStackPerPage, String stackPaginationIdentifier, Boolean stackDetails, Long flagCountMinimum, Boolean removeFlaggedContent, Boolean verifiedFilter, String linkedObjectType, Long linkedObjectId, Long orderAudienceId, Boolean ignoreDefaultAppFilter, String searchExpression, Boolean generateAlbums, final Response.Listener<List<AlbumFullResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAlbums",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAlbums"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling searchAlbums",
@@ -1733,7 +1644,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1846,7 +1757,6 @@ public class AlbumApi {
   /**
   * Update Album
   * Update an Album.
-   * @param version 
    * @param albumId the ID of the album to update
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -1894,13 +1804,8 @@ public class AlbumApi {
    * @param indexNow determines whether the album should be indexed immediately
    * @return AlbumResponse
   */
-  public AlbumResponse updateAlbumCollection (BigDecimal version, Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumResponse updateAlbumCollection (Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAlbumCollection"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling updateAlbumCollection",
@@ -1908,7 +1813,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2003,16 +1908,11 @@ public class AlbumApi {
       /**
    * Update Album
    * Update an Album.
-   * @param version    * @param albumId the ID of the album to update   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param assetsToAdd Comma separated list of asset IDs to add to the album&#39;s asset list (use \&quot;assetId\&quot; for setting the cover of the album)   * @param assetsToRemove Comma separated list of asset IDs to remove from the album&#39;s asset list   * @param assetId the cover asset ID   * @param media a MultipartFile containing the cover image of the album (this will only be used if \&quot;assetId\&quot; is empty)   * @param mediaURL this can be used if the \&quot;media\&quot; is a link (this will only be used if \&quot;assetId\&quot; and media are empty)   * @param active determines whether the album is active or inactive   * @param title the title of the album   * @param startDate the start date   * @param endDate the end date   * @param tags the tags   * @param description the description of the album   * @param albumType a custom field used for aggregation and searching   * @param albumTypeId a custom indexed number used for aggregation and searching   * @param subType a custom string field used for aggregation and searching   * @param publicRead determines whether the album&#39;s participants have read permissions   * @param publicWrite determines whether the album&#39;s participants have write permissions   * @param publicDelete determines whether the album&#39;s participants have delete permissions   * @param publicAdd determines whether the album&#39;s participants have add permissions   * @param latitude latitude used to update the album&#39;s location   * @param longitude longitude used to update the album&#39;s location   * @param locationDescription the location description   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param cellPhone the cell phone number   * @param streetAddress The street address of the location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the location   * @param state The state of of the location   * @param postalCode The postal code of the location   * @param fullAddress The full address of the location which should include the street address, city, state, and postal code   * @param anonymous determines whether the album is posted anonymously   * @param metaData External custom client defined data   * @param categoryIds comma separated category ids string associated with the Album   * @param categoryFilterIds comma separated filter ids string associated with the Album   * @param audienceIds comma separated audience ids string associated with the album   * @param audienceIdsToAdd comma separated audience ids to add to the album   * @param audienceIdsToRemove comma separated audience ids to remove from the album (overrides audienceIds and audienceIdsToAdd)   * @param includeAllAppUsersAsMembers determines whether to include all app users as members (only admins of the app can do this)   * @param includeAudiencesAsMembers determines whether to include all users of the audiences as members (only admins of the app can do this)   * @param audienceOperator determines whether to use ands or ors when using the audience list to add users   * @param linkedObjectType sets a linked object so that it can be returned as part of the album response   * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response   * @param indexNow determines whether the album should be indexed immediately
+   * @param albumId the ID of the album to update   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param assetsToAdd Comma separated list of asset IDs to add to the album&#39;s asset list (use \&quot;assetId\&quot; for setting the cover of the album)   * @param assetsToRemove Comma separated list of asset IDs to remove from the album&#39;s asset list   * @param assetId the cover asset ID   * @param media a MultipartFile containing the cover image of the album (this will only be used if \&quot;assetId\&quot; is empty)   * @param mediaURL this can be used if the \&quot;media\&quot; is a link (this will only be used if \&quot;assetId\&quot; and media are empty)   * @param active determines whether the album is active or inactive   * @param title the title of the album   * @param startDate the start date   * @param endDate the end date   * @param tags the tags   * @param description the description of the album   * @param albumType a custom field used for aggregation and searching   * @param albumTypeId a custom indexed number used for aggregation and searching   * @param subType a custom string field used for aggregation and searching   * @param publicRead determines whether the album&#39;s participants have read permissions   * @param publicWrite determines whether the album&#39;s participants have write permissions   * @param publicDelete determines whether the album&#39;s participants have delete permissions   * @param publicAdd determines whether the album&#39;s participants have add permissions   * @param latitude latitude used to update the album&#39;s location   * @param longitude longitude used to update the album&#39;s location   * @param locationDescription the location description   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param cellPhone the cell phone number   * @param streetAddress The street address of the location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the location   * @param state The state of of the location   * @param postalCode The postal code of the location   * @param fullAddress The full address of the location which should include the street address, city, state, and postal code   * @param anonymous determines whether the album is posted anonymously   * @param metaData External custom client defined data   * @param categoryIds comma separated category ids string associated with the Album   * @param categoryFilterIds comma separated filter ids string associated with the Album   * @param audienceIds comma separated audience ids string associated with the album   * @param audienceIdsToAdd comma separated audience ids to add to the album   * @param audienceIdsToRemove comma separated audience ids to remove from the album (overrides audienceIds and audienceIdsToAdd)   * @param includeAllAppUsersAsMembers determines whether to include all app users as members (only admins of the app can do this)   * @param includeAudiencesAsMembers determines whether to include all users of the audiences as members (only admins of the app can do this)   * @param audienceOperator determines whether to use ands or ors when using the audience list to add users   * @param linkedObjectType sets a linked object so that it can be returned as part of the album response   * @param linkedObjectId sets a linked object id so that it can be returned as part of the album response   * @param indexNow determines whether the album should be indexed immediately
   */
-  public void updateAlbumCollection (BigDecimal version, Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow, final Response.Listener<AlbumResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateAlbumCollection (Long albumId, String deviceId, Long accountId, String assetsToAdd, String assetsToRemove, Long assetId, File media, String mediaURL, Boolean active, String title, Long startDate, Long endDate, String tags, String description, String albumType, Long albumTypeId, String subType, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, Double latitude, Double longitude, String locationDescription, String visibility, String cellPhone, String streetAddress, String streetAddress2, String city, String state, String postalCode, String fullAddress, Boolean anonymous, String metaData, String categoryIds, String categoryFilterIds, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, Boolean includeAllAppUsersAsMembers, Boolean includeAudiencesAsMembers, String audienceOperator, String linkedObjectType, Long linkedObjectId, Boolean indexNow, final Response.Listener<AlbumResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAlbumCollection",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAlbumCollection"));
-    }
     // verify the required parameter 'albumId' is set
     if (albumId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumId' when calling updateAlbumCollection",
@@ -2020,7 +1920,7 @@ public class AlbumApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/album/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/album/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

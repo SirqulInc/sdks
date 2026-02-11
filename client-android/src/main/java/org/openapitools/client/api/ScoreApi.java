@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ScoreResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ScoreApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class ScoreApi {
   /**
   * Create Score
   * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to save the score for.
    * @param points The score
@@ -73,13 +71,8 @@ public class ScoreApi {
    * @param highest 
    * @return ScoreResponse
   */
-  public ScoreResponse createScore (BigDecimal version, Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ScoreResponse createScore (Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling createScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createScore",
@@ -97,7 +90,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,16 +150,11 @@ public class ScoreApi {
       /**
    * Create Score
    * Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-   * @param version    * @param accountId The logged in user.   * @param appKey The game application key to save the score for.   * @param points The score   * @param missionId The missionId to score for, ignore if not playing mission.   * @param gameId The gameId to score for, ignore if not playing mission.   * @param packId The packId to score for, send -2 if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, ignore if level based scoring.   * @param timeTaken The time taken to complete task   * @param highest 
+   * @param accountId The logged in user.   * @param appKey The game application key to save the score for.   * @param points The score   * @param missionId The missionId to score for, ignore if not playing mission.   * @param gameId The gameId to score for, ignore if not playing mission.   * @param packId The packId to score for, send -2 if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, ignore if level based scoring.   * @param timeTaken The time taken to complete task   * @param highest 
   */
-  public void createScore (BigDecimal version, Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest, final Response.Listener<ScoreResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createScore (Long accountId, String appKey, Integer points, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, Integer timeTaken, Boolean highest, final Response.Listener<ScoreResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling createScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createScore",
@@ -184,7 +172,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -247,7 +235,6 @@ public class ScoreApi {
   /**
   * Get Score
   * Get the high score for an item.  Pass in the full path IDs for the score.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to get the level for.
    * @param missionId The missionId to score for, null if not playing mission.
@@ -259,13 +246,8 @@ public class ScoreApi {
    * @param scoreStatus The status of the score to filter (ScoreStatus)
    * @return ScoreResponse
   */
-  public ScoreResponse getScore (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ScoreResponse getScore (Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling getScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getScore",
@@ -278,7 +260,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -337,16 +319,11 @@ public class ScoreApi {
       /**
    * Get Score
    * Get the high score for an item.  Pass in the full path IDs for the score.
-   * @param version    * @param accountId The logged in user.   * @param appKey The game application key to get the level for.   * @param missionId The missionId to score for, null if not playing mission.   * @param gameId The gameId to score for, null if not playing mission.   * @param packId The packId to score for, null if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, null if level based scoring.   * @param scoreObjectType The object type to filter scores by (TicketObjectType)   * @param scoreStatus The status of the score to filter (ScoreStatus)
+   * @param accountId The logged in user.   * @param appKey The game application key to get the level for.   * @param missionId The missionId to score for, null if not playing mission.   * @param gameId The gameId to score for, null if not playing mission.   * @param packId The packId to score for, null if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, null if level based scoring.   * @param scoreObjectType The object type to filter scores by (TicketObjectType)   * @param scoreStatus The status of the score to filter (ScoreStatus)
   */
-  public void getScore (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus, final Response.Listener<ScoreResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getScore (Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, String scoreObjectType, String scoreStatus, final Response.Listener<ScoreResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling getScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getScore",
@@ -359,7 +336,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -421,7 +398,6 @@ public class ScoreApi {
   /**
   * Search Score
   * Search the scores for an item.  Pass in the full path IDs for the scores.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to get the level for.
    * @param missionId The missionId to score for, null if not playing mission.
@@ -431,13 +407,8 @@ public class ScoreApi {
    * @param gameObjectId The gameObjectId to score for, null if level based scoring.
    * @return List<ScoreResponse>
   */
-  public List<ScoreResponse> searchScores (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ScoreResponse> searchScores (Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchScores",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchScores"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchScores",
@@ -450,7 +421,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -507,16 +478,11 @@ public class ScoreApi {
       /**
    * Search Score
    * Search the scores for an item.  Pass in the full path IDs for the scores.
-   * @param version    * @param accountId The logged in user.   * @param appKey The game application key to get the level for.   * @param missionId The missionId to score for, null if not playing mission.   * @param gameId The gameId to score for, null if not playing mission.   * @param packId The packId to score for, null if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, null if level based scoring.
+   * @param accountId The logged in user.   * @param appKey The game application key to get the level for.   * @param missionId The missionId to score for, null if not playing mission.   * @param gameId The gameId to score for, null if not playing mission.   * @param packId The packId to score for, null if playing community levels.   * @param gameLevelId The gameLevelId to score for.   * @param gameObjectId The gameObjectId to score for, null if level based scoring.
   */
-  public void searchScores (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, final Response.Listener<List<ScoreResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchScores (Long accountId, String appKey, Long missionId, Long gameId, Long packId, Long gameLevelId, Long gameObjectId, final Response.Listener<List<ScoreResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchScores",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchScores"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchScores",
@@ -529,7 +495,7 @@ public class ScoreApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/score/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/score/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

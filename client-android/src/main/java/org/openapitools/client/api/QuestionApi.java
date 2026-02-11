@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.QuestionResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class QuestionApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class QuestionApi {
   /**
   * Create Question
   * Create a question and related answers by the given params.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param question the text of the question
    * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60; 
@@ -75,13 +73,8 @@ public class QuestionApi {
    * @param points The number of points to award for completing a mission
    * @return QuestionResponse
   */
-  public QuestionResponse createQuestion (BigDecimal version, Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QuestionResponse createQuestion (Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling createQuestion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createQuestion",
@@ -114,7 +107,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -175,16 +168,11 @@ public class QuestionApi {
       /**
    * Create Question
    * Create a question and related answers by the given params.
-   * @param version    * @param accountId the id of the logged in user   * @param question the text of the question   * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;    * @param active If true set the question to active. Default to false.   * @param allocateTickets If true then scoring will give tickets. Default to false.   * @param ticketCount The number of tickets to reward   * @param tags The tags of the question for search.   * @param videoURL The video link for the question.   * @param assetId The asset id of the question.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
+   * @param accountId the id of the logged in user   * @param question the text of the question   * @param answers &#x60;&#x60;&#x60;json [   {     \&quot;text\&quot;: \&quot;1942\&quot;,     \&quot;image\&quot;: 123,     \&quot;videoURL\&quot;: \&quot;http://www.here.com\&quot;,     \&quot;correct\&quot;: true   },   {     \&quot;text\&quot;: \&quot;1943\&quot;,     \&quot;image\&quot;: 124,     \&quot;videoURL\&quot;: \&quot;http://www.there.com\&quot;,     \&quot;correct\&quot;: false   } ] &#x60;&#x60;&#x60;    * @param active If true set the question to active. Default to false.   * @param allocateTickets If true then scoring will give tickets. Default to false.   * @param ticketCount The number of tickets to reward   * @param tags The tags of the question for search.   * @param videoURL The video link for the question.   * @param assetId The asset id of the question.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
   */
-  public void createQuestion (BigDecimal version, Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createQuestion (Long accountId, String question, String answers, Boolean active, Boolean allocateTickets, Long ticketCount, String tags, String videoURL, Long assetId, String ticketType, Long points, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling createQuestion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createQuestion",
@@ -217,7 +205,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -281,18 +269,12 @@ public class QuestionApi {
   /**
   * Delete Question
   * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-   * @param version 
    * @param questionId the id of the question to delete
    * @param accountId the id of the account that can execute this request
    * @return SirqulResponse
   */
-  public SirqulResponse deleteQuestion (BigDecimal version, Long questionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteQuestion (Long questionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling deleteQuestion",
@@ -305,7 +287,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -357,16 +339,11 @@ public class QuestionApi {
       /**
    * Delete Question
    * Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-   * @param version    * @param questionId the id of the question to delete   * @param accountId the id of the account that can execute this request
+   * @param questionId the id of the question to delete   * @param accountId the id of the account that can execute this request
   */
-  public void deleteQuestion (BigDecimal version, Long questionId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteQuestion (Long questionId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling deleteQuestion",
@@ -379,7 +356,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -434,18 +411,12 @@ public class QuestionApi {
   /**
   * Get Question
   * Get a question by the given id.
-   * @param version 
    * @param questionId the id of the question to get
    * @param accountId the id of the account that can make this request
    * @return QuestionResponse
   */
-  public QuestionResponse getQuestion (BigDecimal version, Long questionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QuestionResponse getQuestion (Long questionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling getQuestion",
@@ -458,7 +429,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -510,16 +481,11 @@ public class QuestionApi {
       /**
    * Get Question
    * Get a question by the given id.
-   * @param version    * @param questionId the id of the question to get   * @param accountId the id of the account that can make this request
+   * @param questionId the id of the question to get   * @param accountId the id of the account that can make this request
   */
-  public void getQuestion (BigDecimal version, Long questionId, Long accountId, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getQuestion (Long questionId, Long accountId, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling getQuestion",
@@ -532,7 +498,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -587,7 +553,6 @@ public class QuestionApi {
   /**
   * Search Questions
   * Search for questions by the given params.
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The column to sort the search on
    * @param descending The order to return the search results
@@ -597,13 +562,8 @@ public class QuestionApi {
    * @param keyword The keyword for searching questions with matching tags or question text.
    * @return List<QuestionResponse>
   */
-  public List<QuestionResponse> searchQuestions (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<QuestionResponse> searchQuestions (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchQuestions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchQuestions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchQuestions",
@@ -636,7 +596,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -693,16 +653,11 @@ public class QuestionApi {
       /**
    * Search Questions
    * Search for questions by the given params.
-   * @param version    * @param accountId The logged in user.   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results if set to true.   * @param start The record to begin the return set on.   * @param limit The number of records to return.   * @param keyword The keyword for searching questions with matching tags or question text.
+   * @param accountId The logged in user.   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results if set to true.   * @param start The record to begin the return set on.   * @param limit The number of records to return.   * @param keyword The keyword for searching questions with matching tags or question text.
   */
-  public void searchQuestions (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, final Response.Listener<List<QuestionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchQuestions (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, final Response.Listener<List<QuestionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchQuestions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchQuestions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchQuestions",
@@ -735,7 +690,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -795,7 +750,6 @@ public class QuestionApi {
   /**
   * Update Question
   * Update a question and related answers.
-   * @param version 
    * @param questionId The id of the question to update.
    * @param accountId The logged in user.
    * @param ticketCount The number of tickets to reward
@@ -810,13 +764,8 @@ public class QuestionApi {
    * @param points The number of points to award for completing a mission
    * @return QuestionResponse
   */
-  public QuestionResponse updateQuestion (BigDecimal version, Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QuestionResponse updateQuestion (Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling updateQuestion",
@@ -834,7 +783,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -896,16 +845,11 @@ public class QuestionApi {
       /**
    * Update Question
    * Update a question and related answers.
-   * @param version    * @param questionId The id of the question to update.   * @param accountId The logged in user.   * @param ticketCount The number of tickets to reward   * @param question The text of the question.   * @param answers The json representations of answers for the question.   * @param tags The tags of the question for search.   * @param videoURL The video link for the question.   * @param assetId The asset id of the question.   * @param active If true set the question to active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
+   * @param questionId The id of the question to update.   * @param accountId The logged in user.   * @param ticketCount The number of tickets to reward   * @param question The text of the question.   * @param answers The json representations of answers for the question.   * @param tags The tags of the question for search.   * @param videoURL The video link for the question.   * @param assetId The asset id of the question.   * @param active If true set the question to active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
   */
-  public void updateQuestion (BigDecimal version, Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateQuestion (Long questionId, Long accountId, Long ticketCount, String question, String answers, String tags, String videoURL, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateQuestion",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateQuestion"));
-    }
     // verify the required parameter 'questionId' is set
     if (questionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'questionId' when calling updateQuestion",
@@ -923,7 +867,7 @@ public class QuestionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/question/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/question/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

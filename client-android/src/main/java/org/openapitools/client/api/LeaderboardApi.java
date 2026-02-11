@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.LeaderboardResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class LeaderboardApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class LeaderboardApi {
   /**
   * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-   * @param version 
    * @param accountId The account id of the user creating the leaderboard.
    * @param appKey The application key
    * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -77,16 +75,11 @@ public class LeaderboardApi {
    * @param metaData custom meta data for the leaderboard
    * @return LeaderboardResponse
   */
-  public LeaderboardResponse createLeaderboard (BigDecimal version, Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LeaderboardResponse createLeaderboard (Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling createLeaderboard"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -149,19 +142,14 @@ public class LeaderboardApi {
       /**
    * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
    * Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-   * @param version    * @param accountId The account id of the user creating the leaderboard.   * @param appKey The application key   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL - searches scores globally (all users in the system are included in the ranking); LOCAL - filters results by select users and on users that have logged into the same device; SEARCH - does a GLOBAL search by keyword; CUSTOM - does a LOCAL search by keyword   * @param iconMedia a MultipartFile containing the icon image of the leaderboard (this will only be used if \&quot;iconAssetId\&quot; is empty)   * @param iconAssetId The asset ID to set the leaderboard icon   * @param bannerMedia a MultipartFile containing the icon banner of the leaderboard (this will only be used if \&quot;bannerAssetId\&quot; is empty)   * @param bannerAssetId The asset ID to set the leaderboard banner   * @param limitation limit number of rankings for each leaderboard   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, WEEKLY, DAILY, TOP, LOWEST   * @param title leaderboard&#39;s title   * @param description leaderboard&#39;s description   * @param metaData custom meta data for the leaderboard
+   * @param accountId The account id of the user creating the leaderboard.   * @param appKey The application key   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL - searches scores globally (all users in the system are included in the ranking); LOCAL - filters results by select users and on users that have logged into the same device; SEARCH - does a GLOBAL search by keyword; CUSTOM - does a LOCAL search by keyword   * @param iconMedia a MultipartFile containing the icon image of the leaderboard (this will only be used if \&quot;iconAssetId\&quot; is empty)   * @param iconAssetId The asset ID to set the leaderboard icon   * @param bannerMedia a MultipartFile containing the icon banner of the leaderboard (this will only be used if \&quot;bannerAssetId\&quot; is empty)   * @param bannerAssetId The asset ID to set the leaderboard banner   * @param limitation limit number of rankings for each leaderboard   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, WEEKLY, DAILY, TOP, LOWEST   * @param title leaderboard&#39;s title   * @param description leaderboard&#39;s description   * @param metaData custom meta data for the leaderboard
   */
-  public void createLeaderboard (BigDecimal version, Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createLeaderboard (Long accountId, String appKey, String rankType, String leaderboardMode, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, String sortField, String title, String description, String metaData, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling createLeaderboard"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -227,18 +215,12 @@ public class LeaderboardApi {
   /**
   * Delete the Leader Board
   * Removes a leader board id.
-   * @param version 
    * @param leaderboardId The leaderboard id to delete.
    * @param accountId The account id of the user making the request.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteLeaderboard (BigDecimal version, Long leaderboardId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteLeaderboard (Long leaderboardId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling deleteLeaderboard",
@@ -246,7 +228,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -298,16 +280,11 @@ public class LeaderboardApi {
       /**
    * Delete the Leader Board
    * Removes a leader board id.
-   * @param version    * @param leaderboardId The leaderboard id to delete.   * @param accountId The account id of the user making the request.
+   * @param leaderboardId The leaderboard id to delete.   * @param accountId The account id of the user making the request.
   */
-  public void deleteLeaderboard (BigDecimal version, Long leaderboardId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteLeaderboard (Long leaderboardId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling deleteLeaderboard",
@@ -315,7 +292,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -370,19 +347,13 @@ public class LeaderboardApi {
   /**
   * Read a leaderboard by id and retrieve the matching ranking list
   * Read a leaderboard by id and retrieve the matching ranking list
-   * @param version 
    * @param leaderboardId The leaderboard id.
    * @param accountId A valid account.
    * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list
    * @return LeaderboardResponse
   */
-  public LeaderboardResponse getLeaderboard (BigDecimal version, Long leaderboardId, Long accountId, Boolean includeFullRankingList) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LeaderboardResponse getLeaderboard (Long leaderboardId, Long accountId, Boolean includeFullRankingList) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling getLeaderboard",
@@ -390,7 +361,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -443,16 +414,11 @@ public class LeaderboardApi {
       /**
    * Read a leaderboard by id and retrieve the matching ranking list
    * Read a leaderboard by id and retrieve the matching ranking list
-   * @param version    * @param leaderboardId The leaderboard id.   * @param accountId A valid account.   * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list
+   * @param leaderboardId The leaderboard id.   * @param accountId A valid account.   * @param includeFullRankingList set to true if need to return the leaderboard&#39;s full ranking list
   */
-  public void getLeaderboard (BigDecimal version, Long leaderboardId, Long accountId, Boolean includeFullRankingList, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getLeaderboard (Long leaderboardId, Long accountId, Boolean includeFullRankingList, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling getLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling getLeaderboard",
@@ -460,7 +426,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -516,7 +482,6 @@ public class LeaderboardApi {
   /**
   * Search leaderboard and retrieve the matching ranking list
   * Search leaderboard and retrieve the matching ranking list
-   * @param version 
    * @param accountId The account id of the user requesting the search.
    * @param appKey The application key.
    * @param globalOnly only include global leaderboards (this overrides the appKey filter)
@@ -531,16 +496,11 @@ public class LeaderboardApi {
    * @param limit Limit the result to some number.
    * @return LeaderboardResponse
   */
-  public LeaderboardResponse searchLeaderboards (BigDecimal version, Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LeaderboardResponse searchLeaderboards (Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLeaderboards",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLeaderboards"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -602,19 +562,14 @@ public class LeaderboardApi {
       /**
    * Search leaderboard and retrieve the matching ranking list
    * Search leaderboard and retrieve the matching ranking list
-   * @param version    * @param accountId The account id of the user requesting the search.   * @param appKey The application key.   * @param globalOnly only include global leaderboards (this overrides the appKey filter)   * @param keyword keyword to search by title   * @param leaderboardIds comma separated list of leaderboard ids to filter results with   * @param rankTypes comma separated list of rankType to filter results with   * @param sortField sortField of the result, from LeaderboardApiMap (TITLE, DESCRIPTION, CREATED, UPDATED, RANK_TYPE, RANK_MODE)   * @param descending Determines whether the sorted list is in descending or ascending order   * @param includeInactive include inactive in the result   * @param includeAppResponse determines whether to include the application response for each leaderboard   * @param start Start the result set at some index.   * @param limit Limit the result to some number.
+   * @param accountId The account id of the user requesting the search.   * @param appKey The application key.   * @param globalOnly only include global leaderboards (this overrides the appKey filter)   * @param keyword keyword to search by title   * @param leaderboardIds comma separated list of leaderboard ids to filter results with   * @param rankTypes comma separated list of rankType to filter results with   * @param sortField sortField of the result, from LeaderboardApiMap (TITLE, DESCRIPTION, CREATED, UPDATED, RANK_TYPE, RANK_MODE)   * @param descending Determines whether the sorted list is in descending or ascending order   * @param includeInactive include inactive in the result   * @param includeAppResponse determines whether to include the application response for each leaderboard   * @param start Start the result set at some index.   * @param limit Limit the result to some number.
   */
-  public void searchLeaderboards (BigDecimal version, Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchLeaderboards (Long accountId, String appKey, Boolean globalOnly, String keyword, String leaderboardIds, String rankTypes, String sortField, Boolean descending, Boolean includeInactive, Boolean includeAppResponse, Integer start, Integer limit, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLeaderboards",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLeaderboards"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -679,7 +634,6 @@ public class LeaderboardApi {
   /**
   * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
   * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-   * @param version 
    * @param leaderboardId The leaderboard id to update.
    * @param accountId The account id of the user updating the leaderboard.
    * @param appKey The application key
@@ -697,13 +651,8 @@ public class LeaderboardApi {
    * @param metaData custom meta data for the leaderboard
    * @return LeaderboardResponse
   */
-  public LeaderboardResponse updateLeaderboard (BigDecimal version, Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LeaderboardResponse updateLeaderboard (Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling updateLeaderboard",
@@ -711,7 +660,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -776,16 +725,11 @@ public class LeaderboardApi {
       /**
    * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
    * Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-   * @param version    * @param leaderboardId The leaderboard id to update.   * @param accountId The account id of the user updating the leaderboard.   * @param appKey The application key   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters.   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL, LOCAL, SEARCH, CUSTOM   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, WEEKLY, DAILY, TOP, LOWEST   * @param iconMedia a MultipartFile containing the icon image of the leaderboard (this will only be used if \&quot;iconAssetId\&quot; is empty)   * @param iconAssetId The asset ID to set the leaderboard icon   * @param bannerMedia a MultipartFile containing the icon banner of the leaderboard (this will only be used if \&quot;bannerAssetId\&quot; is empty)   * @param bannerAssetId The asset ID to set the leaderboard banner   * @param limitation limit number of rankings for each leaderboard   * @param active Whether the leaderboard is active   * @param title leaderboard&#39;s title   * @param description leaderboard&#39;s description   * @param metaData custom meta data for the leaderboard
+   * @param leaderboardId The leaderboard id to update.   * @param accountId The account id of the user updating the leaderboard.   * @param appKey The application key   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters.   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL, LOCAL, SEARCH, CUSTOM   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, WEEKLY, DAILY, TOP, LOWEST   * @param iconMedia a MultipartFile containing the icon image of the leaderboard (this will only be used if \&quot;iconAssetId\&quot; is empty)   * @param iconAssetId The asset ID to set the leaderboard icon   * @param bannerMedia a MultipartFile containing the icon banner of the leaderboard (this will only be used if \&quot;bannerAssetId\&quot; is empty)   * @param bannerAssetId The asset ID to set the leaderboard banner   * @param limitation limit number of rankings for each leaderboard   * @param active Whether the leaderboard is active   * @param title leaderboard&#39;s title   * @param description leaderboard&#39;s description   * @param metaData custom meta data for the leaderboard
   */
-  public void updateLeaderboard (BigDecimal version, Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateLeaderboard (Long leaderboardId, Long accountId, String appKey, String rankType, String leaderboardMode, String sortField, File iconMedia, Long iconAssetId, File bannerMedia, Long bannerAssetId, Integer limitation, Boolean active, String title, String description, String metaData, final Response.Listener<LeaderboardResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLeaderboard",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLeaderboard"));
-    }
     // verify the required parameter 'leaderboardId' is set
     if (leaderboardId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'leaderboardId' when calling updateLeaderboard",
@@ -793,7 +737,7 @@ public class LeaderboardApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/leaderboard/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/leaderboard/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

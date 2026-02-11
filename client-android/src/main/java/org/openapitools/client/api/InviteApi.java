@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ConsumerInviteResponse;
 import org.openapitools.client.model.InviteResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class InviteApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class InviteApi {
   /**
   * Accept Invite
   * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-   * @param version 
    * @param token the invite token
    * @param accountId the accountId of the user who is accepting the invite
    * @param albumId the album id associated with this invite (if applicable)
@@ -78,13 +76,8 @@ public class InviteApi {
    * @param autoFavoriteRetailerLocation whether to mark the retailer location as favorited automatically after invite is accepted
    * @return ConsumerInviteResponse
   */
-  public ConsumerInviteResponse acceptInvite (BigDecimal version, String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConsumerInviteResponse acceptInvite (String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling acceptInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling acceptInvite"));
-    }
     // verify the required parameter 'token' is set
     if (token == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'token' when calling acceptInvite",
@@ -97,7 +90,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/accept".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/accept";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -161,16 +154,11 @@ public class InviteApi {
       /**
    * Accept Invite
    * Allows a user to accept an invite. The user could also become the inviter&#39;s friend.
-   * @param version    * @param token the invite token   * @param accountId the accountId of the user who is accepting the invite   * @param albumId the album id associated with this invite (if applicable)   * @param missionId the mission id associated with this invite (if applicable)   * @param albumContestId the album contest id associated with this invite (if applicable)   * @param offerId the offer id associated with this invite (if applicable)   * @param offerLocationId the offer location id associated with this invite (if applicable)   * @param retailerLocationId the retailer location id associated with this invite (if applicable)   * @param appKey the application key   * @param autoFriend whether to auto-friend the invite sender and receiver   * @param autoAttendEvent whether to mark the event as attending automatically after invite is accepted   * @param autoFavoriteOffer whether to mark the offer as favorited automatically after invite is accepted   * @param autoFavoriteOfferLocation whether to mark the offer location as favorited automatically after invite is accepted   * @param autoFavoriteRetailerLocation whether to mark the retailer location as favorited automatically after invite is accepted
+   * @param token the invite token   * @param accountId the accountId of the user who is accepting the invite   * @param albumId the album id associated with this invite (if applicable)   * @param missionId the mission id associated with this invite (if applicable)   * @param albumContestId the album contest id associated with this invite (if applicable)   * @param offerId the offer id associated with this invite (if applicable)   * @param offerLocationId the offer location id associated with this invite (if applicable)   * @param retailerLocationId the retailer location id associated with this invite (if applicable)   * @param appKey the application key   * @param autoFriend whether to auto-friend the invite sender and receiver   * @param autoAttendEvent whether to mark the event as attending automatically after invite is accepted   * @param autoFavoriteOffer whether to mark the offer as favorited automatically after invite is accepted   * @param autoFavoriteOfferLocation whether to mark the offer location as favorited automatically after invite is accepted   * @param autoFavoriteRetailerLocation whether to mark the retailer location as favorited automatically after invite is accepted
   */
-  public void acceptInvite (BigDecimal version, String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation, final Response.Listener<ConsumerInviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void acceptInvite (String token, Long accountId, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, Boolean autoFriend, Boolean autoAttendEvent, Boolean autoFavoriteOffer, Boolean autoFavoriteOfferLocation, Boolean autoFavoriteRetailerLocation, final Response.Listener<ConsumerInviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling acceptInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling acceptInvite"));
-    }
     // verify the required parameter 'token' is set
     if (token == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'token' when calling acceptInvite",
@@ -183,7 +171,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/accept".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/accept".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -250,7 +238,6 @@ public class InviteApi {
   /**
   * Invite to Contest
   * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -260,16 +247,11 @@ public class InviteApi {
    * @param longitude the current longitude of the user
    * @return InviteResponse
   */
-  public InviteResponse albumContestInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse albumContestInvite (String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling albumContestInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling albumContestInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/albumContest".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/albumContest";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -326,19 +308,14 @@ public class InviteApi {
       /**
    * Invite to Contest
    * Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version    * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param albumContestId the album contest to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param albumContestId the album contest to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void albumContestInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void albumContestInvite (String deviceId, Long accountId, Long appId, String appKey, Long albumContestId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling albumContestInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling albumContestInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/albumContest".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/albumContest".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -398,7 +375,6 @@ public class InviteApi {
   /**
   * Invite to Collection
   * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -408,16 +384,11 @@ public class InviteApi {
    * @param longitude the current longitude of the user
    * @return InviteResponse
   */
-  public InviteResponse albumInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse albumInvite (String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling albumInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling albumInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/album".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/album";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -474,19 +445,14 @@ public class InviteApi {
       /**
    * Invite to Collection
    * Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version    * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param albumId the album to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param albumId the album to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void albumInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void albumInvite (String deviceId, Long accountId, Long appId, String appKey, Long albumId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling albumInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling albumInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/album".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/album".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -546,7 +512,6 @@ public class InviteApi {
   /**
   * Invite to Event
   * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param listingId The ID of the event listing
@@ -554,13 +519,8 @@ public class InviteApi {
    * @param retailerLocationId The retailer location id of where the event will take place
    * @return InviteResponse
   */
-  public InviteResponse eventInvite (BigDecimal version, Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse eventInvite (Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling eventInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling eventInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling eventInvite",
@@ -578,7 +538,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/event".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/event";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -633,16 +593,11 @@ public class InviteApi {
       /**
    * Invite to Event
    * Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-   * @param version    * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param listingId The ID of the event listing   * @param receiverAccountIds the account ID of a Sirqul user they would like to share an event with   * @param retailerLocationId The retailer location id of where the event will take place
+   * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param listingId The ID of the event listing   * @param receiverAccountIds the account ID of a Sirqul user they would like to share an event with   * @param retailerLocationId The retailer location id of where the event will take place
   */
-  public void eventInvite (BigDecimal version, Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void eventInvite (Long accountId, String appKey, Long listingId, String receiverAccountIds, Long retailerLocationId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling eventInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling eventInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling eventInvite",
@@ -660,7 +615,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/event".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/event".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -718,7 +673,6 @@ public class InviteApi {
   /**
   * Invite to Game Level
   * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -728,16 +682,11 @@ public class InviteApi {
    * @param longitude the current longitude of the user
    * @return InviteResponse
   */
-  public InviteResponse gameInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse gameInvite (String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling gameInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling gameInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/gameLevel".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/gameLevel";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -794,19 +743,14 @@ public class InviteApi {
       /**
    * Invite to Game Level
    * Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version    * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param gameLevelId the game level that the user owns and is giving access to   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param gameLevelId the game level that the user owns and is giving access to   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void gameInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void gameInvite (String deviceId, Long accountId, Long appId, String appKey, Long gameLevelId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling gameInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling gameInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/gameLevel".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/gameLevel".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -866,7 +810,6 @@ public class InviteApi {
   /**
   * Get Invite
   * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-   * @param version 
    * @param accountId Account ID of the user if they are logged in
    * @param token the invite token
    * @param albumId album id to match the invite against (if applicable)
@@ -878,16 +821,11 @@ public class InviteApi {
    * @param appKey the application key
    * @return SirqulResponse
   */
-  public SirqulResponse getInvite (BigDecimal version, Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getInvite (Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -946,19 +884,14 @@ public class InviteApi {
       /**
    * Get Invite
    * This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-   * @param version    * @param accountId Account ID of the user if they are logged in   * @param token the invite token   * @param albumId album id to match the invite against (if applicable)   * @param missionId mission id to match the invite against (if applicable)   * @param albumContestId album contest id to match the invite against (if applicable)   * @param offerId offer id to match the invite against (if applicable)   * @param offerLocationId offer location id to match the invite against (if applicable)   * @param retailerLocationId retailer location id to match the invite against (if applicable)   * @param appKey the application key
+   * @param accountId Account ID of the user if they are logged in   * @param token the invite token   * @param albumId album id to match the invite against (if applicable)   * @param missionId mission id to match the invite against (if applicable)   * @param albumContestId album contest id to match the invite against (if applicable)   * @param offerId offer id to match the invite against (if applicable)   * @param offerLocationId offer location id to match the invite against (if applicable)   * @param retailerLocationId retailer location id to match the invite against (if applicable)   * @param appKey the application key
   */
-  public void getInvite (BigDecimal version, Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getInvite (Long accountId, String token, Long albumId, Long missionId, Long albumContestId, Long offerId, Long offerLocationId, Long retailerLocationId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1020,7 +953,6 @@ public class InviteApi {
   /**
   * Invite to Mission
   * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param appId This parameter is deprecated.
@@ -1030,16 +962,11 @@ public class InviteApi {
    * @param longitude the current longitude of the user
    * @return InviteResponse
   */
-  public InviteResponse missionInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse missionInvite (String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling missionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling missionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/mission".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/mission";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1096,19 +1023,14 @@ public class InviteApi {
       /**
    * Invite to Mission
    * Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user&#39;s friend when the invitation is accepted.
-   * @param version    * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param missionId the mission to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param appId This parameter is deprecated.   * @param appKey the application key   * @param missionId the mission to share   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void missionInvite (BigDecimal version, String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void missionInvite (String deviceId, Long accountId, Long appId, String appKey, Long missionId, Double latitude, Double longitude, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling missionInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling missionInvite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/invite/mission".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/mission".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1168,19 +1090,13 @@ public class InviteApi {
   /**
   * Invite to Offer
   * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param offerId the ID of the offer used to invite to favorite
    * @return InviteResponse
   */
-  public InviteResponse offerInvite (BigDecimal version, Long accountId, String appKey, Long offerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse offerInvite (Long accountId, String appKey, Long offerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling offerInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling offerInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling offerInvite",
@@ -1198,7 +1114,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/offer".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/offer";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1251,16 +1167,11 @@ public class InviteApi {
       /**
    * Invite to Offer
    * Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite&#39;s list.
-   * @param version    * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param offerId the ID of the offer used to invite to favorite
+   * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param offerId the ID of the offer used to invite to favorite
   */
-  public void offerInvite (BigDecimal version, Long accountId, String appKey, Long offerId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void offerInvite (Long accountId, String appKey, Long offerId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling offerInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling offerInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling offerInvite",
@@ -1278,7 +1189,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/offer".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/offer".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1334,19 +1245,13 @@ public class InviteApi {
   /**
   * Invite to Offer Location
   * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param offerLocationId the id of the offer location to share
    * @return InviteResponse
   */
-  public InviteResponse offerLocationInvite (BigDecimal version, Long accountId, String appKey, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse offerLocationInvite (Long accountId, String appKey, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling offerLocationInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling offerLocationInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling offerLocationInvite",
@@ -1364,7 +1269,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/offerLocation".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/offerLocation";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1417,16 +1322,11 @@ public class InviteApi {
       /**
    * Invite to Offer Location
    * Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite&#39;s list.
-   * @param version    * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param offerLocationId the id of the offer location to share
+   * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param offerLocationId the id of the offer location to share
   */
-  public void offerLocationInvite (BigDecimal version, Long accountId, String appKey, Long offerLocationId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void offerLocationInvite (Long accountId, String appKey, Long offerLocationId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling offerLocationInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling offerLocationInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling offerLocationInvite",
@@ -1444,7 +1344,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/offerLocation".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/offerLocation".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1500,20 +1400,14 @@ public class InviteApi {
   /**
   * Invite to Retailer Location
   * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-   * @param version 
    * @param accountId the account ID of the user making the share
    * @param appKey the application key
    * @param retailerLocationId The retailer location id of where the event will take place
    * @param albumId Optional album id to link with the invite
    * @return InviteResponse
   */
-  public InviteResponse retailerLocationInvite (BigDecimal version, Long accountId, String appKey, Long retailerLocationId, Long albumId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public InviteResponse retailerLocationInvite (Long accountId, String appKey, Long retailerLocationId, Long albumId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling retailerLocationInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling retailerLocationInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling retailerLocationInvite",
@@ -1531,7 +1425,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/retailerLocation".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/retailerLocation";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1585,16 +1479,11 @@ public class InviteApi {
       /**
    * Invite to Retailer Location
    * Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite&#39;s list.
-   * @param version    * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param retailerLocationId The retailer location id of where the event will take place   * @param albumId Optional album id to link with the invite
+   * @param accountId the account ID of the user making the share   * @param appKey the application key   * @param retailerLocationId The retailer location id of where the event will take place   * @param albumId Optional album id to link with the invite
   */
-  public void retailerLocationInvite (BigDecimal version, Long accountId, String appKey, Long retailerLocationId, Long albumId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void retailerLocationInvite (Long accountId, String appKey, Long retailerLocationId, Long albumId, final Response.Listener<InviteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling retailerLocationInvite",
-        new ApiException(400, "Missing the required parameter 'version' when calling retailerLocationInvite"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling retailerLocationInvite",
@@ -1612,7 +1501,7 @@ public class InviteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/invite/retailerLocation".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/invite/retailerLocation".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

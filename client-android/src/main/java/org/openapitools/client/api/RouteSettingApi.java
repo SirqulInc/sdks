@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.RouteSettings;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RouteSettingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class RouteSettingApi {
   /**
   * Create Route Setting
   * Create a new route setting
-   * @param version 
    * @param body 
    * @return RouteSettings
   */
-  public RouteSettings createRouteSettings (BigDecimal version, RouteSettings body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RouteSettings createRouteSettings (RouteSettings body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRouteSettings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route/setting";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class RouteSettingApi {
       /**
    * Create Route Setting
    * Create a new route setting
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createRouteSettings (BigDecimal version, RouteSettings body, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
+  public void createRouteSettings (RouteSettings body, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRouteSettings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route/setting".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,17 +176,11 @@ public class RouteSettingApi {
   /**
   * Delete Route Setting
   * Delete an existing route setting
-   * @param version 
    * @param routeSettingsId the id of the route setting to delete
    * @return Object
   */
-  public Object deleteRouteSettings (BigDecimal version, Long routeSettingsId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object deleteRouteSettings (Long routeSettingsId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling deleteRouteSettings",
@@ -206,7 +188,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -256,16 +238,11 @@ public class RouteSettingApi {
       /**
    * Delete Route Setting
    * Delete an existing route setting
-   * @param version    * @param routeSettingsId the id of the route setting to delete
+   * @param routeSettingsId the id of the route setting to delete
   */
-  public void deleteRouteSettings (BigDecimal version, Long routeSettingsId, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteRouteSettings (Long routeSettingsId, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling deleteRouteSettings",
@@ -273,7 +250,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -326,17 +303,11 @@ public class RouteSettingApi {
   /**
   * Get Route Setting
   * Get an existing route settings
-   * @param version 
    * @param routeSettingsId the id of the route settings to get
    * @return RouteSettings
   */
-  public RouteSettings getRouteSettings (BigDecimal version, Long routeSettingsId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RouteSettings getRouteSettings (Long routeSettingsId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling getRouteSettings",
@@ -344,7 +315,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -394,16 +365,11 @@ public class RouteSettingApi {
       /**
    * Get Route Setting
    * Get an existing route settings
-   * @param version    * @param routeSettingsId the id of the route settings to get
+   * @param routeSettingsId the id of the route settings to get
   */
-  public void getRouteSettings (BigDecimal version, Long routeSettingsId, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
+  public void getRouteSettings (Long routeSettingsId, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling getRouteSettings",
@@ -411,7 +377,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -464,7 +430,6 @@ public class RouteSettingApi {
   /**
   * Search Route Settings
   * Search for route settings
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -475,13 +440,8 @@ public class RouteSettingApi {
    * @param keyword The keyword to search for the route
    * @return List<RouteSettings>
   */
-  public List<RouteSettings> searchRouteSettings (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RouteSettings> searchRouteSettings (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRouteSettings"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRouteSettings",
@@ -509,7 +469,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route/setting";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -567,16 +527,11 @@ public class RouteSettingApi {
       /**
    * Search Route Settings
    * Search for route settings
-   * @param version    * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param hubId The service hub that the route belongs under   * @param programId The program that the route belongs under   * @param keyword The keyword to search for the route
+   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param hubId The service hub that the route belongs under   * @param programId The program that the route belongs under   * @param keyword The keyword to search for the route
   */
-  public void searchRouteSettings (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword, final Response.Listener<List<RouteSettings>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRouteSettings (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long hubId, Long programId, String keyword, final Response.Listener<List<RouteSettings>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRouteSettings"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRouteSettings",
@@ -604,7 +559,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route/setting".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -665,18 +620,12 @@ public class RouteSettingApi {
   /**
   * Update Route Setting
   * Update an existing route setting
-   * @param version 
    * @param routeSettingsId the id of the route settings to update
    * @param body 
    * @return RouteSettings
   */
-  public RouteSettings updateRouteSettings (BigDecimal version, Long routeSettingsId, RouteSettings body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RouteSettings updateRouteSettings (Long routeSettingsId, RouteSettings body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling updateRouteSettings",
@@ -684,7 +633,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -734,16 +683,11 @@ public class RouteSettingApi {
       /**
    * Update Route Setting
    * Update an existing route setting
-   * @param version    * @param routeSettingsId the id of the route settings to update   * @param body 
+   * @param routeSettingsId the id of the route settings to update   * @param body 
   */
-  public void updateRouteSettings (BigDecimal version, Long routeSettingsId, RouteSettings body, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRouteSettings (Long routeSettingsId, RouteSettings body, final Response.Listener<RouteSettings> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRouteSettings",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRouteSettings"));
-    }
     // verify the required parameter 'routeSettingsId' is set
     if (routeSettingsId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeSettingsId' when calling updateRouteSettings",
@@ -751,7 +695,7 @@ public class RouteSettingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
+    String path = "/route/setting/{routeSettingsId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeSettingsId" + "\\}", apiInvoker.escapeString(routeSettingsId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

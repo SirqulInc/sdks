@@ -26,7 +26,6 @@ import com.android.volley.VolleyError;
 import org.openapitools.client.model.AssetFullResponse;
 import org.openapitools.client.model.AssetResponse;
 import org.openapitools.client.model.AssetShortResponse;
-import java.math.BigDecimal;
 import java.io.File;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AssetApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,17 +63,11 @@ public class AssetApi {
   /**
   * Download Asset
   * Downloads an asset from the server for assets that have been uploaded to the server.
-   * @param version 
    * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
    * @return SirqulResponse
   */
-  public SirqulResponse assetDownload (BigDecimal version, String filename) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse assetDownload (String filename) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assetDownload",
-        new ApiException(400, "Missing the required parameter 'version' when calling assetDownload"));
-    }
     // verify the required parameter 'filename' is set
     if (filename == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filename' when calling assetDownload",
@@ -82,7 +75,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/download/{filename}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "filename" + "\\}", apiInvoker.escapeString(filename.toString()));
+    String path = "/asset/download/{filename}".replaceAll("\\{" + "filename" + "\\}", apiInvoker.escapeString(filename.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -132,16 +125,11 @@ public class AssetApi {
       /**
    * Download Asset
    * Downloads an asset from the server for assets that have been uploaded to the server.
-   * @param version    * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
+   * @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
   */
-  public void assetDownload (BigDecimal version, String filename, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assetDownload (String filename, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assetDownload",
-        new ApiException(400, "Missing the required parameter 'version' when calling assetDownload"));
-    }
     // verify the required parameter 'filename' is set
     if (filename == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filename' when calling assetDownload",
@@ -149,7 +137,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/download/{filename}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "filename" + "\\}", apiInvoker.escapeString(filename.toString()));
+    String path = "/asset/download/{filename}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "filename" + "\\}", apiInvoker.escapeString(filename.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -202,7 +190,6 @@ public class AssetApi {
   /**
   * Convert Offer to Creative
   * Converts an offer image + text into a creative image.
-   * @param version 
    * @param offerId offer id used for inserting offer text/flavor
    * @param adSize the ad size used for selecting a format for the creative image
    * @param creativeId used for inserting the newly created image into
@@ -212,13 +199,8 @@ public class AssetApi {
    * @param template the template to use
    * @return AssetShortResponse
   */
-  public AssetShortResponse assetMorph (BigDecimal version, Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssetShortResponse assetMorph (Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assetMorph",
-        new ApiException(400, "Missing the required parameter 'version' when calling assetMorph"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling assetMorph",
@@ -231,7 +213,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/morph".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/morph";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -288,16 +270,11 @@ public class AssetApi {
       /**
    * Convert Offer to Creative
    * Converts an offer image + text into a creative image.
-   * @param version    * @param offerId offer id used for inserting offer text/flavor   * @param adSize the ad size used for selecting a format for the creative image   * @param creativeId used for inserting the newly created image into   * @param width total width of the creative image   * @param height total height of the creative image   * @param backgroundSize the size of the background   * @param template the template to use
+   * @param offerId offer id used for inserting offer text/flavor   * @param adSize the ad size used for selecting a format for the creative image   * @param creativeId used for inserting the newly created image into   * @param width total width of the creative image   * @param height total height of the creative image   * @param backgroundSize the size of the background   * @param template the template to use
   */
-  public void assetMorph (BigDecimal version, Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template, final Response.Listener<AssetShortResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assetMorph (Long offerId, String adSize, Long creativeId, Integer width, Integer height, String backgroundSize, String template, final Response.Listener<AssetShortResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assetMorph",
-        new ApiException(400, "Missing the required parameter 'version' when calling assetMorph"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling assetMorph",
@@ -310,7 +287,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/morph".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/morph".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -370,7 +347,6 @@ public class AssetApi {
   /**
   * Create Asset
   * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-   * @param version 
    * @param returnNulls to return nulls
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -407,16 +383,11 @@ public class AssetApi {
    * @param longitude the longitude (optional)
    * @return AssetResponse
   */
-  public AssetResponse createAsset (BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssetResponse createAsset (Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAsset"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/asset/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -500,19 +471,14 @@ public class AssetApi {
       /**
    * Create Asset
    * Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-   * @param version    * @param returnNulls to return nulls   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumId the album the asset will be added to (optional)   * @param collectionId Deprecated: use collections via the collection endpoints.   * @param addToDefaultAlbum Whether to add to a default album   * @param addToMediaLibrary Whether to add to the media library   * @param versionCode the version code   * @param versionName the version name   * @param metaData External custom client defined data   * @param caption the caption (optional)   * @param assetType the asset type   * @param approvalStatus approval status for the asset   * @param assignedAccountId account id assigned to the asset   * @param media a MultipartFile containing the mimetype, etc   * @param mediaUrl this can be used if the \&quot;media\&quot; is a link (optional)   * @param mediaString the media content as a string (optional)   * @param mediaStringFileName file name for mediaString (optional)   * @param mediaStringContentType content type for mediaString (optional)   * @param mediaHeight the media height (optional)   * @param mediaWidth the media width (optional)   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references (optional). Example: to upload a video the \&quot;media\&quot; file should contain a screen capture and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaUrl this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc) (optional)   * @param attachedMediaString attached media content as a string (optional)   * @param attachedMediaStringFileName file name for attachedMediaString (optional)   * @param attachedMediaStringContentType content type for attachedMediaString (optional)   * @param attachedMediaHeight the attached media height (optional)   * @param attachedMediaWidth the attached media width (optional)   * @param locationDescription the location description (optional)   * @param app Deprecated: app parameter   * @param appKey the application key   * @param searchTags the search tags   * @param latitude the latitude (optional)   * @param longitude the longitude (optional)
+   * @param returnNulls to return nulls   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumId the album the asset will be added to (optional)   * @param collectionId Deprecated: use collections via the collection endpoints.   * @param addToDefaultAlbum Whether to add to a default album   * @param addToMediaLibrary Whether to add to the media library   * @param versionCode the version code   * @param versionName the version name   * @param metaData External custom client defined data   * @param caption the caption (optional)   * @param assetType the asset type   * @param approvalStatus approval status for the asset   * @param assignedAccountId account id assigned to the asset   * @param media a MultipartFile containing the mimetype, etc   * @param mediaUrl this can be used if the \&quot;media\&quot; is a link (optional)   * @param mediaString the media content as a string (optional)   * @param mediaStringFileName file name for mediaString (optional)   * @param mediaStringContentType content type for mediaString (optional)   * @param mediaHeight the media height (optional)   * @param mediaWidth the media width (optional)   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references (optional). Example: to upload a video the \&quot;media\&quot; file should contain a screen capture and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaUrl this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc) (optional)   * @param attachedMediaString attached media content as a string (optional)   * @param attachedMediaStringFileName file name for attachedMediaString (optional)   * @param attachedMediaStringContentType content type for attachedMediaString (optional)   * @param attachedMediaHeight the attached media height (optional)   * @param attachedMediaWidth the attached media width (optional)   * @param locationDescription the location description (optional)   * @param app Deprecated: app parameter   * @param appKey the application key   * @param searchTags the search tags   * @param latitude the latitude (optional)   * @param longitude the longitude (optional)
   */
-  public void createAsset (BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude, final Response.Listener<AssetResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createAsset (Boolean returnNulls, String deviceId, Long accountId, Long albumId, Long collectionId, String addToDefaultAlbum, Boolean addToMediaLibrary, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String app, String appKey, String searchTags, Double latitude, Double longitude, final Response.Listener<AssetResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAsset"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/asset/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -599,7 +565,6 @@ public class AssetApi {
   /**
   * Delete Asset
   * Delete an asset.
-   * @param version 
    * @param assetId the id of the asset to delete
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -607,13 +572,8 @@ public class AssetApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse deleteAsset (BigDecimal version, String assetId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteAsset (String assetId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling deleteAsset",
@@ -621,7 +581,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -676,16 +636,11 @@ public class AssetApi {
       /**
    * Delete Asset
    * Delete an asset.
-   * @param version    * @param assetId the id of the asset to delete   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param assetId the id of the asset to delete   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void deleteAsset (BigDecimal version, String assetId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteAsset (String assetId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling deleteAsset",
@@ -693,7 +648,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -751,20 +706,14 @@ public class AssetApi {
   /**
   * Get Asset
   * Gets the full asset response including attached likes and notes.
-   * @param version 
    * @param assetId the asset ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param noteDescending determines whether the notes on the asset are in descending order
    * @return AssetFullResponse
   */
-  public AssetFullResponse getAsset (BigDecimal version, Long assetId, String deviceId, Long accountId, Boolean noteDescending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssetFullResponse getAsset (Long assetId, String deviceId, Long accountId, Boolean noteDescending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling getAsset",
@@ -772,7 +721,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -826,16 +775,11 @@ public class AssetApi {
       /**
    * Get Asset
    * Gets the full asset response including attached likes and notes.
-   * @param version    * @param assetId the asset ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param noteDescending determines whether the notes on the asset are in descending order
+   * @param assetId the asset ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param noteDescending determines whether the notes on the asset are in descending order
   */
-  public void getAsset (BigDecimal version, Long assetId, String deviceId, Long accountId, Boolean noteDescending, final Response.Listener<AssetFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAsset (Long assetId, String deviceId, Long accountId, Boolean noteDescending, final Response.Listener<AssetFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling getAsset",
@@ -843,7 +787,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -900,7 +844,6 @@ public class AssetApi {
   /**
   * Remove Asset from Collection
   * Remove assets from collections
-   * @param version 
    * @param assetId the id of the asset to remove
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -911,13 +854,8 @@ public class AssetApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse removeAsset (BigDecimal version, String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeAsset (String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling removeAsset",
@@ -925,7 +863,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -983,16 +921,11 @@ public class AssetApi {
       /**
    * Remove Asset from Collection
    * Remove assets from collections
-   * @param version    * @param assetId the id of the asset to remove   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param albumId the album id to remove the asset from   * @param collectionId the collection id to remove the asset from   * @param removeFromDefaultAlbums remove from the user&#39;s profile album   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param assetId the id of the asset to remove   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param albumId the album id to remove the asset from   * @param collectionId the collection id to remove the asset from   * @param removeFromDefaultAlbums remove from the user&#39;s profile album   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void removeAsset (BigDecimal version, String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeAsset (String assetId, String deviceId, Long accountId, Long albumId, Long collectionId, Boolean removeFromDefaultAlbums, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling removeAsset",
@@ -1000,7 +933,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1061,7 +994,6 @@ public class AssetApi {
   /**
   * Search Assets
   * Searches for assets
-   * @param version 
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
    * @param albumIds comma separated list of album ids to search on
@@ -1088,16 +1020,11 @@ public class AssetApi {
    * @param assignedAccountId filter results by an assigned account id
    * @return List<AssetResponse>
   */
-  public List<AssetResponse> searchAssets (BigDecimal version, String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AssetResponse> searchAssets (String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAssets",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAssets"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/asset/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1171,19 +1098,14 @@ public class AssetApi {
       /**
    * Search Assets
    * Searches for assets
-   * @param version    * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumIds comma separated list of album ids to search on   * @param assetIds comma separated list of asset ids to search on   * @param appKey the application key to filter results by application.   * @param mediaType filter results by media type. Possible values include: APPLICATION, IMAGE, AUDIO, VIDEO, MULTIPART, TEXT   * @param mimeType filter results by mime type   * @param keyword keyword search string   * @param versionCode filter results by version code   * @param versionName filter results by version name   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param sortField the field to sort by. See AssetApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param searchMediaLibrary determines whether to search on the media library album   * @param filterByBillable filter results by billable entity   * @param activeOnly if only searching for active assets   * @param returnApp determines whether to include the application response as part of the asset response   * @param start the start index for pagination   * @param limit the limit for pagination (there is a hard limit of 200)   * @param searchMode search mode for index (SearchIndexMode)   * @param assetType filter by asset type   * @param approvalStatus filter by approval status   * @param assignedAccountId filter results by an assigned account id
+   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumIds comma separated list of album ids to search on   * @param assetIds comma separated list of asset ids to search on   * @param appKey the application key to filter results by application.   * @param mediaType filter results by media type. Possible values include: APPLICATION, IMAGE, AUDIO, VIDEO, MULTIPART, TEXT   * @param mimeType filter results by mime type   * @param keyword keyword search string   * @param versionCode filter results by version code   * @param versionName filter results by version name   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param sortField the field to sort by. See AssetApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param searchMediaLibrary determines whether to search on the media library album   * @param filterByBillable filter results by billable entity   * @param activeOnly if only searching for active assets   * @param returnApp determines whether to include the application response as part of the asset response   * @param start the start index for pagination   * @param limit the limit for pagination (there is a hard limit of 200)   * @param searchMode search mode for index (SearchIndexMode)   * @param assetType filter by asset type   * @param approvalStatus filter by approval status   * @param assignedAccountId filter results by an assigned account id
   */
-  public void searchAssets (BigDecimal version, String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId, final Response.Listener<List<AssetResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchAssets (String deviceId, Long accountId, String albumIds, String assetIds, String appKey, String mediaType, String mimeType, String keyword, Integer versionCode, String versionName, Long updatedSince, Long updatedBefore, String sortField, Boolean descending, Boolean searchMediaLibrary, Boolean filterByBillable, Boolean activeOnly, Boolean returnApp, Integer start, Integer limit, String searchMode, String assetType, String approvalStatus, Long assignedAccountId, final Response.Listener<List<AssetResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAssets",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAssets"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/asset/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1260,7 +1182,6 @@ public class AssetApi {
   /**
   * Update Asset
   * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-   * @param version 
    * @param assetId the ID of the asset to update
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -1294,13 +1215,8 @@ public class AssetApi {
    * @param longitude longitude used to update the asset&#39;s location
    * @return SirqulResponse
   */
-  public SirqulResponse updateAsset (BigDecimal version, Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateAsset (Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling updateAsset",
@@ -1308,7 +1224,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1389,16 +1305,11 @@ public class AssetApi {
       /**
    * Update Asset
    * Updates an asset&#39;s meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-   * @param version    * @param assetId the ID of the asset to update   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumId the ID of the album to check user permissions   * @param attachedAssetId the ID of the attached asset   * @param versionCode the version code   * @param versionName the version name   * @param metaData External custom client defined data   * @param caption the caption   * @param assetType the asset type   * @param approvalStatus approval status for the asset   * @param assignedAccountId account id assigned to the asset   * @param media a MultipartFile containing the mimetype, etc   * @param mediaUrl this can be used if the \&quot;media\&quot; is a link (optional)   * @param mediaString the media content as a string (optional)   * @param mediaStringFileName file name for mediaString (optional)   * @param mediaStringContentType content type for mediaString (optional)   * @param mediaHeight the media height (optional)   * @param mediaWidth the media width (optional)   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references (optional). Example: to upload a video the \&quot;media\&quot; file should contain a screen capture and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaUrl this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc) (optional)   * @param attachedMediaString attached media content as a string (optional)   * @param attachedMediaStringFileName file name for attachedMediaString (optional)   * @param attachedMediaStringContentType content type for attachedMediaString (optional)   * @param attachedMediaHeight the attached media height (optional)   * @param attachedMediaWidth the attached media width (optional)   * @param locationDescription the location description   * @param searchTags search tags   * @param appKey the application key   * @param latitude latitude used to update the asset&#39;s location   * @param longitude longitude used to update the asset&#39;s location
+   * @param assetId the ID of the asset to update   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param albumId the ID of the album to check user permissions   * @param attachedAssetId the ID of the attached asset   * @param versionCode the version code   * @param versionName the version name   * @param metaData External custom client defined data   * @param caption the caption   * @param assetType the asset type   * @param approvalStatus approval status for the asset   * @param assignedAccountId account id assigned to the asset   * @param media a MultipartFile containing the mimetype, etc   * @param mediaUrl this can be used if the \&quot;media\&quot; is a link (optional)   * @param mediaString the media content as a string (optional)   * @param mediaStringFileName file name for mediaString (optional)   * @param mediaStringContentType content type for mediaString (optional)   * @param mediaHeight the media height (optional)   * @param mediaWidth the media width (optional)   * @param attachedMedia a MultipartFile containing an asset that the \&quot;media\&quot; file references (optional). Example: to upload a video the \&quot;media\&quot; file should contain a screen capture and the \&quot;attachedMedia\&quot; should be the actual video.   * @param attachedMediaUrl this can be used if the \&quot;attachedMedia\&quot; is a link (i.e. a Youtube video, etc) (optional)   * @param attachedMediaString attached media content as a string (optional)   * @param attachedMediaStringFileName file name for attachedMediaString (optional)   * @param attachedMediaStringContentType content type for attachedMediaString (optional)   * @param attachedMediaHeight the attached media height (optional)   * @param attachedMediaWidth the attached media width (optional)   * @param locationDescription the location description   * @param searchTags search tags   * @param appKey the application key   * @param latitude latitude used to update the asset&#39;s location   * @param longitude longitude used to update the asset&#39;s location
   */
-  public void updateAsset (BigDecimal version, Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateAsset (Long assetId, String deviceId, Long accountId, Long albumId, Long attachedAssetId, Integer versionCode, String versionName, String metaData, String caption, String assetType, String approvalStatus, Long assignedAccountId, File media, String mediaUrl, String mediaString, String mediaStringFileName, String mediaStringContentType, Integer mediaHeight, Integer mediaWidth, File attachedMedia, String attachedMediaUrl, String attachedMediaString, String attachedMediaStringFileName, String attachedMediaStringContentType, Integer attachedMediaHeight, Integer attachedMediaWidth, String locationDescription, String searchTags, String appKey, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAsset",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAsset"));
-    }
     // verify the required parameter 'assetId' is set
     if (assetId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'assetId' when calling updateAsset",
@@ -1406,7 +1317,7 @@ public class AssetApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/asset/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/asset/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.PostalCodeResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PostalCodeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class PostalCodeApi {
   /**
   * Create Postal Code
   * Create a Postal Code
-   * @param version 
    * @param accountId the id of the logged in user
    * @param code the postal code
    * @param latitude the latitude of the postal code
@@ -71,13 +69,8 @@ public class PostalCodeApi {
    * @param active whether the postal code created should be active or inactive
    * @return PostalCodeResponse
   */
-  public PostalCodeResponse createPostalCode (BigDecimal version, Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PostalCodeResponse createPostalCode (Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPostalCode",
@@ -100,7 +93,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,16 +150,11 @@ public class PostalCodeApi {
       /**
    * Create Postal Code
    * Create a Postal Code
-   * @param version    * @param accountId the id of the logged in user   * @param code the postal code   * @param latitude the latitude of the postal code   * @param longitude the longitude of the postal code   * @param stateCode the state code (e.g WA, WV, WI) that the postal code is located   * @param city the city that the postal code is located   * @param active whether the postal code created should be active or inactive
+   * @param accountId the id of the logged in user   * @param code the postal code   * @param latitude the latitude of the postal code   * @param longitude the longitude of the postal code   * @param stateCode the state code (e.g WA, WV, WI) that the postal code is located   * @param city the city that the postal code is located   * @param active whether the postal code created should be active or inactive
   */
-  public void createPostalCode (BigDecimal version, Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createPostalCode (Long accountId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPostalCode",
@@ -189,7 +177,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -249,18 +237,12 @@ public class PostalCodeApi {
   /**
   * Delete Postal Code
   * Delete a Postal Code
-   * @param version 
    * @param accountId the id of the logged in user
    * @param postalCodeId the id of the postal code to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deletePostalCode (BigDecimal version, Long accountId, Long postalCodeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deletePostalCode (Long accountId, Long postalCodeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePostalCode",
@@ -273,7 +255,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -325,16 +307,11 @@ public class PostalCodeApi {
       /**
    * Delete Postal Code
    * Delete a Postal Code
-   * @param version    * @param accountId the id of the logged in user   * @param postalCodeId the id of the postal code to delete
+   * @param accountId the id of the logged in user   * @param postalCodeId the id of the postal code to delete
   */
-  public void deletePostalCode (BigDecimal version, Long accountId, Long postalCodeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePostalCode (Long accountId, Long postalCodeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePostalCode",
@@ -347,7 +324,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -402,17 +379,11 @@ public class PostalCodeApi {
   /**
   * Get Postal Code
   * Get a Postal Code
-   * @param version 
    * @param postalCodeId the id of the postal code to get
    * @return PostalCodeResponse
   */
-  public PostalCodeResponse getPostalCode (BigDecimal version, Long postalCodeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PostalCodeResponse getPostalCode (Long postalCodeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPostalCode"));
-    }
     // verify the required parameter 'postalCodeId' is set
     if (postalCodeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'postalCodeId' when calling getPostalCode",
@@ -420,7 +391,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -471,16 +442,11 @@ public class PostalCodeApi {
       /**
    * Get Postal Code
    * Get a Postal Code
-   * @param version    * @param postalCodeId the id of the postal code to get
+   * @param postalCodeId the id of the postal code to get
   */
-  public void getPostalCode (BigDecimal version, Long postalCodeId, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPostalCode (Long postalCodeId, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPostalCode"));
-    }
     // verify the required parameter 'postalCodeId' is set
     if (postalCodeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'postalCodeId' when calling getPostalCode",
@@ -488,7 +454,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -542,7 +508,6 @@ public class PostalCodeApi {
   /**
   * Search Postal Codes
   * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-   * @param version 
    * @param sortField the field to sort the results on
    * @param descending whether to order results in ascending or descending order
    * @param latitude the latitude of the postal code to search on
@@ -553,13 +518,8 @@ public class PostalCodeApi {
    * @param limit the limit of the index and/or pagination
    * @return List<PostalCodeResponse>
   */
-  public List<PostalCodeResponse> getPostalCodes (BigDecimal version, String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<PostalCodeResponse> getPostalCodes (String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPostalCodes",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPostalCodes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling getPostalCodes",
@@ -572,7 +532,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -630,16 +590,11 @@ public class PostalCodeApi {
       /**
    * Search Postal Codes
    * Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-   * @param version    * @param sortField the field to sort the results on   * @param descending whether to order results in ascending or descending order   * @param latitude the latitude of the postal code to search on   * @param longitude the longitude of the postal code to search on   * @param keyword the keyword of the postal code to search on   * @param miles how far (in miles) to search on for the postal code   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
+   * @param sortField the field to sort the results on   * @param descending whether to order results in ascending or descending order   * @param latitude the latitude of the postal code to search on   * @param longitude the longitude of the postal code to search on   * @param keyword the keyword of the postal code to search on   * @param miles how far (in miles) to search on for the postal code   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
   */
-  public void getPostalCodes (BigDecimal version, String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit, final Response.Listener<List<PostalCodeResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getPostalCodes (String sortField, Boolean descending, Double latitude, Double longitude, String keyword, Double miles, Integer start, Integer limit, final Response.Listener<List<PostalCodeResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPostalCodes",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPostalCodes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling getPostalCodes",
@@ -652,7 +607,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -713,7 +668,6 @@ public class PostalCodeApi {
   /**
   * Update Postal Code
   * Update a Postal Code
-   * @param version 
    * @param accountId the id of the logged in user
    * @param postalCodeId the id of the postal code to update
    * @param code the postal code to update
@@ -724,13 +678,8 @@ public class PostalCodeApi {
    * @param active whether the postal code is active or inactive
    * @return PostalCodeResponse
   */
-  public PostalCodeResponse updatePostalCode (BigDecimal version, Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PostalCodeResponse updatePostalCode (Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePostalCode",
@@ -743,7 +692,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -801,16 +750,11 @@ public class PostalCodeApi {
       /**
    * Update Postal Code
    * Update a Postal Code
-   * @param version    * @param accountId the id of the logged in user   * @param postalCodeId the id of the postal code to update   * @param code the postal code to update   * @param latitude the latitude of the postal code   * @param longitude the longitude of the postal code   * @param stateCode the state code (e.g. WA, WI, WY) where the postal code is located   * @param city the city where the postal code is located   * @param active whether the postal code is active or inactive
+   * @param accountId the id of the logged in user   * @param postalCodeId the id of the postal code to update   * @param code the postal code to update   * @param latitude the latitude of the postal code   * @param longitude the longitude of the postal code   * @param stateCode the state code (e.g. WA, WI, WY) where the postal code is located   * @param city the city where the postal code is located   * @param active whether the postal code is active or inactive
   */
-  public void updatePostalCode (BigDecimal version, Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updatePostalCode (Long accountId, Long postalCodeId, String code, Double latitude, Double longitude, String stateCode, String city, Boolean active, final Response.Listener<PostalCodeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePostalCode",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePostalCode"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePostalCode",
@@ -823,7 +767,7 @@ public class PostalCodeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/postalCode/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/postalCode/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

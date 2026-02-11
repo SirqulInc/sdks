@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import java.util.*;
 import org.openapitools.client.model.RetailerLocationResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RetailerLocationApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class RetailerLocationApi {
   /**
   * Create Retailer Location (Consumer)
   * Creates a location record for an application that can support crowd sourced locations.
-   * @param version 
    * @param appKey the application key
    * @param name The name of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
@@ -94,13 +92,8 @@ public class RetailerLocationApi {
    * @param longitude The longitude to center the search on
    * @return RetailerLocationResponse
   */
-  public RetailerLocationResponse createRetailerLocationConsumer (BigDecimal version, String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerLocationResponse createRetailerLocationConsumer (String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRetailerLocationConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRetailerLocationConsumer"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createRetailerLocationConsumer",
@@ -113,7 +106,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -192,16 +185,11 @@ public class RetailerLocationApi {
       /**
    * Create Retailer Location (Consumer)
    * Creates a location record for an application that can support crowd sourced locations.
-   * @param version    * @param appKey the application key   * @param name The name of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param streetAddress The street address of the retailer location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param country the country of the retailer location   * @param businessPhone The business phone   * @param businessPhoneExt The business phone extension   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param tags Custom string field for doing full-text searches   * @param logoAssetId The retailer location logo asset id   * @param picture1AssetId An asset id   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param metaData External custom client defined data   * @param publicLocation Whether the location is public   * @param active whether the retailer location created should be active or not   * @param locationType External custom type identifier   * @param latitude The latitude to center the search on   * @param longitude The longitude to center the search on
+   * @param appKey the application key   * @param name The name of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param streetAddress The street address of the retailer location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param country the country of the retailer location   * @param businessPhone The business phone   * @param businessPhoneExt The business phone extension   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param tags Custom string field for doing full-text searches   * @param logoAssetId The retailer location logo asset id   * @param picture1AssetId An asset id   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param metaData External custom client defined data   * @param publicLocation Whether the location is public   * @param active whether the retailer location created should be active or not   * @param locationType External custom type identifier   * @param latitude The latitude to center the search on   * @param longitude The longitude to center the search on
   */
-  public void createRetailerLocationConsumer (BigDecimal version, String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createRetailerLocationConsumer (String appKey, String name, String deviceId, Long accountId, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String detailsHeader, String detailsBody, String hours, String tags, Long logoAssetId, Long picture1AssetId, Long picture2AssetId, String categoryIds, String filterIds, String metaData, Boolean publicLocation, Boolean active, String locationType, Double latitude, Double longitude, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRetailerLocationConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRetailerLocationConsumer"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createRetailerLocationConsumer",
@@ -214,7 +202,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -296,7 +284,6 @@ public class RetailerLocationApi {
   /**
   * Create Retailer Location
   * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-   * @param version 
    * @param retailerId The ID of the retailer
    * @param name The name of the retailer location
    * @param streetAddress The street address of the retailer location
@@ -338,13 +325,8 @@ public class RetailerLocationApi {
    * @param responseIncludes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
    * @return RetailerLocationResponse
   */
-  public RetailerLocationResponse createRetailerLocations (BigDecimal version, Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerLocationResponse createRetailerLocations (Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRetailerLocations"));
-    }
     // verify the required parameter 'retailerId' is set
     if (retailerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerId' when calling createRetailerLocations",
@@ -377,7 +359,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -466,16 +448,11 @@ public class RetailerLocationApi {
       /**
    * Create Retailer Location
    * Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-   * @param version    * @param retailerId The ID of the retailer   * @param name The name of the retailer location   * @param streetAddress The street address of the retailer location   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param country the country of the retailer location   * @param businessPhone The business phone number of the retailer location   * @param businessPhoneExt The business phone extension   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param internalId An internal identifier used by the retailer   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param logo The retailer location logo sent as a multipart binary file (you can optionally use logoAssetId if the asset has already been uploaded before)   * @param logoAssetId The retailer location logo asset id   * @param picture1 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture1AssetId if the asset has already been uploaded before)   * @param picture1AssetId An asset id   * @param picture2 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture2AssetId if the asset has already been uploaded before)   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param latitude the latitude of the retailer location   * @param longitude the longitude of the retailer location   * @param building    * @param googlePlaceId the ID of the Google Place that this retailer location is assigned to   * @param yelpId the Yelp ID that this retailer location is assigned to   * @param active whether the retailer location should be active or inactive   * @param publicLocation Sets whether the location is public or not   * @param locationType External custom type identifier   * @param audienceIds Comma separated list of audience IDs used to assign audiences to the retailer location   * @param audienceIdsToAdd Comma separated list of audience IDs to add to the retailer location   * @param audienceIdsToRemove Comma separated list of audience IDs to remove from the retailer location   * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}   * @param responseIncludes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
+   * @param retailerId The ID of the retailer   * @param name The name of the retailer location   * @param streetAddress The street address of the retailer location   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param country the country of the retailer location   * @param businessPhone The business phone number of the retailer location   * @param businessPhoneExt The business phone extension   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param internalId An internal identifier used by the retailer   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param logo The retailer location logo sent as a multipart binary file (you can optionally use logoAssetId if the asset has already been uploaded before)   * @param logoAssetId The retailer location logo asset id   * @param picture1 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture1AssetId if the asset has already been uploaded before)   * @param picture1AssetId An asset id   * @param picture2 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture2AssetId if the asset has already been uploaded before)   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param latitude the latitude of the retailer location   * @param longitude the longitude of the retailer location   * @param building    * @param googlePlaceId the ID of the Google Place that this retailer location is assigned to   * @param yelpId the Yelp ID that this retailer location is assigned to   * @param active whether the retailer location should be active or inactive   * @param publicLocation Sets whether the location is public or not   * @param locationType External custom type identifier   * @param audienceIds Comma separated list of audience IDs used to assign audiences to the retailer location   * @param audienceIdsToAdd Comma separated list of audience IDs to add to the retailer location   * @param audienceIdsToRemove Comma separated list of audience IDs to remove from the retailer location   * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}   * @param responseIncludes Comma separated list of response includes (e.g. RETAILER,ASSETS,OFFERS,CATEGORIES,FILTERS,AUDIENCES,QRCODE)
   */
-  public void createRetailerLocations (BigDecimal version, Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createRetailerLocations (Long retailerId, String name, String streetAddress, String city, String state, String postalCode, String deviceId, Long accountId, String streetAddress2, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String responseIncludes, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRetailerLocations"));
-    }
     // verify the required parameter 'retailerId' is set
     if (retailerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerId' when calling createRetailerLocations",
@@ -508,7 +485,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -600,22 +577,16 @@ public class RetailerLocationApi {
   /**
   * Delete Retailer Location
   * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-   * @param version 
    * @param deviceId the device id
    * @param accountId the id of the logged in user
    * @param retailerLocationId the id of the retailer location to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteRetailerLocation (BigDecimal version, String deviceId, Long accountId, Long retailerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteRetailerLocation (String deviceId, Long accountId, Long retailerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRetailerLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRetailerLocation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -668,19 +639,14 @@ public class RetailerLocationApi {
       /**
    * Delete Retailer Location
    * Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-   * @param version    * @param deviceId the device id   * @param accountId the id of the logged in user   * @param retailerLocationId the id of the retailer location to delete
+   * @param deviceId the device id   * @param accountId the id of the logged in user   * @param retailerLocationId the id of the retailer location to delete
   */
-  public void deleteRetailerLocation (BigDecimal version, String deviceId, Long accountId, Long retailerLocationId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteRetailerLocation (String deviceId, Long accountId, Long retailerLocationId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRetailerLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRetailerLocation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -736,20 +702,14 @@ public class RetailerLocationApi {
   /**
   * Get Retailer Location
   * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-   * @param version 
    * @param retailerLocationId The ID of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param retailerLocationToken the unique token of the retailer location
    * @return RetailerLocationResponse
   */
-  public RetailerLocationResponse getRetailerLocation (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerLocationResponse getRetailerLocation (Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetailerLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetailerLocation"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling getRetailerLocation",
@@ -757,7 +717,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -811,16 +771,11 @@ public class RetailerLocationApi {
       /**
    * Get Retailer Location
    * Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-   * @param version    * @param retailerLocationId The ID of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param retailerLocationToken the unique token of the retailer location
+   * @param retailerLocationId The ID of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param retailerLocationToken the unique token of the retailer location
   */
-  public void getRetailerLocation (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRetailerLocation (Long retailerLocationId, String deviceId, Long accountId, String retailerLocationToken, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetailerLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetailerLocation"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling getRetailerLocation",
@@ -828,7 +783,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -885,19 +840,13 @@ public class RetailerLocationApi {
   /**
   * Get Retailer Location (Consumer)
   * Gets the details of a retailer location as a consumer.
-   * @param version 
    * @param retailerLocationId The retailer location id
    * @param deviceId The device id for returning account information (i.e. favorites)
    * @param accountId The account id for returning account information (i.e. favorites)
    * @return RetailerLocationResponse
   */
-  public RetailerLocationResponse getRetailerLocationConsumer (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerLocationResponse getRetailerLocationConsumer (Long retailerLocationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetailerLocationConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetailerLocationConsumer"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling getRetailerLocationConsumer",
@@ -905,7 +854,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -958,16 +907,11 @@ public class RetailerLocationApi {
       /**
    * Get Retailer Location (Consumer)
    * Gets the details of a retailer location as a consumer.
-   * @param version    * @param retailerLocationId The retailer location id   * @param deviceId The device id for returning account information (i.e. favorites)   * @param accountId The account id for returning account information (i.e. favorites)
+   * @param retailerLocationId The retailer location id   * @param deviceId The device id for returning account information (i.e. favorites)   * @param accountId The account id for returning account information (i.e. favorites)
   */
-  public void getRetailerLocationConsumer (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRetailerLocationConsumer (Long retailerLocationId, String deviceId, Long accountId, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetailerLocationConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetailerLocationConsumer"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling getRetailerLocationConsumer",
@@ -975,7 +919,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1031,7 +975,6 @@ public class RetailerLocationApi {
   /**
   * Distance Search Retailer Locations (Indexed)
   * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-   * @param version 
    * @param latitude The latitude to center the search on
    * @param longitude The longitude to center the search on
    * @param searchRange The search range in the distanceUnit specified; default is MILES.
@@ -1068,13 +1011,8 @@ public class RetailerLocationApi {
    * @param includeRating Include rating info in response
    * @return List<RetailerLocationResponse>
   */
-  public List<RetailerLocationResponse> indexedRetailerLocationDistanceSearch (BigDecimal version, Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RetailerLocationResponse> indexedRetailerLocationDistanceSearch (Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling indexedRetailerLocationDistanceSearch",
@@ -1102,7 +1040,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/idistancesearch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/idistancesearch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1186,16 +1124,11 @@ public class RetailerLocationApi {
       /**
    * Distance Search Retailer Locations (Indexed)
    * Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-   * @param version    * @param latitude The latitude to center the search on   * @param longitude The longitude to center the search on   * @param searchRange The search range in the distanceUnit specified; default is MILES.   * @param start The start index for pagination   * @param limit The limit for pagination   * @param accountId The account id of the user   * @param address Used to return results using this address as the center   * @param hasOffers boolean to indicate whether to include retailer locations that have no offers   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param audiences Comma separated list of audience ids   * @param retailerIds Comma separated list of retailer ids   * @param retailerLocationIds Comma separated list of retailer location ids   * @param tags Does a full-text search on tags   * @param locationType Location type filter   * @param sortField The field to sort the result set on. Possible values include: DISTANCE, RETAILER_NAME, RETAILER_LOCATION_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param q This parameter is deprecated.   * @param keyword Search by keyword   * @param keywordOperator Determines the operator used when there are multiple words in the &#39;keyword&#39; parameter   * @param searchExpression Search expression to further refine results   * @param distanceUnit Unit of distance   * @param returnFavorited (deprecated) return favorited flag   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param returnExternalCategoryData Return external category data   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
+   * @param latitude The latitude to center the search on   * @param longitude The longitude to center the search on   * @param searchRange The search range in the distanceUnit specified; default is MILES.   * @param start The start index for pagination   * @param limit The limit for pagination   * @param accountId The account id of the user   * @param address Used to return results using this address as the center   * @param hasOffers boolean to indicate whether to include retailer locations that have no offers   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param audiences Comma separated list of audience ids   * @param retailerIds Comma separated list of retailer ids   * @param retailerLocationIds Comma separated list of retailer location ids   * @param tags Does a full-text search on tags   * @param locationType Location type filter   * @param sortField The field to sort the result set on. Possible values include: DISTANCE, RETAILER_NAME, RETAILER_LOCATION_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param q This parameter is deprecated.   * @param keyword Search by keyword   * @param keywordOperator Determines the operator used when there are multiple words in the &#39;keyword&#39; parameter   * @param searchExpression Search expression to further refine results   * @param distanceUnit Unit of distance   * @param returnFavorited (deprecated) return favorited flag   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param returnExternalCategoryData Return external category data   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
   */
-  public void indexedRetailerLocationDistanceSearch (BigDecimal version, Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void indexedRetailerLocationDistanceSearch (Double latitude, Double longitude, Double searchRange, Integer start, Integer limit, Long accountId, String address, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, String distanceUnit, Boolean returnFavorited, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling indexedRetailerLocationDistanceSearch"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling indexedRetailerLocationDistanceSearch",
@@ -1223,7 +1156,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/idistancesearch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/idistancesearch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1310,7 +1243,6 @@ public class RetailerLocationApi {
   /**
   * Keyword Search Retailer Locations (Indexed)
   * Retailer location (faster) indexed search. This searches all retailer locations.
-   * @param version 
    * @param accountId The account id of the user
    * @param start The start index for pagination
    * @param limit The limit for pagination
@@ -1341,16 +1273,11 @@ public class RetailerLocationApi {
    * @param includeRating Include rating info in response
    * @return List<RetailerLocationResponse>
   */
-  public List<RetailerLocationResponse> indexedRetailerLocationSearch (BigDecimal version, Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RetailerLocationResponse> indexedRetailerLocationSearch (Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling indexedRetailerLocationSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling indexedRetailerLocationSearch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/isearch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/isearch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1428,19 +1355,14 @@ public class RetailerLocationApi {
       /**
    * Keyword Search Retailer Locations (Indexed)
    * Retailer location (faster) indexed search. This searches all retailer locations.
-   * @param version    * @param accountId The account id of the user   * @param start The start index for pagination   * @param limit The limit for pagination   * @param hasOffers boolean to indicate whether to include retailer locations that have no offers   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param audiences Comma separated list of audience ids   * @param retailerIds Comma separated list of retailer ids   * @param retailerLocationIds Comma separated list of retailer location ids   * @param tags Does a full-text search on tags   * @param locationType Location type filter   * @param sortField The field to sort the result set on. Possible values include: RETAILER_NAME, RETAILER_LOCATION_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param q This parameter is deprecated.   * @param keyword Search by keyword   * @param keywordOperator Determines the operator used when there are multiple words in the &#39;keyword&#39; parameter   * @param searchExpression Search expression to further refine results   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param returnExternalCategoryData Return external category data   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
+   * @param accountId The account id of the user   * @param start The start index for pagination   * @param limit The limit for pagination   * @param hasOffers boolean to indicate whether to include retailer locations that have no offers   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param audiences Comma separated list of audience ids   * @param retailerIds Comma separated list of retailer ids   * @param retailerLocationIds Comma separated list of retailer location ids   * @param tags Does a full-text search on tags   * @param locationType Location type filter   * @param sortField The field to sort the result set on. Possible values include: RETAILER_NAME, RETAILER_LOCATION_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param q This parameter is deprecated.   * @param keyword Search by keyword   * @param keywordOperator Determines the operator used when there are multiple words in the &#39;keyword&#39; parameter   * @param searchExpression Search expression to further refine results   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param returnExternalCategoryData Return external category data   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
   */
-  public void indexedRetailerLocationSearch (BigDecimal version, Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void indexedRetailerLocationSearch (Long accountId, Integer start, Integer limit, Boolean hasOffers, String categories, String filters, String audiences, String retailerIds, String retailerLocationIds, String tags, String locationType, String sortField, Boolean descending, String q, String keyword, String keywordOperator, String searchExpression, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean returnExternalCategoryData, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling indexedRetailerLocationSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling indexedRetailerLocationSearch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/isearch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/isearch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1521,7 +1443,6 @@ public class RetailerLocationApi {
   /**
   * Search Retailer Locations (Owned)
   * Searches on retailer locations that the account has access to.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param q This parameter is deprecated.
@@ -1549,16 +1470,11 @@ public class RetailerLocationApi {
    * @param includeRating Include rating info in response
    * @return List<RetailerLocationResponse>
   */
-  public List<RetailerLocationResponse> searchRetailerLocations (BigDecimal version, String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RetailerLocationResponse> searchRetailerLocations (String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRetailerLocations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1633,19 +1549,14 @@ public class RetailerLocationApi {
       /**
    * Search Retailer Locations (Owned)
    * Searches on retailer locations that the account has access to.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword The keyword used to search   * @param retailerIds Comma separated list of retailer IDs which when passed in will filter the results to only return these retailers.   * @param retailerLocationIds Comma separated list of retailer location IDs   * @param locationType Location type filter   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param i This parameter is deprecated.   * @param start The record to begin the return set on   * @param l This parameter is deprecated.   * @param limit The number of records to return   * @param showPublicLocations Whether to include public locations in the results   * @param activeOnly Return only active results   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword The keyword used to search   * @param retailerIds Comma separated list of retailer IDs which when passed in will filter the results to only return these retailers.   * @param retailerLocationIds Comma separated list of retailer location IDs   * @param locationType Location type filter   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param i This parameter is deprecated.   * @param start The record to begin the return set on   * @param l This parameter is deprecated.   * @param limit The number of records to return   * @param showPublicLocations Whether to include public locations in the results   * @param activeOnly Return only active results   * @param returnRetailer Return retailer info   * @param returnAssets Return assets   * @param returnOffers Return offers   * @param returnCategories Return categories   * @param returnFilters Return filters   * @param returnAudiences Return audiences   * @param returnQrCode Return QR code info   * @param includeFavorite Include favorites in response   * @param includeLiked Include liked flag in response   * @param includeRating Include rating info in response
   */
-  public void searchRetailerLocations (BigDecimal version, String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRetailerLocations (String deviceId, Long accountId, String q, String keyword, String retailerIds, String retailerLocationIds, String locationType, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean showPublicLocations, Boolean activeOnly, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, Boolean returnAudiences, Boolean returnQrCode, Boolean includeFavorite, Boolean includeLiked, Boolean includeRating, final Response.Listener<List<RetailerLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRetailerLocations"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1723,7 +1634,6 @@ public class RetailerLocationApi {
   /**
   * Update Retailer Location
   * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-   * @param version 
    * @param retailerLocationId The ID of the retailer location
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -1767,13 +1677,8 @@ public class RetailerLocationApi {
    * @param tags Custom string field for doing full-text searches
    * @return RetailerLocationResponse
   */
-  public RetailerLocationResponse updateRetailerLocations (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerLocationResponse updateRetailerLocations (Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRetailerLocations"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling updateRetailerLocations",
@@ -1781,7 +1686,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1872,16 +1777,11 @@ public class RetailerLocationApi {
       /**
    * Update Retailer Location
    * Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-   * @param version    * @param retailerLocationId The ID of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param name The name of the retailer location   * @param streetAddress The street address of the retailer location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param country the country of the retailer location   * @param businessPhone The business phone number of the retailer location   * @param businessPhoneExt The business phone extension of the retailer location   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param internalId An internal identifier used by the retailer   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param logo The retailer location logo sent as a multipart binary file (you can optionally use logoAssetId if the asset has already been uploaded before)   * @param logoAssetId The retailer location logo asset id   * @param picture1 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture1AssetId if the asset has already been uploaded before)   * @param picture1AssetId An asset id   * @param picture2 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture2AssetId if the asset has already been uploaded before)   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param latitude the latituede of the retailer location   * @param longitude the longitude of the retailer location   * @param building    * @param googlePlaceId the Google Place ID that the retailer location is associated with   * @param yelpId the Yelp ID that the retailer location is associated with   * @param metaData External custom client defined data   * @param paymentProvider Specifies which payment provider Sirqul will use when making payments   * @param active Sets whether the retailer is active or inactive (hidden from consumers)   * @param publicLocation Sets whether the location is public or not   * @param locationType External custom type identifier   * @param audienceIds Comma separated list of audience IDs used to assign audiences to the retailer location   * @param audienceIdsToAdd Comma separated list of audience IDs to add to the retailer location   * @param audienceIdsToRemove Comma separated list of audience IDs to remove from the retailer location   * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}   * @param tags Custom string field for doing full-text searches
+   * @param retailerLocationId The ID of the retailer location   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param name The name of the retailer location   * @param streetAddress The street address of the retailer location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the retailer location   * @param state The state of the retailer location   * @param postalCode The postal code of the retailer location   * @param country the country of the retailer location   * @param businessPhone The business phone number of the retailer location   * @param businessPhoneExt The business phone extension of the retailer location   * @param website The website of the retailer location   * @param email The email of the retailer location   * @param internalId An internal identifier used by the retailer   * @param detailsHeader A brief description about the retailer location (255 character limit)   * @param detailsBody A detailed description about the retailer location   * @param hours The hours of operation   * @param logo The retailer location logo sent as a multipart binary file (you can optionally use logoAssetId if the asset has already been uploaded before)   * @param logoAssetId The retailer location logo asset id   * @param picture1 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture1AssetId if the asset has already been uploaded before)   * @param picture1AssetId An asset id   * @param picture2 Optional store-front pictures or product pictures or etc. A multipart binary file (you can optionally use picture2AssetId if the asset has already been uploaded before)   * @param picture2AssetId An asset id   * @param categoryIds Comma separated list of category IDs used to filter retailer locations by categories   * @param filterIds Comma separated list of filter IDs used to filter retailer locations   * @param latitude the latituede of the retailer location   * @param longitude the longitude of the retailer location   * @param building    * @param googlePlaceId the Google Place ID that the retailer location is associated with   * @param yelpId the Yelp ID that the retailer location is associated with   * @param metaData External custom client defined data   * @param paymentProvider Specifies which payment provider Sirqul will use when making payments   * @param active Sets whether the retailer is active or inactive (hidden from consumers)   * @param publicLocation Sets whether the location is public or not   * @param locationType External custom type identifier   * @param audienceIds Comma separated list of audience IDs used to assign audiences to the retailer location   * @param audienceIdsToAdd Comma separated list of audience IDs to add to the retailer location   * @param audienceIdsToRemove Comma separated list of audience IDs to remove from the retailer location   * @param responseFormat The format of the returned response {JSON // default , HTML // for Dojo support when uploading assets}   * @param tags Custom string field for doing full-text searches
   */
-  public void updateRetailerLocations (BigDecimal version, Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRetailerLocations (Long retailerLocationId, String deviceId, Long accountId, String name, String streetAddress, String streetAddress2, String city, String state, String postalCode, String country, String businessPhone, String businessPhoneExt, String website, String email, String internalId, String detailsHeader, String detailsBody, String hours, File logo, Long logoAssetId, File picture1, Long picture1AssetId, File picture2, Long picture2AssetId, String categoryIds, String filterIds, Double latitude, Double longitude, String building, String googlePlaceId, String yelpId, String metaData, String paymentProvider, Boolean active, Boolean publicLocation, String locationType, String audienceIds, String audienceIdsToAdd, String audienceIdsToRemove, String responseFormat, String tags, final Response.Listener<RetailerLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRetailerLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRetailerLocations"));
-    }
     // verify the required parameter 'retailerLocationId' is set
     if (retailerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerLocationId' when calling updateRetailerLocations",
@@ -1889,7 +1789,7 @@ public class RetailerLocationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/location/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/location/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

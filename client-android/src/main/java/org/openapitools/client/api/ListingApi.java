@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.ListingFullResponse;
 import org.openapitools.client.model.ListingGroupResponse;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ListingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,7 +62,6 @@ public class ListingApi {
   /**
   * Create Listing
   * Creates a listing.
-   * @param version 
    * @param accountId the user&#39;s account ID
    * @param name the name of the listing
    * @param filterIds comma separated list of filter IDs
@@ -80,13 +78,8 @@ public class ListingApi {
    * @param metaData external custom client defined data
    * @return ListingFullResponse
   */
-  public ListingFullResponse createListing (BigDecimal version, Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ListingFullResponse createListing (Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling createListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createListing",
@@ -99,7 +92,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -163,16 +156,11 @@ public class ListingApi {
       /**
    * Create Listing
    * Creates a listing.
-   * @param version    * @param accountId the user&#39;s account ID   * @param name the name of the listing   * @param filterIds comma separated list of filter IDs   * @param description the description of the listing   * @param start the start date of the listing   * @param end the end date of the listing   * @param locationName the name of the location the listing will be held at   * @param locationDescription the description of the location the listing will be held at   * @param isPrivate determines whether the listing is public or private   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party   * @param active Sets the active flag   * @param metaData external custom client defined data
+   * @param accountId the user&#39;s account ID   * @param name the name of the listing   * @param filterIds comma separated list of filter IDs   * @param description the description of the listing   * @param start the start date of the listing   * @param end the end date of the listing   * @param locationName the name of the location the listing will be held at   * @param locationDescription the description of the location the listing will be held at   * @param isPrivate determines whether the listing is public or private   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party   * @param active Sets the active flag   * @param metaData external custom client defined data
   */
-  public void createListing (BigDecimal version, Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createListing (Long accountId, String name, String filterIds, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling createListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createListing",
@@ -185,7 +173,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -252,18 +240,12 @@ public class ListingApi {
   /**
   * Delete Listing
   * Delete a listing.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param listingId the id of the listing to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteListing (BigDecimal version, Long accountId, Long listingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteListing (Long accountId, Long listingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteListing",
@@ -276,7 +258,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -328,16 +310,11 @@ public class ListingApi {
       /**
    * Delete Listing
    * Delete a listing.
-   * @param version    * @param accountId the id of the logged in user   * @param listingId the id of the listing to delete
+   * @param accountId the id of the logged in user   * @param listingId the id of the listing to delete
   */
-  public void deleteListing (BigDecimal version, Long accountId, Long listingId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteListing (Long accountId, Long listingId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteListing",
@@ -350,7 +327,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -405,17 +382,11 @@ public class ListingApi {
   /**
   * Get Listing
   * Get a listing by id.
-   * @param version 
    * @param listingId the id of the listing to get
    * @return ListingFullResponse
   */
-  public ListingFullResponse getListing (BigDecimal version, Long listingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ListingFullResponse getListing (Long listingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getListing"));
-    }
     // verify the required parameter 'listingId' is set
     if (listingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'listingId' when calling getListing",
@@ -423,7 +394,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -474,16 +445,11 @@ public class ListingApi {
       /**
    * Get Listing
    * Get a listing by id.
-   * @param version    * @param listingId the id of the listing to get
+   * @param listingId the id of the listing to get
   */
-  public void getListing (BigDecimal version, Long listingId, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getListing (Long listingId, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getListing"));
-    }
     // verify the required parameter 'listingId' is set
     if (listingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'listingId' when calling getListing",
@@ -491,7 +457,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -545,7 +511,6 @@ public class ListingApi {
   /**
   * Search Listings
   * Search for event listings from the start time to end time
-   * @param version 
    * @param accountId the account id of the user
    * @param keyword search the event name and description for this keyword
    * @param start the record to begin the return set on
@@ -563,16 +528,11 @@ public class ListingApi {
    * @param externalGroupId external group identifier used by a third party
    * @return List<ListingResponse>
   */
-  public List<ListingResponse> searchListing (BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ListingResponse> searchListing (Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchListing"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/listing/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -637,19 +597,14 @@ public class ListingApi {
       /**
    * Search Listings
    * Search for event listings from the start time to end time
-   * @param version    * @param accountId the account id of the user   * @param keyword search the event name and description for this keyword   * @param start the record to begin the return set on   * @param limit the number of records to return   * @param activeOnly whether to search on active listings only   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param startDate the start date to search from   * @param endDate the end date to search to   * @param categoryIds only return items of these categories   * @param filterIds    * @param useListingOrderIds determines whether to use configured listing order ids   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party
+   * @param accountId the account id of the user   * @param keyword search the event name and description for this keyword   * @param start the record to begin the return set on   * @param limit the number of records to return   * @param activeOnly whether to search on active listings only   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param startDate the start date to search from   * @param endDate the end date to search to   * @param categoryIds only return items of these categories   * @param filterIds    * @param useListingOrderIds determines whether to use configured listing order ids   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party
   */
-  public void searchListing (BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId, final Response.Listener<List<ListingResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchListing (Long accountId, String keyword, Integer start, Integer limit, Boolean activeOnly, Double latitude, Double longitude, Long startDate, Long endDate, String categoryIds, String filterIds, Boolean useListingOrderIds, String externalId, String externalId2, String externalGroupId, final Response.Listener<List<ListingResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchListing"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/listing/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -717,7 +672,6 @@ public class ListingApi {
   /**
   * Summary Listing
   * Search for a list of summary listings from the start time up to 8 days out.
-   * @param version 
    * @param accountId the account id of the user
    * @param startDate the start date to search from
    * @param categoryIds the list of categories to search on
@@ -725,16 +679,11 @@ public class ListingApi {
    * @param useListingOrderIds determines whether to use configured listing order ids
    * @return List<ListingGroupResponse>
   */
-  public List<ListingGroupResponse> summaryListing (BigDecimal version, Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ListingGroupResponse> summaryListing (Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling summaryListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling summaryListing"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/listing/summary".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/summary";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -789,19 +738,14 @@ public class ListingApi {
       /**
    * Summary Listing
    * Search for a list of summary listings from the start time up to 8 days out.
-   * @param version    * @param accountId the account id of the user   * @param startDate the start date to search from   * @param categoryIds the list of categories to search on   * @param daysToInclude how far out to search, in days   * @param useListingOrderIds determines whether to use configured listing order ids
+   * @param accountId the account id of the user   * @param startDate the start date to search from   * @param categoryIds the list of categories to search on   * @param daysToInclude how far out to search, in days   * @param useListingOrderIds determines whether to use configured listing order ids
   */
-  public void summaryListing (BigDecimal version, Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds, final Response.Listener<List<ListingGroupResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void summaryListing (Long accountId, Long startDate, String categoryIds, Integer daysToInclude, Boolean useListingOrderIds, final Response.Listener<List<ListingGroupResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling summaryListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling summaryListing"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/listing/summary".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/summary".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -859,7 +803,6 @@ public class ListingApi {
   /**
   * Update Listing
   * Updates a listing.
-   * @param version 
    * @param accountId the user&#39;s account ID
    * @param listingId the listing to update
    * @param filterIds comma separated list of filter IDs
@@ -877,13 +820,8 @@ public class ListingApi {
    * @param metaData external custom client defined data
    * @return ListingFullResponse
   */
-  public ListingFullResponse updateListing (BigDecimal version, Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ListingFullResponse updateListing (Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateListing",
@@ -896,7 +834,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -961,16 +899,11 @@ public class ListingApi {
       /**
    * Update Listing
    * Updates a listing.
-   * @param version    * @param accountId the user&#39;s account ID   * @param listingId the listing to update   * @param filterIds comma separated list of filter IDs   * @param name the name of the listing   * @param description the description of the listing   * @param start the start date of the listing   * @param end the end date of the listing   * @param locationName the name of the location the listing will be held at   * @param locationDescription the description of the location the listing will be held at   * @param isPrivate determines whether the listing is public or private   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party   * @param active Sets the active flag   * @param metaData external custom client defined data
+   * @param accountId the user&#39;s account ID   * @param listingId the listing to update   * @param filterIds comma separated list of filter IDs   * @param name the name of the listing   * @param description the description of the listing   * @param start the start date of the listing   * @param end the end date of the listing   * @param locationName the name of the location the listing will be held at   * @param locationDescription the description of the location the listing will be held at   * @param isPrivate determines whether the listing is public or private   * @param externalId external identifier used by a third party   * @param externalId2 secondary external identifier used by a third party   * @param externalGroupId external group identifier used by a third party   * @param active Sets the active flag   * @param metaData external custom client defined data
   */
-  public void updateListing (BigDecimal version, Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateListing (Long accountId, Long listingId, String filterIds, String name, String description, Long start, Long end, String locationName, String locationDescription, Boolean isPrivate, String externalId, String externalId2, String externalGroupId, Boolean active, String metaData, final Response.Listener<ListingFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateListing",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateListing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateListing",
@@ -983,7 +916,7 @@ public class ListingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/listing/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/listing/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

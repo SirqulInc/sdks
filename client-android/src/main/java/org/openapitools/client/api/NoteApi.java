@@ -40,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class NoteApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +62,6 @@ public class NoteApi {
   /**
   * Batch Note Operation
   * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-   * @param version 
    * @param notableId The id of the notable object the batch operation will affect
    * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)
    * @param deviceId The device id (deviceId or accountId required)
@@ -70,13 +69,8 @@ public class NoteApi {
    * @param batchOperation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
    * @return SirqulResponse
   */
-  public SirqulResponse batchOperation (BigDecimal version, Long notableId, String notableType, String deviceId, Long accountId, String batchOperation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse batchOperation (Long notableId, String notableType, String deviceId, Long accountId, String batchOperation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchOperation",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchOperation"));
-    }
     // verify the required parameter 'notableId' is set
     if (notableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'notableId' when calling batchOperation",
@@ -89,7 +83,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -144,16 +138,11 @@ public class NoteApi {
       /**
    * Batch Note Operation
    * Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-   * @param version    * @param notableId The id of the notable object the batch operation will affect   * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param batchOperation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
+   * @param notableId The id of the notable object the batch operation will affect   * @param notableType The notable object type (for example ALBUM, ASSET, OFFER, etc.)   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param batchOperation The batch operation to perform (e.g., DELETE_ALL_NOTES_IN_NOTABLE). Optional.
   */
-  public void batchOperation (BigDecimal version, Long notableId, String notableType, String deviceId, Long accountId, String batchOperation, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void batchOperation (Long notableId, String notableType, String deviceId, Long accountId, String batchOperation, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchOperation",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchOperation"));
-    }
     // verify the required parameter 'notableId' is set
     if (notableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'notableId' when calling batchOperation",
@@ -166,7 +155,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -224,7 +213,6 @@ public class NoteApi {
   /**
   * Create Note
   * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-   * @param version 
    * @param comment The message the user wishes to leave a comment on
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -269,13 +257,8 @@ public class NoteApi {
    * @param assetLongitude the longitude of the asset
    * @return NoteResponse
   */
-  public NoteResponse createNote (BigDecimal version, String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NoteResponse createNote (String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNote"));
-    }
     // verify the required parameter 'comment' is set
     if (comment == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling createNote",
@@ -283,7 +266,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -375,16 +358,11 @@ public class NoteApi {
       /**
    * Create Note
    * This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-   * @param version    * @param comment The message the user wishes to leave a comment on   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}   * @param notableId The id of the notable object   * @param noteType The custom string defined by the client (used for differentiating various note types)   * @param assetIds A comma separated list of asset IDs to add with the note   * @param tags search tags   * @param permissionableType This is used for sending out group notifications. For example, when someone adds a note to an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param appKey The application key used to identify the application   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param metaData External custom client defined data   * @param receiverAccountIds Comma separated list of additional account IDs that will receive the note notifications   * @param returnFullResponse whether to return the full response or not   * @param initializeAsset Check true if need to initialize an asset and assign to current note   * @param assetReturnNulls Return null fields for asset response when creating an asset   * @param assetAlbumId the album the asset will be added to (optional)   * @param assetCollectionId the collection ID that the asset is associated with   * @param assetAddToDefaultAlbum the default album to add the asset to   * @param assetAddToMediaLibrary the media library to add the asset to   * @param assetVersionCode the version code of the asset   * @param assetVersionName the version name of the asset   * @param assetMetaData the meta data of the asset   * @param assetCaption the caption of the asset   * @param assetMedia the media of the asset   * @param assetMediaUrl the media URL of the asset   * @param assetMediaString the media string of the asset   * @param assetMediaStringFileName the media string file name of the asset   * @param assetMediaStringContentType the media string content type of the asset   * @param assetAttachedMedia the attached media of the asset   * @param assetAttachedMediaUrl the attached media URL of the asset   * @param assetAttachedMediaString the attached media string of the asset   * @param assetAttachedMediaStringFileName the attached media string file name of the asset   * @param assetAttachedMediaStringContentType the attached media string content type of the asset   * @param assetLocationDescription the location description for the asset   * @param assetApp the application for the asset   * @param assetSearchTags the search tags used for the asset   * @param assetLatitude the latitude of the asset   * @param assetLongitude the longitude of the asset
+   * @param comment The message the user wishes to leave a comment on   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}   * @param notableId The id of the notable object   * @param noteType The custom string defined by the client (used for differentiating various note types)   * @param assetIds A comma separated list of asset IDs to add with the note   * @param tags search tags   * @param permissionableType This is used for sending out group notifications. For example, when someone adds a note to an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param appKey The application key used to identify the application   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param metaData External custom client defined data   * @param receiverAccountIds Comma separated list of additional account IDs that will receive the note notifications   * @param returnFullResponse whether to return the full response or not   * @param initializeAsset Check true if need to initialize an asset and assign to current note   * @param assetReturnNulls Return null fields for asset response when creating an asset   * @param assetAlbumId the album the asset will be added to (optional)   * @param assetCollectionId the collection ID that the asset is associated with   * @param assetAddToDefaultAlbum the default album to add the asset to   * @param assetAddToMediaLibrary the media library to add the asset to   * @param assetVersionCode the version code of the asset   * @param assetVersionName the version name of the asset   * @param assetMetaData the meta data of the asset   * @param assetCaption the caption of the asset   * @param assetMedia the media of the asset   * @param assetMediaUrl the media URL of the asset   * @param assetMediaString the media string of the asset   * @param assetMediaStringFileName the media string file name of the asset   * @param assetMediaStringContentType the media string content type of the asset   * @param assetAttachedMedia the attached media of the asset   * @param assetAttachedMediaUrl the attached media URL of the asset   * @param assetAttachedMediaString the attached media string of the asset   * @param assetAttachedMediaStringFileName the attached media string file name of the asset   * @param assetAttachedMediaStringContentType the attached media string content type of the asset   * @param assetLocationDescription the location description for the asset   * @param assetApp the application for the asset   * @param assetSearchTags the search tags used for the asset   * @param assetLatitude the latitude of the asset   * @param assetLongitude the longitude of the asset
   */
-  public void createNote (BigDecimal version, String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude, final Response.Listener<NoteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createNote (String comment, String deviceId, Long accountId, String notableType, Long notableId, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, String receiverAccountIds, Boolean returnFullResponse, Boolean initializeAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, BigDecimal assetLongitude, final Response.Listener<NoteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNote"));
-    }
     // verify the required parameter 'comment' is set
     if (comment == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'comment' when calling createNote",
@@ -392,7 +370,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -487,7 +465,6 @@ public class NoteApi {
   /**
   * Delete Note
   * Sets a comment (note) as deleted.
-   * @param version 
    * @param noteId The ID of the note to delete
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -496,13 +473,8 @@ public class NoteApi {
    * @param appKey The application key used to identify the application
    * @return SirqulResponse
   */
-  public SirqulResponse deleteNote (BigDecimal version, Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteNote (Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling deleteNote",
@@ -510,7 +482,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -566,16 +538,11 @@ public class NoteApi {
       /**
    * Delete Note
    * Sets a comment (note) as deleted.
-   * @param version    * @param noteId The ID of the note to delete   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param appKey The application key used to identify the application
+   * @param noteId The ID of the note to delete   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param appKey The application key used to identify the application
   */
-  public void deleteNote (BigDecimal version, Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteNote (Long noteId, String deviceId, Long accountId, Double latitude, Double longitude, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling deleteNote",
@@ -583,7 +550,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -642,20 +609,14 @@ public class NoteApi {
   /**
   * Get Note
   * Get for a note based on its Id.
-   * @param version 
    * @param noteId the id of the note to get
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param returnFullResponse Determines whether to return the NoteFullResponse for the item
    * @return SirqulResponse
   */
-  public SirqulResponse getNote (BigDecimal version, Long noteId, String deviceId, Long accountId, Boolean returnFullResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getNote (Long noteId, String deviceId, Long accountId, Boolean returnFullResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling getNote",
@@ -663,7 +624,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -717,16 +678,11 @@ public class NoteApi {
       /**
    * Get Note
    * Get for a note based on its Id.
-   * @param version    * @param noteId the id of the note to get   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param returnFullResponse Determines whether to return the NoteFullResponse for the item
+   * @param noteId the id of the note to get   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param returnFullResponse Determines whether to return the NoteFullResponse for the item
   */
-  public void getNote (BigDecimal version, Long noteId, String deviceId, Long accountId, Boolean returnFullResponse, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getNote (Long noteId, String deviceId, Long accountId, Boolean returnFullResponse, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling getNote",
@@ -734,7 +690,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -791,7 +747,6 @@ public class NoteApi {
   /**
   * Search Notes
   * Search for notes on a notable object.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}
@@ -811,16 +766,11 @@ public class NoteApi {
    * @param limit The number of records to return
    * @return List<NoteResponse>
   */
-  public List<NoteResponse> searchNotes (BigDecimal version, String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<NoteResponse> searchNotes (String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNotes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNotes"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/note/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -887,19 +837,14 @@ public class NoteApi {
       /**
    * Search Notes
    * Search for notes on a notable object.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}   * @param notableId The id of the notable object   * @param noteTypes Comma separated list of noteType strings to filter results with   * @param appKey The application key used to identify the application   * @param keyword The keyword used to search   * @param flagCountMinimum return items that has flagCount &gt;&#x3D; flagCountMinimum if this is set, return all items, even ones with flagCount &gt;&#x3D; flagThreshold   * @param flagsExceedThreshold return items that has flagCount &gt;&#x3D; flagThreshold, which are hidden by default   * @param includeInactive include inactive in the result   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param returnFullResponse Determines whether to return the NoteFullResponse for each search item   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param start The record to begin the return set on   * @param limit The number of records to return
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param notableType The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}   * @param notableId The id of the notable object   * @param noteTypes Comma separated list of noteType strings to filter results with   * @param appKey The application key used to identify the application   * @param keyword The keyword used to search   * @param flagCountMinimum return items that has flagCount &gt;&#x3D; flagCountMinimum if this is set, return all items, even ones with flagCount &gt;&#x3D; flagThreshold   * @param flagsExceedThreshold return items that has flagCount &gt;&#x3D; flagThreshold, which are hidden by default   * @param includeInactive include inactive in the result   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param returnFullResponse Determines whether to return the NoteFullResponse for each search item   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param start The record to begin the return set on   * @param limit The number of records to return
   */
-  public void searchNotes (BigDecimal version, String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit, final Response.Listener<List<NoteResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchNotes (String deviceId, Long accountId, String notableType, Long notableId, String noteTypes, String appKey, String keyword, Long flagCountMinimum, Boolean flagsExceedThreshold, Boolean includeInactive, String sortField, Boolean descending, Boolean returnFullResponse, Long updatedSince, Long updatedBefore, Integer start, Integer limit, final Response.Listener<List<NoteResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNotes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNotes"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/note/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -969,7 +914,6 @@ public class NoteApi {
   /**
   * Update Note
   * Update an existing comment (note). Only the creator of the note have permission to update.
-   * @param version 
    * @param noteId The id of the note, used when editing a comment
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1013,13 +957,8 @@ public class NoteApi {
    * @param assetLongitude the longitude of the asset
    * @return NoteResponse
   */
-  public NoteResponse updateNote (BigDecimal version, Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NoteResponse updateNote (Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling updateNote",
@@ -1027,7 +966,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1118,16 +1057,11 @@ public class NoteApi {
       /**
    * Update Note
    * Update an existing comment (note). Only the creator of the note have permission to update.
-   * @param version    * @param noteId The id of the note, used when editing a comment   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param comment The message the user wishes to leave a comment on   * @param noteType The custom string defined by the client (used for differentiating on various note types)   * @param assetIds A comma separated list of asset IDs to add with the note   * @param tags search tags   * @param permissionableType This is used for sending out group notifications. For example, when someone adds a note to an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param appKey The application key used to identify the application   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param metaData meta data to update with the note   * @param returnFullResponse whether to return the full response or not   * @param active Sets the active flag for the note   * @param updateAsset main flag for updating asset in note, must set to true if you want to update the note&#39;s asset   * @param assetReturnNulls Return null fields for asset response when updating an asset   * @param assetAlbumId the album the asset will be added to (optional)   * @param assetCollectionId the collection ID that the asset is associated with   * @param assetAddToDefaultAlbum the default album to add the asset to   * @param assetAddToMediaLibrary the media library to add the asset to   * @param assetVersionCode the version code of the asset   * @param assetVersionName the version name of the asset   * @param assetMetaData the meta data of the asset   * @param assetCaption the caption of the asset   * @param assetMedia the media of the asset   * @param assetMediaUrl the media URL of the asset   * @param assetMediaString the media string of the asset   * @param assetMediaStringFileName the media string file name of the asset   * @param assetMediaStringContentType the media string content type of the asset   * @param assetAttachedMedia the attached media of the asset   * @param assetAttachedMediaUrl the attached media URL of the asset   * @param assetAttachedMediaString the attached media string of the asset   * @param assetAttachedMediaStringFileName the attached media string file name of the asset   * @param assetAttachedMediaStringContentType the attached media string content type of the asset   * @param assetLocationDescription the location description for the asset   * @param assetApp the application for the asset   * @param assetSearchTags the search tags used for the asset   * @param assetLatitude the latitude of the asset   * @param assetLongitude the longitude of the asset
+   * @param noteId The id of the note, used when editing a comment   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param comment The message the user wishes to leave a comment on   * @param noteType The custom string defined by the client (used for differentiating on various note types)   * @param assetIds A comma separated list of asset IDs to add with the note   * @param tags search tags   * @param permissionableType This is used for sending out group notifications. For example, when someone adds a note to an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param appKey The application key used to identify the application   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param metaData meta data to update with the note   * @param returnFullResponse whether to return the full response or not   * @param active Sets the active flag for the note   * @param updateAsset main flag for updating asset in note, must set to true if you want to update the note&#39;s asset   * @param assetReturnNulls Return null fields for asset response when updating an asset   * @param assetAlbumId the album the asset will be added to (optional)   * @param assetCollectionId the collection ID that the asset is associated with   * @param assetAddToDefaultAlbum the default album to add the asset to   * @param assetAddToMediaLibrary the media library to add the asset to   * @param assetVersionCode the version code of the asset   * @param assetVersionName the version name of the asset   * @param assetMetaData the meta data of the asset   * @param assetCaption the caption of the asset   * @param assetMedia the media of the asset   * @param assetMediaUrl the media URL of the asset   * @param assetMediaString the media string of the asset   * @param assetMediaStringFileName the media string file name of the asset   * @param assetMediaStringContentType the media string content type of the asset   * @param assetAttachedMedia the attached media of the asset   * @param assetAttachedMediaUrl the attached media URL of the asset   * @param assetAttachedMediaString the attached media string of the asset   * @param assetAttachedMediaStringFileName the attached media string file name of the asset   * @param assetAttachedMediaStringContentType the attached media string content type of the asset   * @param assetLocationDescription the location description for the asset   * @param assetApp the application for the asset   * @param assetSearchTags the search tags used for the asset   * @param assetLatitude the latitude of the asset   * @param assetLongitude the longitude of the asset
   */
-  public void updateNote (BigDecimal version, Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude, final Response.Listener<NoteResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateNote (Long noteId, String deviceId, Long accountId, String comment, String noteType, String assetIds, String tags, String permissionableType, Long permissionableId, String appKey, String locationDescription, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, Boolean active, Boolean updateAsset, Boolean assetReturnNulls, Long assetAlbumId, Long assetCollectionId, String assetAddToDefaultAlbum, Boolean assetAddToMediaLibrary, Integer assetVersionCode, String assetVersionName, String assetMetaData, String assetCaption, File assetMedia, String assetMediaUrl, String assetMediaString, String assetMediaStringFileName, String assetMediaStringContentType, File assetAttachedMedia, String assetAttachedMediaUrl, String assetAttachedMediaString, String assetAttachedMediaStringFileName, String assetAttachedMediaStringContentType, String assetLocationDescription, String assetApp, String assetSearchTags, Double assetLatitude, Double assetLongitude, final Response.Listener<NoteResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNote",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNote"));
-    }
     // verify the required parameter 'noteId' is set
     if (noteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'noteId' when calling updateNote",
@@ -1135,7 +1069,7 @@ public class NoteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/note/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/note/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

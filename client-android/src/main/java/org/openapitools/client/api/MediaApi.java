@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.MediaOfferResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class MediaApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class MediaApi {
   /**
   * Create Media
   * Create a media offering.
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param title The title (255 char limit)
    * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -121,13 +119,8 @@ public class MediaApi {
    * @param availabilitySummary ability to assign when the media expires
    * @return MediaOfferResponse
   */
-  public MediaOfferResponse createMedia (BigDecimal version, Long accountId, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String specialOfferType, String offerVisibility, Boolean active, String retailerLocationIds, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, String parentalRating, Long availabilityDate, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MediaOfferResponse createMedia (Long accountId, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String specialOfferType, String offerVisibility, Boolean active, String retailerLocationIds, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, String parentalRating, Long availabilityDate, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createMedia",
@@ -205,7 +198,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -312,16 +305,11 @@ public class MediaApi {
       /**
    * Create Media
    * Create a media offering.
-   * @param version    * @param accountId The account id of the logged in user   * @param title The title (255 char limit)   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit The limit of how many times the offer can be viewed   * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param active Sets the active flag   * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param subTitle The sub title (255 char limit)   * @param details The details of the media   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print of the media   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param externalUrl The clickUrl of the offer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param ticketPriceType the type of ticket needed to buy offer   * @param showRemaining show how many of the media is remaining (if there is a limit)   * @param showRedeemed show how many of the media has been redeemed   * @param replaced if the media has been replaced   * @param featured if the media should be featured or not   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param conditionType The condition type of the media   * @param isbn The ISBN id   * @param asin The ASIN id   * @param catalogNumbers The list of catelog numbers, comma seperated   * @param parentalRating The parental control rating   * @param availabilityDate The date the media is available to use   * @param mediaType the media type   * @param duration The total playing time of the media item   * @param author The created/author of the media item   * @param releaseDate The date/time of when the media item was originally released   * @param collectionIds the IDs of the collections this media should be assigned to   * @param availability ability to assign if this media should active or not   * @param availabilitySummary ability to assign when the media expires
+   * @param accountId The account id of the logged in user   * @param title The title (255 char limit)   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit The limit of how many times the offer can be viewed   * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param active Sets the active flag   * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param subTitle The sub title (255 char limit)   * @param details The details of the media   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print of the media   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param externalUrl The clickUrl of the offer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param ticketPriceType the type of ticket needed to buy offer   * @param showRemaining show how many of the media is remaining (if there is a limit)   * @param showRedeemed show how many of the media has been redeemed   * @param replaced if the media has been replaced   * @param featured if the media should be featured or not   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param conditionType The condition type of the media   * @param isbn The ISBN id   * @param asin The ASIN id   * @param catalogNumbers The list of catelog numbers, comma seperated   * @param parentalRating The parental control rating   * @param availabilityDate The date the media is available to use   * @param mediaType the media type   * @param duration The total playing time of the media item   * @param author The created/author of the media item   * @param releaseDate The date/time of when the media item was originally released   * @param collectionIds the IDs of the collections this media should be assigned to   * @param availability ability to assign if this media should active or not   * @param availabilitySummary ability to assign when the media expires
   */
-  public void createMedia (BigDecimal version, Long accountId, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String specialOfferType, String offerVisibility, Boolean active, String retailerLocationIds, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, String parentalRating, Long availabilityDate, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createMedia (Long accountId, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String specialOfferType, String offerVisibility, Boolean active, String retailerLocationIds, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, String parentalRating, Long availabilityDate, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createMedia",
@@ -399,7 +387,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -509,18 +497,12 @@ public class MediaApi {
   /**
   * Delete Media
   * Delete a media offering that the user has permissions to.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param mediaId the ID of the media to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteMedia (BigDecimal version, Long accountId, Long mediaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteMedia (Long accountId, Long mediaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteMedia",
@@ -533,7 +515,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -585,16 +567,11 @@ public class MediaApi {
       /**
    * Delete Media
    * Delete a media offering that the user has permissions to.
-   * @param version    * @param accountId the id of the logged in user   * @param mediaId the ID of the media to delete
+   * @param accountId the id of the logged in user   * @param mediaId the ID of the media to delete
   */
-  public void deleteMedia (BigDecimal version, Long accountId, Long mediaId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteMedia (Long accountId, Long mediaId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteMedia",
@@ -607,7 +584,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -662,18 +639,12 @@ public class MediaApi {
   /**
   * Media Get
   * Get a media offering.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param mediaId the id of the media to get
    * @return MediaOfferResponse
   */
-  public MediaOfferResponse getMedia (BigDecimal version, Long accountId, Long mediaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MediaOfferResponse getMedia (Long accountId, Long mediaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMedia",
@@ -686,7 +657,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -738,16 +709,11 @@ public class MediaApi {
       /**
    * Media Get
    * Get a media offering.
-   * @param version    * @param accountId the id of the logged in user   * @param mediaId the id of the media to get
+   * @param accountId the id of the logged in user   * @param mediaId the id of the media to get
   */
-  public void getMedia (BigDecimal version, Long accountId, Long mediaId, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getMedia (Long accountId, Long mediaId, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMedia",
@@ -760,7 +726,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -815,7 +781,6 @@ public class MediaApi {
   /**
   * Search Media
   * Searches on events that the account has access to.
-   * @param version 
    * @param accountId The logged in user.
    * @param activeOnly Return only active results
    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE
@@ -827,13 +792,8 @@ public class MediaApi {
    * @param limit The number of records to return
    * @return List<MediaOfferResponse>
   */
-  public List<MediaOfferResponse> searchMedia (BigDecimal version, Long accountId, Boolean activeOnly, String sortField, Boolean descending, String keyword, String categoryIds, String filterIds, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MediaOfferResponse> searchMedia (Long accountId, Boolean activeOnly, String sortField, Boolean descending, String keyword, String categoryIds, String filterIds, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMedia",
@@ -856,7 +816,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -915,16 +875,11 @@ public class MediaApi {
       /**
    * Search Media
    * Searches on events that the account has access to.
-   * @param version    * @param accountId The logged in user.   * @param activeOnly Return only active results   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE   * @param descending The order to return the search results   * @param keyword The keyword used to search   * @param categoryIds    * @param filterIds    * @param start The record to begin the return set on   * @param limit The number of records to return
+   * @param accountId The logged in user.   * @param activeOnly Return only active results   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE   * @param descending The order to return the search results   * @param keyword The keyword used to search   * @param categoryIds    * @param filterIds    * @param start The record to begin the return set on   * @param limit The number of records to return
   */
-  public void searchMedia (BigDecimal version, Long accountId, Boolean activeOnly, String sortField, Boolean descending, String keyword, String categoryIds, String filterIds, Integer start, Integer limit, final Response.Listener<List<MediaOfferResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchMedia (Long accountId, Boolean activeOnly, String sortField, Boolean descending, String keyword, String categoryIds, String filterIds, Integer start, Integer limit, final Response.Listener<List<MediaOfferResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMedia",
@@ -947,7 +902,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1009,7 +964,6 @@ public class MediaApi {
   /**
   * Update Media
   * Update a media offering.
-   * @param version 
    * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)
    * @param mediaId 
    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.
@@ -1071,13 +1025,8 @@ public class MediaApi {
    * @param availabilitySummary 
    * @return MediaOfferResponse
   */
-  public MediaOfferResponse updateMedia (BigDecimal version, Long accountId, Long mediaId, String retailerLocationIds, String offerLocations, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, Long availabilityDate, String parentalRating, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MediaOfferResponse updateMedia (Long accountId, Long mediaId, String retailerLocationIds, String offerLocations, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, Long availabilityDate, String parentalRating, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateMedia",
@@ -1090,7 +1039,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1199,16 +1148,11 @@ public class MediaApi {
       /**
    * Update Media
    * Update a media offering.
-   * @param version    * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)   * @param mediaId    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param title The title (255 char limit)   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer.   * @param externalUrl The clickUrl of the offer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit    * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPriceType the type of ticket needed to buy the offer   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param showRemaining The show remaining   * @param showRedeemed The show redeemed   * @param replaced The replaced   * @param featured The featured   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param active Sets the active flag   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param mediaType    * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param availability    * @param availabilitySummary 
+   * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)   * @param mediaId    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param title The title (255 char limit)   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer.   * @param externalUrl The clickUrl of the offer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit    * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPriceType the type of ticket needed to buy the offer   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param showRemaining The show remaining   * @param showRedeemed The show redeemed   * @param replaced The replaced   * @param featured The featured   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param active Sets the active flag   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param mediaType    * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param availability    * @param availabilitySummary 
   */
-  public void updateMedia (BigDecimal version, Long accountId, Long mediaId, String retailerLocationIds, String offerLocations, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, Long availabilityDate, String parentalRating, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateMedia (Long accountId, Long mediaId, String retailerLocationIds, String offerLocations, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String conditionType, String isbn, String asin, String catalogNumbers, Long availabilityDate, String parentalRating, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, String availability, String availabilitySummary, final Response.Listener<MediaOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMedia",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMedia"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateMedia",
@@ -1221,7 +1165,7 @@ public class MediaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/media/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/media/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

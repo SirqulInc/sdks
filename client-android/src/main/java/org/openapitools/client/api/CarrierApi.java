@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CellCarrierResponse;
 import java.util.*;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class CarrierApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class CarrierApi {
   /**
   * Search Carriers
   * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-   * @param version 
    * @param keyword The keyword to search on
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -68,16 +66,11 @@ public class CarrierApi {
    * @param activeOnly Determines whether to return inactive results
    * @return List<CellCarrierResponse>
   */
-  public List<CellCarrierResponse> searchCarriers (BigDecimal version, String keyword, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<CellCarrierResponse> searchCarriers (String keyword, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCarriers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCarriers"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/carrier/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/carrier/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -132,19 +125,14 @@ public class CarrierApi {
       /**
    * Search Carriers
    * Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-   * @param version    * @param keyword The keyword to search on   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Determines whether to return inactive results
+   * @param keyword The keyword to search on   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Determines whether to return inactive results
   */
-  public void searchCarriers (BigDecimal version, String keyword, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<CellCarrierResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchCarriers (String keyword, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<CellCarrierResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCarriers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCarriers"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/carrier/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/carrier/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

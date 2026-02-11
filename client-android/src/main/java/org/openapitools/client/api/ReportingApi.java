@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.RegionLegSummary;
 import org.openapitools.client.model.ReportBatchResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ReportingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,7 +63,6 @@ public class ReportingApi {
   /**
   * Create Offline Report
   * Create an entry for the batch for offline report
-   * @param version 
    * @param accountId The account id of the user for passing account related params
    * @param status the status of the report
    * @param previewLimit the limit on how much you can preview of the batch report
@@ -78,13 +76,8 @@ public class ReportingApi {
    * @param pageUrl 
    * @return ReportBatchResponse
   */
-  public ReportBatchResponse createBatch (BigDecimal version, Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ReportBatchResponse createBatch (Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createBatch",
@@ -102,7 +95,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -163,16 +156,11 @@ public class ReportingApi {
       /**
    * Create Offline Report
    * Create an entry for the batch for offline report
-   * @param version    * @param accountId The account id of the user for passing account related params   * @param status the status of the report   * @param previewLimit the limit on how much you can preview of the batch report   * @param appKey The application key for passing application related params   * @param endpoint    * @param parameters a json structure list of the parameter values, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;:\&quot;value\&quot;,    \&quot;number\&quot;:3.345,   \&quot;date\&quot;:\&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;    * @param name name of the batch report   * @param startDate the start date of the batch report   * @param endDate the end date of the batch report   * @param description the description of the batch report   * @param pageUrl 
+   * @param accountId The account id of the user for passing account related params   * @param status the status of the report   * @param previewLimit the limit on how much you can preview of the batch report   * @param appKey The application key for passing application related params   * @param endpoint    * @param parameters a json structure list of the parameter values, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;:\&quot;value\&quot;,    \&quot;number\&quot;:3.345,   \&quot;date\&quot;:\&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;    * @param name name of the batch report   * @param startDate the start date of the batch report   * @param endDate the end date of the batch report   * @param description the description of the batch report   * @param pageUrl 
   */
-  public void createBatch (BigDecimal version, Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl, final Response.Listener<ReportBatchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createBatch (Long accountId, String status, Integer previewLimit, String appKey, String endpoint, String parameters, String name, Long startDate, Long endDate, String description, String pageUrl, final Response.Listener<ReportBatchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createBatch",
@@ -190,7 +178,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -254,20 +242,14 @@ public class ReportingApi {
   /**
   * Create Offline Report
   * Create an entry for the batch for offline report
-   * @param version 
    * @param body 
    * @return ReportRegionLegSummaryBatchResponse
   */
-  public ReportRegionLegSummaryBatchResponse createRegionLegSummaryBatch (BigDecimal version, List<RegionLegSummary> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ReportRegionLegSummaryBatchResponse createRegionLegSummaryBatch (List<RegionLegSummary> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRegionLegSummaryBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRegionLegSummaryBatch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/report/region/summary/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/region/summary/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -317,19 +299,14 @@ public class ReportingApi {
       /**
    * Create Offline Report
    * Create an entry for the batch for offline report
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createRegionLegSummaryBatch (BigDecimal version, List<RegionLegSummary> body, final Response.Listener<ReportRegionLegSummaryBatchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createRegionLegSummaryBatch (List<RegionLegSummary> body, final Response.Listener<ReportRegionLegSummaryBatchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRegionLegSummaryBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRegionLegSummaryBatch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/report/region/summary/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/region/summary/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -382,18 +359,12 @@ public class ReportingApi {
   /**
   * Delete Offline Report
   * Deletes a batch report.
-   * @param version 
    * @param accountId the id of the account
    * @param batchId the id of the batch to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteBatch (BigDecimal version, Long accountId, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteBatch (Long accountId, Long batchId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteBatch",
@@ -406,7 +377,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -458,16 +429,11 @@ public class ReportingApi {
       /**
    * Delete Offline Report
    * Deletes a batch report.
-   * @param version    * @param accountId the id of the account   * @param batchId the id of the batch to delete
+   * @param accountId the id of the account   * @param batchId the id of the batch to delete
   */
-  public void deleteBatch (BigDecimal version, Long accountId, Long batchId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteBatch (Long accountId, Long batchId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteBatch",
@@ -480,7 +446,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -535,19 +501,13 @@ public class ReportingApi {
   /**
   * Get Offline Report
   * Checks status of batch report.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param batchId returned by /report/batch/create
    * @param allResults whether to return all batch results or not
    * @return ReportBatchResponse
   */
-  public ReportBatchResponse getReportBatch (BigDecimal version, Long accountId, Long batchId, Boolean allResults) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ReportBatchResponse getReportBatch (Long accountId, Long batchId, Boolean allResults) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getReportBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getReportBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getReportBatch",
@@ -565,7 +525,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -618,16 +578,11 @@ public class ReportingApi {
       /**
    * Get Offline Report
    * Checks status of batch report.
-   * @param version    * @param accountId the id of the logged in user   * @param batchId returned by /report/batch/create   * @param allResults whether to return all batch results or not
+   * @param accountId the id of the logged in user   * @param batchId returned by /report/batch/create   * @param allResults whether to return all batch results or not
   */
-  public void getReportBatch (BigDecimal version, Long accountId, Long batchId, Boolean allResults, final Response.Listener<ReportBatchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getReportBatch (Long accountId, Long batchId, Boolean allResults, final Response.Listener<ReportBatchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getReportBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling getReportBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getReportBatch",
@@ -645,7 +600,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -701,7 +656,6 @@ public class ReportingApi {
   /**
   * Run Report
   *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-   * @param version 
    * @param desc If true then descending order, false is ascending
    * @param accountId The account id of the user for passing account related params
    * @param query The named identifier of the query
@@ -712,13 +666,8 @@ public class ReportingApi {
    * @param responseFormat Determines what response format to return. Options are: JSON or CSV
    * @return ReportResponse
   */
-  public ReportResponse runReport (BigDecimal version, Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ReportResponse runReport (Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling runReport",
-        new ApiException(400, "Missing the required parameter 'version' when calling runReport"));
-    }
     // verify the required parameter 'desc' is set
     if (desc == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'desc' when calling runReport",
@@ -726,7 +675,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/run".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/run";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -784,16 +733,11 @@ public class ReportingApi {
       /**
    * Run Report
    *  This endpoint allows you to run a set of predefined reports that can be used to understand your users&#39; behavior as well as trends within your application.
-   * @param version    * @param desc If true then descending order, false is ascending   * @param accountId The account id of the user for passing account related params   * @param query The named identifier of the query   * @param parameters Parameter values used in the query in JSON format, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;:\&quot;value\&quot;,    \&quot;number\&quot;:3.345,   \&quot;date\&quot;:\&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;    * @param order The order to use, must be a column name (see response results for list of column names)   * @param start The start of the pagination   * @param limit The limit of the pagination   * @param responseFormat Determines what response format to return. Options are: JSON or CSV
+   * @param desc If true then descending order, false is ascending   * @param accountId The account id of the user for passing account related params   * @param query The named identifier of the query   * @param parameters Parameter values used in the query in JSON format, example: &#x60;&#x60;&#x60;json {   \&quot;string\&quot;:\&quot;value\&quot;,    \&quot;number\&quot;:3.345,   \&quot;date\&quot;:\&quot;2014-05-01 00:00:00\&quot; } &#x60;&#x60;&#x60;    * @param order The order to use, must be a column name (see response results for list of column names)   * @param start The start of the pagination   * @param limit The limit of the pagination   * @param responseFormat Determines what response format to return. Options are: JSON or CSV
   */
-  public void runReport (BigDecimal version, Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat, final Response.Listener<ReportResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void runReport (Boolean desc, Long accountId, String query, String parameters, String order, Long start, Long limit, String responseFormat, final Response.Listener<ReportResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling runReport",
-        new ApiException(400, "Missing the required parameter 'version' when calling runReport"));
-    }
     // verify the required parameter 'desc' is set
     if (desc == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'desc' when calling runReport",
@@ -801,7 +745,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/run".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/run".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -862,7 +806,6 @@ public class ReportingApi {
   /**
   * Search Offline Reports
   * Retrieves batches for a user..
-   * @param version 
    * @param accountId the id of the account logged in
    * @param start the start of the index and/or pagination
    * @param limit the limit of the index and/or pagination
@@ -874,13 +817,8 @@ public class ReportingApi {
    * @param endDate the end date of the report batch to search on
    * @return List<ReportBatchResponse>
   */
-  public List<ReportBatchResponse> searchBatch (BigDecimal version, Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ReportBatchResponse> searchBatch (Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchBatch",
@@ -898,7 +836,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -957,16 +895,11 @@ public class ReportingApi {
       /**
    * Search Offline Reports
    * Retrieves batches for a user..
-   * @param version    * @param accountId the id of the account logged in   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination   * @param names the names of the report batch to search on   * @param appKey the application key   * @param status the report batch status   * @param globalAppSearch the global app to search on   * @param startDate the start date of the report batch to search on   * @param endDate the end date of the report batch to search on
+   * @param accountId the id of the account logged in   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination   * @param names the names of the report batch to search on   * @param appKey the application key   * @param status the report batch status   * @param globalAppSearch the global app to search on   * @param startDate the start date of the report batch to search on   * @param endDate the end date of the report batch to search on
   */
-  public void searchBatch (BigDecimal version, Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate, final Response.Listener<List<ReportBatchResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchBatch (Long accountId, Integer start, Integer limit, String names, String appKey, String status, Boolean globalAppSearch, Long startDate, Long endDate, final Response.Listener<List<ReportBatchResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBatch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchBatch",
@@ -984,7 +917,7 @@ public class ReportingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/report/batch/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/report/batch/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

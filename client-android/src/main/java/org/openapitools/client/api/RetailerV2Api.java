@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RetailerV2Api {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,7 +58,6 @@ public class RetailerV2Api {
   /**
   * Get Retailer
   * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-   * @param version 
    * @param retailerId the id of the retailer
    * @param activeOnly whether to return results that are active only or all
    * @param keyword the keyword to search on to get retailer
@@ -68,13 +66,8 @@ public class RetailerV2Api {
    * @param limit the limit of the index and/or pagination
    * @return SirqulResponse
   */
-  public SirqulResponse getRetaokiler (BigDecimal version, Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getRetaokiler (Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetaokiler",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetaokiler"));
-    }
     // verify the required parameter 'retailerId' is set
     if (retailerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerId' when calling getRetaokiler",
@@ -87,7 +80,7 @@ public class RetailerV2Api {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -143,16 +136,11 @@ public class RetailerV2Api {
       /**
    * Get Retailer
    * Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-   * @param version    * @param retailerId the id of the retailer   * @param activeOnly whether to return results that are active only or all   * @param keyword the keyword to search on to get retailer   * @param sortField the field to sort on   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
+   * @param retailerId the id of the retailer   * @param activeOnly whether to return results that are active only or all   * @param keyword the keyword to search on to get retailer   * @param sortField the field to sort on   * @param start the start of the index and/or pagination   * @param limit the limit of the index and/or pagination
   */
-  public void getRetaokiler (BigDecimal version, Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRetaokiler (Long retailerId, Boolean activeOnly, String keyword, String sortField, Long start, Long limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRetaokiler",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRetaokiler"));
-    }
     // verify the required parameter 'retailerId' is set
     if (retailerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'retailerId' when calling getRetaokiler",
@@ -165,7 +153,7 @@ public class RetailerV2Api {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

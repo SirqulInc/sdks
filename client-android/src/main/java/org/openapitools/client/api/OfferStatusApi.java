@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.OfferTransactionStatusResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OfferStatusApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class OfferStatusApi {
   /**
   * Create Offer Status
   * Create an offer status record
-   * @param version 
    * @param name The name of the status
    * @param code The status code, must be unique 
    * @param deviceId The device id (deviceId or accountId required)
@@ -74,13 +72,8 @@ public class OfferStatusApi {
    * @param applicationIds The applications to associate the status with, if null then for all.
    * @return OfferTransactionStatusResponse
   */
-  public OfferTransactionStatusResponse createOfferTransactionStatus (BigDecimal version, String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferTransactionStatusResponse createOfferTransactionStatus (String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOfferTransactionStatus"));
-    }
     // verify the required parameter 'name' is set
     if (name == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'name' when calling createOfferTransactionStatus",
@@ -93,7 +86,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -153,16 +146,11 @@ public class OfferStatusApi {
       /**
    * Create Offer Status
    * Create an offer status record
-   * @param version    * @param name The name of the status   * @param code The status code, must be unique    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param description The description of the status   * @param role The actor that uses the status   * @param active The active status   * @param applicationIds The applications to associate the status with, if null then for all.
+   * @param name The name of the status   * @param code The status code, must be unique    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param description The description of the status   * @param role The actor that uses the status   * @param active The active status   * @param applicationIds The applications to associate the status with, if null then for all.
   */
-  public void createOfferTransactionStatus (BigDecimal version, String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOfferTransactionStatus (String name, Integer code, String deviceId, Long accountId, Double latitude, Double longitude, String description, String role, Boolean active, String applicationIds, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOfferTransactionStatus"));
-    }
     // verify the required parameter 'name' is set
     if (name == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'name' when calling createOfferTransactionStatus",
@@ -175,7 +163,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -238,7 +226,6 @@ public class OfferStatusApi {
   /**
   * Delete Offer Status
   * Mark an offer status record as deleted
-   * @param version 
    * @param statusId The id of the record to delete
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -246,13 +233,8 @@ public class OfferStatusApi {
    * @param longitude Used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse deleteOfferTransactionStatus (BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteOfferTransactionStatus (Long statusId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferTransactionStatus"));
-    }
     // verify the required parameter 'statusId' is set
     if (statusId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'statusId' when calling deleteOfferTransactionStatus",
@@ -260,7 +242,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -315,16 +297,11 @@ public class OfferStatusApi {
       /**
    * Delete Offer Status
    * Mark an offer status record as deleted
-   * @param version    * @param statusId The id of the record to delete   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
+   * @param statusId The id of the record to delete   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
   */
-  public void deleteOfferTransactionStatus (BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteOfferTransactionStatus (Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferTransactionStatus"));
-    }
     // verify the required parameter 'statusId' is set
     if (statusId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'statusId' when calling deleteOfferTransactionStatus",
@@ -332,7 +309,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -390,7 +367,6 @@ public class OfferStatusApi {
   /**
   * Get Offer Status
   * Get an offer status record
-   * @param version 
    * @param statusId The id of the record to get 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -398,13 +374,8 @@ public class OfferStatusApi {
    * @param longitude Used to update the user&#39;s current location
    * @return OfferTransactionStatusResponse
   */
-  public OfferTransactionStatusResponse getOfferTransactionStatus (BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferTransactionStatusResponse getOfferTransactionStatus (Long statusId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferTransactionStatus"));
-    }
     // verify the required parameter 'statusId' is set
     if (statusId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'statusId' when calling getOfferTransactionStatus",
@@ -412,7 +383,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -467,16 +438,11 @@ public class OfferStatusApi {
       /**
    * Get Offer Status
    * Get an offer status record
-   * @param version    * @param statusId The id of the record to get    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
+   * @param statusId The id of the record to get    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location
   */
-  public void getOfferTransactionStatus (BigDecimal version, Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferTransactionStatus (Long statusId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferTransactionStatus"));
-    }
     // verify the required parameter 'statusId' is set
     if (statusId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'statusId' when calling getOfferTransactionStatus",
@@ -484,7 +450,7 @@ public class OfferStatusApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -542,7 +508,6 @@ public class OfferStatusApi {
   /**
   * Search Offer Status
   * Search for the available offer statuses
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user&#39;s current location
@@ -557,16 +522,11 @@ public class OfferStatusApi {
    * @param includeInactive If true include inactive items
    * @return List<OfferTransactionStatusResponse>
   */
-  public List<OfferTransactionStatusResponse> searchOfferTransactionStatuses (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferTransactionStatusResponse> searchOfferTransactionStatuses (String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactionStatuses",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactionStatuses"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -628,19 +588,14 @@ public class OfferStatusApi {
       /**
    * Search Offer Status
    * Search for the available offer statuses
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param keyword Search the name and description fields   * @param role The actors role, possible values are: CUSTOMER, RETAILER, or ANY   * @param appKey The application making the request   * @param sortField The field to sort on, possible values are: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, NAME, DESCRIPTION, CODE, ROLE   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param includeInactive If true include inactive items
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param keyword Search the name and description fields   * @param role The actors role, possible values are: CUSTOMER, RETAILER, or ANY   * @param appKey The application making the request   * @param sortField The field to sort on, possible values are: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, NAME, DESCRIPTION, CODE, ROLE   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param includeInactive If true include inactive items
   */
-  public void searchOfferTransactionStatuses (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive, final Response.Listener<List<OfferTransactionStatusResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchOfferTransactionStatuses (String deviceId, Long accountId, Double latitude, Double longitude, String keyword, String role, String appKey, String sortField, Boolean descending, Integer start, Integer limit, Boolean includeInactive, final Response.Listener<List<OfferTransactionStatusResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactionStatuses",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactionStatuses"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -705,7 +660,6 @@ public class OfferStatusApi {
   /**
   * Update Offer Status
   * Update an offer status record
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param latitude Used to update the user&#39;s current location
@@ -719,16 +673,11 @@ public class OfferStatusApi {
    * @param applicationIds The applications to associate the status with, if null then for all.
    * @return OfferTransactionStatusResponse
   */
-  public OfferTransactionStatusResponse updateOfferTransactionStatus (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferTransactionStatusResponse updateOfferTransactionStatus (String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferTransactionStatus"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -789,19 +738,14 @@ public class OfferStatusApi {
       /**
    * Update Offer Status
    * Update an offer status record
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param statusId The id of the record to update    * @param name The name of th status   * @param description The description of the status   * @param code The status code, must be unique    * @param role The actor that uses the status   * @param active The active status   * @param applicationIds The applications to associate the status with, if null then for all.
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param latitude Used to update the user&#39;s current location   * @param longitude Used to update the user&#39;s current location   * @param statusId The id of the record to update    * @param name The name of th status   * @param description The description of the status   * @param code The status code, must be unique    * @param role The actor that uses the status   * @param active The active status   * @param applicationIds The applications to associate the status with, if null then for all.
   */
-  public void updateOfferTransactionStatus (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateOfferTransactionStatus (String deviceId, Long accountId, Double latitude, Double longitude, Long statusId, String name, String description, Integer code, String role, Boolean active, String applicationIds, final Response.Listener<OfferTransactionStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferTransactionStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferTransactionStatus"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/status/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/status/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

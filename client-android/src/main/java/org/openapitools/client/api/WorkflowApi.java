@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class WorkflowApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,7 +58,6 @@ public class WorkflowApi {
   /**
   * Run Workflow
   * Runs a published executable workflow
-   * @param version 
    * @param accountId the account ID of the user
    * @param workflowId the workflow to run
    * @param skuId this runs a particular sku on the workflow
@@ -67,13 +65,8 @@ public class WorkflowApi {
    * @param parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60; 
    * @return SirqulResponse
   */
-  public SirqulResponse runWorkflow (BigDecimal version, Long accountId, Long workflowId, Long skuId, Integer versionCode, String parameters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse runWorkflow (Long accountId, Long workflowId, Long skuId, Integer versionCode, String parameters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling runWorkflow",
-        new ApiException(400, "Missing the required parameter 'version' when calling runWorkflow"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling runWorkflow",
@@ -86,7 +79,7 @@ public class WorkflowApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/workflow/run".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/workflow/run";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -141,16 +134,11 @@ public class WorkflowApi {
       /**
    * Run Workflow
    * Runs a published executable workflow
-   * @param version    * @param accountId the account ID of the user   * @param workflowId the workflow to run   * @param skuId this runs a particular sku on the workflow   * @param versionCode this runs a particular sku version on the workflow   * @param parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60; 
+   * @param accountId the account ID of the user   * @param workflowId the workflow to run   * @param skuId this runs a particular sku on the workflow   * @param versionCode this runs a particular sku version on the workflow   * @param parameters Override parameters in JSON format. Example: &#x60;&#x60;&#x60;json {   \&quot;arguments_81\&quot;: { \&quot;filter\&quot;: \&quot;PUBLIC\&quot; },   \&quot;arguments_87\&quot;: { \&quot;tag\&quot;: \&quot;custom_tag\&quot; } } &#x60;&#x60;&#x60; 
   */
-  public void runWorkflow (BigDecimal version, Long accountId, Long workflowId, Long skuId, Integer versionCode, String parameters, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void runWorkflow (Long accountId, Long workflowId, Long skuId, Integer versionCode, String parameters, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling runWorkflow",
-        new ApiException(400, "Missing the required parameter 'version' when calling runWorkflow"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling runWorkflow",
@@ -163,7 +151,7 @@ public class WorkflowApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/workflow/run".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/workflow/run".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

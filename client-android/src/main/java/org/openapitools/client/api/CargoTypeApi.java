@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CargoType;
 import java.util.*;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class CargoTypeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class CargoTypeApi {
   /**
   * Create Cargo Type
   * Create new cargo type
-   * @param version 
    * @param body 
    * @return CargoType
   */
-  public CargoType createCargoType (BigDecimal version, CargoType body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CargoType createCargoType (CargoType body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCargoType"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/cargo/type";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class CargoTypeApi {
       /**
    * Create Cargo Type
    * Create new cargo type
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createCargoType (BigDecimal version, CargoType body, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
+  public void createCargoType (CargoType body, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCargoType"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/cargo/type".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,17 +176,11 @@ public class CargoTypeApi {
   /**
   * Delete Cargo Type
   * Delete a type of cargo
-   * @param version 
    * @param cargoTypeId the ID of the cargo type
    * @return void
   */
-  public void deleteCargoType (BigDecimal version, Long cargoTypeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteCargoType (Long cargoTypeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling deleteCargoType",
@@ -206,7 +188,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -256,16 +238,11 @@ public class CargoTypeApi {
       /**
    * Delete Cargo Type
    * Delete a type of cargo
-   * @param version    * @param cargoTypeId the ID of the cargo type
+   * @param cargoTypeId the ID of the cargo type
   */
-  public void deleteCargoType (BigDecimal version, Long cargoTypeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteCargoType (Long cargoTypeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling deleteCargoType",
@@ -273,7 +250,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -322,17 +299,11 @@ public class CargoTypeApi {
   /**
   * Get Cargo Type
   * Get an existing cargo type
-   * @param version 
    * @param cargoTypeId the cargo type ID
    * @return CargoType
   */
-  public CargoType getCargoType (BigDecimal version, Long cargoTypeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CargoType getCargoType (Long cargoTypeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling getCargoType",
@@ -340,7 +311,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -390,16 +361,11 @@ public class CargoTypeApi {
       /**
    * Get Cargo Type
    * Get an existing cargo type
-   * @param version    * @param cargoTypeId the cargo type ID
+   * @param cargoTypeId the cargo type ID
   */
-  public void getCargoType (BigDecimal version, Long cargoTypeId, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
+  public void getCargoType (Long cargoTypeId, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling getCargoType",
@@ -407,7 +373,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,7 +426,6 @@ public class CargoTypeApi {
   /**
   * Search Cargo Type
   * Search for types of cargo
-   * @param version 
    * @param sortField the sort field to use for the cargo type
    * @param descending if the cargo type should be should be in descending order
    * @param start the start of the search
@@ -470,13 +435,8 @@ public class CargoTypeApi {
    * @param hubId the ID of the hub
    * @return List<CargoType>
   */
-  public List<CargoType> searchCargoTypes (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<CargoType> searchCargoTypes (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCargoTypes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCargoTypes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchCargoTypes",
@@ -504,7 +464,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/cargo/type";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -561,16 +521,11 @@ public class CargoTypeApi {
       /**
    * Search Cargo Type
    * Search for types of cargo
-   * @param version    * @param sortField the sort field to use for the cargo type   * @param descending if the cargo type should be should be in descending order   * @param start the start of the search   * @param limit the limit of the search   * @param activeOnly if search should be on active only   * @param retailerId the id of the retailer location   * @param hubId the ID of the hub
+   * @param sortField the sort field to use for the cargo type   * @param descending if the cargo type should be should be in descending order   * @param start the start of the search   * @param limit the limit of the search   * @param activeOnly if search should be on active only   * @param retailerId the id of the retailer location   * @param hubId the ID of the hub
   */
-  public void searchCargoTypes (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, final Response.Listener<List<CargoType>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchCargoTypes (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long retailerId, Long hubId, final Response.Listener<List<CargoType>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCargoTypes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCargoTypes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchCargoTypes",
@@ -598,7 +553,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/cargo/type".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -658,18 +613,12 @@ public class CargoTypeApi {
   /**
   * Update Cargo Type
   * Update an existing cargo type
-   * @param version 
    * @param cargoTypeId the ID of the cargo type
    * @param body 
    * @return CargoType
   */
-  public CargoType updateCargoType (BigDecimal version, Long cargoTypeId, CargoType body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CargoType updateCargoType (Long cargoTypeId, CargoType body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling updateCargoType",
@@ -677,7 +626,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -727,16 +676,11 @@ public class CargoTypeApi {
       /**
    * Update Cargo Type
    * Update an existing cargo type
-   * @param version    * @param cargoTypeId the ID of the cargo type   * @param body 
+   * @param cargoTypeId the ID of the cargo type   * @param body 
   */
-  public void updateCargoType (BigDecimal version, Long cargoTypeId, CargoType body, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
+  public void updateCargoType (Long cargoTypeId, CargoType body, final Response.Listener<CargoType> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCargoType",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCargoType"));
-    }
     // verify the required parameter 'cargoTypeId' is set
     if (cargoTypeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'cargoTypeId' when calling updateCargoType",
@@ -744,7 +688,7 @@ public class CargoTypeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
+    String path = "/cargo/type/{cargoTypeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "cargoTypeId" + "\\}", apiInvoker.escapeString(cargoTypeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

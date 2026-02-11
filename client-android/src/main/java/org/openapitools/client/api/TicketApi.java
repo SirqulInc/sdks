@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CountResponse;
 import java.io.File;
 import org.openapitools.client.model.ProfileResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TicketApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,7 +63,6 @@ public class TicketApi {
   /**
   * Get Ticket Count
   * Gets the ticket count.
-   * @param version 
    * @param deviceId the id of the device that owns the tickets
    * @param accountId the id of the account that owns the tickets
    * @param gameType this is deprecated.
@@ -72,16 +70,11 @@ public class TicketApi {
    * @param ticketType the type of ticket
    * @return CountResponse
   */
-  public CountResponse getTicketCount (BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String ticketType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CountResponse getTicketCount (String deviceId, Long accountId, String gameType, String appKey, String ticketType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTicketCount",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTicketCount"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/count".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/count";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -136,19 +129,14 @@ public class TicketApi {
       /**
    * Get Ticket Count
    * Gets the ticket count.
-   * @param version    * @param deviceId the id of the device that owns the tickets   * @param accountId the id of the account that owns the tickets   * @param gameType this is deprecated.   * @param appKey the applicationkey   * @param ticketType the type of ticket
+   * @param deviceId the id of the device that owns the tickets   * @param accountId the id of the account that owns the tickets   * @param gameType this is deprecated.   * @param appKey the applicationkey   * @param ticketType the type of ticket
   */
-  public void getTicketCount (BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String ticketType, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTicketCount (String deviceId, Long accountId, String gameType, String appKey, String ticketType, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTicketCount",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTicketCount"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/count".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/count".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -206,7 +194,6 @@ public class TicketApi {
   /**
   * Get Ticket List
   * Gets the list of tickets.
-   * @param version 
    * @param deviceId the id of the device that owns the tickets
    * @param accountId the id of the account that owns the tickets
    * @param ticketObjectType comma separated list of TicketObjectType
@@ -218,16 +205,11 @@ public class TicketApi {
    * @param appKey the application key
    * @return TicketListResponse
   */
-  public TicketListResponse getTicketList (BigDecimal version, String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TicketListResponse getTicketList (String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTicketList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTicketList"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/getList".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/getList";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -286,19 +268,14 @@ public class TicketApi {
       /**
    * Get Ticket List
    * Gets the list of tickets.
-   * @param version    * @param deviceId the id of the device that owns the tickets   * @param accountId the id of the account that owns the tickets   * @param ticketObjectType comma separated list of TicketObjectType   * @param actionType comma separated list of TicketActionType   * @param ticketIds the ids of the tickets to get   * @param objectIds the ids of the objects to get   * @param receiptTokens    * @param gameType    * @param appKey the application key
+   * @param deviceId the id of the device that owns the tickets   * @param accountId the id of the account that owns the tickets   * @param ticketObjectType comma separated list of TicketObjectType   * @param actionType comma separated list of TicketActionType   * @param ticketIds the ids of the tickets to get   * @param objectIds the ids of the objects to get   * @param receiptTokens    * @param gameType    * @param appKey the application key
   */
-  public void getTicketList (BigDecimal version, String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey, final Response.Listener<TicketListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTicketList (String deviceId, Long accountId, String ticketObjectType, String actionType, String ticketIds, String objectIds, String receiptTokens, String gameType, String appKey, final Response.Listener<TicketListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTicketList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTicketList"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/getList".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/getList".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -360,7 +337,6 @@ public class TicketApi {
   /**
   * Gift Tickets
   * Gift tickets to another user.
-   * @param version 
    * @param receiverAccountId the id of the account receiving the tickets
    * @param ticketId the id of the tickets
    * @param deviceId the id of the device
@@ -371,13 +347,8 @@ public class TicketApi {
    * @param appKey the application key
    * @return SirqulResponse
   */
-  public SirqulResponse giftPurchase (BigDecimal version, Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse giftPurchase (Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling giftPurchase",
-        new ApiException(400, "Missing the required parameter 'version' when calling giftPurchase"));
-    }
     // verify the required parameter 'receiverAccountId' is set
     if (receiverAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'receiverAccountId' when calling giftPurchase",
@@ -390,7 +361,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/gift".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/gift";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -448,16 +419,11 @@ public class TicketApi {
       /**
    * Gift Tickets
    * Gift tickets to another user.
-   * @param version    * @param receiverAccountId the id of the account receiving the tickets   * @param ticketId the id of the tickets   * @param deviceId the id of the device   * @param accountId the id of the gift owner   * @param assetId the id of the asset   * @param customMessage a message that can be written to go along with the gift   * @param gameType the type of game associated with the tickets   * @param appKey the application key
+   * @param receiverAccountId the id of the account receiving the tickets   * @param ticketId the id of the tickets   * @param deviceId the id of the device   * @param accountId the id of the gift owner   * @param assetId the id of the asset   * @param customMessage a message that can be written to go along with the gift   * @param gameType the type of game associated with the tickets   * @param appKey the application key
   */
-  public void giftPurchase (BigDecimal version, Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void giftPurchase (Long receiverAccountId, Long ticketId, String deviceId, Long accountId, Long assetId, String customMessage, String gameType, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling giftPurchase",
-        new ApiException(400, "Missing the required parameter 'version' when calling giftPurchase"));
-    }
     // verify the required parameter 'receiverAccountId' is set
     if (receiverAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'receiverAccountId' when calling giftPurchase",
@@ -470,7 +436,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/gift".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/gift".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -531,7 +497,6 @@ public class TicketApi {
   /**
   * Save Ticket
   * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-   * @param version 
    * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER
    * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM
    * @param returnNulls whether to return nulls or not
@@ -552,13 +517,8 @@ public class TicketApi {
    * @param appVersion the application version
    * @return ProfileResponse
   */
-  public ProfileResponse saveTicket (BigDecimal version, String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse saveTicket (String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTicket",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTicket"));
-    }
     // verify the required parameter 'actionType' is set
     if (actionType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'actionType' when calling saveTicket",
@@ -571,7 +531,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/save".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/save";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -639,16 +599,11 @@ public class TicketApi {
       /**
    * Save Ticket
    * Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-   * @param version    * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER   * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM   * @param returnNulls whether to return nulls or not   * @param deviceId the device id that owns the tickets   * @param accountId the account id that owns the tickets   * @param gameType This parameter is deprecated. deprecated, use the appKey   * @param appKey the application key   * @param objectId the ID of the item being purchased   * @param purchaseCode a unique string identifier defined by the application owner or Executive   * @param receiptToken a unique transaction identifier from the purchase provider (i.e. the transaction ID from iTunes, Google Play, etc)   * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in string format.   * @param count the count of tickets   * @param ticketType the ticket type   * @param purchaseProvider the provider for making the purchase {ITUNES, ITUNES_SANDBOX, GOOGLE}   * @param purchaseType a comma separated list of purchase types { SIRQUL, // purchasing from the sirqul store using tickets IOS, // purchasing from the itunes store for iPhone, iPod, iPod Touch GOOGLE, // purchasing from the google android store AMAZON, // purchasing from the amazon android store MAC, // purchasing from the itunes store for OSX WP8, // purhasing from the windows phone 8 store FREE }   * @param returnProfileResponse returns a ProfileResponse if true, otherwise will return an AppResponse   * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true   * @param appVersion the application version
+   * @param actionType the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER   * @param ticketObjectType the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM   * @param returnNulls whether to return nulls or not   * @param deviceId the device id that owns the tickets   * @param accountId the account id that owns the tickets   * @param gameType This parameter is deprecated. deprecated, use the appKey   * @param appKey the application key   * @param objectId the ID of the item being purchased   * @param purchaseCode a unique string identifier defined by the application owner or Executive   * @param receiptToken a unique transaction identifier from the purchase provider (i.e. the transaction ID from iTunes, Google Play, etc)   * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in string format.   * @param count the count of tickets   * @param ticketType the ticket type   * @param purchaseProvider the provider for making the purchase {ITUNES, ITUNES_SANDBOX, GOOGLE}   * @param purchaseType a comma separated list of purchase types { SIRQUL, // purchasing from the sirqul store using tickets IOS, // purchasing from the itunes store for iPhone, iPod, iPod Touch GOOGLE, // purchasing from the google android store AMAZON, // purchasing from the amazon android store MAC, // purchasing from the itunes store for OSX WP8, // purhasing from the windows phone 8 store FREE }   * @param returnProfileResponse returns a ProfileResponse if true, otherwise will return an AppResponse   * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true   * @param appVersion the application version
   */
-  public void saveTicket (BigDecimal version, String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void saveTicket (String actionType, String ticketObjectType, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, String receiptData, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTicket",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTicket"));
-    }
     // verify the required parameter 'actionType' is set
     if (actionType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'actionType' when calling saveTicket",
@@ -661,7 +616,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/save".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/save".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -732,7 +687,6 @@ public class TicketApi {
   /**
   * Save Ticket with Reciept
   * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-   * @param version 
    * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }
    * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}
    * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.
@@ -753,13 +707,8 @@ public class TicketApi {
    * @param appVersion the application version
    * @return ProfileResponse
   */
-  public ProfileResponse saveTicketViaFileUpload (BigDecimal version, String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse saveTicketViaFileUpload (String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTicketViaFileUpload",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTicketViaFileUpload"));
-    }
     // verify the required parameter 'actionType' is set
     if (actionType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'actionType' when calling saveTicketViaFileUpload",
@@ -777,7 +726,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/save/fileUpload".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/save/fileUpload";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -845,16 +794,11 @@ public class TicketApi {
       /**
    * Save Ticket with Reciept
    * Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-   * @param version    * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }   * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}   * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.   * @param returnNulls whether to return nulls or not   * @param deviceId the device id   * @param accountId the account id   * @param gameType This parameter is deprecated. deprecated, use the appKey   * @param appKey the application key   * @param objectId the ID of the item being purchased   * @param purchaseCode a unique string identifier defined by the application owner or Executive   * @param receiptToken a unique transaction identifier from the purchase provider (i.e. the transaction ID from iTunes, Google Play, etc)   * @param count the count of tickets   * @param ticketType the ticket type   * @param purchaseProvider the provider for making the purchase {ITUNES, ITUNES_SANDBOX, GOOGLE}   * @param purchaseType a comma separated list of purchase types { SIRQUL, // purchasing from the sirqul store using tickets IOS, // purchasing from the itunes store for iPhone, iPod, iPod Touch GOOGLE, // purchasing from the google android store AMAZON, // purchasing from the amazon android store MAC, // purchasing from the itunes store for OSX WP8, // purhasing from the windows phone 8 store FREE }   * @param returnProfileResponse returns a ProfileResponse if true, otherwise will return an AppResponse   * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true   * @param appVersion the application version
+   * @param actionType the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }   * @param ticketObjectType the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}   * @param receiptData the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.   * @param returnNulls whether to return nulls or not   * @param deviceId the device id   * @param accountId the account id   * @param gameType This parameter is deprecated. deprecated, use the appKey   * @param appKey the application key   * @param objectId the ID of the item being purchased   * @param purchaseCode a unique string identifier defined by the application owner or Executive   * @param receiptToken a unique transaction identifier from the purchase provider (i.e. the transaction ID from iTunes, Google Play, etc)   * @param count the count of tickets   * @param ticketType the ticket type   * @param purchaseProvider the provider for making the purchase {ITUNES, ITUNES_SANDBOX, GOOGLE}   * @param purchaseType a comma separated list of purchase types { SIRQUL, // purchasing from the sirqul store using tickets IOS, // purchasing from the itunes store for iPhone, iPod, iPod Touch GOOGLE, // purchasing from the google android store AMAZON, // purchasing from the amazon android store MAC, // purchasing from the itunes store for OSX WP8, // purhasing from the windows phone 8 store FREE }   * @param returnProfileResponse returns a ProfileResponse if true, otherwise will return an AppResponse   * @param includeProfileResponse if returnProfileResponse is false, will return an AppResponse with profile data if true   * @param appVersion the application version
   */
-  public void saveTicketViaFileUpload (BigDecimal version, String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void saveTicketViaFileUpload (String actionType, String ticketObjectType, File receiptData, Boolean returnNulls, String deviceId, Long accountId, String gameType, String appKey, Long objectId, String purchaseCode, String receiptToken, Long count, String ticketType, String purchaseProvider, String purchaseType, Boolean returnProfileResponse, Boolean includeProfileResponse, String appVersion, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTicketViaFileUpload",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTicketViaFileUpload"));
-    }
     // verify the required parameter 'actionType' is set
     if (actionType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'actionType' when calling saveTicketViaFileUpload",
@@ -872,7 +816,7 @@ public class TicketApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/save/fileUpload".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/save/fileUpload".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -943,19 +887,13 @@ public class TicketApi {
   /**
   * Get Ticket Offers
   * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-   * @param version 
    * @return TicketOfferResponse
   */
-  public TicketOfferResponse ticketOffers (BigDecimal version) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TicketOfferResponse ticketOffers () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling ticketOffers",
-        new ApiException(400, "Missing the required parameter 'version' when calling ticketOffers"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/ticketoffers".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/ticketoffers";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1005,19 +943,14 @@ public class TicketApi {
       /**
    * Get Ticket Offers
    * Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-   * @param version 
+
   */
-  public void ticketOffers (BigDecimal version, final Response.Listener<TicketOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void ticketOffers (final Response.Listener<TicketOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling ticketOffers",
-        new ApiException(400, "Missing the required parameter 'version' when calling ticketOffers"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ticket/ticketoffers".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ticket/ticketoffers".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

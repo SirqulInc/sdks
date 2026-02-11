@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.BlockedNotificationResponse;
 import java.util.*;
 import org.openapitools.client.model.NotificationMessageListResponse;
@@ -43,7 +42,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class NotificationApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -65,7 +64,6 @@ public class NotificationApi {
   /**
   * Create Notification Template
   * Create a notification template. Developers will only be able to create notification templates for their own applications.
-   * @param version 
    * @param accountId The account ID of the user.
    * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.
    * @param title title of the notification template
@@ -75,13 +73,8 @@ public class NotificationApi {
    * @param tags tags associated with the note template
    * @return NotificationTemplateResponse
   */
-  public NotificationTemplateResponse createNotificationTemplate (BigDecimal version, Long accountId, String conduit, String title, String body, String appKey, String event, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationTemplateResponse createNotificationTemplate (Long accountId, String conduit, String title, String body, String appKey, String event, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createNotificationTemplate",
@@ -104,7 +97,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -161,16 +154,11 @@ public class NotificationApi {
       /**
    * Create Notification Template
    * Create a notification template. Developers will only be able to create notification templates for their own applications.
-   * @param version    * @param accountId The account ID of the user.   * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param title title of the notification template   * @param body body of the notification template   * @param appKey Filter results by application.   * @param event Filter results by event.   * @param tags tags associated with the note template
+   * @param accountId The account ID of the user.   * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param title title of the notification template   * @param body body of the notification template   * @param appKey Filter results by application.   * @param event Filter results by event.   * @param tags tags associated with the note template
   */
-  public void createNotificationTemplate (BigDecimal version, Long accountId, String conduit, String title, String body, String appKey, String event, String tags, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createNotificationTemplate (Long accountId, String conduit, String title, String body, String appKey, String event, String tags, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createNotificationTemplate",
@@ -193,7 +181,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -253,19 +241,13 @@ public class NotificationApi {
   /**
   * Create or update blocked notification settings
   * Create or update blocked notification settings
-   * @param version 
    * @param appKey The application key
    * @param data batch data payload (application specific)
    * @param accountId the account id of the user
    * @return BlockedNotificationResponse
   */
-  public BlockedNotificationResponse createOrUpdateBlockedNotifications (BigDecimal version, String appKey, String data, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BlockedNotificationResponse createOrUpdateBlockedNotifications (String appKey, String data, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createOrUpdateBlockedNotifications",
@@ -278,7 +260,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/blocked/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/blocked/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -331,16 +313,11 @@ public class NotificationApi {
       /**
    * Create or update blocked notification settings
    * Create or update blocked notification settings
-   * @param version    * @param appKey The application key   * @param data batch data payload (application specific)   * @param accountId the account id of the user
+   * @param appKey The application key   * @param data batch data payload (application specific)   * @param accountId the account id of the user
   */
-  public void createOrUpdateBlockedNotifications (BigDecimal version, String appKey, String data, Long accountId, final Response.Listener<BlockedNotificationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOrUpdateBlockedNotifications (String appKey, String data, Long accountId, final Response.Listener<BlockedNotificationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateBlockedNotifications"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createOrUpdateBlockedNotifications",
@@ -353,7 +330,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/blocked/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/blocked/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -409,18 +386,12 @@ public class NotificationApi {
   /**
   * Delete Notification Template
   * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-   * @param version 
    * @param accountId the account id of the user
    * @param notificationTemplateId the id of the notification template to delete
    * @return NotificationTemplateResponse
   */
-  public NotificationTemplateResponse deleteNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationTemplateResponse deleteNotificationTemplate (Long accountId, Long notificationTemplateId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteNotificationTemplate",
@@ -433,7 +404,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -485,16 +456,11 @@ public class NotificationApi {
       /**
    * Delete Notification Template
    * Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-   * @param version    * @param accountId the account id of the user   * @param notificationTemplateId the id of the notification template to delete
+   * @param accountId the account id of the user   * @param notificationTemplateId the id of the notification template to delete
   */
-  public void deleteNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteNotificationTemplate (Long accountId, Long notificationTemplateId, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteNotificationTemplate",
@@ -507,7 +473,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -562,18 +528,12 @@ public class NotificationApi {
   /**
   * Get Notification Template
   * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-   * @param version 
    * @param accountId the id of the account
    * @param notificationTemplateId the id of the notification template to get
    * @return NotificationTemplateResponse
   */
-  public NotificationTemplateResponse getNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationTemplateResponse getNotificationTemplate (Long accountId, Long notificationTemplateId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getNotificationTemplate",
@@ -586,7 +546,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -638,16 +598,11 @@ public class NotificationApi {
       /**
    * Get Notification Template
    * Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-   * @param version    * @param accountId the id of the account   * @param notificationTemplateId the id of the notification template to get
+   * @param accountId the id of the account   * @param notificationTemplateId the id of the notification template to get
   */
-  public void getNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getNotificationTemplate (Long accountId, Long notificationTemplateId, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getNotificationTemplate",
@@ -660,7 +615,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -715,7 +670,6 @@ public class NotificationApi {
   /**
   * Get Notifications
   * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param connectionAccountId the account id used to view another person&#39;s notifications
@@ -739,16 +693,11 @@ public class NotificationApi {
    * @param limit limit of the pagination
    * @return NotificationMessageListResponse
   */
-  public NotificationMessageListResponse getNotifications (BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationMessageListResponse getNotifications (String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNotifications"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -819,19 +768,14 @@ public class NotificationApi {
       /**
    * Get Notifications
    * Get a list of notifications for a user. If the \&quot;markAsRead\&quot; parameter is set to true, the returned notifications will be marked as \&quot;read\&quot; after the response has been sent. By default, read messages will not be returned, so to see read messages, set \&quot;returnReadMessages\&quot; to true.
-   * @param version    * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionAccountId the account id used to view another person&#39;s notifications   * @param appKey the application key to filter messages by application   * @param eventType comma separated list of EVENTS. Filters search results to only include these events. Don&#39;t include this parameter or pass in an empty string to return all event types.   * @param contentIds comma separated list of content ids to search notifications on   * @param contentTypes comma separated list of content types to search notifications on   * @param parentIds comma separated list of parent ids to search notifications on   * @param parentTypes comma separated list of parent types to search notifications on   * @param actionCategory Action category used to filter notifications   * @param conduits comma separated list of conduits to search notifications on   * @param keyword search notifications via keyword   * @param returnReadMessages if set to true, will return notifications that have been marked as read   * @param markAsRead if set to true, the returned notifications will be marked as \\\&quot;read\\\&quot; after the response has been sent   * @param fromDate filter notifications from this date   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location   * @param returnSent whether to include notifications sent by the requester in the response   * @param ignoreFlagged whether to ignore flagged notifications   * @param start start of the pagination   * @param limit limit of the pagination
+   * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionAccountId the account id used to view another person&#39;s notifications   * @param appKey the application key to filter messages by application   * @param eventType comma separated list of EVENTS. Filters search results to only include these events. Don&#39;t include this parameter or pass in an empty string to return all event types.   * @param contentIds comma separated list of content ids to search notifications on   * @param contentTypes comma separated list of content types to search notifications on   * @param parentIds comma separated list of parent ids to search notifications on   * @param parentTypes comma separated list of parent types to search notifications on   * @param actionCategory Action category used to filter notifications   * @param conduits comma separated list of conduits to search notifications on   * @param keyword search notifications via keyword   * @param returnReadMessages if set to true, will return notifications that have been marked as read   * @param markAsRead if set to true, the returned notifications will be marked as \\\&quot;read\\\&quot; after the response has been sent   * @param fromDate filter notifications from this date   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location   * @param returnSent whether to include notifications sent by the requester in the response   * @param ignoreFlagged whether to ignore flagged notifications   * @param start start of the pagination   * @param limit limit of the pagination
   */
-  public void getNotifications (BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit, final Response.Listener<NotificationMessageListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getNotifications (String deviceId, Long accountId, Long connectionAccountId, String appKey, String eventType, String contentIds, String contentTypes, String parentIds, String parentTypes, String actionCategory, String conduits, String keyword, Boolean returnReadMessages, Boolean markAsRead, Long fromDate, Double latitude, Double longitude, Boolean returnSent, Boolean ignoreFlagged, Integer start, Integer limit, final Response.Listener<NotificationMessageListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNotifications"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -905,7 +849,6 @@ public class NotificationApi {
   /**
   * Register Notification Token
   * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-   * @param version 
    * @param token A token that is generated by the device to sign requests for the notification service providers
    * @param pushType The type of push notification. Possible values include: APNS, GCM
    * @param deviceId The unique id of the device making the request (deviceId or accountId required)
@@ -918,13 +861,8 @@ public class NotificationApi {
    * @param longitude Longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse registerNotificationToken (BigDecimal version, String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse registerNotificationToken (String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling registerNotificationToken",
-        new ApiException(400, "Missing the required parameter 'version' when calling registerNotificationToken"));
-    }
     // verify the required parameter 'token' is set
     if (token == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'token' when calling registerNotificationToken",
@@ -937,7 +875,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/token".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/token";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -997,16 +935,11 @@ public class NotificationApi {
       /**
    * Register Notification Token
    * Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-   * @param version    * @param token A token that is generated by the device to sign requests for the notification service providers   * @param pushType The type of push notification. Possible values include: APNS, GCM   * @param deviceId The unique id of the device making the request (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param environment Determines if the token is a DEVELOPMENT or PRODUCTION token   * @param appKey The application key   * @param gameType This parameter is deprecated (use appKey instead)   * @param active Sets whether the token is active or not (non-active tokens are not used)   * @param latitude Latitude used to update the user&#39;s current location   * @param longitude Longitude used to update the user&#39;s current location
+   * @param token A token that is generated by the device to sign requests for the notification service providers   * @param pushType The type of push notification. Possible values include: APNS, GCM   * @param deviceId The unique id of the device making the request (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param environment Determines if the token is a DEVELOPMENT or PRODUCTION token   * @param appKey The application key   * @param gameType This parameter is deprecated (use appKey instead)   * @param active Sets whether the token is active or not (non-active tokens are not used)   * @param latitude Latitude used to update the user&#39;s current location   * @param longitude Longitude used to update the user&#39;s current location
   */
-  public void registerNotificationToken (BigDecimal version, String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void registerNotificationToken (String token, String pushType, String deviceId, Long accountId, String environment, String appKey, String gameType, Boolean active, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling registerNotificationToken",
-        new ApiException(400, "Missing the required parameter 'version' when calling registerNotificationToken"));
-    }
     // verify the required parameter 'token' is set
     if (token == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'token' when calling registerNotificationToken",
@@ -1019,7 +952,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/token".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/token".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1082,7 +1015,6 @@ public class NotificationApi {
   /**
   * Search on the user&#39;s blocked notification settings
   * Search on the user&#39;s blocked notification settings
-   * @param version 
    * @param appKey The application key
    * @param accountId the account id of the user
    * @param searchTags search tags to filter results
@@ -1097,13 +1029,8 @@ public class NotificationApi {
    * @param limit limit of the pagination
    * @return BlockedNotificationResponse
   */
-  public BlockedNotificationResponse searchBlockedNotifications (BigDecimal version, String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BlockedNotificationResponse searchBlockedNotifications (String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBlockedNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBlockedNotifications"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchBlockedNotifications",
@@ -1111,7 +1038,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/blocked/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/blocked/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1173,16 +1100,11 @@ public class NotificationApi {
       /**
    * Search on the user&#39;s blocked notification settings
    * Search on the user&#39;s blocked notification settings
-   * @param version    * @param appKey The application key   * @param accountId the account id of the user   * @param searchTags search tags to filter results   * @param events events to filter by (comma separated)   * @param conduits conduits to filter by (comma separated)   * @param customTypes custom types to filter by (comma separated)   * @param contentTypes content types to filter by (comma separated)   * @param contentIds content ids to filter by (comma separated)   * @param sortField sort field for results   * @param descending whether to sort descending   * @param start start of the pagination   * @param limit limit of the pagination
+   * @param appKey The application key   * @param accountId the account id of the user   * @param searchTags search tags to filter results   * @param events events to filter by (comma separated)   * @param conduits conduits to filter by (comma separated)   * @param customTypes custom types to filter by (comma separated)   * @param contentTypes content types to filter by (comma separated)   * @param contentIds content ids to filter by (comma separated)   * @param sortField sort field for results   * @param descending whether to sort descending   * @param start start of the pagination   * @param limit limit of the pagination
   */
-  public void searchBlockedNotifications (BigDecimal version, String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<BlockedNotificationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchBlockedNotifications (String appKey, Long accountId, String searchTags, String events, String conduits, String customTypes, String contentTypes, String contentIds, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<BlockedNotificationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBlockedNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBlockedNotifications"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling searchBlockedNotifications",
@@ -1190,7 +1112,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/blocked/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/blocked/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1255,7 +1177,6 @@ public class NotificationApi {
   /**
   * Search Notification Templates
   * Search for notification templates on owned applications.
-   * @param version 
    * @param accountId The account ID of the user.
    * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.
    * @param descending Specified whether the results are returned in descending or ascending order.
@@ -1269,13 +1190,8 @@ public class NotificationApi {
    * @param keyword Filter results by keyword on the title, tags.
    * @return NotificationTemplateResponse
   */
-  public NotificationTemplateResponse searchNotificationTemplate (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationTemplateResponse searchNotificationTemplate (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchNotificationTemplate",
@@ -1303,7 +1219,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1364,16 +1280,11 @@ public class NotificationApi {
       /**
    * Search Notification Templates
    * Search for notification templates on owned applications.
-   * @param version    * @param accountId The account ID of the user.   * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.   * @param descending Specified whether the results are returned in descending or ascending order.   * @param start The start of the pagination.   * @param limit The limit of the pagination.   * @param appKey Filter results by application.   * @param event Filter results by event.   * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param globalOnly Returns only templates that have been reserved for system use on all applications (only for admin accounts).   * @param reservedOnly Returns only templates that use reserved events.   * @param keyword Filter results by keyword on the title, tags.
+   * @param accountId The account ID of the user.   * @param sortField Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name (&#39;global&#39; templates will not have an application and will be returned last if &#39;descending&#39; is set to false.   * @param descending Specified whether the results are returned in descending or ascending order.   * @param start The start of the pagination.   * @param limit The limit of the pagination.   * @param appKey Filter results by application.   * @param event Filter results by event.   * @param conduit Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param globalOnly Returns only templates that have been reserved for system use on all applications (only for admin accounts).   * @param reservedOnly Returns only templates that use reserved events.   * @param keyword Filter results by keyword on the title, tags.
   */
-  public void searchNotificationTemplate (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchNotificationTemplate (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, String appKey, String event, String conduit, Boolean globalOnly, Boolean reservedOnly, String keyword, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchNotificationTemplate",
@@ -1401,7 +1312,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1465,7 +1376,6 @@ public class NotificationApi {
   /**
   * Search for Recipients
   * Search for application users to send notifications.
-   * @param version 
    * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -1481,13 +1391,8 @@ public class NotificationApi {
    * @param limit limit of the pagination (hard limit of 1000)
    * @return List<NotificationRecipientResponse>
   */
-  public List<NotificationRecipientResponse> searchRecipients (BigDecimal version, String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<NotificationRecipientResponse> searchRecipients (String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRecipients",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRecipients"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRecipients",
@@ -1495,7 +1400,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/recipient/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/recipient/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1558,16 +1463,11 @@ public class NotificationApi {
       /**
    * Search for Recipients
    * Search for application users to send notifications.
-   * @param version    * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}   * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param keyword search by keyword on user&#39;s display name and email   * @param audienceId This parameter is deprecated. filter results by audience   * @param audienceIds filter results by audiences (comma separated list of audience ids)   * @param connectionGroupIds filter results by connection groups (comma separated list of connection group ids)   * @param recipientAccountIds filter results by accounts (comma separated list of account ids)   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start start of the pagination   * @param limit limit of the pagination (hard limit of 1000)
+   * @param sortField The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}   * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param keyword search by keyword on user&#39;s display name and email   * @param audienceId This parameter is deprecated. filter results by audience   * @param audienceIds filter results by audiences (comma separated list of audience ids)   * @param connectionGroupIds filter results by connection groups (comma separated list of connection group ids)   * @param recipientAccountIds filter results by accounts (comma separated list of account ids)   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start start of the pagination   * @param limit limit of the pagination (hard limit of 1000)
   */
-  public void searchRecipients (BigDecimal version, String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit, final Response.Listener<List<NotificationRecipientResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRecipients (String sortField, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String recipientAccountIds, Boolean descending, Integer start, Integer limit, final Response.Listener<List<NotificationRecipientResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRecipients",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRecipients"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRecipients",
@@ -1575,7 +1475,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/recipient/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/recipient/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1641,7 +1541,6 @@ public class NotificationApi {
   /**
   * Search for Recipients (Counts/Grouped)
   * Search for application users to send notifications (count/grouped variant).
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.
@@ -1656,16 +1555,11 @@ public class NotificationApi {
    * @param limit limit of the pagination
    * @return NotificationRecipientResponseListResponse
   */
-  public NotificationRecipientResponseListResponse searchRecipientsCount (BigDecimal version, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationRecipientResponseListResponse searchRecipientsCount (String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRecipientsCount",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRecipientsCount"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/recipient/search/count".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/recipient/search/count";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1727,19 +1621,14 @@ public class NotificationApi {
       /**
    * Search for Recipients (Counts/Grouped)
    * Search for application users to send notifications (count/grouped variant).
-   * @param version    * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param keyword search by keyword on user&#39;s display name and email   * @param audienceId This parameter is deprecated. filter results by audience   * @param audienceIds filter results by audiences (comma separated list of audience ids)   * @param connectionGroupIds filter results by connection groups (comma separated list of connection group ids)   * @param sortField The field to sort by (see API docs for allowed values).   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start start of the pagination   * @param limit limit of the pagination
+   * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param appKey filters results by application. If this is empty, will return all recipients for all applications that the user has access to.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param keyword search by keyword on user&#39;s display name and email   * @param audienceId This parameter is deprecated. filter results by audience   * @param audienceIds filter results by audiences (comma separated list of audience ids)   * @param connectionGroupIds filter results by connection groups (comma separated list of connection group ids)   * @param sortField The field to sort by (see API docs for allowed values).   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start start of the pagination   * @param limit limit of the pagination
   */
-  public void searchRecipientsCount (BigDecimal version, String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<NotificationRecipientResponseListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRecipientsCount (String deviceId, Long accountId, String appKey, String conduit, String keyword, Long audienceId, String audienceIds, String connectionGroupIds, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<NotificationRecipientResponseListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRecipientsCount",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRecipientsCount"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/recipient/search/count".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/recipient/search/count".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1804,7 +1693,6 @@ public class NotificationApi {
   /**
   * Send Batch Notifications
   * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-   * @param version 
    * @param accountId The account id of the application owner/manager
    * @param appKey The application key for updating an existing application
    * @param customMessage Message string that will be displayed in on the notification
@@ -1816,13 +1704,8 @@ public class NotificationApi {
    * @param parentType Default notification pay-load field (usage is dependent on the app and the type of event)
    * @return SirqulResponse
   */
-  public SirqulResponse sendBatchNotifications (BigDecimal version, Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse sendBatchNotifications (Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendBatchNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendBatchNotifications"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendBatchNotifications",
@@ -1840,7 +1723,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/batch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/batch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1899,16 +1782,11 @@ public class NotificationApi {
       /**
    * Send Batch Notifications
    * Send notifications to all users of an application. Only someone with permissions to the application can do this.
-   * @param version    * @param accountId The account id of the application owner/manager   * @param appKey The application key for updating an existing application   * @param customMessage Message string that will be displayed in on the notification   * @param conduit The type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param contentId Default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentName Default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentType Default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentId Default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentType Default notification pay-load field (usage is dependent on the app and the type of event)
+   * @param accountId The account id of the application owner/manager   * @param appKey The application key for updating an existing application   * @param customMessage Message string that will be displayed in on the notification   * @param conduit The type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param contentId Default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentName Default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentType Default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentId Default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentType Default notification pay-load field (usage is dependent on the app and the type of event)
   */
-  public void sendBatchNotifications (BigDecimal version, Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void sendBatchNotifications (Long accountId, String appKey, String customMessage, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendBatchNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendBatchNotifications"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendBatchNotifications",
@@ -1926,7 +1804,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/batch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/batch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1988,7 +1866,6 @@ public class NotificationApi {
   /**
   * Send Custom Notifications
   * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-   * @param version 
    * @param deviceId the unique id of the device making the request (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param receiverAccountIds comma separated list of account IDs that will receive the notification
@@ -2009,16 +1886,11 @@ public class NotificationApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse sendCustomNotifications (BigDecimal version, String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse sendCustomNotifications (String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendCustomNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendCustomNotifications"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/custom".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/custom";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2086,19 +1958,14 @@ public class NotificationApi {
       /**
    * Send Custom Notifications
    * Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-   * @param version    * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param receiverAccountIds comma separated list of account IDs that will receive the notification   * @param includeFriendGroup determines whether to send to all of the user&#39;s friends, this flag must be true or receiverAccountIds must not be empty   * @param appKey the application key   * @param gameType This parameter is deprecated.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param contentId default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentName default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentType default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentId default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentType default notification pay-load field (usage is dependent on the app and the type of event)   * @param actionCategory    * @param subject the subject line of an email #@param customPayload custom json definition of notification pay-load (usage is dependent on the app and the type of event)   * @param customMessage message string that will be displayed in on the notification   * @param friendOnlyAPNS only sends APNS to people who are friends of the user (still saves the notification message for feed polling)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param deviceId the unique id of the device making the request (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param receiverAccountIds comma separated list of account IDs that will receive the notification   * @param includeFriendGroup determines whether to send to all of the user&#39;s friends, this flag must be true or receiverAccountIds must not be empty   * @param appKey the application key   * @param gameType This parameter is deprecated.   * @param conduit the type of notification to send: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.   * @param contentId default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentName default notification pay-load field (usage is dependent on the app and the type of event)   * @param contentType default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentId default notification pay-load field (usage is dependent on the app and the type of event)   * @param parentType default notification pay-load field (usage is dependent on the app and the type of event)   * @param actionCategory    * @param subject the subject line of an email #@param customPayload custom json definition of notification pay-load (usage is dependent on the app and the type of event)   * @param customMessage message string that will be displayed in on the notification   * @param friendOnlyAPNS only sends APNS to people who are friends of the user (still saves the notification message for feed polling)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void sendCustomNotifications (BigDecimal version, String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void sendCustomNotifications (String deviceId, Long accountId, String receiverAccountIds, Boolean includeFriendGroup, String appKey, String gameType, String conduit, Long contentId, String contentName, String contentType, Long parentId, String parentType, String actionCategory, String subject, String customMessage, Boolean friendOnlyAPNS, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendCustomNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendCustomNotifications"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/notification/custom".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/custom".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2169,7 +2036,6 @@ public class NotificationApi {
   /**
   * Update Notification Template
   * Update a notification template. Developers will only be able to update notification templates for their own applications.
-   * @param version 
    * @param accountId The account ID of the user.
    * @param notificationTemplateId The notification template ID to update.
    * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit.
@@ -2177,13 +2043,8 @@ public class NotificationApi {
    * @param tags The search tags on the template used during search queries.
    * @return NotificationTemplateResponse
   */
-  public NotificationTemplateResponse updateNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId, String title, String body, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public NotificationTemplateResponse updateNotificationTemplate (Long accountId, Long notificationTemplateId, String title, String body, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateNotificationTemplate",
@@ -2196,7 +2057,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2251,16 +2112,11 @@ public class NotificationApi {
       /**
    * Update Notification Template
    * Update a notification template. Developers will only be able to update notification templates for their own applications.
-   * @param version    * @param accountId The account ID of the user.   * @param notificationTemplateId The notification template ID to update.   * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit.   * @param body The body of the message.   * @param tags The search tags on the template used during search queries.
+   * @param accountId The account ID of the user.   * @param notificationTemplateId The notification template ID to update.   * @param title The title of the message (this would become the subject title for emails). There is a 191 character limit.   * @param body The body of the message.   * @param tags The search tags on the template used during search queries.
   */
-  public void updateNotificationTemplate (BigDecimal version, Long accountId, Long notificationTemplateId, String title, String body, String tags, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateNotificationTemplate (Long accountId, Long notificationTemplateId, String title, String body, String tags, final Response.Listener<NotificationTemplateResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNotificationTemplate",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNotificationTemplate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateNotificationTemplate",
@@ -2273,7 +2129,7 @@ public class NotificationApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/notification/template/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/notification/template/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

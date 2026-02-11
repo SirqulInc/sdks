@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PathingResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PathingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,20 +58,14 @@ public class PathingApi {
   /**
   * Calculate Path
   * Calculates the shortest path from point to point on a grid
-   * @param version 
    * @param data the data to with start, end point and exclusion points
    * @param units the system of measurement for directions: {METRIC, IMPERIAL}
    * @param reducePath determines whether to reduce the path to go in diagonal lines
    * @param directions determines whether to return text directions
    * @return PathingResponse
   */
-  public PathingResponse computePath (BigDecimal version, String data, String units, Boolean reducePath, Boolean directions) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PathingResponse computePath (String data, String units, Boolean reducePath, Boolean directions) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling computePath",
-        new ApiException(400, "Missing the required parameter 'version' when calling computePath"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling computePath",
@@ -95,7 +88,7 @@ public class PathingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pathing/compute".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pathing/compute";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -149,16 +142,11 @@ public class PathingApi {
       /**
    * Calculate Path
    * Calculates the shortest path from point to point on a grid
-   * @param version    * @param data the data to with start, end point and exclusion points   * @param units the system of measurement for directions: {METRIC, IMPERIAL}   * @param reducePath determines whether to reduce the path to go in diagonal lines   * @param directions determines whether to return text directions
+   * @param data the data to with start, end point and exclusion points   * @param units the system of measurement for directions: {METRIC, IMPERIAL}   * @param reducePath determines whether to reduce the path to go in diagonal lines   * @param directions determines whether to return text directions
   */
-  public void computePath (BigDecimal version, String data, String units, Boolean reducePath, Boolean directions, final Response.Listener<PathingResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void computePath (String data, String units, Boolean reducePath, Boolean directions, final Response.Listener<PathingResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling computePath",
-        new ApiException(400, "Missing the required parameter 'version' when calling computePath"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling computePath",
@@ -181,7 +169,7 @@ public class PathingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pathing/compute".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pathing/compute".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

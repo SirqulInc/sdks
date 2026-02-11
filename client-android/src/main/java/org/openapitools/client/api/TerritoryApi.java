@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TerritoryResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TerritoryApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,19 +60,13 @@ public class TerritoryApi {
   /**
   * Create Territory
   * Creates a territory.
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the territory
    * @param active If true set the game level as active. Default is true.
    * @return TerritoryResponse
   */
-  public TerritoryResponse createTerritory (BigDecimal version, Long accountId, String name, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TerritoryResponse createTerritory (Long accountId, String name, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTerritory",
@@ -86,7 +79,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -139,16 +132,11 @@ public class TerritoryApi {
       /**
    * Create Territory
    * Creates a territory.
-   * @param version    * @param accountId The logged in user.   * @param name The name of the territory   * @param active If true set the game level as active. Default is true.
+   * @param accountId The logged in user.   * @param name The name of the territory   * @param active If true set the game level as active. Default is true.
   */
-  public void createTerritory (BigDecimal version, Long accountId, String name, Boolean active, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createTerritory (Long accountId, String name, Boolean active, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTerritory",
@@ -161,7 +149,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -217,18 +205,12 @@ public class TerritoryApi {
   /**
   * Delete Territory
   * Deletes a territory.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param territoryId the id of the territory to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteTerritory (BigDecimal version, Long accountId, Long territoryId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteTerritory (Long accountId, Long territoryId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTerritory",
@@ -241,7 +223,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -293,16 +275,11 @@ public class TerritoryApi {
       /**
    * Delete Territory
    * Deletes a territory.
-   * @param version    * @param accountId the id of the logged in user   * @param territoryId the id of the territory to delete
+   * @param accountId the id of the logged in user   * @param territoryId the id of the territory to delete
   */
-  public void deleteTerritory (BigDecimal version, Long accountId, Long territoryId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteTerritory (Long accountId, Long territoryId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTerritory",
@@ -315,7 +292,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -370,17 +347,11 @@ public class TerritoryApi {
   /**
   * Get Territory
   * Get a territory.
-   * @param version 
    * @param territoryId the id of the territory to get
    * @return TerritoryResponse
   */
-  public TerritoryResponse getTerritory (BigDecimal version, Long territoryId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TerritoryResponse getTerritory (Long territoryId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTerritory"));
-    }
     // verify the required parameter 'territoryId' is set
     if (territoryId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'territoryId' when calling getTerritory",
@@ -388,7 +359,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -439,16 +410,11 @@ public class TerritoryApi {
       /**
    * Get Territory
    * Get a territory.
-   * @param version    * @param territoryId the id of the territory to get
+   * @param territoryId the id of the territory to get
   */
-  public void getTerritory (BigDecimal version, Long territoryId, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTerritory (Long territoryId, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTerritory"));
-    }
     // verify the required parameter 'territoryId' is set
     if (territoryId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'territoryId' when calling getTerritory",
@@ -456,7 +422,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -510,7 +476,6 @@ public class TerritoryApi {
   /**
   * Search Territories
   * Searches on territories.
-   * @param version 
    * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME
    * @param descending determines whether the sorted list is in descending or ascending order
    * @param keyword Return results that match this keyword.
@@ -518,13 +483,8 @@ public class TerritoryApi {
    * @param limit The limit for pagination
    * @return List<TerritoryResponse>
   */
-  public List<TerritoryResponse> searchTerritories (BigDecimal version, String sortField, Boolean descending, String keyword, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<TerritoryResponse> searchTerritories (String sortField, Boolean descending, String keyword, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTerritories",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTerritories"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchTerritories",
@@ -537,7 +497,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -592,16 +552,11 @@ public class TerritoryApi {
       /**
    * Search Territories
    * Searches on territories.
-   * @param version    * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME   * @param descending determines whether the sorted list is in descending or ascending order   * @param keyword Return results that match this keyword.   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param sortField the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME   * @param descending determines whether the sorted list is in descending or ascending order   * @param keyword Return results that match this keyword.   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void searchTerritories (BigDecimal version, String sortField, Boolean descending, String keyword, Integer start, Integer limit, final Response.Listener<List<TerritoryResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTerritories (String sortField, Boolean descending, String keyword, Integer start, Integer limit, final Response.Listener<List<TerritoryResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTerritories",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTerritories"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchTerritories",
@@ -614,7 +569,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -672,20 +627,14 @@ public class TerritoryApi {
   /**
   * Update Territory
   * Updates a territory.
-   * @param version 
    * @param accountId The logged in user.
    * @param territoryId the id of the territory to update
    * @param name The name of the territory
    * @param active If true set the game level as active.
    * @return TerritoryResponse
   */
-  public TerritoryResponse updateTerritory (BigDecimal version, Long accountId, Long territoryId, String name, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TerritoryResponse updateTerritory (Long accountId, Long territoryId, String name, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateTerritory",
@@ -698,7 +647,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -752,16 +701,11 @@ public class TerritoryApi {
       /**
    * Update Territory
    * Updates a territory.
-   * @param version    * @param accountId The logged in user.   * @param territoryId the id of the territory to update   * @param name The name of the territory   * @param active If true set the game level as active.
+   * @param accountId The logged in user.   * @param territoryId the id of the territory to update   * @param name The name of the territory   * @param active If true set the game level as active.
   */
-  public void updateTerritory (BigDecimal version, Long accountId, Long territoryId, String name, Boolean active, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTerritory (Long accountId, Long territoryId, String name, Boolean active, final Response.Listener<TerritoryResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTerritory",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTerritory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateTerritory",
@@ -774,7 +718,7 @@ public class TerritoryApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/territory/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/territory/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.PackResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PackApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class PackApi {
   /**
   * Create Pack
   * Create a pack.
-   * @param version 
    * @param accountId The logged in user.
    * @param title The title of the pack
    * @param packOrder The order of the pack
@@ -88,13 +86,8 @@ public class PackApi {
    * @param points The number of points to award for completing a pack
    * @return PackResponse
   */
-  public PackResponse createPack (BigDecimal version, Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PackResponse createPack (Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPack",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPack",
@@ -132,7 +125,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -206,16 +199,11 @@ public class PackApi {
       /**
    * Create Pack
    * Create a pack.
-   * @param version    * @param accountId The logged in user.   * @param title The title of the pack   * @param packOrder The order of the pack   * @param price The price in tickets to purchase this pack   * @param highest The scoring is highest is best   * @param allocateTickets Flag to indicate owner should receive tickets for completed packs   * @param ticketCount The number of tickets to reward   * @param description The description of the pack   * @param searchTags The tags for searching the pack, comma separated   * @param active Activate/deactivate the pack   * @param gameType This parameter is deprecated.   * @param appKey The application key used to identify the application   * @param packType The type of the pack   * @param sequenceType The type of game sequence of the pack   * @param backgroundId The background asset id of the pack   * @param imageId The image asset id of the pack   * @param startDate The date/time to start the pack, send 0 to unset   * @param endDate The date/time to end the pack, send 0 to unset   * @param authorOverride    * @param priceType the type of ticket required to purchase this pack   * @param gameLevelIds the game level ids to include in the pack, comma separated   * @param inGame    * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a pack
+   * @param accountId The logged in user.   * @param title The title of the pack   * @param packOrder The order of the pack   * @param price The price in tickets to purchase this pack   * @param highest The scoring is highest is best   * @param allocateTickets Flag to indicate owner should receive tickets for completed packs   * @param ticketCount The number of tickets to reward   * @param description The description of the pack   * @param searchTags The tags for searching the pack, comma separated   * @param active Activate/deactivate the pack   * @param gameType This parameter is deprecated.   * @param appKey The application key used to identify the application   * @param packType The type of the pack   * @param sequenceType The type of game sequence of the pack   * @param backgroundId The background asset id of the pack   * @param imageId The image asset id of the pack   * @param startDate The date/time to start the pack, send 0 to unset   * @param endDate The date/time to end the pack, send 0 to unset   * @param authorOverride    * @param priceType the type of ticket required to purchase this pack   * @param gameLevelIds the game level ids to include in the pack, comma separated   * @param inGame    * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a pack
   */
-  public void createPack (BigDecimal version, Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createPack (Long accountId, String title, Long packOrder, Integer price, Boolean highest, Boolean allocateTickets, Long ticketCount, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, String priceType, String gameLevelIds, Boolean inGame, String ticketType, Long points, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPack",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPack",
@@ -253,7 +241,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -330,18 +318,12 @@ public class PackApi {
   /**
   * Delete Pack
   * Delete a pack.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param packId the id of the pack to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deletePack (BigDecimal version, Long accountId, Long packId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deletePack (Long accountId, Long packId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePack",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePack",
@@ -354,7 +336,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -406,16 +388,11 @@ public class PackApi {
       /**
    * Delete Pack
    * Delete a pack.
-   * @param version    * @param accountId the id of the logged in user   * @param packId the id of the pack to delete
+   * @param accountId the id of the logged in user   * @param packId the id of the pack to delete
   */
-  public void deletePack (BigDecimal version, Long accountId, Long packId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePack (Long accountId, Long packId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePack",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePack",
@@ -428,7 +405,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -483,19 +460,13 @@ public class PackApi {
   /**
   * Get Pack
   * Get a pack.
-   * @param version 
    * @param accountId The logged in user.
    * @param packId The id of the pack to return.
    * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
    * @return PackResponse
   */
-  public PackResponse getPack (BigDecimal version, Long accountId, Long packId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PackResponse getPack (Long accountId, Long packId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPack",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPack",
@@ -513,7 +484,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -566,16 +537,11 @@ public class PackApi {
       /**
    * Get Pack
    * Get a pack.
-   * @param version    * @param accountId The logged in user.   * @param packId The id of the pack to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
+   * @param accountId The logged in user.   * @param packId The id of the pack to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
   */
-  public void getPack (BigDecimal version, Long accountId, Long packId, Boolean includeGameData, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPack (Long accountId, Long packId, Boolean includeGameData, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPack",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPack",
@@ -593,7 +559,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -649,7 +615,6 @@ public class PackApi {
   /**
   * Search Packs
   * Search on packs.
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -662,13 +627,8 @@ public class PackApi {
    * @param appKey The application to filter results on
    * @return List<PackResponse>
   */
-  public List<PackResponse> searchPacks (BigDecimal version, Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<PackResponse> searchPacks (Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPacks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPacks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPacks",
@@ -686,7 +646,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -746,16 +706,11 @@ public class PackApi {
       /**
    * Search Packs
    * Search on packs.
-   * @param version    * @param accountId The logged in user.   * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED   * @param descending Determines whether the sorted list is in descending or ascending order   * @param keyword Keyword search on the pack name   * @param packType Filters results on pack type   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param includeGameData Determines whether to include game data in the results   * @param includeInactive Determines whether to include inactive results   * @param appKey The application to filter results on
+   * @param accountId The logged in user.   * @param sortField The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED   * @param descending Determines whether the sorted list is in descending or ascending order   * @param keyword Keyword search on the pack name   * @param packType Filters results on pack type   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param includeGameData Determines whether to include game data in the results   * @param includeInactive Determines whether to include inactive results   * @param appKey The application to filter results on
   */
-  public void searchPacks (BigDecimal version, Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey, final Response.Listener<List<PackResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPacks (Long accountId, String sortField, Boolean descending, String keyword, String packType, Integer start, Integer limit, Boolean includeGameData, Boolean includeInactive, String appKey, final Response.Listener<List<PackResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPacks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPacks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPacks",
@@ -773,7 +728,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -836,7 +791,6 @@ public class PackApi {
   /**
   * Update Pack
   * Update a pack.
-   * @param version 
    * @param accountId The logged in user.
    * @param packId The id of the pack to update.
    * @param allocateTickets Flag to indicate owner should receive tickets for completed packs
@@ -864,13 +818,8 @@ public class PackApi {
    * @param points The number of points to award for completing a pack
    * @return PackResponse
   */
-  public PackResponse updatePack (BigDecimal version, Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PackResponse updatePack (Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePack",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePack",
@@ -893,7 +842,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -968,16 +917,11 @@ public class PackApi {
       /**
    * Update Pack
    * Update a pack.
-   * @param version    * @param accountId The logged in user.   * @param packId The id of the pack to update.   * @param allocateTickets Flag to indicate owner should receive tickets for completed packs   * @param ticketCount The number of tickets to reward   * @param title The title of the pack   * @param description The description of the pack   * @param searchTags The tags for searching the pack, comma separated   * @param active Activate/deactivate the pack   * @param gameType This parameter is deprecated.   * @param appKey The application key used to identify the application   * @param packType The type of the pack   * @param packOrder The order of the pack   * @param sequenceType The type of game sequence of the pack   * @param backgroundId The background asset id of the pack   * @param imageId The image asset id of the pack   * @param startDate The date/time to start the pack, send 0 to unset   * @param endDate The date/time to end the pack, send 0 to unset   * @param authorOverride    * @param price The price in tickets to purchase this pack   * @param priceType the type of ticket required to purchase this pack   * @param gameLevelIds the game level ids to include in the pack, comma separated   * @param inGame    * @param highest The scoring is highest is best   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a pack
+   * @param accountId The logged in user.   * @param packId The id of the pack to update.   * @param allocateTickets Flag to indicate owner should receive tickets for completed packs   * @param ticketCount The number of tickets to reward   * @param title The title of the pack   * @param description The description of the pack   * @param searchTags The tags for searching the pack, comma separated   * @param active Activate/deactivate the pack   * @param gameType This parameter is deprecated.   * @param appKey The application key used to identify the application   * @param packType The type of the pack   * @param packOrder The order of the pack   * @param sequenceType The type of game sequence of the pack   * @param backgroundId The background asset id of the pack   * @param imageId The image asset id of the pack   * @param startDate The date/time to start the pack, send 0 to unset   * @param endDate The date/time to end the pack, send 0 to unset   * @param authorOverride    * @param price The price in tickets to purchase this pack   * @param priceType the type of ticket required to purchase this pack   * @param gameLevelIds the game level ids to include in the pack, comma separated   * @param inGame    * @param highest The scoring is highest is best   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a pack
   */
-  public void updatePack (BigDecimal version, Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updatePack (Long accountId, Long packId, Boolean allocateTickets, Long ticketCount, String title, String description, String searchTags, Boolean active, String gameType, String appKey, String packType, Long packOrder, String sequenceType, Long backgroundId, Long imageId, Long startDate, Long endDate, String authorOverride, Integer price, String priceType, String gameLevelIds, Boolean inGame, Boolean highest, String ticketType, Long points, final Response.Listener<PackResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePack",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePack"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePack",
@@ -1000,7 +944,7 @@ public class PackApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/pack/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/pack/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

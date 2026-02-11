@@ -26,7 +26,6 @@ import com.android.volley.VolleyError;
 import org.openapitools.client.model.AgeGroupResponse;
 import org.openapitools.client.model.AudienceDeviceResponse;
 import org.openapitools.client.model.AudienceResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.OfferListResponse;
 import org.openapitools.client.model.SearchResponse;
@@ -43,7 +42,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AudienceApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -65,7 +64,6 @@ public class AudienceApi {
   /**
   * Create Audience
   * Create a user defined audience.
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the audience
    * @param description The description of the audience
@@ -97,13 +95,8 @@ public class AudienceApi {
    * @param uniqueName If true, makes sure the audience name is unique
    * @return AudienceResponse
   */
-  public AudienceResponse createAudience (BigDecimal version, Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AudienceResponse createAudience (Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createAudience",
@@ -116,7 +109,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -195,16 +188,11 @@ public class AudienceApi {
       /**
    * Create Audience
    * Create a user defined audience.
-   * @param version    * @param accountId The logged in user.   * @param name The name of the audience   * @param description The description of the audience   * @param searchTags The search tags   * @param gender The gender; possible values are: MALE, FEMALE, ANY   * @param ageGroups The list of age groups, comma separated; possible values are AGE_0_13, AGE_14_17, AGE_18_22, AGE_23_30, AGE_31_54, AGE_55_PLUS, AGE_ANY (to reset to none)   * @param categoryIds The list of category ids, comma separated; possible values are retrieved via /api/{version}/category/search (pass in id values)   * @param applicationIds The list of application ids, comma separated; possible values are retrieved via /api/{version}/application/list (pass in id values)   * @param gameExperienceLevel The experience level of the player; possible values are: ANY, NEW, BEGINNER, INTERMEDIATE, EXPERT   * @param devices (Deprecated) Use deviceIds. The list of targeted device names, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in name values)   * @param deviceIds The list of targeted device ids, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in id values)   * @param deviceVersions The list of targeted device version ranges that are aligned with the provided devices list, comma separated (examples: 2.3-X, 0-5.1.4, 4.3.1-6.1.4)   * @param locations The list of locations to build the center around; comma separated list of latitude/longitude pairs (example: lat1,long1,lat2,long2)   * @param radius The list of radius of influence for the audience, in miles; comma separated list. Either provide 1 to be applied to all location pairs or a matching list to each lat/long pair.   * @param startTimeOffset Seconds from the start time of an event   * @param endTimeOffset Seconds from the end time of an event   * @param sendSuggestion If true, then notify matching users when they are inside the radius   * @param associateDescription The description of the associated object   * @param associateType The type of the object to center the audience geofence   * @param associateId The ID of the object to center the audience geofence   * @param groupingId Optional grouping id for the audience   * @param metaData External custom client defined data   * @param visibility Visibility of the audience   * @param audienceType Type of audience   * @param useOrder Use order for cohort   * @param cohortRegionsData Cohort data for \&quot;cohort\&quot; audience type   * @param appKey Filter results by application key   * @param trilaterationTypes Trilateration types   * @param uniqueName If true, makes sure the audience name is unique
+   * @param accountId The logged in user.   * @param name The name of the audience   * @param description The description of the audience   * @param searchTags The search tags   * @param gender The gender; possible values are: MALE, FEMALE, ANY   * @param ageGroups The list of age groups, comma separated; possible values are AGE_0_13, AGE_14_17, AGE_18_22, AGE_23_30, AGE_31_54, AGE_55_PLUS, AGE_ANY (to reset to none)   * @param categoryIds The list of category ids, comma separated; possible values are retrieved via /api/{version}/category/search (pass in id values)   * @param applicationIds The list of application ids, comma separated; possible values are retrieved via /api/{version}/application/list (pass in id values)   * @param gameExperienceLevel The experience level of the player; possible values are: ANY, NEW, BEGINNER, INTERMEDIATE, EXPERT   * @param devices (Deprecated) Use deviceIds. The list of targeted device names, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in name values)   * @param deviceIds The list of targeted device ids, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in id values)   * @param deviceVersions The list of targeted device version ranges that are aligned with the provided devices list, comma separated (examples: 2.3-X, 0-5.1.4, 4.3.1-6.1.4)   * @param locations The list of locations to build the center around; comma separated list of latitude/longitude pairs (example: lat1,long1,lat2,long2)   * @param radius The list of radius of influence for the audience, in miles; comma separated list. Either provide 1 to be applied to all location pairs or a matching list to each lat/long pair.   * @param startTimeOffset Seconds from the start time of an event   * @param endTimeOffset Seconds from the end time of an event   * @param sendSuggestion If true, then notify matching users when they are inside the radius   * @param associateDescription The description of the associated object   * @param associateType The type of the object to center the audience geofence   * @param associateId The ID of the object to center the audience geofence   * @param groupingId Optional grouping id for the audience   * @param metaData External custom client defined data   * @param visibility Visibility of the audience   * @param audienceType Type of audience   * @param useOrder Use order for cohort   * @param cohortRegionsData Cohort data for \&quot;cohort\&quot; audience type   * @param appKey Filter results by application key   * @param trilaterationTypes Trilateration types   * @param uniqueName If true, makes sure the audience name is unique
   */
-  public void createAudience (BigDecimal version, Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createAudience (Long accountId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Integer startTimeOffset, Integer endTimeOffset, Boolean sendSuggestion, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling createAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createAudience",
@@ -217,7 +205,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -299,18 +287,12 @@ public class AudienceApi {
   /**
   * Delete Audience
   * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to delete.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteAudience (BigDecimal version, Long accountId, Long audienceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteAudience (Long accountId, Long audienceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteAudience",
@@ -323,7 +305,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -375,16 +357,11 @@ public class AudienceApi {
       /**
    * Delete Audience
    * Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-   * @param version    * @param accountId The logged in user.   * @param audienceId The id of the audience to delete.
+   * @param accountId The logged in user.   * @param audienceId The id of the audience to delete.
   */
-  public void deleteAudience (BigDecimal version, Long accountId, Long audienceId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteAudience (Long accountId, Long audienceId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteAudience",
@@ -397,7 +374,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -452,19 +429,13 @@ public class AudienceApi {
   /**
   * Get Age Groups
   * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-   * @param version 
    * @return List<AgeGroupResponse>
   */
-  public List<AgeGroupResponse> getAgeGroups (BigDecimal version) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AgeGroupResponse> getAgeGroups () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAgeGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAgeGroups"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/ageGroups".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/ageGroups";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -514,19 +485,14 @@ public class AudienceApi {
       /**
    * Get Age Groups
    * Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-   * @param version 
+
   */
-  public void getAgeGroups (BigDecimal version, final Response.Listener<List<AgeGroupResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getAgeGroups (final Response.Listener<List<AgeGroupResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAgeGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAgeGroups"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/ageGroups".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/ageGroups".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -579,7 +545,6 @@ public class AudienceApi {
   /**
   * Get Audience
   * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to return.
    * @param appKey The application key (optional). If provided, results may be scoped to this application.
@@ -588,13 +553,8 @@ public class AudienceApi {
    * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
    * @return AudienceResponse
   */
-  public AudienceResponse getAudience (BigDecimal version, Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AudienceResponse getAudience (Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getAudience",
@@ -607,7 +567,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -663,16 +623,11 @@ public class AudienceApi {
       /**
    * Get Audience
    * Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-   * @param version    * @param accountId The logged in user.   * @param audienceId The id of the audience to return.   * @param appKey The application key (optional). If provided, results may be scoped to this application.   * @param returnAccountCount (boolean) set to true to include the accountCount associated with current audience of the current app   * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app   * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
+   * @param accountId The logged in user.   * @param audienceId The id of the audience to return.   * @param appKey The application key (optional). If provided, results may be scoped to this application.   * @param returnAccountCount (boolean) set to true to include the accountCount associated with current audience of the current app   * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app   * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
   */
-  public void getAudience (BigDecimal version, Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAudience (Long accountId, Long audienceId, String appKey, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getAudience",
@@ -685,7 +640,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -744,7 +699,6 @@ public class AudienceApi {
   /**
   * Search Audiences
   * Get the list audiences owned by the account
-   * @param version 
    * @param accountId The logged in user.
    * @param albumIds Comma separated list of album IDs to filter results with
    * @param keyword The keyword used to search
@@ -766,16 +720,11 @@ public class AudienceApi {
    * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
    * @return List<SearchResponse>
   */
-  public List<SearchResponse> getAudienceList (BigDecimal version, Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<SearchResponse> getAudienceList (Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAudienceList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAudienceList"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -844,19 +793,14 @@ public class AudienceApi {
       /**
    * Search Audiences
    * Get the list audiences owned by the account
-   * @param version    * @param accountId The logged in user.   * @param albumIds Comma separated list of album IDs to filter results with   * @param keyword The keyword used to search   * @param keywordFields Comma separated list of fields that the keywords will match against. Possible values include: SEARCH_TAGS, NAME, DESCRIPTION, OWNER_DISPLAY   * @param sortField The field to sort by, possible values include: {ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, NAME, DESCRIPTION, OWNER_ID, OWNER_DISPLAY, GENDER}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with.   * @param limit The total number of record to return (there is a hard limit of 100).   * @param sendSuggestion Filter results based on whether or not the audience is set to send suggestions   * @param activeOnly Determines whether to return only active results. Default is false.   * @param groupByGroupingId Groups results by the audience groupingId (this does not work in conjunction with the following parameters: albumIds, audienceType, appKey, returnGlobal)   * @param appKey Filter results by application key   * @param returnGlobal If filtering by appKey, determines whether or not audiences that do not have an application set will also be returned as well   * @param exactKeyword If true, match keyword exactly   * @param audienceType (Deprecated) Filter results by audience type   * @param audienceTypes comma separated string with the different audience types you want to filter for   * @param returnAccountCount (boolean) set to true to include the accountCount associated with current audience of the current app   * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app   * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
+   * @param accountId The logged in user.   * @param albumIds Comma separated list of album IDs to filter results with   * @param keyword The keyword used to search   * @param keywordFields Comma separated list of fields that the keywords will match against. Possible values include: SEARCH_TAGS, NAME, DESCRIPTION, OWNER_DISPLAY   * @param sortField The field to sort by, possible values include: {ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, NAME, DESCRIPTION, OWNER_ID, OWNER_DISPLAY, GENDER}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with.   * @param limit The total number of record to return (there is a hard limit of 100).   * @param sendSuggestion Filter results based on whether or not the audience is set to send suggestions   * @param activeOnly Determines whether to return only active results. Default is false.   * @param groupByGroupingId Groups results by the audience groupingId (this does not work in conjunction with the following parameters: albumIds, audienceType, appKey, returnGlobal)   * @param appKey Filter results by application key   * @param returnGlobal If filtering by appKey, determines whether or not audiences that do not have an application set will also be returned as well   * @param exactKeyword If true, match keyword exactly   * @param audienceType (Deprecated) Filter results by audience type   * @param audienceTypes comma separated string with the different audience types you want to filter for   * @param returnAccountCount (boolean) set to true to include the accountCount associated with current audience of the current app   * @param returnAlbumCount (boolean) set to true to include the albumCount associated with current audience of the current app   * @param albumTypesForCount (String) comma separated list, return an array with each item is the count of each album type. If not provided, \&quot;all_types\&quot; count is returned.
   */
-  public void getAudienceList (BigDecimal version, Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, final Response.Listener<List<SearchResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getAudienceList (Long accountId, String albumIds, String keyword, String keywordFields, String sortField, Boolean descending, Integer start, Integer limit, Boolean sendSuggestion, Boolean activeOnly, Boolean groupByGroupingId, String appKey, Boolean returnGlobal, Boolean exactKeyword, String audienceType, String audienceTypes, Boolean returnAccountCount, Boolean returnAlbumCount, String albumTypesForCount, final Response.Listener<List<SearchResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAudienceList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAudienceList"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -928,17 +872,11 @@ public class AudienceApi {
   /**
   * Get Devices
   * Gets the list of available devices that can be selected by consumers and retailers.
-   * @param version 
    * @param includeInactive If true return inactive record as well. default is false.
    * @return List<AudienceDeviceResponse>
   */
-  public List<AudienceDeviceResponse> getDevices (BigDecimal version, Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AudienceDeviceResponse> getDevices (Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDevices",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDevices"));
-    }
     // verify the required parameter 'includeInactive' is set
     if (includeInactive == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'includeInactive' when calling getDevices",
@@ -946,7 +884,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/devices".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/devices";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -997,16 +935,11 @@ public class AudienceApi {
       /**
    * Get Devices
    * Gets the list of available devices that can be selected by consumers and retailers.
-   * @param version    * @param includeInactive If true return inactive record as well. default is false.
+   * @param includeInactive If true return inactive record as well. default is false.
   */
-  public void getDevices (BigDecimal version, Boolean includeInactive, final Response.Listener<List<AudienceDeviceResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getDevices (Boolean includeInactive, final Response.Listener<List<AudienceDeviceResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDevices",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDevices"));
-    }
     // verify the required parameter 'includeInactive' is set
     if (includeInactive == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'includeInactive' when calling getDevices",
@@ -1014,7 +947,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/devices".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/devices".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1068,19 +1001,13 @@ public class AudienceApi {
   /**
   * Get Experiences
   * Gets the list of available experiences that can be selected by consumers and retailers.
-   * @param version 
    * @return SirqulResponse
   */
-  public SirqulResponse getExperiences (BigDecimal version) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getExperiences () throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getExperiences",
-        new ApiException(400, "Missing the required parameter 'version' when calling getExperiences"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/experiences".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/experiences";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1130,19 +1057,14 @@ public class AudienceApi {
       /**
    * Get Experiences
    * Gets the list of available experiences that can be selected by consumers and retailers.
-   * @param version 
+
   */
-  public void getExperiences (BigDecimal version, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getExperiences (final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getExperiences",
-        new ApiException(400, "Missing the required parameter 'version' when calling getExperiences"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/audience/experiences".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/experiences".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1195,18 +1117,12 @@ public class AudienceApi {
   /**
   * Get GroupedAudiences
   * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceGroupingId The audience grouping id to return.
    * @return AudienceResponse
   */
-  public AudienceResponse getGroupedAudiences (BigDecimal version, Long accountId, String audienceGroupingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AudienceResponse getGroupedAudiences (Long accountId, String audienceGroupingId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGroupedAudiences",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGroupedAudiences"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGroupedAudiences",
@@ -1219,7 +1135,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/grouped/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/grouped/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1271,16 +1187,11 @@ public class AudienceApi {
       /**
    * Get GroupedAudiences
    * Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-   * @param version    * @param accountId The logged in user.   * @param audienceGroupingId The audience grouping id to return.
+   * @param accountId The logged in user.   * @param audienceGroupingId The audience grouping id to return.
   */
-  public void getGroupedAudiences (BigDecimal version, Long accountId, String audienceGroupingId, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGroupedAudiences (Long accountId, String audienceGroupingId, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGroupedAudiences",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGroupedAudiences"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGroupedAudiences",
@@ -1293,7 +1204,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/grouped/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/grouped/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1348,19 +1259,13 @@ public class AudienceApi {
   /**
   * List Suggestions by Audience
   * List either Missions or Offers that the user matches the assigned audience.
-   * @param version 
    * @param accountId The account to match offers for.
    * @param limit the limit of the index
    * @param suggestionType the type of suggestion
    * @return OfferListResponse
   */
-  public OfferListResponse listByAccount (BigDecimal version, Long accountId, Integer limit, String suggestionType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferListResponse listByAccount (Long accountId, Integer limit, String suggestionType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling listByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listByAccount",
@@ -1378,7 +1283,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1431,16 +1336,11 @@ public class AudienceApi {
       /**
    * List Suggestions by Audience
    * List either Missions or Offers that the user matches the assigned audience.
-   * @param version    * @param accountId The account to match offers for.   * @param limit the limit of the index   * @param suggestionType the type of suggestion
+   * @param accountId The account to match offers for.   * @param limit the limit of the index   * @param suggestionType the type of suggestion
   */
-  public void listByAccount (BigDecimal version, Long accountId, Integer limit, String suggestionType, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void listByAccount (Long accountId, Integer limit, String suggestionType, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling listByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listByAccount",
@@ -1458,7 +1358,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1514,7 +1414,6 @@ public class AudienceApi {
   /**
   * List Offers by Audience
   * Get a list of offer locations based on audience information provided.
-   * @param version 
    * @param limit this is the limit of the index
    * @param gender this is the gender to list offers by
    * @param age this is the age to list offers by
@@ -1523,13 +1422,8 @@ public class AudienceApi {
    * @param longitude this is the longitude to list offers by
    * @return OfferListResponse
   */
-  public OfferListResponse listByAudience (BigDecimal version, Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferListResponse listByAudience (Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listByAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling listByAudience"));
-    }
     // verify the required parameter 'limit' is set
     if (limit == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'limit' when calling listByAudience",
@@ -1537,7 +1431,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/offersByAudience".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/offersByAudience";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1593,16 +1487,11 @@ public class AudienceApi {
       /**
    * List Offers by Audience
    * Get a list of offer locations based on audience information provided.
-   * @param version    * @param limit this is the limit of the index   * @param gender this is the gender to list offers by   * @param age this is the age to list offers by   * @param categoryIds this is the category IDs to list offers by   * @param latitude this is the latitude to list offers by   * @param longitude this is the longitude to list offers by
+   * @param limit this is the limit of the index   * @param gender this is the gender to list offers by   * @param age this is the age to list offers by   * @param categoryIds this is the category IDs to list offers by   * @param latitude this is the latitude to list offers by   * @param longitude this is the longitude to list offers by
   */
-  public void listByAudience (BigDecimal version, Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void listByAudience (Integer limit, String gender, Integer age, String categoryIds, Double latitude, Double longitude, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listByAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling listByAudience"));
-    }
     // verify the required parameter 'limit' is set
     if (limit == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'limit' when calling listByAudience",
@@ -1610,7 +1499,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/offersByAudience".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/offersByAudience".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1669,19 +1558,13 @@ public class AudienceApi {
   /**
   * List Sent Suggestions 
   * Return list of recent trigger suggestions that have been sent to the user.
-   * @param version 
    * @param accountId The account to match offers for.
    * @param timeframe The timeframe in seconds of the latest suggestions
    * @param suggestionType The type of trigger suggestions to return
    * @return OfferListResponse
   */
-  public OfferListResponse listLastestByAccount (BigDecimal version, Long accountId, Integer timeframe, String suggestionType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferListResponse listLastestByAccount (Long accountId, Integer timeframe, String suggestionType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listLastestByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling listLastestByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listLastestByAccount",
@@ -1699,7 +1582,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/latest".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/latest";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1752,16 +1635,11 @@ public class AudienceApi {
       /**
    * List Sent Suggestions 
    * Return list of recent trigger suggestions that have been sent to the user.
-   * @param version    * @param accountId The account to match offers for.   * @param timeframe The timeframe in seconds of the latest suggestions   * @param suggestionType The type of trigger suggestions to return
+   * @param accountId The account to match offers for.   * @param timeframe The timeframe in seconds of the latest suggestions   * @param suggestionType The type of trigger suggestions to return
   */
-  public void listLastestByAccount (BigDecimal version, Long accountId, Integer timeframe, String suggestionType, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void listLastestByAccount (Long accountId, Integer timeframe, String suggestionType, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listLastestByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling listLastestByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listLastestByAccount",
@@ -1779,7 +1657,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/latest".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/latest".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1835,19 +1713,13 @@ public class AudienceApi {
   /**
   * Send Suggestions
   * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-   * @param version 
    * @param accountId The account to match offers for.
    * @param latitude the latitude
    * @param longitude the longitude
    * @return SirqulResponse
   */
-  public SirqulResponse sendByAccount (BigDecimal version, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse sendByAccount (Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendByAccount",
@@ -1865,7 +1737,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/send".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/send";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1918,16 +1790,11 @@ public class AudienceApi {
       /**
    * Send Suggestions
    * Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-   * @param version    * @param accountId The account to match offers for.   * @param latitude the latitude   * @param longitude the longitude
+   * @param accountId The account to match offers for.   * @param latitude the latitude   * @param longitude the longitude
   */
-  public void sendByAccount (BigDecimal version, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void sendByAccount (Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendByAccount",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendByAccount"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendByAccount",
@@ -1945,7 +1812,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/suggestion/send".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/suggestion/send".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2001,7 +1868,6 @@ public class AudienceApi {
   /**
   * Update Audience
   * Update a user defined audience.
-   * @param version 
    * @param accountId The logged in user.
    * @param audienceId The id of the audience to update.
    * @param name The name of the audience
@@ -2035,13 +1901,8 @@ public class AudienceApi {
    * @param uniqueName If true, makes sure the audience name is unique
    * @return AudienceResponse
   */
-  public AudienceResponse updateAudience (BigDecimal version, Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AudienceResponse updateAudience (Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateAudience",
@@ -2054,7 +1915,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2135,16 +1996,11 @@ public class AudienceApi {
       /**
    * Update Audience
    * Update a user defined audience.
-   * @param version    * @param accountId The logged in user.   * @param audienceId The id of the audience to update.   * @param name The name of the audience   * @param description The description of the audience   * @param searchTags The search tags   * @param gender The gender; possible values are: MALE, FEMALE, ANY   * @param ageGroups The list of age groups, comma separated; possible values are AGE_0_13, AGE_14_17, AGE_18_22, AGE_23_30, AGE_31_54, AGE_55_PLUS, AGE_ANY (to reset to none)   * @param categoryIds The list of category ids, comma separated; possible values are retrieved via /api/{version}/category/search (pass in id values)   * @param applicationIds The list of application ids, comma separated; possible values are retrieved via /api/{version}/application/list (pass in id values)   * @param gameExperienceLevel The experience level of the player; possible values are: ANY, NEW, BEGINNER, INTERMEDIATE, EXPERT   * @param devices (Deprecated) Use deviceIds. The list of targeted device names, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in name values)   * @param deviceIds The list of targeted device ids, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in id values)   * @param deviceVersions The list of targeted device version ranges that are aligned with the provided devices list, comma separated (examples: 2.3-X, 0-5.1.4, 4.3.1-6.1.4)   * @param locations The list of locations to build the center around; comma separated list of latitude/longitude pairs (example: lat1,long1,lat2,long2)   * @param radius The list of radius of influence for the audience, in miles; comma separated list. Either provide 1 to be applied to all location pairs or a matching list to each lat/long pair.   * @param active if audience is active   * @param sendSuggestion If true, then notify matching users when they are inside the radius   * @param startTimeOffset Seconds from the start time of an event   * @param endTimeOffset Seconds from the end time of an event   * @param associateDescription the associate description   * @param associateType The type of the object to center the audience geofence   * @param associateId The ID of the object to center the audience geofence   * @param groupingId Optional grouping id for the audience   * @param metaData External custom client defined data   * @param visibility Visibility of the audience   * @param audienceType Type of audience   * @param useOrder Use order for cohort   * @param cohortRegionsData Cohort data for \&quot;cohort\&quot; audience type   * @param appKey Filter results by application key   * @param trilaterationTypes Trilateration types   * @param uniqueName If true, makes sure the audience name is unique
+   * @param accountId The logged in user.   * @param audienceId The id of the audience to update.   * @param name The name of the audience   * @param description The description of the audience   * @param searchTags The search tags   * @param gender The gender; possible values are: MALE, FEMALE, ANY   * @param ageGroups The list of age groups, comma separated; possible values are AGE_0_13, AGE_14_17, AGE_18_22, AGE_23_30, AGE_31_54, AGE_55_PLUS, AGE_ANY (to reset to none)   * @param categoryIds The list of category ids, comma separated; possible values are retrieved via /api/{version}/category/search (pass in id values)   * @param applicationIds The list of application ids, comma separated; possible values are retrieved via /api/{version}/application/list (pass in id values)   * @param gameExperienceLevel The experience level of the player; possible values are: ANY, NEW, BEGINNER, INTERMEDIATE, EXPERT   * @param devices (Deprecated) Use deviceIds. The list of targeted device names, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in name values)   * @param deviceIds The list of targeted device ids, comma separated; possible values are retrieved via /api/{version}/audience/devices (pass in id values)   * @param deviceVersions The list of targeted device version ranges that are aligned with the provided devices list, comma separated (examples: 2.3-X, 0-5.1.4, 4.3.1-6.1.4)   * @param locations The list of locations to build the center around; comma separated list of latitude/longitude pairs (example: lat1,long1,lat2,long2)   * @param radius The list of radius of influence for the audience, in miles; comma separated list. Either provide 1 to be applied to all location pairs or a matching list to each lat/long pair.   * @param active if audience is active   * @param sendSuggestion If true, then notify matching users when they are inside the radius   * @param startTimeOffset Seconds from the start time of an event   * @param endTimeOffset Seconds from the end time of an event   * @param associateDescription the associate description   * @param associateType The type of the object to center the audience geofence   * @param associateId The ID of the object to center the audience geofence   * @param groupingId Optional grouping id for the audience   * @param metaData External custom client defined data   * @param visibility Visibility of the audience   * @param audienceType Type of audience   * @param useOrder Use order for cohort   * @param cohortRegionsData Cohort data for \&quot;cohort\&quot; audience type   * @param appKey Filter results by application key   * @param trilaterationTypes Trilateration types   * @param uniqueName If true, makes sure the audience name is unique
   */
-  public void updateAudience (BigDecimal version, Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateAudience (Long accountId, Long audienceId, String name, String description, String searchTags, String gender, String ageGroups, String categoryIds, String applicationIds, String gameExperienceLevel, String devices, String deviceIds, String deviceVersions, String locations, String radius, Boolean active, Boolean sendSuggestion, Integer startTimeOffset, Integer endTimeOffset, String associateDescription, String associateType, Long associateId, String groupingId, String metaData, String visibility, String audienceType, Boolean useOrder, String cohortRegionsData, String appKey, String trilaterationTypes, Boolean uniqueName, final Response.Listener<AudienceResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateAudience",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateAudience"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateAudience",
@@ -2157,7 +2013,7 @@ public class AudienceApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/audience/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/audience/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

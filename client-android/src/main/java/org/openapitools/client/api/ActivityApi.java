@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.ActivityResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.EntityReference;
 
 import org.apache.http.HttpEntity;
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ActivityApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,17 +59,11 @@ public class ActivityApi {
   /**
   * Create an entity reference.
   * Creates a reference for an entity for syncing data between servers.
-   * @param version 
    * @param body The entity reference object
    * @return ActivityResponse
   */
-  public ActivityResponse createEntityReference (BigDecimal version, EntityReference body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ActivityResponse createEntityReference (EntityReference body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEntityReference",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEntityReference"));
-    }
     // verify the required parameter 'body' is set
     if (body == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'body' when calling createEntityReference",
@@ -78,7 +71,7 @@ public class ActivityApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/entity/reference".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/entity/reference";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,16 +122,11 @@ public class ActivityApi {
       /**
    * Create an entity reference.
    * Creates a reference for an entity for syncing data between servers.
-   * @param version    * @param body The entity reference object
+   * @param body The entity reference object
   */
-  public void createEntityReference (BigDecimal version, EntityReference body, final Response.Listener<ActivityResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createEntityReference (EntityReference body, final Response.Listener<ActivityResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEntityReference",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEntityReference"));
-    }
     // verify the required parameter 'body' is set
     if (body == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'body' when calling createEntityReference",
@@ -146,7 +134,7 @@ public class ActivityApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/entity/reference".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/entity/reference".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

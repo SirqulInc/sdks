@@ -25,7 +25,6 @@ import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AlbumContestListResponse;
 import org.openapitools.client.model.AlbumContestResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ContestApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class ContestApi {
   /**
   * Create or Update Contest
   * Creates or updates a contest.
-   * @param version 
    * @param publicRead determines whether the contest&#39;s participants has read permissions
    * @param publicWrite determines whether the contest&#39;s participants has write permissions
    * @param publicDelete determines whether the contest&#39;s participants has delete permissions
@@ -89,13 +87,8 @@ public class ContestApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return AlbumContestResponse
   */
-  public AlbumContestResponse addOrUpdateAlbumContest (BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumContestResponse addOrUpdateAlbumContest (Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addOrUpdateAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling addOrUpdateAlbumContest"));
-    }
     // verify the required parameter 'publicRead' is set
     if (publicRead == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'publicRead' when calling addOrUpdateAlbumContest",
@@ -128,7 +121,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -203,16 +196,11 @@ public class ContestApi {
       /**
    * Create or Update Contest
    * Creates or updates a contest.
-   * @param version    * @param publicRead determines whether the contest&#39;s participants has read permissions   * @param publicWrite determines whether the contest&#39;s participants has write permissions   * @param publicDelete determines whether the contest&#39;s participants has delete permissions   * @param publicAdd determines whether the contest&#39;s participants has add permissions   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param includeFriendGroup determines whether to include all friends as participants   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated. the application key   * @param appKey the application key   * @param contestType a custom field used for aggregation and searching   * @param albumContestId the album contest ID for updating (don&#39;t pass in if creating)   * @param title the title of the contest   * @param description the description of the contest   * @param albumId1 the album ID for the first album   * @param removeAlbum1 removes album1 from the contest   * @param albumId2 the album ID for the second album   * @param removeAlbum2 removes album2 from the contest   * @param startDate the start date of the contest (time-stamp in milliseconds)   * @param endDate the end date of the contest (time-stamp in milliseconds)   * @param locationDescription the location description of the contest taking place   * @param connectionIdsToAdd comma separated list of connection IDs   * @param connectionGroupIdsToAdd comma separated list of connection group IDs   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param publicRead determines whether the contest&#39;s participants has read permissions   * @param publicWrite determines whether the contest&#39;s participants has write permissions   * @param publicDelete determines whether the contest&#39;s participants has delete permissions   * @param publicAdd determines whether the contest&#39;s participants has add permissions   * @param visibility the determines the album&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param includeFriendGroup determines whether to include all friends as participants   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated. the application key   * @param appKey the application key   * @param contestType a custom field used for aggregation and searching   * @param albumContestId the album contest ID for updating (don&#39;t pass in if creating)   * @param title the title of the contest   * @param description the description of the contest   * @param albumId1 the album ID for the first album   * @param removeAlbum1 removes album1 from the contest   * @param albumId2 the album ID for the second album   * @param removeAlbum2 removes album2 from the contest   * @param startDate the start date of the contest (time-stamp in milliseconds)   * @param endDate the end date of the contest (time-stamp in milliseconds)   * @param locationDescription the location description of the contest taking place   * @param connectionIdsToAdd comma separated list of connection IDs   * @param connectionGroupIdsToAdd comma separated list of connection group IDs   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void addOrUpdateAlbumContest (BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addOrUpdateAlbumContest (Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, String deviceId, Long accountId, String gameType, String appKey, String contestType, Long albumContestId, String title, String description, Long albumId1, Boolean removeAlbum1, Long albumId2, Boolean removeAlbum2, Long startDate, Long endDate, String locationDescription, String connectionIdsToAdd, String connectionGroupIdsToAdd, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addOrUpdateAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling addOrUpdateAlbumContest"));
-    }
     // verify the required parameter 'publicRead' is set
     if (publicRead == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'publicRead' when calling addOrUpdateAlbumContest",
@@ -245,7 +233,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -323,20 +311,14 @@ public class ContestApi {
   /**
   * Approve Contest
   * Sets the approval status of a contest.
-   * @param version 
    * @param albumContestId The ID of the album contest
    * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse approveAlbumContest (BigDecimal version, Long albumContestId, String approvalStatus, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse approveAlbumContest (Long albumContestId, String approvalStatus, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling approveAlbumContest",
@@ -349,7 +331,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/approve".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/approve";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -403,16 +385,11 @@ public class ContestApi {
       /**
    * Approve Contest
    * Sets the approval status of a contest.
-   * @param version    * @param albumContestId The ID of the album contest   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)
+   * @param albumContestId The ID of the album contest   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)
   */
-  public void approveAlbumContest (BigDecimal version, Long albumContestId, String approvalStatus, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void approveAlbumContest (Long albumContestId, String approvalStatus, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling approveAlbumContest",
@@ -425,7 +402,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/approve".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/approve".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -482,7 +459,6 @@ public class ContestApi {
   /**
   * Delete Contest
   * Deletes a contest.
-   * @param version 
    * @param albumContestId the album contest ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -490,13 +466,8 @@ public class ContestApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse deleteContest (BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteContest (Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling deleteContest",
@@ -504,7 +475,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -559,16 +530,11 @@ public class ContestApi {
       /**
    * Delete Contest
    * Deletes a contest.
-   * @param version    * @param albumContestId the album contest ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param albumContestId the album contest ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void deleteContest (BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteContest (Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling deleteContest",
@@ -576,7 +542,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -634,7 +600,6 @@ public class ContestApi {
   /**
   * Get Contest
   * Gets the contest object including the likes and notes
-   * @param version 
    * @param albumContestId the album contest ID
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -642,13 +607,8 @@ public class ContestApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return AlbumContestResponse
   */
-  public AlbumContestResponse getAlbumContest (BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumContestResponse getAlbumContest (Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling getAlbumContest",
@@ -656,7 +616,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -711,16 +671,11 @@ public class ContestApi {
       /**
    * Get Contest
    * Gets the contest object including the likes and notes
-   * @param version    * @param albumContestId the album contest ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param albumContestId the album contest ID   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void getAlbumContest (BigDecimal version, Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAlbumContest (Long albumContestId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling getAlbumContest",
@@ -728,7 +683,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -786,7 +741,6 @@ public class ContestApi {
   /**
   * Search Contests
   * Searches on contests.
-   * @param version 
    * @param filter a comma separated list of Ownership
    * @param sortField the field to sort by. See AlbumContestApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -808,13 +762,8 @@ public class ContestApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return AlbumContestListResponse
   */
-  public AlbumContestListResponse getAlbumContests (BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumContestListResponse getAlbumContests (String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumContests",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumContests"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling getAlbumContests",
@@ -842,7 +791,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -911,16 +860,11 @@ public class ContestApi {
       /**
    * Search Contests
    * Searches on contests.
-   * @param version    * @param filter a comma separated list of Ownership   * @param sortField the field to sort by. See AlbumContestApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (there is a hard limit of 30)   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param appType the application type   * @param contestType filter contests with this contest type   * @param ownerId search on contests that have been created by this account (that the user has permissions to)   * @param q This parameter is deprecated.   * @param keyword keyword search string   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param dateCreated filter on items that have been created before this date   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param filter a comma separated list of Ownership   * @param sortField the field to sort by. See AlbumContestApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination (there is a hard limit of 30)   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param appType the application type   * @param contestType filter contests with this contest type   * @param ownerId search on contests that have been created by this account (that the user has permissions to)   * @param q This parameter is deprecated.   * @param keyword keyword search string   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param dateCreated filter on items that have been created before this date   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void getAlbumContests (BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude, final Response.Listener<AlbumContestListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getAlbumContests (String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String appKey, String appType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, Double latitude, Double longitude, final Response.Listener<AlbumContestListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getAlbumContests",
-        new ApiException(400, "Missing the required parameter 'version' when calling getAlbumContests"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling getAlbumContests",
@@ -948,7 +892,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1020,7 +964,6 @@ public class ContestApi {
   /**
   * Vote on Contest
   * Vote on a collection in a contest.
-   * @param version 
    * @param albumContestId the album contest ID
    * @param albumId the ID of the album to vote on
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
@@ -1030,13 +973,8 @@ public class ContestApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return AlbumContestResponse
   */
-  public AlbumContestResponse voteOnAlbumContest (BigDecimal version, Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AlbumContestResponse voteOnAlbumContest (Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling voteOnAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling voteOnAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling voteOnAlbumContest",
@@ -1049,7 +987,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/vote".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/vote";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1106,16 +1044,11 @@ public class ContestApi {
       /**
    * Vote on Contest
    * Vote on a collection in a contest.
-   * @param version    * @param albumContestId the album contest ID   * @param albumId the ID of the album to vote on   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param contestType a custom field used for aggregation and searching   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param albumContestId the album contest ID   * @param albumId the ID of the album to vote on   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param contestType a custom field used for aggregation and searching   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void voteOnAlbumContest (BigDecimal version, Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void voteOnAlbumContest (Long albumContestId, Long albumId, String deviceId, Long accountId, String contestType, Double latitude, Double longitude, final Response.Listener<AlbumContestResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling voteOnAlbumContest",
-        new ApiException(400, "Missing the required parameter 'version' when calling voteOnAlbumContest"));
-    }
     // verify the required parameter 'albumContestId' is set
     if (albumContestId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'albumContestId' when calling voteOnAlbumContest",
@@ -1128,7 +1061,7 @@ public class ContestApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/album/contest/vote".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/album/contest/vote".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

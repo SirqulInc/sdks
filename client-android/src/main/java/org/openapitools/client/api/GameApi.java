@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.GameResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class GameApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class GameApi {
   /**
   * Create a Game
   * Create a Game.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The game application key to save the level for.
    * @param title Title of the game.
@@ -70,16 +68,11 @@ public class GameApi {
    * @param includeGameData Show more details in response.
    * @return GameResponse
   */
-  public GameResponse createGame (BigDecimal version, Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameResponse createGame (Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling createGame"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/game/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -136,19 +129,14 @@ public class GameApi {
       /**
    * Create a Game
    * Create a Game.
-   * @param version    * @param accountId The logged in user.   * @param appKey The game application key to save the level for.   * @param title Title of the game.   * @param description Description of the game.   * @param metaData metaData of the Game.   * @param packIds comma separated String of pack Ids that will associate with the game.   * @param includeGameData Show more details in response.
+   * @param accountId The logged in user.   * @param appKey The game application key to save the level for.   * @param title Title of the game.   * @param description Description of the game.   * @param metaData metaData of the Game.   * @param packIds comma separated String of pack Ids that will associate with the game.   * @param includeGameData Show more details in response.
   */
-  public void createGame (BigDecimal version, Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createGame (Long accountId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling createGame"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/game/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -208,18 +196,12 @@ public class GameApi {
   /**
   * Delete a Game
   * Delete a game.
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game&#39;s id.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteGame (BigDecimal version, Long accountId, Long gameId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteGame (Long accountId, Long gameId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteGame"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteGame",
@@ -232,7 +214,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -284,16 +266,11 @@ public class GameApi {
       /**
    * Delete a Game
    * Delete a game.
-   * @param version    * @param accountId The logged in user.   * @param gameId the updating game&#39;s id.
+   * @param accountId The logged in user.   * @param gameId the updating game&#39;s id.
   */
-  public void deleteGame (BigDecimal version, Long accountId, Long gameId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteGame (Long accountId, Long gameId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteGame"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteGame",
@@ -306,7 +283,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -361,19 +338,13 @@ public class GameApi {
   /**
   * Get a Game by id
   * Get a Game by id.
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game&#39;s id.
    * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
    * @return GameResponse
   */
-  public GameResponse getGame (BigDecimal version, Long accountId, Long gameId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameResponse getGame (Long accountId, Long gameId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGame"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGame",
@@ -386,7 +357,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -439,16 +410,11 @@ public class GameApi {
       /**
    * Get a Game by id
    * Get a Game by id.
-   * @param version    * @param accountId The logged in user.   * @param gameId the updating game&#39;s id.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
+   * @param accountId The logged in user.   * @param gameId the updating game&#39;s id.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
   */
-  public void getGame (BigDecimal version, Long accountId, Long gameId, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGame (Long accountId, Long gameId, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGame"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGame",
@@ -461,7 +427,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -517,7 +483,6 @@ public class GameApi {
   /**
   * Search a Game
   * Get a list of games for an application, just those the account has permissions to view.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param start Start the result set at some index.
@@ -528,13 +493,8 @@ public class GameApi {
    * @param includeInactive more details in response
    * @return GameResponse
   */
-  public GameResponse searchGames (BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameResponse searchGames (Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchGames",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchGames"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchGames",
@@ -557,7 +517,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -615,16 +575,11 @@ public class GameApi {
       /**
    * Search a Game
    * Get a list of games for an application, just those the account has permissions to view.
-   * @param version    * @param accountId The logged in user.   * @param appKey the application key   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param keyword Match the keyword to the owner name or level name.   * @param appVersion The maximum version of the level to return.   * @param includeGameData more details in response   * @param includeInactive more details in response
+   * @param accountId The logged in user.   * @param appKey the application key   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param keyword Match the keyword to the owner name or level name.   * @param appVersion The maximum version of the level to return.   * @param includeGameData more details in response   * @param includeInactive more details in response
   */
-  public void searchGames (BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchGames (Long accountId, String appKey, Integer start, Integer limit, String keyword, String appVersion, Boolean includeGameData, Boolean includeInactive, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchGames",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchGames"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchGames",
@@ -647,7 +602,7 @@ public class GameApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -708,7 +663,6 @@ public class GameApi {
   /**
   * Update a Game
   * Update a Game
-   * @param version 
    * @param accountId The logged in user.
    * @param gameId the updating game&#39;s id
    * @param appKey The game application key to save the level for.
@@ -719,16 +673,11 @@ public class GameApi {
    * @param includeGameData show more details in response.
    * @return GameResponse
   */
-  public GameResponse updateGame (BigDecimal version, Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameResponse updateGame (Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateGame"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/game/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -786,19 +735,14 @@ public class GameApi {
       /**
    * Update a Game
    * Update a Game
-   * @param version    * @param accountId The logged in user.   * @param gameId the updating game&#39;s id   * @param appKey The game application key to save the level for.   * @param title Title of the Game.   * @param description Description of the Game.   * @param metaData metaData of the Game.   * @param packIds comma separated String of pack Ids that will associate with the game.   * @param includeGameData show more details in response.
+   * @param accountId The logged in user.   * @param gameId the updating game&#39;s id   * @param appKey The game application key to save the level for.   * @param title Title of the Game.   * @param description Description of the Game.   * @param metaData metaData of the Game.   * @param packIds comma separated String of pack Ids that will associate with the game.   * @param includeGameData show more details in response.
   */
-  public void updateGame (BigDecimal version, Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateGame (Long accountId, Long gameId, String appKey, String title, String description, String metaData, String packIds, Boolean includeGameData, final Response.Listener<GameResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateGame",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateGame"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/game/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RankFullResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RankingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class RankingApi {
   /**
   * Search Historical Rankings
   * Get historical leaderboard rankings by time-frame.
-   * @param version 
    * @param appKey the application key for filtering results by application
    * @param rankType the rank type to return
    * @param startDate timestamp in milliseconds to filter results with
@@ -73,13 +71,8 @@ public class RankingApi {
    * @param limit the limit for pagination
    * @return RankFullResponse
   */
-  public RankFullResponse getHistoricalRankings (BigDecimal version, String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RankFullResponse getHistoricalRankings (String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getHistoricalRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getHistoricalRankings"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling getHistoricalRankings",
@@ -102,7 +95,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/historical/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/historical/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -162,16 +155,11 @@ public class RankingApi {
       /**
    * Search Historical Rankings
    * Get historical leaderboard rankings by time-frame.
-   * @param version    * @param appKey the application key for filtering results by application   * @param rankType the rank type to return   * @param startDate timestamp in milliseconds to filter results with   * @param endDate timestamp in milliseconds to filter results with   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, MONTHLY, WEEKLY, DAILY, TOP, LOWEST   * @param descending determines whether to return results in ascending or descending order   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param appKey the application key for filtering results by application   * @param rankType the rank type to return   * @param startDate timestamp in milliseconds to filter results with   * @param endDate timestamp in milliseconds to filter results with   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, MONTHLY, WEEKLY, DAILY, TOP, LOWEST   * @param descending determines whether to return results in ascending or descending order   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void getHistoricalRankings (BigDecimal version, String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<RankFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getHistoricalRankings (String appKey, String rankType, Long startDate, Long endDate, String deviceId, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<RankFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getHistoricalRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getHistoricalRankings"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling getHistoricalRankings",
@@ -194,7 +182,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/historical/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/historical/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -257,7 +245,6 @@ public class RankingApi {
   /**
   * Search Rankings
   * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param gameType This parameter is deprecated.
@@ -278,16 +265,11 @@ public class RankingApi {
    * @param limit the limit for pagination
    * @return RankFullResponse
   */
-  public RankFullResponse getRankings (BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RankFullResponse getRankings (String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRankings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -355,19 +337,14 @@ public class RankingApi {
       /**
    * Search Rankings
    * Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-   * @param version    * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key for filtering results by application (required for non-EXECUTIVE users)   * @param q This parameter is deprecated.   * @param keyword keyword to search for   * @param rankType a comma separated list of rank types to return. Possible default rank types: POINTS, DOWNLOADS, INVITATIONS   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL - searches scores globally (all users in the system are included in the ranking) LOCAL - filters results by select users and on users that have logged into the same device CUSTOM - allows for custom filtering using the params: withinAccountIds, albumId, audienceId   * @param withinAccountIds comma separated list of account ids. If performing a LOCAL or CUSTOM search, the query will include these accounts.   * @param returnUserRank determines whether to return the user&#39;s current rank in the response. This can be turned off for sequential paginated requests.   * @param albumId album id to use when performing CUSTOM filters   * @param audienceId audience id to use when performing CUSTOM filters   * @param sortField determines how to order and rank the results. Possible values include: TOTAL - order results by total score MONTHLY - order results by monthly score WEEKLY - order results by weekly score DAILY - order results by daily score TOP - order results by top score LOWEST - order results by lowest score   * @param descending determines whether to return results in ascending or descending order   * @param i This parameter is deprecated.   * @param start the start index for pagination   * @param l This parameter is deprecated.   * @param limit the limit for pagination
+   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key for filtering results by application (required for non-EXECUTIVE users)   * @param q This parameter is deprecated.   * @param keyword keyword to search for   * @param rankType a comma separated list of rank types to return. Possible default rank types: POINTS, DOWNLOADS, INVITATIONS   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL - searches scores globally (all users in the system are included in the ranking) LOCAL - filters results by select users and on users that have logged into the same device CUSTOM - allows for custom filtering using the params: withinAccountIds, albumId, audienceId   * @param withinAccountIds comma separated list of account ids. If performing a LOCAL or CUSTOM search, the query will include these accounts.   * @param returnUserRank determines whether to return the user&#39;s current rank in the response. This can be turned off for sequential paginated requests.   * @param albumId album id to use when performing CUSTOM filters   * @param audienceId audience id to use when performing CUSTOM filters   * @param sortField determines how to order and rank the results. Possible values include: TOTAL - order results by total score MONTHLY - order results by monthly score WEEKLY - order results by weekly score DAILY - order results by daily score TOP - order results by top score LOWEST - order results by lowest score   * @param descending determines whether to return results in ascending or descending order   * @param i This parameter is deprecated.   * @param start the start index for pagination   * @param l This parameter is deprecated.   * @param limit the limit for pagination
   */
-  public void getRankings (BigDecimal version, String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, final Response.Listener<RankFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRankings (String deviceId, Long accountId, String gameType, String appKey, String q, String keyword, String rankType, String leaderboardMode, String withinAccountIds, Boolean returnUserRank, Long albumId, Long audienceId, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, final Response.Listener<RankFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRankings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -438,7 +415,6 @@ public class RankingApi {
   /**
   * Get Personal Rankings
   * Returns the user&#39;s ranks for one or more rank types and modes.
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user
    * @param appKey the application key for filtering results by application (required)
@@ -452,16 +428,11 @@ public class RankingApi {
    * @param limit the limit for pagination
    * @return Object
   */
-  public Object getUserRank (BigDecimal version, String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Object getUserRank (String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserRank",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserRank"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/personal/ranks".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/personal/ranks";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -522,19 +493,14 @@ public class RankingApi {
       /**
    * Get Personal Rankings
    * Returns the user&#39;s ranks for one or more rank types and modes.
-   * @param version    * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user   * @param appKey the application key for filtering results by application (required)   * @param rankType pass in all rankTypes and children rankTypes   * @param returnUserRank determines whether to return the user&#39;s current rank in the response, for each rankType   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL, LOCAL, SEARCH, CUSTOM   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, MONTHLY, WEEKLY, DAILY, TOP, LOWEST   * @param keyword keyword to search for (on rankType)   * @param descending determines whether to return results in descending order   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user   * @param appKey the application key for filtering results by application (required)   * @param rankType pass in all rankTypes and children rankTypes   * @param returnUserRank determines whether to return the user&#39;s current rank in the response, for each rankType   * @param leaderboardMode the type of search to perform. Possible values include: GLOBAL, LOCAL, SEARCH, CUSTOM   * @param sortField determines how to order and rank the results. Possible values include: TOTAL, MONTHLY, WEEKLY, DAILY, TOP, LOWEST   * @param keyword keyword to search for (on rankType)   * @param descending determines whether to return results in descending order   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void getUserRank (BigDecimal version, String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserRank (String deviceId, Long accountId, String appKey, String rankType, Boolean returnUserRank, String leaderboardMode, String sortField, String keyword, Boolean descending, Integer start, Integer limit, final Response.Listener<Object> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserRank",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserRank"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/personal/ranks".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/personal/ranks".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -598,7 +564,6 @@ public class RankingApi {
   /**
   * Override User Rank
   * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-   * @param version 
    * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)
    * @param ownerAccountId the end user&#39;s account id to override
    * @param appKey the application key the leaderboard is for
@@ -623,13 +588,8 @@ public class RankingApi {
    * @param endDate the end date to update
    * @return SirqulResponse
   */
-  public SirqulResponse overrideUserRank (BigDecimal version, Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse overrideUserRank (Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling overrideUserRank",
-        new ApiException(400, "Missing the required parameter 'version' when calling overrideUserRank"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling overrideUserRank",
@@ -652,7 +612,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/override".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/override";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -724,16 +684,11 @@ public class RankingApi {
       /**
    * Override User Rank
    * Allows an admin of an application to override a user&#39;s scores for a leaderboard.
-   * @param version    * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)   * @param ownerAccountId the end user&#39;s account id to override   * @param appKey the application key the leaderboard is for   * @param rankType the rankType of the leaderboard   * @param totalScore the total score to update   * @param totalCount the total count to update   * @param totalTime the total time to update   * @param dailyScore the daily score to update   * @param dailyCount the daily count to update   * @param dailyTime the daily time to update   * @param weeklyScore the weekly score to update   * @param weeklyCount the weekly count to update   * @param weeklyTime the weekly time to update   * @param monthlyScore the monthly score to update   * @param monthlyCount the monthly count to update   * @param monthlyTime the monthly time to update   * @param topScore the top score to update   * @param lowestScore the lowest score to update   * @param streakCount the streak count to update   * @param streakBestCount the best streak count to update   * @param startDate the start date to update   * @param endDate the end date to update
+   * @param accountId the logged in user&#39;s account id (must have permissions to manage data for the application)   * @param ownerAccountId the end user&#39;s account id to override   * @param appKey the application key the leaderboard is for   * @param rankType the rankType of the leaderboard   * @param totalScore the total score to update   * @param totalCount the total count to update   * @param totalTime the total time to update   * @param dailyScore the daily score to update   * @param dailyCount the daily count to update   * @param dailyTime the daily time to update   * @param weeklyScore the weekly score to update   * @param weeklyCount the weekly count to update   * @param weeklyTime the weekly time to update   * @param monthlyScore the monthly score to update   * @param monthlyCount the monthly count to update   * @param monthlyTime the monthly time to update   * @param topScore the top score to update   * @param lowestScore the lowest score to update   * @param streakCount the streak count to update   * @param streakBestCount the best streak count to update   * @param startDate the start date to update   * @param endDate the end date to update
   */
-  public void overrideUserRank (BigDecimal version, Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void overrideUserRank (Long accountId, Long ownerAccountId, String appKey, String rankType, Long totalScore, Long totalCount, Long totalTime, Long dailyScore, Long dailyCount, Long dailyTime, Long weeklyScore, Long weeklyCount, Long weeklyTime, Long monthlyScore, Long monthlyCount, Long monthlyTime, Long topScore, Long lowestScore, Long streakCount, Long streakBestCount, Long startDate, Long endDate, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling overrideUserRank",
-        new ApiException(400, "Missing the required parameter 'version' when calling overrideUserRank"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling overrideUserRank",
@@ -756,7 +711,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/override".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/override".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -831,7 +786,6 @@ public class RankingApi {
   /**
   * Update Ranking
   * Update the rank value 
-   * @param version 
    * @param accountId the account id of the user
    * @param appKey the application key for filtering results by application
    * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS
@@ -844,13 +798,8 @@ public class RankingApi {
    * @param createLeaderboard create the leaderboard if it does not exist (default false)
    * @return SirqulResponse
   */
-  public SirqulResponse updateRankings (BigDecimal version, Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateRankings (Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRankings"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateRankings",
@@ -868,7 +817,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -928,16 +877,11 @@ public class RankingApi {
       /**
    * Update Ranking
    * Update the rank value 
-   * @param version    * @param accountId the account id of the user   * @param appKey the application key for filtering results by application   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS   * @param increment the value to increment   * @param timeIncrement the time value to increment   * @param tag the analytic tag for this achievement (used to validate scores)   * @param startDate custom date you can save along with the score for the user   * @param endDate custom date you can save along with the score for the user   * @param updateGlobal update the global rankings if true, default is false   * @param createLeaderboard create the leaderboard if it does not exist (default false)
+   * @param accountId the account id of the user   * @param appKey the application key for filtering results by application   * @param rankType a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS   * @param increment the value to increment   * @param timeIncrement the time value to increment   * @param tag the analytic tag for this achievement (used to validate scores)   * @param startDate custom date you can save along with the score for the user   * @param endDate custom date you can save along with the score for the user   * @param updateGlobal update the global rankings if true, default is false   * @param createLeaderboard create the leaderboard if it does not exist (default false)
   */
-  public void updateRankings (BigDecimal version, Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRankings (Long accountId, String appKey, String rankType, Long increment, Long timeIncrement, String tag, Long startDate, Long endDate, Boolean updateGlobal, Boolean createLeaderboard, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRankings",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRankings"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateRankings",
@@ -955,7 +899,7 @@ public class RankingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ranking/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ranking/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

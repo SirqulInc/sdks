@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CreativeResponse;
 import java.util.*;
 import org.openapitools.client.model.MissionResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class CreativeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,18 +61,12 @@ public class CreativeApi {
   /**
   * Add Preview
   * Enable this ad for preview for this account.
-   * @param version 
    * @param accountId the id of the account
    * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
    * @return SirqulResponse
   */
-  public SirqulResponse addPreview (BigDecimal version, Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse addPreview (Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addPreview",
-        new ApiException(400, "Missing the required parameter 'version' when calling addPreview"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addPreview",
@@ -86,7 +79,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/addpreview".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/addpreview";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -138,16 +131,11 @@ public class CreativeApi {
       /**
    * Add Preview
    * Enable this ad for preview for this account.
-   * @param version    * @param accountId the id of the account   * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
+   * @param accountId the id of the account   * @param creativeId The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.
   */
-  public void addPreview (BigDecimal version, Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addPreview (Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addPreview",
-        new ApiException(400, "Missing the required parameter 'version' when calling addPreview"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addPreview",
@@ -160,7 +148,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/addpreview".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/addpreview".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -215,7 +203,6 @@ public class CreativeApi {
   /**
   * Find Missions
   * Get a set of ad filtered by the parameters provided.
-   * @param version 
    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
    * @param randomize return a random set of results, default is true. If false returns in nature order.
    * @param targetedAdsOnly return only ads targets to the specific app, no global ads.
@@ -234,13 +221,8 @@ public class CreativeApi {
    * @param missionIds return only ads from the specified campaigns.
    * @return List<MissionResponse>
   */
-  public List<MissionResponse> adsFind (BigDecimal version, String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MissionResponse> adsFind (String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling adsFind",
-        new ApiException(400, "Missing the required parameter 'version' when calling adsFind"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling adsFind",
@@ -258,7 +240,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ads/find".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ads/find";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -324,16 +306,11 @@ public class CreativeApi {
       /**
    * Find Missions
    * Get a set of ad filtered by the parameters provided.
-   * @param version    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.   * @param randomize return a random set of results, default is true. If false returns in nature order.   * @param targetedAdsOnly return only ads targets to the specific app, no global ads.   * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.   * @param accountId The logged in user.   * @param appVersion The version of the application, will not return levels newer than the appVersion.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param device Should use deviceId if possible. The name of the requesting device; possible values are: Android, iPhone, iPad, iPod, etc. use /audience/devices for list.   * @param deviceIdentifier The device ID of the requesting device, use /audience/devices for list   * @param deviceVersion The requesting device version; examples are: 2.3, 5.1.4, 6.1.4. Supports X, X.X, or X.X.X formated string.   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param allocatesTickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.   * @param missionIds return only ads from the specified campaigns.
+   * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.   * @param randomize return a random set of results, default is true. If false returns in nature order.   * @param targetedAdsOnly return only ads targets to the specific app, no global ads.   * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.   * @param accountId The logged in user.   * @param appVersion The version of the application, will not return levels newer than the appVersion.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param device Should use deviceId if possible. The name of the requesting device; possible values are: Android, iPhone, iPad, iPod, etc. use /audience/devices for list.   * @param deviceIdentifier The device ID of the requesting device, use /audience/devices for list   * @param deviceVersion The requesting device version; examples are: 2.3, 5.1.4, 6.1.4. Supports X, X.X, or X.X.X formated string.   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param allocatesTickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.   * @param missionIds return only ads from the specified campaigns.
   */
-  public void adsFind (BigDecimal version, String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void adsFind (String appKey, Boolean randomize, Boolean targetedAdsOnly, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeAudiences, Boolean allocatesTickets, String missionIds, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling adsFind",
-        new ApiException(400, "Missing the required parameter 'version' when calling adsFind"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling adsFind",
@@ -351,7 +328,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/ads/find".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/ads/find".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -420,7 +397,6 @@ public class CreativeApi {
   /**
   * Create Creative
   * Create a creative
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the level.
    * @param active If true set the game level as active. Default is false.
@@ -438,13 +414,8 @@ public class CreativeApi {
    * @param offerId the id of the offer
    * @return CreativeResponse
   */
-  public CreativeResponse createCreative (BigDecimal version, Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CreativeResponse createCreative (Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createCreative",
@@ -467,7 +438,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -532,16 +503,11 @@ public class CreativeApi {
       /**
    * Create Creative
    * Create a creative
-   * @param version    * @param accountId The logged in user.   * @param name The name of the level.   * @param active If true set the game level as active. Default is false.   * @param waitForAsset determines whether the response will wait until the asset gets created   * @param description The description of the level.   * @param assetImageId The asset Id of the level image.   * @param action This parameter is deprecated. deprecated use data field   * @param data The creative data, json based format depending on type. If not using action then data is required.   * @param suffix This parameter is deprecated. deprecated use type field   * @param type The type of creative. If not using suffix then type is required.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param referenceId if creative related so some other content provided the id   * @param appVersion The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.   * @param missionId Assign the creative to a campaign for timing and audience matching.   * @param offerId the id of the offer
+   * @param accountId The logged in user.   * @param name The name of the level.   * @param active If true set the game level as active. Default is false.   * @param waitForAsset determines whether the response will wait until the asset gets created   * @param description The description of the level.   * @param assetImageId The asset Id of the level image.   * @param action This parameter is deprecated. deprecated use data field   * @param data The creative data, json based format depending on type. If not using action then data is required.   * @param suffix This parameter is deprecated. deprecated use type field   * @param type The type of creative. If not using suffix then type is required.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param referenceId if creative related so some other content provided the id   * @param appVersion The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.   * @param missionId Assign the creative to a campaign for timing and audience matching.   * @param offerId the id of the offer
   */
-  public void createCreative (BigDecimal version, Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createCreative (Long accountId, String name, Boolean active, Boolean waitForAsset, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Long referenceId, String appVersion, Long missionId, Long offerId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createCreative",
@@ -564,7 +530,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -632,18 +598,12 @@ public class CreativeApi {
   /**
   * Delete Creative
   * Delete a creative
-   * @param version 
    * @param accountId the id of the logged in user
    * @param creativeId the id of the creative to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteCreative (BigDecimal version, Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteCreative (Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteCreative",
@@ -656,7 +616,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -708,16 +668,11 @@ public class CreativeApi {
       /**
    * Delete Creative
    * Delete a creative
-   * @param version    * @param accountId the id of the logged in user   * @param creativeId the id of the creative to delete
+   * @param accountId the id of the logged in user   * @param creativeId the id of the creative to delete
   */
-  public void deleteCreative (BigDecimal version, Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteCreative (Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteCreative",
@@ -730,7 +685,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -785,18 +740,12 @@ public class CreativeApi {
   /**
   * Get Creative
   * Get a creative
-   * @param version 
    * @param accountId the id of the logged in user
    * @param creativeId the ID of the creative to get
    * @return CreativeResponse
   */
-  public CreativeResponse getCreative (BigDecimal version, Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CreativeResponse getCreative (Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCreative",
@@ -809,7 +758,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -861,16 +810,11 @@ public class CreativeApi {
       /**
    * Get Creative
    * Get a creative
-   * @param version    * @param accountId the id of the logged in user   * @param creativeId the ID of the creative to get
+   * @param accountId the id of the logged in user   * @param creativeId the ID of the creative to get
   */
-  public void getCreative (BigDecimal version, Long accountId, Long creativeId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getCreative (Long accountId, Long creativeId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCreative",
@@ -883,7 +827,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -938,7 +882,6 @@ public class CreativeApi {
   /**
   * Search Creatives
   * Get a list of levels for an application, just those the account has permissions to view.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param start Start the result set at some index.
@@ -947,13 +890,8 @@ public class CreativeApi {
    * @param keyword Match the keyword to the owner name or level name.
    * @return List<CreativeResponse>
   */
-  public List<CreativeResponse> getCreativesByApplication (BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<CreativeResponse> getCreativesByApplication (Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCreativesByApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCreativesByApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCreativesByApplication",
@@ -976,7 +914,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1032,16 +970,11 @@ public class CreativeApi {
       /**
    * Search Creatives
    * Get a list of levels for an application, just those the account has permissions to view.
-   * @param version    * @param accountId The logged in user.   * @param appKey the application key   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param missionId Creatives contained in the provided mission.   * @param keyword Match the keyword to the owner name or level name.
+   * @param accountId The logged in user.   * @param appKey the application key   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param missionId Creatives contained in the provided mission.   * @param keyword Match the keyword to the owner name or level name.
   */
-  public void getCreativesByApplication (BigDecimal version, Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword, final Response.Listener<List<CreativeResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getCreativesByApplication (Long accountId, String appKey, Integer start, Integer limit, Long missionId, String keyword, final Response.Listener<List<CreativeResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCreativesByApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCreativesByApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCreativesByApplication",
@@ -1064,7 +997,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1123,18 +1056,12 @@ public class CreativeApi {
   /**
   * Remove Preview
   * Remove this ad for preview for this account.
-   * @param version 
    * @param accountId the ID of the logged in user
    * @param creativeId the ID of the creative to remove preview
    * @return SirqulResponse
   */
-  public SirqulResponse removePreview (BigDecimal version, Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removePreview (Long accountId, Long creativeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removePreview",
-        new ApiException(400, "Missing the required parameter 'version' when calling removePreview"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling removePreview",
@@ -1147,7 +1074,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/removepreview".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/removepreview";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1199,16 +1126,11 @@ public class CreativeApi {
       /**
    * Remove Preview
    * Remove this ad for preview for this account.
-   * @param version    * @param accountId the ID of the logged in user   * @param creativeId the ID of the creative to remove preview
+   * @param accountId the ID of the logged in user   * @param creativeId the ID of the creative to remove preview
   */
-  public void removePreview (BigDecimal version, Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removePreview (Long accountId, Long creativeId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removePreview",
-        new ApiException(400, "Missing the required parameter 'version' when calling removePreview"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling removePreview",
@@ -1221,7 +1143,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/removepreview".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/removepreview".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1276,7 +1198,6 @@ public class CreativeApi {
   /**
   * Update Creative
   * Update a creative
-   * @param version 
    * @param accountId The logged in user.
    * @param creativeId the creative Id to upate.
    * @param name The name of the level.
@@ -1293,13 +1214,8 @@ public class CreativeApi {
    * @param missionId Assign the creative to a campaign for timing and audience matching.
    * @return CreativeResponse
   */
-  public CreativeResponse updateCreative (BigDecimal version, Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CreativeResponse updateCreative (Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateCreative",
@@ -1312,7 +1228,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1376,16 +1292,11 @@ public class CreativeApi {
       /**
    * Update Creative
    * Update a creative
-   * @param version    * @param accountId The logged in user.   * @param creativeId the creative Id to upate.   * @param name The name of the level.   * @param description The description of the level.   * @param assetImageId The asset Id of the level image.   * @param action This parameter is deprecated. deprecated use data field   * @param data The creative data, json based format depending on type   * @param suffix This parameter is deprecated. deprecated use type field   * @param type The type of creative.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active. Default is false.   * @param referenceId if creative related so some other content provided the id   * @param appVersion The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.   * @param missionId Assign the creative to a campaign for timing and audience matching.
+   * @param accountId The logged in user.   * @param creativeId the creative Id to upate.   * @param name The name of the level.   * @param description The description of the level.   * @param assetImageId The asset Id of the level image.   * @param action This parameter is deprecated. deprecated use data field   * @param data The creative data, json based format depending on type   * @param suffix This parameter is deprecated. deprecated use type field   * @param type The type of creative.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active. Default is false.   * @param referenceId if creative related so some other content provided the id   * @param appVersion The version of the application, will not return creatives newer than the appVersion. Only used when requesting application configuration creatives.   * @param missionId Assign the creative to a campaign for timing and audience matching.
   */
-  public void updateCreative (BigDecimal version, Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateCreative (Long accountId, Long creativeId, String name, String description, Long assetImageId, String action, String data, String suffix, String type, Double balance, Boolean active, Long referenceId, String appVersion, Long missionId, final Response.Listener<CreativeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCreative",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCreative"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateCreative",
@@ -1398,7 +1309,7 @@ public class CreativeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/creative/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/creative/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

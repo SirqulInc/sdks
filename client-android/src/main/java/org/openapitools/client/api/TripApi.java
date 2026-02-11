@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.Trip;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TripApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class TripApi {
   /**
   * Create Trip
   * Create a new trip
-   * @param version 
    * @param body 
    * @return Trip
   */
-  public Trip createTrip (BigDecimal version, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip createTrip (Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTrip"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class TripApi {
       /**
    * Create Trip
    * Create a new trip
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createTrip (BigDecimal version, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void createTrip (Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTrip"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/trip".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,17 +176,11 @@ public class TripApi {
   /**
   * Delete Trip
   * Delete an existing trip
-   * @param version 
    * @param id the id of the trip to delete
    * @return void
   */
-  public void delete (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void delete (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling delete",
-        new ApiException(400, "Missing the required parameter 'version' when calling delete"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling delete",
@@ -206,7 +188,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -256,16 +238,11 @@ public class TripApi {
       /**
    * Delete Trip
    * Delete an existing trip
-   * @param version    * @param id the id of the trip to delete
+   * @param id the id of the trip to delete
   */
-  public void delete (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void delete (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling delete",
-        new ApiException(400, "Missing the required parameter 'version' when calling delete"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling delete",
@@ -273,7 +250,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -322,18 +299,12 @@ public class TripApi {
   /**
   * Set Trip Preference Driver
   * Update trip preference to drive, also create a route and assign the trip to the route
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    * @return Trip
   */
-  public Trip driveTrip (BigDecimal version, Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip driveTrip (Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling driveTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling driveTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling driveTrip",
@@ -346,7 +317,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/drive".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/drive".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -397,16 +368,11 @@ public class TripApi {
       /**
    * Set Trip Preference Driver
    * Update trip preference to drive, also create a route and assign the trip to the route
-   * @param version    * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
+   * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
   */
-  public void driveTrip (BigDecimal version, Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void driveTrip (Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling driveTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling driveTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling driveTrip",
@@ -419,7 +385,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/drive".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/drive".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -473,18 +439,12 @@ public class TripApi {
   /**
   * Set Trip Preference Flexible
   * Update trip preference to flexible.
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    * @return Trip
   */
-  public Trip flexibleTrip (BigDecimal version, Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip flexibleTrip (Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling flexibleTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling flexibleTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling flexibleTrip",
@@ -497,7 +457,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/flexible".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/flexible".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -548,16 +508,11 @@ public class TripApi {
       /**
    * Set Trip Preference Flexible
    * Update trip preference to flexible.
-   * @param version    * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
+   * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
   */
-  public void flexibleTrip (BigDecimal version, Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void flexibleTrip (Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling flexibleTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling flexibleTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling flexibleTrip",
@@ -570,7 +525,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/flexible".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/flexible".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -624,17 +579,11 @@ public class TripApi {
   /**
   * Get Trip
   * Get an existing trip
-   * @param version 
    * @param id the id of the trip to get
    * @return Trip
   */
-  public Trip getTrip (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip getTrip (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getTrip",
@@ -642,7 +591,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -692,16 +641,11 @@ public class TripApi {
       /**
    * Get Trip
    * Get an existing trip
-   * @param version    * @param id the id of the trip to get
+   * @param id the id of the trip to get
   */
-  public void getTrip (BigDecimal version, Long id, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void getTrip (Long id, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getTrip",
@@ -709,7 +653,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -762,7 +706,6 @@ public class TripApi {
   /**
   * Get Trip Matches
   * Get matching trips of specific trip
-   * @param version 
    * @param id The id The id of the trip to search for matches for
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -773,13 +716,8 @@ public class TripApi {
    * @param matchedHasDriver Only return matchings that already have driver assigned
    * @return List<Trip>
   */
-  public List<Trip> getTripMatches (BigDecimal version, Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> getTripMatches (Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTripMatches",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTripMatches"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getTripMatches",
@@ -812,7 +750,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/match".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/match".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -869,16 +807,11 @@ public class TripApi {
       /**
    * Get Trip Matches
    * Get matching trips of specific trip
-   * @param version    * @param id The id The id of the trip to search for matches for   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param matchedHasRoute Only return matchings that already have route assigned   * @param matchedHasDriver Only return matchings that already have driver assigned
+   * @param id The id The id of the trip to search for matches for   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param matchedHasRoute Only return matchings that already have route assigned   * @param matchedHasDriver Only return matchings that already have driver assigned
   */
-  public void getTripMatches (BigDecimal version, Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void getTripMatches (Long id, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean matchedHasRoute, Boolean matchedHasDriver, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTripMatches",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTripMatches"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getTripMatches",
@@ -911,7 +844,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/match".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/match".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -971,22 +904,16 @@ public class TripApi {
   /**
   * Process Trip Matches
   * Process trip matching, assign trips with no route to matched trips with route.
-   * @param version 
    * @param startDate The lower bound date to process matchings
    * @param endDate The upper bound date to process matchings
    * @param tripId the id of the trip to process
    * @return List<Trip>
   */
-  public List<Trip> processTripMatches (BigDecimal version, Long startDate, Long endDate, Long tripId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> processTripMatches (Long startDate, Long endDate, Long tripId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processTripMatches",
-        new ApiException(400, "Missing the required parameter 'version' when calling processTripMatches"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/trip/match/process".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/match/process";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1039,19 +966,14 @@ public class TripApi {
       /**
    * Process Trip Matches
    * Process trip matching, assign trips with no route to matched trips with route.
-   * @param version    * @param startDate The lower bound date to process matchings   * @param endDate The upper bound date to process matchings   * @param tripId the id of the trip to process
+   * @param startDate The lower bound date to process matchings   * @param endDate The upper bound date to process matchings   * @param tripId the id of the trip to process
   */
-  public void processTripMatches (BigDecimal version, Long startDate, Long endDate, Long tripId, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void processTripMatches (Long startDate, Long endDate, Long tripId, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processTripMatches",
-        new ApiException(400, "Missing the required parameter 'version' when calling processTripMatches"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/trip/match/process".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/match/process".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1107,18 +1029,12 @@ public class TripApi {
   /**
   * Set Trip Preference Rider
   * Update trip preference to ride.
-   * @param version 
    * @param id the id of the trip
    * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
    * @return Trip
   */
-  public Trip ride (BigDecimal version, Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip ride (Long id, Boolean recurrence) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling ride",
-        new ApiException(400, "Missing the required parameter 'version' when calling ride"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling ride",
@@ -1131,7 +1047,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/ride".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/ride".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1182,16 +1098,11 @@ public class TripApi {
       /**
    * Set Trip Preference Rider
    * Update trip preference to ride.
-   * @param version    * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
+   * @param id the id of the trip   * @param recurrence the frequency of the trip (e.g. weekly, until 2018-08-09)
   */
-  public void ride (BigDecimal version, Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void ride (Long id, Boolean recurrence, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling ride",
-        new ApiException(400, "Missing the required parameter 'version' when calling ride"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling ride",
@@ -1204,7 +1115,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/ride".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/ride".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1258,7 +1169,6 @@ public class TripApi {
   /**
   * Search Trips
   * Search for trips
-   * @param version 
    * @param accountId The owner of the trips
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -1270,13 +1180,8 @@ public class TripApi {
    * @param hasNotifications whether to search on trips that have notifications or not
    * @return List<Trip>
   */
-  public List<Trip> search (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> search (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling search",
-        new ApiException(400, "Missing the required parameter 'version' when calling search"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling search",
@@ -1309,7 +1214,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1368,16 +1273,11 @@ public class TripApi {
       /**
    * Search Trips
    * Search for trips
-   * @param version    * @param accountId The owner of the trips   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param startDate The lower bound limit of time   * @param endDate The upper bound limit of time   * @param hasNotifications whether to search on trips that have notifications or not
+   * @param accountId The owner of the trips   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param startDate The lower bound limit of time   * @param endDate The upper bound limit of time   * @param hasNotifications whether to search on trips that have notifications or not
   */
-  public void search (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void search (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean hasNotifications, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling search",
-        new ApiException(400, "Missing the required parameter 'version' when calling search"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling search",
@@ -1410,7 +1310,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1472,7 +1372,6 @@ public class TripApi {
   /**
   * Search Trips
   * Search for trips with matching information.
-   * @param version 
    * @param accountId The owner of the trips
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
@@ -1485,13 +1384,8 @@ public class TripApi {
    * @param matchedHasDriver Only return matchings that already have driver assigned
    * @return List<Trip>
   */
-  public List<Trip> searchTrips (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> searchTrips (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTrips",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTrips"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTrips",
@@ -1524,7 +1418,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/match".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/match";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1584,16 +1478,11 @@ public class TripApi {
       /**
    * Search Trips
    * Search for trips with matching information.
-   * @param version    * @param accountId The owner of the trips   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param startDate The lower bound limit of time   * @param endDate The upper bound limit of time   * @param matchedHasRoute Only return matchings that already have route assigned   * @param matchedHasDriver Only return matchings that already have driver assigned
+   * @param accountId The owner of the trips   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param startDate The lower bound limit of time   * @param endDate The upper bound limit of time   * @param matchedHasRoute Only return matchings that already have route assigned   * @param matchedHasDriver Only return matchings that already have driver assigned
   */
-  public void searchTrips (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTrips (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long startDate, Long endDate, Boolean matchedHasRoute, Boolean matchedHasDriver, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTrips",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTrips"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTrips",
@@ -1626,7 +1515,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/match".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/match".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1689,18 +1578,12 @@ public class TripApi {
   /**
   * Update Trip Locations
   * 
-   * @param version 
    * @param id the id of the trip to update locations for
    * @param body 
    * @return Trip
   */
-  public Trip updateLocations (BigDecimal version, Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip updateLocations (Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLocations"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateLocations",
@@ -1708,7 +1591,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/locations".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/locations".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1758,16 +1641,11 @@ public class TripApi {
       /**
    * Update Trip Locations
    * 
-   * @param version    * @param id the id of the trip to update locations for   * @param body 
+   * @param id the id of the trip to update locations for   * @param body 
   */
-  public void updateLocations (BigDecimal version, Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void updateLocations (Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLocations"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateLocations",
@@ -1775,7 +1653,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/locations".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/locations".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1828,18 +1706,12 @@ public class TripApi {
   /**
   * Update Recurrence Locations
   * 
-   * @param version 
    * @param id the id of the trip
    * @param body 
    * @return List<Trip>
   */
-  public List<Trip> updateRecurrenceLocations (BigDecimal version, Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> updateRecurrenceLocations (Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRecurrenceLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRecurrenceLocations"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateRecurrenceLocations",
@@ -1847,7 +1719,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/locations/recurrence".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/locations/recurrence".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1897,16 +1769,11 @@ public class TripApi {
       /**
    * Update Recurrence Locations
    * 
-   * @param version    * @param id the id of the trip   * @param body 
+   * @param id the id of the trip   * @param body 
   */
-  public void updateRecurrenceLocations (BigDecimal version, Long id, Trip body, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRecurrenceLocations (Long id, Trip body, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRecurrenceLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRecurrenceLocations"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateRecurrenceLocations",
@@ -1914,7 +1781,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/locations/recurrence".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/locations/recurrence".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1967,18 +1834,12 @@ public class TripApi {
   /**
   * Update Recurrence Shipments
   * 
-   * @param version 
    * @param id the id of the trip
    * @param body 
    * @return List<Trip>
   */
-  public List<Trip> updateRecurrenceShipments (BigDecimal version, Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Trip> updateRecurrenceShipments (Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRecurrenceShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRecurrenceShipments"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateRecurrenceShipments",
@@ -1986,7 +1847,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/shipments/recurrence".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/shipments/recurrence".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2036,16 +1897,11 @@ public class TripApi {
       /**
    * Update Recurrence Shipments
    * 
-   * @param version    * @param id the id of the trip   * @param body 
+   * @param id the id of the trip   * @param body 
   */
-  public void updateRecurrenceShipments (BigDecimal version, Long id, Trip body, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRecurrenceShipments (Long id, Trip body, final Response.Listener<List<Trip>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRecurrenceShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRecurrenceShipments"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateRecurrenceShipments",
@@ -2053,7 +1909,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/shipments/recurrence".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/shipments/recurrence".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2106,18 +1962,12 @@ public class TripApi {
   /**
   * Update Trip Shipments
   * 
-   * @param version 
    * @param id the id of the trip shipments to update
    * @param body 
    * @return Trip
   */
-  public Trip updateShipments (BigDecimal version, Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip updateShipments (Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipments"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipments",
@@ -2125,7 +1975,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/shipments".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/shipments".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2175,16 +2025,11 @@ public class TripApi {
       /**
    * Update Trip Shipments
    * 
-   * @param version    * @param id the id of the trip shipments to update   * @param body 
+   * @param id the id of the trip shipments to update   * @param body 
   */
-  public void updateShipments (BigDecimal version, Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void updateShipments (Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipments"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipments",
@@ -2192,7 +2037,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2245,18 +2090,12 @@ public class TripApi {
   /**
   * Update Trip
   * Update an existing trip. Does not support recurring trip update.
-   * @param version 
    * @param id the id of the trip to update
    * @param body 
    * @return Trip
   */
-  public Trip updateTrip (BigDecimal version, Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip updateTrip (Long id, Trip body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateTrip",
@@ -2264,7 +2103,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2314,16 +2153,11 @@ public class TripApi {
       /**
    * Update Trip
    * Update an existing trip. Does not support recurring trip update.
-   * @param version    * @param id the id of the trip to update   * @param body 
+   * @param id the id of the trip to update   * @param body 
   */
-  public void updateTrip (BigDecimal version, Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTrip (Long id, Trip body, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTrip",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTrip"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateTrip",
@@ -2331,7 +2165,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/trip/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2384,18 +2218,12 @@ public class TripApi {
   /**
   * Trip Notifications
   * Update the trip notifications
-   * @param version 
    * @param id the id of the trip
    * @param notifications the notifications to update on the trip
    * @return Trip
   */
-  public Trip updateTripNotifications (BigDecimal version, Long id, String notifications) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Trip updateTripNotifications (Long id, String notifications) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTripNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTripNotifications"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateTripNotifications",
@@ -2403,7 +2231,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/notifications".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/notifications";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2455,16 +2283,11 @@ public class TripApi {
       /**
    * Trip Notifications
    * Update the trip notifications
-   * @param version    * @param id the id of the trip   * @param notifications the notifications to update on the trip
+   * @param id the id of the trip   * @param notifications the notifications to update on the trip
   */
-  public void updateTripNotifications (BigDecimal version, Long id, String notifications, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTripNotifications (Long id, String notifications, final Response.Listener<Trip> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTripNotifications",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTripNotifications"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateTripNotifications",
@@ -2472,7 +2295,7 @@ public class TripApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trip/notifications".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trip/notifications".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

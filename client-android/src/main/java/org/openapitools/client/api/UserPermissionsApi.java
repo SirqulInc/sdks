@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.UserPermissionsResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class UserPermissionsApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class UserPermissionsApi {
   /**
   * Add User
   * Adds a user to a permissionable object.
-   * @param version 
    * @param permissionableType the permissionable type of the object
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -81,13 +79,8 @@ public class UserPermissionsApi {
    * @param audienceIds comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
    * @return SirqulResponse
   */
-  public SirqulResponse addUsersToPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse addUsersToPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addUsersToPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling addUsersToPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling addUsersToPermissionable",
@@ -100,7 +93,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/add".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/add";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -167,16 +160,11 @@ public class UserPermissionsApi {
       /**
    * Add User
    * Adds a user to a permissionable object.
-   * @param version    * @param permissionableType the permissionable type of the object   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param read the read permission of the users/groups   * @param write the write permission of the users/groups   * @param delete the delete permission of the users/groups   * @param add the add permission of the users/groups   * @param connectionIds a comma separated list of connection ids (NOT the account ids)   * @param connectionAccountIds a comma separated list of account ids   * @param connectionGroupIds a comma separated list of connection group ids (these are groups made by the user)   * @param pending sets whether the added users are marked as pending (and will require the album admins to accept) - admins can set this to false (to accept)   * @param admin sets whether the added users will become admins or not   * @param includeFriendGroup flag to determine whether to include the built-in \&quot;friends\&quot; group   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param audienceIds comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
+   * @param permissionableType the permissionable type of the object   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param read the read permission of the users/groups   * @param write the write permission of the users/groups   * @param delete the delete permission of the users/groups   * @param add the add permission of the users/groups   * @param connectionIds a comma separated list of connection ids (NOT the account ids)   * @param connectionAccountIds a comma separated list of account ids   * @param connectionGroupIds a comma separated list of connection group ids (these are groups made by the user)   * @param pending sets whether the added users are marked as pending (and will require the album admins to accept) - admins can set this to false (to accept)   * @param admin sets whether the added users will become admins or not   * @param includeFriendGroup flag to determine whether to include the built-in \&quot;friends\&quot; group   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param audienceIds comma separated list of audience ids. This is a feature only available to the permissionable&#39;s application owner (and its employees). This will add all users from these audiences to the permissionable object. Notifications will not be sent to users if this feature is used.
   */
-  public void addUsersToPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addUsersToPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, Boolean read, Boolean write, Boolean delete, Boolean add, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean pending, Boolean admin, Boolean includeFriendGroup, Double latitude, Double longitude, String audienceIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addUsersToPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling addUsersToPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling addUsersToPermissionable",
@@ -189,7 +177,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/add".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/add".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -259,7 +247,6 @@ public class UserPermissionsApi {
   /**
   * Approve Permissionable
   * Sets the approval status of a permissionable object.
-   * @param version 
    * @param permissionableType The permissionable type of the object
    * @param permissionableId The id of the permissionable object
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -267,13 +254,8 @@ public class UserPermissionsApi {
    * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
    * @return SirqulResponse
   */
-  public SirqulResponse approvePermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse approvePermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approvePermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling approvePermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling approvePermissionable",
@@ -286,7 +268,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/permissionable/approve".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissionable/approve";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -341,16 +323,11 @@ public class UserPermissionsApi {
       /**
    * Approve Permissionable
    * Sets the approval status of a permissionable object.
-   * @param version    * @param permissionableType The permissionable type of the object   * @param permissionableId The id of the permissionable object   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
+   * @param permissionableType The permissionable type of the object   * @param permissionableId The id of the permissionable object   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param approvalStatus The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}
   */
-  public void approvePermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void approvePermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, String approvalStatus, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approvePermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling approvePermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling approvePermissionable",
@@ -363,7 +340,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/permissionable/approve".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissionable/approve".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -421,7 +398,6 @@ public class UserPermissionsApi {
   /**
   * Leave
   * Used when the user wants to leave from someone else&#39;s permissionable object
-   * @param version 
    * @param permissionableType the permissionable type PermissionableType
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -430,13 +406,8 @@ public class UserPermissionsApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse leaveFromPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse leaveFromPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling leaveFromPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling leaveFromPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling leaveFromPermissionable",
@@ -449,7 +420,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/leave".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/leave";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -505,16 +476,11 @@ public class UserPermissionsApi {
       /**
    * Leave
    * Used when the user wants to leave from someone else&#39;s permissionable object
-   * @param version    * @param permissionableType the permissionable type PermissionableType   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param permissionableType the permissionable type PermissionableType   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void leaveFromPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void leaveFromPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling leaveFromPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling leaveFromPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling leaveFromPermissionable",
@@ -527,7 +493,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/leave".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/leave".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -586,7 +552,6 @@ public class UserPermissionsApi {
   /**
   * Remove User
   * Used to remove someone (assuming they have permission) from a permissionable object
-   * @param version 
    * @param permissionableType the permissionable type of the object
    * @param permissionableId the id of the permissionable object
    * @param deviceId the device id (deviceId or accountId required)
@@ -600,13 +565,8 @@ public class UserPermissionsApi {
    * @param audienceIds comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
    * @return SirqulResponse
   */
-  public SirqulResponse removeUsersFromPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeUsersFromPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeUsersFromPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeUsersFromPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling removeUsersFromPermissionable",
@@ -619,7 +579,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -680,16 +640,11 @@ public class UserPermissionsApi {
       /**
    * Remove User
    * Used to remove someone (assuming they have permission) from a permissionable object
-   * @param version    * @param permissionableType the permissionable type of the object   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds a comma separated list of connection ids (NOT the account ids)   * @param connectionAccountIds a comma separated list of account ids   * @param connectionGroupIds a comma separated list of connection group ids (these are groups made by the user)   * @param removeFriendGroup flag to determine whether to remove the built-in \&quot;friends\&quot; group   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param audienceIds comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
+   * @param permissionableType the permissionable type of the object   * @param permissionableId the id of the permissionable object   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds a comma separated list of connection ids (NOT the account ids)   * @param connectionAccountIds a comma separated list of account ids   * @param connectionGroupIds a comma separated list of connection group ids (these are groups made by the user)   * @param removeFriendGroup flag to determine whether to remove the built-in \&quot;friends\&quot; group   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param audienceIds comma separated list of audience ids. This will remove all users from these audiences from the permissionable object. Notifications will not be sent to users if this feature is used.
   */
-  public void removeUsersFromPermissionable (BigDecimal version, String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeUsersFromPermissionable (String permissionableType, Long permissionableId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, String connectionGroupIds, Boolean removeFriendGroup, Double latitude, Double longitude, String audienceIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeUsersFromPermissionable",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeUsersFromPermissionable"));
-    }
     // verify the required parameter 'permissionableType' is set
     if (permissionableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'permissionableType' when calling removeUsersFromPermissionable",
@@ -702,7 +657,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/permissions/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/permissions/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -766,7 +721,6 @@ public class UserPermissionsApi {
   /**
   * Search Permissionables
   * Search on UserPermissions
-   * @param version 
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param connectionAccountId Filter results for a specific user account
@@ -782,16 +736,11 @@ public class UserPermissionsApi {
    * @param limit the limit for pagination
    * @return List<UserPermissionsResponse>
   */
-  public List<UserPermissionsResponse> searchPermissionables (BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<UserPermissionsResponse> searchPermissionables (String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPermissionables",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPermissionables"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/permissions/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissions/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -854,19 +803,14 @@ public class UserPermissionsApi {
       /**
    * Search Permissionables
    * Search on UserPermissions
-   * @param version    * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId Filter results for a specific user account   * @param connectionAccountIds Comma separated list of account IDs to filter results with   * @param permissionableType Filter user permissions by the permissionable object type   * @param permissionableId The id of the permissionable object to filter by   * @param keyword Keyword to search within permissionable records   * @param sortField Field to sort results on   * @param descending Sort descending when true   * @param pending Return user permissions that are pending   * @param admin Return user permissions that are admins   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId Filter results for a specific user account   * @param connectionAccountIds Comma separated list of account IDs to filter results with   * @param permissionableType Filter user permissions by the permissionable object type   * @param permissionableId The id of the permissionable object to filter by   * @param keyword Keyword to search within permissionable records   * @param sortField Field to sort results on   * @param descending Sort descending when true   * @param pending Return user permissions that are pending   * @param admin Return user permissions that are admins   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void searchPermissionables (BigDecimal version, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit, final Response.Listener<List<UserPermissionsResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPermissionables (String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, String keyword, String sortField, Boolean descending, Boolean pending, Boolean admin, Integer start, Integer limit, final Response.Listener<List<UserPermissionsResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPermissionables",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPermissionables"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/permissions/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissions/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -932,7 +876,6 @@ public class UserPermissionsApi {
   /**
   * Search Permissionables by Distnace
   * Search on UserPermissions by distance
-   * @param version 
    * @param latitude The latitude of the current account
    * @param longitude The longitude of the current account
    * @param deviceId A unique ID given by the device (deviceId or accountId required)
@@ -949,13 +892,8 @@ public class UserPermissionsApi {
    * @param limit The limit for pagination
    * @return List<UserPermissionsResponse>
   */
-  public List<UserPermissionsResponse> searchPermissionablesFollowingDistance (BigDecimal version, Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<UserPermissionsResponse> searchPermissionablesFollowingDistance (Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling searchPermissionablesFollowingDistance",
@@ -968,7 +906,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/permissions/distancesearch".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissions/distancesearch";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1032,16 +970,11 @@ public class UserPermissionsApi {
       /**
    * Search Permissionables by Distnace
    * Search on UserPermissions by distance
-   * @param version    * @param latitude The latitude of the current account   * @param longitude The longitude of the current account   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId Filter results for a specific user account   * @param connectionAccountIds Comma separated list of account IDs to filter results with   * @param permissionableType Filter user permissions by the permissionable object type   * @param permissionableId The id of the permissionable object to filter by   * @param searchRange The search range in miles   * @param keyword Keyword to search within permissionable records   * @param pending Return user permissions that are pending   * @param admin Return user permissions that are admins   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param latitude The latitude of the current account   * @param longitude The longitude of the current account   * @param deviceId A unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId Filter results for a specific user account   * @param connectionAccountIds Comma separated list of account IDs to filter results with   * @param permissionableType Filter user permissions by the permissionable object type   * @param permissionableId The id of the permissionable object to filter by   * @param searchRange The search range in miles   * @param keyword Keyword to search within permissionable records   * @param pending Return user permissions that are pending   * @param admin Return user permissions that are admins   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void searchPermissionablesFollowingDistance (BigDecimal version, Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit, final Response.Listener<List<UserPermissionsResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPermissionablesFollowingDistance (Double latitude, Double longitude, String deviceId, Long accountId, Long connectionAccountId, String connectionAccountIds, String permissionableType, Long permissionableId, Double searchRange, String keyword, Boolean pending, Boolean admin, Integer start, Integer limit, final Response.Listener<List<UserPermissionsResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPermissionablesFollowingDistance"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling searchPermissionablesFollowingDistance",
@@ -1054,7 +987,7 @@ public class UserPermissionsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/permissions/distancesearch".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/permissions/distancesearch".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

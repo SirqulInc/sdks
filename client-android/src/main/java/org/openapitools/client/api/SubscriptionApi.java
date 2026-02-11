@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.ApplicationUsageResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.SubscriptionPlanResponse;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class SubscriptionApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,19 +62,13 @@ public class SubscriptionApi {
   /**
   * Create Subscription
   * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-   * @param version 
    * @param accountId The account used to perform the create, must be the responsible manager
    * @param planId The plan to subscribe to, if null use default plan
    * @param promoCode Set a promo code for a discount.
    * @return SubscriptionResponse
   */
-  public SubscriptionResponse createSubscription (BigDecimal version, Long accountId, Long planId, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SubscriptionResponse createSubscription (Long accountId, Long planId, String promoCode) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSubscription",
@@ -83,7 +76,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -136,16 +129,11 @@ public class SubscriptionApi {
       /**
    * Create Subscription
    * Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-   * @param version    * @param accountId The account used to perform the create, must be the responsible manager   * @param planId The plan to subscribe to, if null use default plan   * @param promoCode Set a promo code for a discount.
+   * @param accountId The account used to perform the create, must be the responsible manager   * @param planId The plan to subscribe to, if null use default plan   * @param promoCode Set a promo code for a discount.
   */
-  public void createSubscription (BigDecimal version, Long accountId, Long planId, String promoCode, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createSubscription (Long accountId, Long planId, String promoCode, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSubscription",
@@ -153,7 +141,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -209,17 +197,11 @@ public class SubscriptionApi {
   /**
   * Delete Subscription
   * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-   * @param version 
    * @param accountId The account used to perform the delete, must be the responsible manager
    * @return SirqulResponse
   */
-  public SirqulResponse deleteSubscription (BigDecimal version, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteSubscription (Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSubscription",
@@ -227,7 +209,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -278,16 +260,11 @@ public class SubscriptionApi {
       /**
    * Delete Subscription
    * Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-   * @param version    * @param accountId The account used to perform the delete, must be the responsible manager
+   * @param accountId The account used to perform the delete, must be the responsible manager
   */
-  public void deleteSubscription (BigDecimal version, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteSubscription (Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSubscription",
@@ -295,7 +272,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -349,17 +326,11 @@ public class SubscriptionApi {
   /**
   * Get Subscription
   * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-   * @param version 
    * @param accountId The account used to perform the lookup
    * @return SubscriptionResponse
   */
-  public SubscriptionResponse getSubscription (BigDecimal version, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SubscriptionResponse getSubscription (Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSubscription",
@@ -367,7 +338,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -418,16 +389,11 @@ public class SubscriptionApi {
       /**
    * Get Subscription
    * Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-   * @param version    * @param accountId The account used to perform the lookup
+   * @param accountId The account used to perform the lookup
   */
-  public void getSubscription (BigDecimal version, Long accountId, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getSubscription (Long accountId, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSubscription",
@@ -435,7 +401,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -489,17 +455,11 @@ public class SubscriptionApi {
   /**
   * Get Subscription Plan
   * Get the matched subscription plan
-   * @param version 
    * @param planId The ID of the plan to get
    * @return SubscriptionPlanResponse
   */
-  public SubscriptionPlanResponse getSubscriptionPlan (BigDecimal version, Long planId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SubscriptionPlanResponse getSubscriptionPlan (Long planId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionPlan",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionPlan"));
-    }
     // verify the required parameter 'planId' is set
     if (planId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'planId' when calling getSubscriptionPlan",
@@ -507,7 +467,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/plan/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/plan/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -558,16 +518,11 @@ public class SubscriptionApi {
       /**
    * Get Subscription Plan
    * Get the matched subscription plan
-   * @param version    * @param planId The ID of the plan to get
+   * @param planId The ID of the plan to get
   */
-  public void getSubscriptionPlan (BigDecimal version, Long planId, final Response.Listener<SubscriptionPlanResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getSubscriptionPlan (Long planId, final Response.Listener<SubscriptionPlanResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionPlan",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionPlan"));
-    }
     // verify the required parameter 'planId' is set
     if (planId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'planId' when calling getSubscriptionPlan",
@@ -575,7 +530,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/plan/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/plan/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -629,21 +584,15 @@ public class SubscriptionApi {
   /**
   * List Subscription Plans
   * Get the matched subscription plan
-   * @param version 
    * @param visible Include visible only (true), hidden only (false), or all (null)
    * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
    * @return List<SubscriptionPlanResponse>
   */
-  public List<SubscriptionPlanResponse> getSubscriptionPlans (BigDecimal version, Boolean visible, String role) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<SubscriptionPlanResponse> getSubscriptionPlans (Boolean visible, String role) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionPlans",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionPlans"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/plan/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/plan/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -695,19 +644,14 @@ public class SubscriptionApi {
       /**
    * List Subscription Plans
    * Get the matched subscription plan
-   * @param version    * @param visible Include visible only (true), hidden only (false), or all (null)   * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
+   * @param visible Include visible only (true), hidden only (false), or all (null)   * @param role The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
   */
-  public void getSubscriptionPlans (BigDecimal version, Boolean visible, String role, final Response.Listener<List<SubscriptionPlanResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getSubscriptionPlans (Boolean visible, String role, final Response.Listener<List<SubscriptionPlanResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionPlans",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionPlans"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/plan/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/plan/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -762,20 +706,14 @@ public class SubscriptionApi {
   /**
   * Get Subscription Usage
   * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-   * @param version 
    * @param accountId The account used to perform the lookup
    * @param applicationId Get for just 1 application instead of the BillableEntity
    * @param start The start time frame
    * @param end The end time frame
    * @return ApplicationUsageResponse
   */
-  public ApplicationUsageResponse getSubscriptionUsage (BigDecimal version, Long accountId, Long applicationId, Long start, Long end) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ApplicationUsageResponse getSubscriptionUsage (Long accountId, Long applicationId, Long start, Long end) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionUsage",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionUsage"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSubscriptionUsage",
@@ -783,7 +721,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/usage/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/usage/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -837,16 +775,11 @@ public class SubscriptionApi {
       /**
    * Get Subscription Usage
    * Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-   * @param version    * @param accountId The account used to perform the lookup   * @param applicationId Get for just 1 application instead of the BillableEntity   * @param start The start time frame   * @param end The end time frame
+   * @param accountId The account used to perform the lookup   * @param applicationId Get for just 1 application instead of the BillableEntity   * @param start The start time frame   * @param end The end time frame
   */
-  public void getSubscriptionUsage (BigDecimal version, Long accountId, Long applicationId, Long start, Long end, final Response.Listener<ApplicationUsageResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getSubscriptionUsage (Long accountId, Long applicationId, Long start, Long end, final Response.Listener<ApplicationUsageResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSubscriptionUsage",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSubscriptionUsage"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSubscriptionUsage",
@@ -854,7 +787,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/usage/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/usage/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -911,20 +844,14 @@ public class SubscriptionApi {
   /**
   * Update Subscription
   * Updates the subscription for the billable entity for an account
-   * @param version 
    * @param accountId The account used to perform the update, must be the responsible manager
    * @param planId The plan to subscribe to
    * @param promoCode Set a promo code for a discount.
    * @param active Set active status
    * @return SubscriptionResponse
   */
-  public SubscriptionResponse updateSubscription (BigDecimal version, Long accountId, Long planId, String promoCode, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SubscriptionResponse updateSubscription (Long accountId, Long planId, String promoCode, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSubscription",
@@ -932,7 +859,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -986,16 +913,11 @@ public class SubscriptionApi {
       /**
    * Update Subscription
    * Updates the subscription for the billable entity for an account
-   * @param version    * @param accountId The account used to perform the update, must be the responsible manager   * @param planId The plan to subscribe to   * @param promoCode Set a promo code for a discount.   * @param active Set active status
+   * @param accountId The account used to perform the update, must be the responsible manager   * @param planId The plan to subscribe to   * @param promoCode Set a promo code for a discount.   * @param active Set active status
   */
-  public void updateSubscription (BigDecimal version, Long accountId, Long planId, String promoCode, Boolean active, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateSubscription (Long accountId, Long planId, String promoCode, Boolean active, final Response.Listener<SubscriptionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSubscription",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSubscription"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSubscription",
@@ -1003,7 +925,7 @@ public class SubscriptionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/subscription/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/subscription/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

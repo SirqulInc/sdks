@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.MissionShortResponse;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TournamentResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TournamentApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class TournamentApi {
   /**
   * Create Tournament
   * Create a tournament.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The appKey the tournament is created for.
    * @param title The title of the tournament
@@ -99,13 +97,8 @@ public class TournamentApi {
    * @param tieTag This sets what analytic tag is used when a tie has occurred
    * @return TournamentResponse
   */
-  public TournamentResponse createTournament (BigDecimal version, Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TournamentResponse createTournament (Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTournament",
@@ -133,7 +126,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -218,16 +211,11 @@ public class TournamentApi {
       /**
    * Create Tournament
    * Create a tournament.
-   * @param version    * @param accountId The logged in user.   * @param appKey The appKey the tournament is created for.   * @param title The title of the tournament   * @param costToPlay The number of tickets required to pay to enter the tournament   * @param startDate The date/time to start the tournament   * @param subType Custom string client apps can use for searching/filtering tournaments   * @param imageAssetId The asset ID to attach to the tournament   * @param secondsBetweenLevels The number of seconds in between the start of each tournament game/group   * @param secondsForTieBreaker The number of seconds to extend the round end time in the case of a tie breaker   * @param secondsBetweenPacks The number of seconds in between the start of each tournament round   * @param maximumLevelLength The maximum number of seconds the match is expected to end at, which gets used to determine when a match should end when there is no activity   * @param costToPlayType The type of ticket required to pay   * @param minimumToPlay The minimum number of players required to sign up for the tournament to be played   * @param startingLimit The starting number of players for a tournament (filled with AI&#39;s)   * @param availableLimit The maximum number of players for a tournament (currently 128 but not enforced)   * @param description The description of the tournament   * @param metaData External custom client defined data   * @param audienceIds The audiences associated with the tournament   * @param active Activate/deactivate the tournament   * @param enableBuyBack Determines whether to allow players to buy back into a tournament   * @param offerIds The list of offers to give as a reward beyond the tickets   * @param offerAssetId The artwork ID to attach to the reward tickets offers   * @param fixedReward If set then do not update the ticket reward, auto set to true if offerIds provided   * @param splitReward Set the rules for handling the reward in case of a tie, values: EVEN split the reward evenly ALL everyone gets the full reward value FIRST first score submitted RANDOM random player who scored   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param tournamentData A text based string that will be passed into each tournament setup to populate the content   * @param missionType The style of tournament to build, options are: TOURNAMENT, POOLPLAY   * @param visibility Sets the visibility flag for the tournament   * @param preliminaryGroups The number of initial preliminary groups in a multi-stage tournament (this is expected to be a power of two number)   * @param preliminaryGroupAdvancements This determines how many people can advance per round in a preliminary group (this is a comma separated list of integers)   * @param enableMultipleEntries This determines if multiple submissions/entries are allowed in a multi-stage album tournament   * @param enableMultipleVotes This determines if users are allowed to vote multiple times per group in a multi-stage album tournament   * @param featured This determines whether the tournament is \&quot;featured\&quot; or not   * @param winnerTag This sets what analytic tag is used when a winner is determined   * @param tieTag This sets what analytic tag is used when a tie has occurred
+   * @param accountId The logged in user.   * @param appKey The appKey the tournament is created for.   * @param title The title of the tournament   * @param costToPlay The number of tickets required to pay to enter the tournament   * @param startDate The date/time to start the tournament   * @param subType Custom string client apps can use for searching/filtering tournaments   * @param imageAssetId The asset ID to attach to the tournament   * @param secondsBetweenLevels The number of seconds in between the start of each tournament game/group   * @param secondsForTieBreaker The number of seconds to extend the round end time in the case of a tie breaker   * @param secondsBetweenPacks The number of seconds in between the start of each tournament round   * @param maximumLevelLength The maximum number of seconds the match is expected to end at, which gets used to determine when a match should end when there is no activity   * @param costToPlayType The type of ticket required to pay   * @param minimumToPlay The minimum number of players required to sign up for the tournament to be played   * @param startingLimit The starting number of players for a tournament (filled with AI&#39;s)   * @param availableLimit The maximum number of players for a tournament (currently 128 but not enforced)   * @param description The description of the tournament   * @param metaData External custom client defined data   * @param audienceIds The audiences associated with the tournament   * @param active Activate/deactivate the tournament   * @param enableBuyBack Determines whether to allow players to buy back into a tournament   * @param offerIds The list of offers to give as a reward beyond the tickets   * @param offerAssetId The artwork ID to attach to the reward tickets offers   * @param fixedReward If set then do not update the ticket reward, auto set to true if offerIds provided   * @param splitReward Set the rules for handling the reward in case of a tie, values: EVEN split the reward evenly ALL everyone gets the full reward value FIRST first score submitted RANDOM random player who scored   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param tournamentData A text based string that will be passed into each tournament setup to populate the content   * @param missionType The style of tournament to build, options are: TOURNAMENT, POOLPLAY   * @param visibility Sets the visibility flag for the tournament   * @param preliminaryGroups The number of initial preliminary groups in a multi-stage tournament (this is expected to be a power of two number)   * @param preliminaryGroupAdvancements This determines how many people can advance per round in a preliminary group (this is a comma separated list of integers)   * @param enableMultipleEntries This determines if multiple submissions/entries are allowed in a multi-stage album tournament   * @param enableMultipleVotes This determines if users are allowed to vote multiple times per group in a multi-stage album tournament   * @param featured This determines whether the tournament is \&quot;featured\&quot; or not   * @param winnerTag This sets what analytic tag is used when a winner is determined   * @param tieTag This sets what analytic tag is used when a tie has occurred
   */
-  public void createTournament (BigDecimal version, Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createTournament (Long accountId, String appKey, String title, Integer costToPlay, Long startDate, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String missionType, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTournament",
@@ -255,7 +243,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -343,18 +331,12 @@ public class TournamentApi {
   /**
   * Delete Tournament
   * Delete a tournament.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteTournament (BigDecimal version, Long accountId, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteTournament (Long accountId, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTournament",
@@ -367,7 +349,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -419,16 +401,11 @@ public class TournamentApi {
       /**
    * Delete Tournament
    * Delete a tournament.
-   * @param version    * @param accountId the id of the logged in user   * @param missionId the id of the mission to delete
+   * @param accountId the id of the logged in user   * @param missionId the id of the mission to delete
   */
-  public void deleteTournament (BigDecimal version, Long accountId, Long missionId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteTournament (Long accountId, Long missionId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTournament",
@@ -441,7 +418,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -496,7 +473,6 @@ public class TournamentApi {
   /**
   * Get Tournament
   * Get a tournament.
-   * @param version 
    * @param accountId The id of the logged in user
    * @param missionId The id of the mission to return (either missionId or joinCode is required)
    * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required)
@@ -504,13 +480,8 @@ public class TournamentApi {
    * @param objectPreviewSize Determines the max number of game objects that will get returned for each game level response
    * @return TournamentResponse
   */
-  public TournamentResponse getTournament (BigDecimal version, Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TournamentResponse getTournament (Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTournament",
@@ -518,7 +489,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -573,16 +544,11 @@ public class TournamentApi {
       /**
    * Get Tournament
    * Get a tournament.
-   * @param version    * @param accountId The id of the logged in user   * @param missionId The id of the mission to return (either missionId or joinCode is required)   * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required)   * @param includeScores Determines which type of scores are returned. Possible values include: ALL, MINE   * @param objectPreviewSize Determines the max number of game objects that will get returned for each game level response
+   * @param accountId The id of the logged in user   * @param missionId The id of the mission to return (either missionId or joinCode is required)   * @param joinCode Optional identifier for getting the tournament (either missionId or joinCode is required)   * @param includeScores Determines which type of scores are returned. Possible values include: ALL, MINE   * @param objectPreviewSize Determines the max number of game objects that will get returned for each game level response
   */
-  public void getTournament (BigDecimal version, Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTournament (Long accountId, Long missionId, String joinCode, String includeScores, Integer objectPreviewSize, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTournament",
@@ -590,7 +556,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -648,7 +614,6 @@ public class TournamentApi {
   /**
   * Search Tournament Objects
   * Search on game objects of tournaments
-   * @param version 
    * @param accountId the account ID
    * @param gameLevelId the game level id to filter results by
    * @param sortField the field to sort by
@@ -657,13 +622,8 @@ public class TournamentApi {
    * @param limit the limit for pagination
    * @return SirqulResponse
   */
-  public SirqulResponse searchObjects (BigDecimal version, Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse searchObjects (Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchObjects",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchObjects"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchObjects",
@@ -676,7 +636,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/object/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/object/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -732,16 +692,11 @@ public class TournamentApi {
       /**
    * Search Tournament Objects
    * Search on game objects of tournaments
-   * @param version    * @param accountId the account ID   * @param gameLevelId the game level id to filter results by   * @param sortField the field to sort by   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param accountId the account ID   * @param gameLevelId the game level id to filter results by   * @param sortField the field to sort by   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void searchObjects (BigDecimal version, Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchObjects (Long accountId, Long gameLevelId, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchObjects",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchObjects"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchObjects",
@@ -754,7 +709,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/object/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/object/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -813,7 +768,6 @@ public class TournamentApi {
   /**
   * Search Tournament Rounds
   * Search for the user&#39;s tournament games.
-   * @param version 
    * @param accountId the account ID
    * @param appKey the application key
    * @param status comma separated list of statuses to filter results by
@@ -824,13 +778,8 @@ public class TournamentApi {
    * @param limit the limit for pagination
    * @return SirqulResponse
   */
-  public SirqulResponse searchRounds (BigDecimal version, Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse searchRounds (Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRounds",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRounds"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchRounds",
@@ -843,7 +792,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/round/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/round/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -901,16 +850,11 @@ public class TournamentApi {
       /**
    * Search Tournament Rounds
    * Search for the user&#39;s tournament games.
-   * @param version    * @param accountId the account ID   * @param appKey the application key   * @param status comma separated list of statuses to filter results by   * @param missionType The style of tournament to search for, options are: TOURNAMENT, POOLPLAY   * @param currentOnly search for games that are flagged current only   * @param visibilities Filter tournament rounds by the mission visibility flag   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param accountId the account ID   * @param appKey the application key   * @param status comma separated list of statuses to filter results by   * @param missionType The style of tournament to search for, options are: TOURNAMENT, POOLPLAY   * @param currentOnly search for games that are flagged current only   * @param visibilities Filter tournament rounds by the mission visibility flag   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void searchRounds (BigDecimal version, Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRounds (Long accountId, String appKey, String status, String missionType, Boolean currentOnly, String visibilities, Integer start, Integer limit, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRounds",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRounds"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchRounds",
@@ -923,7 +867,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/round/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/round/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -984,7 +928,6 @@ public class TournamentApi {
   /**
   * Search Tournaments
   * Search for tournaments
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The application key
    * @param keyword the keyword to search tournament on
@@ -999,13 +942,8 @@ public class TournamentApi {
    * @param limit Limit the result to some number
    * @return MissionShortResponse
   */
-  public MissionShortResponse searchTournaments (BigDecimal version, Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionShortResponse searchTournaments (Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTournaments",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTournaments"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTournaments",
@@ -1018,7 +956,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1080,16 +1018,11 @@ public class TournamentApi {
       /**
    * Search Tournaments
    * Search for tournaments
-   * @param version    * @param accountId The logged in user.   * @param appKey The application key   * @param keyword the keyword to search tournament on   * @param subType filter results by subType   * @param includeInactive whether to include inactives in the search or not   * @param missionTypes comma separated list of mission types to filter results, possbile values include: TOURNAMENT, POOLPLAY, MULTISTAGE   * @param filter filter tournaments by the tournament&#39;s current state   * @param sortField which field to sort on   * @param descending Determines whether to return results in descending order. The default value will be true if the filter is \&quot;PAST\&quot;, otherwise the default value will be false.   * @param visibility Comma separated list of visibility flags for search for, possible values include: PUBLIC, LISTABLE, REWARDABLE, TRIGGERABLE, PRIVATE   * @param start Start the result set at some index.   * @param limit Limit the result to some number
+   * @param accountId The logged in user.   * @param appKey The application key   * @param keyword the keyword to search tournament on   * @param subType filter results by subType   * @param includeInactive whether to include inactives in the search or not   * @param missionTypes comma separated list of mission types to filter results, possbile values include: TOURNAMENT, POOLPLAY, MULTISTAGE   * @param filter filter tournaments by the tournament&#39;s current state   * @param sortField which field to sort on   * @param descending Determines whether to return results in descending order. The default value will be true if the filter is \&quot;PAST\&quot;, otherwise the default value will be false.   * @param visibility Comma separated list of visibility flags for search for, possible values include: PUBLIC, LISTABLE, REWARDABLE, TRIGGERABLE, PRIVATE   * @param start Start the result set at some index.   * @param limit Limit the result to some number
   */
-  public void searchTournaments (BigDecimal version, Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit, final Response.Listener<MissionShortResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTournaments (Long accountId, String appKey, String keyword, String subType, Boolean includeInactive, String missionTypes, String filter, String sortField, Boolean descending, String visibility, Integer start, Integer limit, final Response.Listener<MissionShortResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTournaments",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTournaments"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTournaments",
@@ -1102,7 +1035,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1167,7 +1100,6 @@ public class TournamentApi {
   /**
   * Submit Tournament Score
   * Submit an array of scores for a tournament match. 
-   * @param version 
    * @param accountId The logged in user account ID.
    * @param appKey The application key.
    * @param missionId The missionId to score for
@@ -1177,13 +1109,8 @@ public class TournamentApi {
    * @param gameLevelId The gameLevelId to score for
    * @return SirqulResponse
   */
-  public SirqulResponse submitTournamentScore (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse submitTournamentScore (Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling submitTournamentScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling submitTournamentScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling submitTournamentScore",
@@ -1216,7 +1143,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/score".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/score";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1273,16 +1200,11 @@ public class TournamentApi {
       /**
    * Submit Tournament Score
    * Submit an array of scores for a tournament match. 
-   * @param version    * @param accountId The logged in user account ID.   * @param appKey The application key.   * @param missionId The missionId to score for   * @param gameId The gameId to score for   * @param packId The packId to score for   * @param scores a JSON Array of scores to submit for a tournament match &#x60;&#x60;&#x60;json [   {     \&quot;accountId\&quot;: 2,     \&quot;points\&quot;: 3   },   {     \&quot;accountId\&quot;: 1777662,     \&quot;points\&quot;: 7   } ] &#x60;&#x60;&#x60;    * @param gameLevelId The gameLevelId to score for
+   * @param accountId The logged in user account ID.   * @param appKey The application key.   * @param missionId The missionId to score for   * @param gameId The gameId to score for   * @param packId The packId to score for   * @param scores a JSON Array of scores to submit for a tournament match &#x60;&#x60;&#x60;json [   {     \&quot;accountId\&quot;: 2,     \&quot;points\&quot;: 3   },   {     \&quot;accountId\&quot;: 1777662,     \&quot;points\&quot;: 7   } ] &#x60;&#x60;&#x60;    * @param gameLevelId The gameLevelId to score for
   */
-  public void submitTournamentScore (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void submitTournamentScore (Long accountId, String appKey, Long missionId, Long gameId, Long packId, String scores, Long gameLevelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling submitTournamentScore",
-        new ApiException(400, "Missing the required parameter 'version' when calling submitTournamentScore"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling submitTournamentScore",
@@ -1315,7 +1237,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/score".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/score".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1375,7 +1297,6 @@ public class TournamentApi {
   /**
   * Submit a vote for a multi-stage album tournament.
   * Submit a vote for a multi-stage album tournament.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey The application to target
    * @param missionId The tournament&#39;s primary id
@@ -1384,13 +1305,8 @@ public class TournamentApi {
    * @param checkIfDeviceAlreadyVoted When true, check if the device already voted to prevent duplicate votes from the same device
    * @return SirqulResponse
   */
-  public SirqulResponse submitTournamentVote (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse submitTournamentVote (Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling submitTournamentVote",
-        new ApiException(400, "Missing the required parameter 'version' when calling submitTournamentVote"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling submitTournamentVote",
@@ -1413,7 +1329,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/vote".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/vote";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1469,16 +1385,11 @@ public class TournamentApi {
       /**
    * Submit a vote for a multi-stage album tournament.
    * Submit a vote for a multi-stage album tournament.
-   * @param version    * @param accountId The logged in user.   * @param appKey The application to target   * @param missionId The tournament&#39;s primary id   * @param gameObjectId The tournament game object the user wants to vote on   * @param deviceId The unique id of the device making the request (optional)   * @param checkIfDeviceAlreadyVoted When true, check if the device already voted to prevent duplicate votes from the same device
+   * @param accountId The logged in user.   * @param appKey The application to target   * @param missionId The tournament&#39;s primary id   * @param gameObjectId The tournament game object the user wants to vote on   * @param deviceId The unique id of the device making the request (optional)   * @param checkIfDeviceAlreadyVoted When true, check if the device already voted to prevent duplicate votes from the same device
   */
-  public void submitTournamentVote (BigDecimal version, Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void submitTournamentVote (Long accountId, String appKey, Long missionId, Long gameObjectId, String deviceId, Boolean checkIfDeviceAlreadyVoted, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling submitTournamentVote",
-        new ApiException(400, "Missing the required parameter 'version' when calling submitTournamentVote"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling submitTournamentVote",
@@ -1501,7 +1412,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/vote".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/vote".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1560,20 +1471,14 @@ public class TournamentApi {
   /**
   * Substitute Tournament Player
   * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission
    * @param packId the id of the pack
    * @param gameLevelId the id of the game level
    * @return SirqulResponse
   */
-  public SirqulResponse substituteTournamentPlayer (BigDecimal version, Long accountId, Long missionId, Long packId, Long gameLevelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse substituteTournamentPlayer (Long accountId, Long missionId, Long packId, Long gameLevelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling substituteTournamentPlayer",
-        new ApiException(400, "Missing the required parameter 'version' when calling substituteTournamentPlayer"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling substituteTournamentPlayer",
@@ -1596,7 +1501,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/substitute".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/substitute";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1650,16 +1555,11 @@ public class TournamentApi {
       /**
    * Substitute Tournament Player
    * Service to replace the user&#39;s opponent in the current level - pack - mission with an AI account.
-   * @param version    * @param accountId the id of the logged in user   * @param missionId the id of the mission   * @param packId the id of the pack   * @param gameLevelId the id of the game level
+   * @param accountId the id of the logged in user   * @param missionId the id of the mission   * @param packId the id of the pack   * @param gameLevelId the id of the game level
   */
-  public void substituteTournamentPlayer (BigDecimal version, Long accountId, Long missionId, Long packId, Long gameLevelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void substituteTournamentPlayer (Long accountId, Long missionId, Long packId, Long gameLevelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling substituteTournamentPlayer",
-        new ApiException(400, "Missing the required parameter 'version' when calling substituteTournamentPlayer"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling substituteTournamentPlayer",
@@ -1682,7 +1582,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/substitute".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/substitute".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1739,7 +1639,6 @@ public class TournamentApi {
   /**
   * Update Tournament
   * Update a tournament.
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The mission/tournament to update
    * @param title The title of the tournament
@@ -1776,13 +1675,8 @@ public class TournamentApi {
    * @param tieTag This sets what analytic tag is used when a winner is determined
    * @return TournamentResponse
   */
-  public TournamentResponse updateTournament (BigDecimal version, Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TournamentResponse updateTournament (Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateTournament",
@@ -1795,7 +1689,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1879,16 +1773,11 @@ public class TournamentApi {
       /**
    * Update Tournament
    * Update a tournament.
-   * @param version    * @param accountId The logged in user.   * @param missionId The mission/tournament to update   * @param title The title of the tournament   * @param subType Custom string client apps can use for searching/filtering missions   * @param imageAssetId The asset ID to attach to the tournament   * @param secondsBetweenLevels The number of seconds in between the start of each tournament game   * @param secondsForTieBreaker The number of seconds to extend the round end time in the case of a tie breaker   * @param secondsBetweenPacks The number of seconds in between the start of each tournament round   * @param maximumLevelLength The maximum number of seconds the match is expected to end at, which gets used to determine when a match should end when there is no activity   * @param costToPlay The number of tickets required to pay to enter the tournament   * @param costToPlayType The type of ticket required to pay   * @param minimumToPlay The minimum number of players required to sign up for the tournament to be played   * @param startingLimit The starting number of players for a tournament (filled with AI&#39;s)   * @param availableLimit The maximum number of players for a tournament (currently 128 but not enforced)   * @param description The description of the tournament   * @param metaData External custom client defined data   * @param startDate The date/time to start the tournament   * @param audienceIds The audiences associated with the tournament   * @param active Activate/deactivate the mission   * @param enableBuyBack Determines whether to allow players to buy back into a tournament   * @param offerIds The list of offers to give as a reward beyond the tickets   * @param offerAssetId The artwork ID to attach to the reward offer   * @param fixedReward If set then do not update the ticket reward, auto set to true if offerIds provided   * @param splitReward Set the rules for handling the reward in case of a tie, values: EVEN split the reward evenly ALL everyone gets the full reward value FIRST first score submitted RANDOM random player who scored   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param tournamentData A text based string that will be passed into each tournament setup to populate the content   * @param visibility Sets the visibility flag for the tournament   * @param preliminaryGroups The number of initial preliminary groups in a multi-stage tournament (this is expected to be a power of two number)   * @param preliminaryGroupAdvancements This determines how many people can advance per round in a preliminary group (this is a comma separated list of integers)   * @param enableMultipleEntries This determines if multiple submissions/entries are allowed in a multi-stage album tournament   * @param enableMultipleVotes This determines if users are allowed to vote multiple times per group in a multi-stage album tournament   * @param featured This determines whether the tournament is \&quot;featured\&quot; or not   * @param winnerTag This sets what analytic tag is used when a winner is determined   * @param tieTag This sets what analytic tag is used when a winner is determined
+   * @param accountId The logged in user.   * @param missionId The mission/tournament to update   * @param title The title of the tournament   * @param subType Custom string client apps can use for searching/filtering missions   * @param imageAssetId The asset ID to attach to the tournament   * @param secondsBetweenLevels The number of seconds in between the start of each tournament game   * @param secondsForTieBreaker The number of seconds to extend the round end time in the case of a tie breaker   * @param secondsBetweenPacks The number of seconds in between the start of each tournament round   * @param maximumLevelLength The maximum number of seconds the match is expected to end at, which gets used to determine when a match should end when there is no activity   * @param costToPlay The number of tickets required to pay to enter the tournament   * @param costToPlayType The type of ticket required to pay   * @param minimumToPlay The minimum number of players required to sign up for the tournament to be played   * @param startingLimit The starting number of players for a tournament (filled with AI&#39;s)   * @param availableLimit The maximum number of players for a tournament (currently 128 but not enforced)   * @param description The description of the tournament   * @param metaData External custom client defined data   * @param startDate The date/time to start the tournament   * @param audienceIds The audiences associated with the tournament   * @param active Activate/deactivate the mission   * @param enableBuyBack Determines whether to allow players to buy back into a tournament   * @param offerIds The list of offers to give as a reward beyond the tickets   * @param offerAssetId The artwork ID to attach to the reward offer   * @param fixedReward If set then do not update the ticket reward, auto set to true if offerIds provided   * @param splitReward Set the rules for handling the reward in case of a tie, values: EVEN split the reward evenly ALL everyone gets the full reward value FIRST first score submitted RANDOM random player who scored   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param tournamentData A text based string that will be passed into each tournament setup to populate the content   * @param visibility Sets the visibility flag for the tournament   * @param preliminaryGroups The number of initial preliminary groups in a multi-stage tournament (this is expected to be a power of two number)   * @param preliminaryGroupAdvancements This determines how many people can advance per round in a preliminary group (this is a comma separated list of integers)   * @param enableMultipleEntries This determines if multiple submissions/entries are allowed in a multi-stage album tournament   * @param enableMultipleVotes This determines if users are allowed to vote multiple times per group in a multi-stage album tournament   * @param featured This determines whether the tournament is \&quot;featured\&quot; or not   * @param winnerTag This sets what analytic tag is used when a winner is determined   * @param tieTag This sets what analytic tag is used when a winner is determined
   */
-  public void updateTournament (BigDecimal version, Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTournament (Long accountId, Long missionId, String title, String subType, Long imageAssetId, Integer secondsBetweenLevels, Integer secondsForTieBreaker, Integer secondsBetweenPacks, Integer maximumLevelLength, Integer costToPlay, String costToPlayType, Integer minimumToPlay, Integer startingLimit, Integer availableLimit, String description, String metaData, Long startDate, String audienceIds, Boolean active, Boolean enableBuyBack, String offerIds, Long offerAssetId, Boolean fixedReward, String splitReward, Boolean allocateTickets, String tournamentData, String visibility, Integer preliminaryGroups, String preliminaryGroupAdvancements, Boolean enableMultipleEntries, Boolean enableMultipleVotes, Boolean featured, String winnerTag, String tieTag, final Response.Listener<TournamentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTournament",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTournament"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateTournament",
@@ -1901,7 +1790,7 @@ public class TournamentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tournament/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tournament/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

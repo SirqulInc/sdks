@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Location;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class LocationApiV2Api {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,20 +59,14 @@ public class LocationApiV2Api {
   /**
   * Create new location
   * Create a new location from a real object location.
-   * @param version 
    * @param body 
    * @return SirqulResponse
   */
-  public SirqulResponse createLocationV2 (BigDecimal version, Location body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse createLocationV2 (Location body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createLocationV2",
-        new ApiException(400, "Missing the required parameter 'version' when calling createLocationV2"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -123,19 +116,14 @@ public class LocationApiV2Api {
       /**
    * Create new location
    * Create a new location from a real object location.
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createLocationV2 (BigDecimal version, Location body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createLocationV2 (Location body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createLocationV2",
-        new ApiException(400, "Missing the required parameter 'version' when calling createLocationV2"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -188,18 +176,12 @@ public class LocationApiV2Api {
   /**
   * Update an existing location
   * Update an existing location
-   * @param version 
    * @param id the id of the location to update
    * @param body 
    * @return SirqulResponse
   */
-  public SirqulResponse updateLocationV2 (BigDecimal version, Long id, Location body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateLocationV2 (Long id, Location body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLocationV2",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLocationV2"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateLocationV2",
@@ -207,7 +189,7 @@ public class LocationApiV2Api {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/location/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -257,16 +239,11 @@ public class LocationApiV2Api {
       /**
    * Update an existing location
    * Update an existing location
-   * @param version    * @param id the id of the location to update   * @param body 
+   * @param id the id of the location to update   * @param body 
   */
-  public void updateLocationV2 (BigDecimal version, Long id, Location body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateLocationV2 (Long id, Location body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateLocationV2",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateLocationV2"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateLocationV2",
@@ -274,7 +251,7 @@ public class LocationApiV2Api {
     }
 
     // create path and map variables
-    String path = "/api/{version}/location/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/location/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

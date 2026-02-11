@@ -26,7 +26,6 @@ import com.android.volley.VolleyError;
 import org.openapitools.client.model.AccountMiniResponse;
 import org.openapitools.client.model.AssignmentResponse;
 import org.openapitools.client.model.AssignmentStatusResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AssignmentApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,18 +62,12 @@ public class AssignmentApi {
   /**
   * Search Assignment Assignees
   * Search for avaiable users for creating or updating assignment.
-   * @param version 
    * @param accountId The account id sending the request
    * @param keyword The keyword to filter the returned results
    * @return List<AccountMiniResponse>
   */
-  public List<AccountMiniResponse> assigmentAssigneeAccountSearch (BigDecimal version, Long accountId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AccountMiniResponse> assigmentAssigneeAccountSearch (Long accountId, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assigmentAssigneeAccountSearch",
@@ -82,7 +75,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/assignee/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/assignee/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -134,16 +127,11 @@ public class AssignmentApi {
       /**
    * Search Assignment Assignees
    * Search for avaiable users for creating or updating assignment.
-   * @param version    * @param accountId The account id sending the request   * @param keyword The keyword to filter the returned results
+   * @param accountId The account id sending the request   * @param keyword The keyword to filter the returned results
   */
-  public void assigmentAssigneeAccountSearch (BigDecimal version, Long accountId, String keyword, final Response.Listener<List<AccountMiniResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void assigmentAssigneeAccountSearch (Long accountId, String keyword, final Response.Listener<List<AccountMiniResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assigmentAssigneeAccountSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assigmentAssigneeAccountSearch",
@@ -151,7 +139,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/assignee/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/assignee/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -206,7 +194,6 @@ public class AssignmentApi {
   /**
   * Create Assignment
   * Create an assignment.
-   * @param version 
    * @param accountId the user account id
    * @param name the name for the assignment
    * @param assigneeAccountId the account id to assign to
@@ -216,13 +203,8 @@ public class AssignmentApi {
    * @param active determines whether the assignment is active or inactive
    * @return AssignmentResponse
   */
-  public AssignmentResponse assignmentCreate (BigDecimal version, Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentResponse assignmentCreate (Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentCreate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentCreate",
@@ -240,7 +222,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -297,16 +279,11 @@ public class AssignmentApi {
       /**
    * Create Assignment
    * Create an assignment.
-   * @param version    * @param accountId the user account id   * @param name the name for the assignment   * @param assigneeAccountId the account id to assign to   * @param description the desciprtion for the assignment   * @param retailerLocationId the retailer location id   * @param tags the tags   * @param active determines whether the assignment is active or inactive
+   * @param accountId the user account id   * @param name the name for the assignment   * @param assigneeAccountId the account id to assign to   * @param description the desciprtion for the assignment   * @param retailerLocationId the retailer location id   * @param tags the tags   * @param active determines whether the assignment is active or inactive
   */
-  public void assignmentCreate (BigDecimal version, Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentCreate (Long accountId, String name, Long assigneeAccountId, String description, Long retailerLocationId, String tags, Boolean active, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentCreate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentCreate",
@@ -324,7 +301,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -384,18 +361,12 @@ public class AssignmentApi {
   /**
   * Delete Assignment
   * Delete an assignment.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @return SirqulResponse
   */
-  public SirqulResponse assignmentDelete (BigDecimal version, Long accountId, Long assignmentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse assignmentDelete (Long accountId, Long assignmentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentDelete"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentDelete",
@@ -408,7 +379,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,16 +431,11 @@ public class AssignmentApi {
       /**
    * Delete Assignment
    * Delete an assignment.
-   * @param version    * @param accountId the user account id   * @param assignmentId the assignment id
+   * @param accountId the user account id   * @param assignmentId the assignment id
   */
-  public void assignmentDelete (BigDecimal version, Long accountId, Long assignmentId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentDelete (Long accountId, Long assignmentId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentDelete"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentDelete",
@@ -482,7 +448,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -537,18 +503,12 @@ public class AssignmentApi {
   /**
   * Get Assignment
   * Get the details of an assignment.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @return AssignmentResponse
   */
-  public AssignmentResponse assignmentGet (BigDecimal version, Long accountId, Long assignmentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentResponse assignmentGet (Long accountId, Long assignmentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentGet"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentGet",
@@ -561,7 +521,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -613,16 +573,11 @@ public class AssignmentApi {
       /**
    * Get Assignment
    * Get the details of an assignment.
-   * @param version    * @param accountId the user account id   * @param assignmentId the assignment id
+   * @param accountId the user account id   * @param assignmentId the assignment id
   */
-  public void assignmentGet (BigDecimal version, Long accountId, Long assignmentId, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentGet (Long accountId, Long assignmentId, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentGet"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentGet",
@@ -635,7 +590,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -690,7 +645,6 @@ public class AssignmentApi {
   /**
   * Search Assignments
   * Search for assignments by the given parameters.
-   * @param version 
    * @param accountId the account sending the request
    * @param sortField sort by table field
    * @param descending return results in descending order or not
@@ -704,13 +658,8 @@ public class AssignmentApi {
    * @param keyword filter results by keyword search that matches the assignee, creator, or retailer location name
    * @return List<AssignmentResponse>
   */
-  public List<AssignmentResponse> assignmentSearch (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AssignmentResponse> assignmentSearch (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentSearch",
@@ -743,7 +692,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -804,16 +753,11 @@ public class AssignmentApi {
       /**
    * Search Assignments
    * Search for assignments by the given parameters.
-   * @param version    * @param accountId the account sending the request   * @param sortField sort by table field   * @param descending return results in descending order or not   * @param activeOnly return active results only or not   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param creatorAccountId the creator of the assignment   * @param assigneeAccountIds filter results by assignee accounts. If not provided, all assignments that are assigned to accounts that are managed by the requested account will be returned.   * @param retailerLocationIds filter results by retailer locations   * @param currentStatusType filter results by assignment status   * @param keyword filter results by keyword search that matches the assignee, creator, or retailer location name
+   * @param accountId the account sending the request   * @param sortField sort by table field   * @param descending return results in descending order or not   * @param activeOnly return active results only or not   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param creatorAccountId the creator of the assignment   * @param assigneeAccountIds filter results by assignee accounts. If not provided, all assignments that are assigned to accounts that are managed by the requested account will be returned.   * @param retailerLocationIds filter results by retailer locations   * @param currentStatusType filter results by assignment status   * @param keyword filter results by keyword search that matches the assignee, creator, or retailer location name
   */
-  public void assignmentSearch (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword, final Response.Listener<List<AssignmentResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentSearch (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long creatorAccountId, String assigneeAccountIds, String retailerLocationIds, String currentStatusType, String keyword, final Response.Listener<List<AssignmentResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentSearch",
@@ -846,7 +790,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -910,7 +854,6 @@ public class AssignmentApi {
   /**
   * Create Assignment Status
   * Create an assignment status.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @param scheduledNotificationId the scheduled notification id for reminders
@@ -924,13 +867,8 @@ public class AssignmentApi {
    * @param active determines whether the assignment status is active or inactive
    * @return AssignmentStatusResponse
   */
-  public AssignmentStatusResponse assignmentStatusCreate (BigDecimal version, Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentStatusResponse assignmentStatusCreate (Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusCreate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusCreate",
@@ -943,7 +881,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1004,16 +942,11 @@ public class AssignmentApi {
       /**
    * Create Assignment Status
    * Create an assignment status.
-   * @param version    * @param accountId the user account id   * @param assignmentId the assignment id   * @param scheduledNotificationId the scheduled notification id for reminders   * @param toDo the type of to do. Possible values include: SITE_VISIT, PHONE, RECONTACT, RENEWAL, CREDIT   * @param connection the connection type. Possible values include: INITIAL, FOLLOW_UP, DECLINED   * @param method the communication method type. Possible values include: PHONE, SITE_VISIT, EMAIL   * @param status the status type. Possible values include: ARCHIVED, SUBSCRIBED, UNSUBSCRIBED, CONTACTED, DECLINED, NOT_CONTACTED   * @param closure the closure type. Possible values include: PHONE, SITE_VISIT, PHONE_SITE, WEB   * @param message the message from the assignee   * @param followUp the date to follow up by   * @param active determines whether the assignment status is active or inactive
+   * @param accountId the user account id   * @param assignmentId the assignment id   * @param scheduledNotificationId the scheduled notification id for reminders   * @param toDo the type of to do. Possible values include: SITE_VISIT, PHONE, RECONTACT, RENEWAL, CREDIT   * @param connection the connection type. Possible values include: INITIAL, FOLLOW_UP, DECLINED   * @param method the communication method type. Possible values include: PHONE, SITE_VISIT, EMAIL   * @param status the status type. Possible values include: ARCHIVED, SUBSCRIBED, UNSUBSCRIBED, CONTACTED, DECLINED, NOT_CONTACTED   * @param closure the closure type. Possible values include: PHONE, SITE_VISIT, PHONE_SITE, WEB   * @param message the message from the assignee   * @param followUp the date to follow up by   * @param active determines whether the assignment status is active or inactive
   */
-  public void assignmentStatusCreate (BigDecimal version, Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentStatusCreate (Long accountId, Long assignmentId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusCreate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusCreate",
@@ -1026,7 +959,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1090,18 +1023,12 @@ public class AssignmentApi {
   /**
   * Deletes Assignment Status
   * Deletes an assignment status.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    * @return SirqulResponse
   */
-  public SirqulResponse assignmentStatusDelete (BigDecimal version, Long accountId, Long assignmentStatusId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse assignmentStatusDelete (Long accountId, Long assignmentStatusId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusDelete"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusDelete",
@@ -1114,7 +1041,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1166,16 +1093,11 @@ public class AssignmentApi {
       /**
    * Deletes Assignment Status
    * Deletes an assignment status.
-   * @param version    * @param accountId the user account id   * @param assignmentStatusId the assignment status id
+   * @param accountId the user account id   * @param assignmentStatusId the assignment status id
   */
-  public void assignmentStatusDelete (BigDecimal version, Long accountId, Long assignmentStatusId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentStatusDelete (Long accountId, Long assignmentStatusId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusDelete"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusDelete",
@@ -1188,7 +1110,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1243,18 +1165,12 @@ public class AssignmentApi {
   /**
   * Get Assignment Status
   * Get an assignment status.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    * @return AssignmentStatusResponse
   */
-  public AssignmentStatusResponse assignmentStatusGet (BigDecimal version, Long accountId, Long assignmentStatusId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentStatusResponse assignmentStatusGet (Long accountId, Long assignmentStatusId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusGet"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusGet",
@@ -1267,7 +1183,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1319,16 +1235,11 @@ public class AssignmentApi {
       /**
    * Get Assignment Status
    * Get an assignment status.
-   * @param version    * @param accountId the user account id   * @param assignmentStatusId the assignment status id
+   * @param accountId the user account id   * @param assignmentStatusId the assignment status id
   */
-  public void assignmentStatusGet (BigDecimal version, Long accountId, Long assignmentStatusId, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentStatusGet (Long accountId, Long assignmentStatusId, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusGet"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusGet",
@@ -1341,7 +1252,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1396,7 +1307,6 @@ public class AssignmentApi {
   /**
   * Search Assignment Statuses
   * Search on assignment statuses.
-   * @param version 
    * @param accountId the user account id
    * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -1411,13 +1321,8 @@ public class AssignmentApi {
    * @param keyword filter results by keyword search
    * @return List<AssignmentStatusResponse>
   */
-  public List<AssignmentStatusResponse> assignmentStatusSearch (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AssignmentStatusResponse> assignmentStatusSearch (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusSearch",
@@ -1450,7 +1355,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1512,16 +1417,11 @@ public class AssignmentApi {
       /**
    * Search Assignment Statuses
    * Search on assignment statuses.
-   * @param version    * @param accountId the user account id   * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP   * @param descending determines whether the sorted list is in descending or ascending order   * @param activeOnly determines whether to only return active results   * @param start the start index for pagination   * @param limit the limit for pagination   * @param assignmentId the assignment id   * @param creatorAccountId filter results by the account who created the status   * @param assigneeAccountId filter results by the assignee account   * @param retailerLocationId filter results by by retailer location   * @param statusType filter results by the status type   * @param keyword filter results by keyword search
+   * @param accountId the user account id   * @param sortField the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP   * @param descending determines whether the sorted list is in descending or ascending order   * @param activeOnly determines whether to only return active results   * @param start the start index for pagination   * @param limit the limit for pagination   * @param assignmentId the assignment id   * @param creatorAccountId filter results by the account who created the status   * @param assigneeAccountId filter results by the assignee account   * @param retailerLocationId filter results by by retailer location   * @param statusType filter results by the status type   * @param keyword filter results by keyword search
   */
-  public void assignmentStatusSearch (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword, final Response.Listener<List<AssignmentStatusResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentStatusSearch (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, Long assignmentId, Long creatorAccountId, Long assigneeAccountId, Long retailerLocationId, String statusType, String keyword, final Response.Listener<List<AssignmentStatusResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusSearch",
@@ -1554,7 +1454,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1619,7 +1519,6 @@ public class AssignmentApi {
   /**
   * Update Assignment Status
   * Updates an assignment status.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentStatusId the assignment status id
    * @param scheduledNotificationId the scheduled notification id for reminders
@@ -1633,13 +1532,8 @@ public class AssignmentApi {
    * @param active determines whether the assignment status is active or inactive
    * @return AssignmentStatusResponse
   */
-  public AssignmentStatusResponse assignmentStatusUpdate (BigDecimal version, Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentStatusResponse assignmentStatusUpdate (Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusUpdate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusUpdate",
@@ -1652,7 +1546,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1713,16 +1607,11 @@ public class AssignmentApi {
       /**
    * Update Assignment Status
    * Updates an assignment status.
-   * @param version    * @param accountId the user account id   * @param assignmentStatusId the assignment status id   * @param scheduledNotificationId the scheduled notification id for reminders   * @param toDo the type of to do. Possible values include: SITE_VISIT, PHONE, RECONTACT, RENEWAL, CREDIT   * @param connection the connection type. Possible values include: INITIAL, FOLLOW_UP, DECLINED   * @param method the communication method type. Possible values include: PHONE, SITE_VISIT, EMAIL   * @param status the status type. Possible values include: ARCHIVED, SUBSCRIBED, UNSUBSCRIBED, CONTACTED, DECLINED, NOT_CONTACTED   * @param closure the closure type. Possible values include: PHONE, SITE_VISIT, PHONE_SITE, WEB   * @param message the message from the assignee   * @param followUp the date to follow up by   * @param active determines whether the assignment status is active or inactive
+   * @param accountId the user account id   * @param assignmentStatusId the assignment status id   * @param scheduledNotificationId the scheduled notification id for reminders   * @param toDo the type of to do. Possible values include: SITE_VISIT, PHONE, RECONTACT, RENEWAL, CREDIT   * @param connection the connection type. Possible values include: INITIAL, FOLLOW_UP, DECLINED   * @param method the communication method type. Possible values include: PHONE, SITE_VISIT, EMAIL   * @param status the status type. Possible values include: ARCHIVED, SUBSCRIBED, UNSUBSCRIBED, CONTACTED, DECLINED, NOT_CONTACTED   * @param closure the closure type. Possible values include: PHONE, SITE_VISIT, PHONE_SITE, WEB   * @param message the message from the assignee   * @param followUp the date to follow up by   * @param active determines whether the assignment status is active or inactive
   */
-  public void assignmentStatusUpdate (BigDecimal version, Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentStatusUpdate (Long accountId, Long assignmentStatusId, Long scheduledNotificationId, String toDo, String connection, String method, String status, String closure, String message, Long followUp, Boolean active, final Response.Listener<AssignmentStatusResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentStatusUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentStatusUpdate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentStatusUpdate",
@@ -1735,7 +1624,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/status/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/status/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1799,7 +1688,6 @@ public class AssignmentApi {
   /**
   * Update Assignment
   * Updates an assignment.
-   * @param version 
    * @param accountId the user account id
    * @param assignmentId the assignment id
    * @param name the name of the assignment
@@ -1810,13 +1698,8 @@ public class AssignmentApi {
    * @param active determines whether the assignment is active or inactive
    * @return AssignmentResponse
   */
-  public AssignmentResponse assignmentUpdate (BigDecimal version, Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public AssignmentResponse assignmentUpdate (Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentUpdate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentUpdate",
@@ -1829,7 +1712,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1887,16 +1770,11 @@ public class AssignmentApi {
       /**
    * Update Assignment
    * Updates an assignment.
-   * @param version    * @param accountId the user account id   * @param assignmentId the assignment id   * @param name the name of the assignment   * @param description the description of the assignment   * @param assigneeAccountId the account id to assign to   * @param retailerLocationId the retailer location id   * @param tags the tags   * @param active determines whether the assignment is active or inactive
+   * @param accountId the user account id   * @param assignmentId the assignment id   * @param name the name of the assignment   * @param description the description of the assignment   * @param assigneeAccountId the account id to assign to   * @param retailerLocationId the retailer location id   * @param tags the tags   * @param active determines whether the assignment is active or inactive
   */
-  public void assignmentUpdate (BigDecimal version, Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignmentUpdate (Long accountId, Long assignmentId, String name, String description, Long assigneeAccountId, Long retailerLocationId, String tags, Boolean active, final Response.Listener<AssignmentResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignmentUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignmentUpdate"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignmentUpdate",
@@ -1909,7 +1787,7 @@ public class AssignmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/assignment/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/assignment/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

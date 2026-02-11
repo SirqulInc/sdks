@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.WordzWordResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class WordApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class WordApi {
   /**
   * Create Word
   * Create a word by the given params.
-   * @param version 
    * @param accountId The logged in user.
    * @param word The text of the word.
    * @param definition The definition of the word.
@@ -73,13 +71,8 @@ public class WordApi {
    * @param points The number of points to award for completing a mission
    * @return WordzWordResponse
   */
-  public WordzWordResponse createWord (BigDecimal version, Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WordzWordResponse createWord (Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling createWord"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createWord",
@@ -112,7 +105,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -171,16 +164,11 @@ public class WordApi {
       /**
    * Create Word
    * Create a word by the given params.
-   * @param version    * @param accountId The logged in user.   * @param word The text of the word.   * @param definition The definition of the word.   * @param active If true set the word to active. Default to false.   * @param allocateTickets If true then scoring will give tickets. Default to false.   * @param ticketCount The number of tickets to reward   * @param assetId The asset id of the word.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
+   * @param accountId The logged in user.   * @param word The text of the word.   * @param definition The definition of the word.   * @param active If true set the word to active. Default to false.   * @param allocateTickets If true then scoring will give tickets. Default to false.   * @param ticketCount The number of tickets to reward   * @param assetId The asset id of the word.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
   */
-  public void createWord (BigDecimal version, Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createWord (Long accountId, String word, String definition, Boolean active, Boolean allocateTickets, Long ticketCount, Long assetId, String ticketType, Long points, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling createWord"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createWord",
@@ -213,7 +201,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -275,18 +263,12 @@ public class WordApi {
   /**
   * Delete Word
   * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-   * @param version 
    * @param wordId The id of the word to delete.
    * @param accountId The account vor validating permission
    * @return SirqulResponse
   */
-  public SirqulResponse deleteWord (BigDecimal version, Long wordId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteWord (Long wordId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling deleteWord",
@@ -299,7 +281,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -351,16 +333,11 @@ public class WordApi {
       /**
    * Delete Word
    * Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-   * @param version    * @param wordId The id of the word to delete.   * @param accountId The account vor validating permission
+   * @param wordId The id of the word to delete.   * @param accountId The account vor validating permission
   */
-  public void deleteWord (BigDecimal version, Long wordId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteWord (Long wordId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling deleteWord",
@@ -373,7 +350,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -428,18 +405,12 @@ public class WordApi {
   /**
   * Get Word
   * Get a word by the given id.
-   * @param version 
    * @param wordId The id of the word to get.
    * @param accountId The logged in user.
    * @return WordzWordResponse
   */
-  public WordzWordResponse getWord (BigDecimal version, Long wordId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WordzWordResponse getWord (Long wordId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling getWord",
@@ -452,7 +423,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -504,16 +475,11 @@ public class WordApi {
       /**
    * Get Word
    * Get a word by the given id.
-   * @param version    * @param wordId The id of the word to get.   * @param accountId The logged in user.
+   * @param wordId The id of the word to get.   * @param accountId The logged in user.
   */
-  public void getWord (BigDecimal version, Long wordId, Long accountId, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getWord (Long wordId, Long accountId, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling getWord",
@@ -526,7 +492,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -581,7 +547,6 @@ public class WordApi {
   /**
   * Search Words
   * Search for words by the given params.
-   * @param version 
    * @param accountId The logged in user.
    * @param sortField The column to sort the search on
    * @param descending The order to return the search results
@@ -591,13 +556,8 @@ public class WordApi {
    * @param keyword The keyword for searching words with matching definition or word text.
    * @return List<WordzWordResponse>
   */
-  public List<WordzWordResponse> getWords (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<WordzWordResponse> getWords (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWords",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWords"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getWords",
@@ -630,7 +590,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -687,16 +647,11 @@ public class WordApi {
       /**
    * Search Words
    * Search for words by the given params.
-   * @param version    * @param accountId The logged in user.   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results if set to true.   * @param start The record to begin the return set on.   * @param limit The number of records to return.   * @param keyword The keyword for searching words with matching definition or word text.
+   * @param accountId The logged in user.   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results if set to true.   * @param start The record to begin the return set on.   * @param limit The number of records to return.   * @param keyword The keyword for searching words with matching definition or word text.
   */
-  public void getWords (BigDecimal version, Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, final Response.Listener<List<WordzWordResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getWords (Long accountId, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String keyword, final Response.Listener<List<WordzWordResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWords",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWords"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getWords",
@@ -729,7 +684,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -789,7 +744,6 @@ public class WordApi {
   /**
   * Update Word
   * Update a word by the given params.
-   * @param version 
    * @param wordId The id of the word to update.
    * @param accountId The logged in user.
    * @param ticketCount The number of tickets to reward
@@ -802,13 +756,8 @@ public class WordApi {
    * @param points The number of points to award for completing a mission
    * @return WordzWordResponse
   */
-  public WordzWordResponse updateWord (BigDecimal version, Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WordzWordResponse updateWord (Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling updateWord",
@@ -826,7 +775,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -886,16 +835,11 @@ public class WordApi {
       /**
    * Update Word
    * Update a word by the given params.
-   * @param version    * @param wordId The id of the word to update.   * @param accountId The logged in user.   * @param ticketCount The number of tickets to reward   * @param wordText The text for the word   * @param definition The definition of the word.   * @param assetId The asset id of the word.   * @param active If true set the word to active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
+   * @param wordId The id of the word to update.   * @param accountId The logged in user.   * @param ticketCount The number of tickets to reward   * @param wordText The text for the word   * @param definition The definition of the word.   * @param assetId The asset id of the word.   * @param active If true set the word to active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission
   */
-  public void updateWord (BigDecimal version, Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateWord (Long wordId, Long accountId, Long ticketCount, String wordText, String definition, Long assetId, Boolean active, Boolean allocateTickets, String ticketType, Long points, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateWord",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateWord"));
-    }
     // verify the required parameter 'wordId' is set
     if (wordId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'wordId' when calling updateWord",
@@ -913,7 +857,7 @@ public class WordApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/game/word/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/game/word/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

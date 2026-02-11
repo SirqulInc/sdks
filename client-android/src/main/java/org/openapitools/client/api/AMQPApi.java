@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.QueueResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class AMQPApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class AMQPApi {
   /**
   * Create Consumer
   * Create a connection to an existing amqp queue and register as a consumer.
-   * @param version 
    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
    * @param name The name of the queue to connect to
    * @param hostname The hostname of the server the queue is hosted on
@@ -77,13 +75,8 @@ public class AMQPApi {
    * @param useSSL Use SSL
    * @return QueueResponse
   */
-  public QueueResponse consumerCreate (BigDecimal version, String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse consumerCreate (String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling consumerCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling consumerCreate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling consumerCreate",
@@ -116,7 +109,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/consumer/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/consumer/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -180,16 +173,11 @@ public class AMQPApi {
       /**
    * Create Consumer
    * Create a connection to an existing amqp queue and register as a consumer.
-   * @param version    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.   * @param name The name of the queue to connect to   * @param hostname The hostname of the server the queue is hosted on   * @param username The username to access the server the queue is hosted on   * @param password The password to access the queue to connect to   * @param dataMapping The data mapping information in the format of AMQPRequest   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param port The port of the server the queue is hosted on   * @param virtualHost The virtual host defined on the server the queue is associated on   * @param exchanger The exchanger of the queue to connect to   * @param exchangerType The exchanger type of the queue to connect to   * @param workers The number of workers to generate    * @param useSSL Use SSL
+   * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.   * @param name The name of the queue to connect to   * @param hostname The hostname of the server the queue is hosted on   * @param username The username to access the server the queue is hosted on   * @param password The password to access the queue to connect to   * @param dataMapping The data mapping information in the format of AMQPRequest   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param port The port of the server the queue is hosted on   * @param virtualHost The virtual host defined on the server the queue is associated on   * @param exchanger The exchanger of the queue to connect to   * @param exchangerType The exchanger type of the queue to connect to   * @param workers The number of workers to generate    * @param useSSL Use SSL
   */
-  public void consumerCreate (BigDecimal version, String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void consumerCreate (String appKey, String name, String hostname, String username, String password, String dataMapping, String deviceId, Long accountId, Integer port, String virtualHost, String exchanger, String exchangerType, Integer workers, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling consumerCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling consumerCreate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling consumerCreate",
@@ -222,7 +210,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/consumer/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/consumer/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -289,7 +277,6 @@ public class AMQPApi {
   /**
   * Update Consumer
   * Update an existing amqp queue&#39;s data mapping.
-   * @param version 
    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.
    * @param queueId The queue to update
    * @param dataMapping The data mapping information in the format of AMQPRequest
@@ -298,13 +285,8 @@ public class AMQPApi {
    * @param useSSL Use SSL
    * @return QueueResponse
   */
-  public QueueResponse consumerUpdate (BigDecimal version, String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse consumerUpdate (String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling consumerUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling consumerUpdate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling consumerUpdate",
@@ -322,7 +304,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/consumer/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/consumer/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -378,16 +360,11 @@ public class AMQPApi {
       /**
    * Update Consumer
    * Update an existing amqp queue&#39;s data mapping.
-   * @param version    * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.   * @param queueId The queue to update   * @param dataMapping The data mapping information in the format of AMQPRequest   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param useSSL Use SSL
+   * @param appKey The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.   * @param queueId The queue to update   * @param dataMapping The data mapping information in the format of AMQPRequest   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param useSSL Use SSL
   */
-  public void consumerUpdate (BigDecimal version, String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void consumerUpdate (String appKey, Long queueId, String dataMapping, String deviceId, Long accountId, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling consumerUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling consumerUpdate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling consumerUpdate",
@@ -405,7 +382,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/consumer/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/consumer/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -464,7 +441,6 @@ public class AMQPApi {
   /**
   * Create Queue
   * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-   * @param version 
    * @param appKey The application key unique to each application.
    * @param name The name of the queue to create
    * @param deviceId The client deviceID
@@ -479,13 +455,8 @@ public class AMQPApi {
    * @param useSSL Use SSL
    * @return QueueResponse
   */
-  public QueueResponse queueCreate (BigDecimal version, String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse queueCreate (String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueCreate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling queueCreate",
@@ -498,7 +469,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -560,16 +531,11 @@ public class AMQPApi {
       /**
    * Create Queue
    * Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-   * @param version    * @param appKey The application key unique to each application.   * @param name The name of the queue to create   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param workers The number of workers to generate    * @param analyticTags If provided the analytic processing will publsih to this queue instead of the default one for the provided list of tags   * @param hostname The hostname of the server the queue is hosted on   * @param port The port of the server the queue is hosted on   * @param username The username to access the server that the queue is on   * @param password The password to access the queue to connect to   * @param virtualHost The virtual host defined on the server to queue   * @param useSSL Use SSL
+   * @param appKey The application key unique to each application.   * @param name The name of the queue to create   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param workers The number of workers to generate    * @param analyticTags If provided the analytic processing will publsih to this queue instead of the default one for the provided list of tags   * @param hostname The hostname of the server the queue is hosted on   * @param port The port of the server the queue is hosted on   * @param username The username to access the server that the queue is on   * @param password The password to access the queue to connect to   * @param virtualHost The virtual host defined on the server to queue   * @param useSSL Use SSL
   */
-  public void queueCreate (BigDecimal version, String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queueCreate (String appKey, String name, String deviceId, Long accountId, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueCreate",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueCreate"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling queueCreate",
@@ -582,7 +548,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -647,19 +613,13 @@ public class AMQPApi {
   /**
   * Delete Queue
   * Delete the stored queue record and close any active connections to the AMQP servers.
-   * @param version 
    * @param queueId The id of the queue to find
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
    * @return SirqulResponse
   */
-  public SirqulResponse queueDelete (BigDecimal version, Long queueId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse queueDelete (Long queueId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueDelete"));
-    }
     // verify the required parameter 'queueId' is set
     if (queueId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'queueId' when calling queueDelete",
@@ -667,7 +627,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -720,16 +680,11 @@ public class AMQPApi {
       /**
    * Delete Queue
    * Delete the stored queue record and close any active connections to the AMQP servers.
-   * @param version    * @param queueId The id of the queue to find   * @param deviceId The client device ID   * @param accountId The logged in user ID
+   * @param queueId The id of the queue to find   * @param deviceId The client device ID   * @param accountId The logged in user ID
   */
-  public void queueDelete (BigDecimal version, Long queueId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queueDelete (Long queueId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueDelete",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueDelete"));
-    }
     // verify the required parameter 'queueId' is set
     if (queueId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'queueId' when calling queueDelete",
@@ -737,7 +692,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -793,7 +748,6 @@ public class AMQPApi {
   /**
   * Get Queue
   * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-   * @param version 
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
    * @param queueId The id of the queue to find
@@ -803,16 +757,11 @@ public class AMQPApi {
    * @param virtualHost The virtual host of the queue to find
    * @return QueueResponse
   */
-  public QueueResponse queueGet (BigDecimal version, String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse queueGet (String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueGet"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/queue/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -869,19 +818,14 @@ public class AMQPApi {
       /**
    * Get Queue
    * Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-   * @param version    * @param deviceId The client device ID   * @param accountId The logged in user ID   * @param queueId The id of the queue to find   * @param appKey The application key the queue was assigned to   * @param name The name of the queue to find   * @param hostname The hostname of the queue to find   * @param virtualHost The virtual host of the queue to find
+   * @param deviceId The client device ID   * @param accountId The logged in user ID   * @param queueId The id of the queue to find   * @param appKey The application key the queue was assigned to   * @param name The name of the queue to find   * @param hostname The hostname of the queue to find   * @param virtualHost The virtual host of the queue to find
   */
-  public void queueGet (BigDecimal version, String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queueGet (String deviceId, Long accountId, Long queueId, String appKey, String name, String hostname, String virtualHost, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueGet",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueGet"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/queue/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -941,7 +885,6 @@ public class AMQPApi {
   /**
   * Publish Queue
   * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-   * @param version 
    * @param message The payload to send to the queue
    * @param queueId The id of the queue to publish to
    * @param appKey The application key the queue was assigned to
@@ -950,13 +893,8 @@ public class AMQPApi {
    * @param virtualHost The virtual host defined on the server to queue
    * @return SirqulResponse
   */
-  public SirqulResponse queuePublish (BigDecimal version, String message, Long queueId, String appKey, String name, String hostname, String virtualHost) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse queuePublish (String message, Long queueId, String appKey, String name, String hostname, String virtualHost) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queuePublish",
-        new ApiException(400, "Missing the required parameter 'version' when calling queuePublish"));
-    }
     // verify the required parameter 'message' is set
     if (message == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'message' when calling queuePublish",
@@ -964,7 +902,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/publish".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/publish";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1020,16 +958,11 @@ public class AMQPApi {
       /**
    * Publish Queue
    * Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-   * @param version    * @param message The payload to send to the queue   * @param queueId The id of the queue to publish to   * @param appKey The application key the queue was assigned to   * @param name The name of the queue to publish to or the analytic tag to handle if the analytic param is true   * @param hostname The hostname of the server the queue is hosted on   * @param virtualHost The virtual host defined on the server to queue
+   * @param message The payload to send to the queue   * @param queueId The id of the queue to publish to   * @param appKey The application key the queue was assigned to   * @param name The name of the queue to publish to or the analytic tag to handle if the analytic param is true   * @param hostname The hostname of the server the queue is hosted on   * @param virtualHost The virtual host defined on the server to queue
   */
-  public void queuePublish (BigDecimal version, String message, Long queueId, String appKey, String name, String hostname, String virtualHost, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queuePublish (String message, Long queueId, String appKey, String name, String hostname, String virtualHost, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queuePublish",
-        new ApiException(400, "Missing the required parameter 'version' when calling queuePublish"));
-    }
     // verify the required parameter 'message' is set
     if (message == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'message' when calling queuePublish",
@@ -1037,7 +970,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/publish".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/publish".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1096,7 +1029,6 @@ public class AMQPApi {
   /**
   * Search Queue
   * Get the queues setup for the BillableEntity&#39;s applications.
-   * @param version 
    * @param queueId The id of the queue to find
    * @param deviceId The client device ID
    * @param accountId The logged in user ID
@@ -1105,16 +1037,11 @@ public class AMQPApi {
    * @param limit Limit of the index
    * @return QueueResponse
   */
-  public QueueResponse queueSearch (BigDecimal version, Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse queueSearch (Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueSearch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/queue/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1170,19 +1097,14 @@ public class AMQPApi {
       /**
    * Search Queue
    * Get the queues setup for the BillableEntity&#39;s applications.
-   * @param version    * @param queueId The id of the queue to find   * @param deviceId The client device ID   * @param accountId The logged in user ID   * @param name The name of the queue to find   * @param start Start of the index   * @param limit Limit of the index
+   * @param queueId The id of the queue to find   * @param deviceId The client device ID   * @param accountId The logged in user ID   * @param name The name of the queue to find   * @param start Start of the index   * @param limit Limit of the index
   */
-  public void queueSearch (BigDecimal version, Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queueSearch (Long queueId, String deviceId, Long accountId, String name, Integer start, Integer limit, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueSearch"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/queue/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1241,7 +1163,6 @@ public class AMQPApi {
   /**
   * Update Queue
   * Update the basic AMQP queue.
-   * @param version 
    * @param queueId The id of the queue to update
    * @param deviceId The client deviceID
    * @param accountId The logged in user ID
@@ -1256,13 +1177,8 @@ public class AMQPApi {
    * @param useSSL the SSL to use
    * @return QueueResponse
   */
-  public QueueResponse queueUpdate (BigDecimal version, Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QueueResponse queueUpdate (Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueUpdate"));
-    }
     // verify the required parameter 'queueId' is set
     if (queueId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'queueId' when calling queueUpdate",
@@ -1270,7 +1186,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1332,16 +1248,11 @@ public class AMQPApi {
       /**
    * Update Queue
    * Update the basic AMQP queue.
-   * @param version    * @param queueId The id of the queue to update   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param appKey The application key unique to each application.   * @param workers The number of workers to generate   * @param analyticTags If provided the analytic processing will publsih to this queue instead of the default one for the provided list of tags   * @param hostname The hostname of the server the queue is hosted on   * @param port The port of the server the queue is hosted on   * @param username The username to access the server that the queue is on   * @param password The password to access the queue to connect to   * @param virtualHost The virtual host defined on the server to queue   * @param useSSL the SSL to use
+   * @param queueId The id of the queue to update   * @param deviceId The client deviceID   * @param accountId The logged in user ID   * @param appKey The application key unique to each application.   * @param workers The number of workers to generate   * @param analyticTags If provided the analytic processing will publsih to this queue instead of the default one for the provided list of tags   * @param hostname The hostname of the server the queue is hosted on   * @param port The port of the server the queue is hosted on   * @param username The username to access the server that the queue is on   * @param password The password to access the queue to connect to   * @param virtualHost The virtual host defined on the server to queue   * @param useSSL the SSL to use
   */
-  public void queueUpdate (BigDecimal version, Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void queueUpdate (Long queueId, String deviceId, Long accountId, String appKey, Integer workers, String analyticTags, String hostname, Integer port, String username, String password, String virtualHost, Boolean useSSL, final Response.Listener<QueueResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling queueUpdate",
-        new ApiException(400, "Missing the required parameter 'version' when calling queueUpdate"));
-    }
     // verify the required parameter 'queueId' is set
     if (queueId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'queueId' when calling queueUpdate",
@@ -1349,7 +1260,7 @@ public class AMQPApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/queue/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/queue/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

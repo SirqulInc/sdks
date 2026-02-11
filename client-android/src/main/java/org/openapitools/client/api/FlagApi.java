@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.CountResponse;
 import org.openapitools.client.model.FlagResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class FlagApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class FlagApi {
   /**
   * Create Flag
   * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-   * @param version 
    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
    * @param flagableId The flagable object id
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -71,13 +69,8 @@ public class FlagApi {
    * @param longitude The current location of the user
    * @return SirqulResponse
   */
-  public SirqulResponse createFlag (BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse createFlag (String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFlag"));
-    }
     // verify the required parameter 'flagableType' is set
     if (flagableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'flagableType' when calling createFlag",
@@ -90,7 +83,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -147,16 +140,11 @@ public class FlagApi {
       /**
    * Create Flag
    * Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-   * @param version    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}   * @param flagableId The flagable object id   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param flagDescription An optional description of why is it being flagged   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}   * @param flagableId The flagable object id   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param flagDescription An optional description of why is it being flagged   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void createFlag (BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createFlag (String flagableType, Long flagableId, String deviceId, Long accountId, String flagDescription, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFlag"));
-    }
     // verify the required parameter 'flagableType' is set
     if (flagableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'flagableType' when calling createFlag",
@@ -169,7 +157,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -229,7 +217,6 @@ public class FlagApi {
   /**
   * Delete Flag
   * Deletes a flag.
-   * @param version 
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @param itemBeingFlaggedType This parameter is deprecated.
@@ -238,16 +225,11 @@ public class FlagApi {
    * @param flagableId The flagable object id
    * @return SirqulResponse
   */
-  public SirqulResponse deleteFlag (BigDecimal version, String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteFlag (String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFlag"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/flag/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -303,19 +285,14 @@ public class FlagApi {
       /**
    * Delete Flag
    * Deletes a flag.
-   * @param version    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param itemBeingFlaggedType This parameter is deprecated.   * @param itemBeingFlaggedId This parameter is deprecated.   * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param flagableId The flagable object id
+   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param itemBeingFlaggedType This parameter is deprecated.   * @param itemBeingFlaggedId This parameter is deprecated.   * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param flagableId The flagable object id
   */
-  public void deleteFlag (BigDecimal version, String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteFlag (String deviceId, Long accountId, String itemBeingFlaggedType, Long itemBeingFlaggedId, String flagableType, Long flagableId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFlag"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/flag/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -374,7 +351,6 @@ public class FlagApi {
   /**
   * Get Flag
   * Gets the details on whether the user has flagged a particular flagable object.
-   * @param version 
    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}
    * @param flagableId The flagable object id
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -383,13 +359,8 @@ public class FlagApi {
    * @param longitude The current location of the user
    * @return FlagResponse
   */
-  public FlagResponse getFlag (BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public FlagResponse getFlag (String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFlag"));
-    }
     // verify the required parameter 'flagableType' is set
     if (flagableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'flagableType' when calling getFlag",
@@ -402,7 +373,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -458,16 +429,11 @@ public class FlagApi {
       /**
    * Get Flag
    * Gets the details on whether the user has flagged a particular flagable object.
-   * @param version    * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}   * @param flagableId The flagable object id   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param flagableType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}   * @param flagableId The flagable object id   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void getFlag (BigDecimal version, String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<FlagResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getFlag (String flagableType, Long flagableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<FlagResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFlag",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFlag"));
-    }
     // verify the required parameter 'flagableType' is set
     if (flagableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'flagableType' when calling getFlag",
@@ -480,7 +446,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -539,18 +505,12 @@ public class FlagApi {
   /**
   * Get Flag Threshold
   * Get the flag threshold value on an object type for a particular application.
-   * @param version 
    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
    * @param appKey The application key
    * @return CountResponse
   */
-  public CountResponse getFlagThreshold (BigDecimal version, String itemBeingFlaggedType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CountResponse getFlagThreshold (String itemBeingFlaggedType, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFlagThreshold",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFlagThreshold"));
-    }
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'itemBeingFlaggedType' when calling getFlagThreshold",
@@ -563,7 +523,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/threshold/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/threshold/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -615,16 +575,11 @@ public class FlagApi {
       /**
    * Get Flag Threshold
    * Get the flag threshold value on an object type for a particular application.
-   * @param version    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param appKey The application key
+   * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param appKey The application key
   */
-  public void getFlagThreshold (BigDecimal version, String itemBeingFlaggedType, String appKey, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getFlagThreshold (String itemBeingFlaggedType, String appKey, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFlagThreshold",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFlagThreshold"));
-    }
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'itemBeingFlaggedType' when calling getFlagThreshold",
@@ -637,7 +592,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/threshold/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/threshold/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -692,7 +647,6 @@ public class FlagApi {
   /**
   * Update Flag Threshold
   * Update the flag threshold on an object type for a particular application.
-   * @param version 
    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}
    * @param threshold The threshold value
    * @param appKey The application key
@@ -700,13 +654,8 @@ public class FlagApi {
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @return CountResponse
   */
-  public CountResponse updateFlagThreshold (BigDecimal version, String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public CountResponse updateFlagThreshold (String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateFlagThreshold",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateFlagThreshold"));
-    }
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'itemBeingFlaggedType' when calling updateFlagThreshold",
@@ -724,7 +673,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/threshold/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/threshold/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -779,16 +728,11 @@ public class FlagApi {
       /**
    * Update Flag Threshold
    * Update the flag threshold on an object type for a particular application.
-   * @param version    * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param threshold The threshold value   * @param appKey The application key   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
+   * @param itemBeingFlaggedType The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}   * @param threshold The threshold value   * @param appKey The application key   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
   */
-  public void updateFlagThreshold (BigDecimal version, String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateFlagThreshold (String itemBeingFlaggedType, Long threshold, String appKey, String deviceId, Long accountId, final Response.Listener<CountResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateFlagThreshold",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateFlagThreshold"));
-    }
     // verify the required parameter 'itemBeingFlaggedType' is set
     if (itemBeingFlaggedType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'itemBeingFlaggedType' when calling updateFlagThreshold",
@@ -806,7 +750,7 @@ public class FlagApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/flag/threshold/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/flag/threshold/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

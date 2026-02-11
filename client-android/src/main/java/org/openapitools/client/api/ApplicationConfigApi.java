@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.ApplicationConfigResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ApplicationConfigApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class ApplicationConfigApi {
   /**
   * Create AppConfig
   * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-   * @param version 
    * @param accountId The account ID of the user
    * @param appKey The application key that the newly created applicationConfig will be associated to
    * @param configVersion The application configuration, has to be unique within the application
@@ -71,13 +69,8 @@ public class ApplicationConfigApi {
    * @param udid The device udid for device specific configurations
    * @return ApplicationConfigResponse
   */
-  public ApplicationConfigResponse createApplicationConfig (BigDecimal version, Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ApplicationConfigResponse createApplicationConfig (Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling createApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createApplicationConfig",
@@ -100,7 +93,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,16 +150,11 @@ public class ApplicationConfigApi {
       /**
    * Create AppConfig
    * Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won&#39;t be created.
-   * @param version    * @param accountId The account ID of the user   * @param appKey The application key that the newly created applicationConfig will be associated to   * @param configVersion The application configuration, has to be unique within the application   * @param assetId The json assetId that stores the configuration detail.   * @param retailerId The retailer id for retailer specific configurations   * @param retailerLocationId The retailer location id for retailer location specific configurations   * @param udid The device udid for device specific configurations
+   * @param accountId The account ID of the user   * @param appKey The application key that the newly created applicationConfig will be associated to   * @param configVersion The application configuration, has to be unique within the application   * @param assetId The json assetId that stores the configuration detail.   * @param retailerId The retailer id for retailer specific configurations   * @param retailerLocationId The retailer location id for retailer location specific configurations   * @param udid The device udid for device specific configurations
   */
-  public void createApplicationConfig (BigDecimal version, Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createApplicationConfig (Long accountId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling createApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createApplicationConfig",
@@ -189,7 +177,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -249,18 +237,12 @@ public class ApplicationConfigApi {
   /**
   * Delete AppConfig
   * Mark the application configuration for deletion.
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteApplicationConfig (BigDecimal version, Long accountId, Long configId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteApplicationConfig (Long accountId, Long configId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteApplicationConfig",
@@ -273,7 +255,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -325,16 +307,11 @@ public class ApplicationConfigApi {
       /**
    * Delete AppConfig
    * Mark the application configuration for deletion.
-   * @param version    * @param accountId The account ID of the user   * @param configId The config ID of the application configuration to delete
+   * @param accountId The account ID of the user   * @param configId The config ID of the application configuration to delete
   */
-  public void deleteApplicationConfig (BigDecimal version, Long accountId, Long configId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteApplicationConfig (Long accountId, Long configId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteApplicationConfig",
@@ -347,7 +324,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -402,18 +379,12 @@ public class ApplicationConfigApi {
   /**
   * Get AppConfig
   * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration
    * @return ApplicationConfigResponse
   */
-  public ApplicationConfigResponse getApplicationConfig (BigDecimal version, Long accountId, Long configId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ApplicationConfigResponse getApplicationConfig (Long accountId, Long configId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling getApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getApplicationConfig",
@@ -426,7 +397,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -478,16 +449,11 @@ public class ApplicationConfigApi {
       /**
    * Get AppConfig
    * Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-   * @param version    * @param accountId The account ID of the user   * @param configId The config ID of the application configuration
+   * @param accountId The account ID of the user   * @param configId The config ID of the application configuration
   */
-  public void getApplicationConfig (BigDecimal version, Long accountId, Long configId, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getApplicationConfig (Long accountId, Long configId, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling getApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getApplicationConfig",
@@ -500,7 +466,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -555,7 +521,6 @@ public class ApplicationConfigApi {
   /**
   * Get AppConfig by Version
   * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-   * @param version 
    * @param appKey The application key
    * @param configVersion The version of the application configuration
    * @param retailerId Only returns the config that matches the given retailer
@@ -564,13 +529,8 @@ public class ApplicationConfigApi {
    * @param allowOlderVersions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
    * @return ApplicationConfigResponse
   */
-  public ApplicationConfigResponse getApplicationConfigByConfigVersion (BigDecimal version, String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ApplicationConfigResponse getApplicationConfigByConfigVersion (String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling getApplicationConfigByConfigVersion",
@@ -583,7 +543,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/getbyversion".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/getbyversion";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -639,16 +599,11 @@ public class ApplicationConfigApi {
       /**
    * Get AppConfig by Version
    * Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-   * @param version    * @param appKey The application key   * @param configVersion The version of the application configuration   * @param retailerId Only returns the config that matches the given retailer   * @param retailerLocationId Only returns the config that matches the given retailer location   * @param udid Only returns only returns the config that matches the given device udid   * @param allowOlderVersions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
+   * @param appKey The application key   * @param configVersion The version of the application configuration   * @param retailerId Only returns the config that matches the given retailer   * @param retailerLocationId Only returns the config that matches the given retailer location   * @param udid Only returns only returns the config that matches the given device udid   * @param allowOlderVersions Determines whether to return older config versions if the exact version is not found. If this happens, will try to return the latest version.
   */
-  public void getApplicationConfigByConfigVersion (BigDecimal version, String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getApplicationConfigByConfigVersion (String appKey, String configVersion, Long retailerId, Long retailerLocationId, String udid, Boolean allowOlderVersions, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getApplicationConfigByConfigVersion"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling getApplicationConfigByConfigVersion",
@@ -661,7 +616,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/getbyversion".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/getbyversion".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -720,7 +675,6 @@ public class ApplicationConfigApi {
   /**
   * Search AppConfigs
   * Gets all versions of application configurations in a particular app by the given appKey.
-   * @param version 
    * @param accountId The account ID of the user
    * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
    * @param retailerId Only returns the configs that matches the given retailer
@@ -733,13 +687,8 @@ public class ApplicationConfigApi {
    * @param limit The limit for pagination (There is a hard limit of 100)
    * @return List<ApplicationConfigResponse>
   */
-  public List<ApplicationConfigResponse> searchApplicationConfig (BigDecimal version, Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ApplicationConfigResponse> searchApplicationConfig (Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchApplicationConfig",
@@ -747,7 +696,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -807,16 +756,11 @@ public class ApplicationConfigApi {
       /**
    * Search AppConfigs
    * Gets all versions of application configurations in a particular app by the given appKey.
-   * @param version    * @param accountId The account ID of the user   * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)   * @param retailerId Only returns the configs that matches the given retailer   * @param retailerLocationId Only returns the configs that matches the given retailer location   * @param udid Only returns only returns the configs that matches the given device udid   * @param configVersion Config Version   * @param sortField Orders the results by: CREATED, UPDATED, ACTIVE, APPLICATION_ID,  APPLICATION_KEY, APPLICATION_NAME, RETAILER_NAME, RETAILER_ID, RETAILER_LOCATION_NAME,  RETAILER_LOCATION_ID, OFFER_TITLE, OFFER_ID, OFFER_LOCATION_ID, CONFIG_VERSION_MINOR,  CONFIG_VERSION_MAJOR, CONFIG_VERSION_INDEX    * @param descending Determines whether the results are in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination (There is a hard limit of 100)
+   * @param accountId The account ID of the user   * @param appKey The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)   * @param retailerId Only returns the configs that matches the given retailer   * @param retailerLocationId Only returns the configs that matches the given retailer location   * @param udid Only returns only returns the configs that matches the given device udid   * @param configVersion Config Version   * @param sortField Orders the results by: CREATED, UPDATED, ACTIVE, APPLICATION_ID,  APPLICATION_KEY, APPLICATION_NAME, RETAILER_NAME, RETAILER_ID, RETAILER_LOCATION_NAME,  RETAILER_LOCATION_ID, OFFER_TITLE, OFFER_ID, OFFER_LOCATION_ID, CONFIG_VERSION_MINOR,  CONFIG_VERSION_MAJOR, CONFIG_VERSION_INDEX    * @param descending Determines whether the results are in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination (There is a hard limit of 100)
   */
-  public void searchApplicationConfig (BigDecimal version, Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ApplicationConfigResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchApplicationConfig (Long accountId, String appKey, Long retailerId, Long retailerLocationId, String udid, String configVersion, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ApplicationConfigResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchApplicationConfig",
@@ -824,7 +768,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -887,7 +831,6 @@ public class ApplicationConfigApi {
   /**
   * Update AppConfig
   * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-   * @param version 
    * @param accountId The account ID of the user
    * @param configId The config ID of the application configuration to update
    * @param appKey The application key that the updated applicationConfig will be associated to
@@ -898,13 +841,8 @@ public class ApplicationConfigApi {
    * @param udid The device udid for device specific configurations
    * @return ApplicationConfigResponse
   */
-  public ApplicationConfigResponse updateApplicationConfig (BigDecimal version, Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ApplicationConfigResponse updateApplicationConfig (Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateApplicationConfig",
@@ -917,7 +855,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -975,16 +913,11 @@ public class ApplicationConfigApi {
       /**
    * Update AppConfig
    * pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won&#39;t be updated.
-   * @param version    * @param accountId The account ID of the user   * @param configId The config ID of the application configuration to update   * @param appKey The application key that the updated applicationConfig will be associated to   * @param configVersion The application configuration, has to be unique within the application   * @param assetId The json assetId that stores the configuration detail.   * @param retailerId The retailer id for retailer specific configurations   * @param retailerLocationId The retailer location id for retailer location specific configurations   * @param udid The device udid for device specific configurations
+   * @param accountId The account ID of the user   * @param configId The config ID of the application configuration to update   * @param appKey The application key that the updated applicationConfig will be associated to   * @param configVersion The application configuration, has to be unique within the application   * @param assetId The json assetId that stores the configuration detail.   * @param retailerId The retailer id for retailer specific configurations   * @param retailerLocationId The retailer location id for retailer location specific configurations   * @param udid The device udid for device specific configurations
   */
-  public void updateApplicationConfig (BigDecimal version, Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateApplicationConfig (Long accountId, Long configId, String appKey, String configVersion, Long assetId, Long retailerId, Long retailerLocationId, String udid, final Response.Listener<ApplicationConfigResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateApplicationConfig",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateApplicationConfig"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateApplicationConfig",
@@ -997,7 +930,7 @@ public class ApplicationConfigApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/appconfig/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/appconfig/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
@@ -36,7 +35,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class VatomApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -58,19 +57,13 @@ public class VatomApi {
   /**
   * Create following
   * Create following.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void createFollowing (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void createFollowing (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createFollowing",
@@ -83,7 +76,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -136,16 +129,11 @@ public class VatomApi {
       /**
    * Create following
    * Create following.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void createFollowing (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void createFollowing (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createFollowing",
@@ -158,7 +146,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -210,20 +198,14 @@ public class VatomApi {
   /**
   * Create Vatom Space
   * Create a Vatom space.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void createSpace (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void createSpace (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSpace",
@@ -241,7 +223,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -295,16 +277,11 @@ public class VatomApi {
       /**
    * Create Vatom Space
    * Create a Vatom space.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void createSpace (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void createSpace (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSpace",
@@ -322,7 +299,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -375,20 +352,14 @@ public class VatomApi {
   /**
   * Create Vatom Event
   * Create a Vatom event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void createVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void createVatomEvent (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createVatomEvent",
@@ -406,7 +377,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -460,16 +431,11 @@ public class VatomApi {
       /**
    * Create Vatom Event
    * Create a Vatom event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void createVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void createVatomEvent (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling createVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createVatomEvent",
@@ -487,7 +453,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -540,19 +506,13 @@ public class VatomApi {
   /**
   * Delete following
   * Delete following.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomRelsKey Vatom Rels Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void deleteFollowing (BigDecimal version, Long accountId, String vatomRelsKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteFollowing (Long accountId, String vatomRelsKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteFollowing",
@@ -565,7 +525,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -618,16 +578,11 @@ public class VatomApi {
       /**
    * Delete following
    * Delete following.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomRelsKey Vatom Rels Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomRelsKey Vatom Rels Key   * @param returnRawResponse Return raw response
   */
-  public void deleteFollowing (BigDecimal version, Long accountId, String vatomRelsKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteFollowing (Long accountId, String vatomRelsKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteFollowing",
@@ -640,7 +595,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -692,20 +647,14 @@ public class VatomApi {
   /**
   * Reset All Points Balance
   * Reset All Points Balance.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void deletePointsBalance (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deletePointsBalance (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePointsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePointsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePointsBalance",
@@ -723,7 +672,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/points/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/points/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -777,16 +726,11 @@ public class VatomApi {
       /**
    * Reset All Points Balance
    * Reset All Points Balance.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void deletePointsBalance (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePointsBalance (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePointsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePointsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePointsBalance",
@@ -804,7 +748,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/points/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/points/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -857,20 +801,14 @@ public class VatomApi {
   /**
   * Delete Vatom Space
   * Delete a Vatom space.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void deleteSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteSpace (Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSpace",
@@ -888,7 +826,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -942,16 +880,11 @@ public class VatomApi {
       /**
    * Delete Vatom Space
    * Delete a Vatom space.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param returnRawResponse Return raw response
   */
-  public void deleteSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteSpace (Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteSpace",
@@ -969,7 +902,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1022,20 +955,14 @@ public class VatomApi {
   /**
   * Delete Vatom Event
   * Delete a Vatom event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void deleteVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteVatomEvent (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteVatomEvent",
@@ -1053,7 +980,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1107,16 +1034,11 @@ public class VatomApi {
       /**
    * Delete Vatom Event
    * Delete a Vatom event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
   */
-  public void deleteVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteVatomEvent (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteVatomEvent",
@@ -1134,7 +1056,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1187,19 +1109,13 @@ public class VatomApi {
   /**
   * Delete Vatom NFT
   * Delete Vatom NFT
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void deleteVatomNFT (BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteVatomNFT (Long accountId, String vatomId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVatomNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVatomNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteVatomNFT",
@@ -1212,7 +1128,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1265,16 +1181,11 @@ public class VatomApi {
       /**
    * Delete Vatom NFT
    * Delete Vatom NFT
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param returnRawResponse Return raw response
   */
-  public void deleteVatomNFT (BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteVatomNFT (Long accountId, String vatomId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteVatomNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteVatomNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteVatomNFT",
@@ -1287,7 +1198,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1339,20 +1250,14 @@ public class VatomApi {
   /**
   * Execute Action on NFT
   * Execute Action on NFT.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void executeActionOnNFT (BigDecimal version, Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void executeActionOnNFT (Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling executeActionOnNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling executeActionOnNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling executeActionOnNFT",
@@ -1370,7 +1275,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/execute-action".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/execute-action";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1424,16 +1329,11 @@ public class VatomApi {
       /**
    * Execute Action on NFT
    * Execute Action on NFT.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void executeActionOnNFT (BigDecimal version, Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void executeActionOnNFT (Long accountId, String vatomId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling executeActionOnNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling executeActionOnNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling executeActionOnNFT",
@@ -1451,7 +1351,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/execute-action".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/execute-action".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1504,19 +1404,13 @@ public class VatomApi {
   /**
   * Search Vatom Geo Map
   * Search Vatom Geo Map
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void geomapSearch (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void geomapSearch (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling geomapSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling geomapSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling geomapSearch",
@@ -1529,7 +1423,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/geo-map/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/geo-map/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1582,16 +1476,11 @@ public class VatomApi {
       /**
    * Search Vatom Geo Map
    * Search Vatom Geo Map
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void geomapSearch (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void geomapSearch (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling geomapSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling geomapSearch"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling geomapSearch",
@@ -1604,7 +1493,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/geo-map/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/geo-map/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1656,19 +1545,13 @@ public class VatomApi {
   /**
   * Get Vatom Business Behaviors
   * Gets the behaviors of a business.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getBusinessBehaviors (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getBusinessBehaviors (Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessBehaviors",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessBehaviors"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessBehaviors",
@@ -1681,7 +1564,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/behaviors".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/behaviors";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1734,16 +1617,11 @@ public class VatomApi {
       /**
    * Get Vatom Business Behaviors
    * Gets the behaviors of a business.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
   */
-  public void getBusinessBehaviors (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getBusinessBehaviors (Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessBehaviors",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessBehaviors"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessBehaviors",
@@ -1756,7 +1634,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/behaviors".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/behaviors".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1808,19 +1686,13 @@ public class VatomApi {
   /**
   * Get the coins for a Business
   * Get the coins for a Businesss.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getBusinessCoinsBalance (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getBusinessCoinsBalance (Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessCoinsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessCoinsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessCoinsBalance",
@@ -1833,7 +1705,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/coins/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/coins/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1886,16 +1758,11 @@ public class VatomApi {
       /**
    * Get the coins for a Business
    * Get the coins for a Businesss.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
   */
-  public void getBusinessCoinsBalance (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getBusinessCoinsBalance (Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessCoinsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessCoinsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessCoinsBalance",
@@ -1908,7 +1775,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/coins/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/coins/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1960,18 +1827,12 @@ public class VatomApi {
   /**
   * Get the user business ids
   * Get the business ids the logged in user has access to.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getBusinessIds (BigDecimal version, Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getBusinessIds (Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessIds",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessIds"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessIds",
@@ -1979,7 +1840,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/businesses".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/businesses";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2031,16 +1892,11 @@ public class VatomApi {
       /**
    * Get the user business ids
    * Get the business ids the logged in user has access to.
-   * @param version    * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
   */
-  public void getBusinessIds (BigDecimal version, Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getBusinessIds (Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessIds",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessIds"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessIds",
@@ -2048,7 +1904,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/businesses".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/businesses".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2099,20 +1955,14 @@ public class VatomApi {
   /**
   * Get Vatom Business Info
   * Gets the business info tied to this account.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getBusinessInfo (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getBusinessInfo (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessInfo",
@@ -2125,7 +1975,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2179,16 +2029,11 @@ public class VatomApi {
       /**
    * Get Vatom Business Info
    * Gets the business info tied to this account.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void getBusinessInfo (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getBusinessInfo (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessInfo",
@@ -2201,7 +2046,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2254,19 +2099,13 @@ public class VatomApi {
   /**
   * Get Vatom Business Users
   * Gets the users of a business.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getBusinessUsers (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getBusinessUsers (Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessUsers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessUsers",
@@ -2279,7 +2118,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2332,16 +2171,11 @@ public class VatomApi {
       /**
    * Get Vatom Business Users
    * Gets the users of a business.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
   */
-  public void getBusinessUsers (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getBusinessUsers (Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBusinessUsers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBusinessUsers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getBusinessUsers",
@@ -2354,7 +2188,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2406,20 +2240,14 @@ public class VatomApi {
   /**
   * Get Campaign Group Entities
   * Get campaign group entities.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getCampaignGroupEntities (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getCampaignGroupEntities (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupEntities",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupEntities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupEntities",
@@ -2437,7 +2265,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/entities".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/entities";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2491,16 +2319,11 @@ public class VatomApi {
       /**
    * Get Campaign Group Entities
    * Get campaign group entities.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getCampaignGroupEntities (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getCampaignGroupEntities (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupEntities",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupEntities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupEntities",
@@ -2518,7 +2341,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/entities".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/entities".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2571,20 +2394,14 @@ public class VatomApi {
   /**
   * Get Campaign Group Rules
   * Get campaign group rules.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getCampaignGroupRules (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getCampaignGroupRules (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupRules",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupRules"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupRules",
@@ -2602,7 +2419,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/rules".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/rules";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2656,16 +2473,11 @@ public class VatomApi {
       /**
    * Get Campaign Group Rules
    * Get campaign group rules.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getCampaignGroupRules (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getCampaignGroupRules (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupRules",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupRules"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupRules",
@@ -2683,7 +2495,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/rules".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/rules".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2736,20 +2548,14 @@ public class VatomApi {
   /**
   * Get Campaign Group Stats
   * Get campaign group stats.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getCampaignGroupStats (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getCampaignGroupStats (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupStats",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupStats"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupStats",
@@ -2767,7 +2573,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/stats".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/stats";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2821,16 +2627,11 @@ public class VatomApi {
       /**
    * Get Campaign Group Stats
    * Get campaign group stats.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getCampaignGroupStats (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getCampaignGroupStats (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignGroupStats",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignGroupStats"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignGroupStats",
@@ -2848,7 +2649,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/stats".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/stats".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2901,20 +2702,14 @@ public class VatomApi {
   /**
   * Get Campaign Info
   * Gets the info on a campaign.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getCampaignInfo (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getCampaignInfo (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignInfo",
@@ -2932,7 +2727,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2986,16 +2781,11 @@ public class VatomApi {
       /**
    * Get Campaign Info
    * Gets the info on a campaign.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getCampaignInfo (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getCampaignInfo (Long accountId, String appKey, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCampaignInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCampaignInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCampaignInfo",
@@ -3013,7 +2803,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3066,20 +2856,14 @@ public class VatomApi {
   /**
   * Get Vatom Event Guest List
   * Gets the guest list of an event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getEventGuestList (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getEventGuestList (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEventGuestList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEventGuestList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEventGuestList",
@@ -3097,7 +2881,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/guests/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/guests/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3151,16 +2935,11 @@ public class VatomApi {
       /**
    * Get Vatom Event Guest List
    * Gets the guest list of an event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
   */
-  public void getEventGuestList (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getEventGuestList (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEventGuestList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEventGuestList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEventGuestList",
@@ -3178,7 +2957,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/guests/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/guests/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3231,19 +3010,13 @@ public class VatomApi {
   /**
   * Get Vatom User&#39;s Inventory
   * Gets the logged in user&#39;s Vatom Inventory.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getInventory (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getInventory (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getInventory",
-        new ApiException(400, "Missing the required parameter 'version' when calling getInventory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getInventory",
@@ -3256,7 +3029,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/inventory".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/inventory";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3309,16 +3082,11 @@ public class VatomApi {
       /**
    * Get Vatom User&#39;s Inventory
    * Gets the logged in user&#39;s Vatom Inventory.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void getInventory (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getInventory (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getInventory",
-        new ApiException(400, "Missing the required parameter 'version' when calling getInventory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getInventory",
@@ -3331,7 +3099,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/inventory".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/inventory".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3383,18 +3151,12 @@ public class VatomApi {
   /**
   * Get following
   * Get following.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getMyFollowing (BigDecimal version, Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getMyFollowing (Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMyFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMyFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMyFollowing",
@@ -3402,7 +3164,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3454,16 +3216,11 @@ public class VatomApi {
       /**
    * Get following
    * Get following.
-   * @param version    * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
   */
-  public void getMyFollowing (BigDecimal version, Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getMyFollowing (Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMyFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMyFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMyFollowing",
@@ -3471,7 +3228,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/rels/following".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/rels/following".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3522,20 +3279,14 @@ public class VatomApi {
   /**
   * Get Points Balance
   * Gets the points balance of a Vatom user.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomCampaignId Vatom Campaign Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getPointsBalance (BigDecimal version, Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getPointsBalance (Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPointsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPointsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPointsBalance",
@@ -3553,7 +3304,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/campaign/points/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/campaign/points/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3607,16 +3358,11 @@ public class VatomApi {
       /**
    * Get Points Balance
    * Gets the points balance of a Vatom user.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getPointsBalance (BigDecimal version, Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getPointsBalance (Long accountId, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPointsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPointsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPointsBalance",
@@ -3634,7 +3380,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/campaign/points/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/campaign/points/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3687,7 +3433,6 @@ public class VatomApi {
   /**
   * Get Points Balance as Business
   * Gets the points balance of a Vatom user.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomUserId Vatom User Id
@@ -3695,13 +3440,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getPointsBalanceAsBusiness (BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getPointsBalanceAsBusiness (Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPointsBalanceAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPointsBalanceAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPointsBalanceAsBusiness",
@@ -3724,7 +3464,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/u/points/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/u/points/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3779,16 +3519,11 @@ public class VatomApi {
       /**
    * Get Points Balance as Business
    * Gets the points balance of a Vatom user.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param returnRawResponse Return raw response
   */
-  public void getPointsBalanceAsBusiness (BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getPointsBalanceAsBusiness (Long accountId, String appKey, String vatomUserId, String vatomCampaignId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPointsBalanceAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPointsBalanceAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPointsBalanceAsBusiness",
@@ -3811,7 +3546,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/u/points/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/u/points/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3865,20 +3600,14 @@ public class VatomApi {
   /**
   * Get Vatom Space
   * Gets the details of a space.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getSpace (Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSpace",
@@ -3896,7 +3625,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3950,16 +3679,11 @@ public class VatomApi {
       /**
    * Get Vatom Space
    * Gets the details of a space.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param returnRawResponse Return raw response
   */
-  public void getSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getSpace (Long accountId, String appKey, String vatomSpaceId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling getSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getSpace",
@@ -3977,7 +3701,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4030,20 +3754,14 @@ public class VatomApi {
   /**
   * Get the coins for a user (as a Business)
   * Get the coins for a user (as a Business).
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserCoinsAsBusiness",
@@ -4061,7 +3779,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4115,16 +3833,11 @@ public class VatomApi {
       /**
    * Get the coins for a user (as a Business)
    * Get the coins for a user (as a Business).
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
   */
-  public void getUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserCoinsAsBusiness",
@@ -4142,7 +3855,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4195,20 +3908,14 @@ public class VatomApi {
   /**
   * Gets the coins balance for a Vatom User
   * Gets the coins balance for a Vatom User.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserCoinsBalance (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserCoinsBalance (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserCoinsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserCoinsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserCoinsBalance",
@@ -4221,7 +3928,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4275,16 +3982,11 @@ public class VatomApi {
       /**
    * Gets the coins balance for a Vatom User
    * Gets the coins balance for a Vatom User.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void getUserCoinsBalance (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserCoinsBalance (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserCoinsBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserCoinsBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserCoinsBalance",
@@ -4297,7 +3999,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4350,19 +4052,13 @@ public class VatomApi {
   /**
   * Get user followers
   * Get user followers.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserFollowers (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserFollowers (Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserFollowers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserFollowers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserFollowers",
@@ -4375,7 +4071,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/users/rels/followers".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/users/rels/followers";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4428,16 +4124,11 @@ public class VatomApi {
       /**
    * Get user followers
    * Get user followers.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
   */
-  public void getUserFollowers (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserFollowers (Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserFollowers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserFollowers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserFollowers",
@@ -4450,7 +4141,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/users/rels/followers".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/users/rels/followers".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4502,19 +4193,13 @@ public class VatomApi {
   /**
   * Get user following
   * Get user following.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserFollowing (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserFollowing (Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserFollowing",
@@ -4527,7 +4212,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/users/rels/following".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/users/rels/following";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4580,16 +4265,11 @@ public class VatomApi {
       /**
    * Get user following
    * Get user following.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
   */
-  public void getUserFollowing (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserFollowing (Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserFollowing",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserFollowing"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserFollowing",
@@ -4602,7 +4282,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/users/rels/following".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/users/rels/following".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4654,19 +4334,13 @@ public class VatomApi {
   /**
   * Get User Info
   * Get a User&#39;s Info.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserInfo (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserInfo (Long accountId, String vatomUserId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserInfo",
@@ -4679,7 +4353,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/user/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/user/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4732,16 +4406,11 @@ public class VatomApi {
       /**
    * Get User Info
    * Get a User&#39;s Info.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param returnRawResponse Return raw response
   */
-  public void getUserInfo (BigDecimal version, Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserInfo (Long accountId, String vatomUserId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserInfo",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserInfo"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserInfo",
@@ -4754,7 +4423,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/user/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/user/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4806,18 +4475,12 @@ public class VatomApi {
   /**
   * Get Vatom User Profile
   * Gets the logged in user&#39;s profile in Vatom.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getUserProfile (BigDecimal version, Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getUserProfile (Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserProfile",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserProfile"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserProfile",
@@ -4825,7 +4488,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4877,16 +4540,11 @@ public class VatomApi {
       /**
    * Get Vatom User Profile
    * Gets the logged in user&#39;s profile in Vatom.
-   * @param version    * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
   */
-  public void getUserProfile (BigDecimal version, Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getUserProfile (Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getUserProfile",
-        new ApiException(400, "Missing the required parameter 'version' when calling getUserProfile"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getUserProfile",
@@ -4894,7 +4552,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -4945,20 +4603,14 @@ public class VatomApi {
   /**
   * Get Vatom Event
   * Gets the details of a event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getVatomEvent (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getVatomEvent",
@@ -4976,7 +4628,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5030,16 +4682,11 @@ public class VatomApi {
       /**
    * Get Vatom Event
    * Gets the details of a event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param returnRawResponse Return raw response
   */
-  public void getVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getVatomEvent (Long accountId, String appKey, String vatomEventId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getVatomEvent",
@@ -5057,7 +4704,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5110,19 +4757,13 @@ public class VatomApi {
   /**
   * Get Vatom NFT Details
   * Get Vatom NFT Details
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void getVatomNFT (BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void getVatomNFT (Long accountId, String vatomId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVatomNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVatomNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getVatomNFT",
@@ -5135,7 +4776,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5188,16 +4829,11 @@ public class VatomApi {
       /**
    * Get Vatom NFT Details
    * Get Vatom NFT Details
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param returnRawResponse Return raw response
   */
-  public void getVatomNFT (BigDecimal version, Long accountId, String vatomId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void getVatomNFT (Long accountId, String vatomId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getVatomNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling getVatomNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getVatomNFT",
@@ -5210,7 +4846,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/vatoms/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/vatoms/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5262,20 +4898,14 @@ public class VatomApi {
   /**
   * List Vatom Communities
   * Gets the communities tied to a business.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void listCommunities (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void listCommunities (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listCommunities",
-        new ApiException(400, "Missing the required parameter 'version' when calling listCommunities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listCommunities",
@@ -5288,7 +4918,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/communities/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/communities/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5342,16 +4972,11 @@ public class VatomApi {
       /**
    * List Vatom Communities
    * Gets the communities tied to a business.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void listCommunities (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void listCommunities (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listCommunities",
-        new ApiException(400, "Missing the required parameter 'version' when calling listCommunities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listCommunities",
@@ -5364,7 +4989,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/communities/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/communities/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5417,20 +5042,14 @@ public class VatomApi {
   /**
   * List Vatom Events
   * Gets the events tied to a business.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void listEvents (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void listEvents (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listEvents",
-        new ApiException(400, "Missing the required parameter 'version' when calling listEvents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listEvents",
@@ -5443,7 +5062,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5497,16 +5116,11 @@ public class VatomApi {
       /**
    * List Vatom Events
    * Gets the events tied to a business.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void listEvents (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void listEvents (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listEvents",
-        new ApiException(400, "Missing the required parameter 'version' when calling listEvents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listEvents",
@@ -5519,7 +5133,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5572,20 +5186,14 @@ public class VatomApi {
   /**
   * List Vatom Spaces
   * Gets the spaces tied to a business.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void listSpaces (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void listSpaces (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listSpaces",
-        new ApiException(400, "Missing the required parameter 'version' when calling listSpaces"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listSpaces",
@@ -5598,7 +5206,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5652,16 +5260,11 @@ public class VatomApi {
       /**
    * List Vatom Spaces
    * Gets the spaces tied to a business.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void listSpaces (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void listSpaces (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listSpaces",
-        new ApiException(400, "Missing the required parameter 'version' when calling listSpaces"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listSpaces",
@@ -5674,7 +5277,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5727,20 +5330,14 @@ public class VatomApi {
   /**
   * List Coin Transactions for a Vatom User
   * Gets the logged in user&#39;s Vatom coin transactions.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void listUserCoinTransactions (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void listUserCoinTransactions (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listUserCoinTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling listUserCoinTransactions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listUserCoinTransactions",
@@ -5753,7 +5350,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/txns/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/txns/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5807,16 +5404,11 @@ public class VatomApi {
       /**
    * List Coin Transactions for a Vatom User
    * Gets the logged in user&#39;s Vatom coin transactions.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void listUserCoinTransactions (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void listUserCoinTransactions (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listUserCoinTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling listUserCoinTransactions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listUserCoinTransactions",
@@ -5829,7 +5421,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/txns/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/txns/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5882,7 +5474,6 @@ public class VatomApi {
   /**
   * List coin transactions for a user (as a Business)
   * List coin transactions for a user (as a Business).
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
@@ -5890,13 +5481,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void listUserCoinTransactionsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void listUserCoinTransactionsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listUserCoinTransactionsAsBusiness",
@@ -5914,7 +5500,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/txns/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/txns/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -5969,16 +5555,11 @@ public class VatomApi {
       /**
    * List coin transactions for a user (as a Business)
    * List coin transactions for a user (as a Business).
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void listUserCoinTransactionsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void listUserCoinTransactionsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling listUserCoinTransactionsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling listUserCoinTransactionsAsBusiness",
@@ -5996,7 +5577,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/txns/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/txns/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6050,7 +5631,6 @@ public class VatomApi {
   /**
   * Perform Action on NFT
   * Perform Action on NFT.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomId Vatom NFT Id
    * @param vatomAction Vatom Action
@@ -6058,13 +5638,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void performActionOnNFT (BigDecimal version, Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void performActionOnNFT (Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling performActionOnNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling performActionOnNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling performActionOnNFT",
@@ -6087,7 +5662,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/vatoms/actions".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/vatoms/actions";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6142,16 +5717,11 @@ public class VatomApi {
       /**
    * Perform Action on NFT
    * Perform Action on NFT.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param vatomAction Vatom Action   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomId Vatom NFT Id   * @param vatomAction Vatom Action   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void performActionOnNFT (BigDecimal version, Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void performActionOnNFT (Long accountId, String vatomId, String vatomAction, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling performActionOnNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling performActionOnNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling performActionOnNFT",
@@ -6174,7 +5744,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/vatoms/actions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/vatoms/actions".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6228,20 +5798,14 @@ public class VatomApi {
   /**
   * Redeem NFT
   * Redeem an NFT.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void redeemNFT (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void redeemNFT (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling redeemNFT",
@@ -6259,7 +5823,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/redemptions".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/redemptions";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6313,16 +5877,11 @@ public class VatomApi {
       /**
    * Redeem NFT
    * Redeem an NFT.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void redeemNFT (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void redeemNFT (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling redeemNFT",
@@ -6340,7 +5899,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/redemptions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/redemptions".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6393,7 +5952,6 @@ public class VatomApi {
   /**
   * Redeem the coins for a user (as a Business)
   * Redeem the coins for a user (as a Business).
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
@@ -6401,13 +5959,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void redeemUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void redeemUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling redeemUserCoinsAsBusiness",
@@ -6430,7 +5983,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/redeem".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/redeem";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6485,16 +6038,11 @@ public class VatomApi {
       /**
    * Redeem the coins for a user (as a Business)
    * Redeem the coins for a user (as a Business).
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void redeemUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void redeemUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling redeemUserCoinsAsBusiness",
@@ -6517,7 +6065,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/redeem".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/redeem".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6571,19 +6119,13 @@ public class VatomApi {
   /**
   * Search for Vatom Businesses
   * Searches for Vatom businesses.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void searchBusinesses (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void searchBusinesses (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBusinesses",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBusinesses"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchBusinesses",
@@ -6591,7 +6133,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6644,16 +6186,11 @@ public class VatomApi {
       /**
    * Search for Vatom Businesses
    * Searches for Vatom businesses.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void searchBusinesses (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void searchBusinesses (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchBusinesses",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchBusinesses"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchBusinesses",
@@ -6661,7 +6198,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6713,19 +6250,13 @@ public class VatomApi {
   /**
   * Search Campaign Groups
   * Search campaign groups.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void searchCampaignGroups (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void searchCampaignGroups (Long accountId, String appKey, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCampaignGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCampaignGroups"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchCampaignGroups",
@@ -6738,7 +6269,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6791,16 +6322,11 @@ public class VatomApi {
       /**
    * Search Campaign Groups
    * Search campaign groups.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param returnRawResponse Return raw response
   */
-  public void searchCampaignGroups (BigDecimal version, Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void searchCampaignGroups (Long accountId, String appKey, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCampaignGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCampaignGroups"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchCampaignGroups",
@@ -6813,7 +6339,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign-groups/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign-groups/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6865,18 +6391,12 @@ public class VatomApi {
   /**
   * Search User Identities
   * Search User Identities.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void searchIdentities (BigDecimal version, Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void searchIdentities (Long accountId, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchIdentities",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchIdentities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchIdentities",
@@ -6884,7 +6404,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/identities/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/identities/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -6936,16 +6456,11 @@ public class VatomApi {
       /**
    * Search User Identities
    * Search User Identities.
-   * @param version    * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param returnRawResponse Return raw response
   */
-  public void searchIdentities (BigDecimal version, Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void searchIdentities (Long accountId, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchIdentities",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchIdentities"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchIdentities",
@@ -6953,7 +6468,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/identities/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/identities/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7004,19 +6519,13 @@ public class VatomApi {
   /**
   * Search Vatom User&#39;s Inventory
   * Searches the logged in user&#39;s Vatom Inventory.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void searchInventory (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void searchInventory (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchInventory",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchInventory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchInventory",
@@ -7024,7 +6533,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/user-inventory/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/user-inventory/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7077,16 +6586,11 @@ public class VatomApi {
       /**
    * Search Vatom User&#39;s Inventory
    * Searches the logged in user&#39;s Vatom Inventory.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void searchInventory (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void searchInventory (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchInventory",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchInventory"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchInventory",
@@ -7094,7 +6598,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/user-inventory/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/user-inventory/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7146,7 +6650,6 @@ public class VatomApi {
   /**
   * Send NFT
   * Send an NFT.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomCampaignId Vatom Campaign Id
@@ -7154,13 +6657,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void sendNFT (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void sendNFT (Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendNFT",
@@ -7183,7 +6681,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaigns/send".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaigns/send";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7238,16 +6736,11 @@ public class VatomApi {
       /**
    * Send NFT
    * Send an NFT.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomCampaignId Vatom Campaign Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void sendNFT (BigDecimal version, Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void sendNFT (Long accountId, String appKey, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendNFT",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendNFT"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling sendNFT",
@@ -7270,7 +6763,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaigns/send".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaigns/send".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7324,7 +6817,6 @@ public class VatomApi {
   /**
   * Set Points Balance as Business
   * Sets the points balance of a Vatom user.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomUserId Vatom User Id
@@ -7333,13 +6825,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void setPointsBalanceAsBusiness (BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void setPointsBalanceAsBusiness (Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling setPointsBalanceAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling setPointsBalanceAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling setPointsBalanceAsBusiness",
@@ -7367,7 +6854,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/u/points/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/u/points/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7423,16 +6910,11 @@ public class VatomApi {
       /**
    * Set Points Balance as Business
    * Sets the points balance of a Vatom user.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomUserId Vatom User Id   * @param vatomCampaignId Vatom Campaign Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void setPointsBalanceAsBusiness (BigDecimal version, Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void setPointsBalanceAsBusiness (Long accountId, String appKey, String vatomUserId, String vatomCampaignId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling setPointsBalanceAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling setPointsBalanceAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling setPointsBalanceAsBusiness",
@@ -7460,7 +6942,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/campaign/u/points/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/campaign/u/points/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7515,20 +6997,14 @@ public class VatomApi {
   /**
   * Transfer coins from Vatom Users
   * Transfer coins from Vatom Users.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void transferUserCoins (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void transferUserCoins (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling transferUserCoins",
-        new ApiException(400, "Missing the required parameter 'version' when calling transferUserCoins"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling transferUserCoins",
@@ -7546,7 +7022,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/transfer".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/transfer";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7600,16 +7076,11 @@ public class VatomApi {
       /**
    * Transfer coins from Vatom Users
    * Transfer coins from Vatom Users.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void transferUserCoins (BigDecimal version, Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void transferUserCoins (Long accountId, String vatomUserId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling transferUserCoins",
-        new ApiException(400, "Missing the required parameter 'version' when calling transferUserCoins"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling transferUserCoins",
@@ -7627,7 +7098,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/u/coins/transfer".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/u/coins/transfer".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7680,20 +7151,14 @@ public class VatomApi {
   /**
   * Fund coins for a Business
   * Fund/update coins for a Businesss.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateBusinessCoins (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateBusinessCoins (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBusinessCoins",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBusinessCoins"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateBusinessCoins",
@@ -7711,7 +7176,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/coins/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/coins/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7765,16 +7230,11 @@ public class VatomApi {
       /**
    * Fund coins for a Business
    * Fund/update coins for a Businesss.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateBusinessCoins (BigDecimal version, Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateBusinessCoins (Long accountId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBusinessCoins",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBusinessCoins"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateBusinessCoins",
@@ -7792,7 +7252,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/coins/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/coins/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7845,7 +7305,6 @@ public class VatomApi {
   /**
   * Update Vatom Event Guest List
   * Update the guest list of an event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
@@ -7853,13 +7312,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateEventGuestList (BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateEventGuestList (Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEventGuestList",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEventGuestList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEventGuestList",
@@ -7882,7 +7336,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/guests/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/guests/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -7937,16 +7391,11 @@ public class VatomApi {
       /**
    * Update Vatom Event Guest List
    * Update the guest list of an event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateEventGuestList (BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateEventGuestList (Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEventGuestList",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEventGuestList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEventGuestList",
@@ -7969,7 +7418,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/guests/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/guests/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8023,7 +7472,6 @@ public class VatomApi {
   /**
   * Update Vatom Space
   * Update a Vatom space.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomSpaceId Vatom Space Id
@@ -8031,13 +7479,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateSpace (Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSpace",
@@ -8060,7 +7503,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8115,16 +7558,11 @@ public class VatomApi {
       /**
    * Update Vatom Space
    * Update a Vatom space.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomSpaceId Vatom Space Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateSpace (BigDecimal version, Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateSpace (Long accountId, String appKey, String vatomSpaceId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateSpace",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateSpace"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateSpace",
@@ -8147,7 +7585,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/spaces/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/spaces/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8201,7 +7639,6 @@ public class VatomApi {
   /**
   * Update the coins for a user (as a Business)
   * Update the coins for a user (as a Business).
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomUserId Vatom User Id
    * @param appKey Sirqul Application Key
@@ -8209,13 +7646,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserCoinsAsBusiness",
@@ -8238,7 +7670,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8293,16 +7725,11 @@ public class VatomApi {
       /**
    * Update the coins for a user (as a Business)
    * Update the coins for a user (as a Business).
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomUserId Vatom User Id   * @param appKey Sirqul Application Key   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateUserCoinsAsBusiness (BigDecimal version, Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateUserCoinsAsBusiness (Long accountId, String vatomUserId, String appKey, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserCoinsAsBusiness",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserCoinsAsBusiness"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserCoinsAsBusiness",
@@ -8325,7 +7752,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/users/coins/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/users/coins/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8379,19 +7806,13 @@ public class VatomApi {
   /**
   * Update Vatom User Profile
   * Gets the logged in user&#39;s profile in Vatom.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param vatomParameters Vatom Parameters
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateUserProfile (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateUserProfile (Long accountId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserProfile",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserProfile"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserProfile",
@@ -8404,7 +7825,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8457,16 +7878,11 @@ public class VatomApi {
       /**
    * Update Vatom User Profile
    * Gets the logged in user&#39;s profile in Vatom.
-   * @param version    * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateUserProfile (BigDecimal version, Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateUserProfile (Long accountId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateUserProfile",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateUserProfile"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateUserProfile",
@@ -8479,7 +7895,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/me/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/me/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8531,7 +7947,6 @@ public class VatomApi {
   /**
   * Update Vatom Event
   * Update a Vatom event.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param appKey Sirqul Application Key
    * @param vatomEventId Vatom Event Id
@@ -8539,13 +7954,8 @@ public class VatomApi {
    * @param returnRawResponse Return raw response
    * @return void
   */
-  public void updateVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateVatomEvent (Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateVatomEvent",
@@ -8568,7 +7978,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -8623,16 +8033,11 @@ public class VatomApi {
       /**
    * Update Vatom Event
    * Update a Vatom event.
-   * @param version    * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param appKey Sirqul Application Key   * @param vatomEventId Vatom Event Id   * @param vatomParameters Vatom Parameters   * @param returnRawResponse Return raw response
   */
-  public void updateVatomEvent (BigDecimal version, Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateVatomEvent (Long accountId, String appKey, String vatomEventId, String vatomParameters, Boolean returnRawResponse, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateVatomEvent",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateVatomEvent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateVatomEvent",
@@ -8655,7 +8060,7 @@ public class VatomApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/vatom/b/events/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/vatom/b/events/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

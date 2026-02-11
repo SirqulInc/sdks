@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import java.util.*;
 import org.openapitools.client.model.ProfileResponse;
@@ -43,7 +42,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ThirdPartyCredentialsApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -65,7 +64,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Create Credential
   * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-   * @param version 
    * @param thirdPartyId the third party user account id
    * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)
    * @param networkUID the access provider to authenticate against
@@ -85,13 +83,8 @@ public class ThirdPartyCredentialsApi {
    * @param audienceIdsToRemove audience ids to remove from the account
    * @return ProfileResponse
   */
-  public ProfileResponse createCredential (BigDecimal version, String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse createCredential (String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCredential"));
-    }
     // verify the required parameter 'thirdPartyId' is set
     if (thirdPartyId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'thirdPartyId' when calling createCredential",
@@ -114,7 +107,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -181,16 +174,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Create Credential
    * This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user&#39;s third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-   * @param version    * @param thirdPartyId the third party user account id   * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)   * @param networkUID the access provider to authenticate against   * @param appKey the application key   * @param accountId the unique id of the account that needs authenticating (optional for PHONE_V2)   * @param deviceId the unique id of the device making the request   * @param sessionId the session id for the request   * @param thirdPartyName the third party user&#39;s display name   * @param emailAddress optional email address associated with the third party account   * @param signinOnlyMode when true will error out if can&#39;t find any accounts matching (signin only)   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param metaData External custom client defined data   * @param thirdPartyRefreshToken optional refresh token for the third party   * @param audienceIdsToAdd audience ids to add to the account   * @param audienceIdsToRemove audience ids to remove from the account
+   * @param thirdPartyId the third party user account id   * @param thirdPartyToken the access token to authenticate with (ex: username or fb token or phone number)   * @param networkUID the access provider to authenticate against   * @param appKey the application key   * @param accountId the unique id of the account that needs authenticating (optional for PHONE_V2)   * @param deviceId the unique id of the device making the request   * @param sessionId the session id for the request   * @param thirdPartyName the third party user&#39;s display name   * @param emailAddress optional email address associated with the third party account   * @param signinOnlyMode when true will error out if can&#39;t find any accounts matching (signin only)   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param metaData External custom client defined data   * @param thirdPartyRefreshToken optional refresh token for the third party   * @param audienceIdsToAdd audience ids to add to the account   * @param audienceIdsToRemove audience ids to remove from the account
   */
-  public void createCredential (BigDecimal version, String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createCredential (String thirdPartyId, String thirdPartyToken, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, String thirdPartyName, String emailAddress, Boolean signinOnlyMode, String responseFilters, Double latitude, Double longitude, String metaData, String thirdPartyRefreshToken, String audienceIdsToAdd, String audienceIdsToRemove, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling createCredential"));
-    }
     // verify the required parameter 'thirdPartyId' is set
     if (thirdPartyId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'thirdPartyId' when calling createCredential",
@@ -213,7 +201,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -283,7 +271,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Create Network
   * Creates a custom third party network.
-   * @param version 
    * @param accountId The account id making the request
    * @param name The name of the network
    * @param enableIntrospection Whether the network uses introspection calls
@@ -303,13 +290,8 @@ public class ThirdPartyCredentialsApi {
    * @param body 
    * @return ThirdPartyNetworkResponse
   */
-  public ThirdPartyNetworkResponse createNetwork (BigDecimal version, Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ThirdPartyNetworkResponse createNetwork (Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createNetwork",
@@ -327,7 +309,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -393,16 +375,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Create Network
    * Creates a custom third party network.
-   * @param version    * @param accountId The account id making the request   * @param name The name of the network   * @param enableIntrospection Whether the network uses introspection calls   * @param description The description of the network   * @param introspectionMethod HTTP method to use for introspection calls (e.g., GET, POST)   * @param introspectionURL The HTTP URL of the introspection call   * @param introspectionParams The parameters of the introspection call   * @param requiredRootField Required response params   * @param enableMFA Whether this network uses MFA   * @param sizeMFA Size of the MFA token   * @param shelfLifeMFA Shelf life (seconds) of the MFA token   * @param oauthTokenURL OAuth token endpoint URL   * @param oauthPrivateKey OAuth private key file (multipart)   * @param oauthPublicKey OAuth public key file (multipart)   * @param oauthClientId OAuth client id   * @param oauthSecretKey OAuth secret key   * @param body 
+   * @param accountId The account id making the request   * @param name The name of the network   * @param enableIntrospection Whether the network uses introspection calls   * @param description The description of the network   * @param introspectionMethod HTTP method to use for introspection calls (e.g., GET, POST)   * @param introspectionURL The HTTP URL of the introspection call   * @param introspectionParams The parameters of the introspection call   * @param requiredRootField Required response params   * @param enableMFA Whether this network uses MFA   * @param sizeMFA Size of the MFA token   * @param shelfLifeMFA Shelf life (seconds) of the MFA token   * @param oauthTokenURL OAuth token endpoint URL   * @param oauthPrivateKey OAuth private key file (multipart)   * @param oauthPublicKey OAuth public key file (multipart)   * @param oauthClientId OAuth client id   * @param oauthSecretKey OAuth secret key   * @param body 
   */
-  public void createNetwork (BigDecimal version, Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createNetwork (Long accountId, String name, Boolean enableIntrospection, String description, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling createNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createNetwork",
@@ -420,7 +397,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -489,20 +466,14 @@ public class ThirdPartyCredentialsApi {
   /**
   * Delete Credential
   * Delete a third party network on a Sirqul account.
-   * @param version 
    * @param accountId The account id of the user
    * @param networkUID The third party network identifier
    * @param thirdPartyId The third party user id
    * @param appKey the application key
    * @return SirqulResponse
   */
-  public SirqulResponse deleteCredential (BigDecimal version, Long accountId, String networkUID, String thirdPartyId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteCredential (Long accountId, String networkUID, String thirdPartyId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCredential"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteCredential",
@@ -525,7 +496,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -579,16 +550,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Delete Credential
    * Delete a third party network on a Sirqul account.
-   * @param version    * @param accountId The account id of the user   * @param networkUID The third party network identifier   * @param thirdPartyId The third party user id   * @param appKey the application key
+   * @param accountId The account id of the user   * @param networkUID The third party network identifier   * @param thirdPartyId The third party user id   * @param appKey the application key
   */
-  public void deleteCredential (BigDecimal version, Long accountId, String networkUID, String thirdPartyId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteCredential (Long accountId, String networkUID, String thirdPartyId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteCredential"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteCredential",
@@ -611,7 +577,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -668,18 +634,12 @@ public class ThirdPartyCredentialsApi {
   /**
   * Delete Network
   * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    * @return SirqulResponse
   */
-  public SirqulResponse deleteNetwork (BigDecimal version, Long accountId, String networkUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteNetwork (Long accountId, String networkUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteNetwork",
@@ -692,7 +652,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -744,16 +704,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Delete Network
    * Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-   * @param version    * @param accountId the id of the logged in user   * @param networkUID The unique identifier for the third party network defined by Sirqul
+   * @param accountId the id of the logged in user   * @param networkUID The unique identifier for the third party network defined by Sirqul
   */
-  public void deleteNetwork (BigDecimal version, Long accountId, String networkUID, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteNetwork (Long accountId, String networkUID, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteNetwork",
@@ -766,7 +721,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -821,7 +776,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Get Credential
   * Gets the account information given a third party token.
-   * @param version 
    * @param networkUID the access provider to authenticate against
    * @param appKey the application key
    * @param accountId the unique account id of a specific account that will be bound to the third-party credentials
@@ -839,13 +793,8 @@ public class ThirdPartyCredentialsApi {
    * @param referralAccountId account id of the referrer (inviter-invitee relationship)
    * @return ProfileResponse
   */
-  public ProfileResponse getCredential (BigDecimal version, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse getCredential (String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCredential"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling getCredential",
@@ -858,7 +807,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -923,16 +872,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Get Credential
    * Gets the account information given a third party token.
-   * @param version    * @param networkUID the access provider to authenticate against   * @param appKey the application key   * @param accountId the unique account id of a specific account that will be bound to the third-party credentials   * @param deviceId the unique id of the device making the request   * @param sessionId the session id for the request   * @param thirdPartyCredentialId the third-party credentials id from the response of the credential/create step   * @param thirdPartyToken the access token to authenticate with   * @param thirdPartySecret the secret code to authenticate with (used for MFA)   * @param createNewAccount flag to force creation of a new account when no accountId is passed and user chooses not to use listed accounts   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param audienceIdsToAdd audience ids to add to the account   * @param audienceIdsToRemove audience ids to remove from the account   * @param referralAccountId account id of the referrer (inviter-invitee relationship)
+   * @param networkUID the access provider to authenticate against   * @param appKey the application key   * @param accountId the unique account id of a specific account that will be bound to the third-party credentials   * @param deviceId the unique id of the device making the request   * @param sessionId the session id for the request   * @param thirdPartyCredentialId the third-party credentials id from the response of the credential/create step   * @param thirdPartyToken the access token to authenticate with   * @param thirdPartySecret the secret code to authenticate with (used for MFA)   * @param createNewAccount flag to force creation of a new account when no accountId is passed and user chooses not to use listed accounts   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param audienceIdsToAdd audience ids to add to the account   * @param audienceIdsToRemove audience ids to remove from the account   * @param referralAccountId account id of the referrer (inviter-invitee relationship)
   */
-  public void getCredential (BigDecimal version, String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getCredential (String networkUID, String appKey, Long accountId, String deviceId, String sessionId, Long thirdPartyCredentialId, String thirdPartyToken, String thirdPartySecret, Boolean createNewAccount, String responseFilters, Double latitude, Double longitude, String audienceIdsToAdd, String audienceIdsToRemove, Long referralAccountId, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCredential"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling getCredential",
@@ -945,7 +889,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1013,18 +957,12 @@ public class ThirdPartyCredentialsApi {
   /**
   * Get Network
   * Get the details of a third party network. Only the network owners and managers have access to this.
-   * @param version 
    * @param accountId The account id making the request
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    * @return ThirdPartyNetworkResponse
   */
-  public ThirdPartyNetworkResponse getNetwork (BigDecimal version, Long accountId, String networkUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ThirdPartyNetworkResponse getNetwork (Long accountId, String networkUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getNetwork",
@@ -1037,7 +975,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1089,16 +1027,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Get Network
    * Get the details of a third party network. Only the network owners and managers have access to this.
-   * @param version    * @param accountId The account id making the request   * @param networkUID The unique identifier for the third party network defined by Sirqul
+   * @param accountId The account id making the request   * @param networkUID The unique identifier for the third party network defined by Sirqul
   */
-  public void getNetwork (BigDecimal version, Long accountId, String networkUID, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getNetwork (Long accountId, String networkUID, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling getNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getNetwork",
@@ -1111,7 +1044,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1166,7 +1099,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Search Credentials
   * Search on a user&#39;s linked third party networks.
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The keyword used to search on the third party name and network string
    * @param networkUID The network UID to filter results with
@@ -1175,13 +1107,8 @@ public class ThirdPartyCredentialsApi {
    * @param limit The limit of the pagination
    * @return List<ThirdPartyCredentialResponse>
   */
-  public List<ThirdPartyCredentialResponse> searchCredentials (BigDecimal version, Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ThirdPartyCredentialResponse> searchCredentials (Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCredentials",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCredentials"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchCredentials",
@@ -1189,7 +1116,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1245,16 +1172,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Search Credentials
    * Search on a user&#39;s linked third party networks.
-   * @param version    * @param accountId The account id of the user   * @param keyword The keyword used to search on the third party name and network string   * @param networkUID The network UID to filter results with   * @param descending The order to return the search results   * @param start The start of the pagination   * @param limit The limit of the pagination
+   * @param accountId The account id of the user   * @param keyword The keyword used to search on the third party name and network string   * @param networkUID The network UID to filter results with   * @param descending The order to return the search results   * @param start The start of the pagination   * @param limit The limit of the pagination
   */
-  public void searchCredentials (BigDecimal version, Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ThirdPartyCredentialResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchCredentials (Long accountId, String keyword, String networkUID, Boolean descending, Integer start, Integer limit, final Response.Listener<List<ThirdPartyCredentialResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchCredentials",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchCredentials"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchCredentials",
@@ -1262,7 +1184,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1321,7 +1243,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Search Networks
   * Search on supported third party networks and custom networks from external users.
-   * @param version 
    * @param accountId The account id making the request
    * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME
    * @param descending The order to return the search results
@@ -1332,13 +1253,8 @@ public class ThirdPartyCredentialsApi {
    * @param filterBillable Determines whether to only return applications that the user has access to
    * @return List<ThirdPartyNetworkShortResponse>
   */
-  public List<ThirdPartyNetworkShortResponse> searchNetworks (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ThirdPartyNetworkShortResponse> searchNetworks (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNetworks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNetworks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchNetworks",
@@ -1371,7 +1287,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1429,16 +1345,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Search Networks
    * Search on supported third party networks and custom networks from external users.
-   * @param version    * @param accountId The account id making the request   * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME   * @param descending The order to return the search results   * @param start The start of the pagination   * @param limit The limit of the pagination   * @param activeOnly Return only active results   * @param keyword The keyword used to search on the network name and description fields   * @param filterBillable Determines whether to only return applications that the user has access to
+   * @param accountId The account id making the request   * @param sortField The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME   * @param descending The order to return the search results   * @param start The start of the pagination   * @param limit The limit of the pagination   * @param activeOnly Return only active results   * @param keyword The keyword used to search on the network name and description fields   * @param filterBillable Determines whether to only return applications that the user has access to
   */
-  public void searchNetworks (BigDecimal version, Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable, final Response.Listener<List<ThirdPartyNetworkShortResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchNetworks (Long accountId, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String keyword, Boolean filterBillable, final Response.Listener<List<ThirdPartyNetworkShortResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchNetworks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchNetworks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchNetworks",
@@ -1471,7 +1382,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1532,7 +1443,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Send MFA Challenge
   * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-   * @param version 
    * @param networkUID the third party network provider that has MFA enabled
    * @param appKey the application key
    * @param thirdPartyToken the access token to authenticate with
@@ -1540,13 +1450,8 @@ public class ThirdPartyCredentialsApi {
    * @param deviceId the unique id of the device making the request
    * @return SirqulResponse
   */
-  public SirqulResponse sendMFAChallenge (BigDecimal version, String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse sendMFAChallenge (String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendMFAChallenge",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendMFAChallenge"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling sendMFAChallenge",
@@ -1559,7 +1464,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/mfa/send".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/mfa/send";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1614,16 +1519,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Send MFA Challenge
    * Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-   * @param version    * @param networkUID the third party network provider that has MFA enabled   * @param appKey the application key   * @param thirdPartyToken the access token to authenticate with   * @param thirdPartyCredentialId optional id of the existing third party credential   * @param deviceId the unique id of the device making the request
+   * @param networkUID the third party network provider that has MFA enabled   * @param appKey the application key   * @param thirdPartyToken the access token to authenticate with   * @param thirdPartyCredentialId optional id of the existing third party credential   * @param deviceId the unique id of the device making the request
   */
-  public void sendMFAChallenge (BigDecimal version, String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void sendMFAChallenge (String networkUID, String appKey, String thirdPartyToken, Long thirdPartyCredentialId, String deviceId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling sendMFAChallenge",
-        new ApiException(400, "Missing the required parameter 'version' when calling sendMFAChallenge"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling sendMFAChallenge",
@@ -1636,7 +1536,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/mfa/send".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/mfa/send".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1694,7 +1594,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Update Credential
   * Updates a third-party login for an account.
-   * @param version 
    * @param networkUID the access provider to authenticate against
    * @param thirdPartyId the third party user account id
    * @param appKey the application key
@@ -1706,13 +1605,8 @@ public class ThirdPartyCredentialsApi {
    * @param thirdPartyRefreshToken optional refresh token for the third party
    * @return ProfileResponse
   */
-  public ProfileResponse updateCredential (BigDecimal version, String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse updateCredential (String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCredential"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling updateCredential",
@@ -1730,7 +1624,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1789,16 +1683,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Update Credential
    * Updates a third-party login for an account.
-   * @param version    * @param networkUID the access provider to authenticate against   * @param thirdPartyId the third party user account id   * @param appKey the application key   * @param deviceId the unique id of the device making the request   * @param thirdPartyName the third party user name   * @param thirdPartyToken the access token to authenticate with (ex: username or fb token)   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param metaData External custom client defined data   * @param thirdPartyRefreshToken optional refresh token for the third party
+   * @param networkUID the access provider to authenticate against   * @param thirdPartyId the third party user account id   * @param appKey the application key   * @param deviceId the unique id of the device making the request   * @param thirdPartyName the third party user name   * @param thirdPartyToken the access token to authenticate with (ex: username or fb token)   * @param responseFilters this determines how much of the profile should be returned, see ProfileFilters   * @param metaData External custom client defined data   * @param thirdPartyRefreshToken optional refresh token for the third party
   */
-  public void updateCredential (BigDecimal version, String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateCredential (String networkUID, String thirdPartyId, String appKey, String deviceId, String thirdPartyName, String thirdPartyToken, String responseFilters, String metaData, String thirdPartyRefreshToken, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateCredential",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateCredential"));
-    }
     // verify the required parameter 'networkUID' is set
     if (networkUID == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'networkUID' when calling updateCredential",
@@ -1816,7 +1705,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/credential/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/credential/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1878,7 +1767,6 @@ public class ThirdPartyCredentialsApi {
   /**
   * Update Network
   * Updates a custom third party network. Only the network owners and managers have access to this.
-   * @param version 
    * @param accountId The account id making the request
    * @param networkUID The unique identifier for the third party network defined by Sirqul
    * @param name The name of the network
@@ -1899,13 +1787,8 @@ public class ThirdPartyCredentialsApi {
    * @param body 
    * @return ThirdPartyNetworkResponse
   */
-  public ThirdPartyNetworkResponse updateNetwork (BigDecimal version, Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ThirdPartyNetworkResponse updateNetwork (Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateNetwork",
@@ -1918,7 +1801,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1985,16 +1868,11 @@ public class ThirdPartyCredentialsApi {
       /**
    * Update Network
    * Updates a custom third party network. Only the network owners and managers have access to this.
-   * @param version    * @param accountId The account id making the request   * @param networkUID The unique identifier for the third party network defined by Sirqul   * @param name The name of the network   * @param description The description of the network   * @param enableIntrospection Whether the network uses introspection calls   * @param introspectionMethod HTTP method to use for introspection calls (e.g., GET, POST)   * @param introspectionURL The HTTP URL of the introspection call   * @param introspectionParams The parameters of the introspection call   * @param requiredRootField Required response params   * @param enableMFA Whether this network uses MFA   * @param sizeMFA Size of the MFA token   * @param shelfLifeMFA Shelf life (seconds) of the MFA token   * @param oauthTokenURL OAuth token endpoint URL   * @param oauthPrivateKey OAuth private key file (multipart)   * @param oauthPublicKey OAuth public key file (multipart)   * @param oauthClientId OAuth client id   * @param oauthSecretKey OAuth secret key   * @param body 
+   * @param accountId The account id making the request   * @param networkUID The unique identifier for the third party network defined by Sirqul   * @param name The name of the network   * @param description The description of the network   * @param enableIntrospection Whether the network uses introspection calls   * @param introspectionMethod HTTP method to use for introspection calls (e.g., GET, POST)   * @param introspectionURL The HTTP URL of the introspection call   * @param introspectionParams The parameters of the introspection call   * @param requiredRootField Required response params   * @param enableMFA Whether this network uses MFA   * @param sizeMFA Size of the MFA token   * @param shelfLifeMFA Shelf life (seconds) of the MFA token   * @param oauthTokenURL OAuth token endpoint URL   * @param oauthPrivateKey OAuth private key file (multipart)   * @param oauthPublicKey OAuth public key file (multipart)   * @param oauthClientId OAuth client id   * @param oauthSecretKey OAuth secret key   * @param body 
   */
-  public void updateNetwork (BigDecimal version, Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateNetwork (Long accountId, String networkUID, String name, String description, Boolean enableIntrospection, String introspectionMethod, String introspectionURL, String introspectionParams, String requiredRootField, Boolean enableMFA, Integer sizeMFA, Integer shelfLifeMFA, String oauthTokenURL, File oauthPrivateKey, File oauthPublicKey, String oauthClientId, String oauthSecretKey, String body, final Response.Listener<ThirdPartyNetworkResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateNetwork",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateNetwork"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateNetwork",
@@ -2007,7 +1885,7 @@ public class ThirdPartyCredentialsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/thirdparty/network/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/thirdparty/network/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AccountResponse;
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SearchResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class FavoriteApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,7 +62,6 @@ public class FavoriteApi {
   /**
   * Create Favorite
   * Adds an offer, offer location, retailer location, or category to your favorites.
-   * @param version 
    * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
@@ -72,13 +70,8 @@ public class FavoriteApi {
    * @param longitude The current longitude of the user
    * @return WrappedResponse
   */
-  public WrappedResponse addFavorite (BigDecimal version, Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WrappedResponse addFavorite (Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling addFavorite"));
-    }
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableId' when calling addFavorite",
@@ -91,7 +84,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -147,16 +140,11 @@ public class FavoriteApi {
       /**
    * Create Favorite
    * Adds an offer, offer location, retailer location, or category to your favorites.
-   * @param version    * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}   * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
+   * @param favoritableId The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}   * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
   */
-  public void addFavorite (BigDecimal version, Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<WrappedResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addFavorite (Long favoritableId, String favoritableType, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<WrappedResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling addFavorite"));
-    }
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableId' when calling addFavorite",
@@ -169,7 +157,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -228,7 +216,6 @@ public class FavoriteApi {
   /**
   * Delete Favorite
   * Removes a favorited item from the user&#39;s favorites list.
-   * @param version 
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
    * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead)
@@ -236,16 +223,11 @@ public class FavoriteApi {
    * @param favoritableType The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteFavorite (BigDecimal version, String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteFavorite (String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFavorite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -300,19 +282,14 @@ public class FavoriteApi {
       /**
    * Delete Favorite
    * Removes a favorited item from the user&#39;s favorites list.
-   * @param version    * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead)   * @param favoritableId The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in)   * @param favoritableType The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
+   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param favoriteId The ID of the favorite reference record (only optional if favoritableId &amp; favoritableType is pass in instead)   * @param favoritableId The ID of the object to un-favorite {offerId, offerLocationId, retailerLocationId, categoryId} (this is required if favoriteId is NOT passed in)   * @param favoritableType The type of the object to un-favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (this is required if favoriteId is NOT passed in)
   */
-  public void deleteFavorite (BigDecimal version, String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteFavorite (String deviceId, Long accountId, Long favoriteId, Long favoritableId, String favoritableType, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFavorite"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -370,7 +347,6 @@ public class FavoriteApi {
   /**
   * Get Favorite
   * Retrieves a single favorited item.
-   * @param version 
    * @param favoriteId The ID of the favorite reference record
    * @param deviceId The unique ID given by the device (deviceId or accountId required)
    * @param accountId The account ID of the user (deviceId or accountId required)
@@ -378,13 +354,8 @@ public class FavoriteApi {
    * @param longitude The current longitude of the user
    * @return WrappedResponse
   */
-  public WrappedResponse getFavorite (BigDecimal version, Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WrappedResponse getFavorite (Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFavorite"));
-    }
     // verify the required parameter 'favoriteId' is set
     if (favoriteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoriteId' when calling getFavorite",
@@ -392,7 +363,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -447,16 +418,11 @@ public class FavoriteApi {
       /**
    * Get Favorite
    * Retrieves a single favorited item.
-   * @param version    * @param favoriteId The ID of the favorite reference record   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
+   * @param favoriteId The ID of the favorite reference record   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
   */
-  public void getFavorite (BigDecimal version, Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<WrappedResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getFavorite (Long favoriteId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<WrappedResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFavorite",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFavorite"));
-    }
     // verify the required parameter 'favoriteId' is set
     if (favoriteId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoriteId' when calling getFavorite",
@@ -464,7 +430,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -522,7 +488,6 @@ public class FavoriteApi {
   /**
   * Search Favorites
   * Searches on the user&#39;s favorites.
-   * @param version 
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
    * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}
    * @param descending Determines whether the results are in descending order
@@ -539,13 +504,8 @@ public class FavoriteApi {
    * @param longitude The current longitude of the user
    * @return SearchResponse
   */
-  public SearchResponse searchFavorites (BigDecimal version, String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchResponse searchFavorites (String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchFavorites",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchFavorites"));
-    }
     // verify the required parameter 'favoritableType' is set
     if (favoritableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableType' when calling searchFavorites",
@@ -583,7 +543,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -647,16 +607,11 @@ public class FavoriteApi {
       /**
    * Search Favorites
    * Searches on the user&#39;s favorites.
-   * @param version    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}   * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination (there is a hard limit of 1000)   * @param activeOnly Determines whether to only return active favorites   * @param returnFullResponse Determines whether to return a detailed version of the response list   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId The ID of an account the user would like to view favorites for   * @param secondaryType    * @param keyword The keyword to search for   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
+   * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}   * @param sortField Determines what to sort the results by {CREATED, UPDATED, DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination (there is a hard limit of 1000)   * @param activeOnly Determines whether to only return active favorites   * @param returnFullResponse Determines whether to return a detailed version of the response list   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param connectionAccountId The ID of an account the user would like to view favorites for   * @param secondaryType    * @param keyword The keyword to search for   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
   */
-  public void searchFavorites (BigDecimal version, String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchFavorites (String favoritableType, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean returnFullResponse, String deviceId, Long accountId, Long connectionAccountId, String secondaryType, String keyword, Double latitude, Double longitude, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchFavorites",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchFavorites"));
-    }
     // verify the required parameter 'favoritableType' is set
     if (favoritableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableType' when calling searchFavorites",
@@ -694,7 +649,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -761,7 +716,6 @@ public class FavoriteApi {
   /**
   * Who has Favorited
   * Searches for everyone that has favorited an item
-   * @param version 
    * @param favoritableId The ID of the favoritableType to search on
    * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}
    * @param start The start index for pagination
@@ -773,13 +727,8 @@ public class FavoriteApi {
    * @param keyword The keyword to limit that account list
    * @return List<AccountResponse>
   */
-  public List<AccountResponse> whoHasFavorited (BigDecimal version, Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AccountResponse> whoHasFavorited (Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling whoHasFavorited",
-        new ApiException(400, "Missing the required parameter 'version' when calling whoHasFavorited"));
-    }
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableId' when calling whoHasFavorited",
@@ -802,7 +751,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/whois".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/whois";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -861,16 +810,11 @@ public class FavoriteApi {
       /**
    * Who has Favorited
    * Searches for everyone that has favorited an item
-   * @param version    * @param favoritableId The ID of the favoritableType to search on   * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}   * @param start The start index for pagination   * @param limit The limit for pagination   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user   * @param keyword The keyword to limit that account list
+   * @param favoritableId The ID of the favoritableType to search on   * @param favoritableType The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}   * @param start The start index for pagination   * @param limit The limit for pagination   * @param deviceId The unique ID given by the device (deviceId or accountId required)   * @param accountId The account ID of the user (deviceId or accountId required)   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user   * @param keyword The keyword to limit that account list
   */
-  public void whoHasFavorited (BigDecimal version, Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, final Response.Listener<List<AccountResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void whoHasFavorited (Long favoritableId, String favoritableType, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, final Response.Listener<List<AccountResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling whoHasFavorited",
-        new ApiException(400, "Missing the required parameter 'version' when calling whoHasFavorited"));
-    }
     // verify the required parameter 'favoritableId' is set
     if (favoritableId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'favoritableId' when calling whoHasFavorited",
@@ -893,7 +837,7 @@ public class FavoriteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/favorite/whois".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/favorite/whois".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

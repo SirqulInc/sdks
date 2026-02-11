@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.PurchaseItemListResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ThemeDescriptorApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class ThemeDescriptorApi {
   /**
   * Create/Update Theme
   * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-   * @param version 
    * @param publicRead determines whether the theme&#39;s participants have read permissions
    * @param publicWrite determines whether the theme&#39;s participants have write permissions
    * @param publicDelete determines whether the theme&#39;s participants have delete permissions
@@ -92,13 +90,8 @@ public class ThemeDescriptorApi {
    * @param longitude the current longitude of the user
    * @return ThemeDescriptorResponse
   */
-  public ThemeDescriptorResponse addOrUpdateThemeDescriptor (BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ThemeDescriptorResponse addOrUpdateThemeDescriptor (Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor"));
-    }
     // verify the required parameter 'publicRead' is set
     if (publicRead == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'publicRead' when calling addOrUpdateThemeDescriptor",
@@ -136,7 +129,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -213,16 +206,11 @@ public class ThemeDescriptorApi {
       /**
    * Create/Update Theme
    * Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-   * @param version    * @param publicRead determines whether the theme&#39;s participants have read permissions   * @param publicWrite determines whether the theme&#39;s participants have write permissions   * @param publicDelete determines whether the theme&#39;s participants have delete permissions   * @param publicAdd    * @param visibility the determines the theme&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param includeFriendGroup flag to determine whether to share to the user&#39;s \&quot;friends\&quot; group   * @param completeWithDefaultValues determines whether to use default values to complete the theme   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType the application key   * @param themeDescriptorId the theme descriptor id used to update an existing theme, leave empty for creating a new theme   * @param title the title of the theme   * @param description the description of the theme   * @param connectionIdsToAdd a comma separated list of connection IDs to share to users   * @param connectionGroupIdsToAdd a comma separated list of connection group IDs to share to groups   * @param appVersion the application version the theme was created for   * @param colorValueJson a json array used to replace colors within the application. Example: &#x60;&#x60;&#x60;json [   {     \&quot;name\&quot;: \&quot;sceneAtlas\&quot;,     \&quot;valueString\&quot;: \&quot;100,100,100,255\&quot;   },   {     \&quot;name\&quot;: \&quot;bg\&quot;,     \&quot;valueString\&quot;: \&quot;100,100,100,255\&quot;   } ] &#x60;&#x60;&#x60;    * @param stringReplacerJson a json array used to replace strings within the application. Example: &#x60;&#x60;&#x60;json [   {     \&quot;name\&quot;: \&quot;coins\&quot;,     \&quot;valueString\&quot;: \&quot;Gems\&quot;   },   {     \&quot;name\&quot;: \&quot;lives\&quot;,     \&quot;valueString\&quot;: \&quot;lives\&quot;   } ] &#x60;&#x60;&#x60;    * @param customJsonObjects a json object used by the scene atlas to position sprites. Example: &#x60;&#x60;&#x60;json {   \&quot;pShootingOffset\&quot;: [     {       \&quot;name\&quot;: \&quot;x\&quot;,       \&quot;valueString\&quot;: \&quot;2.2\&quot;     },     {       \&quot;name\&quot;: \&quot;y\&quot;,       \&quot;valueString\&quot;: \&quot;-0.3\&quot;     }   ],   \&quot;e1ShootingOffset\&quot;: [     {       \&quot;name\&quot;: \&quot;x\&quot;,       \&quot;valueString\&quot;: \&quot;0.25\&quot;     },     {       \&quot;name\&quot;: \&quot;y\&quot;,       \&quot;valueString\&quot;: \&quot;0.5\&quot;     }   ] } &#x60;&#x60;&#x60;    * @param iconImage a MultipartFile containing the image used as the theme icon   * @param sceneAtlasImage a MultipartFile containing the scene atlas   * @param bgImage a MultipartFile containing the background image   * @param bgSound a MultipartFile containing the background sound file (preferably in MP3 format)   * @param musicSelection used to select a default sound file that already exists in the application   * @param locationDescription the description of the user&#39;s current location   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param publicRead determines whether the theme&#39;s participants have read permissions   * @param publicWrite determines whether the theme&#39;s participants have write permissions   * @param publicDelete determines whether the theme&#39;s participants have delete permissions   * @param publicAdd    * @param visibility the determines the theme&#39;s participants (PUBLIC - includes everyone in the system as a potential participant, PRIVATE - only considers people who have been invited as participants)   * @param includeFriendGroup flag to determine whether to share to the user&#39;s \&quot;friends\&quot; group   * @param completeWithDefaultValues determines whether to use default values to complete the theme   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType the application key   * @param themeDescriptorId the theme descriptor id used to update an existing theme, leave empty for creating a new theme   * @param title the title of the theme   * @param description the description of the theme   * @param connectionIdsToAdd a comma separated list of connection IDs to share to users   * @param connectionGroupIdsToAdd a comma separated list of connection group IDs to share to groups   * @param appVersion the application version the theme was created for   * @param colorValueJson a json array used to replace colors within the application. Example: &#x60;&#x60;&#x60;json [   {     \&quot;name\&quot;: \&quot;sceneAtlas\&quot;,     \&quot;valueString\&quot;: \&quot;100,100,100,255\&quot;   },   {     \&quot;name\&quot;: \&quot;bg\&quot;,     \&quot;valueString\&quot;: \&quot;100,100,100,255\&quot;   } ] &#x60;&#x60;&#x60;    * @param stringReplacerJson a json array used to replace strings within the application. Example: &#x60;&#x60;&#x60;json [   {     \&quot;name\&quot;: \&quot;coins\&quot;,     \&quot;valueString\&quot;: \&quot;Gems\&quot;   },   {     \&quot;name\&quot;: \&quot;lives\&quot;,     \&quot;valueString\&quot;: \&quot;lives\&quot;   } ] &#x60;&#x60;&#x60;    * @param customJsonObjects a json object used by the scene atlas to position sprites. Example: &#x60;&#x60;&#x60;json {   \&quot;pShootingOffset\&quot;: [     {       \&quot;name\&quot;: \&quot;x\&quot;,       \&quot;valueString\&quot;: \&quot;2.2\&quot;     },     {       \&quot;name\&quot;: \&quot;y\&quot;,       \&quot;valueString\&quot;: \&quot;-0.3\&quot;     }   ],   \&quot;e1ShootingOffset\&quot;: [     {       \&quot;name\&quot;: \&quot;x\&quot;,       \&quot;valueString\&quot;: \&quot;0.25\&quot;     },     {       \&quot;name\&quot;: \&quot;y\&quot;,       \&quot;valueString\&quot;: \&quot;0.5\&quot;     }   ] } &#x60;&#x60;&#x60;    * @param iconImage a MultipartFile containing the image used as the theme icon   * @param sceneAtlasImage a MultipartFile containing the scene atlas   * @param bgImage a MultipartFile containing the background image   * @param bgSound a MultipartFile containing the background sound file (preferably in MP3 format)   * @param musicSelection used to select a default sound file that already exists in the application   * @param locationDescription the description of the user&#39;s current location   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void addOrUpdateThemeDescriptor (BigDecimal version, Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude, final Response.Listener<ThemeDescriptorResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addOrUpdateThemeDescriptor (Boolean publicRead, Boolean publicWrite, Boolean publicDelete, Boolean publicAdd, String visibility, Boolean includeFriendGroup, Boolean completeWithDefaultValues, String deviceId, Long accountId, String gameType, Long themeDescriptorId, String title, String description, String connectionIdsToAdd, String connectionGroupIdsToAdd, String appVersion, String colorValueJson, String stringReplacerJson, String customJsonObjects, File iconImage, File sceneAtlasImage, File bgImage, File bgSound, String musicSelection, String locationDescription, Double latitude, Double longitude, final Response.Listener<ThemeDescriptorResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling addOrUpdateThemeDescriptor"));
-    }
     // verify the required parameter 'publicRead' is set
     if (publicRead == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'publicRead' when calling addOrUpdateThemeDescriptor",
@@ -260,7 +248,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -340,7 +328,6 @@ public class ThemeDescriptorApi {
   /**
   * Get Theme
   * Gets a theme.
-   * @param version 
    * @param themeDescriptorId the theme id
    * @param deviceId a unique ID given by the device (deviceId or accountId required)
    * @param accountId the account ID of the user (deviceId or accountId required)
@@ -349,13 +336,8 @@ public class ThemeDescriptorApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return PurchaseItemListResponse
   */
-  public PurchaseItemListResponse getThemeDescriptor (BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PurchaseItemListResponse getThemeDescriptor (Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling getThemeDescriptor"));
-    }
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'themeDescriptorId' when calling getThemeDescriptor",
@@ -363,7 +345,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -419,16 +401,11 @@ public class ThemeDescriptorApi {
       /**
    * Get Theme
    * Gets a theme.
-   * @param version    * @param themeDescriptorId the theme id   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType the application key   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param themeDescriptorId the theme id   * @param deviceId a unique ID given by the device (deviceId or accountId required)   * @param accountId the account ID of the user (deviceId or accountId required)   * @param gameType the application key   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void getThemeDescriptor (BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, final Response.Listener<PurchaseItemListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getThemeDescriptor (Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, final Response.Listener<PurchaseItemListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling getThemeDescriptor"));
-    }
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'themeDescriptorId' when calling getThemeDescriptor",
@@ -436,7 +413,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -495,7 +472,6 @@ public class ThemeDescriptorApi {
   /**
   * Search Themes
   * Searches for themes.
-   * @param version 
    * @param filter a comma separated list of Ownership
    * @param sortField the field to sort by. See ThemeDescriptorApiMap
    * @param descending determines whether the sorted list is in descending or ascending order
@@ -516,13 +492,8 @@ public class ThemeDescriptorApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return PurchaseItemListResponse
   */
-  public PurchaseItemListResponse getThemeDescriptors (BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PurchaseItemListResponse getThemeDescriptors (String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getThemeDescriptors",
-        new ApiException(400, "Missing the required parameter 'version' when calling getThemeDescriptors"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling getThemeDescriptors",
@@ -550,7 +521,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -618,16 +589,11 @@ public class ThemeDescriptorApi {
       /**
    * Search Themes
    * Searches for themes.
-   * @param version    * @param filter a comma separated list of Ownership   * @param sortField the field to sort by. See ThemeDescriptorApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start parameter for pagination   * @param limit the limit parameter for pagination   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType the unique title of an application given from the admin tool   * @param contestType contest type   * @param ownerId search on contests that an account has access to   * @param q This parameter is deprecated.   * @param keyword a keyword to search on   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param dateCreated filter on items that have been created before this date   * @param appVersion application version of the theme to filter by   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param filter a comma separated list of Ownership   * @param sortField the field to sort by. See ThemeDescriptorApiMap   * @param descending determines whether the sorted list is in descending or ascending order   * @param start the start parameter for pagination   * @param limit the limit parameter for pagination   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType the unique title of an application given from the admin tool   * @param contestType contest type   * @param ownerId search on contests that an account has access to   * @param q This parameter is deprecated.   * @param keyword a keyword to search on   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param dateCreated filter on items that have been created before this date   * @param appVersion application version of the theme to filter by   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void getThemeDescriptors (BigDecimal version, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude, final Response.Listener<PurchaseItemListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getThemeDescriptors (String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, String gameType, String contestType, Long ownerId, String q, String keyword, Integer i, Integer l, Long dateCreated, String appVersion, Double latitude, Double longitude, final Response.Listener<PurchaseItemListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getThemeDescriptors",
-        new ApiException(400, "Missing the required parameter 'version' when calling getThemeDescriptors"));
-    }
     // verify the required parameter 'filter' is set
     if (filter == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filter' when calling getThemeDescriptors",
@@ -655,7 +621,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -726,7 +692,6 @@ public class ThemeDescriptorApi {
   /**
   * Delete Theme
   * Removes a theme.
-   * @param version 
    * @param themeDescriptorId the theme id to remove
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -735,13 +700,8 @@ public class ThemeDescriptorApi {
    * @param longitude longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse removeThemeDescriptor (BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeThemeDescriptor (Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeThemeDescriptor"));
-    }
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'themeDescriptorId' when calling removeThemeDescriptor",
@@ -749,7 +709,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -805,16 +765,11 @@ public class ThemeDescriptorApi {
       /**
    * Delete Theme
    * Removes a theme.
-   * @param version    * @param themeDescriptorId the theme id to remove   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType the unique title of an application given from the admin tool   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
+   * @param themeDescriptorId the theme id to remove   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType the unique title of an application given from the admin tool   * @param latitude latitude used to update the user&#39;s current location   * @param longitude longitude used to update the user&#39;s current location
   */
-  public void removeThemeDescriptor (BigDecimal version, Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeThemeDescriptor (Long themeDescriptorId, String deviceId, Long accountId, String gameType, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeThemeDescriptor",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeThemeDescriptor"));
-    }
     // verify the required parameter 'themeDescriptorId' is set
     if (themeDescriptorId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'themeDescriptorId' when calling removeThemeDescriptor",
@@ -822,7 +777,7 @@ public class ThemeDescriptorApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/theme/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/theme/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

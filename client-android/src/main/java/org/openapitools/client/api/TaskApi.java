@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TaskResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TaskApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class TaskApi {
   /**
   * Create Task
   * Create a Task
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the task
    * @param appKey The application to target
@@ -76,13 +74,8 @@ public class TaskApi {
    * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
    * @return TaskResponse
   */
-  public TaskResponse createTask (BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TaskResponse createTask (Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTask",
@@ -95,7 +88,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -157,16 +150,11 @@ public class TaskApi {
       /**
    * Create Task
    * Create a Task
-   * @param version    * @param accountId The logged in user.   * @param name The name of the task   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping tasks   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the task   * @param startDate The starting date of the task   * @param endDate The ending date of the task   * @param cronExpression The cron expression that represents the task&#39;s schedule   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
+   * @param accountId The logged in user.   * @param name The name of the task   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping tasks   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the task   * @param startDate The starting date of the task   * @param endDate The ending date of the task   * @param cronExpression The cron expression that represents the task&#39;s schedule   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
   */
-  public void createTask (BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createTask (Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTask",
@@ -179,7 +167,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -244,18 +232,12 @@ public class TaskApi {
   /**
   * Delete Task
   * Delete a Task
-   * @param version 
    * @param accountId The logged in user.
    * @param taskId The id of the Task to delete.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteTask (BigDecimal version, Long accountId, Long taskId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteTask (Long accountId, Long taskId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTask",
@@ -268,7 +250,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -320,16 +302,11 @@ public class TaskApi {
       /**
    * Delete Task
    * Delete a Task
-   * @param version    * @param accountId The logged in user.   * @param taskId The id of the Task to delete.
+   * @param accountId The logged in user.   * @param taskId The id of the Task to delete.
   */
-  public void deleteTask (BigDecimal version, Long accountId, Long taskId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteTask (Long accountId, Long taskId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTask",
@@ -342,7 +319,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -397,18 +374,12 @@ public class TaskApi {
   /**
   * Get Task
   * Get a Task
-   * @param version 
    * @param accountId The logged in user.
    * @param taskId The id of the Task to return.
    * @return TaskResponse
   */
-  public TaskResponse getTask (BigDecimal version, Long accountId, Long taskId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TaskResponse getTask (Long accountId, Long taskId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTask",
@@ -421,7 +392,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -473,16 +444,11 @@ public class TaskApi {
       /**
    * Get Task
    * Get a Task
-   * @param version    * @param accountId The logged in user.   * @param taskId The id of the Task to return.
+   * @param accountId The logged in user.   * @param taskId The id of the Task to return.
   */
-  public void getTask (BigDecimal version, Long accountId, Long taskId, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTask (Long accountId, Long taskId, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTask"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTask",
@@ -495,7 +461,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -550,7 +516,6 @@ public class TaskApi {
   /**
   * Search Tasks
   * Search on Tasks
-   * @param version 
    * @param accountId The logged in user.
    * @param groupingId Filter results by a grouping identifier defined by the client
    * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks 
@@ -565,13 +530,8 @@ public class TaskApi {
    * @param activeOnly Determines whether to return only active results
    * @return List<TaskResponse>
   */
-  public List<TaskResponse> searchTasks (BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<TaskResponse> searchTasks (Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTasks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTasks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTasks",
@@ -579,7 +539,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -641,16 +601,11 @@ public class TaskApi {
       /**
    * Search Tasks
    * Search on Tasks
-   * @param version    * @param accountId The logged in user.   * @param groupingId Filter results by a grouping identifier defined by the client   * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks    * @param statuses Filter results by status (comma separated list). Values include: NEW, ERROR, COMPLETE, PROCESSING, TEMPLATE   * @param templateTypes Template Types   * @param appKey Filter the list by a specific application   * @param keyword Keyword search on the task names.   * @param sortField The field to sort by. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, SCHEDULED_DATE, START_DATE, END_DATE   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param activeOnly Determines whether to return only active results
+   * @param accountId The logged in user.   * @param groupingId Filter results by a grouping identifier defined by the client   * @param filter A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks    * @param statuses Filter results by status (comma separated list). Values include: NEW, ERROR, COMPLETE, PROCESSING, TEMPLATE   * @param templateTypes Template Types   * @param appKey Filter the list by a specific application   * @param keyword Keyword search on the task names.   * @param sortField The field to sort by. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, SCHEDULED_DATE, START_DATE, END_DATE   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param activeOnly Determines whether to return only active results
   */
-  public void searchTasks (BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<TaskResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTasks (Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<TaskResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTasks",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTasks"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTasks",
@@ -658,7 +613,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -723,7 +678,6 @@ public class TaskApi {
   /**
   * Update Task
   * Update a Task
-   * @param version 
    * @param taskId Task Id
    * @param accountId The logged in user.
    * @param name The name of the task
@@ -739,13 +693,8 @@ public class TaskApi {
    * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
    * @return TaskResponse
   */
-  public TaskResponse updateTask (BigDecimal version, Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TaskResponse updateTask (Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTask"));
-    }
     // verify the required parameter 'taskId' is set
     if (taskId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'taskId' when calling updateTask",
@@ -758,7 +707,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -821,16 +770,11 @@ public class TaskApi {
       /**
    * Update Task
    * Update a Task
-   * @param version    * @param taskId Task Id   * @param accountId The logged in user.   * @param name The name of the task   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping tasks   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the task   * @param startDate The starting date of the task   * @param endDate The ending date of the task   * @param cronExpression The cron expression that represents the task&#39;s schedule   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
+   * @param taskId Task Id   * @param accountId The logged in user.   * @param name The name of the task   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping tasks   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the task   * @param startDate The starting date of the task   * @param endDate The ending date of the task   * @param cronExpression The cron expression that represents the task&#39;s schedule   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Task is active or not (inactive Tasks are not processed)
   */
-  public void updateTask (BigDecimal version, Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTask (Long taskId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String visibility, Boolean active, final Response.Listener<TaskResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTask",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTask"));
-    }
     // verify the required parameter 'taskId' is set
     if (taskId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'taskId' when calling updateTask",
@@ -843,7 +787,7 @@ public class TaskApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/task/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/task/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

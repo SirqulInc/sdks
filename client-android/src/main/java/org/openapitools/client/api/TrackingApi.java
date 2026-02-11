@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.AccountMiniResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.Leg;
 import org.openapitools.client.model.LegResponse;
 import java.util.*;
@@ -44,7 +43,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TrackingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -66,7 +65,6 @@ public class TrackingApi {
   /**
   * Create Batch Tracking
   * Batch create tracking legs
-   * @param version 
    * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60; 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -76,13 +74,8 @@ public class TrackingApi {
    * @param slaveUID 
    * @return List<Leg>
   */
-  public List<Leg> batchSaveTracking (BigDecimal version, String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Leg> batchSaveTracking (String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchSaveTracking",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchSaveTracking"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling batchSaveTracking",
@@ -90,7 +83,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/batch/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/batch/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -147,16 +140,11 @@ public class TrackingApi {
       /**
    * Create Batch Tracking
    * Batch create tracking legs
-   * @param version    * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;    * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param generateAccounts Whether to generate accounts for tracking entries when the owner does not exist   * @param updateAccountLocations Whether to update the account&#39;s current location from the incoming tracking data   * @param defaultTag The default tag to apply to incoming legs when no tag is provided   * @param slaveUID 
+   * @param data JSON array of tracking legs &#x60;&#x60;&#x60;json [   \&quot;distance\&quot;: \&quot;0.08\&quot;,   \&quot;duration\&quot;: \&quot;10000\&quot;,   \&quot;startLatitude\&quot;: \&quot;47.614603\&quot;,   \&quot;startLongitude\&quot;: \&quot;-122.350518\&quot;,   \&quot;endLatitude\&quot;: \&quot;47.614384\&quot;,   \&quot;endLongitude\&quot;: \&quot;-122.349161\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endDate\&quot;: \&quot;1361924020000\&quot;,   \&quot;steps\&quot;: [     {       \&quot;distance\&quot;: \&quot;0.03\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614603\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,       \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614941\&quot;,       \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;endDate\&quot;: \&quot;1361924015000\&quot;     },{       \&quot;distance\&quot;: \&quot;0.05\&quot;,       \&quot;duration\&quot;: \&quot;5000\&quot;,       \&quot;startLat\&quot;: \&quot;47.614941\&quot;,       \&quot;startLng\&quot;: \&quot;-122.350062\&quot;,       \&quot;startDate\&quot;: \&quot;1361924015000\&quot;,       \&quot;endLat\&quot;: \&quot;47.614384\&quot;,       \&quot;endLng\&quot;: \&quot;-122.349161\&quot;,       \&quot;endDate\&quot;: \&quot;1361924020000\&quot;     }   ] ] &#x60;&#x60;&#x60;    * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param generateAccounts Whether to generate accounts for tracking entries when the owner does not exist   * @param updateAccountLocations Whether to update the account&#39;s current location from the incoming tracking data   * @param defaultTag The default tag to apply to incoming legs when no tag is provided   * @param slaveUID 
   */
-  public void batchSaveTracking (BigDecimal version, String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID, final Response.Listener<List<Leg>> responseListener, final Response.ErrorListener errorListener) {
+  public void batchSaveTracking (String data, String deviceId, Long accountId, Boolean generateAccounts, Boolean updateAccountLocations, String defaultTag, String slaveUID, final Response.Listener<List<Leg>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchSaveTracking",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchSaveTracking"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling batchSaveTracking",
@@ -164,7 +152,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/batch/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/batch/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -224,7 +212,6 @@ public class TrackingApi {
   /**
   * Get Predicted Locations
   * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-   * @param version 
    * @param accountId The account id of the customer
    * @param latitude latitude to return a more likely result set based on the user&#39;s current location
    * @param longitude longitude to return a more likely result set based on the user&#39;s current location
@@ -236,13 +223,8 @@ public class TrackingApi {
    * @param sortOrder The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
    * @return PredictedLocationResponse
   */
-  public PredictedLocationResponse getPredictedLocations (BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PredictedLocationResponse getPredictedLocations (Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPredictedLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPredictedLocations"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPredictedLocations",
@@ -250,7 +232,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/predicted/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/predicted/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -309,16 +291,11 @@ public class TrackingApi {
       /**
    * Get Predicted Locations
    * Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-   * @param version    * @param accountId The account id of the customer   * @param latitude latitude to return a more likely result set based on the user&#39;s current location   * @param longitude longitude to return a more likely result set based on the user&#39;s current location   * @param dateCheck Used to specify which day to get predicted locations for. So if you want to look at where they might be tomorrow, pass in tomorrow&#39;s date (timestamp in milliseconds). If no value is passed in, the current date will be used.   * @param hourCheck Comma separated list of hours that will filter the results on the hours specified. For example, if you want to see predicted locations for the mornings and evening you can pass in \&quot;8,9,10,11,17,18,19,20\&quot;.   * @param threshold The minimum number matches in 1 hour to be considered a likely location.   * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}   * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction.   * @param sortOrder The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
+   * @param accountId The account id of the customer   * @param latitude latitude to return a more likely result set based on the user&#39;s current location   * @param longitude longitude to return a more likely result set based on the user&#39;s current location   * @param dateCheck Used to specify which day to get predicted locations for. So if you want to look at where they might be tomorrow, pass in tomorrow&#39;s date (timestamp in milliseconds). If no value is passed in, the current date will be used.   * @param hourCheck Comma separated list of hours that will filter the results on the hours specified. For example, if you want to see predicted locations for the mornings and evening you can pass in \&quot;8,9,10,11,17,18,19,20\&quot;.   * @param threshold The minimum number matches in 1 hour to be considered a likely location.   * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}   * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction.   * @param sortOrder The ordering algorithm for sorting the returned results: {MATCHES, DISTANCE, WEIGHTED}
   */
-  public void getPredictedLocations (BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder, final Response.Listener<PredictedLocationResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPredictedLocations (Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, Long threshold, String distanceUnit, Double searchRange, String sortOrder, final Response.Listener<PredictedLocationResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPredictedLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPredictedLocations"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPredictedLocations",
@@ -326,7 +303,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/predicted/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/predicted/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -388,19 +365,13 @@ public class TrackingApi {
   /**
   * Get Tracking Path
   * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-   * @param version 
    * @param accountId The account id of the customer
    * @param startStepId The stepId to begin from
    * @param endStepId The stepId to end with
    * @return List<StepResponse>
   */
-  public List<StepResponse> getPredictedPath (BigDecimal version, Long accountId, Long startStepId, Long endStepId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<StepResponse> getPredictedPath (Long accountId, Long startStepId, Long endStepId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPredictedPath",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPredictedPath"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPredictedPath",
@@ -418,7 +389,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/path/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/path/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -471,16 +442,11 @@ public class TrackingApi {
       /**
    * Get Tracking Path
    * Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-   * @param version    * @param accountId The account id of the customer   * @param startStepId The stepId to begin from   * @param endStepId The stepId to end with
+   * @param accountId The account id of the customer   * @param startStepId The stepId to begin from   * @param endStepId The stepId to end with
   */
-  public void getPredictedPath (BigDecimal version, Long accountId, Long startStepId, Long endStepId, final Response.Listener<List<StepResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getPredictedPath (Long accountId, Long startStepId, Long endStepId, final Response.Listener<List<StepResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPredictedPath",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPredictedPath"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPredictedPath",
@@ -498,7 +464,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/path/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/path/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -554,7 +520,6 @@ public class TrackingApi {
   /**
   * Search Preferred Locations
   * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-   * @param version 
    * @param accountId The account id of the customer
    * @param latitude latitude to return a more likely result set based on the user&#39;s current location
    * @param longitude longitude to return a more likely result set based on the user&#39;s current location
@@ -568,13 +533,8 @@ public class TrackingApi {
    * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
    * @return List<PreferredLocationResponse>
   */
-  public List<PreferredLocationResponse> getPreferredLocations (BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<PreferredLocationResponse> getPreferredLocations (Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPreferredLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPreferredLocations"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPreferredLocations",
@@ -582,7 +542,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/preferred/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/preferred/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -643,16 +603,11 @@ public class TrackingApi {
       /**
    * Search Preferred Locations
    * Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-   * @param version    * @param accountId The account id of the customer   * @param latitude latitude to return a more likely result set based on the user&#39;s current location   * @param longitude longitude to return a more likely result set based on the user&#39;s current location   * @param dateCheck Used to specify which day to get preferred locations for. So if you want to look at where they might be tomorrow, pass in tomorrow&#39;s date (timestamp in milliseconds). If no value is passed in, results from all time will be returned.   * @param hourCheck Comma separated list of hours that will filter the results on the hours specified. For example, if you want to see preferred locations for the mornings and evening you can pass in \&quot;8,9,10,11,17,18,19,20\&quot;.   * @param sortField Specifies how the results will be ordered. Supported values include: CREATED - the time of when the preferred location data was processed. PREFERRED_DATE - the time of when the user sent in the tracking data. HOUR - the hour of when the user sent in the tracking data. DURATION - the duration of the preferred location   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction.   * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
+   * @param accountId The account id of the customer   * @param latitude latitude to return a more likely result set based on the user&#39;s current location   * @param longitude longitude to return a more likely result set based on the user&#39;s current location   * @param dateCheck Used to specify which day to get preferred locations for. So if you want to look at where they might be tomorrow, pass in tomorrow&#39;s date (timestamp in milliseconds). If no value is passed in, results from all time will be returned.   * @param hourCheck Comma separated list of hours that will filter the results on the hours specified. For example, if you want to see preferred locations for the mornings and evening you can pass in \&quot;8,9,10,11,17,18,19,20\&quot;.   * @param sortField Specifies how the results will be ordered. Supported values include: CREATED - the time of when the preferred location data was processed. PREFERRED_DATE - the time of when the user sent in the tracking data. HOUR - the hour of when the user sent in the tracking data. DURATION - the duration of the preferred location   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param searchRange Filter results so only locations within the specified radius will be returned. The distance can either be in miles or kilometers as specified in the distanceUnit parameter. A value of \&quot;0\&quot; (zero) will ignore the radius restriction.   * @param distanceUnit Determines which unit of measurement gets returned for distances: {MILES, KILOMETERS}
   */
-  public void getPreferredLocations (BigDecimal version, Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit, final Response.Listener<List<PreferredLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getPreferredLocations (Long accountId, Double latitude, Double longitude, Long dateCheck, String hourCheck, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, String distanceUnit, final Response.Listener<List<PreferredLocationResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPreferredLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPreferredLocations"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPreferredLocations",
@@ -660,7 +615,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/preferred/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/preferred/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -724,7 +679,6 @@ public class TrackingApi {
   /**
   * Search Tracking
   * Retrieve tracking data to be able to show where a user has been.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param ownerId the account id of the person the user wants to tracking data for
@@ -735,16 +689,11 @@ public class TrackingApi {
    * @param getLastPoint gets the last known location of the user
    * @return List<LegResponse>
   */
-  public List<LegResponse> getTrackingLegs (BigDecimal version, String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<LegResponse> getTrackingLegs (String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrackingLegs"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -802,19 +751,14 @@ public class TrackingApi {
       /**
    * Search Tracking
    * Retrieve tracking data to be able to show where a user has been.
-   * @param version    * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param ownerId the account id of the person the user wants to tracking data for   * @param trackingDeviceId the id of the tracking device   * @param startDate the start date in (UTC milliseconds) to filter the tracking results. If no startDate is passed in, the last 30 days will be returned.   * @param endDate the end date in (UTC milliseconds) to filter the tracking results   * @param tags filter results by tag   * @param getLastPoint gets the last known location of the user
+   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param ownerId the account id of the person the user wants to tracking data for   * @param trackingDeviceId the id of the tracking device   * @param startDate the start date in (UTC milliseconds) to filter the tracking results. If no startDate is passed in, the last 30 days will be returned.   * @param endDate the end date in (UTC milliseconds) to filter the tracking results   * @param tags filter results by tag   * @param getLastPoint gets the last known location of the user
   */
-  public void getTrackingLegs (BigDecimal version, String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint, final Response.Listener<List<LegResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getTrackingLegs (String deviceId, Long accountId, Long ownerId, String trackingDeviceId, Long startDate, Long endDate, String tags, Boolean getLastPoint, final Response.Listener<List<LegResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrackingLegs"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -875,7 +819,6 @@ public class TrackingApi {
   /**
   * Create Tracking Leg
   * Send tracking points to be able to generate pathing data
-   * @param version 
    * @param startLat the latitude of the first point
    * @param startLng the longitude of the first point
    * @param startDate the start date (in UTC milliseconds) of the first point
@@ -890,13 +833,8 @@ public class TrackingApi {
    * @param tags name the leg for searching
    * @return SirqulResponse
   */
-  public SirqulResponse saveTrackingLeg (BigDecimal version, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse saveTrackingLeg (Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTrackingLeg",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTrackingLeg"));
-    }
     // verify the required parameter 'startLat' is set
     if (startLat == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'startLat' when calling saveTrackingLeg",
@@ -929,7 +867,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/leg/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/leg/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -991,16 +929,11 @@ public class TrackingApi {
       /**
    * Create Tracking Leg
    * Send tracking points to be able to generate pathing data
-   * @param version    * @param startLat the latitude of the first point   * @param startLng the longitude of the first point   * @param startDate the start date (in UTC milliseconds) of the first point   * @param endLat the latitude of the last point   * @param endLng the longitude of the last point   * @param endDate the end date (in UTC milliseconds) of the last point   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param distance the total distance   * @param duration the total duration   * @param steps JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60;    * @param tags name the leg for searching
+   * @param startLat the latitude of the first point   * @param startLng the longitude of the first point   * @param startDate the start date (in UTC milliseconds) of the first point   * @param endLat the latitude of the last point   * @param endLng the longitude of the last point   * @param endDate the end date (in UTC milliseconds) of the last point   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param distance the total distance   * @param duration the total duration   * @param steps JSON array of tracking vectors used for smoother pathing data. If null then the leg data will be used to generate a single step, if an empty array then no steps will be generated. &#x60;&#x60;&#x60;json [{   \&quot;distance\&quot;: \&quot;0.03\&quot;,   \&quot;duration\&quot;: \&quot;5000\&quot;,   \&quot;startLat\&quot;: \&quot;47.614603\&quot;,   \&quot;startLng\&quot;: \&quot;-122.350518\&quot;,   \&quot;startDate\&quot;: \&quot;1361924010000\&quot;,   \&quot;endLat\&quot;: \&quot;47.614941\&quot;,   \&quot;endLng\&quot;: \&quot;-122.350062\&quot;,   \&quot;endDate\&quot;: \&quot;1361924015000\&quot; }] &#x60;&#x60;&#x60;    * @param tags name the leg for searching
   */
-  public void saveTrackingLeg (BigDecimal version, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void saveTrackingLeg (Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, String steps, String tags, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTrackingLeg",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTrackingLeg"));
-    }
     // verify the required parameter 'startLat' is set
     if (startLat == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'startLat' when calling saveTrackingLeg",
@@ -1033,7 +966,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/leg/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/leg/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1098,7 +1031,6 @@ public class TrackingApi {
   /**
   * Create Tracking Step
   * Send tracking points to be able to generate pathing data
-   * @param version 
    * @param legId the leg to add the step to
    * @param startLat the latitude of the first point
    * @param startLng the longitude of the first point
@@ -1112,13 +1044,8 @@ public class TrackingApi {
    * @param duration the total duration
    * @return SirqulResponse
   */
-  public SirqulResponse saveTrackingStep (BigDecimal version, Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse saveTrackingStep (Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTrackingStep",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTrackingStep"));
-    }
     // verify the required parameter 'legId' is set
     if (legId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'legId' when calling saveTrackingStep",
@@ -1156,7 +1083,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/step/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/step/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1217,16 +1144,11 @@ public class TrackingApi {
       /**
    * Create Tracking Step
    * Send tracking points to be able to generate pathing data
-   * @param version    * @param legId the leg to add the step to   * @param startLat the latitude of the first point   * @param startLng the longitude of the first point   * @param startDate the start date (in UTC milliseconds) of the first point   * @param endLat the latitude of the last point   * @param endLng the longitude of the last point   * @param endDate the end date (in UTC milliseconds) of the last point   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param distance the total distance   * @param duration the total duration
+   * @param legId the leg to add the step to   * @param startLat the latitude of the first point   * @param startLng the longitude of the first point   * @param startDate the start date (in UTC milliseconds) of the first point   * @param endLat the latitude of the last point   * @param endLng the longitude of the last point   * @param endDate the end date (in UTC milliseconds) of the last point   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param distance the total distance   * @param duration the total duration
   */
-  public void saveTrackingStep (BigDecimal version, Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void saveTrackingStep (Long legId, Double startLat, Double startLng, Long startDate, Double endLat, Double endLng, Long endDate, String deviceId, Long accountId, Double distance, Long duration, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling saveTrackingStep",
-        new ApiException(400, "Missing the required parameter 'version' when calling saveTrackingStep"));
-    }
     // verify the required parameter 'legId' is set
     if (legId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'legId' when calling saveTrackingStep",
@@ -1264,7 +1186,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/step/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/step/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1328,7 +1250,6 @@ public class TrackingApi {
   /**
   * List Tracking
   * Search for all accounts that have tracking legs data by the given constraints.
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword Used for LIKE search of first or last name on the acocunt
    * @param startDate Range to begin in UTC milliseconds
@@ -1345,13 +1266,8 @@ public class TrackingApi {
    * @param activeOnly Determines whether to return only active results. Default is false.
    * @return List<AccountMiniResponse>
   */
-  public List<AccountMiniResponse> searchAccountsWithTrackingLegs (BigDecimal version, Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<AccountMiniResponse> searchAccountsWithTrackingLegs (Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchAccountsWithTrackingLegs",
@@ -1359,7 +1275,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/list".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/list";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1423,16 +1339,11 @@ public class TrackingApi {
       /**
    * List Tracking
    * Search for all accounts that have tracking legs data by the given constraints.
-   * @param version    * @param accountId The account id of the user   * @param keyword Used for LIKE search of first or last name on the acocunt   * @param startDate Range to begin in UTC milliseconds   * @param endDate Range to end in UTC milliseconds   * @param tags Exact match on tag field of Legs&#39;s searchTag   * @param audienceIds    * @param latitude Origin latitude to perform searching constraints with given range   * @param longitude Origin longitude to perform searching constraints with given range   * @param range The radius, in miles, to perform the search for   * @param sortField The column to sort the search on. Possible values include: {LEG_START_DATE, ACCOUNT_DISPLAY}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.
+   * @param accountId The account id of the user   * @param keyword Used for LIKE search of first or last name on the acocunt   * @param startDate Range to begin in UTC milliseconds   * @param endDate Range to end in UTC milliseconds   * @param tags Exact match on tag field of Legs&#39;s searchTag   * @param audienceIds    * @param latitude Origin latitude to perform searching constraints with given range   * @param longitude Origin longitude to perform searching constraints with given range   * @param range The radius, in miles, to perform the search for   * @param sortField The column to sort the search on. Possible values include: {LEG_START_DATE, ACCOUNT_DISPLAY}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.
   */
-  public void searchAccountsWithTrackingLegs (BigDecimal version, Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<AccountMiniResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchAccountsWithTrackingLegs (Long accountId, String keyword, Long startDate, Long endDate, String tags, String audienceIds, Double latitude, Double longitude, Double range, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<AccountMiniResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchAccountsWithTrackingLegs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchAccountsWithTrackingLegs",
@@ -1440,7 +1351,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/list".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/list".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1507,7 +1418,6 @@ public class TrackingApi {
   /**
   * Search Tracking (Billable)
   * Retrieve tracking data for billable/account scoped queries.
-   * @param version 
    * @param accountId The account id to search tracking for
    * @param appKey The application key
    * @param trackingDeviceId The id of the tracking device
@@ -1518,13 +1428,8 @@ public class TrackingApi {
    * @param limit The limit for pagination
    * @return List<LegResponse>
   */
-  public List<LegResponse> searchTrackingLegs (BigDecimal version, Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<LegResponse> searchTrackingLegs (Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTrackingLegs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTrackingLegs",
@@ -1537,7 +1442,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/searchByBillable".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/searchByBillable";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1595,16 +1500,11 @@ public class TrackingApi {
       /**
    * Search Tracking (Billable)
    * Retrieve tracking data for billable/account scoped queries.
-   * @param version    * @param accountId The account id to search tracking for   * @param appKey The application key   * @param trackingDeviceId The id of the tracking device   * @param startDate The start date in (UTC milliseconds) to filter the tracking results   * @param endDate The end date in (UTC milliseconds) to filter the tracking results   * @param tags Filter results by tag   * @param start The start index for pagination   * @param limit The limit for pagination
+   * @param accountId The account id to search tracking for   * @param appKey The application key   * @param trackingDeviceId The id of the tracking device   * @param startDate The start date in (UTC milliseconds) to filter the tracking results   * @param endDate The end date in (UTC milliseconds) to filter the tracking results   * @param tags Filter results by tag   * @param start The start index for pagination   * @param limit The limit for pagination
   */
-  public void searchTrackingLegs (BigDecimal version, Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit, final Response.Listener<List<LegResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTrackingLegs (Long accountId, String appKey, String trackingDeviceId, Long startDate, Long endDate, String tags, Integer start, Integer limit, final Response.Listener<List<LegResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTrackingLegs",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTrackingLegs"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTrackingLegs",
@@ -1617,7 +1517,7 @@ public class TrackingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/tracking/searchByBillable".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/tracking/searchByBillable".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

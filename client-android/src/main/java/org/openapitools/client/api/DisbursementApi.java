@@ -38,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class DisbursementApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,17 +60,11 @@ public class DisbursementApi {
   /**
   * Check Disbursements
   * Checks the status of a captured disbrusement to see if it has been settled.
-   * @param version 
    * @param disbursementId the ID of the disbursement being checked on
    * @return DisbursementResponse
   */
-  public DisbursementResponse checkDisbursements (BigDecimal version, Long disbursementId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DisbursementResponse checkDisbursements (Long disbursementId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling checkDisbursements",
-        new ApiException(400, "Missing the required parameter 'version' when calling checkDisbursements"));
-    }
     // verify the required parameter 'disbursementId' is set
     if (disbursementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'disbursementId' when calling checkDisbursements",
@@ -78,7 +72,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/check".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/check";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,16 +123,11 @@ public class DisbursementApi {
       /**
    * Check Disbursements
    * Checks the status of a captured disbrusement to see if it has been settled.
-   * @param version    * @param disbursementId the ID of the disbursement being checked on
+   * @param disbursementId the ID of the disbursement being checked on
   */
-  public void checkDisbursements (BigDecimal version, Long disbursementId, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void checkDisbursements (Long disbursementId, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling checkDisbursements",
-        new ApiException(400, "Missing the required parameter 'version' when calling checkDisbursements"));
-    }
     // verify the required parameter 'disbursementId' is set
     if (disbursementId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'disbursementId' when calling checkDisbursements",
@@ -146,7 +135,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/check".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/check".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -200,7 +189,6 @@ public class DisbursementApi {
   /**
   * Create Disbursement
   * Creates a Disbursement for sending money to a retailer
-   * @param version 
    * @param accountId the ID of the logging in user (must be an EXECUTIVE account)
    * @param receiverAccountId the ID of the account receiving the disbursement
    * @param originalSenderAccountId the ID of the original sender account
@@ -213,13 +201,8 @@ public class DisbursementApi {
    * @param introspectionParams This is for specifying parameters to make an http callback request for validating that the disbursement is valid
    * @return DisbursementResponse
   */
-  public DisbursementResponse createDisbursement (BigDecimal version, Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DisbursementResponse createDisbursement (Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling createDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createDisbursement",
@@ -247,7 +230,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -307,16 +290,11 @@ public class DisbursementApi {
       /**
    * Create Disbursement
    * Creates a Disbursement for sending money to a retailer
-   * @param version    * @param accountId the ID of the logging in user (must be an EXECUTIVE account)   * @param receiverAccountId the ID of the account receiving the disbursement   * @param originalSenderAccountId the ID of the original sender account   * @param amount the dollar amount of the disbursement   * @param provider the provider (e.g. Authorize.net, Bill.com, etc.)   * @param scheduledDate the date that the disbursement is scheduled to go out to the payment provider   * @param title a title given for the disbursement   * @param comment a comment that could be made for a disbursement   * @param externalId external ID, which can be used as a way to reference the disbursement   * @param introspectionParams This is for specifying parameters to make an http callback request for validating that the disbursement is valid
+   * @param accountId the ID of the logging in user (must be an EXECUTIVE account)   * @param receiverAccountId the ID of the account receiving the disbursement   * @param originalSenderAccountId the ID of the original sender account   * @param amount the dollar amount of the disbursement   * @param provider the provider (e.g. Authorize.net, Bill.com, etc.)   * @param scheduledDate the date that the disbursement is scheduled to go out to the payment provider   * @param title a title given for the disbursement   * @param comment a comment that could be made for a disbursement   * @param externalId external ID, which can be used as a way to reference the disbursement   * @param introspectionParams This is for specifying parameters to make an http callback request for validating that the disbursement is valid
   */
-  public void createDisbursement (BigDecimal version, Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createDisbursement (Long accountId, Long receiverAccountId, Long originalSenderAccountId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, String introspectionParams, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling createDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createDisbursement",
@@ -344,7 +322,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -407,18 +385,12 @@ public class DisbursementApi {
   /**
   * Get Disbursement
   * Get Disbursement details
-   * @param version 
    * @param accountId The logged in user.
    * @param disbursementId the id of the disbursement
    * @return DisbursementResponse
   */
-  public DisbursementResponse getDisbursement (BigDecimal version, Long accountId, Long disbursementId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DisbursementResponse getDisbursement (Long accountId, Long disbursementId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getDisbursement",
@@ -431,7 +403,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -483,16 +455,11 @@ public class DisbursementApi {
       /**
    * Get Disbursement
    * Get Disbursement details
-   * @param version    * @param accountId The logged in user.   * @param disbursementId the id of the disbursement
+   * @param accountId The logged in user.   * @param disbursementId the id of the disbursement
   */
-  public void getDisbursement (BigDecimal version, Long accountId, Long disbursementId, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getDisbursement (Long accountId, Long disbursementId, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getDisbursement",
@@ -505,7 +472,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -560,7 +527,6 @@ public class DisbursementApi {
   /**
   * Search Disbursements
   * Search Disbursements
-   * @param version 
    * @param accountId the id of the logged in user
    * @param receiverAccountId filter results by the id of the account receiving the disbursement
    * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED
@@ -573,13 +539,8 @@ public class DisbursementApi {
    * @param externalId search results by this external ID (that can be used to reference the disbursement)
    * @return List<DisbursementResponse>
   */
-  public List<DisbursementResponse> searchDisbursements (BigDecimal version, Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<DisbursementResponse> searchDisbursements (Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchDisbursements",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchDisbursements"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchDisbursements",
@@ -587,7 +548,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -647,16 +608,11 @@ public class DisbursementApi {
       /**
    * Search Disbursements
    * Search Disbursements
-   * @param version    * @param accountId the id of the logged in user   * @param receiverAccountId filter results by the id of the account receiving the disbursement   * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED   * @param providers comma separated list of payment providers to search for, possbile values include: AUTHORIZE_NET, AMAZON_FPS, BILL_COM   * @param beforeDate the date for searching disbursements before it has been processed   * @param afterDate the date for searching disbursements before it has been processed   * @param start the start index for pagination   * @param limit the limit per result set for pagination   * @param activeOnly search on disbursements that are active only   * @param externalId search results by this external ID (that can be used to reference the disbursement)
+   * @param accountId the id of the logged in user   * @param receiverAccountId filter results by the id of the account receiving the disbursement   * @param statuses comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED   * @param providers comma separated list of payment providers to search for, possbile values include: AUTHORIZE_NET, AMAZON_FPS, BILL_COM   * @param beforeDate the date for searching disbursements before it has been processed   * @param afterDate the date for searching disbursements before it has been processed   * @param start the start index for pagination   * @param limit the limit per result set for pagination   * @param activeOnly search on disbursements that are active only   * @param externalId search results by this external ID (that can be used to reference the disbursement)
   */
-  public void searchDisbursements (BigDecimal version, Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId, final Response.Listener<List<DisbursementResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchDisbursements (Long accountId, Long receiverAccountId, String statuses, String providers, Long beforeDate, Long afterDate, Integer start, Integer limit, Boolean activeOnly, String externalId, final Response.Listener<List<DisbursementResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchDisbursements",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchDisbursements"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchDisbursements",
@@ -664,7 +620,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -727,7 +683,6 @@ public class DisbursementApi {
   /**
   * Update Disbursement
   * Update Disbursement
-   * @param version 
    * @param accountId the id of the logged in user
    * @param disbursementId the id of the disbursement being updated
    * @param amount the disbursement dollar amount being updated
@@ -740,13 +695,8 @@ public class DisbursementApi {
    * @param introspectionParams for specifying parameters to make an http callback request for validating that the disbursement is valid
    * @return DisbursementResponse
   */
-  public DisbursementResponse updateDisbursement (BigDecimal version, Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public DisbursementResponse updateDisbursement (Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateDisbursement",
@@ -759,7 +709,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -819,16 +769,11 @@ public class DisbursementApi {
       /**
    * Update Disbursement
    * Update Disbursement
-   * @param version    * @param accountId the id of the logged in user   * @param disbursementId the id of the disbursement being updated   * @param amount the disbursement dollar amount being updated   * @param provider the payments and/or billing provider (e.g. Authorize.net, Bill.com, etc.)   * @param scheduledDate the date that the disbursement is scheduled to go out to the payment provider   * @param title the title given to the disbursement   * @param comment a comment that can be made on a disbursement   * @param externalId an external ID that can be used to reference the disbursement   * @param retry determines whether to try sending the disbursement again in the case of a previous failure   * @param introspectionParams for specifying parameters to make an http callback request for validating that the disbursement is valid
+   * @param accountId the id of the logged in user   * @param disbursementId the id of the disbursement being updated   * @param amount the disbursement dollar amount being updated   * @param provider the payments and/or billing provider (e.g. Authorize.net, Bill.com, etc.)   * @param scheduledDate the date that the disbursement is scheduled to go out to the payment provider   * @param title the title given to the disbursement   * @param comment a comment that can be made on a disbursement   * @param externalId an external ID that can be used to reference the disbursement   * @param retry determines whether to try sending the disbursement again in the case of a previous failure   * @param introspectionParams for specifying parameters to make an http callback request for validating that the disbursement is valid
   */
-  public void updateDisbursement (BigDecimal version, Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateDisbursement (Long accountId, Long disbursementId, BigDecimal amount, String provider, Long scheduledDate, String title, String comment, String externalId, Boolean retry, String introspectionParams, final Response.Listener<DisbursementResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateDisbursement",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateDisbursement"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateDisbursement",
@@ -841,7 +786,7 @@ public class DisbursementApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/disbursement/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/disbursement/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

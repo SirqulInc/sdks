@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.WrappedProxyItemResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OpenAIApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,19 +58,13 @@ public class OpenAIApi {
   /**
   * Generate images with OpenAI
   * Generate images with OpenAI.
-   * @param version 
    * @param accountId Sirqul Account Id
    * @param postBody Post Body Parameters
    * @param returnRawResponse Return raw response
    * @return WrappedProxyItemResponse
   */
-  public WrappedProxyItemResponse imageGeneration (BigDecimal version, Long accountId, String postBody, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WrappedProxyItemResponse imageGeneration (Long accountId, String postBody, Boolean returnRawResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling imageGeneration",
-        new ApiException(400, "Missing the required parameter 'version' when calling imageGeneration"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling imageGeneration",
@@ -84,7 +77,7 @@ public class OpenAIApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/openai/v1/images/generations".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/openai/v1/images/generations";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -137,16 +130,11 @@ public class OpenAIApi {
       /**
    * Generate images with OpenAI
    * Generate images with OpenAI.
-   * @param version    * @param accountId Sirqul Account Id   * @param postBody Post Body Parameters   * @param returnRawResponse Return raw response
+   * @param accountId Sirqul Account Id   * @param postBody Post Body Parameters   * @param returnRawResponse Return raw response
   */
-  public void imageGeneration (BigDecimal version, Long accountId, String postBody, Boolean returnRawResponse, final Response.Listener<WrappedProxyItemResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void imageGeneration (Long accountId, String postBody, Boolean returnRawResponse, final Response.Listener<WrappedProxyItemResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling imageGeneration",
-        new ApiException(400, "Missing the required parameter 'version' when calling imageGeneration"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling imageGeneration",
@@ -159,7 +147,7 @@ public class OpenAIApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/openai/v1/images/generations".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/openai/v1/images/generations".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

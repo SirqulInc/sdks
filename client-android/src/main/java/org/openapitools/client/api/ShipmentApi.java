@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map;
 import org.openapitools.client.model.Shipment;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ShipmentApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,17 +60,11 @@ public class ShipmentApi {
   /**
   * Cancel Shipment
   * Remove shipment from route
-   * @param version 
    * @param id the id of the shipment to cancel
    * @return void
   */
-  public void cancelShipment (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void cancelShipment (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cancelShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling cancelShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling cancelShipment",
@@ -79,7 +72,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}/cancel".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}/cancel".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,16 +122,11 @@ public class ShipmentApi {
       /**
    * Cancel Shipment
    * Remove shipment from route
-   * @param version    * @param id the id of the shipment to cancel
+   * @param id the id of the shipment to cancel
   */
-  public void cancelShipment (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void cancelShipment (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling cancelShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling cancelShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling cancelShipment",
@@ -146,7 +134,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}/cancel".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}/cancel".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -195,20 +183,14 @@ public class ShipmentApi {
   /**
   * Create Shipment
   * Create new shipment
-   * @param version 
    * @param body 
    * @return Shipment
   */
-  public Shipment createShipment (BigDecimal version, Shipment body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Shipment createShipment (Shipment body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling createShipment"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -258,19 +240,14 @@ public class ShipmentApi {
       /**
    * Create Shipment
    * Create new shipment
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createShipment (BigDecimal version, Shipment body, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
+  public void createShipment (Shipment body, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling createShipment"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/shipment".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -323,17 +300,11 @@ public class ShipmentApi {
   /**
   * Delete Shipment
   * Delete an existing shipment
-   * @param version 
    * @param id the id of the shipment to delete
    * @return void
   */
-  public void deleteShipment (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteShipment (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteShipment",
@@ -341,7 +312,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -391,16 +362,11 @@ public class ShipmentApi {
       /**
    * Delete Shipment
    * Delete an existing shipment
-   * @param version    * @param id the id of the shipment to delete
+   * @param id the id of the shipment to delete
   */
-  public void deleteShipment (BigDecimal version, Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteShipment (Long id, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling deleteShipment",
@@ -408,7 +374,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -457,17 +423,11 @@ public class ShipmentApi {
   /**
   * Get Shipment
   * Get an existing shipment
-   * @param version 
    * @param id the id of the shipment to get
    * @return Shipment
   */
-  public Shipment getShipment (BigDecimal version, Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Shipment getShipment (Long id) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getShipment",
@@ -475,7 +435,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -525,16 +485,11 @@ public class ShipmentApi {
       /**
    * Get Shipment
    * Get an existing shipment
-   * @param version    * @param id the id of the shipment to get
+   * @param id the id of the shipment to get
   */
-  public void getShipment (BigDecimal version, Long id, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
+  public void getShipment (Long id, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling getShipment",
@@ -542,7 +497,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -595,7 +550,6 @@ public class ShipmentApi {
   /**
   * Search Shipments
   * Search for shipments
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -606,13 +560,8 @@ public class ShipmentApi {
    * @param routeId The route associate to this shipment
    * @return List<Shipment>
   */
-  public List<Shipment> searchShipments (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Shipment> searchShipments (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchShipments"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchShipments",
@@ -640,7 +589,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -698,16 +647,11 @@ public class ShipmentApi {
       /**
    * Search Shipments
    * Search for shipments
-   * @param version    * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param ownerId The owner of the shipment   * @param riderId The rider associate to this shipment   * @param routeId The route associate to this shipment
+   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param ownerId The owner of the shipment   * @param riderId The rider associate to this shipment   * @param routeId The route associate to this shipment
   */
-  public void searchShipments (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchShipments (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Long ownerId, Long riderId, Long routeId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchShipments"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchShipments",
@@ -735,7 +679,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/shipment".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -796,18 +740,12 @@ public class ShipmentApi {
   /**
   * Update Shipment
   * Update an existing shipment
-   * @param version 
    * @param id the id of the shipment to update
    * @param body 
    * @return Shipment
   */
-  public Shipment updateShipment (BigDecimal version, Long id, Shipment body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Shipment updateShipment (Long id, Shipment body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipment",
@@ -815,7 +753,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -865,16 +803,11 @@ public class ShipmentApi {
       /**
    * Update Shipment
    * Update an existing shipment
-   * @param version    * @param id the id of the shipment to update   * @param body 
+   * @param id the id of the shipment to update   * @param body 
   */
-  public void updateShipment (BigDecimal version, Long id, Shipment body, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
+  public void updateShipment (Long id, Shipment body, final Response.Listener<Shipment> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipment",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipment"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipment",
@@ -882,7 +815,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -935,18 +868,12 @@ public class ShipmentApi {
   /**
   * Uupdate Shipment Status
   * Update status of an existing shipment
-   * @param version 
    * @param id the id of the shipment to update status
    * @param body 
    * @return void
   */
-  public void updateShipmentStatus (BigDecimal version, Long id, Map<String, Boolean> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateShipmentStatus (Long id, Map<String, Boolean> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipmentStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipmentStatus"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipmentStatus",
@@ -954,7 +881,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}/status".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1004,16 +931,11 @@ public class ShipmentApi {
       /**
    * Uupdate Shipment Status
    * Update status of an existing shipment
-   * @param version    * @param id the id of the shipment to update status   * @param body 
+   * @param id the id of the shipment to update status   * @param body 
   */
-  public void updateShipmentStatus (BigDecimal version, Long id, Map<String, Boolean> body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateShipmentStatus (Long id, Map<String, Boolean> body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateShipmentStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateShipmentStatus"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling updateShipmentStatus",
@@ -1021,7 +943,7 @@ public class ShipmentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/shipment/{id}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
+    String path = "/shipment/{id}/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TriggerResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TriggerApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class TriggerApi {
   /**
   * Create Trigger
   * Create a trigger
-   * @param version 
    * @param accountId The logged in user
    * @param name The name of the trigger
    * @param appKey The application to target
@@ -77,13 +75,8 @@ public class TriggerApi {
    * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
    * @return TriggerResponse
   */
-  public TriggerResponse createTrigger (BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TriggerResponse createTrigger (Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTrigger",
@@ -96,7 +89,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -159,16 +152,11 @@ public class TriggerApi {
       /**
    * Create Trigger
    * Create a trigger
-   * @param version    * @param accountId The logged in user   * @param name The name of the trigger   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping triggers   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the next trigger   * @param startDate The starting date of the trigger   * @param endDate The ending date of the trigger   * @param cronExpression The cron expression that represents the trigger&#39;s schedule   * @param conditionalInput Json input representing conditional logic that has to be met before running the trigger   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
+   * @param accountId The logged in user   * @param name The name of the trigger   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping triggers   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the next trigger   * @param startDate The starting date of the trigger   * @param endDate The ending date of the trigger   * @param cronExpression The cron expression that represents the trigger&#39;s schedule   * @param conditionalInput Json input representing conditional logic that has to be met before running the trigger   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
   */
-  public void createTrigger (BigDecimal version, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createTrigger (Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling createTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createTrigger",
@@ -181,7 +169,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -247,18 +235,12 @@ public class TriggerApi {
   /**
   * Delete Trigger
   * Mark a trigger as deleted.
-   * @param version 
    * @param accountId The logged in user.
    * @param triggerId The id of the trigger to delete.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteTrigger (BigDecimal version, Long accountId, Long triggerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteTrigger (Long accountId, Long triggerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTrigger",
@@ -271,7 +253,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -323,16 +305,11 @@ public class TriggerApi {
       /**
    * Delete Trigger
    * Mark a trigger as deleted.
-   * @param version    * @param accountId The logged in user.   * @param triggerId The id of the trigger to delete.
+   * @param accountId The logged in user.   * @param triggerId The id of the trigger to delete.
   */
-  public void deleteTrigger (BigDecimal version, Long accountId, Long triggerId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteTrigger (Long accountId, Long triggerId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteTrigger",
@@ -345,7 +322,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -400,18 +377,12 @@ public class TriggerApi {
   /**
   * Get Trigger
   * Get a trigger
-   * @param version 
    * @param accountId The logged in user.
    * @param triggerId The id of the Trigger to return.
    * @return TriggerResponse
   */
-  public TriggerResponse getTrigger (BigDecimal version, Long accountId, Long triggerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TriggerResponse getTrigger (Long accountId, Long triggerId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTrigger",
@@ -424,7 +395,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -476,16 +447,11 @@ public class TriggerApi {
       /**
    * Get Trigger
    * Get a trigger
-   * @param version    * @param accountId The logged in user.   * @param triggerId The id of the Trigger to return.
+   * @param accountId The logged in user.   * @param triggerId The id of the Trigger to return.
   */
-  public void getTrigger (BigDecimal version, Long accountId, Long triggerId, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getTrigger (Long accountId, Long triggerId, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling getTrigger"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getTrigger",
@@ -498,7 +464,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -553,7 +519,6 @@ public class TriggerApi {
   /**
   * Search Triggers
   * Search for triggers
-   * @param version 
    * @param accountId The logged in user.
    * @param groupingId Filter results by a grouping identifier defined by the client
    * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers 
@@ -568,13 +533,8 @@ public class TriggerApi {
    * @param activeOnly Determines whether to return only active results
    * @return List<TriggerResponse>
   */
-  public List<TriggerResponse> searchTriggers (BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<TriggerResponse> searchTriggers (Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTriggers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTriggers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTriggers",
@@ -582,7 +542,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -644,16 +604,11 @@ public class TriggerApi {
       /**
    * Search Triggers
    * Search for triggers
-   * @param version    * @param accountId The logged in user.   * @param groupingId Filter results by a grouping identifier defined by the client   * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers    * @param statuses Filter results by status (comma separated list). Values include: NEW, ERROR, COMPLETE, PROCESSING, TEMPLATE   * @param templateTypes Template Types   * @param appKey Filter the list by a specific application   * @param keyword Keyword search on the trigger names.   * @param sortField The field to sort by. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, SCHEDULED_DATE, START_DATE, END_DATE   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param activeOnly Determines whether to return only active results
+   * @param accountId The logged in user.   * @param groupingId Filter results by a grouping identifier defined by the client   * @param filter A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user&#39;&#39;s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers    * @param statuses Filter results by status (comma separated list). Values include: NEW, ERROR, COMPLETE, PROCESSING, TEMPLATE   * @param templateTypes Template Types   * @param appKey Filter the list by a specific application   * @param keyword Keyword search on the trigger names.   * @param sortField The field to sort by. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, SCHEDULED_DATE, START_DATE, END_DATE   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param activeOnly Determines whether to return only active results
   */
-  public void searchTriggers (BigDecimal version, Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<TriggerResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchTriggers (Long accountId, String groupingId, String filter, String statuses, String templateTypes, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<TriggerResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchTriggers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchTriggers"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchTriggers",
@@ -661,7 +616,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -726,7 +681,6 @@ public class TriggerApi {
   /**
   * Update Trigger
   * Update a trigger
-   * @param version 
    * @param triggerId The trigger to update
    * @param accountId The logged in user
    * @param name The name of the trigger
@@ -743,13 +697,8 @@ public class TriggerApi {
    * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
    * @return TriggerResponse
   */
-  public TriggerResponse updateTrigger (BigDecimal version, Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TriggerResponse updateTrigger (Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTrigger"));
-    }
     // verify the required parameter 'triggerId' is set
     if (triggerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'triggerId' when calling updateTrigger",
@@ -762,7 +711,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -826,16 +775,11 @@ public class TriggerApi {
       /**
    * Update Trigger
    * Update a trigger
-   * @param version    * @param triggerId The trigger to update   * @param accountId The logged in user   * @param name The name of the trigger   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping triggers   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the next trigger   * @param startDate The starting date of the trigger   * @param endDate The ending date of the trigger   * @param cronExpression The cron expression that represents the trigger&#39;s schedule   * @param conditionalInput Json input representing conditional logic that has to be met before running the trigger   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
+   * @param triggerId The trigger to update   * @param accountId The logged in user   * @param name The name of the trigger   * @param appKey The application to target   * @param groupingId Client defined identifier for grouping triggers   * @param endpointURL The URL for making an HTTP call   * @param payload The parameters for making an HTTP call   * @param scheduledDate The date and time of the next trigger   * @param startDate The starting date of the trigger   * @param endDate The ending date of the trigger   * @param cronExpression The cron expression that represents the trigger&#39;s schedule   * @param conditionalInput Json input representing conditional logic that has to be met before running the trigger   * @param visibility The determines the scope of who is able to find and view the scheduled notification (PUBLIC - openly available to all Sirqul users, PRIVATE - only available to users that have been invited)   * @param active Sets whether the Trigger is active or not (inactive Triggers are not processed)
   */
-  public void updateTrigger (BigDecimal version, Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateTrigger (Long triggerId, Long accountId, String name, String appKey, String groupingId, String endpointURL, String payload, Long scheduledDate, Long startDate, Long endDate, String cronExpression, String conditionalInput, String visibility, Boolean active, final Response.Listener<TriggerResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateTrigger",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateTrigger"));
-    }
     // verify the required parameter 'triggerId' is set
     if (triggerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'triggerId' when calling updateTrigger",
@@ -848,7 +792,7 @@ public class TriggerApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/trigger/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/trigger/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

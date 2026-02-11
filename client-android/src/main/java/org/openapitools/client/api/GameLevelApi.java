@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.GameLevelListResponse;
 import org.openapitools.client.model.GameLevelResponse;
 import org.openapitools.client.model.QuestionResponse;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class GameLevelApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,7 +62,6 @@ public class GameLevelApi {
   /**
   * Create Game Level
   * Create a game level. Currently does NOT support game objects.
-   * @param version 
    * @param accountId The logged in user.
    * @param name The name of the level.
    * @param gameData The game level data: xml, json, or other text based format.
@@ -92,13 +90,8 @@ public class GameLevelApi {
    * @param metaData external custom client defined data
    * @return GameLevelResponse
   */
-  public GameLevelResponse createGameLevel (BigDecimal version, Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameLevelResponse createGameLevel (Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling createGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createGameLevel",
@@ -121,7 +114,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -197,16 +190,11 @@ public class GameLevelApi {
       /**
    * Create Game Level
    * Create a game level. Currently does NOT support game objects.
-   * @param version    * @param accountId The logged in user.   * @param name The name of the level.   * @param gameData The game level data: xml, json, or other text based format.   * @param gameDataSuffix The game level data format type.   * @param appKey The game application key to save the level for.   * @param description The description of the level.   * @param difficulty The difficulty, possible values are: VERY_EASY, EASY, MEDIUM, HARD, VERY_HARD.   * @param appVersion The version number of the application required to correctly load/play the level.   * @param assetImageId The asset Id of the level image.   * @param assetIconId The asset Id of the level icon.   * @param visibility Is the level visible to others, possible values are: PUBLIC, PRIVATE.   * @param friendGroup Make the level be readable by all friends.   * @param connectionIds Make the level be readable by connections in this list.   * @param connectionGroupIds Make the level be readable by connection groups in this list.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active. Default is false.   * @param allocateTickets If true then scoring will give tickets. Default is false.   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a level   * @param tutorialTitle Title of the tutorial.   * @param tutorialMessage Message of the tutotrial.   * @param tutorialAlignment Alignment of the tutorial image. Default to NONE. Possible values are: NONE, IMAGE_ABOVE, IMAGE_BELOW, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_ONLY, TEXT_ONLY   * @param tutorialImageAssetId Asset id of the tutorial image.   * @param offerId id of the offer   * @param metaData external custom client defined data
+   * @param accountId The logged in user.   * @param name The name of the level.   * @param gameData The game level data: xml, json, or other text based format.   * @param gameDataSuffix The game level data format type.   * @param appKey The game application key to save the level for.   * @param description The description of the level.   * @param difficulty The difficulty, possible values are: VERY_EASY, EASY, MEDIUM, HARD, VERY_HARD.   * @param appVersion The version number of the application required to correctly load/play the level.   * @param assetImageId The asset Id of the level image.   * @param assetIconId The asset Id of the level icon.   * @param visibility Is the level visible to others, possible values are: PUBLIC, PRIVATE.   * @param friendGroup Make the level be readable by all friends.   * @param connectionIds Make the level be readable by connections in this list.   * @param connectionGroupIds Make the level be readable by connection groups in this list.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active. Default is false.   * @param allocateTickets If true then scoring will give tickets. Default is false.   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a level   * @param tutorialTitle Title of the tutorial.   * @param tutorialMessage Message of the tutotrial.   * @param tutorialAlignment Alignment of the tutorial image. Default to NONE. Possible values are: NONE, IMAGE_ABOVE, IMAGE_BELOW, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_ONLY, TEXT_ONLY   * @param tutorialImageAssetId Asset id of the tutorial image.   * @param offerId id of the offer   * @param metaData external custom client defined data
   */
-  public void createGameLevel (BigDecimal version, Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createGameLevel (Long accountId, String name, String gameData, String gameDataSuffix, String appKey, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling createGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createGameLevel",
@@ -229,7 +217,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -308,18 +296,12 @@ public class GameLevelApi {
   /**
   * Delete Game Level
   * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId The id of the level to return.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteGameLevel (BigDecimal version, Long accountId, Long levelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteGameLevel (Long accountId, Long levelId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteGameLevel",
@@ -332,7 +314,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -384,16 +366,11 @@ public class GameLevelApi {
       /**
    * Delete Game Level
    * Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-   * @param version    * @param accountId The logged in user.   * @param levelId The id of the level to return.
+   * @param accountId The logged in user.   * @param levelId The id of the level to return.
   */
-  public void deleteGameLevel (BigDecimal version, Long accountId, Long levelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteGameLevel (Long accountId, Long levelId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteGameLevel",
@@ -406,7 +383,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -461,19 +438,13 @@ public class GameLevelApi {
   /**
   * Get Game Level
   * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId The id of the level to return.
    * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
    * @return GameLevelResponse
   */
-  public GameLevelResponse getGameLevel (BigDecimal version, Long accountId, Long levelId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameLevelResponse getGameLevel (Long accountId, Long levelId, Boolean includeGameData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevel",
@@ -486,7 +457,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -539,16 +510,11 @@ public class GameLevelApi {
       /**
    * Get Game Level
    * Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-   * @param version    * @param accountId The logged in user.   * @param levelId The id of the level to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
+   * @param accountId The logged in user.   * @param levelId The id of the level to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.
   */
-  public void getGameLevel (BigDecimal version, Long accountId, Long levelId, Boolean includeGameData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGameLevel (Long accountId, Long levelId, Boolean includeGameData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevel",
@@ -561,7 +527,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -617,7 +583,6 @@ public class GameLevelApi {
   /**
   * Search Game Levels
   * Get a list of levels for an application, just those the account has permissions to view.
-   * @param version 
    * @param accountId The logged in user.
    * @param appKey the application key
    * @param keyword Match the keyword to the owner name or level name.
@@ -630,13 +595,8 @@ public class GameLevelApi {
    * @param filters 
    * @return GameLevelListResponse
   */
-  public GameLevelListResponse getGameLevelsByApplication (BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameLevelListResponse getGameLevelsByApplication (Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevelsByApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevelsByApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevelsByApplication",
@@ -649,7 +609,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -709,16 +669,11 @@ public class GameLevelApi {
       /**
    * Search Game Levels
    * Get a list of levels for an application, just those the account has permissions to view.
-   * @param version    * @param accountId The logged in user.   * @param appKey the application key   * @param keyword Match the keyword to the owner name or level name.   * @param sortField what field to sort on   * @param descending whether to return levels in ascending or descending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param appVersion The maximum version of the level to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.   * @param filters 
+   * @param accountId The logged in user.   * @param appKey the application key   * @param keyword Match the keyword to the owner name or level name.   * @param sortField what field to sort on   * @param descending whether to return levels in ascending or descending order   * @param start Start the result set at some index.   * @param limit Limit the result to some number.   * @param appVersion The maximum version of the level to return.   * @param includeGameData If true include the game level data, otherwise don&#39;t. default is false.   * @param filters 
   */
-  public void getGameLevelsByApplication (BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters, final Response.Listener<GameLevelListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGameLevelsByApplication (Long accountId, String appKey, String keyword, String sortField, Boolean descending, Integer start, Integer limit, String appVersion, Boolean includeGameData, String filters, final Response.Listener<GameLevelListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevelsByApplication",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevelsByApplication"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevelsByApplication",
@@ -731,7 +686,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -794,7 +749,6 @@ public class GameLevelApi {
   /**
   * Search Game Level by Billable Entity
   * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-   * @param version 
    * @param accountId The account id of the user
    * @param appKey the application key
    * @param keyword The keyword used to search
@@ -805,13 +759,8 @@ public class GameLevelApi {
    * @param limit The number of records to return
    * @return GameLevelResponse
   */
-  public GameLevelResponse getGameLevelsByBillableEntity (BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameLevelResponse getGameLevelsByBillableEntity (Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevelsByBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevelsByBillableEntity"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevelsByBillableEntity",
@@ -819,7 +768,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/searchByBillableEntity".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/searchByBillableEntity";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -877,16 +826,11 @@ public class GameLevelApi {
       /**
    * Search Game Level by Billable Entity
    * Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-   * @param version    * @param accountId The account id of the user   * @param appKey the application key   * @param keyword The keyword used to search   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results   * @param start The record to begin the return set on   * @param limit The number of records to return
+   * @param accountId The account id of the user   * @param appKey the application key   * @param keyword The keyword used to search   * @param sortField The column to sort the search on   * @param descending The order to return the search results   * @param activeOnly Return only active results   * @param start The record to begin the return set on   * @param limit The number of records to return
   */
-  public void getGameLevelsByBillableEntity (BigDecimal version, Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGameLevelsByBillableEntity (Long accountId, String appKey, String keyword, String sortField, Boolean descending, Boolean activeOnly, Long start, Long limit, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGameLevelsByBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGameLevelsByBillableEntity"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getGameLevelsByBillableEntity",
@@ -894,7 +838,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/searchByBillableEntity".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/searchByBillableEntity".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -955,18 +899,12 @@ public class GameLevelApi {
   /**
   * Get Level Questions
   * Get questions within a level.
-   * @param version 
    * @param levelId the id of the level to get questions from
    * @param accountId the id of the logged in user
    * @return QuestionResponse
   */
-  public QuestionResponse getQuestionsInLevel (BigDecimal version, Long levelId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public QuestionResponse getQuestionsInLevel (Long levelId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getQuestionsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getQuestionsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling getQuestionsInLevel",
@@ -979,7 +917,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/questions/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/questions/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1031,16 +969,11 @@ public class GameLevelApi {
       /**
    * Get Level Questions
    * Get questions within a level.
-   * @param version    * @param levelId the id of the level to get questions from   * @param accountId the id of the logged in user
+   * @param levelId the id of the level to get questions from   * @param accountId the id of the logged in user
   */
-  public void getQuestionsInLevel (BigDecimal version, Long levelId, Long accountId, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getQuestionsInLevel (Long levelId, Long accountId, final Response.Listener<QuestionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getQuestionsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getQuestionsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling getQuestionsInLevel",
@@ -1053,7 +986,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/questions/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/questions/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1108,18 +1041,12 @@ public class GameLevelApi {
   /**
   * Get Level Words
   * Get words within a level.
-   * @param version 
    * @param levelId the id of the level to get words for
    * @param accountId the id of the logged in user
    * @return WordzWordResponse
   */
-  public WordzWordResponse getWordsInLevel (BigDecimal version, Long levelId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WordzWordResponse getWordsInLevel (Long levelId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWordsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWordsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling getWordsInLevel",
@@ -1132,7 +1059,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/words/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/words/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1184,16 +1111,11 @@ public class GameLevelApi {
       /**
    * Get Level Words
    * Get words within a level.
-   * @param version    * @param levelId the id of the level to get words for   * @param accountId the id of the logged in user
+   * @param levelId the id of the level to get words for   * @param accountId the id of the logged in user
   */
-  public void getWordsInLevel (BigDecimal version, Long levelId, Long accountId, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getWordsInLevel (Long levelId, Long accountId, final Response.Listener<WordzWordResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getWordsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling getWordsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling getWordsInLevel",
@@ -1206,7 +1128,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/words/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/words/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1261,7 +1183,6 @@ public class GameLevelApi {
   /**
   * Update Game Level
   * Update a game level. Currently does NOT support game objects.
-   * @param version 
    * @param accountId The logged in user.
    * @param levelId If update then include the level Id.
    * @param appKey The game application key to save the level for.
@@ -1291,13 +1212,8 @@ public class GameLevelApi {
    * @param metaData external custom client defined data
    * @return GameLevelResponse
   */
-  public GameLevelResponse updateGameLevel (BigDecimal version, Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public GameLevelResponse updateGameLevel (Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateGameLevel",
@@ -1310,7 +1226,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1387,16 +1303,11 @@ public class GameLevelApi {
       /**
    * Update Game Level
    * Update a game level. Currently does NOT support game objects.
-   * @param version    * @param accountId The logged in user.   * @param levelId If update then include the level Id.   * @param appKey The game application key to save the level for.   * @param name The name of the level.   * @param description The description of the level.   * @param difficulty The difficulty, possible values are: VERY_EASY, EASY, MEDIUM, HARD, VERY_HARD.   * @param appVersion The version number of the applicatuion required to correctly load/play the level.   * @param assetImageId The asset Id of the level image.   * @param assetIconId The asset Id of the level icon.   * @param gameData The game level data: xml, json, or other texted based format.   * @param gameDataSuffix The game level data format type.   * @param visibility Is the level visible to others, possible values are: PUBLIC, PRIVATE.   * @param friendGroup Make the level be readable by all friends.   * @param connectionIds Make the level be readable by connections in this list.   * @param connectionGroupIds Make the level be readable by connection groups in this list.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a level   * @param tutorialTitle Title of the tutorial.   * @param tutorialMessage Message of the tutorial.   * @param tutorialAlignment Alignment of the tutorial image, possible values are: NONE, IMAGE_ABOVE, IMAGE_BELOW, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_ONLY, TEXT_ONLY   * @param tutorialImageAssetId Asset id of the tutorial image.   * @param offerId    * @param metaData external custom client defined data
+   * @param accountId The logged in user.   * @param levelId If update then include the level Id.   * @param appKey The game application key to save the level for.   * @param name The name of the level.   * @param description The description of the level.   * @param difficulty The difficulty, possible values are: VERY_EASY, EASY, MEDIUM, HARD, VERY_HARD.   * @param appVersion The version number of the applicatuion required to correctly load/play the level.   * @param assetImageId The asset Id of the level image.   * @param assetIconId The asset Id of the level icon.   * @param gameData The game level data: xml, json, or other texted based format.   * @param gameDataSuffix The game level data format type.   * @param visibility Is the level visible to others, possible values are: PUBLIC, PRIVATE.   * @param friendGroup Make the level be readable by all friends.   * @param connectionIds Make the level be readable by connections in this list.   * @param connectionGroupIds Make the level be readable by connection groups in this list.   * @param balance Set the amount of money available to spend, once 0 deactivate level. Set to a negative value for unlimited.   * @param active If true set the game level as active.   * @param allocateTickets If true then scoring will give tickets.   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a level   * @param tutorialTitle Title of the tutorial.   * @param tutorialMessage Message of the tutorial.   * @param tutorialAlignment Alignment of the tutorial image, possible values are: NONE, IMAGE_ABOVE, IMAGE_BELOW, IMAGE_LEFT, IMAGE_RIGHT, IMAGE_ONLY, TEXT_ONLY   * @param tutorialImageAssetId Asset id of the tutorial image.   * @param offerId    * @param metaData external custom client defined data
   */
-  public void updateGameLevel (BigDecimal version, Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateGameLevel (Long accountId, Long levelId, String appKey, String name, String description, String difficulty, String appVersion, Long assetImageId, Long assetIconId, String gameData, String gameDataSuffix, String visibility, Boolean friendGroup, String connectionIds, String connectionGroupIds, Double balance, Boolean active, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String tutorialTitle, String tutorialMessage, String tutorialAlignment, Long tutorialImageAssetId, Long offerId, String metaData, final Response.Listener<GameLevelResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateGameLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateGameLevel"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateGameLevel",
@@ -1409,7 +1320,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1489,19 +1400,13 @@ public class GameLevelApi {
   /**
   * Update Level Questions
   * Updates a level with question game objects.
-   * @param version 
    * @param levelId the id of the level to update questions on
    * @param accountId the id of the logged in user
    * @param questionIds the IDs of the questions to update
    * @return SirqulResponse
   */
-  public SirqulResponse updateQuestionsInLevel (BigDecimal version, Long levelId, Long accountId, String questionIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateQuestionsInLevel (Long levelId, Long accountId, String questionIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateQuestionsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateQuestionsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling updateQuestionsInLevel",
@@ -1519,7 +1424,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/questions/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/questions/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1572,16 +1477,11 @@ public class GameLevelApi {
       /**
    * Update Level Questions
    * Updates a level with question game objects.
-   * @param version    * @param levelId the id of the level to update questions on   * @param accountId the id of the logged in user   * @param questionIds the IDs of the questions to update
+   * @param levelId the id of the level to update questions on   * @param accountId the id of the logged in user   * @param questionIds the IDs of the questions to update
   */
-  public void updateQuestionsInLevel (BigDecimal version, Long levelId, Long accountId, String questionIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateQuestionsInLevel (Long levelId, Long accountId, String questionIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateQuestionsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateQuestionsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling updateQuestionsInLevel",
@@ -1599,7 +1499,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/questions/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/questions/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1655,19 +1555,13 @@ public class GameLevelApi {
   /**
   * Update Level Words
   * Updates a level with word game objects.
-   * @param version 
    * @param levelId the id of the level to update words for
    * @param accountId the id of the logged in user
    * @param wordIds the ids of the words to update for the level
    * @return SirqulResponse
   */
-  public SirqulResponse updateWordsInLevel (BigDecimal version, Long levelId, Long accountId, String wordIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateWordsInLevel (Long levelId, Long accountId, String wordIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateWordsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateWordsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling updateWordsInLevel",
@@ -1685,7 +1579,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/words/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/words/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1738,16 +1632,11 @@ public class GameLevelApi {
       /**
    * Update Level Words
    * Updates a level with word game objects.
-   * @param version    * @param levelId the id of the level to update words for   * @param accountId the id of the logged in user   * @param wordIds the ids of the words to update for the level
+   * @param levelId the id of the level to update words for   * @param accountId the id of the logged in user   * @param wordIds the ids of the words to update for the level
   */
-  public void updateWordsInLevel (BigDecimal version, Long levelId, Long accountId, String wordIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateWordsInLevel (Long levelId, Long accountId, String wordIds, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateWordsInLevel",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateWordsInLevel"));
-    }
     // verify the required parameter 'levelId' is set
     if (levelId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'levelId' when calling updateWordsInLevel",
@@ -1765,7 +1654,7 @@ public class GameLevelApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/level/words/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/level/words/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

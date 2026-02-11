@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.PurchaseItemFullResponse;
 import org.openapitools.client.model.PurchaseItemResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PurchaseItemApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class PurchaseItemApi {
   /**
   * Create Purchase
   * Creates a purchase item for in app purchases
-   * @param version 
    * @param appKey The application key that the purchase can be used in
    * @param name The name of the purchase item
    * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;
@@ -85,13 +83,8 @@ public class PurchaseItemApi {
    * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
    * @return PurchaseItemFullResponse
   */
-  public PurchaseItemFullResponse createPurchaseItem (BigDecimal version, String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PurchaseItemFullResponse createPurchaseItem (String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPurchaseItem"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createPurchaseItem",
@@ -109,7 +102,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -179,16 +172,11 @@ public class PurchaseItemApi {
       /**
    * Create Purchase
    * Creates a purchase item for in app purchases
-   * @param version    * @param appKey The application key that the purchase can be used in   * @param name The name of the purchase item   * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description The description of the purchase item   * @param tickets How much the purchase item is worth in tickets   * @param price How much the purchase item will cost in real money   * @param purchaseCode The unique identifier used by purchase providers to identify in-app-purchases   * @param secretKey A secret key from purchase providers that would be used for validation   * @param purchaseLimit How many times a user acquire the same purchase item   * @param serviceAction Determines whether the purchase item will enable certain features &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - allows a user to add more tickets to their account&lt;/li&gt; &lt;li&gt;ADD_GIFT - allows a user to send/recieve the purchase item as a gift&lt;/li&gt; &lt;/ul&gt;   * @param coverAssetId The cover image of the purchase item   * @param promoAssetId An application specific asset that can be used to store/provide additional data   * @param giftable Determines whether the purchase item can be gifted to other users   * @param assetable Determines whether users can attach their own media/asset to the purchase item   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
+   * @param appKey The application key that the purchase can be used in   * @param name The name of the purchase item   * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param description The description of the purchase item   * @param tickets How much the purchase item is worth in tickets   * @param price How much the purchase item will cost in real money   * @param purchaseCode The unique identifier used by purchase providers to identify in-app-purchases   * @param secretKey A secret key from purchase providers that would be used for validation   * @param purchaseLimit How many times a user acquire the same purchase item   * @param serviceAction Determines whether the purchase item will enable certain features &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - allows a user to add more tickets to their account&lt;/li&gt; &lt;li&gt;ADD_GIFT - allows a user to send/recieve the purchase item as a gift&lt;/li&gt; &lt;/ul&gt;   * @param coverAssetId The cover image of the purchase item   * @param promoAssetId An application specific asset that can be used to store/provide additional data   * @param giftable Determines whether the purchase item can be gifted to other users   * @param assetable Determines whether users can attach their own media/asset to the purchase item   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
   */
-  public void createPurchaseItem (BigDecimal version, String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createPurchaseItem (String appKey, String name, String purchaseType, String deviceId, Long accountId, String description, Integer tickets, Float price, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPurchaseItem"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createPurchaseItem",
@@ -206,7 +194,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -279,19 +267,13 @@ public class PurchaseItemApi {
   /**
   * Delete Purchase
   * Marks the purchase item as deleted
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse deletePurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deletePurchaseItem (Long purchaseItemId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling deletePurchaseItem",
@@ -299,7 +281,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -352,16 +334,11 @@ public class PurchaseItemApi {
       /**
    * Delete Purchase
    * Marks the purchase item as deleted
-   * @param version    * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void deletePurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePurchaseItem (Long purchaseItemId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling deletePurchaseItem",
@@ -369,7 +346,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -425,19 +402,13 @@ public class PurchaseItemApi {
   /**
   * Get Purchase
   * Get detailed information about a purchase item
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return PurchaseItemFullResponse
   */
-  public PurchaseItemFullResponse getPurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PurchaseItemFullResponse getPurchaseItem (Long purchaseItemId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling getPurchaseItem",
@@ -445,7 +416,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -498,16 +469,11 @@ public class PurchaseItemApi {
       /**
    * Get Purchase
    * Get detailed information about a purchase item
-   * @param version    * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void getPurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPurchaseItem (Long purchaseItemId, String deviceId, Long accountId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling getPurchaseItem",
@@ -515,7 +481,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -571,7 +537,6 @@ public class PurchaseItemApi {
   /**
   * Search Purchases
   * Search for purchasable items from the system
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param appKey The application key to filter results by application
@@ -586,16 +551,11 @@ public class PurchaseItemApi {
    * @param activeOnly Return only active results
    * @return List<PurchaseItemResponse>
   */
-  public List<PurchaseItemResponse> searchPurchaseItems (BigDecimal version, String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<PurchaseItemResponse> searchPurchaseItems (String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPurchaseItems",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPurchaseItems"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -657,19 +617,14 @@ public class PurchaseItemApi {
       /**
    * Search Purchases
    * Search for purchasable items from the system
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param appKey The application key to filter results by application   * @param filterByBillable Determines whether to filter results by the user&#39;s billable entity   * @param purchaseType A comma separated list of purchase providers to filter by. Possible values include: &lt;ul&gt; &lt;li&gt;SIRQUL - purchases from the Sirqul store using tickets&lt;/li&gt; &lt;li&gt;IOS - purchases from the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - purchases from the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - purchases from the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - purchases from the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - purchases from the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - purchases that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param serviceAction A comma separated list of service actions to filter results by. Possible values include: &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - purchases that subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - purchases that subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - purchases that subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - purchases that allow users to add more tickets&lt;/li&gt; &lt;li&gt;ADD_GIFT - purchases that allow users to recieve gifts&lt;/li&gt; &lt;/ul&gt;   * @param keyword The keyword used to search   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param activeOnly Return only active results
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param appKey The application key to filter results by application   * @param filterByBillable Determines whether to filter results by the user&#39;s billable entity   * @param purchaseType A comma separated list of purchase providers to filter by. Possible values include: &lt;ul&gt; &lt;li&gt;SIRQUL - purchases from the Sirqul store using tickets&lt;/li&gt; &lt;li&gt;IOS - purchases from the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - purchases from the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - purchases from the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - purchases from the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - purchases from the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - purchases that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param serviceAction A comma separated list of service actions to filter results by. Possible values include: &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - purchases that subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - purchases that subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - purchases that subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - purchases that allow users to add more tickets&lt;/li&gt; &lt;li&gt;ADD_GIFT - purchases that allow users to recieve gifts&lt;/li&gt; &lt;/ul&gt;   * @param keyword The keyword used to search   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param activeOnly Return only active results
   */
-  public void searchPurchaseItems (BigDecimal version, String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<PurchaseItemResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPurchaseItems (String deviceId, Long accountId, String appKey, Boolean filterByBillable, String purchaseType, String serviceAction, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<PurchaseItemResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPurchaseItems",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPurchaseItems"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -734,7 +689,6 @@ public class PurchaseItemApi {
   /**
   * Update Purchase
   * Updates a purchase item for in app purchases
-   * @param version 
    * @param purchaseItemId The purchase item id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -758,13 +712,8 @@ public class PurchaseItemApi {
    * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
    * @return PurchaseItemFullResponse
   */
-  public PurchaseItemFullResponse updatePurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PurchaseItemFullResponse updatePurchaseItem (Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling updatePurchaseItem",
@@ -772,7 +721,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -843,16 +792,11 @@ public class PurchaseItemApi {
       /**
    * Update Purchase
    * Updates a purchase item for in app purchases
-   * @param version    * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param name The name of the purchase item   * @param description The description of the purchase item   * @param tickets How much the purchase item is worth in tickets   * @param price How much the purchase item will cost in real money   * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param purchaseCode The unique identifier used by purchase providers to identify in-app-purchases   * @param secretKey A secret key from purchase providers that would be used for validation   * @param purchaseLimit How many times a user acquire the same purchase item   * @param serviceAction Determines whether the purchase item will enable certain features &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - allows a user to add more tickets to their account&lt;/li&gt; &lt;li&gt;ADD_GIFT - allows a user to send/recieve the purchase item as a gift&lt;/li&gt; &lt;/ul&gt;   * @param coverAssetId The cover image of the purchase item   * @param promoAssetId An application specific asset that can be used to store/provide additional data   * @param giftable Determines whether the purchase item can be gifted to other users   * @param assetable Determines whether users can attach their own media/asset to the purchase item   * @param active Sets whether the purchase item is active or inactive (hidden from consumers)   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
+   * @param purchaseItemId The purchase item id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param name The name of the purchase item   * @param description The description of the purchase item   * @param tickets How much the purchase item is worth in tickets   * @param price How much the purchase item will cost in real money   * @param purchaseType The purchase provider &lt;ul&gt; &lt;li&gt;SIRQUL - the Sirqul store to make purchases using tickets&lt;/li&gt; &lt;li&gt;IOS - the iTunes store for iPhone, iPod, iPod Touch&lt;/li&gt; &lt;li&gt;GOOGLE - the Google Play store&lt;/li&gt; &lt;li&gt;AMAZON - the Amazon Android store&lt;/li&gt; &lt;li&gt;MAC - the iTunes store for OSX&lt;/li&gt; &lt;li&gt;WP8 - the Windows Phone 8 store&lt;/li&gt; &lt;li&gt;FREE - used for purchase items that are free (can be used for development/testing purposes)&lt;/li&gt; &lt;/ul&gt;   * @param purchaseCode The unique identifier used by purchase providers to identify in-app-purchases   * @param secretKey A secret key from purchase providers that would be used for validation   * @param purchaseLimit How many times a user acquire the same purchase item   * @param serviceAction Determines whether the purchase item will enable certain features &lt;ul&gt; &lt;li&gt;DAY_PREMIUM - subscribes a user for a day of membership&lt;/li&gt; &lt;li&gt;WEEK_PREMIUM - subscribes a user for a week of membership&lt;/li&gt; &lt;li&gt;MONTH_PREMIUM - subscribes a user for a month of membership&lt;/li&gt; &lt;li&gt;ADD_TICKET - allows a user to add more tickets to their account&lt;/li&gt; &lt;li&gt;ADD_GIFT - allows a user to send/recieve the purchase item as a gift&lt;/li&gt; &lt;/ul&gt;   * @param coverAssetId The cover image of the purchase item   * @param promoAssetId An application specific asset that can be used to store/provide additional data   * @param giftable Determines whether the purchase item can be gifted to other users   * @param assetable Determines whether users can attach their own media/asset to the purchase item   * @param active Sets whether the purchase item is active or inactive (hidden from consumers)   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param offerLocationId The offer location that will get added to the user&#39;s wallet after purchase.
   */
-  public void updatePurchaseItem (BigDecimal version, Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updatePurchaseItem (Long purchaseItemId, String deviceId, Long accountId, String name, String description, Integer tickets, Float price, String purchaseType, String purchaseCode, String secretKey, Integer purchaseLimit, String serviceAction, Long coverAssetId, Long promoAssetId, Boolean giftable, Boolean assetable, Boolean active, Boolean allocateTickets, String ticketType, Long points, Long offerLocationId, final Response.Listener<PurchaseItemFullResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePurchaseItem",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePurchaseItem"));
-    }
     // verify the required parameter 'purchaseItemId' is set
     if (purchaseItemId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'purchaseItemId' when calling updatePurchaseItem",
@@ -860,7 +804,7 @@ public class PurchaseItemApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/purchase/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/purchase/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

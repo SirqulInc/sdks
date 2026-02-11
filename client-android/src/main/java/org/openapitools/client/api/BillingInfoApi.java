@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PaymentTypesResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class BillingInfoApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,7 +58,6 @@ public class BillingInfoApi {
   /**
   * Update Payment Method
   * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param paymentMethodId Payment Method Id
    * @param accountName the name of the account
@@ -85,13 +83,8 @@ public class BillingInfoApi {
    * @param metaData Meta Data
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse addPaymentMethod (BigDecimal version, Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse addPaymentMethod (Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling addPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addPaymentMethod",
@@ -99,7 +92,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -172,16 +165,11 @@ public class BillingInfoApi {
       /**
    * Update Payment Method
    * Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-   * @param version    * @param accountId The account used to perform the the request   * @param paymentMethodId Payment Method Id   * @param accountName the name of the account   * @param firstName First Name that the account is filed as   * @param lastName Last Name that the account is filed as   * @param address Address that the account is filed as   * @param city City that the account is filed as   * @param state State that the account is filed as   * @param postalCode Postal Code that the account is filed as   * @param country Country that the account is filed as   * @param phone Phone that the account is filed as   * @param creditCardNumber The full credit card number to store on file   * @param expirationDate The credit card expiration date YYYY-MM   * @param ccv The 3 digit confirmation code   * @param accountNumber The bank account number   * @param bankName The bank name   * @param routingNumber Routing Number   * @param defaultPaymentMethod Default Payment Method   * @param paymentMethodNickname Payment Method Nickname   * @param taxId Tax Id   * @param providerCustomerProfileId Provider customer profile Id   * @param providerPaymentProfileId Provider customer payment profile Id   * @param metaData Meta Data
+   * @param accountId The account used to perform the the request   * @param paymentMethodId Payment Method Id   * @param accountName the name of the account   * @param firstName First Name that the account is filed as   * @param lastName Last Name that the account is filed as   * @param address Address that the account is filed as   * @param city City that the account is filed as   * @param state State that the account is filed as   * @param postalCode Postal Code that the account is filed as   * @param country Country that the account is filed as   * @param phone Phone that the account is filed as   * @param creditCardNumber The full credit card number to store on file   * @param expirationDate The credit card expiration date YYYY-MM   * @param ccv The 3 digit confirmation code   * @param accountNumber The bank account number   * @param bankName The bank name   * @param routingNumber Routing Number   * @param defaultPaymentMethod Default Payment Method   * @param paymentMethodNickname Payment Method Nickname   * @param taxId Tax Id   * @param providerCustomerProfileId Provider customer profile Id   * @param providerPaymentProfileId Provider customer payment profile Id   * @param metaData Meta Data
   */
-  public void addPaymentMethod (BigDecimal version, Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addPaymentMethod (Long accountId, Long paymentMethodId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, Boolean defaultPaymentMethod, String paymentMethodNickname, String taxId, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling addPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling addPaymentMethod",
@@ -189,7 +177,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -265,7 +253,6 @@ public class BillingInfoApi {
   /**
   * Create Payment Method
   * Add a new method of payment.
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param accountName Account Name of the credit card user
    * @param firstName The first name on the credit card
@@ -293,13 +280,8 @@ public class BillingInfoApi {
    * @param appKey Application Key
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse createPaymentMethod (BigDecimal version, Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse createPaymentMethod (Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPaymentMethod",
@@ -307,7 +289,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -382,16 +364,11 @@ public class BillingInfoApi {
       /**
    * Create Payment Method
    * Add a new method of payment.
-   * @param version    * @param accountId The account used to perform the the request   * @param accountName Account Name of the credit card user   * @param firstName The first name on the credit card   * @param lastName The last name on the credit card   * @param address The billing address of the credit card   * @param city The billing city of the credit card   * @param state The billing state of the credit card   * @param postalCode The billing zip code of the credit card   * @param country Country of the credit card   * @param phone The billing phone of the credit card   * @param creditCardNumber The full credit card number to store on file   * @param expirationDate The credit card expiration date YYYY-MM   * @param ccv The 3 digit confirmation code   * @param accountNumber The bank account number   * @param bankName The bank name   * @param routingNumber The bank routing number   * @param paymentMethodNickname The nickname to give the payment method   * @param taxId Tax Id   * @param defaultPaymentMethod Whether this should be the default payment method   * @param authToken An authorization token for providers that provide this (like Amazon Payments)   * @param provider The payment provider (see PaymentMethodProvider)   * @param providerCustomerProfileId Provider customer profile Id   * @param providerPaymentProfileId Provider customer payment profile Id   * @param metaData Meta Data   * @param appKey Application Key
+   * @param accountId The account used to perform the the request   * @param accountName Account Name of the credit card user   * @param firstName The first name on the credit card   * @param lastName The last name on the credit card   * @param address The billing address of the credit card   * @param city The billing city of the credit card   * @param state The billing state of the credit card   * @param postalCode The billing zip code of the credit card   * @param country Country of the credit card   * @param phone The billing phone of the credit card   * @param creditCardNumber The full credit card number to store on file   * @param expirationDate The credit card expiration date YYYY-MM   * @param ccv The 3 digit confirmation code   * @param accountNumber The bank account number   * @param bankName The bank name   * @param routingNumber The bank routing number   * @param paymentMethodNickname The nickname to give the payment method   * @param taxId Tax Id   * @param defaultPaymentMethod Whether this should be the default payment method   * @param authToken An authorization token for providers that provide this (like Amazon Payments)   * @param provider The payment provider (see PaymentMethodProvider)   * @param providerCustomerProfileId Provider customer profile Id   * @param providerPaymentProfileId Provider customer payment profile Id   * @param metaData Meta Data   * @param appKey Application Key
   */
-  public void createPaymentMethod (BigDecimal version, Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createPaymentMethod (Long accountId, String accountName, String firstName, String lastName, String address, String city, String state, String postalCode, String country, String phone, String creditCardNumber, String expirationDate, String ccv, String accountNumber, String bankName, String routingNumber, String paymentMethodNickname, String taxId, Boolean defaultPaymentMethod, String authToken, String provider, String providerCustomerProfileId, String providerPaymentProfileId, String metaData, String appKey, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPaymentMethod",
@@ -399,7 +376,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -477,20 +454,14 @@ public class BillingInfoApi {
   /**
   * Create Smart Contract
   * Adds a smart contract.
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param tokenName The token name
    * @param tokenSymbol The token symbol
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse createSmartContract (BigDecimal version, Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse createSmartContract (Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSmartContract",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSmartContract"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSmartContract",
@@ -508,7 +479,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/crypto/transfer".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/crypto/transfer";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -562,16 +533,11 @@ public class BillingInfoApi {
       /**
    * Create Smart Contract
    * Adds a smart contract.
-   * @param version    * @param accountId The account used to perform the the request   * @param tokenName The token name   * @param tokenSymbol The token symbol   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
+   * @param accountId The account used to perform the the request   * @param tokenName The token name   * @param tokenSymbol The token symbol   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
   */
-  public void createSmartContract (BigDecimal version, Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createSmartContract (Long accountId, String tokenName, String tokenSymbol, Long paymentMethodId, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createSmartContract",
-        new ApiException(400, "Missing the required parameter 'version' when calling createSmartContract"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createSmartContract",
@@ -589,7 +555,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/crypto/transfer".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/crypto/transfer".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -646,19 +612,13 @@ public class BillingInfoApi {
   /**
   * Get Crypto Balances
   * Get the cypto balance details for a user
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param ownerAccountId The account to retreive balances for
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse getCryptoBalance (BigDecimal version, Long accountId, Long ownerAccountId, Long paymentMethodId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse getCryptoBalance (Long accountId, Long ownerAccountId, Long paymentMethodId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCryptoBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCryptoBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCryptoBalance",
@@ -666,7 +626,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/crypto/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/crypto/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -719,16 +679,11 @@ public class BillingInfoApi {
       /**
    * Get Crypto Balances
    * Get the cypto balance details for a user
-   * @param version    * @param accountId The account used to perform the the request   * @param ownerAccountId The account to retreive balances for   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
+   * @param accountId The account used to perform the the request   * @param ownerAccountId The account to retreive balances for   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
   */
-  public void getCryptoBalance (BigDecimal version, Long accountId, Long ownerAccountId, Long paymentMethodId, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getCryptoBalance (Long accountId, Long ownerAccountId, Long paymentMethodId, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getCryptoBalance",
-        new ApiException(400, "Missing the required parameter 'version' when calling getCryptoBalance"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getCryptoBalance",
@@ -736,7 +691,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/crypto/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/crypto/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -792,19 +747,13 @@ public class BillingInfoApi {
   /**
   * Get Payment Method
   * Get the details of the user&#39;s payment method or their current default method of payment
-   * @param version 
    * @param accountId The account used to perform the the request
    * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.
    * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this)
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse getPaymentMethod (BigDecimal version, Long accountId, Long paymentMethodId, Boolean getCurrentBalance) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse getPaymentMethod (Long accountId, Long paymentMethodId, Boolean getCurrentBalance) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPaymentMethod",
@@ -812,7 +761,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -865,16 +814,11 @@ public class BillingInfoApi {
       /**
    * Get Payment Method
    * Get the details of the user&#39;s payment method or their current default method of payment
-   * @param version    * @param accountId The account used to perform the the request   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.   * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this)
+   * @param accountId The account used to perform the the request   * @param paymentMethodId The payment method to return details on. If this is not set, then the user&#39;s default payment method will be returned.   * @param getCurrentBalance Determines whether to get the user&#39;s current balance for the requested payment method option (not all payment method options support this)
   */
-  public void getPaymentMethod (BigDecimal version, Long accountId, Long paymentMethodId, Boolean getCurrentBalance, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPaymentMethod (Long accountId, Long paymentMethodId, Boolean getCurrentBalance, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPaymentMethod",
@@ -882,7 +826,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -938,7 +882,6 @@ public class BillingInfoApi {
   /**
   * Search Payment Methods
   * Search the payment methods of an account
-   * @param version 
    * @param accountId Account Id to search on
    * @param provider Provider to search on
    * @param type the type to search on
@@ -949,13 +892,8 @@ public class BillingInfoApi {
    * @param limit the limit of the search
    * @return PaymentTypesResponse
   */
-  public PaymentTypesResponse searchPaymentMethod (BigDecimal version, Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PaymentTypesResponse searchPaymentMethod (Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPaymentMethod",
@@ -963,7 +901,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1021,16 +959,11 @@ public class BillingInfoApi {
       /**
    * Search Payment Methods
    * Search the payment methods of an account
-   * @param version    * @param accountId Account Id to search on   * @param provider Provider to search on   * @param type the type to search on   * @param keyword the keyword to search on   * @param sortField the sort field to use for the search   * @param descending if the results should be in descending order   * @param start the start of the search   * @param limit the limit of the search
+   * @param accountId Account Id to search on   * @param provider Provider to search on   * @param type the type to search on   * @param keyword the keyword to search on   * @param sortField the sort field to use for the search   * @param descending if the results should be in descending order   * @param start the start of the search   * @param limit the limit of the search
   */
-  public void searchPaymentMethod (BigDecimal version, Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPaymentMethod (Long accountId, String provider, String type, String keyword, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<PaymentTypesResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPaymentMethod",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPaymentMethod"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPaymentMethod",
@@ -1038,7 +971,7 @@ public class BillingInfoApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/billing/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/billing/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

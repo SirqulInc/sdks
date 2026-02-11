@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.Direction;
 import java.util.*;
 import org.openapitools.client.model.Route;
@@ -41,7 +40,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RouteApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -63,17 +62,11 @@ public class RouteApi {
   /**
   * Approve Route
   * Approve a route
-   * @param version 
    * @param routeId the id of the route to approve
    * @return Route
   */
-  public Route approveRoute (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route approveRoute (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling approveRoute",
@@ -81,7 +74,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/approve".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/approve".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -131,16 +124,11 @@ public class RouteApi {
       /**
    * Approve Route
    * Approve a route
-   * @param version    * @param routeId the id of the route to approve
+   * @param routeId the id of the route to approve
   */
-  public void approveRoute (BigDecimal version, Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void approveRoute (Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling approveRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling approveRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling approveRoute",
@@ -148,7 +136,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/approve".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/approve".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -201,18 +189,12 @@ public class RouteApi {
   /**
   * Copy Route
   * Make an copy of the given route with optional overriding properties
-   * @param version 
    * @param routeId the id of the route to duplicate
    * @param body 
    * @return Route
   */
-  public Route copyRoute (BigDecimal version, Long routeId, Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route copyRoute (Long routeId, Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling copyRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling copyRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling copyRoute",
@@ -220,7 +202,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/copy".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/copy".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -270,16 +252,11 @@ public class RouteApi {
       /**
    * Copy Route
    * Make an copy of the given route with optional overriding properties
-   * @param version    * @param routeId the id of the route to duplicate   * @param body 
+   * @param routeId the id of the route to duplicate   * @param body 
   */
-  public void copyRoute (BigDecimal version, Long routeId, Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void copyRoute (Long routeId, Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling copyRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling copyRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling copyRoute",
@@ -287,7 +264,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/copy".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/copy".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -340,20 +317,14 @@ public class RouteApi {
   /**
   * Create Route
   * Create new route
-   * @param version 
    * @param body 
    * @return Route
   */
-  public Route createRoute (BigDecimal version, Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route createRoute (Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRoute"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -403,19 +374,14 @@ public class RouteApi {
       /**
    * Create Route
    * Create new route
-   * @param version    * @param body 
+   * @param body 
   */
-  public void createRoute (BigDecimal version, Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void createRoute (Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRoute"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/route".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -468,17 +434,11 @@ public class RouteApi {
   /**
   * Update Route Directions
   * Regenerate the directions of a route
-   * @param version 
    * @param routeId the id of the route to update directions for
    * @return List<Direction>
   */
-  public List<Direction> createRouteDirections (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Direction> createRouteDirections (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRouteDirections",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRouteDirections"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling createRouteDirections",
@@ -486,7 +446,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -536,16 +496,11 @@ public class RouteApi {
       /**
    * Update Route Directions
    * Regenerate the directions of a route
-   * @param version    * @param routeId the id of the route to update directions for
+   * @param routeId the id of the route to update directions for
   */
-  public void createRouteDirections (BigDecimal version, Long routeId, final Response.Listener<List<Direction>> responseListener, final Response.ErrorListener errorListener) {
+  public void createRouteDirections (Long routeId, final Response.Listener<List<Direction>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRouteDirections",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRouteDirections"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling createRouteDirections",
@@ -553,7 +508,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/directions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -606,17 +561,11 @@ public class RouteApi {
   /**
   * Create Route Polyline
   * Update the polyline of the requested route
-   * @param version 
    * @param routeId the id of the route to create a polyline for
    * @return Route
   */
-  public Route createRoutePolyline (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route createRoutePolyline (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRoutePolyline",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRoutePolyline"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling createRoutePolyline",
@@ -624,7 +573,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/polyline".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/polyline".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -674,16 +623,11 @@ public class RouteApi {
       /**
    * Create Route Polyline
    * Update the polyline of the requested route
-   * @param version    * @param routeId the id of the route to create a polyline for
+   * @param routeId the id of the route to create a polyline for
   */
-  public void createRoutePolyline (BigDecimal version, Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void createRoutePolyline (Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRoutePolyline",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRoutePolyline"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling createRoutePolyline",
@@ -691,7 +635,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/polyline".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/polyline".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -744,17 +688,11 @@ public class RouteApi {
   /**
   * Delete Route
   * Delete an existing route
-   * @param version 
    * @param routeId the id of the route
    * @return void
   */
-  public void deleteRoute (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void deleteRoute (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling deleteRoute",
@@ -762,7 +700,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -812,16 +750,11 @@ public class RouteApi {
       /**
    * Delete Route
    * Delete an existing route
-   * @param version    * @param routeId the id of the route
+   * @param routeId the id of the route
   */
-  public void deleteRoute (BigDecimal version, Long routeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteRoute (Long routeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling deleteRoute",
@@ -829,7 +762,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -878,17 +811,11 @@ public class RouteApi {
   /**
   * Disapprove Route
   * Disapprove a route
-   * @param version 
    * @param routeId the id of the route to reject
    * @return Route
   */
-  public Route disapproveRoute (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route disapproveRoute (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling disapproveRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling disapproveRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling disapproveRoute",
@@ -896,7 +823,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/disapprove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/disapprove".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -946,16 +873,11 @@ public class RouteApi {
       /**
    * Disapprove Route
    * Disapprove a route
-   * @param version    * @param routeId the id of the route to reject
+   * @param routeId the id of the route to reject
   */
-  public void disapproveRoute (BigDecimal version, Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void disapproveRoute (Long routeId, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling disapproveRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling disapproveRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling disapproveRoute",
@@ -963,7 +885,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/disapprove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/disapprove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1016,18 +938,12 @@ public class RouteApi {
   /**
   * Get Route
   * Get an existing route
-   * @param version 
    * @param routeId the id of the route to get
    * @param showInheritedProperties return inherited properties from parent or not
    * @return Route
   */
-  public Route getRoute (BigDecimal version, Long routeId, Boolean showInheritedProperties) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route getRoute (Long routeId, Boolean showInheritedProperties) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRoute",
@@ -1040,7 +956,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1091,16 +1007,11 @@ public class RouteApi {
       /**
    * Get Route
    * Get an existing route
-   * @param version    * @param routeId the id of the route to get   * @param showInheritedProperties return inherited properties from parent or not
+   * @param routeId the id of the route to get   * @param showInheritedProperties return inherited properties from parent or not
   */
-  public void getRoute (BigDecimal version, Long routeId, Boolean showInheritedProperties, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void getRoute (Long routeId, Boolean showInheritedProperties, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRoute",
@@ -1113,7 +1024,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1167,17 +1078,11 @@ public class RouteApi {
   /**
   * Get Route Directions
   * Get the directions of a route
-   * @param version 
    * @param routeId the id of the route to get directions for
    * @return List<Direction>
   */
-  public List<Direction> getRouteDirections (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Direction> getRouteDirections (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteDirections",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteDirections"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteDirections",
@@ -1185,7 +1090,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/directions".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1235,16 +1140,11 @@ public class RouteApi {
       /**
    * Get Route Directions
    * Get the directions of a route
-   * @param version    * @param routeId the id of the route to get directions for
+   * @param routeId the id of the route to get directions for
   */
-  public void getRouteDirections (BigDecimal version, Long routeId, final Response.Listener<List<Direction>> responseListener, final Response.ErrorListener errorListener) {
+  public void getRouteDirections (Long routeId, final Response.Listener<List<Direction>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteDirections",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteDirections"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteDirections",
@@ -1252,7 +1152,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/directions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/directions".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1305,17 +1205,11 @@ public class RouteApi {
   /**
   * Get Route Shipments
   * Get the shipments on the requested route
-   * @param version 
    * @param routeId the id of the route to get shipments for
    * @return List<Shipment>
   */
-  public List<Shipment> getRouteShipments (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Shipment> getRouteShipments (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteShipments"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteShipments",
@@ -1323,7 +1217,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/shipments".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/shipments".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1373,16 +1267,11 @@ public class RouteApi {
       /**
    * Get Route Shipments
    * Get the shipments on the requested route
-   * @param version    * @param routeId the id of the route to get shipments for
+   * @param routeId the id of the route to get shipments for
   */
-  public void getRouteShipments (BigDecimal version, Long routeId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
+  public void getRouteShipments (Long routeId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteShipments",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteShipments"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteShipments",
@@ -1390,7 +1279,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1443,18 +1332,12 @@ public class RouteApi {
   /**
   * Get Route Stop
   * Get the specific stop on a route
-   * @param version 
    * @param routeId the id of the route to get stops for
    * @param stopId the id of the specific stop on the route
    * @return Stop
   */
-  public Stop getRouteStop (BigDecimal version, Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Stop getRouteStop (Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteStop",
@@ -1467,7 +1350,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1517,16 +1400,11 @@ public class RouteApi {
       /**
    * Get Route Stop
    * Get the specific stop on a route
-   * @param version    * @param routeId the id of the route to get stops for   * @param stopId the id of the specific stop on the route
+   * @param routeId the id of the route to get stops for   * @param stopId the id of the specific stop on the route
   */
-  public void getRouteStop (BigDecimal version, Long routeId, Long stopId, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
+  public void getRouteStop (Long routeId, Long stopId, final Response.Listener<Stop> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteStop",
@@ -1539,7 +1417,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1592,18 +1470,12 @@ public class RouteApi {
   /**
   * Get Route Stops
   * The stops of the route requested
-   * @param version 
    * @param routeId the id of the route
    * @param confirmedOnly only get stops that have been confirmed or not
    * @return List<Stop>
   */
-  public List<Stop> getRouteStops (BigDecimal version, Long routeId, Boolean confirmedOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Stop> getRouteStops (Long routeId, Boolean confirmedOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteStops",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteStops"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteStops",
@@ -1616,7 +1488,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1667,16 +1539,11 @@ public class RouteApi {
       /**
    * Get Route Stops
    * The stops of the route requested
-   * @param version    * @param routeId the id of the route   * @param confirmedOnly only get stops that have been confirmed or not
+   * @param routeId the id of the route   * @param confirmedOnly only get stops that have been confirmed or not
   */
-  public void getRouteStops (BigDecimal version, Long routeId, Boolean confirmedOnly, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
+  public void getRouteStops (Long routeId, Boolean confirmedOnly, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRouteStops",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRouteStops"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getRouteStops",
@@ -1689,7 +1556,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1743,18 +1610,12 @@ public class RouteApi {
   /**
   * Get Shipments At Stop
   * Get the list of shipments on the requested route at a stop
-   * @param version 
    * @param routeId the id of the route
    * @param stopId the id of the stop to get shipments on
    * @return List<Shipment>
   */
-  public List<Shipment> getShipmentsAtStop (BigDecimal version, Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Shipment> getShipmentsAtStop (Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentsAtStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentsAtStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getShipmentsAtStop",
@@ -1767,7 +1628,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1817,16 +1678,11 @@ public class RouteApi {
       /**
    * Get Shipments At Stop
    * Get the list of shipments on the requested route at a stop
-   * @param version    * @param routeId the id of the route   * @param stopId the id of the stop to get shipments on
+   * @param routeId the id of the route   * @param stopId the id of the stop to get shipments on
   */
-  public void getShipmentsAtStop (BigDecimal version, Long routeId, Long stopId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
+  public void getShipmentsAtStop (Long routeId, Long stopId, final Response.Listener<List<Shipment>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getShipmentsAtStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling getShipmentsAtStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling getShipmentsAtStop",
@@ -1839,7 +1695,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}/shipments".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1892,17 +1748,11 @@ public class RouteApi {
   /**
   * Optimize Route
   * Optimize a route. The optimization method based on how the server is configured.
-   * @param version 
    * @param routeId the id of the route to optimize
    * @return void
   */
-  public void optimizeRoute (BigDecimal version, Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void optimizeRoute (Long routeId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling optimizeRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling optimizeRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling optimizeRoute",
@@ -1910,7 +1760,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/optimize".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/optimize".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1960,16 +1810,11 @@ public class RouteApi {
       /**
    * Optimize Route
    * Optimize a route. The optimization method based on how the server is configured.
-   * @param version    * @param routeId the id of the route to optimize
+   * @param routeId the id of the route to optimize
   */
-  public void optimizeRoute (BigDecimal version, Long routeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void optimizeRoute (Long routeId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling optimizeRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling optimizeRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling optimizeRoute",
@@ -1977,7 +1822,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/optimize".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/optimize".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2026,18 +1871,12 @@ public class RouteApi {
   /**
   * Delete Stop
   * Delete a stop on a route
-   * @param version 
    * @param routeId the id of the route
    * @param stopId the id of the specific stop to delete on the route
    * @return void
   */
-  public void removeStop (BigDecimal version, Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void removeStop (Long routeId, Long stopId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling removeStop",
@@ -2050,7 +1889,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2100,16 +1939,11 @@ public class RouteApi {
       /**
    * Delete Stop
    * Delete a stop on a route
-   * @param version    * @param routeId the id of the route   * @param stopId the id of the specific stop to delete on the route
+   * @param routeId the id of the route   * @param stopId the id of the specific stop to delete on the route
   */
-  public void removeStop (BigDecimal version, Long routeId, Long stopId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void removeStop (Long routeId, Long stopId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling removeStop",
@@ -2122,7 +1956,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2171,18 +2005,12 @@ public class RouteApi {
   /**
   * Reorder Route Stops
   * Reordering the stops on the route with and update route distance, time, direction, and polyline
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    * @return List<Stop>
   */
-  public List<Stop> reorderRouteStopsPatch (BigDecimal version, Long routeId, List<Stop> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Stop> reorderRouteStopsPatch (Long routeId, List<Stop> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reorderRouteStopsPatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling reorderRouteStopsPatch"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling reorderRouteStopsPatch",
@@ -2190,7 +2018,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2240,16 +2068,11 @@ public class RouteApi {
       /**
    * Reorder Route Stops
    * Reordering the stops on the route with and update route distance, time, direction, and polyline
-   * @param version    * @param routeId the id of the route   * @param body 
+   * @param routeId the id of the route   * @param body 
   */
-  public void reorderRouteStopsPatch (BigDecimal version, Long routeId, List<Stop> body, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
+  public void reorderRouteStopsPatch (Long routeId, List<Stop> body, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reorderRouteStopsPatch",
-        new ApiException(400, "Missing the required parameter 'version' when calling reorderRouteStopsPatch"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling reorderRouteStopsPatch",
@@ -2257,7 +2080,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops/reorder".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2310,18 +2133,12 @@ public class RouteApi {
   /**
   * Reorder Route Stops
   * Reordering the stops on the route with and update route distance, time, direction, and polyline
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    * @return List<Stop>
   */
-  public List<Stop> reorderRouteStopsPost (BigDecimal version, Long routeId, List<Stop> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Stop> reorderRouteStopsPost (Long routeId, List<Stop> body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reorderRouteStopsPost",
-        new ApiException(400, "Missing the required parameter 'version' when calling reorderRouteStopsPost"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling reorderRouteStopsPost",
@@ -2329,7 +2146,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops/reorder".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2379,16 +2196,11 @@ public class RouteApi {
       /**
    * Reorder Route Stops
    * Reordering the stops on the route with and update route distance, time, direction, and polyline
-   * @param version    * @param routeId the id of the route   * @param body 
+   * @param routeId the id of the route   * @param body 
   */
-  public void reorderRouteStopsPost (BigDecimal version, Long routeId, List<Stop> body, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
+  public void reorderRouteStopsPost (Long routeId, List<Stop> body, final Response.Listener<List<Stop>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling reorderRouteStopsPost",
-        new ApiException(400, "Missing the required parameter 'version' when calling reorderRouteStopsPost"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling reorderRouteStopsPost",
@@ -2396,7 +2208,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stops/reorder".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}/stops/reorder".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2449,7 +2261,6 @@ public class RouteApi {
   /**
   * Search Routes
   * Search for routes.
-   * @param version 
    * @param sortField The field to sort by
    * @param descending Determines whether the sorted list is in descending or ascending order
    * @param start The start index for pagination
@@ -2473,13 +2284,8 @@ public class RouteApi {
    * @param parentId If it is a recurring route based on the parent route
    * @return List<Route>
   */
-  public List<Route> searchRoutes (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<Route> searchRoutes (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRoutes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRoutes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRoutes",
@@ -2522,7 +2328,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2593,16 +2399,11 @@ public class RouteApi {
       /**
    * Search Routes
    * Search for routes.
-   * @param version    * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param includesEmpty Include empty routes or not   * @param rootOnly Only return root instance routes   * @param showInheritedProperties Display root route properties   * @param hubId Filter results by service hub   * @param programId Filter results by program   * @param scheduledStart The start date to filter the results by   * @param scheduledEnd The end date to filter the results by   * @param updatedStart The lower bound of updated date   * @param updatedEnd The upper bound of updated date   * @param featured The route is featured or not   * @param seatCount Has at least this many seat available   * @param approved Has been approved or not   * @param started Has started or not   * @param completed Has completed or not   * @param valid Is valid or not   * @param parentId If it is a recurring route based on the parent route
+   * @param sortField The field to sort by   * @param descending Determines whether the sorted list is in descending or ascending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Return only active results   * @param includesEmpty Include empty routes or not   * @param rootOnly Only return root instance routes   * @param showInheritedProperties Display root route properties   * @param hubId Filter results by service hub   * @param programId Filter results by program   * @param scheduledStart The start date to filter the results by   * @param scheduledEnd The end date to filter the results by   * @param updatedStart The lower bound of updated date   * @param updatedEnd The upper bound of updated date   * @param featured The route is featured or not   * @param seatCount Has at least this many seat available   * @param approved Has been approved or not   * @param started Has started or not   * @param completed Has completed or not   * @param valid Is valid or not   * @param parentId If it is a recurring route based on the parent route
   */
-  public void searchRoutes (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId, final Response.Listener<List<Route>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRoutes (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includesEmpty, Boolean rootOnly, Boolean showInheritedProperties, Long hubId, Long programId, Long scheduledStart, Long scheduledEnd, Long updatedStart, Long updatedEnd, Boolean featured, Integer seatCount, Boolean approved, Boolean started, Boolean completed, Boolean valid, Long parentId, final Response.Listener<List<Route>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRoutes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRoutes"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchRoutes",
@@ -2645,7 +2446,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/route".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2719,18 +2520,12 @@ public class RouteApi {
   /**
   * Set Driver
   * Update the driver of the route.
-   * @param version 
    * @param id the id of the route
    * @param driverId the id of the driver
    * @return void
   */
-  public void setDriver (BigDecimal version, Long id, Long driverId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void setDriver (Long id, Long driverId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling setDriver",
-        new ApiException(400, "Missing the required parameter 'version' when calling setDriver"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling setDriver",
@@ -2743,7 +2538,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{id}/driver/{driverId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString())).replaceAll("\\{" + "driverId" + "\\}", apiInvoker.escapeString(driverId.toString()));
+    String path = "/route/{id}/driver/{driverId}".replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString())).replaceAll("\\{" + "driverId" + "\\}", apiInvoker.escapeString(driverId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2793,16 +2588,11 @@ public class RouteApi {
       /**
    * Set Driver
    * Update the driver of the route.
-   * @param version    * @param id the id of the route   * @param driverId the id of the driver
+   * @param id the id of the route   * @param driverId the id of the driver
   */
-  public void setDriver (BigDecimal version, Long id, Long driverId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void setDriver (Long id, Long driverId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling setDriver",
-        new ApiException(400, "Missing the required parameter 'version' when calling setDriver"));
-    }
     // verify the required parameter 'id' is set
     if (id == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'id' when calling setDriver",
@@ -2815,7 +2605,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{id}/driver/{driverId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString())).replaceAll("\\{" + "driverId" + "\\}", apiInvoker.escapeString(driverId.toString()));
+    String path = "/route/{id}/driver/{driverId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "id" + "\\}", apiInvoker.escapeString(id.toString())).replaceAll("\\{" + "driverId" + "\\}", apiInvoker.escapeString(driverId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2864,18 +2654,12 @@ public class RouteApi {
   /**
   * Update Route
   * Update an existing route
-   * @param version 
    * @param routeId the id of the route
    * @param body 
    * @return Route
   */
-  public Route updateRoute (BigDecimal version, Long routeId, Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public Route updateRoute (Long routeId, Route body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling updateRoute",
@@ -2883,7 +2667,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2933,16 +2717,11 @@ public class RouteApi {
       /**
    * Update Route
    * Update an existing route
-   * @param version    * @param routeId the id of the route   * @param body 
+   * @param routeId the id of the route   * @param body 
   */
-  public void updateRoute (BigDecimal version, Long routeId, Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRoute (Long routeId, Route body, final Response.Listener<Route> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRoute",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRoute"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling updateRoute",
@@ -2950,7 +2729,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
+    String path = "/route/{routeId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3003,19 +2782,13 @@ public class RouteApi {
   /**
   * Update Route Stop
   * Update a stop on a specified route
-   * @param version 
    * @param routeId the id of the route to update stops for
    * @param stopId the id of the specific stop to update on the route
    * @param body 
    * @return void
   */
-  public void updateRouteStop (BigDecimal version, Long routeId, Long stopId, Stop body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void updateRouteStop (Long routeId, Long stopId, Stop body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRouteStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRouteStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling updateRouteStop",
@@ -3028,7 +2801,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3078,16 +2851,11 @@ public class RouteApi {
       /**
    * Update Route Stop
    * Update a stop on a specified route
-   * @param version    * @param routeId the id of the route to update stops for   * @param stopId the id of the specific stop to update on the route   * @param body 
+   * @param routeId the id of the route to update stops for   * @param stopId the id of the specific stop to update on the route   * @param body 
   */
-  public void updateRouteStop (BigDecimal version, Long routeId, Long stopId, Stop body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRouteStop (Long routeId, Long stopId, Stop body, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRouteStop",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRouteStop"));
-    }
     // verify the required parameter 'routeId' is set
     if (routeId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'routeId' when calling updateRouteStop",
@@ -3100,7 +2868,7 @@ public class RouteApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
+    String path = "/route/{routeId}/stop/{stopId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "routeId" + "\\}", apiInvoker.escapeString(routeId.toString())).replaceAll("\\{" + "stopId" + "\\}", apiInvoker.escapeString(stopId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.RoutingListResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RoutingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,17 +58,11 @@ public class RoutingApi {
   /**
   * Compute Route
   * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-   * @param version 
    * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
    * @return RoutingListResponse
   */
-  public RoutingListResponse computeRouting (BigDecimal version, String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RoutingListResponse computeRouting (String data) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling computeRouting",
-        new ApiException(400, "Missing the required parameter 'version' when calling computeRouting"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling computeRouting",
@@ -77,7 +70,7 @@ public class RoutingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/routing/compute".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/routing/compute";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -128,16 +121,11 @@ public class RoutingApi {
       /**
    * Compute Route
    * This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-   * @param version    * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
+   * @param data Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest
   */
-  public void computeRouting (BigDecimal version, String data, final Response.Listener<RoutingListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void computeRouting (String data, final Response.Listener<RoutingListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling computeRouting",
-        new ApiException(400, "Missing the required parameter 'version' when calling computeRouting"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling computeRouting",
@@ -145,7 +133,7 @@ public class RoutingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/routing/compute".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/routing/compute".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

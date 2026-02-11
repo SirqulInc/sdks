@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class StripeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,18 +58,12 @@ public class StripeApi {
   /**
   * Create Stripe Checkout Session
   * Create a Stripe checkout session
-   * @param version 
    * @param appKey Sirqul Application Key
    * @param stripeParameters Stripe Parameters
    * @return SirqulResponse
   */
-  public SirqulResponse createStripeCheckoutSession (BigDecimal version, String appKey, String stripeParameters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse createStripeCheckoutSession (String appKey, String stripeParameters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createStripeCheckoutSession",
-        new ApiException(400, "Missing the required parameter 'version' when calling createStripeCheckoutSession"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createStripeCheckoutSession",
@@ -83,7 +76,7 @@ public class StripeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stripe/checkout/session/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/stripe/checkout/session/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -135,16 +128,11 @@ public class StripeApi {
       /**
    * Create Stripe Checkout Session
    * Create a Stripe checkout session
-   * @param version    * @param appKey Sirqul Application Key   * @param stripeParameters Stripe Parameters
+   * @param appKey Sirqul Application Key   * @param stripeParameters Stripe Parameters
   */
-  public void createStripeCheckoutSession (BigDecimal version, String appKey, String stripeParameters, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createStripeCheckoutSession (String appKey, String stripeParameters, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createStripeCheckoutSession",
-        new ApiException(400, "Missing the required parameter 'version' when calling createStripeCheckoutSession"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling createStripeCheckoutSession",
@@ -157,7 +145,7 @@ public class StripeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/stripe/checkout/session/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/stripe/checkout/session/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

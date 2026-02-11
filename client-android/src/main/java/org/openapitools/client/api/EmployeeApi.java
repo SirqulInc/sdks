@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.EmployeeResponse;
 import java.util.*;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class EmployeeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,20 +60,14 @@ public class EmployeeApi {
   /**
   * Assign Employee
   * Assign An existing account to be an employee
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param managerAccountId The account id of the manager to assign under
    * @param employeeAccountId The account id of the user to be assigned as employee
    * @param role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
    * @return EmployeeResponse
   */
-  public EmployeeResponse assignEmployee (BigDecimal version, Long accountId, Long managerAccountId, Long employeeAccountId, String role) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public EmployeeResponse assignEmployee (Long accountId, Long managerAccountId, Long employeeAccountId, String role) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignEmployee",
@@ -92,7 +85,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/assign".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/assign";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -146,16 +139,11 @@ public class EmployeeApi {
       /**
    * Assign Employee
    * Assign An existing account to be an employee
-   * @param version    * @param accountId The account id of the logged in user   * @param managerAccountId The account id of the manager to assign under   * @param employeeAccountId The account id of the user to be assigned as employee   * @param role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
+   * @param accountId The account id of the logged in user   * @param managerAccountId The account id of the manager to assign under   * @param employeeAccountId The account id of the user to be assigned as employee   * @param role The role to assign to the employee (e.g. RETAILER or RETAILER_LIMITED)
   */
-  public void assignEmployee (BigDecimal version, Long accountId, Long managerAccountId, Long employeeAccountId, String role, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignEmployee (Long accountId, Long managerAccountId, Long employeeAccountId, String role, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignEmployee",
@@ -173,7 +161,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/assign".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/assign".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -230,20 +218,14 @@ public class EmployeeApi {
   /**
   * Assign Employee to Location
   * Assign or unassign the account to a retailer location.
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param retailerLocationId The retailer location to apply the change to
    * @param employeeAccountId The account id of the user to apply the change to
    * @param assign If true (default) assign to the location, otherwise remove from the retailer
    * @return SirqulResponse
   */
-  public SirqulResponse assignToLocationEmployee (BigDecimal version, Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse assignToLocationEmployee (Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignToLocationEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignToLocationEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignToLocationEmployee",
@@ -256,7 +238,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/assignToLocation".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/assignToLocation";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -310,16 +292,11 @@ public class EmployeeApi {
       /**
    * Assign Employee to Location
    * Assign or unassign the account to a retailer location.
-   * @param version    * @param accountId The account id of the logged in user   * @param retailerLocationId The retailer location to apply the change to   * @param employeeAccountId The account id of the user to apply the change to   * @param assign If true (default) assign to the location, otherwise remove from the retailer
+   * @param accountId The account id of the logged in user   * @param retailerLocationId The retailer location to apply the change to   * @param employeeAccountId The account id of the user to apply the change to   * @param assign If true (default) assign to the location, otherwise remove from the retailer
   */
-  public void assignToLocationEmployee (BigDecimal version, Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void assignToLocationEmployee (Long accountId, Long retailerLocationId, Long employeeAccountId, Boolean assign, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling assignToLocationEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling assignToLocationEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling assignToLocationEmployee",
@@ -332,7 +309,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/assignToLocation".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/assignToLocation".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -389,7 +366,6 @@ public class EmployeeApi {
   /**
   * Create Employee
   * Create a new account record with the provided information.
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param managerAccountId The account id of the manager to assign under
    * @param username The username/email for the new user. This must be unique across the entire the system.
@@ -422,13 +398,8 @@ public class EmployeeApi {
    * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
    * @return EmployeeResponse
   */
-  public EmployeeResponse createEmployee (BigDecimal version, Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public EmployeeResponse createEmployee (Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createEmployee",
@@ -451,7 +422,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -531,16 +502,11 @@ public class EmployeeApi {
       /**
    * Create Employee
    * Create a new account record with the provided information.
-   * @param version    * @param accountId The account id of the logged in user   * @param managerAccountId The account id of the manager to assign under   * @param username The username/email for the new user. This must be unique across the entire the system.   * @param password The password for the new user   * @param name a name field   * @param prefixName The name prefix; Mr, Mrs, etc   * @param firstName The first name   * @param middleName The middle name   * @param lastName The last name   * @param suffixName The name suffix; Jr, Sr, III, etc   * @param title The title of the user   * @param aboutUs Additional about/biography text   * @param assetId the asset id to set the user&#39;s profile image   * @param gender The gender   * @param homePhone The home phone number   * @param cellPhone The cellular phone number   * @param cellPhoneCarrier The cellular service provider. This is required for sending SMS. Leave this empty if the provider is not on the list of supported carriers.   * @param businessPhone The business phone number   * @param emailAddress The user&#39;s contact email address (NOT the username)   * @param streetAddress The street address of the user&#39;s contact location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the user&#39;s contact location   * @param state The state of the user&#39;s contact location   * @param zipcode The zipcode of the user&#39;s contact location   * @param country The country of the user&#39;s contact location   * @param role The role; RETAILER or RETAILER_LIMITED, defaulted to RETAILER_LIMITED   * @param retailerLocationIds the retailer location IDs the employee is associated with   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param appBlob external custom client defined data (per Application)   * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
+   * @param accountId The account id of the logged in user   * @param managerAccountId The account id of the manager to assign under   * @param username The username/email for the new user. This must be unique across the entire the system.   * @param password The password for the new user   * @param name a name field   * @param prefixName The name prefix; Mr, Mrs, etc   * @param firstName The first name   * @param middleName The middle name   * @param lastName The last name   * @param suffixName The name suffix; Jr, Sr, III, etc   * @param title The title of the user   * @param aboutUs Additional about/biography text   * @param assetId the asset id to set the user&#39;s profile image   * @param gender The gender   * @param homePhone The home phone number   * @param cellPhone The cellular phone number   * @param cellPhoneCarrier The cellular service provider. This is required for sending SMS. Leave this empty if the provider is not on the list of supported carriers.   * @param businessPhone The business phone number   * @param emailAddress The user&#39;s contact email address (NOT the username)   * @param streetAddress The street address of the user&#39;s contact location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the user&#39;s contact location   * @param state The state of the user&#39;s contact location   * @param zipcode The zipcode of the user&#39;s contact location   * @param country The country of the user&#39;s contact location   * @param role The role; RETAILER or RETAILER_LIMITED, defaulted to RETAILER_LIMITED   * @param retailerLocationIds the retailer location IDs the employee is associated with   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param appBlob external custom client defined data (per Application)   * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
   */
-  public void createEmployee (BigDecimal version, Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createEmployee (Long accountId, Long managerAccountId, String username, String password, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, String aboutUs, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling createEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createEmployee",
@@ -563,7 +529,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -646,18 +612,12 @@ public class EmployeeApi {
   /**
   * Delete Employee
   * Set the deleted date field which marks the record as deleted.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param employeeAccountId the id of the employee to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteEmployee (BigDecimal version, Long accountId, Long employeeAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteEmployee (Long accountId, Long employeeAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteEmployee",
@@ -670,7 +630,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -722,16 +682,11 @@ public class EmployeeApi {
       /**
    * Delete Employee
    * Set the deleted date field which marks the record as deleted.
-   * @param version    * @param accountId the id of the logged in user   * @param employeeAccountId the id of the employee to delete
+   * @param accountId the id of the logged in user   * @param employeeAccountId the id of the employee to delete
   */
-  public void deleteEmployee (BigDecimal version, Long accountId, Long employeeAccountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteEmployee (Long accountId, Long employeeAccountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteEmployee",
@@ -744,7 +699,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -799,19 +754,13 @@ public class EmployeeApi {
   /**
   * Get Employee
   * Get the account record for the account id provided.
-   * @param version 
    * @param accountId the id of logged in user
    * @param employeeAccountId the id of the employee account to get
    * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application
    * @return EmployeeResponse
   */
-  public EmployeeResponse getEmployee (BigDecimal version, Long accountId, Long employeeAccountId, String settingsAppKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public EmployeeResponse getEmployee (Long accountId, Long employeeAccountId, String settingsAppKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEmployee",
@@ -824,7 +773,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -877,16 +826,11 @@ public class EmployeeApi {
       /**
    * Get Employee
    * Get the account record for the account id provided.
-   * @param version    * @param accountId the id of logged in user   * @param employeeAccountId the id of the employee account to get   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application
+   * @param accountId the id of logged in user   * @param employeeAccountId the id of the employee account to get   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application
   */
-  public void getEmployee (BigDecimal version, Long accountId, Long employeeAccountId, String settingsAppKey, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getEmployee (Long accountId, Long employeeAccountId, String settingsAppKey, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling getEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getEmployee",
@@ -899,7 +843,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -955,7 +899,6 @@ public class EmployeeApi {
   /**
   * Search Employees
   * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
    * @param retailerId Filters employees by retailer
@@ -975,13 +918,8 @@ public class EmployeeApi {
    * @param query Legacy/reporting query parameter used for formatting employee responses
    * @return List<EmployeeResponse>
   */
-  public List<EmployeeResponse> searchEmployees (BigDecimal version, Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<EmployeeResponse> searchEmployees (Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEmployees",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEmployees"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchEmployees",
@@ -989,7 +927,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1056,16 +994,11 @@ public class EmployeeApi {
       /**
    * Search Employees
    * Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-   * @param version    * @param accountId The account id of the logged in user   * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.   * @param retailerId Filters employees by retailer   * @param retailerLocationId Filter employees by retailer locations   * @param q Deprecated parameter   * @param keyword an optional keyword to search on; ignored if empty   * @param sortField The field to sort by. Possible values include: DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param i Deprecated parameter   * @param start Start the result set at some index   * @param l Deprecated parameter   * @param limit Limit the result to some number   * @param activeOnly Filter results to only return active employees   * @param managedOnly Filter results to only employees that you manage   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param categoryIds Comma separated list of category ids to filter results   * @param query Legacy/reporting query parameter used for formatting employee responses
+   * @param accountId The account id of the logged in user   * @param role The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.   * @param retailerId Filters employees by retailer   * @param retailerLocationId Filter employees by retailer locations   * @param q Deprecated parameter   * @param keyword an optional keyword to search on; ignored if empty   * @param sortField The field to sort by. Possible values include: DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME   * @param descending Determines whether the sorted list is in descending or ascending order   * @param i Deprecated parameter   * @param start Start the result set at some index   * @param l Deprecated parameter   * @param limit Limit the result to some number   * @param activeOnly Filter results to only return active employees   * @param managedOnly Filter results to only employees that you manage   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param categoryIds Comma separated list of category ids to filter results   * @param query Legacy/reporting query parameter used for formatting employee responses
   */
-  public void searchEmployees (BigDecimal version, Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query, final Response.Listener<List<EmployeeResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchEmployees (Long accountId, String role, Long retailerId, Long retailerLocationId, String q, String keyword, String sortField, Boolean descending, Integer i, Integer start, Integer l, Integer limit, Boolean activeOnly, Boolean managedOnly, String settingsAppKey, String categoryIds, String query, final Response.Listener<List<EmployeeResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchEmployees",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchEmployees"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchEmployees",
@@ -1073,7 +1006,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1143,18 +1076,12 @@ public class EmployeeApi {
   /**
   * Unassign Employee
   * Unassign An existing account to be an employee
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param employeeAccountId The account id of the user to be unassigned
    * @return EmployeeResponse
   */
-  public EmployeeResponse unassignEmployee (BigDecimal version, Long accountId, Long employeeAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public EmployeeResponse unassignEmployee (Long accountId, Long employeeAccountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling unassignEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling unassignEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling unassignEmployee",
@@ -1167,7 +1094,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/unassign".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/unassign";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1219,16 +1146,11 @@ public class EmployeeApi {
       /**
    * Unassign Employee
    * Unassign An existing account to be an employee
-   * @param version    * @param accountId The account id of the logged in user   * @param employeeAccountId The account id of the user to be unassigned
+   * @param accountId The account id of the logged in user   * @param employeeAccountId The account id of the user to be unassigned
   */
-  public void unassignEmployee (BigDecimal version, Long accountId, Long employeeAccountId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void unassignEmployee (Long accountId, Long employeeAccountId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling unassignEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling unassignEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling unassignEmployee",
@@ -1241,7 +1163,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/unassign".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/unassign".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1296,7 +1218,6 @@ public class EmployeeApi {
   /**
   * Update Employee
   * Update the account record with the provided information.
-   * @param version 
    * @param accountId The account id of the logged in user
    * @param employeeAccountId the id of the employee account
    * @param managerAccountId The account id of the manager to assign under
@@ -1329,13 +1250,8 @@ public class EmployeeApi {
    * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
    * @return EmployeeResponse
   */
-  public EmployeeResponse updateEmployee (BigDecimal version, Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public EmployeeResponse updateEmployee (Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEmployee",
@@ -1348,7 +1264,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1428,16 +1344,11 @@ public class EmployeeApi {
       /**
    * Update Employee
    * Update the account record with the provided information.
-   * @param version    * @param accountId The account id of the logged in user   * @param employeeAccountId the id of the employee account   * @param managerAccountId The account id of the manager to assign under   * @param name a name field   * @param prefixName The name prefix; Mr, Mrs, etc   * @param firstName The first name   * @param middleName The middle name   * @param lastName The last name   * @param suffixName The name suffix; Jr, Sr, III, etc   * @param title The title of the user   * @param assetId the asset id to set the user&#39;s profile image   * @param gender The gender {MALE, FEMALE, ANY}   * @param homePhone The home phone number   * @param cellPhone The cellular phone number   * @param cellPhoneCarrier The cellular service provider. This is required for sending SMS. Leave this empty if the provider is not on the list of supported carriers. Supported Carriers: {ATT, QWEST, T_MOBILE, VERIZON, SPRINT, VIRIGIN_MOBILE, NEXTEL, ALLTEL, METRO_PCS, POWERTEL, BOOST_MOBILE, SUNCOM, TRACFONE, US_CELLULAR}   * @param businessPhone The business phone number   * @param emailAddress The user&#39;s contact email address (NOT the username)   * @param streetAddress The street address of the user&#39;s contact location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the user&#39;s contact location   * @param state The state of the user&#39;s contact location   * @param zipcode The zipcode of the user&#39;s contact location   * @param country The country of the user&#39;s contact location   * @param role The role; RETAILER or RETAILER_LIMITED, defaulted to RETAILER_LIMITED   * @param active Sets whether the employee is active or inactive   * @param password Sets the password for the employee   * @param retailerLocationIds Sets which retailer locations the employee is assigned to   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param appBlob external custom client defined data (per Application)   * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
+   * @param accountId The account id of the logged in user   * @param employeeAccountId the id of the employee account   * @param managerAccountId The account id of the manager to assign under   * @param name a name field   * @param prefixName The name prefix; Mr, Mrs, etc   * @param firstName The first name   * @param middleName The middle name   * @param lastName The last name   * @param suffixName The name suffix; Jr, Sr, III, etc   * @param title The title of the user   * @param assetId the asset id to set the user&#39;s profile image   * @param gender The gender {MALE, FEMALE, ANY}   * @param homePhone The home phone number   * @param cellPhone The cellular phone number   * @param cellPhoneCarrier The cellular service provider. This is required for sending SMS. Leave this empty if the provider is not on the list of supported carriers. Supported Carriers: {ATT, QWEST, T_MOBILE, VERIZON, SPRINT, VIRIGIN_MOBILE, NEXTEL, ALLTEL, METRO_PCS, POWERTEL, BOOST_MOBILE, SUNCOM, TRACFONE, US_CELLULAR}   * @param businessPhone The business phone number   * @param emailAddress The user&#39;s contact email address (NOT the username)   * @param streetAddress The street address of the user&#39;s contact location   * @param streetAddress2 Additional address information (such as a suite number, floor number, building name, or PO Box)   * @param city The city of the user&#39;s contact location   * @param state The state of the user&#39;s contact location   * @param zipcode The zipcode of the user&#39;s contact location   * @param country The country of the user&#39;s contact location   * @param role The role; RETAILER or RETAILER_LIMITED, defaulted to RETAILER_LIMITED   * @param active Sets whether the employee is active or inactive   * @param password Sets the password for the employee   * @param retailerLocationIds Sets which retailer locations the employee is assigned to   * @param settingsAppKey Determines whether to return the application settings for the employee for a particular application   * @param appBlob external custom client defined data (per Application)   * @param assignedDeviceId The device id to assign to the user (used for IPS beacon tracking)
   */
-  public void updateEmployee (BigDecimal version, Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateEmployee (Long accountId, Long employeeAccountId, Long managerAccountId, String name, String prefixName, String firstName, String middleName, String lastName, String suffixName, String title, Long assetId, String gender, String homePhone, String cellPhone, String cellPhoneCarrier, String businessPhone, String emailAddress, String streetAddress, String streetAddress2, String city, String state, String zipcode, String country, String role, Boolean active, String password, String retailerLocationIds, String settingsAppKey, String appBlob, String assignedDeviceId, final Response.Listener<EmployeeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateEmployee",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateEmployee"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateEmployee",
@@ -1450,7 +1361,7 @@ public class EmployeeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/employee/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/employee/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

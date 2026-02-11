@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.MissionFormatResponse;
 import org.openapitools.client.model.MissionResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class MissionApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class MissionApi {
   /**
   * Create Mission
   * Create a user defined mission.
-   * @param version 
    * @param accountId The logged in user.
    * @param title The title of the mission
    * @param description The description of the mission
@@ -91,13 +89,8 @@ public class MissionApi {
    * @param radius Comma separated list of radii for locations
    * @return MissionResponse
   */
-  public MissionResponse createMission (BigDecimal version, Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse createMission (Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createMission",
@@ -110,7 +103,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -186,16 +179,11 @@ public class MissionApi {
       /**
    * Create Mission
    * Create a user defined mission.
-   * @param version    * @param accountId The logged in user.   * @param title The title of the mission   * @param description The description of the mission   * @param subType Custom string client apps can use for searching/filtering missions   * @param startDate The date/time to start the mission, send 0 to unset   * @param endDate The date/time to end the mission, send 0 to unset   * @param active Activate/deactivate the mission   * @param gameLevelIds the game level ids to include in the mission, comma separated   * @param creativeIds creatives to associate with the mission   * @param audienceIds audiences to associate with the mission   * @param missionTask This parameter is deprecated.   * @param formatType The string identifier for a mission format (this is not the missionFormatId)   * @param offerId The offerId to give as a reward   * @param balance Set the amount of money available to spend, once 0 deactivate mission. Set to a negative value for unlimited.   * @param advancedReporting Flag to mark the mission as eligible for advanced reporting   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param metaData external custom client defined data   * @param applicationIds Comma separated list of application ids   * @param devices Deprecated parameter for device names   * @param deviceIds Comma separated list of device ids   * @param deviceVersions Comma separated list of device version ranges   * @param locations List of lat/long pairs for mission locations   * @param radius Comma separated list of radii for locations
+   * @param accountId The logged in user.   * @param title The title of the mission   * @param description The description of the mission   * @param subType Custom string client apps can use for searching/filtering missions   * @param startDate The date/time to start the mission, send 0 to unset   * @param endDate The date/time to end the mission, send 0 to unset   * @param active Activate/deactivate the mission   * @param gameLevelIds the game level ids to include in the mission, comma separated   * @param creativeIds creatives to associate with the mission   * @param audienceIds audiences to associate with the mission   * @param missionTask This parameter is deprecated.   * @param formatType The string identifier for a mission format (this is not the missionFormatId)   * @param offerId The offerId to give as a reward   * @param balance Set the amount of money available to spend, once 0 deactivate mission. Set to a negative value for unlimited.   * @param advancedReporting Flag to mark the mission as eligible for advanced reporting   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param metaData external custom client defined data   * @param applicationIds Comma separated list of application ids   * @param devices Deprecated parameter for device names   * @param deviceIds Comma separated list of device ids   * @param deviceVersions Comma separated list of device version ranges   * @param locations List of lat/long pairs for mission locations   * @param radius Comma separated list of radii for locations
   */
-  public void createMission (BigDecimal version, Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createMission (Long accountId, String title, String description, String subType, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, String missionTask, String formatType, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String metaData, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling createMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createMission",
@@ -208,7 +196,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -287,18 +275,12 @@ public class MissionApi {
   /**
   * Delete Mission
   * Delete a mission.
-   * @param version 
    * @param accountId the id of the logged in user
    * @param missionId the id of the mission to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteMission (BigDecimal version, Long accountId, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteMission (Long accountId, Long missionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteMission",
@@ -311,7 +293,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -363,16 +345,11 @@ public class MissionApi {
       /**
    * Delete Mission
    * Delete a mission.
-   * @param version    * @param accountId the id of the logged in user   * @param missionId the id of the mission to delete
+   * @param accountId the id of the logged in user   * @param missionId the id of the mission to delete
   */
-  public void deleteMission (BigDecimal version, Long accountId, Long missionId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteMission (Long accountId, Long missionId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteMission",
@@ -385,7 +362,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -440,7 +417,6 @@ public class MissionApi {
   /**
   * Find Missions
   * Get a set of ad filtered by the parameters provided.
-   * @param version 
    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.
    * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
    * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.
@@ -462,13 +438,8 @@ public class MissionApi {
    * @param audienceOperator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
    * @return MissionResponse
   */
-  public MissionResponse findMissions (BigDecimal version, String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse findMissions (String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling findMissions",
-        new ApiException(400, "Missing the required parameter 'version' when calling findMissions"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling findMissions",
@@ -476,7 +447,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/find".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/find";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -545,16 +516,11 @@ public class MissionApi {
       /**
    * Find Missions
    * Get a set of ad filtered by the parameters provided.
-   * @param version    * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.   * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip   * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.   * @param accountId The logged in user.   * @param appVersion The version of the application, will not return levels newer than the appVersion.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param device Should use deviceId if possible. The name of the requesting device; possible values are: Android, iPhone, iPad, iPod, etc. use /audience/devices for list.   * @param deviceIdentifier The device ID of the requesting device, use /audience/devices for list   * @param deviceVersion The requesting device version; examples are: 2.3, 5.1.4, 6.1.4. Supports X, X.X, or X.X.X formated string.   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param includeGameData Include the game level data with the mission.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param allocatesTickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.   * @param randomize return a random set of results, default is true. If false returns in natural order.   * @param targetedAdsOnly return only ads targeted to the specific app, no global ads.   * @param missionIds return only ads from the specified campaigns.   * @param audienceOperator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
+   * @param appKey The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.   * @param suffix The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip   * @param type The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.   * @param accountId The logged in user.   * @param appVersion The version of the application, will not return levels newer than the appVersion.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param device Should use deviceId if possible. The name of the requesting device; possible values are: Android, iPhone, iPad, iPod, etc. use /audience/devices for list.   * @param deviceIdentifier The device ID of the requesting device, use /audience/devices for list   * @param deviceVersion The requesting device version; examples are: 2.3, 5.1.4, 6.1.4. Supports X, X.X, or X.X.X formated string.   * @param start The index into the record set to start with.   * @param limit The total number of record to return.   * @param includeGameData Include the game level data with the mission.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param allocatesTickets If true/false only return missions whose game levels allocate (or don&#39;t allocate) tickets. Do not provide a value to return both.   * @param randomize return a random set of results, default is true. If false returns in natural order.   * @param targetedAdsOnly return only ads targeted to the specific app, no global ads.   * @param missionIds return only ads from the specified campaigns.   * @param audienceOperator will return the items that have at least 1 or all of their audiences exist in the logged in user’s audiences, depending if the value is OR or AND
   */
-  public void findMissions (BigDecimal version, String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void findMissions (String appKey, String suffix, String type, Long accountId, String appVersion, Double latitude, Double longitude, String device, Long deviceIdentifier, String deviceVersion, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean allocatesTickets, Boolean randomize, Boolean targetedAdsOnly, String missionIds, String audienceOperator, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling findMissions",
-        new ApiException(400, "Missing the required parameter 'version' when calling findMissions"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling findMissions",
@@ -562,7 +528,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/find".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/find".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -634,19 +600,13 @@ public class MissionApi {
   /**
   * Get Mission
   * Get a mission.
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The id of the mission to return.
    * @param returnCreative Return creatives associated with the mission when true
    * @return MissionResponse
   */
-  public MissionResponse getMission (BigDecimal version, Long accountId, Long missionId, Boolean returnCreative) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse getMission (Long accountId, Long missionId, Boolean returnCreative) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMission",
@@ -659,7 +619,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -712,16 +672,11 @@ public class MissionApi {
       /**
    * Get Mission
    * Get a mission.
-   * @param version    * @param accountId The logged in user.   * @param missionId The id of the mission to return.   * @param returnCreative Return creatives associated with the mission when true
+   * @param accountId The logged in user.   * @param missionId The id of the mission to return.   * @param returnCreative Return creatives associated with the mission when true
   */
-  public void getMission (BigDecimal version, Long accountId, Long missionId, Boolean returnCreative, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getMission (Long accountId, Long missionId, Boolean returnCreative, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling getMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getMission",
@@ -734,7 +689,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -790,7 +745,6 @@ public class MissionApi {
   /**
   * Import Mission
   * Create a mission using a source item such as an offer location.
-   * @param version 
    * @param accountId The logged in user.
    * @param latitude The current location of the requesting device
    * @param longitude The current location of the requesting device
@@ -801,13 +755,8 @@ public class MissionApi {
    * @param adSize the size of the ad
    * @return SirqulResponse
   */
-  public SirqulResponse importMission (BigDecimal version, Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse importMission (Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling importMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling importMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling importMission",
@@ -830,7 +779,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/import".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/import";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -888,16 +837,11 @@ public class MissionApi {
       /**
    * Import Mission
    * Create a mission using a source item such as an offer location.
-   * @param version    * @param accountId The logged in user.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param appKey the application key   * @param keyword the keyword of the mission   * @param start The starting index in the result set to return. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param adSize the size of the ad
+   * @param accountId The logged in user.   * @param latitude The current location of the requesting device   * @param longitude The current location of the requesting device   * @param appKey the application key   * @param keyword the keyword of the mission   * @param start The starting index in the result set to return. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param adSize the size of the ad
   */
-  public void importMission (BigDecimal version, Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void importMission (Long accountId, Double latitude, Double longitude, String appKey, String keyword, Integer start, Integer limit, String adSize, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling importMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling importMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling importMission",
@@ -920,7 +864,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/import".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/import".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -981,19 +925,13 @@ public class MissionApi {
   /**
   * Search Mission Formats
   * Searches on pre-defined mission formats
-   * @param version 
    * @param start The starting index in the result set to return. Default is 0.
    * @param limit The total number of records to return. Default is 20.
    * @param activeOnly Determines whether to return only active results. Default is false.
    * @return List<MissionFormatResponse>
   */
-  public List<MissionFormatResponse> searchMissionFormats (BigDecimal version, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MissionFormatResponse> searchMissionFormats (Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionFormats",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionFormats"));
-    }
     // verify the required parameter 'start' is set
     if (start == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'start' when calling searchMissionFormats",
@@ -1011,7 +949,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/format/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/format/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1064,16 +1002,11 @@ public class MissionApi {
       /**
    * Search Mission Formats
    * Searches on pre-defined mission formats
-   * @param version    * @param start The starting index in the result set to return. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.
+   * @param start The starting index in the result set to return. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.
   */
-  public void searchMissionFormats (BigDecimal version, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<MissionFormatResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchMissionFormats (Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<MissionFormatResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionFormats",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionFormats"));
-    }
     // verify the required parameter 'start' is set
     if (start == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'start' when calling searchMissionFormats",
@@ -1091,7 +1024,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/format/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/format/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1147,7 +1080,6 @@ public class MissionApi {
   /**
   * Search Missions
   * Get the list missions available to the account.  
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword Filter by keyword
    * @param subType Custom string client apps can use for searching/filtering missions
@@ -1161,13 +1093,8 @@ public class MissionApi {
    * @param descending Whether to sort in descending order (default true)
    * @return List<MissionResponse>
   */
-  public List<MissionResponse> searchMissions (BigDecimal version, Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MissionResponse> searchMissions (Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMissions",
@@ -1175,7 +1102,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1236,16 +1163,11 @@ public class MissionApi {
       /**
    * Search Missions
    * Get the list missions available to the account.  
-   * @param version    * @param accountId The logged in user.   * @param keyword Filter by keyword   * @param subType Custom string client apps can use for searching/filtering missions   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default is 20, maximum is 100.   * @param includeGameData If true then return the game level data in the response. Default is false.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param includeInactive If true then include inactive missions. Default is false.   * @param suffix A list of game types to include; click_leaderboard, click_banner, click_skyscraper, click_full, click_video, click_zip, create, vote, question, invite, share, json, xml   * @param sortField The field to sort the search on (for example TITLE)   * @param descending Whether to sort in descending order (default true)
+   * @param accountId The logged in user.   * @param keyword Filter by keyword   * @param subType Custom string client apps can use for searching/filtering missions   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default is 20, maximum is 100.   * @param includeGameData If true then return the game level data in the response. Default is false.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param includeInactive If true then include inactive missions. Default is false.   * @param suffix A list of game types to include; click_leaderboard, click_banner, click_skyscraper, click_full, click_video, click_zip, create, vote, question, invite, share, json, xml   * @param sortField The field to sort the search on (for example TITLE)   * @param descending Whether to sort in descending order (default true)
   */
-  public void searchMissions (BigDecimal version, Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchMissions (Long accountId, String keyword, String subType, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissions"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMissions",
@@ -1253,7 +1175,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1317,7 +1239,6 @@ public class MissionApi {
   /**
   * Search Missions by Billable Entity
   * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-   * @param version 
    * @param accountId The logged in user.
    * @param keyword Filter by keyword
    * @param start The index into the record set to start with. Default is 0.
@@ -1330,13 +1251,8 @@ public class MissionApi {
    * @param descending Whether to sort in descending order (default true)
    * @return List<MissionResponse>
   */
-  public List<MissionResponse> searchMissionsByBillableEntity (BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<MissionResponse> searchMissionsByBillableEntity (Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionsByBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionsByBillableEntity"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMissionsByBillableEntity",
@@ -1344,7 +1260,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/searchByBillableEntity".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/searchByBillableEntity";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1404,16 +1320,11 @@ public class MissionApi {
       /**
    * Search Missions by Billable Entity
    * Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-   * @param version    * @param accountId The logged in user.   * @param keyword Filter by keyword   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default id 20.   * @param includeGameData If true then return the game level data in the response. Default is false.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param includeInactive If true then include inactive missions. Default is false.   * @param suffix A list of game types to include; click_leaderboard, click_banner, click_skyscraper, click_full, click_video, click_zip, create, vote, question, invite, share, json, xml   * @param sortField The field to sort the search on (for example TITLE)   * @param descending Whether to sort in descending order (default true)
+   * @param accountId The logged in user.   * @param keyword Filter by keyword   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default id 20.   * @param includeGameData If true then return the game level data in the response. Default is false.   * @param includeAudiences If true then return the audience data in the response. Default is false.   * @param includeInactive If true then include inactive missions. Default is false.   * @param suffix A list of game types to include; click_leaderboard, click_banner, click_skyscraper, click_full, click_video, click_zip, create, vote, question, invite, share, json, xml   * @param sortField The field to sort the search on (for example TITLE)   * @param descending Whether to sort in descending order (default true)
   */
-  public void searchMissionsByBillableEntity (BigDecimal version, Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchMissionsByBillableEntity (Long accountId, String keyword, Integer start, Integer limit, Boolean includeGameData, Boolean includeAudiences, Boolean includeInactive, String suffix, String sortField, Boolean descending, final Response.Listener<List<MissionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchMissionsByBillableEntity",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchMissionsByBillableEntity"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchMissionsByBillableEntity",
@@ -1421,7 +1332,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/searchByBillableEntity".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/searchByBillableEntity".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1484,7 +1395,6 @@ public class MissionApi {
   /**
   * Update Mission
   * Update a mission.
-   * @param version 
    * @param accountId The logged in user.
    * @param missionId The id of the mission to update.
    * @param title The title of the mission
@@ -1512,13 +1422,8 @@ public class MissionApi {
    * @param radius Comma separated list of radii for locations
    * @return MissionResponse
   */
-  public MissionResponse updateMission (BigDecimal version, Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public MissionResponse updateMission (Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateMission",
@@ -1531,7 +1436,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1606,16 +1511,11 @@ public class MissionApi {
       /**
    * Update Mission
    * Update a mission.
-   * @param version    * @param accountId The logged in user.   * @param missionId The id of the mission to update.   * @param title The title of the mission   * @param description The description of the mission   * @param subType Custom string client apps can use for searching/filtering missions   * @param metaData external custom client defined data   * @param startDate The date/time to start the mission, send 0 to unset   * @param endDate The date/time to end the mission, send 0 to unset   * @param active Activate/deactivate the mission   * @param gameLevelIds the game level ids to include in the mission, comma separated   * @param creativeIds    * @param audienceIds    * @param offerId The offerId to give as a reward   * @param balance Replace the amount of money available to spend, once 0 deactivate mission. Set to a negative value for unlimited.   * @param advancedReporting Flag to mark the mission as eligible for advanced reporting   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param applicationIds Comma separated list of application ids   * @param devices Deprecated parameter for device names   * @param deviceIds Comma separated list of device ids   * @param deviceVersions Comma separated list of device version ranges   * @param locations List of lat/long pairs for mission locations   * @param radius Comma separated list of radii for locations
+   * @param accountId The logged in user.   * @param missionId The id of the mission to update.   * @param title The title of the mission   * @param description The description of the mission   * @param subType Custom string client apps can use for searching/filtering missions   * @param metaData external custom client defined data   * @param startDate The date/time to start the mission, send 0 to unset   * @param endDate The date/time to end the mission, send 0 to unset   * @param active Activate/deactivate the mission   * @param gameLevelIds the game level ids to include in the mission, comma separated   * @param creativeIds    * @param audienceIds    * @param offerId The offerId to give as a reward   * @param balance Replace the amount of money available to spend, once 0 deactivate mission. Set to a negative value for unlimited.   * @param advancedReporting Flag to mark the mission as eligible for advanced reporting   * @param allocateTickets Flag to indicate owner should receive tickets for completed missions   * @param ticketCount The number of tickets to reward   * @param ticketType The type of ticket to reward, null means default type   * @param points The number of points to award for completing a mission   * @param applicationIds Comma separated list of application ids   * @param devices Deprecated parameter for device names   * @param deviceIds Comma separated list of device ids   * @param deviceVersions Comma separated list of device version ranges   * @param locations List of lat/long pairs for mission locations   * @param radius Comma separated list of radii for locations
   */
-  public void updateMission (BigDecimal version, Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateMission (Long accountId, Long missionId, String title, String description, String subType, String metaData, Long startDate, Long endDate, Boolean active, String gameLevelIds, String creativeIds, String audienceIds, Long offerId, Double balance, Boolean advancedReporting, Boolean allocateTickets, Long ticketCount, String ticketType, Long points, String applicationIds, String devices, String deviceIds, String deviceVersions, String locations, String radius, final Response.Listener<MissionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateMission",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateMission"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateMission",
@@ -1628,7 +1528,7 @@ public class MissionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/mission/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/mission/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

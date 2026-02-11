@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ConnectionGroupResponse;
 import org.openapitools.client.model.ConnectionInfoResponse;
 import org.openapitools.client.model.ConnectionListResponse;
@@ -42,7 +41,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ConnectionApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -64,7 +63,6 @@ public class ConnectionApi {
   /**
   * Add Connection
   * Adds a connection to a group.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -76,13 +74,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse addConnectionToGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse addConnectionToGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addConnectionToGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling addConnectionToGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling addConnectionToGroup",
@@ -95,7 +88,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/addConnection".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/addConnection";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -154,16 +147,11 @@ public class ConnectionApi {
       /**
    * Add Connection
    * Adds a connection to a group.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id   * @param connectionAccountId the connection account id   * @param pendingId the pending id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id   * @param connectionAccountId the connection account id   * @param pendingId the pending id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void addConnectionToGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addConnectionToGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addConnectionToGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling addConnectionToGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling addConnectionToGroup",
@@ -176,7 +164,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/addConnection".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/addConnection".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -238,7 +226,6 @@ public class ConnectionApi {
   /**
   * Add Connections
   * Adds a list of connections to a group.
-   * @param version 
    * @param connectionGroupId the connection group ID
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -248,13 +235,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse addConnectionsToGroup (BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse addConnectionsToGroup (Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addConnectionsToGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling addConnectionsToGroup"));
-    }
     // verify the required parameter 'connectionGroupId' is set
     if (connectionGroupId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'connectionGroupId' when calling addConnectionsToGroup",
@@ -262,7 +244,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/addConnections".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/addConnections";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -319,16 +301,11 @@ public class ConnectionApi {
       /**
    * Add Connections
    * Adds a list of connections to a group.
-   * @param version    * @param connectionGroupId the connection group ID   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds comma separated list of connection ids   * @param connectionAccountIds comma separated list of connection account ids   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param connectionGroupId the connection group ID   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds comma separated list of connection ids   * @param connectionAccountIds comma separated list of connection account ids   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void addConnectionsToGroup (BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addConnectionsToGroup (Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addConnectionsToGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling addConnectionsToGroup"));
-    }
     // verify the required parameter 'connectionGroupId' is set
     if (connectionGroupId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'connectionGroupId' when calling addConnectionsToGroup",
@@ -336,7 +313,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/addConnections".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/addConnections".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -396,7 +373,6 @@ public class ConnectionApi {
   /**
   * Add Connection Groups
   * Add sub groups to a group.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the parent group id
    * @param subGroupIds comma separated list of group IDs to add to the parent group
@@ -406,13 +382,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return ConnectionGroupResponse
   */
-  public ConnectionGroupResponse addSubGroups (BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionGroupResponse addSubGroups (Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addSubGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling addSubGroups"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling addSubGroups",
@@ -430,7 +401,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/addSubGroup".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/addSubGroup";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -487,16 +458,11 @@ public class ConnectionApi {
       /**
    * Add Connection Groups
    * Add sub groups to a group.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param groupId the parent group id   * @param subGroupIds comma separated list of group IDs to add to the parent group   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param groupId the parent group id   * @param subGroupIds comma separated list of group IDs to add to the parent group   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void addSubGroups (BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<ConnectionGroupResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void addSubGroups (Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<ConnectionGroupResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling addSubGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling addSubGroups"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling addSubGroups",
@@ -514,7 +480,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/addSubGroup".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/addSubGroup".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -574,7 +540,6 @@ public class ConnectionApi {
   /**
   * Create or Update Connection
   * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-   * @param version 
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param connectionId the connection id for editing
@@ -591,16 +556,11 @@ public class ConnectionApi {
    * @param connectionResponse whether to return the connection response or not
    * @return ConnectionResponse
   */
-  public ConnectionResponse createOrUpdateConnection (BigDecimal version, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionResponse createOrUpdateConnection (String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateConnection",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateConnection"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/add".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/add";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -664,19 +624,14 @@ public class ConnectionApi {
       /**
    * Create or Update Connection
    * Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-   * @param version    * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id for editing   * @param connectionAccountId the connection account id (i.e. the account id of another user)   * @param pendingId the pending id (usually for people who do not have a Sirqul account but are already friends via other third party apps)   * @param groupId optional group id if the user wants to add this person into a group   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param isTrusted determines whether the user is trusting this account   * @param ignoreFriendRequest determines whether the user has set to ignore the user&#39;s friend request   * @param isContact determines whether the user is a contact of this account   * @param isBlocked determines whether the user is blocking this account   * @param isFollowing determines whether the user is following this account   * @param connectionResponse whether to return the connection response or not
+   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id for editing   * @param connectionAccountId the connection account id (i.e. the account id of another user)   * @param pendingId the pending id (usually for people who do not have a Sirqul account but are already friends via other third party apps)   * @param groupId optional group id if the user wants to add this person into a group   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param isTrusted determines whether the user is trusting this account   * @param ignoreFriendRequest determines whether the user has set to ignore the user&#39;s friend request   * @param isContact determines whether the user is a contact of this account   * @param isBlocked determines whether the user is blocking this account   * @param isFollowing determines whether the user is following this account   * @param connectionResponse whether to return the connection response or not
   */
-  public void createOrUpdateConnection (BigDecimal version, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse, final Response.Listener<ConnectionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOrUpdateConnection (String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Long groupId, String gameType, String appKey, Boolean isTrusted, Boolean ignoreFriendRequest, Boolean isContact, Boolean isBlocked, Boolean isFollowing, Boolean connectionResponse, final Response.Listener<ConnectionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateConnection",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateConnection"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/add".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/add".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -743,7 +698,6 @@ public class ConnectionApi {
   /**
   * Create or Update Connection Group
   * Creates a new private group.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -760,13 +714,8 @@ public class ConnectionApi {
    * @param longitude the longitude of the group
    * @return SirqulResponse
   */
-  public SirqulResponse createOrUpdateGroup (BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse createOrUpdateGroup (Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling createOrUpdateGroup",
@@ -774,7 +723,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -838,16 +787,11 @@ public class ConnectionApi {
       /**
    * Create or Update Connection Group
    * Creates a new private group.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param name the name of the group   * @param groupId the group id to update a group (don&#39;t pass anything in if you want to create a new group)   * @param assetId the asset to attach to the group   * @param connections comma separated list of connection IDs   * @param description the description of the group   * @param canViewProfileInfo determines whether the connections in the group can see the user&#39;s profile info   * @param canViewGameInfo determines whether the connections in the group can see the user&#39;s game info   * @param canViewFriendInfo determines whether the connections in the group can see the user&#39;s friends/connections   * @param active Sets whether the connection group is active or inactive   * @param latitude the latitude of the group   * @param longitude the longitude of the group
+   * @param returnNulls whether to return nulls or not   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param name the name of the group   * @param groupId the group id to update a group (don&#39;t pass anything in if you want to create a new group)   * @param assetId the asset to attach to the group   * @param connections comma separated list of connection IDs   * @param description the description of the group   * @param canViewProfileInfo determines whether the connections in the group can see the user&#39;s profile info   * @param canViewGameInfo determines whether the connections in the group can see the user&#39;s game info   * @param canViewFriendInfo determines whether the connections in the group can see the user&#39;s friends/connections   * @param active Sets whether the connection group is active or inactive   * @param latitude the latitude of the group   * @param longitude the longitude of the group
   */
-  public void createOrUpdateGroup (BigDecimal version, Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOrUpdateGroup (Boolean returnNulls, String deviceId, Long accountId, String name, Long groupId, Long assetId, String connections, String description, Boolean canViewProfileInfo, Boolean canViewGameInfo, Boolean canViewFriendInfo, Boolean active, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOrUpdateGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOrUpdateGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling createOrUpdateGroup",
@@ -855,7 +799,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -922,19 +866,13 @@ public class ConnectionApi {
   /**
   * Accept Follow Request
   * Accept someone&#39;s follow request.
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who initiated the follow
    * @param appKey the application key for sending notifications
    * @return SirqulResponse
   */
-  public SirqulResponse followAccept (BigDecimal version, Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse followAccept (Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followAccept",
-        new ApiException(400, "Missing the required parameter 'version' when calling followAccept"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followAccept",
@@ -952,7 +890,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/accept".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/accept";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1005,16 +943,11 @@ public class ConnectionApi {
       /**
    * Accept Follow Request
    * Accept someone&#39;s follow request.
-   * @param version    * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who initiated the follow   * @param appKey the application key for sending notifications
+   * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who initiated the follow   * @param appKey the application key for sending notifications
   */
-  public void followAccept (BigDecimal version, Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void followAccept (Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followAccept",
-        new ApiException(400, "Missing the required parameter 'version' when calling followAccept"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followAccept",
@@ -1032,7 +965,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/accept".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/accept".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1088,19 +1021,13 @@ public class ConnectionApi {
   /**
   * Reject Follow Request
   * Reject someone&#39;s follow request or remove them as a follower.
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who initiated the follow
    * @param appKey the application key for sending notifications
    * @return SirqulResponse
   */
-  public SirqulResponse followReject (BigDecimal version, Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse followReject (Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followReject",
-        new ApiException(400, "Missing the required parameter 'version' when calling followReject"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followReject",
@@ -1118,7 +1045,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/reject".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/reject";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1171,16 +1098,11 @@ public class ConnectionApi {
       /**
    * Reject Follow Request
    * Reject someone&#39;s follow request or remove them as a follower.
-   * @param version    * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who initiated the follow   * @param appKey the application key for sending notifications
+   * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who initiated the follow   * @param appKey the application key for sending notifications
   */
-  public void followReject (BigDecimal version, Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void followReject (Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followReject",
-        new ApiException(400, "Missing the required parameter 'version' when calling followReject"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followReject",
@@ -1198,7 +1120,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/reject".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/reject".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1254,19 +1176,13 @@ public class ConnectionApi {
   /**
   * Remove Follower / Unfollow
   * Unfollow someone you are following or remove them as a follower.
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who you want to unfollow
    * @param appKey the application key for sending notifications
    * @return SirqulResponse
   */
-  public SirqulResponse followRemove (BigDecimal version, Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse followRemove (Long accountId, Long connectionAccountId, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followRemove",
-        new ApiException(400, "Missing the required parameter 'version' when calling followRemove"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followRemove",
@@ -1284,7 +1200,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1337,16 +1253,11 @@ public class ConnectionApi {
       /**
    * Remove Follower / Unfollow
    * Unfollow someone you are following or remove them as a follower.
-   * @param version    * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who you want to unfollow   * @param appKey the application key for sending notifications
+   * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who you want to unfollow   * @param appKey the application key for sending notifications
   */
-  public void followRemove (BigDecimal version, Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void followRemove (Long accountId, Long connectionAccountId, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followRemove",
-        new ApiException(400, "Missing the required parameter 'version' when calling followRemove"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followRemove",
@@ -1364,7 +1275,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1420,20 +1331,14 @@ public class ConnectionApi {
   /**
   * Send Follow Request
   * Send a request to follow someone.
-   * @param version 
    * @param accountId the account id of the user
    * @param connectionAccountId the account ID of the user who you want to follow
    * @param appKey the application key for sending notifications
    * @param approvalNeeded determines if the other user needs to confirm the follow request
    * @return SirqulResponse
   */
-  public SirqulResponse followRequest (BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse followRequest (Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followRequest",
-        new ApiException(400, "Missing the required parameter 'version' when calling followRequest"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followRequest",
@@ -1451,7 +1356,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/request".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/request";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1505,16 +1410,11 @@ public class ConnectionApi {
       /**
    * Send Follow Request
    * Send a request to follow someone.
-   * @param version    * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who you want to follow   * @param appKey the application key for sending notifications   * @param approvalNeeded determines if the other user needs to confirm the follow request
+   * @param accountId the account id of the user   * @param connectionAccountId the account ID of the user who you want to follow   * @param appKey the application key for sending notifications   * @param approvalNeeded determines if the other user needs to confirm the follow request
   */
-  public void followRequest (BigDecimal version, Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void followRequest (Long accountId, Long connectionAccountId, String appKey, Boolean approvalNeeded, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling followRequest",
-        new ApiException(400, "Missing the required parameter 'version' when calling followRequest"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling followRequest",
@@ -1532,7 +1432,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/follow/request".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/follow/request".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1589,7 +1489,6 @@ public class ConnectionApi {
   /**
   * Accept Friend
   * Accept a friend request and optionally sends a notification.
-   * @param version 
    * @param friendAccountId the friend&#39;s account id
    * @param notifyFriend determines whether to send a notification to the afflicting party
    * @param deviceId the device id (deviceId or accountId required)
@@ -1599,13 +1498,8 @@ public class ConnectionApi {
    * @param notificationMessage optional message to send in a notification
    * @return SirqulResponse
   */
-  public SirqulResponse friendAccept (BigDecimal version, Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse friendAccept (Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendAccept",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendAccept"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendAccept",
@@ -1618,7 +1512,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/accept".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/accept";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1675,16 +1569,11 @@ public class ConnectionApi {
       /**
    * Accept Friend
    * Accept a friend request and optionally sends a notification.
-   * @param version    * @param friendAccountId the friend&#39;s account id   * @param notifyFriend determines whether to send a notification to the afflicting party   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notificationMessage optional message to send in a notification
+   * @param friendAccountId the friend&#39;s account id   * @param notifyFriend determines whether to send a notification to the afflicting party   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notificationMessage optional message to send in a notification
   */
-  public void friendAccept (BigDecimal version, Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void friendAccept (Long friendAccountId, Boolean notifyFriend, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendAccept",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendAccept"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendAccept",
@@ -1697,7 +1586,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/accept".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/accept".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1757,7 +1646,6 @@ public class ConnectionApi {
   /**
   * Decline Friend
   * Request a friend request and optionally sends a notification.
-   * @param version 
    * @param friendAccountId the friend&#39;s account id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -1767,13 +1655,8 @@ public class ConnectionApi {
    * @param notificationMessage optional message to send in a notification
    * @return SirqulResponse
   */
-  public SirqulResponse friendReject (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse friendReject (Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendReject",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendReject"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendReject",
@@ -1781,7 +1664,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/reject".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/reject";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1838,16 +1721,11 @@ public class ConnectionApi {
       /**
    * Decline Friend
    * Request a friend request and optionally sends a notification.
-   * @param version    * @param friendAccountId the friend&#39;s account id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notifyFriend determines whether to send a notification to the afflicting party   * @param notificationMessage optional message to send in a notification
+   * @param friendAccountId the friend&#39;s account id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notifyFriend determines whether to send a notification to the afflicting party   * @param notificationMessage optional message to send in a notification
   */
-  public void friendReject (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void friendReject (Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, Boolean notifyFriend, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendReject",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendReject"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendReject",
@@ -1855,7 +1733,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/reject".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/reject".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1915,7 +1793,6 @@ public class ConnectionApi {
   /**
   * Delete Friend
   * Removes a friend from the user&#39;s friends list.
-   * @param version 
    * @param friendAccountId the account ID of the friend to remove
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -1923,13 +1800,8 @@ public class ConnectionApi {
    * @param removeFromGroups optionally removes the connection from the user&#39;s groups
    * @return SirqulResponse
   */
-  public SirqulResponse friendRemove (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse friendRemove (Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendRemove",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendRemove"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendRemove",
@@ -1937,7 +1809,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1992,16 +1864,11 @@ public class ConnectionApi {
       /**
    * Delete Friend
    * Removes a friend from the user&#39;s friends list.
-   * @param version    * @param friendAccountId the account ID of the friend to remove   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param notifyFriend optionally notifies the connection that they have been removed as a friend   * @param removeFromGroups optionally removes the connection from the user&#39;s groups
+   * @param friendAccountId the account ID of the friend to remove   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param notifyFriend optionally notifies the connection that they have been removed as a friend   * @param removeFromGroups optionally removes the connection from the user&#39;s groups
   */
-  public void friendRemove (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void friendRemove (Long friendAccountId, String deviceId, Long accountId, Boolean notifyFriend, Boolean removeFromGroups, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendRemove",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendRemove"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendRemove",
@@ -2009,7 +1876,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2067,7 +1934,6 @@ public class ConnectionApi {
   /**
   * Request Friend
   * Sends a friend request notification to another user.
-   * @param version 
    * @param friendAccountId the friend&#39;s account id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -2076,13 +1942,8 @@ public class ConnectionApi {
    * @param notificationMessage optional message to send in a notification
    * @return SirqulResponse
   */
-  public SirqulResponse friendRequest (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse friendRequest (Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendRequest",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendRequest"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendRequest",
@@ -2090,7 +1951,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/request".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/request";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2146,16 +2007,11 @@ public class ConnectionApi {
       /**
    * Request Friend
    * Sends a friend request notification to another user.
-   * @param version    * @param friendAccountId the friend&#39;s account id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notificationMessage optional message to send in a notification
+   * @param friendAccountId the friend&#39;s account id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param notificationMessage optional message to send in a notification
   */
-  public void friendRequest (BigDecimal version, Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void friendRequest (Long friendAccountId, String deviceId, Long accountId, String gameType, String appKey, String notificationMessage, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling friendRequest",
-        new ApiException(400, "Missing the required parameter 'version' when calling friendRequest"));
-    }
     // verify the required parameter 'friendAccountId' is set
     if (friendAccountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'friendAccountId' when calling friendRequest",
@@ -2163,7 +2019,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/friend/request".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/friend/request".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2222,21 +2078,15 @@ public class ConnectionApi {
   /**
   * Get Sent Friend Requests
   * Gets the connection sent friend requests.
-   * @param version 
    * @param deviceId the ID of the device
    * @param accountId the id of the account
    * @return ConnectionListResponse
   */
-  public ConnectionListResponse getConnectionSentFriendRequests (BigDecimal version, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionListResponse getConnectionSentFriendRequests (String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getConnectionSentFriendRequests",
-        new ApiException(400, "Missing the required parameter 'version' when calling getConnectionSentFriendRequests"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/getRequested".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/getRequested";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2288,19 +2138,14 @@ public class ConnectionApi {
       /**
    * Get Sent Friend Requests
    * Gets the connection sent friend requests.
-   * @param version    * @param deviceId the ID of the device   * @param accountId the id of the account
+   * @param deviceId the ID of the device   * @param accountId the id of the account
   */
-  public void getConnectionSentFriendRequests (BigDecimal version, String deviceId, Long accountId, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getConnectionSentFriendRequests (String deviceId, Long accountId, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getConnectionSentFriendRequests",
-        new ApiException(400, "Missing the required parameter 'version' when calling getConnectionSentFriendRequests"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/getRequested".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/getRequested".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2355,7 +2200,6 @@ public class ConnectionApi {
   /**
   * Search Connections
   * Gets the connections.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)
    * @param sortField sorts the response list by ConnectionApiMap
@@ -2373,13 +2217,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return ConnectionListResponse
   */
-  public ConnectionListResponse getConnections (BigDecimal version, Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionListResponse getConnections (Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getConnections",
-        new ApiException(400, "Missing the required parameter 'version' when calling getConnections"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getConnections",
@@ -2412,7 +2251,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2477,16 +2316,11 @@ public class ConnectionApi {
       /**
    * Search Connections
    * Gets the connections.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)   * @param sortField sorts the response list by ConnectionApiMap   * @param descending sorts the response list by descending order if true   * @param start start index of the pagination   * @param limit limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id (deviceId or accountId required)   * @param connectionAccountId optional parameter to search on other account&#39;s connections   * @param q This parameter is deprecated.   * @param keyword an optional keyword to search on, this parameter is ignored if empty   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param filter a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)   * @param sortField sorts the response list by ConnectionApiMap   * @param descending sorts the response list by descending order if true   * @param start start index of the pagination   * @param limit limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id (deviceId or accountId required)   * @param connectionAccountId optional parameter to search on other account&#39;s connections   * @param q This parameter is deprecated.   * @param keyword an optional keyword to search on, this parameter is ignored if empty   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void getConnections (BigDecimal version, Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getConnections (Boolean returnNulls, String filter, String sortField, Boolean descending, Integer start, Integer limit, String deviceId, Long accountId, Long connectionAccountId, String q, String keyword, Integer i, Integer l, Double latitude, Double longitude, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getConnections",
-        new ApiException(400, "Missing the required parameter 'version' when calling getConnections"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling getConnections",
@@ -2519,7 +2353,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2587,7 +2421,6 @@ public class ConnectionApi {
   /**
   * Get Connection Group
   * 
-   * @param version 
    * @param combineConnections whether to combine connections or not
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -2596,13 +2429,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return ConnectionGroupResponse
   */
-  public ConnectionGroupResponse getGroupDetails (BigDecimal version, Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionGroupResponse getGroupDetails (Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGroupDetails",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGroupDetails"));
-    }
     // verify the required parameter 'combineConnections' is set
     if (combineConnections == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'combineConnections' when calling getGroupDetails",
@@ -2610,7 +2438,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/details/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/details/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2666,16 +2494,11 @@ public class ConnectionApi {
       /**
    * Get Connection Group
    * 
-   * @param version    * @param combineConnections whether to combine connections or not   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param groupId the group id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param combineConnections whether to combine connections or not   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param groupId the group id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void getGroupDetails (BigDecimal version, Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude, final Response.Listener<ConnectionGroupResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getGroupDetails (Boolean combineConnections, String deviceId, Long accountId, Long groupId, Double latitude, Double longitude, final Response.Listener<ConnectionGroupResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getGroupDetails",
-        new ApiException(400, "Missing the required parameter 'version' when calling getGroupDetails"));
-    }
     // verify the required parameter 'combineConnections' is set
     if (combineConnections == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'combineConnections' when calling getGroupDetails",
@@ -2683,7 +2506,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/details/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/details/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2742,7 +2565,6 @@ public class ConnectionApi {
   /**
   * Search Connection Groups
   * Gets a user&#39;s private groups and default groups.
-   * @param version 
    * @param sortField the field to sort by
    * @param descending whether to return results in descending or ascending order
    * @param activeOnly to search on active only or not
@@ -2755,13 +2577,8 @@ public class ConnectionApi {
    * @param keyword keyword search string
    * @return List<ConnectionInfoResponse>
   */
-  public List<ConnectionInfoResponse> groupSearch (BigDecimal version, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<ConnectionInfoResponse> groupSearch (String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling groupSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling groupSearch"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling groupSearch",
@@ -2789,7 +2606,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2849,16 +2666,11 @@ public class ConnectionApi {
       /**
    * Search Connection Groups
    * Gets a user&#39;s private groups and default groups.
-   * @param version    * @param sortField the field to sort by   * @param descending whether to return results in descending or ascending order   * @param activeOnly to search on active only or not   * @param start The start of the pagination   * @param limit the limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param keyword keyword search string
+   * @param sortField the field to sort by   * @param descending whether to return results in descending or ascending order   * @param activeOnly to search on active only or not   * @param start The start of the pagination   * @param limit the limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param keyword keyword search string
   */
-  public void groupSearch (BigDecimal version, String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, final Response.Listener<List<ConnectionInfoResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void groupSearch (String sortField, Boolean descending, Boolean activeOnly, Integer start, Integer limit, String deviceId, Long accountId, Double latitude, Double longitude, String keyword, final Response.Listener<List<ConnectionInfoResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling groupSearch",
-        new ApiException(400, "Missing the required parameter 'version' when calling groupSearch"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling groupSearch",
@@ -2886,7 +2698,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2949,7 +2761,6 @@ public class ConnectionApi {
   /**
   * Delete Connection
   * Removes the connection from group.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -2961,13 +2772,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse removeConnectionFromGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeConnectionFromGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeConnectionFromGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeConnectionFromGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeConnectionFromGroup",
@@ -2980,7 +2786,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/removeConnection".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/removeConnection";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3039,16 +2845,11 @@ public class ConnectionApi {
       /**
    * Delete Connection
    * Removes the connection from group.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id   * @param connectionAccountId the connection account id   * @param pendingId the pending id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionId the connection id   * @param connectionAccountId the connection account id   * @param pendingId the pending id   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void removeConnectionFromGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeConnectionFromGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Long connectionId, Long connectionAccountId, Long pendingId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeConnectionFromGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeConnectionFromGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeConnectionFromGroup",
@@ -3061,7 +2862,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/removeConnection".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/removeConnection".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3123,7 +2924,6 @@ public class ConnectionApi {
   /**
   * Remove Connections
   * Remove a list of connections from a group.
-   * @param version 
    * @param connectionGroupId connection group id
    * @param deviceId the device id (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -3133,13 +2933,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse removeConnectionsFromGroup (BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeConnectionsFromGroup (Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeConnectionsFromGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeConnectionsFromGroup"));
-    }
     // verify the required parameter 'connectionGroupId' is set
     if (connectionGroupId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'connectionGroupId' when calling removeConnectionsFromGroup",
@@ -3147,7 +2942,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/removeConnections".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/removeConnections";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3204,16 +2999,11 @@ public class ConnectionApi {
       /**
    * Remove Connections
    * Remove a list of connections from a group.
-   * @param version    * @param connectionGroupId connection group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds comma separated list of connection ids   * @param connectionAccountIds comma separated list of connection account ids   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param connectionGroupId connection group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param connectionIds comma separated list of connection ids   * @param connectionAccountIds comma separated list of connection account ids   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void removeConnectionsFromGroup (BigDecimal version, Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeConnectionsFromGroup (Long connectionGroupId, String deviceId, Long accountId, String connectionIds, String connectionAccountIds, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeConnectionsFromGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeConnectionsFromGroup"));
-    }
     // verify the required parameter 'connectionGroupId' is set
     if (connectionGroupId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'connectionGroupId' when calling removeConnectionsFromGroup",
@@ -3221,7 +3011,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/group/removeConnections".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/group/removeConnections".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3281,7 +3071,6 @@ public class ConnectionApi {
   /**
   * Delete Connection Group
   * Remove a user&#39;s group.
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the group id
    * @param deviceId the device id (deviceId or accountId required)
@@ -3290,13 +3079,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse removeGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeGroup",
@@ -3309,7 +3093,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/remove".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/remove";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3365,16 +3149,11 @@ public class ConnectionApi {
       /**
    * Delete Connection Group
    * Remove a user&#39;s group.
-   * @param version    * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param groupId the group id   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void removeGroup (BigDecimal version, Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeGroup (Boolean returnNulls, Long groupId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeGroup",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeGroup"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeGroup",
@@ -3387,7 +3166,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/remove".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/remove".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3446,7 +3225,6 @@ public class ConnectionApi {
   /**
   * Remove Connection Groups
   * Remove sub groups from a group
-   * @param version 
    * @param returnNulls whether to return nulls or not
    * @param groupId the parent group id
    * @param subGroupIds comma separated list of group IDs to remove from the parent group
@@ -3456,13 +3234,8 @@ public class ConnectionApi {
    * @param longitude the current longitude of the user
    * @return SirqulResponse
   */
-  public SirqulResponse removeSubGroups (BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse removeSubGroups (Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeSubGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeSubGroups"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeSubGroups",
@@ -3480,7 +3253,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/removeSubGroup".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/removeSubGroup";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3537,16 +3310,11 @@ public class ConnectionApi {
       /**
    * Remove Connection Groups
    * Remove sub groups from a group
-   * @param version    * @param returnNulls whether to return nulls or not   * @param groupId the parent group id   * @param subGroupIds comma separated list of group IDs to remove from the parent group   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
+   * @param returnNulls whether to return nulls or not   * @param groupId the parent group id   * @param subGroupIds comma separated list of group IDs to remove from the parent group   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user
   */
-  public void removeSubGroups (BigDecimal version, Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeSubGroups (Boolean returnNulls, Long groupId, String subGroupIds, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeSubGroups",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeSubGroups"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling removeSubGroups",
@@ -3564,7 +3332,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/consumer/connection/group/removeSubGroup".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/consumer/connection/group/removeSubGroup".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3624,7 +3392,6 @@ public class ConnectionApi {
   /**
   * Search Possible Connections
   * Search for accounts that the user may not have a connection with.
-   * @param version 
    * @param returnNulls return all json attributes if true. defualt is true.
    * @param start start index of the pagination
    * @param limit limit of the pagination
@@ -3642,13 +3409,8 @@ public class ConnectionApi {
    * @param hasLocation whether the search has location or not
    * @return ConnectionListResponse
   */
-  public ConnectionListResponse searchConnections (BigDecimal version, Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ConnectionListResponse searchConnections (Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchConnections",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchConnections"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling searchConnections",
@@ -3666,7 +3428,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3731,16 +3493,11 @@ public class ConnectionApi {
       /**
    * Search Possible Connections
    * Search for accounts that the user may not have a connection with.
-   * @param version    * @param returnNulls return all json attributes if true. defualt is true.   * @param start start index of the pagination   * @param limit limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword keyword to search on, optional and this parameter is ignored if empt   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param gameType This parameter is deprecated.   * @param appKey the public application key, if provided only looks for users of that application   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param sortField the field to sort on   * @param hasLocation whether the search has location or not
+   * @param returnNulls return all json attributes if true. defualt is true.   * @param start start index of the pagination   * @param limit limit of the pagination   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword keyword to search on, optional and this parameter is ignored if empt   * @param latitude the current latitude of the user   * @param longitude the current longitude of the user   * @param gameType This parameter is deprecated.   * @param appKey the public application key, if provided only looks for users of that application   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param sortField the field to sort on   * @param hasLocation whether the search has location or not
   */
-  public void searchConnections (BigDecimal version, Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchConnections (Boolean returnNulls, Integer start, Integer limit, String deviceId, Long accountId, String q, String keyword, Double latitude, Double longitude, String gameType, String appKey, Integer i, Integer l, String sortField, Boolean hasLocation, final Response.Listener<ConnectionListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchConnections",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchConnections"));
-    }
     // verify the required parameter 'returnNulls' is set
     if (returnNulls == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'returnNulls' when calling searchConnections",
@@ -3758,7 +3515,7 @@ public class ConnectionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/connection/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/connection/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

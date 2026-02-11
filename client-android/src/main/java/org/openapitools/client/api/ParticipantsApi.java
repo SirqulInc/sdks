@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.io.File;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class ParticipantsApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,19 +59,13 @@ public class ParticipantsApi {
   /**
   * Process All Participant Feeds
   * Processes all supported participant feeds.
-   * @param version 
    * @param accountId The account id of the user
    * @param appKey The application key used to identify the application
    * @param useShortNameAsID Whether to use short name as the participant ID
    * @return SirqulResponse
   */
-  public SirqulResponse processAllParticipants (BigDecimal version, Long accountId, String appKey, Boolean useShortNameAsID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse processAllParticipants (Long accountId, String appKey, Boolean useShortNameAsID) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processAllParticipants",
-        new ApiException(400, "Missing the required parameter 'version' when calling processAllParticipants"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling processAllParticipants",
@@ -80,7 +73,7 @@ public class ParticipantsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/participant/process/all".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/participant/process/all";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -133,16 +126,11 @@ public class ParticipantsApi {
       /**
    * Process All Participant Feeds
    * Processes all supported participant feeds.
-   * @param version    * @param accountId The account id of the user   * @param appKey The application key used to identify the application   * @param useShortNameAsID Whether to use short name as the participant ID
+   * @param accountId The account id of the user   * @param appKey The application key used to identify the application   * @param useShortNameAsID Whether to use short name as the participant ID
   */
-  public void processAllParticipants (BigDecimal version, Long accountId, String appKey, Boolean useShortNameAsID, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void processAllParticipants (Long accountId, String appKey, Boolean useShortNameAsID, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processAllParticipants",
-        new ApiException(400, "Missing the required parameter 'version' when calling processAllParticipants"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling processAllParticipants",
@@ -150,7 +138,7 @@ public class ParticipantsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/participant/process/all".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/participant/process/all".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -206,7 +194,6 @@ public class ParticipantsApi {
   /**
   * Process Participants Feed
   * Processes a participant feed or uploaded file for a specific league.
-   * @param version 
    * @param accountId The account id of the user
    * @param league The league identifier to process
    * @param appKey The application key used to identify the application
@@ -214,13 +201,8 @@ public class ParticipantsApi {
    * @param file Multipart file containing participant feed contents
    * @return SirqulResponse
   */
-  public SirqulResponse processParticipants (BigDecimal version, Long accountId, String league, String appKey, Boolean useShortNameAsID, File file) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse processParticipants (Long accountId, String league, String appKey, Boolean useShortNameAsID, File file) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processParticipants",
-        new ApiException(400, "Missing the required parameter 'version' when calling processParticipants"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling processParticipants",
@@ -233,7 +215,7 @@ public class ParticipantsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/participant/process".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/participant/process";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -288,16 +270,11 @@ public class ParticipantsApi {
       /**
    * Process Participants Feed
    * Processes a participant feed or uploaded file for a specific league.
-   * @param version    * @param accountId The account id of the user   * @param league The league identifier to process   * @param appKey The application key used to identify the application   * @param useShortNameAsID Whether to use short name as the participant ID   * @param file Multipart file containing participant feed contents
+   * @param accountId The account id of the user   * @param league The league identifier to process   * @param appKey The application key used to identify the application   * @param useShortNameAsID Whether to use short name as the participant ID   * @param file Multipart file containing participant feed contents
   */
-  public void processParticipants (BigDecimal version, Long accountId, String league, String appKey, Boolean useShortNameAsID, File file, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void processParticipants (Long accountId, String league, String appKey, Boolean useShortNameAsID, File file, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling processParticipants",
-        new ApiException(400, "Missing the required parameter 'version' when calling processParticipants"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling processParticipants",
@@ -310,7 +287,7 @@ public class ParticipantsApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/participant/process".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/participant/process".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

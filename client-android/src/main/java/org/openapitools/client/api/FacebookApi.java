@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 import org.openapitools.client.model.TokenResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class FacebookApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,23 +59,17 @@ public class FacebookApi {
   /**
   * Get Facebook Token
   * Gets a user&#39;s Facebook token.
-   * @param version 
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
    * @param latitude used to update the user&#39;s current location
    * @param longitude used to update the user&#39;s current location
    * @return TokenResponse
   */
-  public TokenResponse getToken (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public TokenResponse getToken (String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getToken",
-        new ApiException(400, "Missing the required parameter 'version' when calling getToken"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/facebook/getfbtoken".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/facebook/getfbtoken";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -130,19 +123,14 @@ public class FacebookApi {
       /**
    * Get Facebook Token
    * Gets a user&#39;s Facebook token.
-   * @param version    * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude used to update the user&#39;s current location   * @param longitude used to update the user&#39;s current location
+   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param latitude used to update the user&#39;s current location   * @param longitude used to update the user&#39;s current location
   */
-  public void getToken (BigDecimal version, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<TokenResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getToken (String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<TokenResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getToken",
-        new ApiException(400, "Missing the required parameter 'version' when calling getToken"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/facebook/getfbtoken".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/facebook/getfbtoken".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -199,7 +187,6 @@ public class FacebookApi {
   /**
   * Post to Facebook
   * Make Facebook posts on behalf of the user.
-   * @param version 
    * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}
    * @param deviceId a unique id given by the device (deviceId or accountId required)
    * @param accountId the account id of the user (deviceId or accountId required)
@@ -212,13 +199,8 @@ public class FacebookApi {
    * @param longitude used to update the user&#39;s current location
    * @return SirqulResponse
   */
-  public SirqulResponse graphInterface (BigDecimal version, String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse graphInterface (String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling graphInterface",
-        new ApiException(400, "Missing the required parameter 'version' when calling graphInterface"));
-    }
     // verify the required parameter 'event' is set
     if (event == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'event' when calling graphInterface",
@@ -226,7 +208,7 @@ public class FacebookApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/facebook/graph".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/facebook/graph";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -286,16 +268,11 @@ public class FacebookApi {
       /**
    * Post to Facebook
    * Make Facebook posts on behalf of the user.
-   * @param version    * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param permissionableType for posting about information related to an object. Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId the object id   * @param assetId used to include an asset on a Facebook post   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param latitude used to update the user&#39;s current location   * @param longitude used to update the user&#39;s current location
+   * @param event the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}   * @param deviceId a unique id given by the device (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param permissionableType for posting about information related to an object. Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId the object id   * @param assetId used to include an asset on a Facebook post   * @param gameType This parameter is deprecated.   * @param appKey the application key   * @param latitude used to update the user&#39;s current location   * @param longitude used to update the user&#39;s current location
   */
-  public void graphInterface (BigDecimal version, String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void graphInterface (String event, String deviceId, Long accountId, String permissionableType, Long permissionableId, Long assetId, String gameType, String appKey, Double latitude, Double longitude, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling graphInterface",
-        new ApiException(400, "Missing the required parameter 'version' when calling graphInterface"));
-    }
     // verify the required parameter 'event' is set
     if (event == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'event' when calling graphInterface",
@@ -303,7 +280,7 @@ public class FacebookApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/facebook/graph".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/facebook/graph".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

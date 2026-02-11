@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.RegionResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RegionApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class RegionApi {
   /**
   * Create Region
   * Create a region.
-   * @param version 
    * @param accountId The id of the account sending the request
    * @param regionClass RegionClass of this region
    * @param shortName Short name of the region. This is optimized for search
@@ -84,13 +82,8 @@ public class RegionApi {
    * @param active Active or inactive status of the region
    * @return RegionResponse
   */
-  public RegionResponse createRegion (BigDecimal version, Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RegionResponse createRegion (Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createRegion",
@@ -108,7 +101,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -179,16 +172,11 @@ public class RegionApi {
       /**
    * Create Region
    * Create a region.
-   * @param version    * @param accountId The id of the account sending the request   * @param regionClass RegionClass of this region   * @param shortName Short name of the region. This is optimized for search   * @param fullName Full name of the region   * @param parentIds Comma separated region ids that are parents of this region   * @param childrenIds Comma separated region ids that are children of this region   * @param postalCodeIds Comma separated postal code ids the region will include   * @param locations Sets of name,lat,long used to create new postal codes assigned to the region   * @param retailerLocationId the id of the retailer location that the region is being created for   * @param visibility The Visibility of the region   * @param categoryIds the categories that the region is assigned to   * @param filterIds the filters that the region is assigned to   * @param start    * @param end    * @param polygon the polygon generated for the region   * @param metaData the meta data associated with the region   * @param latitude the latitude of the region   * @param longitude the longitude of the region   * @param versionCode the version code   * @param root If this is a root region or not. If true means this region has no parent regions   * @param active Active or inactive status of the region
+   * @param accountId The id of the account sending the request   * @param regionClass RegionClass of this region   * @param shortName Short name of the region. This is optimized for search   * @param fullName Full name of the region   * @param parentIds Comma separated region ids that are parents of this region   * @param childrenIds Comma separated region ids that are children of this region   * @param postalCodeIds Comma separated postal code ids the region will include   * @param locations Sets of name,lat,long used to create new postal codes assigned to the region   * @param retailerLocationId the id of the retailer location that the region is being created for   * @param visibility The Visibility of the region   * @param categoryIds the categories that the region is assigned to   * @param filterIds the filters that the region is assigned to   * @param start    * @param end    * @param polygon the polygon generated for the region   * @param metaData the meta data associated with the region   * @param latitude the latitude of the region   * @param longitude the longitude of the region   * @param versionCode the version code   * @param root If this is a root region or not. If true means this region has no parent regions   * @param active Active or inactive status of the region
   */
-  public void createRegion (BigDecimal version, Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createRegion (Long accountId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createRegion",
@@ -206,7 +194,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -280,18 +268,12 @@ public class RegionApi {
   /**
   * Delete Region
   * Delete a region.
-   * @param version 
    * @param accountId the id of the account logged in
    * @param regionId the id of the region
    * @return RegionResponse
   */
-  public RegionResponse deleteRegion (BigDecimal version, Long accountId, Long regionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RegionResponse deleteRegion (Long accountId, Long regionId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteRegion",
@@ -304,7 +286,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -356,16 +338,11 @@ public class RegionApi {
       /**
    * Delete Region
    * Delete a region.
-   * @param version    * @param accountId the id of the account logged in   * @param regionId the id of the region
+   * @param accountId the id of the account logged in   * @param regionId the id of the region
   */
-  public void deleteRegion (BigDecimal version, Long accountId, Long regionId, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteRegion (Long accountId, Long regionId, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteRegion",
@@ -378,7 +355,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -433,18 +410,12 @@ public class RegionApi {
   /**
   * Get Region
   * Get a region.
-   * @param version 
    * @param regionId the id of the region to get
    * @param accountId the id of the logged in user
    * @return RegionResponse
   */
-  public RegionResponse getRegion (BigDecimal version, Long regionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RegionResponse getRegion (Long regionId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRegion"));
-    }
     // verify the required parameter 'regionId' is set
     if (regionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'regionId' when calling getRegion",
@@ -452,7 +423,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -504,16 +475,11 @@ public class RegionApi {
       /**
    * Get Region
    * Get a region.
-   * @param version    * @param regionId the id of the region to get   * @param accountId the id of the logged in user
+   * @param regionId the id of the region to get   * @param accountId the id of the logged in user
   */
-  public void getRegion (BigDecimal version, Long regionId, Long accountId, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getRegion (Long regionId, Long accountId, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling getRegion"));
-    }
     // verify the required parameter 'regionId' is set
     if (regionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'regionId' when calling getRegion",
@@ -521,7 +487,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -576,7 +542,6 @@ public class RegionApi {
   /**
   * Search Regions
   * Get the list of regions.
-   * @param version 
    * @param accountId the owner account id of the region to be created
    * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;
    * @param keyword the keyword to filter results on
@@ -601,16 +566,11 @@ public class RegionApi {
    * @param limit the limit for pagination
    * @return List<RegionResponse>
   */
-  public List<RegionResponse> searchRegions (BigDecimal version, Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RegionResponse> searchRegions (Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRegions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRegions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/region/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -682,19 +642,14 @@ public class RegionApi {
       /**
    * Search Regions
    * Get the list of regions.
-   * @param version    * @param accountId the owner account id of the region to be created   * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;   * @param keyword the keyword to filter results on   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param range the search radius   * @param regionClass    * @param visibility    * @param searchMode the SearchIndexMode: RDS, LUCENE, or CLOUDINDEX. If not provided, will use the default defined in the Sirqul server   * @param sortField the field to order results by: ID, UPDATED, NAME, or DISTANCE. If not provided, will use the default which is by ID for text and DISTANCE when lat/long is provided.   * @param descending determines if the results get ordered in descending order   * @param includeParent include the parent region or not   * @param includeChildren include the chidren regions or not   * @param includePostalCodes include the postal codes associated with the region or not   * @param categoryIds search on the categories associated with the region   * @param filterIds search on the filters associated with the region   * @param versionCode filter by a specific version code   * @param activeOnly filter to show only active results   * @param showDeleted If showDeleted is true and activeOnly is false, will return regions that have been deleted   * @param lastUpdatedSince only returns records that have last updated since this date \\(UTC timestamp in milliseconds\\)   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param accountId the owner account id of the region to be created   * @param query This parameter is deprecated. deprecated - use \&quot;keyword\&quot;   * @param keyword the keyword to filter results on   * @param latitude the latitude of the user   * @param longitude the longitude of the user   * @param range the search radius   * @param regionClass    * @param visibility    * @param searchMode the SearchIndexMode: RDS, LUCENE, or CLOUDINDEX. If not provided, will use the default defined in the Sirqul server   * @param sortField the field to order results by: ID, UPDATED, NAME, or DISTANCE. If not provided, will use the default which is by ID for text and DISTANCE when lat/long is provided.   * @param descending determines if the results get ordered in descending order   * @param includeParent include the parent region or not   * @param includeChildren include the chidren regions or not   * @param includePostalCodes include the postal codes associated with the region or not   * @param categoryIds search on the categories associated with the region   * @param filterIds search on the filters associated with the region   * @param versionCode filter by a specific version code   * @param activeOnly filter to show only active results   * @param showDeleted If showDeleted is true and activeOnly is false, will return regions that have been deleted   * @param lastUpdatedSince only returns records that have last updated since this date \\(UTC timestamp in milliseconds\\)   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void searchRegions (BigDecimal version, Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit, final Response.Listener<List<RegionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRegions (Long accountId, String query, String keyword, Double latitude, Double longitude, Double range, String regionClass, String visibility, String searchMode, String sortField, Boolean descending, Boolean includeParent, Boolean includeChildren, Boolean includePostalCodes, String categoryIds, String filterIds, Integer versionCode, Boolean activeOnly, Boolean showDeleted, Long lastUpdatedSince, Integer start, Integer limit, final Response.Listener<List<RegionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRegions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRegions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/region/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -769,7 +724,6 @@ public class RegionApi {
   /**
   * Update Region
   * Update a region.
-   * @param version 
    * @param accountId The id of the account sending the request
    * @param regionId The id of the region to be updated
    * @param regionClass RegionClass of this region
@@ -795,13 +749,8 @@ public class RegionApi {
    * @param clearLists If true clear the children and postal code lists before add new ones, otherwise just append.
    * @return RegionResponse
   */
-  public RegionResponse updateRegion (BigDecimal version, Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RegionResponse updateRegion (Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateRegion",
@@ -814,7 +763,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -887,16 +836,11 @@ public class RegionApi {
       /**
    * Update Region
    * Update a region.
-   * @param version    * @param accountId The id of the account sending the request   * @param regionId The id of the region to be updated   * @param regionClass RegionClass of this region   * @param shortName Short name of the region. This is optimized for search   * @param fullName Full name of the region   * @param parentIds Comma separated region ids that are parents of this region   * @param childrenIds Comma separated region ids that are children of this region   * @param postalCodeIds Comma separated postal code ids the region will include   * @param locations Sets of name,lat,long used to create new postal codes assigned to the region   * @param retailerLocationId the retailer location ID that the region is associated with   * @param visibility The Visibility of the region   * @param categoryIds the categories that the region is assigned to   * @param filterIds the filters that the region is assigned to   * @param start    * @param end    * @param polygon the polygon of the region   * @param metaData the meta data of the region   * @param latitude the latitude of the region   * @param longitude the longitude of the region   * @param versionCode the version code   * @param root If this is a root region or not. If true means this region has no parent regions   * @param active Active or inactive status of the region   * @param clearLists If true clear the children and postal code lists before add new ones, otherwise just append.
+   * @param accountId The id of the account sending the request   * @param regionId The id of the region to be updated   * @param regionClass RegionClass of this region   * @param shortName Short name of the region. This is optimized for search   * @param fullName Full name of the region   * @param parentIds Comma separated region ids that are parents of this region   * @param childrenIds Comma separated region ids that are children of this region   * @param postalCodeIds Comma separated postal code ids the region will include   * @param locations Sets of name,lat,long used to create new postal codes assigned to the region   * @param retailerLocationId the retailer location ID that the region is associated with   * @param visibility The Visibility of the region   * @param categoryIds the categories that the region is assigned to   * @param filterIds the filters that the region is assigned to   * @param start    * @param end    * @param polygon the polygon of the region   * @param metaData the meta data of the region   * @param latitude the latitude of the region   * @param longitude the longitude of the region   * @param versionCode the version code   * @param root If this is a root region or not. If true means this region has no parent regions   * @param active Active or inactive status of the region   * @param clearLists If true clear the children and postal code lists before add new ones, otherwise just append.
   */
-  public void updateRegion (BigDecimal version, Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRegion (Long accountId, Long regionId, String regionClass, String shortName, String fullName, String parentIds, String childrenIds, String postalCodeIds, String locations, Long retailerLocationId, String visibility, String categoryIds, String filterIds, Long start, Long end, String polygon, String metaData, Double latitude, Double longitude, Integer versionCode, Boolean root, Boolean active, Boolean clearLists, final Response.Listener<RegionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRegion",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRegion"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateRegion",
@@ -909,7 +853,7 @@ public class RegionApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/region/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/region/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

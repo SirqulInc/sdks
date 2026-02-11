@@ -44,7 +44,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class OfferApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -66,19 +66,13 @@ public class OfferApi {
   /**
   * Update Offer Locations
   * Batch update offer locations.
-   * @param version 
    * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60; 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse batchUpdateOfferLocations (BigDecimal version, String data, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse batchUpdateOfferLocations (String data, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchUpdateOfferLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchUpdateOfferLocations"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling batchUpdateOfferLocations",
@@ -86,7 +80,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/batchUpdate".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/batchUpdate";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -139,16 +133,11 @@ public class OfferApi {
       /**
    * Update Offer Locations
    * Batch update offer locations.
-   * @param version    * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param data JSON string in the following format: &#x60;&#x60;&#x60;json [{   \&quot;offerLocationId\&quot;: 1705,   \&quot;latitude\&quot;: 54.0,   \&quot;longitude\&quot;: -122.0,   \&quot;altitude\&quot;: 1.0,   \&quot;locationDetail\&quot;: \&quot;floor 1\&quot;,   \&quot;locationDescription\&quot;: \&quot;behind the Coke sign\&quot; }, {   \&quot;offerLocationId\&quot;: 1704,   \&quot;latitude\&quot;: 54.1,   \&quot;longitude\&quot;: -122.1 }] &#x60;&#x60;&#x60;    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void batchUpdateOfferLocations (BigDecimal version, String data, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void batchUpdateOfferLocations (String data, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling batchUpdateOfferLocations",
-        new ApiException(400, "Missing the required parameter 'version' when calling batchUpdateOfferLocations"));
-    }
     // verify the required parameter 'data' is set
     if (data == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'data' when calling batchUpdateOfferLocations",
@@ -156,7 +145,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/batchUpdate".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/batchUpdate".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -212,7 +201,6 @@ public class OfferApi {
   /**
   * Create Offer
   * Create an offer and assign it to the provided retailer locations.
-   * @param version 
    * @param includeOfferLocations If true return all the offer locations associated with the offer
    * @param title The title (255 char limit)
    * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}
@@ -301,13 +289,8 @@ public class OfferApi {
    * @param availabilitySummary 
    * @return RetailerOfferResponse
   */
-  public RetailerOfferResponse createOffer (BigDecimal version, Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerOfferResponse createOffer (Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOffer"));
-    }
     // verify the required parameter 'includeOfferLocations' is set
     if (includeOfferLocations == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'includeOfferLocations' when calling createOffer",
@@ -390,7 +373,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -526,16 +509,11 @@ public class OfferApi {
       /**
    * Create Offer
    * Create an offer and assign it to the provided retailer locations.
-   * @param version    * @param includeOfferLocations If true return all the offer locations associated with the offer   * @param title The title (255 char limit)   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit The limit of how many times the offer can be viewed   * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param offerType The offer type {VOUCHER, COUPON, PRODUCT, EVENT, MEDIA, DEVICE}   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param active Sets the active flag   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)   * @param tags Custom string field for doing full-text searches   * @param parentOfferId the parent offer id   * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param externalUrl The clickUrl of the offer   * @param externalId an external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param ticketPriceType the type of ticket needed to buy offer   * @param showRemaining show remaining offers available   * @param showRedeemed show how many offers have been redeemed   * @param replaced    * @param featured flag if offer is featured or not   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param brand The brand. OfferType PRODUCT only.   * @param productType The product type. OfferType PRODUCT only.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param department The department name. The OfferType PRODUCT only.   * @param features The list of features, comma seperated. OfferType PRODUCT only.   * @param minimumPrice The MAP price. OfferType PRODUCT only.   * @param width The width of the item. OfferType PRODUCT only.   * @param height The height of the item. OfferType PRODUCT only.   * @param depth The depth of the item. OfferType PRODUCT only.   * @param weight The weight of the item. OfferType PRODUCT only.   * @param unit The unit of measurement. OfferType PRODUCT only.   * @param studio The studio name. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param publishDate The date published. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param sizeId    * @param listingId The ID of the event listing   * @param mediaType the media type of the offer   * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param rebootTimeHour The reboot hour time ranging from 0 to 23   * @param rebootTimeMinute The reboot minute time ranging from 0 to 59   * @param idleTimeoutInSecond If the device is idle for idleTimeoutInSecond then the device should timeout   * @param serialNumber The serial number on the device   * @param udid The unique device id for the device   * @param deviceType The type of the device, for example: \&quot;Kiosk\&quot;, \&quot;Beacon\&quot;.   * @param devicePower Edysen device power level setting   * @param deviceInterference Edysen device inteference setting   * @param availability    * @param availabilitySummary 
+   * @param includeOfferLocations If true return all the offer locations associated with the offer   * @param title The title (255 char limit)   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit The limit of how many times the offer can be viewed   * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param offerType The offer type {VOUCHER, COUPON, PRODUCT, EVENT, MEDIA, DEVICE}   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param active Sets the active flag   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)   * @param tags Custom string field for doing full-text searches   * @param parentOfferId the parent offer id   * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param externalUrl The clickUrl of the offer   * @param externalId an external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer   * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param ticketPriceType the type of ticket needed to buy offer   * @param showRemaining show remaining offers available   * @param showRedeemed show how many offers have been redeemed   * @param replaced    * @param featured flag if offer is featured or not   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param brand The brand. OfferType PRODUCT only.   * @param productType The product type. OfferType PRODUCT only.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param department The department name. The OfferType PRODUCT only.   * @param features The list of features, comma seperated. OfferType PRODUCT only.   * @param minimumPrice The MAP price. OfferType PRODUCT only.   * @param width The width of the item. OfferType PRODUCT only.   * @param height The height of the item. OfferType PRODUCT only.   * @param depth The depth of the item. OfferType PRODUCT only.   * @param weight The weight of the item. OfferType PRODUCT only.   * @param unit The unit of measurement. OfferType PRODUCT only.   * @param studio The studio name. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param publishDate The date published. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param sizeId    * @param listingId The ID of the event listing   * @param mediaType the media type of the offer   * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param rebootTimeHour The reboot hour time ranging from 0 to 23   * @param rebootTimeMinute The reboot minute time ranging from 0 to 59   * @param idleTimeoutInSecond If the device is idle for idleTimeoutInSecond then the device should timeout   * @param serialNumber The serial number on the device   * @param udid The unique device id for the device   * @param deviceType The type of the device, for example: \&quot;Kiosk\&quot;, \&quot;Beacon\&quot;.   * @param devicePower Edysen device power level setting   * @param deviceInterference Edysen device inteference setting   * @param availability    * @param availabilitySummary 
   */
-  public void createOffer (BigDecimal version, Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createOffer (Boolean includeOfferLocations, String title, String barcodeType, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, Long ticketPrice, Double fullPrice, Double discountPrice, String offerType, String specialOfferType, String offerVisibility, Boolean active, String deviceId, Long accountId, String tags, Long parentOfferId, String retailerLocationIds, String offerLocations, String subTitle, String details, String subDetails, String finePrint, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, String ticketPriceType, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String categoryIds, String filterIds, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOffer"));
-    }
     // verify the required parameter 'includeOfferLocations' is set
     if (includeOfferLocations == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'includeOfferLocations' when calling createOffer",
@@ -618,7 +596,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -757,19 +735,13 @@ public class OfferApi {
   /**
   * Delete Offer
   * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-   * @param version 
    * @param offerId The ID of the offer to be deleted
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the offer.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteOffer (BigDecimal version, Long offerId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteOffer (Long offerId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling deleteOffer",
@@ -777,7 +749,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -830,16 +802,11 @@ public class OfferApi {
       /**
    * Delete Offer
    * Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-   * @param version    * @param offerId The ID of the offer to be deleted   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the offer.
+   * @param offerId The ID of the offer to be deleted   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the offer.
   */
-  public void deleteOffer (BigDecimal version, Long offerId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteOffer (Long offerId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling deleteOffer",
@@ -847,7 +814,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -903,19 +870,13 @@ public class OfferApi {
   /**
   * Delete Offer Location
   * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-   * @param version 
    * @param offerLocationId The ID of the offer location to be deleted
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the delete, must have rights to edit the offer location.
    * @return SirqulResponse
   */
-  public SirqulResponse deleteOfferLocation (BigDecimal version, Long offerLocationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteOfferLocation (Long offerLocationId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferLocation"));
-    }
     // verify the required parameter 'offerLocationId' is set
     if (offerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerLocationId' when calling deleteOfferLocation",
@@ -923,7 +884,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -976,16 +937,11 @@ public class OfferApi {
       /**
    * Delete Offer Location
    * Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-   * @param version    * @param offerLocationId The ID of the offer location to be deleted   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the offer location.
+   * @param offerLocationId The ID of the offer location to be deleted   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the delete, must have rights to edit the offer location.
   */
-  public void deleteOfferLocation (BigDecimal version, Long offerLocationId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteOfferLocation (Long offerLocationId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferLocation"));
-    }
     // verify the required parameter 'offerLocationId' is set
     if (offerLocationId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerLocationId' when calling deleteOfferLocation",
@@ -993,7 +949,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1049,20 +1005,14 @@ public class OfferApi {
   /**
   * Get Offer
   * Gets the details of an offer that the user has access to.
-   * @param version 
    * @param offerId The id of the offer
    * @param includeOfferLocations 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id (deviceId or accountId required)
    * @return RetailerOfferResponse
   */
-  public RetailerOfferResponse getOffer (BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerOfferResponse getOffer (Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling getOffer",
@@ -1075,7 +1025,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1129,16 +1079,11 @@ public class OfferApi {
       /**
    * Get Offer
    * Gets the details of an offer that the user has access to.
-   * @param version    * @param offerId The id of the offer   * @param includeOfferLocations    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)
+   * @param offerId The id of the offer   * @param includeOfferLocations    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id (deviceId or accountId required)
   */
-  public void getOffer (BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOffer (Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling getOffer",
@@ -1151,7 +1096,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1208,7 +1153,6 @@ public class OfferApi {
   /**
   * Get Offer
   * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-   * @param version 
    * @param deviceId The device id for returning account information (i.e. favorites)
    * @param accountId The account id for returning account information (i.e. favorites)
    * @param offerId The offer id (either offeLocationId or offerId must be provided)
@@ -1221,16 +1165,11 @@ public class OfferApi {
    * @param includeChildOffers Determines whether to include child offers in the response
    * @return OfferResponse
   */
-  public OfferResponse getOfferDetails (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferResponse getOfferDetails (String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferDetails",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferDetails"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1290,19 +1229,14 @@ public class OfferApi {
       /**
    * Get Offer
    * Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-   * @param version    * @param deviceId The device id for returning account information (i.e. favorites)   * @param accountId The account id for returning account information (i.e. favorites)   * @param offerId The offer id (either offeLocationId or offerId must be provided)   * @param offerLocationId The offer location id (either offeLocationId or offerId must be provided)   * @param distance The distance of the offer from the user&#39;s current location (this is returned when the offer is searched)   * @param latitude The latitude to calculate distance from the offer   * @param longitude The longitude to calculate distance from the offer   * @param includeOfferLocations Determines whether to return offer locations for the offer   * @param includeRetailerLocations Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work)   * @param includeChildOffers Determines whether to include child offers in the response
+   * @param deviceId The device id for returning account information (i.e. favorites)   * @param accountId The account id for returning account information (i.e. favorites)   * @param offerId The offer id (either offeLocationId or offerId must be provided)   * @param offerLocationId The offer location id (either offeLocationId or offerId must be provided)   * @param distance The distance of the offer from the user&#39;s current location (this is returned when the offer is searched)   * @param latitude The latitude to calculate distance from the offer   * @param longitude The longitude to calculate distance from the offer   * @param includeOfferLocations Determines whether to return offer locations for the offer   * @param includeRetailerLocations Determines whether to return the retailer location info for each offer location response (includeOfferLocations must also be true for this to work)   * @param includeChildOffers Determines whether to include child offers in the response
   */
-  public void getOfferDetails (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferDetails (String deviceId, Long accountId, Long offerId, Long offerLocationId, Double distance, Double latitude, Double longitude, Boolean includeOfferLocations, Boolean includeRetailerLocations, Boolean includeChildOffers, final Response.Listener<OfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferDetails",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferDetails"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1365,20 +1299,14 @@ public class OfferApi {
   /**
   * Get Offers (Counts)
   * Gets the offer list counts.
-   * @param version 
    * @param latitude The latitude of where the search will center at
    * @param longitude The longitude of where the search will center at
    * @param searchRange The range of the search
    * @param distanceUnit The units to use for distance calculations (e.g. MILES, KILOMETERS)
    * @return ListCountResponse
   */
-  public ListCountResponse getOfferListCounts (BigDecimal version, Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ListCountResponse getOfferListCounts (Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferListCounts",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferListCounts"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling getOfferListCounts",
@@ -1391,7 +1319,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/lists/count".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/lists/count";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1445,16 +1373,11 @@ public class OfferApi {
       /**
    * Get Offers (Counts)
    * Gets the offer list counts.
-   * @param version    * @param latitude The latitude of where the search will center at   * @param longitude The longitude of where the search will center at   * @param searchRange The range of the search   * @param distanceUnit The units to use for distance calculations (e.g. MILES, KILOMETERS)
+   * @param latitude The latitude of where the search will center at   * @param longitude The longitude of where the search will center at   * @param searchRange The range of the search   * @param distanceUnit The units to use for distance calculations (e.g. MILES, KILOMETERS)
   */
-  public void getOfferListCounts (BigDecimal version, Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit, final Response.Listener<ListCountResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferListCounts (Double latitude, Double longitude, BigDecimal searchRange, String distanceUnit, final Response.Listener<ListCountResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferListCounts",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferListCounts"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling getOfferListCounts",
@@ -1467,7 +1390,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/lists/count".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/lists/count".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1524,21 +1447,15 @@ public class OfferApi {
   /**
   * Get Offer Location
   * Gets the offer location by offer location id or udid (of a device)
-   * @param version 
    * @param offerLocationId the id of the offer location to get
    * @param udid the UDID of the device
    * @return OfferShortResponse
   */
-  public OfferShortResponse getOfferLocation (BigDecimal version, Long offerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferShortResponse getOfferLocation (Long offerLocationId, String udid) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferLocation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/location/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/location/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1590,19 +1507,14 @@ public class OfferApi {
       /**
    * Get Offer Location
    * Gets the offer location by offer location id or udid (of a device)
-   * @param version    * @param offerLocationId the id of the offer location to get   * @param udid the UDID of the device
+   * @param offerLocationId the id of the offer location to get   * @param udid the UDID of the device
   */
-  public void getOfferLocation (BigDecimal version, Long offerLocationId, String udid, final Response.Listener<OfferShortResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferLocation (Long offerLocationId, String udid, final Response.Listener<OfferShortResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferLocation",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferLocation"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/location/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/location/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1657,7 +1569,6 @@ public class OfferApi {
   /**
   * Search Offer Locations
   * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-   * @param version 
    * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
    * @param descending The order to return the results. Default is false, which will return the results in ascending order.
    * @param start The index into the record set to start with. Default is 0.
@@ -1680,13 +1591,8 @@ public class OfferApi {
    * @param lastNotificationSent 
    * @return List<OfferShortResponse>
   */
-  public List<OfferShortResponse> getOfferLocationsForRetailers (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferShortResponse> getOfferLocationsForRetailers (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferLocationsForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferLocationsForRetailers"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling getOfferLocationsForRetailers",
@@ -1719,7 +1625,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1789,16 +1695,11 @@ public class OfferApi {
       /**
    * Search Offer Locations
    * Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-   * @param version    * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.   * @param includeRetailerLocation    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param keyword The keyword used to search   * @param retailerId Filter results for a specific retailer   * @param retailerLocationId Filter results for a specific retailer location   * @param offerType Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param barcodeType    * @param barcodeEntry    * @param isbn    * @param asin    * @param deviceStatus Edysen device status, running, warning, or down   * @param needsNotificationSent    * @param lastNotificationSent 
+   * @param sortField The column to sort the results on. Default is \&quot;TITLE\&quot;, which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending The order to return the results. Default is false, which will return the results in ascending order.   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of records to return. Default is 20.   * @param activeOnly Determines whether to return only active results. Default is false.   * @param includeRetailerLocation    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param keyword The keyword used to search   * @param retailerId Filter results for a specific retailer   * @param retailerLocationId Filter results for a specific retailer location   * @param offerType Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param barcodeType    * @param barcodeEntry    * @param isbn    * @param asin    * @param deviceStatus Edysen device status, running, warning, or down   * @param needsNotificationSent    * @param lastNotificationSent 
   */
-  public void getOfferLocationsForRetailers (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, final Response.Listener<List<OfferShortResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferLocationsForRetailers (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, Boolean includeRetailerLocation, String deviceId, Long accountId, String keyword, Long retailerId, Long retailerLocationId, String offerType, String specialOfferType, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, final Response.Listener<List<OfferShortResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferLocationsForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferLocationsForRetailers"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling getOfferLocationsForRetailers",
@@ -1831,7 +1732,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/location/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/location/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1904,7 +1805,6 @@ public class OfferApi {
   /**
   * Search Offers
   * Searches on offers that the account has access to.
-   * @param version 
    * @param offerVisibility 
    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY
    * @param descending The order to return the search results
@@ -1938,13 +1838,8 @@ public class OfferApi {
    * @param lastNotificationSent 
    * @return List<OfferResponse>
   */
-  public List<OfferResponse> getOffersForRetailers (BigDecimal version, String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferResponse> getOffersForRetailers (String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOffersForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOffersForRetailers"));
-    }
     // verify the required parameter 'offerVisibility' is set
     if (offerVisibility == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerVisibility' when calling getOffersForRetailers",
@@ -1997,7 +1892,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2078,16 +1973,11 @@ public class OfferApi {
       /**
    * Search Offers
    * Searches on offers that the account has access to.
-   * @param version    * @param offerVisibility    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param availableOnly Return only results that are currently being promoted (is activated and not expired)   * @param activeOnly Return only active results   * @param includeCategories    * @param includeFilters    * @param includeOfferLocations    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param categoryIds    * @param filterIds    * @param q This parameter is deprecated.   * @param keyword The keyword used to search   * @param retailerId the id of the retailer   * @param retailerLocationId the id of the retailer location   * @param couponType This parameter is deprecated.   * @param offerType This parameter is deprecated. Use offer types. Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param offerTypes Comma separated list of offer types {COUPON, VOUCHER, PRODUCT, MEDIA, EVENT, DEVICE}   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param barcodeType    * @param barcodeEntry    * @param isbn    * @param asin    * @param deviceStatus Edysen device status   * @param needsNotificationSent    * @param lastNotificationSent 
+   * @param offerVisibility    * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param availableOnly Return only results that are currently being promoted (is activated and not expired)   * @param activeOnly Return only active results   * @param includeCategories    * @param includeFilters    * @param includeOfferLocations    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param categoryIds    * @param filterIds    * @param q This parameter is deprecated.   * @param keyword The keyword used to search   * @param retailerId the id of the retailer   * @param retailerLocationId the id of the retailer location   * @param couponType This parameter is deprecated.   * @param offerType This parameter is deprecated. Use offer types. Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param offerTypes Comma separated list of offer types {COUPON, VOUCHER, PRODUCT, MEDIA, EVENT, DEVICE}   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param i This parameter is deprecated.   * @param l This parameter is deprecated.   * @param barcodeType    * @param barcodeEntry    * @param isbn    * @param asin    * @param deviceStatus Edysen device status   * @param needsNotificationSent    * @param lastNotificationSent 
   */
-  public void getOffersForRetailers (BigDecimal version, String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, final Response.Listener<List<OfferResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void getOffersForRetailers (String offerVisibility, String sortField, Boolean descending, Integer start, Integer limit, Boolean availableOnly, Boolean activeOnly, Boolean includeCategories, Boolean includeFilters, Boolean includeOfferLocations, String deviceId, Long accountId, String categoryIds, String filterIds, String q, String keyword, Long retailerId, Long retailerLocationId, String couponType, String offerType, String offerTypes, String specialOfferType, Integer i, Integer l, String barcodeType, String barcodeEntry, String isbn, String asin, String deviceStatus, Boolean needsNotificationSent, Long lastNotificationSent, final Response.Listener<List<OfferResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOffersForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOffersForRetailers"));
-    }
     // verify the required parameter 'offerVisibility' is set
     if (offerVisibility == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerVisibility' when calling getOffersForRetailers",
@@ -2140,7 +2030,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2224,7 +2114,6 @@ public class OfferApi {
   /**
   * Update Offer Transaction
   * Redeems an offer.
-   * @param version 
    * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed
    * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed
    * @param deviceId the device id (deviceId or accountId required)
@@ -2232,13 +2121,8 @@ public class OfferApi {
    * @param offerLocationId the OfferLocation ID where the offer is being redeemed
    * @return SirqulResponse
   */
-  public SirqulResponse redeemOfferTransaction (BigDecimal version, Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse redeemOfferTransaction (Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemOfferTransaction"));
-    }
     // verify the required parameter 'offerTransactionId' is set
     if (offerTransactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerTransactionId' when calling redeemOfferTransaction",
@@ -2251,7 +2135,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/transaction/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/transaction/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2306,16 +2190,11 @@ public class OfferApi {
       /**
    * Update Offer Transaction
    * Redeems an offer.
-   * @param version    * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed   * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param offerLocationId the OfferLocation ID where the offer is being redeemed
+   * @param offerTransactionId the OfferTransaction ID of the transaction being redeemed   * @param status the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed   * @param deviceId the device id (deviceId or accountId required)   * @param accountId the account id of the user (deviceId or accountId required)   * @param offerLocationId the OfferLocation ID where the offer is being redeemed
   */
-  public void redeemOfferTransaction (BigDecimal version, Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void redeemOfferTransaction (Long offerTransactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling redeemOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling redeemOfferTransaction"));
-    }
     // verify the required parameter 'offerTransactionId' is set
     if (offerTransactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerTransactionId' when calling redeemOfferTransaction",
@@ -2328,7 +2207,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/transaction/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/transaction/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2386,7 +2265,6 @@ public class OfferApi {
   /**
   * Search Offer Transactions
   * Searches on offer transactions for offers that the account has access to.
-   * @param version 
    * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}
    * @param descending Determines whether the results are in descending order
    * @param start The start index for pagination
@@ -2413,13 +2291,8 @@ public class OfferApi {
    * @param l This parameter is deprecated.
    * @return List<OfferTransactionResponse>
   */
-  public List<OfferTransactionResponse> searchOfferTransactionsForRetailers (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferTransactionResponse> searchOfferTransactionsForRetailers (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchOfferTransactionsForRetailers",
@@ -2447,7 +2320,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/transaction/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/transaction/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2521,16 +2394,11 @@ public class OfferApi {
       /**
    * Search Offer Transactions
    * Searches on offer transactions for offers that the account has access to.
-   * @param version    * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Determines whether to only return active offer transactions   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerLocationId Filter results for this retailer location   * @param offerId Filter results for this offer   * @param offerLocationId Filter results for this offer location   * @param redeemed if true return redeemed transactions (status 2), if false return active transactions (status 0 or 1)   * @param reservationsOnly returns only reservation transactions if true   * @param couponType This parameter is deprecated.   * @param offerType Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param customerAccountIds Filter results by accounts   * @param categoryIds    * @param redeemableStartDate    * @param redeemableEndDate    * @param i This parameter is deprecated.   * @param l This parameter is deprecated.
+   * @param sortField Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param activeOnly Determines whether to only return active offer transactions   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param q This parameter is deprecated.   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerLocationId Filter results for this retailer location   * @param offerId Filter results for this offer   * @param offerLocationId Filter results for this offer location   * @param redeemed if true return redeemed transactions (status 2), if false return active transactions (status 0 or 1)   * @param reservationsOnly returns only reservation transactions if true   * @param couponType This parameter is deprecated.   * @param offerType Filter results to only return COUPON, VOUCHER, PRODUCT, MEDIA, or EVENT offers   * @param specialOfferType Filter results to only return REGULAR_OFFER, ACT_NOW, GET_THERE_NOW offer specials   * @param customerAccountIds Filter results by accounts   * @param categoryIds    * @param redeemableStartDate    * @param redeemableEndDate    * @param i This parameter is deprecated.   * @param l This parameter is deprecated.
   */
-  public void searchOfferTransactionsForRetailers (BigDecimal version, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchOfferTransactionsForRetailers (String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, String deviceId, Long accountId, String q, String keyword, Long retailerId, Long retailerLocationId, Long offerId, Long offerLocationId, Boolean redeemed, Boolean reservationsOnly, String couponType, String offerType, String specialOfferType, String customerAccountIds, String categoryIds, Long redeemableStartDate, Long redeemableEndDate, Integer i, Integer l, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactionsForRetailers"));
-    }
     // verify the required parameter 'sortField' is set
     if (sortField == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'sortField' when calling searchOfferTransactionsForRetailers",
@@ -2558,7 +2426,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/transaction/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/transaction/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2635,7 +2503,6 @@ public class OfferApi {
   /**
   * Search Offers
   * Searches for offers as a consumer.
-   * @param version 
    * @param latitude The latitude of where the search will center at
    * @param longitude The longitude of where the search will center at
    * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available
@@ -2669,13 +2536,8 @@ public class OfferApi {
    * @param groupBy groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance).
    * @return OfferListResponse
   */
-  public OfferListResponse searchOffersForConsumer (BigDecimal version, Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferListResponse searchOffersForConsumer (Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOffersForConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOffersForConsumer"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling searchOffersForConsumer",
@@ -2718,7 +2580,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/lists".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/lists";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2799,16 +2661,11 @@ public class OfferApi {
       /**
    * Search Offers
    * Searches for offers as a consumer.
-   * @param version    * @param latitude The latitude of where the search will center at   * @param longitude The longitude of where the search will center at   * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available   * @param locationId This parameter is deprecated. The location id   * @param start The start index for pagination   * @param limit The limit for pagination   * @param maxRecommendations    * @param distanceUnit    * @param appKey The application key used to identify the application   * @param deviceId The device id for returning account information (i.e. offer transactions made by the user)   * @param accountId The account id for returning account information (i.e. offer transactions made by the user)   * @param searchRange The range of the search   * @param tags Does a full-text search on tags   * @param supportedPostalCodes supported postal codes   * @param keyword The keyword to filter results by   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param offerTypes Comma separated list of offer types {COUPON, VOUCHER, PRODUCT, MEDIA, EVENT, DEVICE}   * @param type The special offer type {ALL, RESERVABLE, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param sortField The field to sort the result set on:DISTANCE Sort the offers nearest to farthest BUSINESS_NAME Sort the offers alphabetically by location name SHUFFLE Sort the nearest offers randomly USERPREFS accountId must accompany this parameter. Gives the first X recommendations where X equals the parameter maxRecommendations   * @param recommendOfferIds Return recommendations based on these offers IDs   * @param retailerLocationIds Only return offer locations for the specific retailer locations.   * @param offerId Only return offer locations for the specific offer.   * @param includeMission If true include the mission response as part of the offer. Default is false.   * @param includeCategories If true include the category list response as part of the offer. Default is false.   * @param includeFilters If true include the filter list response as part of the offer. Default is false.   * @param includeExpired If true then ignore the expired dates. Default is false.   * @param includeFavorite If true then ignore the favorite. Default is false.   * @param closestOfferOnly This parameter is deprecated. see groupBy. If true then it only returns the offer location for an offer closest to the given lat/lon   * @param searchExpression    * @param groupBy groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance).
+   * @param latitude The latitude of where the search will center at   * @param longitude The longitude of where the search will center at   * @param recommendationType The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available   * @param locationId This parameter is deprecated. The location id   * @param start The start index for pagination   * @param limit The limit for pagination   * @param maxRecommendations    * @param distanceUnit    * @param appKey The application key used to identify the application   * @param deviceId The device id for returning account information (i.e. offer transactions made by the user)   * @param accountId The account id for returning account information (i.e. offer transactions made by the user)   * @param searchRange The range of the search   * @param tags Does a full-text search on tags   * @param supportedPostalCodes supported postal codes   * @param keyword The keyword to filter results by   * @param categories Comma separate list of category ids   * @param filters Comma separated list of filter ids   * @param offerTypes Comma separated list of offer types {COUPON, VOUCHER, PRODUCT, MEDIA, EVENT, DEVICE}   * @param type The special offer type {ALL, RESERVABLE, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param sortField The field to sort the result set on:DISTANCE Sort the offers nearest to farthest BUSINESS_NAME Sort the offers alphabetically by location name SHUFFLE Sort the nearest offers randomly USERPREFS accountId must accompany this parameter. Gives the first X recommendations where X equals the parameter maxRecommendations   * @param recommendOfferIds Return recommendations based on these offers IDs   * @param retailerLocationIds Only return offer locations for the specific retailer locations.   * @param offerId Only return offer locations for the specific offer.   * @param includeMission If true include the mission response as part of the offer. Default is false.   * @param includeCategories If true include the category list response as part of the offer. Default is false.   * @param includeFilters If true include the filter list response as part of the offer. Default is false.   * @param includeExpired If true then ignore the expired dates. Default is false.   * @param includeFavorite If true then ignore the favorite. Default is false.   * @param closestOfferOnly This parameter is deprecated. see groupBy. If true then it only returns the offer location for an offer closest to the given lat/lon   * @param searchExpression    * @param groupBy groups the results by a certain field. For example, if you want to return the closest offer location of an offer, then pass in groupBy&#x3D;OFFER_ID and sortField&#x3D;DISTANCE (to sort by distance).
   */
-  public void searchOffersForConsumer (BigDecimal version, Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchOffersForConsumer (Double latitude, Double longitude, String recommendationType, Long locationId, Integer start, Integer limit, Integer maxRecommendations, String distanceUnit, String appKey, String deviceId, Long accountId, Double searchRange, String tags, String supportedPostalCodes, String keyword, String categories, String filters, String offerTypes, String type, String sortField, String recommendOfferIds, String retailerLocationIds, Long offerId, Boolean includeMission, Boolean includeCategories, Boolean includeFilters, Boolean includeExpired, Boolean includeFavorite, Boolean closestOfferOnly, String searchExpression, String groupBy, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOffersForConsumer",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOffersForConsumer"));
-    }
     // verify the required parameter 'latitude' is set
     if (latitude == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'latitude' when calling searchOffersForConsumer",
@@ -2851,7 +2708,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/offer/lists".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/lists".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -2935,21 +2792,15 @@ public class OfferApi {
   /**
   * Get Offers (Top)
   * Gets the top active offers.
-   * @param version 
    * @param start The index into the record set to start with. Default is 0.
    * @param limit The total number of record to return. Default id 20.
    * @return OfferListResponse
   */
-  public OfferListResponse topOfferTransactions (BigDecimal version, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferListResponse topOfferTransactions (Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling topOfferTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling topOfferTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/top".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/top";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3001,19 +2852,14 @@ public class OfferApi {
       /**
    * Get Offers (Top)
    * Gets the top active offers.
-   * @param version    * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default id 20.
+   * @param start The index into the record set to start with. Default is 0.   * @param limit The total number of record to return. Default id 20.
   */
-  public void topOfferTransactions (BigDecimal version, Integer start, Integer limit, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void topOfferTransactions (Integer start, Integer limit, final Response.Listener<OfferListResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling topOfferTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling topOfferTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/offer/top".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/offer/top".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3068,7 +2914,6 @@ public class OfferApi {
   /**
   * Update Offer
   * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-   * @param version 
    * @param offerId The offer to update
    * @param includeOfferLocations If true return all the offer locations associated with the offer
    * @param deviceId The device id (deviceId or accountId required)
@@ -3158,13 +3003,8 @@ public class OfferApi {
    * @param availabilitySummary 
    * @return RetailerOfferResponse
   */
-  public RetailerOfferResponse updateOffer (BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RetailerOfferResponse updateOffer (Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling updateOffer",
@@ -3177,7 +3017,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3314,16 +3154,11 @@ public class OfferApi {
       /**
    * Update Offer
    * Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-   * @param version    * @param offerId The offer to update   * @param includeOfferLocations If true return all the offer locations associated with the offer   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)   * @param parentOfferId    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param tags Custom string field for doing full-text searches   * @param title The title (255 char limit)   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer.   * @param externalUrl The clickUrl of the offer   * @param externalId    * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit    * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPriceType the type of ticket needed to buy the offer   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param showRemaining show remaining offers available   * @param showRedeemed show how many offers have been redeemed   * @param replaced    * @param featured whether the offer is featured or not   * @param offerType The offer type {VOUCHER, COUPON, PRODUCT, MEDIA, EVENT}   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param active Sets the active flag   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param brand The brand. OfferType PRODUCT only.   * @param productType The product type. OfferType PRODUCT only.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param department The department name. The OfferType PRODUCT only.   * @param features The list of features, comma seperated. OfferType PRODUCT only.   * @param minimumPrice The MAP price. OfferType PRODUCT only.   * @param width The width of the item. OfferType PRODUCT only.   * @param height The height of the item. OfferType PRODUCT only.   * @param depth The depth of the item. OfferType PRODUCT only.   * @param weight The weight of the item. OfferType PRODUCT only.   * @param unit The unit of measurement. OfferType PRODUCT only.   * @param studio The studio name. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param publishDate The date published. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param sizeId The size Id. OfferType PRODUCT only.   * @param listingId The ID of the event listing   * @param mediaType    * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param rebootTimeHour The reboot hour time ranging from 0 to 23   * @param rebootTimeMinute The reboot minute time ranging from 0 to 59   * @param idleTimeoutInSecond If the device is idle for idleTimeoutInSecond then the device should timeout   * @param serialNumber The serial number on the device   * @param udid The unique device id for the device   * @param deviceType The type of the device, for example: \&quot;Kiosk\&quot;, \&quot;Beacon\&quot;.   * @param devicePower RSSI reading at 1 meter from device (-10 to -140)   * @param deviceInterference    * @param availability    * @param availabilitySummary 
+   * @param offerId The offer to update   * @param includeOfferLocations If true return all the offer locations associated with the offer   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)   * @param parentOfferId    * @param retailerLocationIds Comma separated list of retailer location ids. This will assign the offer to these retailer locations.   * @param offerLocations A list of json data that has offer location specific values.   * @param tags Custom string field for doing full-text searches   * @param title The title (255 char limit)   * @param subTitle The sub title (255 char limit)   * @param details The details   * @param subDetails A string for custom details (255 char limit)   * @param finePrint The fine print   * @param barcodeType The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}   * @param barcodeEntry The bar code entry string   * @param externalRedeemOptions An external identifier. What the identifier will be used for and how it is formatted is up to the frontend developer.   * @param externalUrl The clickUrl of the offer   * @param externalId    * @param ticketsRewardType The type of ticket to reward, null means default type   * @param ticketsReward Determines how many tickets are awarded   * @param activated The date of when the offer will be visible to consumers   * @param expires The date of when the offer expires   * @param noExpiration Overrides the expiration date so that the offer does not expire   * @param availableLimit The limit of how many times the offer can be used by consumers   * @param availableLimitPerUser The limit of how many times a user can used the same offer   * @param addedLimit The limit of how many times the offer can be added to consumer wallets   * @param viewLimit    * @param maxPrints The maximum number of times the offer can be printed   * @param ticketPriceType the type of ticket needed to buy the offer   * @param ticketPrice The cost of the offer in tickets   * @param fullPrice The retail/full price cost of the offer in real currency   * @param discountPrice The cost of the offer at a discounted price (what the consumer pays)   * @param showRemaining show remaining offers available   * @param showRedeemed show how many offers have been redeemed   * @param replaced    * @param featured whether the offer is featured or not   * @param offerType The offer type {VOUCHER, COUPON, PRODUCT, MEDIA, EVENT}   * @param specialOfferType The special offer type {ALL, REGULAR_OFFER, ACT_NOW, GET_THERE_NOW}   * @param offerVisibility The offer visibility {PUBLIC, REWARDABLE, TRIGGERABLE}   * @param categoryIds Comma separated list of category ids   * @param filterIds Comma separated list of filter ids   * @param active Sets the active flag   * @param barcodeAssetId The id of the barcode asset   * @param imageAssetId The id of the an offer asset   * @param imageAssetId1 The id of the an offer asset   * @param imageAssetId2 The id of the an offer asset   * @param imageAssetId3 The id of the an offer asset   * @param imageAssetId4 The id of the an offer asset   * @param imageAssetId5 The id of the an offer asset   * @param publisher The maker of the item.   * @param redeemableStart The redeemable start date/time of the offer.   * @param redeemableEnd The redeemable start date/time of the offer.   * @param brand The brand. OfferType PRODUCT only.   * @param productType The product type. OfferType PRODUCT only.   * @param conditionType The condition. OfferType PRODUCT only.   * @param isbn The ISBN id. OfferType PRODUCT only.   * @param asin The ASIN id. OfferType PRODUCT only.   * @param catalogNumbers The list of catelog numbers, comma seperated. OfferType PRODUCT only.   * @param department The department name. The OfferType PRODUCT only.   * @param features The list of features, comma seperated. OfferType PRODUCT only.   * @param minimumPrice The MAP price. OfferType PRODUCT only.   * @param width The width of the item. OfferType PRODUCT only.   * @param height The height of the item. OfferType PRODUCT only.   * @param depth The depth of the item. OfferType PRODUCT only.   * @param weight The weight of the item. OfferType PRODUCT only.   * @param unit The unit of measurement. OfferType PRODUCT only.   * @param studio The studio name. OfferType PRODUCT only.   * @param parentalRating The parental control rating. OfferType PRODUCT only.   * @param publishDate The date published. OfferType PRODUCT only.   * @param availabilityDate The date available. OfferType PRODUCT only.   * @param sizeId The size Id. OfferType PRODUCT only.   * @param listingId The ID of the event listing   * @param mediaType    * @param duration The total playing time of the media item. OfferType MEDIA only.   * @param author The created/author of the media item. OfferType MEDIA only.   * @param releaseDate The date/time of when the media item was originally released. OfferType MEDIA only.   * @param collectionIds    * @param rebootTimeHour The reboot hour time ranging from 0 to 23   * @param rebootTimeMinute The reboot minute time ranging from 0 to 59   * @param idleTimeoutInSecond If the device is idle for idleTimeoutInSecond then the device should timeout   * @param serialNumber The serial number on the device   * @param udid The unique device id for the device   * @param deviceType The type of the device, for example: \&quot;Kiosk\&quot;, \&quot;Beacon\&quot;.   * @param devicePower RSSI reading at 1 meter from device (-10 to -140)   * @param deviceInterference    * @param availability    * @param availabilitySummary 
   */
-  public void updateOffer (BigDecimal version, Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateOffer (Long offerId, Boolean includeOfferLocations, String deviceId, Long accountId, Long parentOfferId, String retailerLocationIds, String offerLocations, String tags, String title, String subTitle, String details, String subDetails, String finePrint, String barcodeType, String barcodeEntry, String externalRedeemOptions, String externalUrl, String externalId, String ticketsRewardType, Long ticketsReward, Long activated, Long expires, Boolean noExpiration, Integer availableLimit, Integer availableLimitPerUser, Integer addedLimit, Integer viewLimit, Integer maxPrints, String ticketPriceType, Long ticketPrice, Double fullPrice, Double discountPrice, Boolean showRemaining, Boolean showRedeemed, Boolean replaced, Boolean featured, String offerType, String specialOfferType, String offerVisibility, String categoryIds, String filterIds, Boolean active, Long barcodeAssetId, Long imageAssetId, Long imageAssetId1, Long imageAssetId2, Long imageAssetId3, Long imageAssetId4, Long imageAssetId5, String publisher, Long redeemableStart, Long redeemableEnd, String brand, String productType, String conditionType, String isbn, String asin, String catalogNumbers, String department, String features, Double minimumPrice, Double width, Double height, Double depth, Double weight, String unit, String studio, String parentalRating, Long publishDate, Long availabilityDate, Long sizeId, Long listingId, String mediaType, Integer duration, String author, Long releaseDate, String collectionIds, Integer rebootTimeHour, Integer rebootTimeMinute, Integer idleTimeoutInSecond, String serialNumber, String udid, String deviceType, Double devicePower, Double deviceInterference, String availability, String availabilitySummary, final Response.Listener<RetailerOfferResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOffer",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOffer"));
-    }
     // verify the required parameter 'offerId' is set
     if (offerId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerId' when calling updateOffer",
@@ -3336,7 +3171,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3476,20 +3311,14 @@ public class OfferApi {
   /**
   * Activate Offer
   * Sets the activated date on offers. This will make offers visible for consumers.
-   * @param version 
    * @param offerIds Comma separated list of offer ids
    * @param active Determines whether to make the offer active as well
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account used to perform the activation, must have rights to edit the offer.
    * @return SirqulResponse
   */
-  public SirqulResponse updateOfferStatus (BigDecimal version, String offerIds, Boolean active, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse updateOfferStatus (String offerIds, Boolean active, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferStatus"));
-    }
     // verify the required parameter 'offerIds' is set
     if (offerIds == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerIds' when calling updateOfferStatus",
@@ -3502,7 +3331,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/status".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/status";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -3556,16 +3385,11 @@ public class OfferApi {
       /**
    * Activate Offer
    * Sets the activated date on offers. This will make offers visible for consumers.
-   * @param version    * @param offerIds Comma separated list of offer ids   * @param active Determines whether to make the offer active as well   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the activation, must have rights to edit the offer.
+   * @param offerIds Comma separated list of offer ids   * @param active Determines whether to make the offer active as well   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account used to perform the activation, must have rights to edit the offer.
   */
-  public void updateOfferStatus (BigDecimal version, String offerIds, Boolean active, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateOfferStatus (String offerIds, Boolean active, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferStatus",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferStatus"));
-    }
     // verify the required parameter 'offerIds' is set
     if (offerIds == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'offerIds' when calling updateOfferStatus",
@@ -3578,7 +3402,7 @@ public class OfferApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/retailer/offer/status".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/retailer/offer/status".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

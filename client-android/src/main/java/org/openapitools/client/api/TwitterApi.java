@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.ProfileResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class TwitterApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,17 +59,11 @@ public class TwitterApi {
   /**
   * Authorize Twitter
   * Makes an authorization call to twitter for a user to login and allow any app permissions.
-   * @param version 
    * @param appKey the application key
    * @return SirqulResponse
   */
-  public SirqulResponse authorizeTwitter (BigDecimal version, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse authorizeTwitter (String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling authorizeTwitter",
-        new ApiException(400, "Missing the required parameter 'version' when calling authorizeTwitter"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling authorizeTwitter",
@@ -78,7 +71,7 @@ public class TwitterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/twitter/authorize".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/twitter/authorize";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,16 +122,11 @@ public class TwitterApi {
       /**
    * Authorize Twitter
    * Makes an authorization call to twitter for a user to login and allow any app permissions.
-   * @param version    * @param appKey the application key
+   * @param appKey the application key
   */
-  public void authorizeTwitter (BigDecimal version, String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void authorizeTwitter (String appKey, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling authorizeTwitter",
-        new ApiException(400, "Missing the required parameter 'version' when calling authorizeTwitter"));
-    }
     // verify the required parameter 'appKey' is set
     if (appKey == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'appKey' when calling authorizeTwitter",
@@ -146,7 +134,7 @@ public class TwitterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/twitter/authorize".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/twitter/authorize".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -200,7 +188,6 @@ public class TwitterApi {
   /**
   * Login Twitter
   * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-   * @param version 
    * @param accessToken The access token
    * @param accessTokenSecret The secret access token
    * @param appKey The application key
@@ -210,13 +197,8 @@ public class TwitterApi {
    * @param longitude The current longitude of the user
    * @return ProfileResponse
   */
-  public ProfileResponse loginTwitter (BigDecimal version, String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public ProfileResponse loginTwitter (String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling loginTwitter",
-        new ApiException(400, "Missing the required parameter 'version' when calling loginTwitter"));
-    }
     // verify the required parameter 'accessToken' is set
     if (accessToken == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accessToken' when calling loginTwitter",
@@ -239,7 +221,7 @@ public class TwitterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/twitter/login".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/twitter/login";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -296,16 +278,11 @@ public class TwitterApi {
       /**
    * Login Twitter
    * Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-   * @param version    * @param accessToken The access token   * @param accessTokenSecret The secret access token   * @param appKey The application key   * @param responseFilters a comma separated list of ProfileFilters for filtering the returned response data   * @param deviceId The device id   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
+   * @param accessToken The access token   * @param accessTokenSecret The secret access token   * @param appKey The application key   * @param responseFilters a comma separated list of ProfileFilters for filtering the returned response data   * @param deviceId The device id   * @param latitude The current latitude of the user   * @param longitude The current longitude of the user
   */
-  public void loginTwitter (BigDecimal version, String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void loginTwitter (String accessToken, String accessTokenSecret, String appKey, String responseFilters, String deviceId, Double latitude, Double longitude, final Response.Listener<ProfileResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling loginTwitter",
-        new ApiException(400, "Missing the required parameter 'version' when calling loginTwitter"));
-    }
     // verify the required parameter 'accessToken' is set
     if (accessToken == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accessToken' when calling loginTwitter",
@@ -328,7 +305,7 @@ public class TwitterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/twitter/login".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/twitter/login".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

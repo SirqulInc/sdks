@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.Account;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class DependentApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,18 +59,12 @@ public class DependentApi {
   /**
   * Create Dependent
   * Create dependent of the account
-   * @param version 
    * @param accountId the id of the parent account to create a dependent for
    * @param body 
    * @return SirqulResponse
   */
-  public SirqulResponse create (BigDecimal version, Long accountId, Account body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse create (Long accountId, Account body) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = body;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling create",
-        new ApiException(400, "Missing the required parameter 'version' when calling create"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling create",
@@ -79,7 +72,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,16 +122,11 @@ public class DependentApi {
       /**
    * Create Dependent
    * Create dependent of the account
-   * @param version    * @param accountId the id of the parent account to create a dependent for   * @param body 
+   * @param accountId the id of the parent account to create a dependent for   * @param body 
   */
-  public void create (BigDecimal version, Long accountId, Account body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void create (Long accountId, Account body, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = body;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling create",
-        new ApiException(400, "Missing the required parameter 'version' when calling create"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling create",
@@ -146,7 +134,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -199,17 +187,11 @@ public class DependentApi {
   /**
   * Get dependent list of an account
   * Get the dependent list of an account
-   * @param version 
    * @param accountId the id of the parent account to get a list of dependents
    * @return SirqulResponse
   */
-  public SirqulResponse getDependents (BigDecimal version, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse getDependents (Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDependents",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDependents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getDependents",
@@ -217,7 +199,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -267,16 +249,11 @@ public class DependentApi {
       /**
    * Get dependent list of an account
    * Get the dependent list of an account
-   * @param version    * @param accountId the id of the parent account to get a list of dependents
+   * @param accountId the id of the parent account to get a list of dependents
   */
-  public void getDependents (BigDecimal version, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getDependents (Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getDependents",
-        new ApiException(400, "Missing the required parameter 'version' when calling getDependents"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getDependents",
@@ -284,7 +261,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -337,18 +314,12 @@ public class DependentApi {
   /**
   * Delete Dependent
   * Delete the Dependent
-   * @param version 
    * @param accountId the id of the parent account tied to the dependent
    * @param dependentId the id of the dependent to delete
    * @return void
   */
-  public void removeDependent (BigDecimal version, Long accountId, Long dependentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public void removeDependent (Long accountId, Long dependentId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeDependent",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeDependent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling removeDependent",
@@ -361,7 +332,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString())).replaceAll("\\{" + "dependentId" + "\\}", apiInvoker.escapeString(dependentId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString())).replaceAll("\\{" + "dependentId" + "\\}", apiInvoker.escapeString(dependentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -411,16 +382,11 @@ public class DependentApi {
       /**
    * Delete Dependent
    * Delete the Dependent
-   * @param version    * @param accountId the id of the parent account tied to the dependent   * @param dependentId the id of the dependent to delete
+   * @param accountId the id of the parent account tied to the dependent   * @param dependentId the id of the dependent to delete
   */
-  public void removeDependent (BigDecimal version, Long accountId, Long dependentId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
+  public void removeDependent (Long accountId, Long dependentId, final Response.Listener<String> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeDependent",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeDependent"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling removeDependent",
@@ -433,7 +399,7 @@ public class DependentApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString())).replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString())).replaceAll("\\{" + "dependentId" + "\\}", apiInvoker.escapeString(dependentId.toString()));
+    String path = "/cargo/dependent/{accountId}".replaceAll("\\{format\\}","json").replaceAll("\\{" + "accountId" + "\\}", apiInvoker.escapeString(accountId.toString())).replaceAll("\\{" + "dependentId" + "\\}", apiInvoker.escapeString(dependentId.toString()));
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

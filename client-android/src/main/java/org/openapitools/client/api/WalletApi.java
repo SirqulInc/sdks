@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.OfferTransactionResponse;
 import org.openapitools.client.model.SirqulResponse;
@@ -39,7 +38,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class WalletApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -61,7 +60,6 @@ public class WalletApi {
   /**
   * Create Wallet Offers
   * Adds offers to the wallet
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -75,16 +73,11 @@ public class WalletApi {
    * @param status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
    * @return List<OfferTransactionResponse>
   */
-  public List<OfferTransactionResponse> createOfferTransaction (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferTransactionResponse> createOfferTransaction (String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOfferTransaction"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -145,19 +138,14 @@ public class WalletApi {
       /**
    * Create Wallet Offers
    * Adds offers to the wallet
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param offerCart A JSON list of offers to purchase. &#x60;&#x60;&#x60;json [   {     \&quot;offerId\&quot;: 123,     \&quot;offerLocationId\&quot;: 234,     \&quot;quantity\&quot;: 2   },   {     \&quot;offerId\&quot;: 456,     \&quot;offerLocationId\&quot;: 567,     \&quot;quantity\&quot;: 1   } ] &#x60;&#x60;&#x60;    * @param promoCode The promoCode   * @param currencyType Determines the method of purchasing offer. CASH &#x3D; use card on file, POINTS &#x3D; use points, TICKETS &#x3D; use tickets   * @param usePoints Sets the currencyType to POINTS   * @param metaData External custom client defined data   * @param appKey The application requesting the purchase, required when currencyType is TICKETS   * @param status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param offerCart A JSON list of offers to purchase. &#x60;&#x60;&#x60;json [   {     \&quot;offerId\&quot;: 123,     \&quot;offerLocationId\&quot;: 234,     \&quot;quantity\&quot;: 2   },   {     \&quot;offerId\&quot;: 456,     \&quot;offerLocationId\&quot;: 567,     \&quot;quantity\&quot;: 1   } ] &#x60;&#x60;&#x60;    * @param promoCode The promoCode   * @param currencyType Determines the method of purchasing offer. CASH &#x3D; use card on file, POINTS &#x3D; use points, TICKETS &#x3D; use tickets   * @param usePoints Sets the currencyType to POINTS   * @param metaData External custom client defined data   * @param appKey The application requesting the purchase, required when currencyType is TICKETS   * @param status Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)
   */
-  public void createOfferTransaction (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void createOfferTransaction (String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, Integer status, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling createOfferTransaction"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -221,19 +209,13 @@ public class WalletApi {
   /**
   * Delete Wallet Offer
   * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-   * @param version 
    * @param transactionId The offer transaction id to remove
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteOfferTransaction (BigDecimal version, Long transactionId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteOfferTransaction (Long transactionId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling deleteOfferTransaction",
@@ -241,7 +223,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -294,16 +276,11 @@ public class WalletApi {
       /**
    * Delete Wallet Offer
    * Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-   * @param version    * @param transactionId The offer transaction id to remove   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param transactionId The offer transaction id to remove   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void deleteOfferTransaction (BigDecimal version, Long transactionId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteOfferTransaction (Long transactionId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling deleteOfferTransaction",
@@ -311,7 +288,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -367,7 +344,6 @@ public class WalletApi {
   /**
   * Get Wallet Offer
   * 
-   * @param version 
    * @param transactionId The offer transaction id to get details of
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -377,13 +353,8 @@ public class WalletApi {
    * @param returnFullResponse Determines whether to return a detailed version of the response
    * @return OfferTransactionResponse
   */
-  public OfferTransactionResponse getOfferTransaction (BigDecimal version, Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferTransactionResponse getOfferTransaction (Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling getOfferTransaction",
@@ -391,7 +362,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -448,16 +419,11 @@ public class WalletApi {
       /**
    * Get Wallet Offer
    * 
-   * @param version    * @param transactionId The offer transaction id to get details of   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param includeMission If true then include mission data, false to not include   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param returnFullResponse Determines whether to return a detailed version of the response
+   * @param transactionId The offer transaction id to get details of   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param includeMission If true then include mission data, false to not include   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param returnFullResponse Determines whether to return a detailed version of the response
   */
-  public void getOfferTransaction (BigDecimal version, Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse, final Response.Listener<OfferTransactionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getOfferTransaction (Long transactionId, String deviceId, Long accountId, Boolean includeMission, Double latitude, Double longitude, Boolean returnFullResponse, final Response.Listener<OfferTransactionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling getOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling getOfferTransaction",
@@ -465,7 +431,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -525,7 +491,6 @@ public class WalletApi {
   /**
   * Preview Wallet Offers
   * Preview the final cost of a transaction without charging the user
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param offerId The id of the offer being added (offerId or offeLocationId required)
@@ -538,16 +503,11 @@ public class WalletApi {
    * @param appKey The application requesting the purchase, required when currencyType is TICKETS
    * @return List<OfferTransactionResponse>
   */
-  public List<OfferTransactionResponse> previewOfferTransaction (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferTransactionResponse> previewOfferTransaction (String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling previewOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling previewOfferTransaction"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/preview".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/preview";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -607,19 +567,14 @@ public class WalletApi {
       /**
    * Preview Wallet Offers
    * Preview the final cost of a transaction without charging the user
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param offerCart A JSON list of offers to purchase.   * @param promoCode The promoCode   * @param currencyType Determines the method of purchasing offer. CASH &#x3D; use card on file, POINTS &#x3D; use points, TICKETS &#x3D; use tickets   * @param usePoints Sets the currencyType to POINTS   * @param metaData External custom client defined data   * @param appKey The application requesting the purchase, required when currencyType is TICKETS
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerId The id of the offer being added (offerId or offeLocationId required)   * @param offerLocationId The id of the offer location being added (offerId or offeLocationId required)   * @param offerCart A JSON list of offers to purchase.   * @param promoCode The promoCode   * @param currencyType Determines the method of purchasing offer. CASH &#x3D; use card on file, POINTS &#x3D; use points, TICKETS &#x3D; use tickets   * @param usePoints Sets the currencyType to POINTS   * @param metaData External custom client defined data   * @param appKey The application requesting the purchase, required when currencyType is TICKETS
   */
-  public void previewOfferTransaction (BigDecimal version, String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void previewOfferTransaction (String deviceId, Long accountId, Long offerId, Long offerLocationId, String offerCart, String promoCode, String currencyType, Boolean usePoints, String metaData, String appKey, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling previewOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling previewOfferTransaction"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/preview".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/preview".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -682,7 +637,6 @@ public class WalletApi {
   /**
   * Search Wallet Offers
   * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param keyword The keyword to search for
@@ -726,16 +680,11 @@ public class WalletApi {
    * @param recurringExpirationBefore Filter results by the recurring billing expiration date
    * @return List<OfferTransactionResponse>
   */
-  public List<OfferTransactionResponse> searchOfferTransactions (BigDecimal version, String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<OfferTransactionResponse> searchOfferTransactions (String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -826,19 +775,14 @@ public class WalletApi {
       /**
    * Search Wallet Offers
    * Search on active offers currently in the user&#39;s wallet, or past offers the user has already redeemed.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerIds Filter results for a list of retailers   * @param retailerLocationId Filter results for this retailer location   * @param retailerLocationIds Filter results for a list of retailer locations   * @param excludeRetailerLocationIds Filter results to exclude retailer locations   * @param offerId Filter results for this offer   * @param offerIds Filter results for a list of offer   * @param offerLocationId Filter results for this offer location   * @param offerLocationIds Filter results for a list of offer locations   * @param offerType Filter results to return a specific offer type   * @param offerTypes Filter results to return specific offer types   * @param specialOfferType Filter results to return a specific special offer type   * @param specialOfferTypes Filter results to return specific special offer types   * @param categoryIds Category Ids   * @param filterIds Filter Ids   * @param offerAudienceIds Offer Audience Ids   * @param sortField Determines what to sort the results by   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param redeemableStartDate Filter results by the offer redeemable date   * @param redeemableEndDate Filter results by the offer redeemable date   * @param filterByParentOffer Apply params to offer&#39;s parent   * @param startedSince Filter results by the offer start date   * @param startedBefore Filter results by the offer start date   * @param endedSince Filter results by the offer end date   * @param endedBefore Filter results by the offer end date   * @param redeemed If true return redeemed transactions (status 2), otherwise return active transactions (status 0 or 1)   * @param statuses Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)   * @param reservationsOnly Returns only reservation transactions if true   * @param activeOnly Active Only   * @param returnFullResponse Determines whether to return a detailed version of the response   * @param recurringStartedSince Filter results by the recurring billing start date   * @param recurringStartedBefore Filter results by the recurring billing start date   * @param recurringExpirationSince Filter results by the recurring billing expiration date   * @param recurringExpirationBefore Filter results by the recurring billing expiration date
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param keyword The keyword to search for   * @param retailerId Filter results for this retailer   * @param retailerIds Filter results for a list of retailers   * @param retailerLocationId Filter results for this retailer location   * @param retailerLocationIds Filter results for a list of retailer locations   * @param excludeRetailerLocationIds Filter results to exclude retailer locations   * @param offerId Filter results for this offer   * @param offerIds Filter results for a list of offer   * @param offerLocationId Filter results for this offer location   * @param offerLocationIds Filter results for a list of offer locations   * @param offerType Filter results to return a specific offer type   * @param offerTypes Filter results to return specific offer types   * @param specialOfferType Filter results to return a specific special offer type   * @param specialOfferTypes Filter results to return specific special offer types   * @param categoryIds Category Ids   * @param filterIds Filter Ids   * @param offerAudienceIds Offer Audience Ids   * @param sortField Determines what to sort the results by   * @param descending Determines whether the results are in descending order   * @param start The start index for pagination   * @param limit The limit for pagination   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param redeemableStartDate Filter results by the offer redeemable date   * @param redeemableEndDate Filter results by the offer redeemable date   * @param filterByParentOffer Apply params to offer&#39;s parent   * @param startedSince Filter results by the offer start date   * @param startedBefore Filter results by the offer start date   * @param endedSince Filter results by the offer end date   * @param endedBefore Filter results by the offer end date   * @param redeemed If true return redeemed transactions (status 2), otherwise return active transactions (status 0 or 1)   * @param statuses Custom status value to change to (0 or 1 for redeem, 5 or 6 for membership)   * @param reservationsOnly Returns only reservation transactions if true   * @param activeOnly Active Only   * @param returnFullResponse Determines whether to return a detailed version of the response   * @param recurringStartedSince Filter results by the recurring billing start date   * @param recurringStartedBefore Filter results by the recurring billing start date   * @param recurringExpirationSince Filter results by the recurring billing expiration date   * @param recurringExpirationBefore Filter results by the recurring billing expiration date
   */
-  public void searchOfferTransactions (BigDecimal version, String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchOfferTransactions (String deviceId, Long accountId, String keyword, Long retailerId, String retailerIds, Long retailerLocationId, String retailerLocationIds, String excludeRetailerLocationIds, Long offerId, String offerIds, Long offerLocationId, String offerLocationIds, String offerType, String offerTypes, String specialOfferType, String specialOfferTypes, String categoryIds, String filterIds, String offerAudienceIds, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Long redeemableStartDate, Long redeemableEndDate, Boolean filterByParentOffer, Long startedSince, Long startedBefore, Long endedSince, Long endedBefore, Boolean redeemed, String statuses, Boolean reservationsOnly, Boolean activeOnly, Boolean returnFullResponse, Long recurringStartedSince, Long recurringStartedBefore, Long recurringExpirationSince, Long recurringExpirationBefore, final Response.Listener<List<OfferTransactionResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchOfferTransactions",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchOfferTransactions"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -932,7 +876,6 @@ public class WalletApi {
   /**
   * Update Wallet Offer
   * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-   * @param version 
    * @param transactionId The offer transaction id to remove
    * @param status The status value to change to (0 or 1)
    * @param deviceId The device id (deviceId or accountId required)
@@ -948,13 +891,8 @@ public class WalletApi {
    * @param exceptionMembershipOfferIds Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up
    * @return OfferTransactionResponse
   */
-  public OfferTransactionResponse updateOfferTransaction (BigDecimal version, Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public OfferTransactionResponse updateOfferTransaction (Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling updateOfferTransaction",
@@ -967,7 +905,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -1030,16 +968,11 @@ public class WalletApi {
       /**
    * Update Wallet Offer
    * Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-   * @param version    * @param transactionId The offer transaction id to remove   * @param status The status value to change to (0 or 1)   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerLocationId Offer Location Id   * @param currencyType Currency Type   * @param usePoints Use Points   * @param appKey App Key   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param metaData External custom client defined data   * @param returnFullResponse Determines whether to return a detailed version of the response   * @param exceptionMembershipOfferIds Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up
+   * @param transactionId The offer transaction id to remove   * @param status The status value to change to (0 or 1)   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param offerLocationId Offer Location Id   * @param currencyType Currency Type   * @param usePoints Use Points   * @param appKey App Key   * @param latitude The latitude location of the user   * @param longitude The latitude location of the user   * @param metaData External custom client defined data   * @param returnFullResponse Determines whether to return a detailed version of the response   * @param exceptionMembershipOfferIds Exception Offers, transaction audiences of these offers won&#39;t be removed out of the account when up
   */
-  public void updateOfferTransaction (BigDecimal version, Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds, final Response.Listener<OfferTransactionResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateOfferTransaction (Long transactionId, Integer status, String deviceId, Long accountId, Long offerLocationId, String currencyType, Boolean usePoints, String appKey, Double latitude, Double longitude, String metaData, Boolean returnFullResponse, String exceptionMembershipOfferIds, final Response.Listener<OfferTransactionResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateOfferTransaction",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateOfferTransaction"));
-    }
     // verify the required parameter 'transactionId' is set
     if (transactionId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'transactionId' when calling updateOfferTransaction",
@@ -1052,7 +985,7 @@ public class WalletApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/wallet/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/wallet/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.PreviewPersonaResponse;
 import org.openapitools.client.model.SirqulResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class PreviewPersonaApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class PreviewPersonaApi {
   /**
   * Create Persona
   * Creates a new persona. If the given params are null those attributes will be override by null.
-   * @param version 
    * @param accountId the account ID of the user
    * @param title the title of the persona
    * @param previewAccounts the accounts that are able to preview from this persona
@@ -72,13 +70,8 @@ public class PreviewPersonaApi {
    * @param longitude the specified longitude of the persona
    * @return PreviewPersonaResponse
   */
-  public PreviewPersonaResponse createPersona (BigDecimal version, Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PreviewPersonaResponse createPersona (Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPersona",
@@ -91,7 +84,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -150,16 +143,11 @@ public class PreviewPersonaApi {
       /**
    * Create Persona
    * Creates a new persona. If the given params are null those attributes will be override by null.
-   * @param version    * @param accountId the account ID of the user   * @param title the title of the persona   * @param previewAccounts the accounts that are able to preview from this persona   * @param date the sepcified date that this persona is viewing the app   * @param age the specified age of this persona   * @param gender the specified gender of this persona   * @param gameExperienceLevel the specified experience level of the persona   * @param latitude the specified latitude of the persona   * @param longitude the specified longitude of the persona
+   * @param accountId the account ID of the user   * @param title the title of the persona   * @param previewAccounts the accounts that are able to preview from this persona   * @param date the sepcified date that this persona is viewing the app   * @param age the specified age of this persona   * @param gender the specified gender of this persona   * @param gameExperienceLevel the specified experience level of the persona   * @param latitude the specified latitude of the persona   * @param longitude the specified longitude of the persona
   */
-  public void createPersona (BigDecimal version, Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createPersona (Long accountId, String title, String previewAccounts, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createPersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling createPersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createPersona",
@@ -172,7 +160,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -234,18 +222,12 @@ public class PreviewPersonaApi {
   /**
   * Delete Persona
   * Mark the persona for deletion.
-   * @param version 
    * @param accountId the account id of the user
    * @param personaId the id of the persona to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deletePersona (BigDecimal version, Long accountId, Long personaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deletePersona (Long accountId, Long personaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePersona",
@@ -258,7 +240,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -310,16 +292,11 @@ public class PreviewPersonaApi {
       /**
    * Delete Persona
    * Mark the persona for deletion.
-   * @param version    * @param accountId the account id of the user   * @param personaId the id of the persona to delete
+   * @param accountId the account id of the user   * @param personaId the id of the persona to delete
   */
-  public void deletePersona (BigDecimal version, Long accountId, Long personaId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deletePersona (Long accountId, Long personaId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deletePersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling deletePersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deletePersona",
@@ -332,7 +309,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -387,18 +364,12 @@ public class PreviewPersonaApi {
   /**
   * Get Persona
   * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-   * @param version 
    * @param accountId the account ID of the user
    * @param personaId the persona ID of the persona
    * @return PreviewPersonaResponse
   */
-  public PreviewPersonaResponse getPersonaList (BigDecimal version, Long accountId, Long personaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PreviewPersonaResponse getPersonaList (Long accountId, Long personaId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPersonaList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPersonaList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPersonaList",
@@ -411,7 +382,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -463,16 +434,11 @@ public class PreviewPersonaApi {
       /**
    * Get Persona
    * Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-   * @param version    * @param accountId the account ID of the user   * @param personaId the persona ID of the persona
+   * @param accountId the account ID of the user   * @param personaId the persona ID of the persona
   */
-  public void getPersonaList (BigDecimal version, Long accountId, Long personaId, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getPersonaList (Long accountId, Long personaId, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getPersonaList",
-        new ApiException(400, "Missing the required parameter 'version' when calling getPersonaList"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling getPersonaList",
@@ -485,7 +451,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -540,19 +506,13 @@ public class PreviewPersonaApi {
   /**
   * Search Personas
   * Search for persona that the account owns by the given account ID.
-   * @param version 
    * @param accountId the account ID of the user
    * @param start the start index for pagination
    * @param limit the limit for pagination (There is a hard limit of 100)
    * @return PreviewPersonaResponse
   */
-  public PreviewPersonaResponse searchPersona (BigDecimal version, Long accountId, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PreviewPersonaResponse searchPersona (Long accountId, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPersona",
@@ -570,7 +530,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -623,16 +583,11 @@ public class PreviewPersonaApi {
       /**
    * Search Personas
    * Search for persona that the account owns by the given account ID.
-   * @param version    * @param accountId the account ID of the user   * @param start the start index for pagination   * @param limit the limit for pagination (There is a hard limit of 100)
+   * @param accountId the account ID of the user   * @param start the start index for pagination   * @param limit the limit for pagination (There is a hard limit of 100)
   */
-  public void searchPersona (BigDecimal version, Long accountId, Integer start, Integer limit, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchPersona (Long accountId, Integer start, Integer limit, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchPersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchPersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling searchPersona",
@@ -650,7 +605,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -706,7 +661,6 @@ public class PreviewPersonaApi {
   /**
   * Update Persona
   * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-   * @param version 
    * @param accountId the account ID of the user
    * @param personaId the persona ID of the persona to update
    * @param title the title of the persona
@@ -720,13 +674,8 @@ public class PreviewPersonaApi {
    * @param longitude the specified longitude of the persona
    * @return PreviewPersonaResponse
   */
-  public PreviewPersonaResponse updatePersona (BigDecimal version, Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public PreviewPersonaResponse updatePersona (Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePersona",
@@ -739,7 +688,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -800,16 +749,11 @@ public class PreviewPersonaApi {
       /**
    * Update Persona
    * Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-   * @param version    * @param accountId the account ID of the user   * @param personaId the persona ID of the persona to update   * @param title the title of the persona   * @param previewAccounts the accounts that are able to preview from this persona   * @param active the status of the persona, there can only be one active persona per account   * @param date the sepcified date that this persona is viewing the app   * @param age the specified age of this persona   * @param gender the specified gender of this persona   * @param gameExperienceLevel the specified experience level of the persona   * @param latitude the specified latitude of the persona   * @param longitude the specified longitude of the persona
+   * @param accountId the account ID of the user   * @param personaId the persona ID of the persona to update   * @param title the title of the persona   * @param previewAccounts the accounts that are able to preview from this persona   * @param active the status of the persona, there can only be one active persona per account   * @param date the sepcified date that this persona is viewing the app   * @param age the specified age of this persona   * @param gender the specified gender of this persona   * @param gameExperienceLevel the specified experience level of the persona   * @param latitude the specified latitude of the persona   * @param longitude the specified longitude of the persona
   */
-  public void updatePersona (BigDecimal version, Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updatePersona (Long accountId, Long personaId, String title, String previewAccounts, Boolean active, Long date, Integer age, String gender, String gameExperienceLevel, Double latitude, Double longitude, final Response.Listener<PreviewPersonaResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updatePersona",
-        new ApiException(400, "Missing the required parameter 'version' when calling updatePersona"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updatePersona",
@@ -822,7 +766,7 @@ public class PreviewPersonaApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/persona/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/persona/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

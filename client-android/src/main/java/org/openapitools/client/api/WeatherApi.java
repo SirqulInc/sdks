@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.WeatherResponse;
 
 import org.apache.http.HttpEntity;
@@ -37,7 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class WeatherApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -59,23 +58,17 @@ public class WeatherApi {
   /**
   * Search Weather
   * Search the weather forcast for the next 5 days
-   * @param version 
    * @param regionId Region Id
    * @param latitude Latitude
    * @param longitude Longitude
    * @param timezoneOffset Timezone Offset
    * @return WeatherResponse
   */
-  public WeatherResponse searchWeather (BigDecimal version, Long regionId, Double latitude, Double longitude, Long timezoneOffset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public WeatherResponse searchWeather (Long regionId, Double latitude, Double longitude, Long timezoneOffset) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchWeather",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchWeather"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/weather/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/weather/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -129,19 +122,14 @@ public class WeatherApi {
       /**
    * Search Weather
    * Search the weather forcast for the next 5 days
-   * @param version    * @param regionId Region Id   * @param latitude Latitude   * @param longitude Longitude   * @param timezoneOffset Timezone Offset
+   * @param regionId Region Id   * @param latitude Latitude   * @param longitude Longitude   * @param timezoneOffset Timezone Offset
   */
-  public void searchWeather (BigDecimal version, Long regionId, Double latitude, Double longitude, Long timezoneOffset, final Response.Listener<WeatherResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchWeather (Long regionId, Double latitude, Double longitude, Long timezoneOffset, final Response.Listener<WeatherResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchWeather",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchWeather"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/weather/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/weather/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

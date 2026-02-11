@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import java.util.*;
 import org.openapitools.client.model.RatingIndexResponse;
 import org.openapitools.client.model.RatingResponse;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class RatingApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class RatingApi {
   /**
   * Create Rating
   * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-   * @param version 
    * @param ratableType The ratable object type {RETAILER_LOCATION}
    * @param ratableId The id of the ratable object
    * @param ratingValue The integer value of 0-100
@@ -76,13 +74,8 @@ public class RatingApi {
    * @param longitude The current location of the user
    * @return RatingResponse
   */
-  public RatingResponse createRating (BigDecimal version, String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RatingResponse createRating (String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRating"));
-    }
     // verify the required parameter 'ratableType' is set
     if (ratableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratableType' when calling createRating",
@@ -100,7 +93,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -161,16 +154,11 @@ public class RatingApi {
       /**
    * Create Rating
    * This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-   * @param version    * @param ratableType The ratable object type {RETAILER_LOCATION}   * @param ratableId The id of the ratable object   * @param ratingValue The integer value of 0-100   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param categoryId    * @param display A subject title for the user rating (limited to 255 characters)   * @param description The description of the rating   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param ratableType The ratable object type {RETAILER_LOCATION}   * @param ratableId The id of the ratable object   * @param ratingValue The integer value of 0-100   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param categoryId    * @param display A subject title for the user rating (limited to 255 characters)   * @param description The description of the rating   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void createRating (BigDecimal version, String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, final Response.Listener<RatingResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createRating (String ratableType, Long ratableId, Integer ratingValue, String deviceId, Long accountId, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, final Response.Listener<RatingResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling createRating"));
-    }
     // verify the required parameter 'ratableType' is set
     if (ratableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratableType' when calling createRating",
@@ -188,7 +176,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -252,19 +240,13 @@ public class RatingApi {
   /**
   * Delete Rating
   * Sets a rating as deleted.
-   * @param version 
    * @param ratingId The ID of the rating to delete
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteRating (BigDecimal version, Long ratingId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteRating (Long ratingId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRating"));
-    }
     // verify the required parameter 'ratingId' is set
     if (ratingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratingId' when calling deleteRating",
@@ -272,7 +254,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -325,16 +307,11 @@ public class RatingApi {
       /**
    * Delete Rating
    * Sets a rating as deleted.
-   * @param version    * @param ratingId The ID of the rating to delete   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
+   * @param ratingId The ID of the rating to delete   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
   */
-  public void deleteRating (BigDecimal version, Long ratingId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteRating (Long ratingId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteRating"));
-    }
     // verify the required parameter 'ratingId' is set
     if (ratingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratingId' when calling deleteRating",
@@ -342,7 +319,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -398,7 +375,6 @@ public class RatingApi {
   /**
   * Search Location Rating Indexes
   * Search for retailer locations by averages near you.
-   * @param version 
    * @param categoryIds Comma separated list of category ids to filter the results by
    * @param keyword The keyword used to search
    * @param locationType The type of location to filter the results by
@@ -418,16 +394,11 @@ public class RatingApi {
    * @param returnFilters whether to return the filters or not
    * @return List<RatingIndexResponse>
   */
-  public List<RatingIndexResponse> searchLocationRatingIndexes (BigDecimal version, String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RatingIndexResponse> searchLocationRatingIndexes (String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLocationRatingIndexes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLocationRatingIndexes"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/rating/index/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/rating/index/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -494,19 +465,14 @@ public class RatingApi {
       /**
    * Search Location Rating Indexes
    * Search for retailer locations by averages near you.
-   * @param version    * @param categoryIds Comma separated list of category ids to filter the results by   * @param keyword The keyword used to search   * @param locationType The type of location to filter the results by   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, COUNT, SUMMATION, AVERAGE, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param searchRange The search radius in kilometers to filter results   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param returnOverallRating Determines whether to return the overall rating record instead   * @param distanceUnit    * @param returnRetailer whether to return the retailer or not   * @param returnAssets whether to return the assets or not   * @param returnOffers whether to return the offers or not   * @param returnCategories whether to return the categories or not   * @param returnFilters whether to return the filters or not
+   * @param categoryIds Comma separated list of category ids to filter the results by   * @param keyword The keyword used to search   * @param locationType The type of location to filter the results by   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, COUNT, SUMMATION, AVERAGE, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param searchRange The search radius in kilometers to filter results   * @param latitude The current location of the user   * @param longitude The current location of the user   * @param returnOverallRating Determines whether to return the overall rating record instead   * @param distanceUnit    * @param returnRetailer whether to return the retailer or not   * @param returnAssets whether to return the assets or not   * @param returnOffers whether to return the offers or not   * @param returnCategories whether to return the categories or not   * @param returnFilters whether to return the filters or not
   */
-  public void searchLocationRatingIndexes (BigDecimal version, String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, final Response.Listener<List<RatingIndexResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchLocationRatingIndexes (String categoryIds, String keyword, String locationType, String sortField, Boolean descending, Integer start, Integer limit, Double searchRange, Double latitude, Double longitude, Boolean returnOverallRating, String distanceUnit, Boolean returnRetailer, Boolean returnAssets, Boolean returnOffers, Boolean returnCategories, Boolean returnFilters, final Response.Listener<List<RatingIndexResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLocationRatingIndexes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLocationRatingIndexes"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/location/rating/index/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/location/rating/index/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -576,7 +542,6 @@ public class RatingApi {
   /**
   * Search Rating Indexes
   * Search for ratable items by averages.
-   * @param version 
    * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}
    * @param ratableIds Comma separated list of ratable ids to filter the resuts by
    * @param categoryIds Comma separated list of category ids to filter the results by
@@ -592,13 +557,8 @@ public class RatingApi {
    * @param returnOverallRating Determines whether to return the overall rating record instead
    * @return List<RatingIndexResponse>
   */
-  public List<RatingIndexResponse> searchRatingIndexes (BigDecimal version, String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RatingIndexResponse> searchRatingIndexes (String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRatingIndexes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRatingIndexes"));
-    }
     // verify the required parameter 'ratableType' is set
     if (ratableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratableType' when calling searchRatingIndexes",
@@ -606,7 +566,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/index/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/index/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -669,16 +629,11 @@ public class RatingApi {
       /**
    * Search Rating Indexes
    * Search for ratable items by averages.
-   * @param version    * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}   * @param ratableIds Comma separated list of ratable ids to filter the resuts by   * @param categoryIds Comma separated list of category ids to filter the results by   * @param secondaryType    * @param keyword The keyword used to search   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, COUNT, SUMMATION, AVERAGE, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param latitude    * @param longitude    * @param returnRatable Determines whether to return the ratable object in the response   * @param returnOverallRating Determines whether to return the overall rating record instead
+   * @param ratableType Filter results by a ratable type {RETAILER_LOCATION}   * @param ratableIds Comma separated list of ratable ids to filter the resuts by   * @param categoryIds Comma separated list of category ids to filter the results by   * @param secondaryType    * @param keyword The keyword used to search   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, COUNT, SUMMATION, AVERAGE, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param latitude    * @param longitude    * @param returnRatable Determines whether to return the ratable object in the response   * @param returnOverallRating Determines whether to return the overall rating record instead
   */
-  public void searchRatingIndexes (BigDecimal version, String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating, final Response.Listener<List<RatingIndexResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRatingIndexes (String ratableType, String ratableIds, String categoryIds, String secondaryType, String keyword, String sortField, Boolean descending, Integer start, Integer limit, Double latitude, Double longitude, Boolean returnRatable, Boolean returnOverallRating, final Response.Listener<List<RatingIndexResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRatingIndexes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRatingIndexes"));
-    }
     // verify the required parameter 'ratableType' is set
     if (ratableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratableType' when calling searchRatingIndexes",
@@ -686,7 +641,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/index/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/index/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -752,7 +707,6 @@ public class RatingApi {
   /**
   * Search Ratings
   * Search for ratings on a ratable object.
-   * @param version 
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @param filterAccountId Filter results for a particular account
@@ -766,16 +720,11 @@ public class RatingApi {
    * @param limit The number of records to return
    * @return List<RatingResponse>
   */
-  public List<RatingResponse> searchRatings (BigDecimal version, String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<RatingResponse> searchRatings (String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRatings",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRatings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/rating/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -836,19 +785,14 @@ public class RatingApi {
       /**
    * Search Ratings
    * Search for ratings on a ratable object.
-   * @param version    * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param filterAccountId Filter results for a particular account   * @param ratableType The ratable object type {RETAILER_LOCATION}   * @param ratableId The id of the ratable object   * @param categoryIds Comma separated list of category ids to filter the results by   * @param keyword The keyword used to search   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, OWNER_DISPLAY, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return
+   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param filterAccountId Filter results for a particular account   * @param ratableType The ratable object type {RETAILER_LOCATION}   * @param ratableId The id of the ratable object   * @param categoryIds Comma separated list of category ids to filter the results by   * @param keyword The keyword used to search   * @param sortField The column to sort the search on {ID, CREATED, UPDATED, ACTIVE, OWNER_DISPLAY, RATABLE_TYPE, RATABLE_ID, RATABLE_DISPLAY, CATEGORY_ID, CATEGORY_NAME, CATEGORY_SHORT_NAME, CATEGORY_DISPLAY, VALUE}   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return
   */
-  public void searchRatings (BigDecimal version, String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<RatingResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchRatings (String deviceId, Long accountId, Long filterAccountId, String ratableType, Long ratableId, String categoryIds, String keyword, String sortField, Boolean descending, Integer start, Integer limit, final Response.Listener<List<RatingResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchRatings",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchRatings"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/rating/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -912,7 +856,6 @@ public class RatingApi {
   /**
   * Update Rating
   * Update an existing rating. Only the creator of the rating have permission to update.
-   * @param version 
    * @param ratingId The id of the rating (Note: this is not the ratable object id)
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
    * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)
@@ -925,13 +868,8 @@ public class RatingApi {
    * @param longitude The current location of the user
    * @return RatingResponse
   */
-  public RatingResponse updateRating (BigDecimal version, Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public RatingResponse updateRating (Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRating"));
-    }
     // verify the required parameter 'ratingId' is set
     if (ratingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratingId' when calling updateRating",
@@ -939,7 +877,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -999,16 +937,11 @@ public class RatingApi {
       /**
    * Update Rating
    * Update an existing rating. Only the creator of the rating have permission to update.
-   * @param version    * @param ratingId The id of the rating (Note: this is not the ratable object id)   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param ratingValue The rating value to update   * @param categoryId    * @param display A subject title for the user rating (limited to 255 characters)   * @param description The description of the rating   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param ratingId The id of the rating (Note: this is not the ratable object id)   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param ratingValue The rating value to update   * @param categoryId    * @param display A subject title for the user rating (limited to 255 characters)   * @param description The description of the rating   * @param locationDescription The description of the location   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void updateRating (BigDecimal version, Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, final Response.Listener<RatingResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateRating (Long ratingId, String deviceId, Long accountId, Integer ratingValue, Long categoryId, String display, String description, String locationDescription, Double latitude, Double longitude, final Response.Listener<RatingResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateRating",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateRating"));
-    }
     // verify the required parameter 'ratingId' is set
     if (ratingId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'ratingId' when calling updateRating",
@@ -1016,7 +949,7 @@ public class RatingApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/rating/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/rating/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

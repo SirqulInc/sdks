@@ -24,7 +24,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
 import org.openapitools.client.model.BidResponse;
-import java.math.BigDecimal;
 import org.openapitools.client.model.SirqulResponse;
 
 import org.apache.http.HttpEntity;
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class BidApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class BidApi {
   /**
   * Create Bid
   * Creates a bid on a biddable object
-   * @param version 
    * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).
    * @param biddableId The id of the biddable object
    * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.
@@ -71,13 +69,8 @@ public class BidApi {
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return BidResponse
   */
-  public BidResponse createBid (BigDecimal version, String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BidResponse createBid (String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBid"));
-    }
     // verify the required parameter 'biddableType' is set
     if (biddableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'biddableType' when calling createBid",
@@ -110,7 +103,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -168,16 +161,11 @@ public class BidApi {
       /**
    * Create Bid
    * Creates a bid on a biddable object
-   * @param version    * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).   * @param biddableId The id of the biddable object   * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.   * @param amountPerAction The bid amount for actions. For ads, this is the amount that will be taken for each click.   * @param budgetAmount The allocated budget amount that will be used   * @param budgetSchedule The schedule for when the allocated budget amount is reset   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param biddableType A biddable object type. Possible values include: CREATIVE (ads).   * @param biddableId The id of the biddable object   * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.   * @param amountPerAction The bid amount for actions. For ads, this is the amount that will be taken for each click.   * @param budgetAmount The allocated budget amount that will be used   * @param budgetSchedule The schedule for when the allocated budget amount is reset   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void createBid (BigDecimal version, String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createBid (String biddableType, Long biddableId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, String deviceId, Long accountId, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling createBid"));
-    }
     // verify the required parameter 'biddableType' is set
     if (biddableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'biddableType' when calling createBid",
@@ -210,7 +198,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -271,19 +259,13 @@ public class BidApi {
   /**
   * Delete Bid
   * Deleted a bid on a biddable object
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return SirqulResponse
   */
-  public SirqulResponse deleteBid (BigDecimal version, Long bidId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteBid (Long bidId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling deleteBid",
@@ -291,7 +273,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -344,16 +326,11 @@ public class BidApi {
       /**
    * Delete Bid
    * Deleted a bid on a biddable object
-   * @param version    * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void deleteBid (BigDecimal version, Long bidId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteBid (Long bidId, String deviceId, Long accountId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling deleteBid",
@@ -361,7 +338,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -417,19 +394,13 @@ public class BidApi {
   /**
   * Get Bid
   * Get the bid details of a biddable object
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
    * @return BidResponse
   */
-  public BidResponse getBid (BigDecimal version, Long bidId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BidResponse getBid (Long bidId, String deviceId, Long accountId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling getBid",
@@ -437,7 +408,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -490,16 +461,11 @@ public class BidApi {
       /**
    * Get Bid
    * Get the bid details of a biddable object
-   * @param version    * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
+   * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)
   */
-  public void getBid (BigDecimal version, Long bidId, String deviceId, Long accountId, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getBid (Long bidId, String deviceId, Long accountId, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling getBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling getBid",
@@ -507,7 +473,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -563,7 +529,6 @@ public class BidApi {
   /**
   * Update Bid
   * Updates a bid on a biddable object
-   * @param version 
    * @param bidId The bid id
    * @param deviceId The device id (deviceId or accountId required)
    * @param accountId The account id of the user (deviceId or accountId required)
@@ -573,13 +538,8 @@ public class BidApi {
    * @param budgetSchedule The schedule for when the allocated budget amount is reset
    * @return BidResponse
   */
-  public BidResponse updateBid (BigDecimal version, Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public BidResponse updateBid (Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling updateBid",
@@ -587,7 +547,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -644,16 +604,11 @@ public class BidApi {
       /**
    * Update Bid
    * Updates a bid on a biddable object
-   * @param version    * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.   * @param amountPerAction The bid amount for actions. For ads, this is the amount that will be taken for each click.   * @param budgetAmount The allocated budget amount that will be used   * @param budgetSchedule The schedule for when the allocated budget amount is reset
+   * @param bidId The bid id   * @param deviceId The device id (deviceId or accountId required)   * @param accountId The account id of the user (deviceId or accountId required)   * @param amountPerView The bid amount for views. For ads, this is the amount that will be taken for each impression.   * @param amountPerAction The bid amount for actions. For ads, this is the amount that will be taken for each click.   * @param budgetAmount The allocated budget amount that will be used   * @param budgetSchedule The schedule for when the allocated budget amount is reset
   */
-  public void updateBid (BigDecimal version, Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateBid (Long bidId, String deviceId, Long accountId, Double amountPerView, Double amountPerAction, Double budgetAmount, String budgetSchedule, final Response.Listener<BidResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateBid",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateBid"));
-    }
     // verify the required parameter 'bidId' is set
     if (bidId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'bidId' when calling updateBid",
@@ -661,7 +616,7 @@ public class BidApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/bid/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/bid/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

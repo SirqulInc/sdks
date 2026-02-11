@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.FilterResponse;
 import org.openapitools.client.model.FilterTreeResponse;
 import java.util.*;
@@ -40,7 +39,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class FilterApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -62,7 +61,6 @@ public class FilterApi {
   /**
   * Create Filter
   * Create a filter
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the target application)
    * @param name The name of the filter
    * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)
@@ -74,13 +72,8 @@ public class FilterApi {
    * @param metaData external custom client defined data
    * @return FilterTreeResponse
   */
-  public FilterTreeResponse createFilter (BigDecimal version, Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public FilterTreeResponse createFilter (Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createFilter",
@@ -93,7 +86,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/create".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/create";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -152,16 +145,11 @@ public class FilterApi {
       /**
    * Create Filter
    * Create a filter
-   * @param version    * @param accountId The account id of the user (must have permissions to the target application)   * @param name The name of the filter   * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)   * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null   * @param description The description of the filter   * @param externalId A string identifier used by client applications to store external information   * @param externalType A string type used by client applications to store external information   * @param active Sets whether the filter is active or inactive (hidden from consumers)   * @param metaData external custom client defined data
+   * @param accountId The account id of the user (must have permissions to the target application)   * @param name The name of the filter   * @param appKey The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)   * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null   * @param description The description of the filter   * @param externalId A string identifier used by client applications to store external information   * @param externalType A string type used by client applications to store external information   * @param active Sets whether the filter is active or inactive (hidden from consumers)   * @param metaData external custom client defined data
   */
-  public void createFilter (BigDecimal version, Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void createFilter (Long accountId, String name, String appKey, Long parentFilterId, String description, String externalId, String externalType, Boolean active, String metaData, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling createFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling createFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling createFilter",
@@ -174,7 +162,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/create".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/create".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -236,18 +224,12 @@ public class FilterApi {
   /**
   * Delete Filter
   * Delete a filter.
-   * @param version 
    * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)
    * @param filterId The ID of the filter to delete
    * @return SirqulResponse
   */
-  public SirqulResponse deleteFilter (BigDecimal version, Long accountId, Long filterId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SirqulResponse deleteFilter (Long accountId, Long filterId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteFilter",
@@ -260,7 +242,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -312,16 +294,11 @@ public class FilterApi {
       /**
    * Delete Filter
    * Delete a filter.
-   * @param version    * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)   * @param filterId The ID of the filter to delete
+   * @param accountId The account id of the user (must have permissions to the filter&#39;s assigned application)   * @param filterId The ID of the filter to delete
   */
-  public void deleteFilter (BigDecimal version, Long accountId, Long filterId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void deleteFilter (Long accountId, Long filterId, final Response.Listener<SirqulResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling deleteFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling deleteFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling deleteFilter",
@@ -334,7 +311,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -389,17 +366,11 @@ public class FilterApi {
   /**
   * Get Filter
   * Get the details of a specific filter. Recursively include all child filters and their children.
-   * @param version 
    * @param filterId the id of the filter to get
    * @return FilterTreeResponse
   */
-  public FilterTreeResponse getFilter (BigDecimal version, Long filterId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public FilterTreeResponse getFilter (Long filterId) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFilter"));
-    }
     // verify the required parameter 'filterId' is set
     if (filterId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filterId' when calling getFilter",
@@ -407,7 +378,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/get".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/get";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -458,16 +429,11 @@ public class FilterApi {
       /**
    * Get Filter
    * Get the details of a specific filter. Recursively include all child filters and their children.
-   * @param version    * @param filterId the id of the filter to get
+   * @param filterId the id of the filter to get
   */
-  public void getFilter (BigDecimal version, Long filterId, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void getFilter (Long filterId, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling getFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling getFilter"));
-    }
     // verify the required parameter 'filterId' is set
     if (filterId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'filterId' when calling getFilter",
@@ -475,7 +441,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/get".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/get".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -529,7 +495,6 @@ public class FilterApi {
   /**
   * Search Filters
   * Search for filters.
-   * @param version 
    * @param accountId The account id of the user
    * @param keyword The string to search on
    * @param appKey the appKey of the application to retrieve filters for
@@ -542,16 +507,11 @@ public class FilterApi {
    * @param activeOnly Determines whether to return only active categories
    * @return List<FilterResponse>
   */
-  public List<FilterResponse> searchFilters (BigDecimal version, Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public List<FilterResponse> searchFilters (Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchFilters",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchFilters"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/filter/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -611,19 +571,14 @@ public class FilterApi {
       /**
    * Search Filters
    * Search for filters.
-   * @param version    * @param accountId The account id of the user   * @param keyword The string to search on   * @param appKey the appKey of the application to retrieve filters for   * @param responseGroup The group of filters to return: ALL, GLOBAL or MINE. ALL returns both global and application specific matches, GLOBAL only returns global matches, and MINE only returns the application specific matches. If not provided search on the application provided.   * @param rootOnly Restrict the search to only those filters with no parent filter assigned.   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param activeOnly Determines whether to return only active categories
+   * @param accountId The account id of the user   * @param keyword The string to search on   * @param appKey the appKey of the application to retrieve filters for   * @param responseGroup The group of filters to return: ALL, GLOBAL or MINE. ALL returns both global and application specific matches, GLOBAL only returns global matches, and MINE only returns the application specific matches. If not provided search on the application provided.   * @param rootOnly Restrict the search to only those filters with no parent filter assigned.   * @param sortField The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, NAME, DISPLAY   * @param descending The order to return the search results   * @param start The record to begin the return set on   * @param limit The number of records to return   * @param activeOnly Determines whether to return only active categories
   */
-  public void searchFilters (BigDecimal version, Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<FilterResponse>> responseListener, final Response.ErrorListener errorListener) {
+  public void searchFilters (Long accountId, String keyword, String appKey, String responseGroup, Boolean rootOnly, String sortField, Boolean descending, Integer start, Integer limit, Boolean activeOnly, final Response.Listener<List<FilterResponse>> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchFilters",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchFilters"));
-    }
 
     // create path and map variables
-    String path = "/api/{version}/filter/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -686,7 +641,6 @@ public class FilterApi {
   /**
   * Update Filter
   * Update a filter.
-   * @param version 
    * @param accountId The account id of the user
    * @param filterId The ID of the filter to edit
    * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null
@@ -698,13 +652,8 @@ public class FilterApi {
    * @param metaData external custom client defined data
    * @return FilterTreeResponse
   */
-  public FilterTreeResponse updateFilter (BigDecimal version, Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public FilterTreeResponse updateFilter (Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateFilter",
@@ -717,7 +666,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/update".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/update";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -776,16 +725,11 @@ public class FilterApi {
       /**
    * Update Filter
    * Update a filter.
-   * @param version    * @param accountId The account id of the user   * @param filterId The ID of the filter to edit   * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null   * @param name The name of the filter   * @param description The description of the filter   * @param externalId A string identifier used by client applications to store external information   * @param externalType A string type used by client applications to store external information   * @param active Sets whether the filter is active or inactive (hidden from consumers)   * @param metaData external custom client defined data
+   * @param accountId The account id of the user   * @param filterId The ID of the filter to edit   * @param parentFilterId The ID of the parent filter, if not provided then the parent filter will be null   * @param name The name of the filter   * @param description The description of the filter   * @param externalId A string identifier used by client applications to store external information   * @param externalType A string type used by client applications to store external information   * @param active Sets whether the filter is active or inactive (hidden from consumers)   * @param metaData external custom client defined data
   */
-  public void updateFilter (BigDecimal version, Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void updateFilter (Long accountId, Long filterId, Long parentFilterId, String name, String description, String externalId, String externalType, Boolean active, String metaData, final Response.Listener<FilterTreeResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling updateFilter",
-        new ApiException(400, "Missing the required parameter 'version' when calling updateFilter"));
-    }
     // verify the required parameter 'accountId' is set
     if (accountId == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'accountId' when calling updateFilter",
@@ -798,7 +742,7 @@ public class FilterApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/filter/update".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/filter/update".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();

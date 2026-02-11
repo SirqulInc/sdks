@@ -23,7 +23,6 @@ import java.util.*;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 
-import java.math.BigDecimal;
 import org.openapitools.client.model.LikableResponse;
 import org.openapitools.client.model.SearchResponse;
 
@@ -38,7 +37,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 
 public class LikeApi {
-  String basePath = "http://localhost";
+  String basePath = "https://dev.sirqul.com/api/3.18";
   ApiInvoker apiInvoker = ApiInvoker.getInstance();
 
   public void addHeader(String key, String value) {
@@ -60,7 +59,6 @@ public class LikeApi {
   /**
   * Create Like
   * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-   * @param version 
    * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -75,13 +73,8 @@ public class LikeApi {
    * @param longitude The current location of the user
    * @return LikableResponse
   */
-  public LikableResponse registerLike (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LikableResponse registerLike (String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling registerLike",
-        new ApiException(400, "Missing the required parameter 'version' when calling registerLike"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling registerLike",
@@ -94,7 +87,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -156,16 +149,11 @@ public class LikeApi {
       /**
    * Create Like
    * Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-   * @param version    * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param permissionableType This is used for sending out group notifications. For example, when someone likes an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param like determines whether the user likes or dislikes the object   * @param app This parameter is deprecated. This is deprecated, use \&quot;appKey\&quot; instead.   * @param gameType This parameter is deprecated. This is deprecated, use \&quot;appKey\&quot; instead.   * @param appKey the application key   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param likableType The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param permissionableType This is used for sending out group notifications. For example, when someone likes an asset which is also a part of an album, everyone in the album will receive a notification. This is achieved by passing in the permissionable type (in this case \&quot;album\&quot;), and the permissionable id (the album id). Possible types: {ALBUM, ALBUM_CONTEST, GAME_LEVEL, THEME_DESCRIPTOR}   * @param permissionableId The id of the permissionable object (for sending group notifications)   * @param like determines whether the user likes or dislikes the object   * @param app This parameter is deprecated. This is deprecated, use \&quot;appKey\&quot; instead.   * @param gameType This parameter is deprecated. This is deprecated, use \&quot;appKey\&quot; instead.   * @param appKey the application key   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void registerLike (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude, final Response.Listener<LikableResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void registerLike (String likableType, Long likableId, String deviceId, Long accountId, String permissionableType, Long permissionableId, Boolean like, String app, String gameType, String appKey, Double latitude, Double longitude, final Response.Listener<LikableResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling registerLike",
-        new ApiException(400, "Missing the required parameter 'version' when calling registerLike"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling registerLike",
@@ -178,7 +166,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -243,7 +231,6 @@ public class LikeApi {
   /**
   * Delete Like
   * Removes a like. This will make the user \&quot;neutral\&quot;.
-   * @param version 
    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -252,13 +239,8 @@ public class LikeApi {
    * @param longitude The current location of the user
    * @return LikableResponse
   */
-  public LikableResponse removeLike (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public LikableResponse removeLike (String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeLike",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeLike"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling removeLike",
@@ -271,7 +253,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like/delete".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like/delete";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -327,16 +309,11 @@ public class LikeApi {
       /**
    * Delete Like
    * Removes a like. This will make the user \&quot;neutral\&quot;.
-   * @param version    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user
+   * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param latitude The current location of the user   * @param longitude The current location of the user
   */
-  public void removeLike (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<LikableResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void removeLike (String likableType, Long likableId, String deviceId, Long accountId, Double latitude, Double longitude, final Response.Listener<LikableResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling removeLike",
-        new ApiException(400, "Missing the required parameter 'version' when calling removeLike"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling removeLike",
@@ -349,7 +326,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like/delete".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like/delete".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -408,7 +385,6 @@ public class LikeApi {
   /**
   * Search Likes
   * Search for likes on a likable object.
-   * @param version 
    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}
    * @param likableId The id of the likable object
    * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -422,13 +398,8 @@ public class LikeApi {
    * @param limit the limit for pagination
    * @return SearchResponse
   */
-  public SearchResponse searchLikes (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
+  public SearchResponse searchLikes (String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit) throws TimeoutException, ExecutionException, InterruptedException, ApiException {
     Object postBody = null;
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLikes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLikes"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling searchLikes",
@@ -441,7 +412,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like/search".replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like/search";
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
@@ -502,16 +473,11 @@ public class LikeApi {
       /**
    * Search Likes
    * Search for likes on a likable object.
-   * @param version    * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param connectionAccountIds Comma separated list of account IDs for filtering on users   * @param sortField The field to sort by. Possible values include: ID   * @param descending Determines whether the sorted list is in descending or ascending order   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param start the start index for pagination   * @param limit the limit for pagination
+   * @param likableType The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}   * @param likableId The id of the likable object   * @param deviceId The unique device identifier that made the request (either deviceId or accountId must be used)   * @param accountId The unique accountId that made the request (either deviceId or accountId must be used)   * @param connectionAccountIds Comma separated list of account IDs for filtering on users   * @param sortField The field to sort by. Possible values include: ID   * @param descending Determines whether the sorted list is in descending or ascending order   * @param updatedSince return items that have been updated since this date (time-stamp in milliseconds)   * @param updatedBefore return items that have been updated before this date (time-stamp in milliseconds)   * @param start the start index for pagination   * @param limit the limit for pagination
   */
-  public void searchLikes (BigDecimal version, String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
+  public void searchLikes (String likableType, Long likableId, String deviceId, Long accountId, String connectionAccountIds, String sortField, Boolean descending, Long updatedSince, Long updatedBefore, Integer start, Integer limit, final Response.Listener<SearchResponse> responseListener, final Response.ErrorListener errorListener) {
     Object postBody = null;
 
-    // verify the required parameter 'version' is set
-    if (version == null) {
-      VolleyError error = new VolleyError("Missing the required parameter 'version' when calling searchLikes",
-        new ApiException(400, "Missing the required parameter 'version' when calling searchLikes"));
-    }
     // verify the required parameter 'likableType' is set
     if (likableType == null) {
       VolleyError error = new VolleyError("Missing the required parameter 'likableType' when calling searchLikes",
@@ -524,7 +490,7 @@ public class LikeApi {
     }
 
     // create path and map variables
-    String path = "/api/{version}/like/search".replaceAll("\\{format\\}","json").replaceAll("\\{" + "version" + "\\}", apiInvoker.escapeString(version.toString()));
+    String path = "/like/search".replaceAll("\\{format\\}","json");
 
     // query params
     List<Pair> queryParams = new ArrayList<Pair>();
