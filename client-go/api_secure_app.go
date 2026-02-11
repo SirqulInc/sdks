@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type SecureAppAPIService service
 type ApiCreateSecureApplicationRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	keyCert *os.File
@@ -111,14 +109,12 @@ CreateSecureApplication Create Secure Application
 Create a secure application record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateSecureApplicationRequest
 */
-func (a *SecureAppAPIService) CreateSecureApplication(ctx context.Context, version float32) ApiCreateSecureApplicationRequest {
+func (a *SecureAppAPIService) CreateSecureApplication(ctx context.Context) ApiCreateSecureApplicationRequest {
 	return ApiCreateSecureApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -137,8 +133,7 @@ func (a *SecureAppAPIService) CreateSecureApplicationExecute(r ApiCreateSecureAp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/application/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/application/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -253,7 +248,6 @@ func (a *SecureAppAPIService) CreateSecureApplicationExecute(r ApiCreateSecureAp
 type ApiDeleteSecureApplicationRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	accountId *int64
 	appKey *string
 }
@@ -280,14 +274,12 @@ DeleteSecureApplication Delete Secure Application
 Delete a secure application record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteSecureApplicationRequest
 */
-func (a *SecureAppAPIService) DeleteSecureApplication(ctx context.Context, version float32) ApiDeleteSecureApplicationRequest {
+func (a *SecureAppAPIService) DeleteSecureApplication(ctx context.Context) ApiDeleteSecureApplicationRequest {
 	return ApiDeleteSecureApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -306,8 +298,7 @@ func (a *SecureAppAPIService) DeleteSecureApplicationExecute(r ApiDeleteSecureAp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/application/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/application/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -378,7 +369,6 @@ func (a *SecureAppAPIService) DeleteSecureApplicationExecute(r ApiDeleteSecureAp
 type ApiLoginSecureRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	appKey *string
 	biometricFile *os.File
 	deviceId *string
@@ -454,14 +444,12 @@ LoginSecure Login Clear
 Login via Clear.me. Creates a new account if logging in for the first time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLoginSecureRequest
 */
-func (a *SecureAppAPIService) LoginSecure(ctx context.Context, version float32) ApiLoginSecureRequest {
+func (a *SecureAppAPIService) LoginSecure(ctx context.Context) ApiLoginSecureRequest {
 	return ApiLoginSecureRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -480,8 +468,7 @@ func (a *SecureAppAPIService) LoginSecureExecute(r ApiLoginSecureRequest) (*Prof
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/login"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/login"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -585,7 +572,6 @@ func (a *SecureAppAPIService) LoginSecureExecute(r ApiLoginSecureRequest) (*Prof
 type ApiPurchaseSecureRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	body *PaymentRequest
 }
 
@@ -605,14 +591,12 @@ PurchaseSecure Purchase Clear
 Purchase via Clear.me. Creates a new account if purchasing for the first time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPurchaseSecureRequest
 */
-func (a *SecureAppAPIService) PurchaseSecure(ctx context.Context, version float32) ApiPurchaseSecureRequest {
+func (a *SecureAppAPIService) PurchaseSecure(ctx context.Context) ApiPurchaseSecureRequest {
 	return ApiPurchaseSecureRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -631,8 +615,7 @@ func (a *SecureAppAPIService) PurchaseSecureExecute(r ApiPurchaseSecureRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/purchase"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/purchase"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -700,7 +683,6 @@ func (a *SecureAppAPIService) PurchaseSecureExecute(r ApiPurchaseSecureRequest) 
 type ApiResetSecureRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	accountId *int64
 	appKey *string
 }
@@ -727,14 +709,12 @@ ResetSecure Rest Secure Application
 Reset a secure application client.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiResetSecureRequest
 */
-func (a *SecureAppAPIService) ResetSecure(ctx context.Context, version float32) ApiResetSecureRequest {
+func (a *SecureAppAPIService) ResetSecure(ctx context.Context) ApiResetSecureRequest {
 	return ApiResetSecureRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -753,8 +733,7 @@ func (a *SecureAppAPIService) ResetSecureExecute(r ApiResetSecureRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/application/reset"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/application/reset"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -825,7 +804,6 @@ func (a *SecureAppAPIService) ResetSecureExecute(r ApiResetSecureRequest) (*Sirq
 type ApiUpdateSecureApplicationRequest struct {
 	ctx context.Context
 	ApiService *SecureAppAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	active *bool
@@ -908,14 +886,12 @@ UpdateSecureApplication Update Secure Application
 Update a secure application record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateSecureApplicationRequest
 */
-func (a *SecureAppAPIService) UpdateSecureApplication(ctx context.Context, version float32) ApiUpdateSecureApplicationRequest {
+func (a *SecureAppAPIService) UpdateSecureApplication(ctx context.Context) ApiUpdateSecureApplicationRequest {
 	return ApiUpdateSecureApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -934,8 +910,7 @@ func (a *SecureAppAPIService) UpdateSecureApplicationExecute(r ApiUpdateSecureAp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/secure/application/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/secure/application/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

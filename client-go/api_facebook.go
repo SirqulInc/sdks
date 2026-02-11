@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type FacebookAPIService service
 type ApiGetTokenRequest struct {
 	ctx context.Context
 	ApiService *FacebookAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -68,14 +66,12 @@ GetToken Get Facebook Token
 Gets a user's Facebook token.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTokenRequest
 */
-func (a *FacebookAPIService) GetToken(ctx context.Context, version float32) ApiGetTokenRequest {
+func (a *FacebookAPIService) GetToken(ctx context.Context) ApiGetTokenRequest {
 	return ApiGetTokenRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -94,8 +90,7 @@ func (a *FacebookAPIService) GetTokenExecute(r ApiGetTokenRequest) (*TokenRespon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/facebook/getfbtoken"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/facebook/getfbtoken"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -170,7 +165,6 @@ func (a *FacebookAPIService) GetTokenExecute(r ApiGetTokenRequest) (*TokenRespon
 type ApiGraphInterfaceRequest struct {
 	ctx context.Context
 	ApiService *FacebookAPIService
-	version float32
 	event *string
 	deviceId *string
 	accountId *int64
@@ -253,14 +247,12 @@ GraphInterface Post to Facebook
 Make Facebook posts on behalf of the user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGraphInterfaceRequest
 */
-func (a *FacebookAPIService) GraphInterface(ctx context.Context, version float32) ApiGraphInterfaceRequest {
+func (a *FacebookAPIService) GraphInterface(ctx context.Context) ApiGraphInterfaceRequest {
 	return ApiGraphInterfaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -279,8 +271,7 @@ func (a *FacebookAPIService) GraphInterfaceExecute(r ApiGraphInterfaceRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/facebook/graph"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/facebook/graph"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

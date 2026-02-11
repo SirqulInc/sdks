@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type OfferStatusAPIService service
 type ApiCreateOfferTransactionStatusRequest struct {
 	ctx context.Context
 	ApiService *OfferStatusAPIService
-	version float32
 	name *string
 	code *int32
 	deviceId *string
@@ -110,14 +108,12 @@ CreateOfferTransactionStatus Create Offer Status
 Create an offer status record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOfferTransactionStatusRequest
 */
-func (a *OfferStatusAPIService) CreateOfferTransactionStatus(ctx context.Context, version float32) ApiCreateOfferTransactionStatusRequest {
+func (a *OfferStatusAPIService) CreateOfferTransactionStatus(ctx context.Context) ApiCreateOfferTransactionStatusRequest {
 	return ApiCreateOfferTransactionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -136,8 +132,7 @@ func (a *OfferStatusAPIService) CreateOfferTransactionStatusExecute(r ApiCreateO
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/status/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/status/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -240,7 +235,6 @@ func (a *OfferStatusAPIService) CreateOfferTransactionStatusExecute(r ApiCreateO
 type ApiDeleteOfferTransactionStatusRequest struct {
 	ctx context.Context
 	ApiService *OfferStatusAPIService
-	version float32
 	statusId *int64
 	deviceId *string
 	accountId *int64
@@ -288,14 +282,12 @@ DeleteOfferTransactionStatus Delete Offer Status
 Mark an offer status record as deleted
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteOfferTransactionStatusRequest
 */
-func (a *OfferStatusAPIService) DeleteOfferTransactionStatus(ctx context.Context, version float32) ApiDeleteOfferTransactionStatusRequest {
+func (a *OfferStatusAPIService) DeleteOfferTransactionStatus(ctx context.Context) ApiDeleteOfferTransactionStatusRequest {
 	return ApiDeleteOfferTransactionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -314,8 +306,7 @@ func (a *OfferStatusAPIService) DeleteOfferTransactionStatusExecute(r ApiDeleteO
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/status/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/status/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -394,7 +385,6 @@ func (a *OfferStatusAPIService) DeleteOfferTransactionStatusExecute(r ApiDeleteO
 type ApiGetOfferTransactionStatusRequest struct {
 	ctx context.Context
 	ApiService *OfferStatusAPIService
-	version float32
 	statusId *int64
 	deviceId *string
 	accountId *int64
@@ -442,14 +432,12 @@ GetOfferTransactionStatus Get Offer Status
 Get an offer status record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferTransactionStatusRequest
 */
-func (a *OfferStatusAPIService) GetOfferTransactionStatus(ctx context.Context, version float32) ApiGetOfferTransactionStatusRequest {
+func (a *OfferStatusAPIService) GetOfferTransactionStatus(ctx context.Context) ApiGetOfferTransactionStatusRequest {
 	return ApiGetOfferTransactionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -468,8 +456,7 @@ func (a *OfferStatusAPIService) GetOfferTransactionStatusExecute(r ApiGetOfferTr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/status/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/status/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -548,7 +535,6 @@ func (a *OfferStatusAPIService) GetOfferTransactionStatusExecute(r ApiGetOfferTr
 type ApiSearchOfferTransactionStatusesRequest struct {
 	ctx context.Context
 	ApiService *OfferStatusAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -645,14 +631,12 @@ SearchOfferTransactionStatuses Search Offer Status
 Search for the available offer statuses
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchOfferTransactionStatusesRequest
 */
-func (a *OfferStatusAPIService) SearchOfferTransactionStatuses(ctx context.Context, version float32) ApiSearchOfferTransactionStatusesRequest {
+func (a *OfferStatusAPIService) SearchOfferTransactionStatuses(ctx context.Context) ApiSearchOfferTransactionStatusesRequest {
 	return ApiSearchOfferTransactionStatusesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -671,8 +655,7 @@ func (a *OfferStatusAPIService) SearchOfferTransactionStatusesExecute(r ApiSearc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/status/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/status/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -791,7 +774,6 @@ func (a *OfferStatusAPIService) SearchOfferTransactionStatusesExecute(r ApiSearc
 type ApiUpdateOfferTransactionStatusRequest struct {
 	ctx context.Context
 	ApiService *OfferStatusAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -881,14 +863,12 @@ UpdateOfferTransactionStatus Update Offer Status
 Update an offer status record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateOfferTransactionStatusRequest
 */
-func (a *OfferStatusAPIService) UpdateOfferTransactionStatus(ctx context.Context, version float32) ApiUpdateOfferTransactionStatusRequest {
+func (a *OfferStatusAPIService) UpdateOfferTransactionStatus(ctx context.Context) ApiUpdateOfferTransactionStatusRequest {
 	return ApiUpdateOfferTransactionStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -907,8 +887,7 @@ func (a *OfferStatusAPIService) UpdateOfferTransactionStatusExecute(r ApiUpdateO
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/status/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/status/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

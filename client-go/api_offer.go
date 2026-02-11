@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type OfferAPIService service
 type ApiBatchUpdateOfferLocationsRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	data *string
 	deviceId *string
 	accountId *int64
@@ -61,14 +59,12 @@ BatchUpdateOfferLocations Update Offer Locations
 Batch update offer locations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiBatchUpdateOfferLocationsRequest
 */
-func (a *OfferAPIService) BatchUpdateOfferLocations(ctx context.Context, version float32) ApiBatchUpdateOfferLocationsRequest {
+func (a *OfferAPIService) BatchUpdateOfferLocations(ctx context.Context) ApiBatchUpdateOfferLocationsRequest {
 	return ApiBatchUpdateOfferLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -87,8 +83,7 @@ func (a *OfferAPIService) BatchUpdateOfferLocationsExecute(r ApiBatchUpdateOffer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/location/batchUpdate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/location/batchUpdate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -161,7 +156,6 @@ func (a *OfferAPIService) BatchUpdateOfferLocationsExecute(r ApiBatchUpdateOffer
 type ApiCreateOfferRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	includeOfferLocations *bool
 	title *string
 	barcodeType *string
@@ -776,14 +770,12 @@ CreateOffer Create Offer
 Create an offer and assign it to the provided retailer locations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOfferRequest
 */
-func (a *OfferAPIService) CreateOffer(ctx context.Context, version float32) ApiCreateOfferRequest {
+func (a *OfferAPIService) CreateOffer(ctx context.Context) ApiCreateOfferRequest {
 	return ApiCreateOfferRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -802,8 +794,7 @@ func (a *OfferAPIService) CreateOfferExecute(r ApiCreateOfferRequest) (*Retailer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1140,7 +1131,6 @@ func (a *OfferAPIService) CreateOfferExecute(r ApiCreateOfferRequest) (*Retailer
 type ApiDeleteOfferRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerId *int64
 	deviceId *string
 	accountId *int64
@@ -1174,14 +1164,12 @@ DeleteOffer Delete Offer
 Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteOfferRequest
 */
-func (a *OfferAPIService) DeleteOffer(ctx context.Context, version float32) ApiDeleteOfferRequest {
+func (a *OfferAPIService) DeleteOffer(ctx context.Context) ApiDeleteOfferRequest {
 	return ApiDeleteOfferRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1200,8 +1188,7 @@ func (a *OfferAPIService) DeleteOfferExecute(r ApiDeleteOfferRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1274,7 +1261,6 @@ func (a *OfferAPIService) DeleteOfferExecute(r ApiDeleteOfferRequest) (*SirqulRe
 type ApiDeleteOfferLocationRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerLocationId *int64
 	deviceId *string
 	accountId *int64
@@ -1308,14 +1294,12 @@ DeleteOfferLocation Delete Offer Location
 Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteOfferLocationRequest
 */
-func (a *OfferAPIService) DeleteOfferLocation(ctx context.Context, version float32) ApiDeleteOfferLocationRequest {
+func (a *OfferAPIService) DeleteOfferLocation(ctx context.Context) ApiDeleteOfferLocationRequest {
 	return ApiDeleteOfferLocationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1334,8 +1318,7 @@ func (a *OfferAPIService) DeleteOfferLocationExecute(r ApiDeleteOfferLocationReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/location/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/location/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1408,7 +1391,6 @@ func (a *OfferAPIService) DeleteOfferLocationExecute(r ApiDeleteOfferLocationReq
 type ApiGetOfferRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerId *int64
 	includeOfferLocations *bool
 	deviceId *string
@@ -1449,14 +1431,12 @@ GetOffer Get Offer
 Gets the details of an offer that the user has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferRequest
 */
-func (a *OfferAPIService) GetOffer(ctx context.Context, version float32) ApiGetOfferRequest {
+func (a *OfferAPIService) GetOffer(ctx context.Context) ApiGetOfferRequest {
 	return ApiGetOfferRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1475,8 +1455,7 @@ func (a *OfferAPIService) GetOfferExecute(r ApiGetOfferRequest) (*RetailerOfferR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1553,7 +1532,6 @@ func (a *OfferAPIService) GetOfferExecute(r ApiGetOfferRequest) (*RetailerOfferR
 type ApiGetOfferDetailsRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	offerId *int64
@@ -1636,14 +1614,12 @@ GetOfferDetails Get Offer
 Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferDetailsRequest
 */
-func (a *OfferAPIService) GetOfferDetails(ctx context.Context, version float32) ApiGetOfferDetailsRequest {
+func (a *OfferAPIService) GetOfferDetails(ctx context.Context) ApiGetOfferDetailsRequest {
 	return ApiGetOfferDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1662,8 +1638,7 @@ func (a *OfferAPIService) GetOfferDetailsExecute(r ApiGetOfferDetailsRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1768,7 +1743,6 @@ func (a *OfferAPIService) GetOfferDetailsExecute(r ApiGetOfferDetailsRequest) (*
 type ApiGetOfferListCountsRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	latitude *float64
 	longitude *float64
 	searchRange *float32
@@ -1809,14 +1783,12 @@ GetOfferListCounts Get Offers (Counts)
 Gets the offer list counts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferListCountsRequest
 */
-func (a *OfferAPIService) GetOfferListCounts(ctx context.Context, version float32) ApiGetOfferListCountsRequest {
+func (a *OfferAPIService) GetOfferListCounts(ctx context.Context) ApiGetOfferListCountsRequest {
 	return ApiGetOfferListCountsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1835,8 +1807,7 @@ func (a *OfferAPIService) GetOfferListCountsExecute(r ApiGetOfferListCountsReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/lists/count"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/lists/count"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1921,7 +1892,6 @@ func (a *OfferAPIService) GetOfferListCountsExecute(r ApiGetOfferListCountsReque
 type ApiGetOfferLocationRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerLocationId *int64
 	udid *string
 }
@@ -1948,14 +1918,12 @@ GetOfferLocation Get Offer Location
 Gets the offer location by offer location id or udid (of a device)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferLocationRequest
 */
-func (a *OfferAPIService) GetOfferLocation(ctx context.Context, version float32) ApiGetOfferLocationRequest {
+func (a *OfferAPIService) GetOfferLocation(ctx context.Context) ApiGetOfferLocationRequest {
 	return ApiGetOfferLocationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1974,8 +1942,7 @@ func (a *OfferAPIService) GetOfferLocationExecute(r ApiGetOfferLocationRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/location/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/location/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2044,7 +2011,6 @@ func (a *OfferAPIService) GetOfferLocationExecute(r ApiGetOfferLocationRequest) 
 type ApiGetOfferLocationsForRetailersRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -2197,14 +2163,12 @@ GetOfferLocationsForRetailers Search Offer Locations
 Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferLocationsForRetailersRequest
 */
-func (a *OfferAPIService) GetOfferLocationsForRetailers(ctx context.Context, version float32) ApiGetOfferLocationsForRetailersRequest {
+func (a *OfferAPIService) GetOfferLocationsForRetailers(ctx context.Context) ApiGetOfferLocationsForRetailersRequest {
 	return ApiGetOfferLocationsForRetailersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2223,8 +2187,7 @@ func (a *OfferAPIService) GetOfferLocationsForRetailersExecute(r ApiGetOfferLoca
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/location/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/location/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2353,7 +2316,6 @@ func (a *OfferAPIService) GetOfferLocationsForRetailersExecute(r ApiGetOfferLoca
 type ApiGetOffersForRetailersRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerVisibility *string
 	sortField *string
 	descending *bool
@@ -2583,14 +2545,12 @@ GetOffersForRetailers Search Offers
 Searches on offers that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOffersForRetailersRequest
 */
-func (a *OfferAPIService) GetOffersForRetailers(ctx context.Context, version float32) ApiGetOffersForRetailersRequest {
+func (a *OfferAPIService) GetOffersForRetailers(ctx context.Context) ApiGetOffersForRetailersRequest {
 	return ApiGetOffersForRetailersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2609,8 +2569,7 @@ func (a *OfferAPIService) GetOffersForRetailersExecute(r ApiGetOffersForRetailer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2776,7 +2735,6 @@ func (a *OfferAPIService) GetOffersForRetailersExecute(r ApiGetOffersForRetailer
 type ApiRedeemOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerTransactionId *int64
 	status *int32
 	deviceId *string
@@ -2824,14 +2782,12 @@ RedeemOfferTransaction Update Offer Transaction
 Redeems an offer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRedeemOfferTransactionRequest
 */
-func (a *OfferAPIService) RedeemOfferTransaction(ctx context.Context, version float32) ApiRedeemOfferTransactionRequest {
+func (a *OfferAPIService) RedeemOfferTransaction(ctx context.Context) ApiRedeemOfferTransactionRequest {
 	return ApiRedeemOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2850,8 +2806,7 @@ func (a *OfferAPIService) RedeemOfferTransactionExecute(r ApiRedeemOfferTransact
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/transaction/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/transaction/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2931,7 +2886,6 @@ func (a *OfferAPIService) RedeemOfferTransactionExecute(r ApiRedeemOfferTransact
 type ApiSearchOfferTransactionsForRetailersRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -3112,14 +3066,12 @@ SearchOfferTransactionsForRetailers Search Offer Transactions
 Searches on offer transactions for offers that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchOfferTransactionsForRetailersRequest
 */
-func (a *OfferAPIService) SearchOfferTransactionsForRetailers(ctx context.Context, version float32) ApiSearchOfferTransactionsForRetailersRequest {
+func (a *OfferAPIService) SearchOfferTransactionsForRetailers(ctx context.Context) ApiSearchOfferTransactionsForRetailersRequest {
 	return ApiSearchOfferTransactionsForRetailersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3138,8 +3090,7 @@ func (a *OfferAPIService) SearchOfferTransactionsForRetailersExecute(r ApiSearch
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/transaction/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/transaction/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3279,7 +3230,6 @@ func (a *OfferAPIService) SearchOfferTransactionsForRetailersExecute(r ApiSearch
 type ApiSearchOffersForConsumerRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	latitude *float64
 	longitude *float64
 	recommendationType *string
@@ -3509,14 +3459,12 @@ SearchOffersForConsumer Search Offers
 Searches for offers as a consumer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchOffersForConsumerRequest
 */
-func (a *OfferAPIService) SearchOffersForConsumer(ctx context.Context, version float32) ApiSearchOffersForConsumerRequest {
+func (a *OfferAPIService) SearchOffersForConsumer(ctx context.Context) ApiSearchOffersForConsumerRequest {
 	return ApiSearchOffersForConsumerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3535,8 +3483,7 @@ func (a *OfferAPIService) SearchOffersForConsumerExecute(r ApiSearchOffersForCon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/lists"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/lists"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3708,7 +3655,6 @@ func (a *OfferAPIService) SearchOffersForConsumerExecute(r ApiSearchOffersForCon
 type ApiTopOfferTransactionsRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	start *int32
 	limit *int32
 }
@@ -3735,14 +3681,12 @@ TopOfferTransactions Get Offers (Top)
 Gets the top active offers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiTopOfferTransactionsRequest
 */
-func (a *OfferAPIService) TopOfferTransactions(ctx context.Context, version float32) ApiTopOfferTransactionsRequest {
+func (a *OfferAPIService) TopOfferTransactions(ctx context.Context) ApiTopOfferTransactionsRequest {
 	return ApiTopOfferTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3761,8 +3705,7 @@ func (a *OfferAPIService) TopOfferTransactionsExecute(r ApiTopOfferTransactionsR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/offer/top"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/offer/top"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3839,7 +3782,6 @@ func (a *OfferAPIService) TopOfferTransactionsExecute(r ApiTopOfferTransactionsR
 type ApiUpdateOfferRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerId *int64
 	includeOfferLocations *bool
 	deviceId *string
@@ -4461,14 +4403,12 @@ UpdateOffer Update Offer
 Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateOfferRequest
 */
-func (a *OfferAPIService) UpdateOffer(ctx context.Context, version float32) ApiUpdateOfferRequest {
+func (a *OfferAPIService) UpdateOffer(ctx context.Context) ApiUpdateOfferRequest {
 	return ApiUpdateOfferRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4487,8 +4427,7 @@ func (a *OfferAPIService) UpdateOfferExecute(r ApiUpdateOfferRequest) (*Retailer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4814,7 +4753,6 @@ func (a *OfferAPIService) UpdateOfferExecute(r ApiUpdateOfferRequest) (*Retailer
 type ApiUpdateOfferStatusRequest struct {
 	ctx context.Context
 	ApiService *OfferAPIService
-	version float32
 	offerIds *string
 	active *bool
 	deviceId *string
@@ -4855,14 +4793,12 @@ UpdateOfferStatus Activate Offer
 Sets the activated date on offers. This will make offers visible for consumers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateOfferStatusRequest
 */
-func (a *OfferAPIService) UpdateOfferStatus(ctx context.Context, version float32) ApiUpdateOfferStatusRequest {
+func (a *OfferAPIService) UpdateOfferStatus(ctx context.Context) ApiUpdateOfferStatusRequest {
 	return ApiUpdateOfferStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4881,8 +4817,7 @@ func (a *OfferAPIService) UpdateOfferStatusExecute(r ApiUpdateOfferStatusRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/offer/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/offer/status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

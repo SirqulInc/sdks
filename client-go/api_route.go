@@ -27,7 +27,6 @@ type RouteAPIService service
 type ApiApproveRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -41,15 +40,13 @@ ApproveRoute Approve Route
 Approve a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to approve
  @return ApiApproveRouteRequest
 */
-func (a *RouteAPIService) ApproveRoute(ctx context.Context, version float32, routeId int64) ApiApproveRouteRequest {
+func (a *RouteAPIService) ApproveRoute(ctx context.Context, routeId int64) ApiApproveRouteRequest {
 	return ApiApproveRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -69,8 +66,7 @@ func (a *RouteAPIService) ApproveRouteExecute(r ApiApproveRouteRequest) (*Route,
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/approve"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/approve"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -134,7 +130,6 @@ func (a *RouteAPIService) ApproveRouteExecute(r ApiApproveRouteRequest) (*Route,
 type ApiCopyRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	body *Route
 }
@@ -154,15 +149,13 @@ CopyRoute Copy Route
 Make an copy of the given route with optional overriding properties
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to duplicate
  @return ApiCopyRouteRequest
 */
-func (a *RouteAPIService) CopyRoute(ctx context.Context, version float32, routeId int64) ApiCopyRouteRequest {
+func (a *RouteAPIService) CopyRoute(ctx context.Context, routeId int64) ApiCopyRouteRequest {
 	return ApiCopyRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -182,8 +175,7 @@ func (a *RouteAPIService) CopyRouteExecute(r ApiCopyRouteRequest) (*Route, *http
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/copy"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/copy"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -249,7 +241,6 @@ func (a *RouteAPIService) CopyRouteExecute(r ApiCopyRouteRequest) (*Route, *http
 type ApiCreateRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	body *Route
 }
 
@@ -268,14 +259,12 @@ CreateRoute Create Route
 Create new route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRouteRequest
 */
-func (a *RouteAPIService) CreateRoute(ctx context.Context, version float32) ApiCreateRouteRequest {
+func (a *RouteAPIService) CreateRoute(ctx context.Context) ApiCreateRouteRequest {
 	return ApiCreateRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -294,8 +283,7 @@ func (a *RouteAPIService) CreateRouteExecute(r ApiCreateRouteRequest) (*Route, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -360,7 +348,6 @@ func (a *RouteAPIService) CreateRouteExecute(r ApiCreateRouteRequest) (*Route, *
 type ApiCreateRouteDirectionsRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -374,15 +361,13 @@ CreateRouteDirections Update Route Directions
 Regenerate the directions of a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to update directions for
  @return ApiCreateRouteDirectionsRequest
 */
-func (a *RouteAPIService) CreateRouteDirections(ctx context.Context, version float32, routeId int64) ApiCreateRouteDirectionsRequest {
+func (a *RouteAPIService) CreateRouteDirections(ctx context.Context, routeId int64) ApiCreateRouteDirectionsRequest {
 	return ApiCreateRouteDirectionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -402,8 +387,7 @@ func (a *RouteAPIService) CreateRouteDirectionsExecute(r ApiCreateRouteDirection
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/directions"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/directions"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -467,7 +451,6 @@ func (a *RouteAPIService) CreateRouteDirectionsExecute(r ApiCreateRouteDirection
 type ApiCreateRoutePolylineRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -481,15 +464,13 @@ CreateRoutePolyline Create Route Polyline
 Update the polyline of the requested route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to create a polyline for
  @return ApiCreateRoutePolylineRequest
 */
-func (a *RouteAPIService) CreateRoutePolyline(ctx context.Context, version float32, routeId int64) ApiCreateRoutePolylineRequest {
+func (a *RouteAPIService) CreateRoutePolyline(ctx context.Context, routeId int64) ApiCreateRoutePolylineRequest {
 	return ApiCreateRoutePolylineRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -509,8 +490,7 @@ func (a *RouteAPIService) CreateRoutePolylineExecute(r ApiCreateRoutePolylineReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/polyline"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/polyline"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -574,7 +554,6 @@ func (a *RouteAPIService) CreateRoutePolylineExecute(r ApiCreateRoutePolylineReq
 type ApiDeleteRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -588,15 +567,13 @@ DeleteRoute Delete Route
 Delete an existing route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @return ApiDeleteRouteRequest
 */
-func (a *RouteAPIService) DeleteRoute(ctx context.Context, version float32, routeId int64) ApiDeleteRouteRequest {
+func (a *RouteAPIService) DeleteRoute(ctx context.Context, routeId int64) ApiDeleteRouteRequest {
 	return ApiDeleteRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -614,8 +591,7 @@ func (a *RouteAPIService) DeleteRouteExecute(r ApiDeleteRouteRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -670,7 +646,6 @@ func (a *RouteAPIService) DeleteRouteExecute(r ApiDeleteRouteRequest) (*http.Res
 type ApiDisapproveRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -684,15 +659,13 @@ DisapproveRoute Disapprove Route
 Disapprove a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to reject
  @return ApiDisapproveRouteRequest
 */
-func (a *RouteAPIService) DisapproveRoute(ctx context.Context, version float32, routeId int64) ApiDisapproveRouteRequest {
+func (a *RouteAPIService) DisapproveRoute(ctx context.Context, routeId int64) ApiDisapproveRouteRequest {
 	return ApiDisapproveRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -712,8 +685,7 @@ func (a *RouteAPIService) DisapproveRouteExecute(r ApiDisapproveRouteRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/disapprove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/disapprove"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -777,7 +749,6 @@ func (a *RouteAPIService) DisapproveRouteExecute(r ApiDisapproveRouteRequest) (*
 type ApiGetRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	showInheritedProperties *bool
 }
@@ -798,15 +769,13 @@ GetRoute Get Route
 Get an existing route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to get
  @return ApiGetRouteRequest
 */
-func (a *RouteAPIService) GetRoute(ctx context.Context, version float32, routeId int64) ApiGetRouteRequest {
+func (a *RouteAPIService) GetRoute(ctx context.Context, routeId int64) ApiGetRouteRequest {
 	return ApiGetRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -826,8 +795,7 @@ func (a *RouteAPIService) GetRouteExecute(r ApiGetRouteRequest) (*Route, *http.R
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -895,7 +863,6 @@ func (a *RouteAPIService) GetRouteExecute(r ApiGetRouteRequest) (*Route, *http.R
 type ApiGetRouteDirectionsRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -909,15 +876,13 @@ GetRouteDirections Get Route Directions
 Get the directions of a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to get directions for
  @return ApiGetRouteDirectionsRequest
 */
-func (a *RouteAPIService) GetRouteDirections(ctx context.Context, version float32, routeId int64) ApiGetRouteDirectionsRequest {
+func (a *RouteAPIService) GetRouteDirections(ctx context.Context, routeId int64) ApiGetRouteDirectionsRequest {
 	return ApiGetRouteDirectionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -937,8 +902,7 @@ func (a *RouteAPIService) GetRouteDirectionsExecute(r ApiGetRouteDirectionsReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/directions"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/directions"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1002,7 +966,6 @@ func (a *RouteAPIService) GetRouteDirectionsExecute(r ApiGetRouteDirectionsReque
 type ApiGetRouteShipmentsRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -1016,15 +979,13 @@ GetRouteShipments Get Route Shipments
 Get the shipments on the requested route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to get shipments for
  @return ApiGetRouteShipmentsRequest
 */
-func (a *RouteAPIService) GetRouteShipments(ctx context.Context, version float32, routeId int64) ApiGetRouteShipmentsRequest {
+func (a *RouteAPIService) GetRouteShipments(ctx context.Context, routeId int64) ApiGetRouteShipmentsRequest {
 	return ApiGetRouteShipmentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -1044,8 +1005,7 @@ func (a *RouteAPIService) GetRouteShipmentsExecute(r ApiGetRouteShipmentsRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/shipments"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/shipments"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1109,7 +1069,6 @@ func (a *RouteAPIService) GetRouteShipmentsExecute(r ApiGetRouteShipmentsRequest
 type ApiGetRouteStopRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	stopId int64
 }
@@ -1124,16 +1083,14 @@ GetRouteStop Get Route Stop
 Get the specific stop on a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to get stops for
  @param stopId the id of the specific stop on the route
  @return ApiGetRouteStopRequest
 */
-func (a *RouteAPIService) GetRouteStop(ctx context.Context, version float32, routeId int64, stopId int64) ApiGetRouteStopRequest {
+func (a *RouteAPIService) GetRouteStop(ctx context.Context, routeId int64, stopId int64) ApiGetRouteStopRequest {
 	return ApiGetRouteStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 		stopId: stopId,
 	}
@@ -1154,8 +1111,7 @@ func (a *RouteAPIService) GetRouteStopExecute(r ApiGetRouteStopRequest) (*Stop, 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stop/{stopId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stop/{stopId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"stopId"+"}", url.PathEscape(parameterValueToString(r.stopId, "stopId")), -1)
 
@@ -1220,7 +1176,6 @@ func (a *RouteAPIService) GetRouteStopExecute(r ApiGetRouteStopRequest) (*Stop, 
 type ApiGetRouteStopsRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	confirmedOnly *bool
 }
@@ -1241,15 +1196,13 @@ GetRouteStops Get Route Stops
 The stops of the route requested
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @return ApiGetRouteStopsRequest
 */
-func (a *RouteAPIService) GetRouteStops(ctx context.Context, version float32, routeId int64) ApiGetRouteStopsRequest {
+func (a *RouteAPIService) GetRouteStops(ctx context.Context, routeId int64) ApiGetRouteStopsRequest {
 	return ApiGetRouteStopsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -1269,8 +1222,7 @@ func (a *RouteAPIService) GetRouteStopsExecute(r ApiGetRouteStopsRequest) ([]Sto
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stops"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stops"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1338,7 +1290,6 @@ func (a *RouteAPIService) GetRouteStopsExecute(r ApiGetRouteStopsRequest) ([]Sto
 type ApiGetShipmentsAtStopRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	stopId int64
 }
@@ -1353,16 +1304,14 @@ GetShipmentsAtStop Get Shipments At Stop
 Get the list of shipments on the requested route at a stop
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @param stopId the id of the stop to get shipments on
  @return ApiGetShipmentsAtStopRequest
 */
-func (a *RouteAPIService) GetShipmentsAtStop(ctx context.Context, version float32, routeId int64, stopId int64) ApiGetShipmentsAtStopRequest {
+func (a *RouteAPIService) GetShipmentsAtStop(ctx context.Context, routeId int64, stopId int64) ApiGetShipmentsAtStopRequest {
 	return ApiGetShipmentsAtStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 		stopId: stopId,
 	}
@@ -1383,8 +1332,7 @@ func (a *RouteAPIService) GetShipmentsAtStopExecute(r ApiGetShipmentsAtStopReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stop/{stopId}/shipments"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stop/{stopId}/shipments"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"stopId"+"}", url.PathEscape(parameterValueToString(r.stopId, "stopId")), -1)
 
@@ -1449,7 +1397,6 @@ func (a *RouteAPIService) GetShipmentsAtStopExecute(r ApiGetShipmentsAtStopReque
 type ApiOptimizeRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 }
 
@@ -1463,15 +1410,13 @@ OptimizeRoute Optimize Route
 Optimize a route. The optimization method based on how the server is configured.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to optimize
  @return ApiOptimizeRouteRequest
 */
-func (a *RouteAPIService) OptimizeRoute(ctx context.Context, version float32, routeId int64) ApiOptimizeRouteRequest {
+func (a *RouteAPIService) OptimizeRoute(ctx context.Context, routeId int64) ApiOptimizeRouteRequest {
 	return ApiOptimizeRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -1489,8 +1434,7 @@ func (a *RouteAPIService) OptimizeRouteExecute(r ApiOptimizeRouteRequest) (*http
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/optimize"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/optimize"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1545,7 +1489,6 @@ func (a *RouteAPIService) OptimizeRouteExecute(r ApiOptimizeRouteRequest) (*http
 type ApiRemoveStopRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	stopId int64
 }
@@ -1560,16 +1503,14 @@ RemoveStop Delete Stop
 Delete a stop on a route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @param stopId the id of the specific stop to delete on the route
  @return ApiRemoveStopRequest
 */
-func (a *RouteAPIService) RemoveStop(ctx context.Context, version float32, routeId int64, stopId int64) ApiRemoveStopRequest {
+func (a *RouteAPIService) RemoveStop(ctx context.Context, routeId int64, stopId int64) ApiRemoveStopRequest {
 	return ApiRemoveStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 		stopId: stopId,
 	}
@@ -1588,8 +1529,7 @@ func (a *RouteAPIService) RemoveStopExecute(r ApiRemoveStopRequest) (*http.Respo
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stop/{stopId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stop/{stopId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"stopId"+"}", url.PathEscape(parameterValueToString(r.stopId, "stopId")), -1)
 
@@ -1645,7 +1585,6 @@ func (a *RouteAPIService) RemoveStopExecute(r ApiRemoveStopRequest) (*http.Respo
 type ApiReorderRouteStopsPatchRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	body *[]Stop
 }
@@ -1665,15 +1604,13 @@ ReorderRouteStopsPatch Reorder Route Stops
 Reordering the stops on the route with and update route distance, time, direction, and polyline
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @return ApiReorderRouteStopsPatchRequest
 */
-func (a *RouteAPIService) ReorderRouteStopsPatch(ctx context.Context, version float32, routeId int64) ApiReorderRouteStopsPatchRequest {
+func (a *RouteAPIService) ReorderRouteStopsPatch(ctx context.Context, routeId int64) ApiReorderRouteStopsPatchRequest {
 	return ApiReorderRouteStopsPatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -1693,8 +1630,7 @@ func (a *RouteAPIService) ReorderRouteStopsPatchExecute(r ApiReorderRouteStopsPa
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stops/reorder"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stops/reorder"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1760,7 +1696,6 @@ func (a *RouteAPIService) ReorderRouteStopsPatchExecute(r ApiReorderRouteStopsPa
 type ApiReorderRouteStopsPostRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	body *[]Stop
 }
@@ -1780,15 +1715,13 @@ ReorderRouteStopsPost Reorder Route Stops
 Reordering the stops on the route with and update route distance, time, direction, and polyline
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @return ApiReorderRouteStopsPostRequest
 */
-func (a *RouteAPIService) ReorderRouteStopsPost(ctx context.Context, version float32, routeId int64) ApiReorderRouteStopsPostRequest {
+func (a *RouteAPIService) ReorderRouteStopsPost(ctx context.Context, routeId int64) ApiReorderRouteStopsPostRequest {
 	return ApiReorderRouteStopsPostRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -1808,8 +1741,7 @@ func (a *RouteAPIService) ReorderRouteStopsPostExecute(r ApiReorderRouteStopsPos
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stops/reorder"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stops/reorder"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1875,7 +1807,6 @@ func (a *RouteAPIService) ReorderRouteStopsPostExecute(r ApiReorderRouteStopsPos
 type ApiSearchRoutesRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -2035,14 +1966,12 @@ SearchRoutes Search Routes
 Search for routes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRoutesRequest
 */
-func (a *RouteAPIService) SearchRoutes(ctx context.Context, version float32) ApiSearchRoutesRequest {
+func (a *RouteAPIService) SearchRoutes(ctx context.Context) ApiSearchRoutesRequest {
 	return ApiSearchRoutesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2061,8 +1990,7 @@ func (a *RouteAPIService) SearchRoutesExecute(r ApiSearchRoutesRequest) ([]Route
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2196,7 +2124,6 @@ func (a *RouteAPIService) SearchRoutesExecute(r ApiSearchRoutesRequest) ([]Route
 type ApiSetDriverRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	id int64
 	driverId int64
 }
@@ -2211,16 +2138,14 @@ SetDriver Set Driver
 Update the driver of the route.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the route
  @param driverId the id of the driver
  @return ApiSetDriverRequest
 */
-func (a *RouteAPIService) SetDriver(ctx context.Context, version float32, id int64, driverId int64) ApiSetDriverRequest {
+func (a *RouteAPIService) SetDriver(ctx context.Context, id int64, driverId int64) ApiSetDriverRequest {
 	return ApiSetDriverRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 		driverId: driverId,
 	}
@@ -2239,8 +2164,7 @@ func (a *RouteAPIService) SetDriverExecute(r ApiSetDriverRequest) (*http.Respons
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{id}/driver/{driverId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{id}/driver/{driverId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"driverId"+"}", url.PathEscape(parameterValueToString(r.driverId, "driverId")), -1)
 
@@ -2296,7 +2220,6 @@ func (a *RouteAPIService) SetDriverExecute(r ApiSetDriverRequest) (*http.Respons
 type ApiUpdateRouteRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	body *Route
 }
@@ -2316,15 +2239,13 @@ UpdateRoute Update Route
 Update an existing route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route
  @return ApiUpdateRouteRequest
 */
-func (a *RouteAPIService) UpdateRoute(ctx context.Context, version float32, routeId int64) ApiUpdateRouteRequest {
+func (a *RouteAPIService) UpdateRoute(ctx context.Context, routeId int64) ApiUpdateRouteRequest {
 	return ApiUpdateRouteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 	}
 }
@@ -2344,8 +2265,7 @@ func (a *RouteAPIService) UpdateRouteExecute(r ApiUpdateRouteRequest) (*Route, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2411,7 +2331,6 @@ func (a *RouteAPIService) UpdateRouteExecute(r ApiUpdateRouteRequest) (*Route, *
 type ApiUpdateRouteStopRequest struct {
 	ctx context.Context
 	ApiService *RouteAPIService
-	version float32
 	routeId int64
 	stopId int64
 	body *Stop
@@ -2432,16 +2351,14 @@ UpdateRouteStop Update Route Stop
 Update a stop on a specified route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeId the id of the route to update stops for
  @param stopId the id of the specific stop to update on the route
  @return ApiUpdateRouteStopRequest
 */
-func (a *RouteAPIService) UpdateRouteStop(ctx context.Context, version float32, routeId int64, stopId int64) ApiUpdateRouteStopRequest {
+func (a *RouteAPIService) UpdateRouteStop(ctx context.Context, routeId int64, stopId int64) ApiUpdateRouteStopRequest {
 	return ApiUpdateRouteStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeId: routeId,
 		stopId: stopId,
 	}
@@ -2460,8 +2377,7 @@ func (a *RouteAPIService) UpdateRouteStopExecute(r ApiUpdateRouteStopRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/{routeId}/stop/{stopId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/{routeId}/stop/{stopId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeId"+"}", url.PathEscape(parameterValueToString(r.routeId, "routeId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"stopId"+"}", url.PathEscape(parameterValueToString(r.stopId, "stopId")), -1)
 

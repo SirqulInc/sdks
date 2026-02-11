@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AppDataAPIService service
 type ApiGetAppDataRequest struct {
 	ctx context.Context
 	ApiService *AppDataAPIService
-	version float32
 	start *int32
 	limit *int32
 	deviceId *string
@@ -217,14 +215,12 @@ Get the application data structure.  The basic structure is a   node tree, with 
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAppDataRequest
 */
-func (a *AppDataAPIService) GetAppData(ctx context.Context, version float32) ApiGetAppDataRequest {
+func (a *AppDataAPIService) GetAppData(ctx context.Context) ApiGetAppDataRequest {
 	return ApiGetAppDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -243,8 +239,7 @@ func (a *AppDataAPIService) GetAppDataExecute(r ApiGetAppDataRequest) (*AppRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/app/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/app/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -384,7 +379,6 @@ func (a *AppDataAPIService) GetAppDataExecute(r ApiGetAppDataRequest) (*AppRespo
 type ApiPostAppDataRequest struct {
 	ctx context.Context
 	ApiService *AppDataAPIService
-	version float32
 	gameType *string
 	start *int32
 	limit *int32
@@ -583,14 +577,12 @@ The basic   structure is a node tree, with the root node being a AppResponse.  T
 Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPostAppDataRequest
 */
-func (a *AppDataAPIService) PostAppData(ctx context.Context, version float32) ApiPostAppDataRequest {
+func (a *AppDataAPIService) PostAppData(ctx context.Context) ApiPostAppDataRequest {
 	return ApiPostAppDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -609,8 +601,7 @@ func (a *AppDataAPIService) PostAppDataExecute(r ApiPostAppDataRequest) (*AppRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/app/post"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/app/post"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -755,7 +746,6 @@ func (a *AppDataAPIService) PostAppDataExecute(r ApiPostAppDataRequest) (*AppRes
 type ApiRegenAppDataRequest struct {
 	ctx context.Context
 	ApiService *AppDataAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	buildVersion *string
@@ -796,14 +786,12 @@ RegenAppData Regenerate App Data
 Regenerate the app data cache for apps
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRegenAppDataRequest
 */
-func (a *AppDataAPIService) RegenAppData(ctx context.Context, version float32) ApiRegenAppDataRequest {
+func (a *AppDataAPIService) RegenAppData(ctx context.Context) ApiRegenAppDataRequest {
 	return ApiRegenAppDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -822,8 +810,7 @@ func (a *AppDataAPIService) RegenAppDataExecute(r ApiRegenAppDataRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/app/regen"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/app/regen"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PurchaseOrderAPIService service
 type ApiCreateOrderRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	appKey *string
 	cart *string
 	deviceId *string
@@ -124,14 +122,12 @@ CreateOrder Create Order
 Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOrderRequest
 */
-func (a *PurchaseOrderAPIService) CreateOrder(ctx context.Context, version float32) ApiCreateOrderRequest {
+func (a *PurchaseOrderAPIService) CreateOrder(ctx context.Context) ApiCreateOrderRequest {
 	return ApiCreateOrderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -150,8 +146,7 @@ func (a *PurchaseOrderAPIService) CreateOrderExecute(r ApiCreateOrderRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -256,7 +251,6 @@ func (a *PurchaseOrderAPIService) CreateOrderExecute(r ApiCreateOrderRequest) (*
 type ApiDeleteOrderRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	orderId *int64
 	deviceId *string
 	accountId *int64
@@ -290,14 +284,12 @@ DeleteOrder Delete Order
 Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteOrderRequest
 */
-func (a *PurchaseOrderAPIService) DeleteOrder(ctx context.Context, version float32) ApiDeleteOrderRequest {
+func (a *PurchaseOrderAPIService) DeleteOrder(ctx context.Context) ApiDeleteOrderRequest {
 	return ApiDeleteOrderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -316,8 +308,7 @@ func (a *PurchaseOrderAPIService) DeleteOrderExecute(r ApiDeleteOrderRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -390,7 +381,6 @@ func (a *PurchaseOrderAPIService) DeleteOrderExecute(r ApiDeleteOrderRequest) (*
 type ApiGetOrderRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	orderId *int64
@@ -431,14 +421,12 @@ GetOrder Get Order
 Get an order record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOrderRequest
 */
-func (a *PurchaseOrderAPIService) GetOrder(ctx context.Context, version float32) ApiGetOrderRequest {
+func (a *PurchaseOrderAPIService) GetOrder(ctx context.Context) ApiGetOrderRequest {
 	return ApiGetOrderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -457,8 +445,7 @@ func (a *PurchaseOrderAPIService) GetOrderExecute(r ApiGetOrderRequest) (*OrderR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -533,7 +520,6 @@ func (a *PurchaseOrderAPIService) GetOrderExecute(r ApiGetOrderRequest) (*OrderR
 type ApiPreviewOrderRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	appKey *string
 	cart *string
 	deviceId *string
@@ -630,14 +616,12 @@ PreviewOrder Preview Order
 Previews a purchase to see the total cost before making it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPreviewOrderRequest
 */
-func (a *PurchaseOrderAPIService) PreviewOrder(ctx context.Context, version float32) ApiPreviewOrderRequest {
+func (a *PurchaseOrderAPIService) PreviewOrder(ctx context.Context) ApiPreviewOrderRequest {
 	return ApiPreviewOrderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -656,8 +640,7 @@ func (a *PurchaseOrderAPIService) PreviewOrderExecute(r ApiPreviewOrderRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/preview"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/preview"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -762,7 +745,6 @@ func (a *PurchaseOrderAPIService) PreviewOrderExecute(r ApiPreviewOrderRequest) 
 type ApiSearchOrdersRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	appKey *string
 	deviceId *string
 	accountId *int64
@@ -992,14 +974,12 @@ SearchOrders Search Orders
 Search on active orders by customer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchOrdersRequest
 */
-func (a *PurchaseOrderAPIService) SearchOrders(ctx context.Context, version float32) ApiSearchOrdersRequest {
+func (a *PurchaseOrderAPIService) SearchOrders(ctx context.Context) ApiSearchOrdersRequest {
 	return ApiSearchOrdersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1018,8 +998,7 @@ func (a *PurchaseOrderAPIService) SearchOrdersExecute(r ApiSearchOrdersRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1200,7 +1179,6 @@ func (a *PurchaseOrderAPIService) SearchOrdersExecute(r ApiSearchOrdersRequest) 
 type ApiUpdateOrderRequest struct {
 	ctx context.Context
 	ApiService *PurchaseOrderAPIService
-	version float32
 	orderId *int64
 	appKey *string
 	cart *string
@@ -1290,14 +1268,12 @@ UpdateOrder Update Order
 Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateOrderRequest
 */
-func (a *PurchaseOrderAPIService) UpdateOrder(ctx context.Context, version float32) ApiUpdateOrderRequest {
+func (a *PurchaseOrderAPIService) UpdateOrder(ctx context.Context) ApiUpdateOrderRequest {
 	return ApiUpdateOrderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1316,8 +1292,7 @@ func (a *PurchaseOrderAPIService) UpdateOrderExecute(r ApiUpdateOrderRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/order/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/order/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

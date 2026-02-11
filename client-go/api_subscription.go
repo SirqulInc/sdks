@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type SubscriptionAPIService service
 type ApiCreateSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	accountId *int64
 	planId *int64
 	promoCode *string
@@ -61,14 +59,12 @@ CreateSubscription Create Subscription
 Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateSubscriptionRequest
 */
-func (a *SubscriptionAPIService) CreateSubscription(ctx context.Context, version float32) ApiCreateSubscriptionRequest {
+func (a *SubscriptionAPIService) CreateSubscription(ctx context.Context) ApiCreateSubscriptionRequest {
 	return ApiCreateSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -87,8 +83,7 @@ func (a *SubscriptionAPIService) CreateSubscriptionExecute(r ApiCreateSubscripti
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -161,7 +156,6 @@ func (a *SubscriptionAPIService) CreateSubscriptionExecute(r ApiCreateSubscripti
 type ApiDeleteSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	accountId *int64
 }
 
@@ -181,14 +175,12 @@ DeleteSubscription Delete Subscription
 Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteSubscriptionRequest
 */
-func (a *SubscriptionAPIService) DeleteSubscription(ctx context.Context, version float32) ApiDeleteSubscriptionRequest {
+func (a *SubscriptionAPIService) DeleteSubscription(ctx context.Context) ApiDeleteSubscriptionRequest {
 	return ApiDeleteSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -207,8 +199,7 @@ func (a *SubscriptionAPIService) DeleteSubscriptionExecute(r ApiDeleteSubscripti
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -275,7 +266,6 @@ func (a *SubscriptionAPIService) DeleteSubscriptionExecute(r ApiDeleteSubscripti
 type ApiGetSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	accountId *int64
 }
 
@@ -295,14 +285,12 @@ GetSubscription Get Subscription
 Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSubscriptionRequest
 */
-func (a *SubscriptionAPIService) GetSubscription(ctx context.Context, version float32) ApiGetSubscriptionRequest {
+func (a *SubscriptionAPIService) GetSubscription(ctx context.Context) ApiGetSubscriptionRequest {
 	return ApiGetSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -321,8 +309,7 @@ func (a *SubscriptionAPIService) GetSubscriptionExecute(r ApiGetSubscriptionRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -389,7 +376,6 @@ func (a *SubscriptionAPIService) GetSubscriptionExecute(r ApiGetSubscriptionRequ
 type ApiGetSubscriptionPlanRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	planId *int64
 }
 
@@ -409,14 +395,12 @@ GetSubscriptionPlan Get Subscription Plan
 Get the matched subscription plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSubscriptionPlanRequest
 */
-func (a *SubscriptionAPIService) GetSubscriptionPlan(ctx context.Context, version float32) ApiGetSubscriptionPlanRequest {
+func (a *SubscriptionAPIService) GetSubscriptionPlan(ctx context.Context) ApiGetSubscriptionPlanRequest {
 	return ApiGetSubscriptionPlanRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -435,8 +419,7 @@ func (a *SubscriptionAPIService) GetSubscriptionPlanExecute(r ApiGetSubscription
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/plan/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/plan/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -503,7 +486,6 @@ func (a *SubscriptionAPIService) GetSubscriptionPlanExecute(r ApiGetSubscription
 type ApiGetSubscriptionPlansRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	visible *bool
 	role *string
 }
@@ -530,14 +512,12 @@ GetSubscriptionPlans List Subscription Plans
 Get the matched subscription plan
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSubscriptionPlansRequest
 */
-func (a *SubscriptionAPIService) GetSubscriptionPlans(ctx context.Context, version float32) ApiGetSubscriptionPlansRequest {
+func (a *SubscriptionAPIService) GetSubscriptionPlans(ctx context.Context) ApiGetSubscriptionPlansRequest {
 	return ApiGetSubscriptionPlansRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -556,8 +536,7 @@ func (a *SubscriptionAPIService) GetSubscriptionPlansExecute(r ApiGetSubscriptio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/plan/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/plan/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -626,7 +605,6 @@ func (a *SubscriptionAPIService) GetSubscriptionPlansExecute(r ApiGetSubscriptio
 type ApiGetSubscriptionUsageRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	accountId *int64
 	applicationId *int64
 	start *int64
@@ -667,14 +645,12 @@ GetSubscriptionUsage Get Subscription Usage
 Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSubscriptionUsageRequest
 */
-func (a *SubscriptionAPIService) GetSubscriptionUsage(ctx context.Context, version float32) ApiGetSubscriptionUsageRequest {
+func (a *SubscriptionAPIService) GetSubscriptionUsage(ctx context.Context) ApiGetSubscriptionUsageRequest {
 	return ApiGetSubscriptionUsageRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -693,8 +669,7 @@ func (a *SubscriptionAPIService) GetSubscriptionUsageExecute(r ApiGetSubscriptio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/usage/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/usage/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -770,7 +745,6 @@ func (a *SubscriptionAPIService) GetSubscriptionUsageExecute(r ApiGetSubscriptio
 type ApiUpdateSubscriptionRequest struct {
 	ctx context.Context
 	ApiService *SubscriptionAPIService
-	version float32
 	accountId *int64
 	planId *int64
 	promoCode *string
@@ -811,14 +785,12 @@ UpdateSubscription Update Subscription
 Updates the subscription for the billable entity for an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateSubscriptionRequest
 */
-func (a *SubscriptionAPIService) UpdateSubscription(ctx context.Context, version float32) ApiUpdateSubscriptionRequest {
+func (a *SubscriptionAPIService) UpdateSubscription(ctx context.Context) ApiUpdateSubscriptionRequest {
 	return ApiUpdateSubscriptionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -837,8 +809,7 @@ func (a *SubscriptionAPIService) UpdateSubscriptionExecute(r ApiUpdateSubscripti
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/subscription/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/subscription/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

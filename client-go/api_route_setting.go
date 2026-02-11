@@ -27,7 +27,6 @@ type RouteSettingAPIService service
 type ApiCreateRouteSettingsRequest struct {
 	ctx context.Context
 	ApiService *RouteSettingAPIService
-	version float32
 	body *RouteSettings
 }
 
@@ -46,14 +45,12 @@ CreateRouteSettings Create Route Setting
 Create a new route setting
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRouteSettingsRequest
 */
-func (a *RouteSettingAPIService) CreateRouteSettings(ctx context.Context, version float32) ApiCreateRouteSettingsRequest {
+func (a *RouteSettingAPIService) CreateRouteSettings(ctx context.Context) ApiCreateRouteSettingsRequest {
 	return ApiCreateRouteSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *RouteSettingAPIService) CreateRouteSettingsExecute(r ApiCreateRouteSett
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/setting"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/setting"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *RouteSettingAPIService) CreateRouteSettingsExecute(r ApiCreateRouteSett
 type ApiDeleteRouteSettingsRequest struct {
 	ctx context.Context
 	ApiService *RouteSettingAPIService
-	version float32
 	routeSettingsId int64
 }
 
@@ -152,15 +147,13 @@ DeleteRouteSettings Delete Route Setting
 Delete an existing route setting
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeSettingsId the id of the route setting to delete
  @return ApiDeleteRouteSettingsRequest
 */
-func (a *RouteSettingAPIService) DeleteRouteSettings(ctx context.Context, version float32, routeSettingsId int64) ApiDeleteRouteSettingsRequest {
+func (a *RouteSettingAPIService) DeleteRouteSettings(ctx context.Context, routeSettingsId int64) ApiDeleteRouteSettingsRequest {
 	return ApiDeleteRouteSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeSettingsId: routeSettingsId,
 	}
 }
@@ -180,8 +173,7 @@ func (a *RouteSettingAPIService) DeleteRouteSettingsExecute(r ApiDeleteRouteSett
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/setting/{routeSettingsId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/setting/{routeSettingsId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeSettingsId"+"}", url.PathEscape(parameterValueToString(r.routeSettingsId, "routeSettingsId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -245,7 +237,6 @@ func (a *RouteSettingAPIService) DeleteRouteSettingsExecute(r ApiDeleteRouteSett
 type ApiGetRouteSettingsRequest struct {
 	ctx context.Context
 	ApiService *RouteSettingAPIService
-	version float32
 	routeSettingsId int64
 }
 
@@ -259,15 +250,13 @@ GetRouteSettings Get Route Setting
 Get an existing route settings
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeSettingsId the id of the route settings to get
  @return ApiGetRouteSettingsRequest
 */
-func (a *RouteSettingAPIService) GetRouteSettings(ctx context.Context, version float32, routeSettingsId int64) ApiGetRouteSettingsRequest {
+func (a *RouteSettingAPIService) GetRouteSettings(ctx context.Context, routeSettingsId int64) ApiGetRouteSettingsRequest {
 	return ApiGetRouteSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeSettingsId: routeSettingsId,
 	}
 }
@@ -287,8 +276,7 @@ func (a *RouteSettingAPIService) GetRouteSettingsExecute(r ApiGetRouteSettingsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/setting/{routeSettingsId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/setting/{routeSettingsId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeSettingsId"+"}", url.PathEscape(parameterValueToString(r.routeSettingsId, "routeSettingsId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -352,7 +340,6 @@ func (a *RouteSettingAPIService) GetRouteSettingsExecute(r ApiGetRouteSettingsRe
 type ApiSearchRouteSettingsRequest struct {
 	ctx context.Context
 	ApiService *RouteSettingAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -421,14 +408,12 @@ SearchRouteSettings Search Route Settings
 Search for route settings
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRouteSettingsRequest
 */
-func (a *RouteSettingAPIService) SearchRouteSettings(ctx context.Context, version float32) ApiSearchRouteSettingsRequest {
+func (a *RouteSettingAPIService) SearchRouteSettings(ctx context.Context) ApiSearchRouteSettingsRequest {
 	return ApiSearchRouteSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -447,8 +432,7 @@ func (a *RouteSettingAPIService) SearchRouteSettingsExecute(r ApiSearchRouteSett
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/setting"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/setting"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -540,7 +524,6 @@ func (a *RouteSettingAPIService) SearchRouteSettingsExecute(r ApiSearchRouteSett
 type ApiUpdateRouteSettingsRequest struct {
 	ctx context.Context
 	ApiService *RouteSettingAPIService
-	version float32
 	routeSettingsId int64
 	body *RouteSettings
 }
@@ -560,15 +543,13 @@ UpdateRouteSettings Update Route Setting
 Update an existing route setting
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param routeSettingsId the id of the route settings to update
  @return ApiUpdateRouteSettingsRequest
 */
-func (a *RouteSettingAPIService) UpdateRouteSettings(ctx context.Context, version float32, routeSettingsId int64) ApiUpdateRouteSettingsRequest {
+func (a *RouteSettingAPIService) UpdateRouteSettings(ctx context.Context, routeSettingsId int64) ApiUpdateRouteSettingsRequest {
 	return ApiUpdateRouteSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		routeSettingsId: routeSettingsId,
 	}
 }
@@ -588,8 +569,7 @@ func (a *RouteSettingAPIService) UpdateRouteSettingsExecute(r ApiUpdateRouteSett
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/route/setting/{routeSettingsId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/route/setting/{routeSettingsId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"routeSettingsId"+"}", url.PathEscape(parameterValueToString(r.routeSettingsId, "routeSettingsId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type RetailerLocationAPIService service
 type ApiCreateRetailerLocationConsumerRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	appKey *string
 	name *string
 	deviceId *string
@@ -244,14 +242,12 @@ CreateRetailerLocationConsumer Create Retailer Location (Consumer)
 Creates a location record for an application that can support crowd sourced locations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRetailerLocationConsumerRequest
 */
-func (a *RetailerLocationAPIService) CreateRetailerLocationConsumer(ctx context.Context, version float32) ApiCreateRetailerLocationConsumerRequest {
+func (a *RetailerLocationAPIService) CreateRetailerLocationConsumer(ctx context.Context) ApiCreateRetailerLocationConsumerRequest {
 	return ApiCreateRetailerLocationConsumerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -270,8 +266,7 @@ func (a *RetailerLocationAPIService) CreateRetailerLocationConsumerExecute(r Api
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -423,7 +418,6 @@ func (a *RetailerLocationAPIService) CreateRetailerLocationConsumerExecute(r Api
 type ApiCreateRetailerLocationsRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	retailerId *int64
 	name *string
 	streetAddress *string
@@ -709,14 +703,12 @@ CreateRetailerLocations Create Retailer Location
 Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRetailerLocationsRequest
 */
-func (a *RetailerLocationAPIService) CreateRetailerLocations(ctx context.Context, version float32) ApiCreateRetailerLocationsRequest {
+func (a *RetailerLocationAPIService) CreateRetailerLocations(ctx context.Context) ApiCreateRetailerLocationsRequest {
 	return ApiCreateRetailerLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -735,8 +727,7 @@ func (a *RetailerLocationAPIService) CreateRetailerLocationsExecute(r ApiCreateR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -922,7 +913,6 @@ func (a *RetailerLocationAPIService) CreateRetailerLocationsExecute(r ApiCreateR
 type ApiDeleteRetailerLocationRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	retailerLocationId *int64
@@ -956,14 +946,12 @@ DeleteRetailerLocation Delete Retailer Location
 Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteRetailerLocationRequest
 */
-func (a *RetailerLocationAPIService) DeleteRetailerLocation(ctx context.Context, version float32) ApiDeleteRetailerLocationRequest {
+func (a *RetailerLocationAPIService) DeleteRetailerLocation(ctx context.Context) ApiDeleteRetailerLocationRequest {
 	return ApiDeleteRetailerLocationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -982,8 +970,7 @@ func (a *RetailerLocationAPIService) DeleteRetailerLocationExecute(r ApiDeleteRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1055,7 +1042,6 @@ func (a *RetailerLocationAPIService) DeleteRetailerLocationExecute(r ApiDeleteRe
 type ApiGetRetailerLocationRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	retailerLocationId *int64
 	deviceId *string
 	accountId *int64
@@ -1096,14 +1082,12 @@ GetRetailerLocation Get Retailer Location
 Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRetailerLocationRequest
 */
-func (a *RetailerLocationAPIService) GetRetailerLocation(ctx context.Context, version float32) ApiGetRetailerLocationRequest {
+func (a *RetailerLocationAPIService) GetRetailerLocation(ctx context.Context) ApiGetRetailerLocationRequest {
 	return ApiGetRetailerLocationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1122,8 +1106,7 @@ func (a *RetailerLocationAPIService) GetRetailerLocationExecute(r ApiGetRetailer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1199,7 +1182,6 @@ func (a *RetailerLocationAPIService) GetRetailerLocationExecute(r ApiGetRetailer
 type ApiGetRetailerLocationConsumerRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	retailerLocationId *int64
 	deviceId *string
 	accountId *int64
@@ -1233,14 +1215,12 @@ GetRetailerLocationConsumer Get Retailer Location (Consumer)
 Gets the details of a retailer location as a consumer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRetailerLocationConsumerRequest
 */
-func (a *RetailerLocationAPIService) GetRetailerLocationConsumer(ctx context.Context, version float32) ApiGetRetailerLocationConsumerRequest {
+func (a *RetailerLocationAPIService) GetRetailerLocationConsumer(ctx context.Context) ApiGetRetailerLocationConsumerRequest {
 	return ApiGetRetailerLocationConsumerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1259,8 +1239,7 @@ func (a *RetailerLocationAPIService) GetRetailerLocationConsumerExecute(r ApiGet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1333,7 +1312,6 @@ func (a *RetailerLocationAPIService) GetRetailerLocationConsumerExecute(r ApiGet
 type ApiIndexedRetailerLocationDistanceSearchRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	latitude *float64
 	longitude *float64
 	searchRange *float64
@@ -1584,14 +1562,12 @@ IndexedRetailerLocationDistanceSearch Distance Search Retailer Locations (Indexe
 Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiIndexedRetailerLocationDistanceSearchRequest
 */
-func (a *RetailerLocationAPIService) IndexedRetailerLocationDistanceSearch(ctx context.Context, version float32) ApiIndexedRetailerLocationDistanceSearchRequest {
+func (a *RetailerLocationAPIService) IndexedRetailerLocationDistanceSearch(ctx context.Context) ApiIndexedRetailerLocationDistanceSearchRequest {
 	return ApiIndexedRetailerLocationDistanceSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1610,8 +1586,7 @@ func (a *RetailerLocationAPIService) IndexedRetailerLocationDistanceSearchExecut
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/idistancesearch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/idistancesearch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1781,7 +1756,6 @@ func (a *RetailerLocationAPIService) IndexedRetailerLocationDistanceSearchExecut
 type ApiIndexedRetailerLocationSearchRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	accountId *int64
 	start *int32
 	limit *int32
@@ -1990,14 +1964,12 @@ IndexedRetailerLocationSearch Keyword Search Retailer Locations (Indexed)
 Retailer location (faster) indexed search. This searches all retailer locations.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiIndexedRetailerLocationSearchRequest
 */
-func (a *RetailerLocationAPIService) IndexedRetailerLocationSearch(ctx context.Context, version float32) ApiIndexedRetailerLocationSearchRequest {
+func (a *RetailerLocationAPIService) IndexedRetailerLocationSearch(ctx context.Context) ApiIndexedRetailerLocationSearchRequest {
 	return ApiIndexedRetailerLocationSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2016,8 +1988,7 @@ func (a *RetailerLocationAPIService) IndexedRetailerLocationSearchExecute(r ApiI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/isearch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/isearch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2164,7 +2135,6 @@ func (a *RetailerLocationAPIService) IndexedRetailerLocationSearchExecute(r ApiI
 type ApiSearchRetailerLocationsRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	q *string
@@ -2352,14 +2322,12 @@ SearchRetailerLocations Search Retailer Locations (Owned)
 Searches on retailer locations that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRetailerLocationsRequest
 */
-func (a *RetailerLocationAPIService) SearchRetailerLocations(ctx context.Context, version float32) ApiSearchRetailerLocationsRequest {
+func (a *RetailerLocationAPIService) SearchRetailerLocations(ctx context.Context) ApiSearchRetailerLocationsRequest {
 	return ApiSearchRetailerLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2378,8 +2346,7 @@ func (a *RetailerLocationAPIService) SearchRetailerLocationsExecute(r ApiSearchR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2517,7 +2484,6 @@ func (a *RetailerLocationAPIService) SearchRetailerLocationsExecute(r ApiSearchR
 type ApiUpdateRetailerLocationsRequest struct {
 	ctx context.Context
 	ApiService *RetailerLocationAPIService
-	version float32
 	retailerLocationId *int64
 	deviceId *string
 	accountId *int64
@@ -2817,14 +2783,12 @@ UpdateRetailerLocations Update Retailer Location
 Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateRetailerLocationsRequest
 */
-func (a *RetailerLocationAPIService) UpdateRetailerLocations(ctx context.Context, version float32) ApiUpdateRetailerLocationsRequest {
+func (a *RetailerLocationAPIService) UpdateRetailerLocations(ctx context.Context) ApiUpdateRetailerLocationsRequest {
 	return ApiUpdateRetailerLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2843,8 +2807,7 @@ func (a *RetailerLocationAPIService) UpdateRetailerLocationsExecute(r ApiUpdateR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/location/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/location/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TaskAPIService service
 type ApiCreateTaskRequest struct {
 	ctx context.Context
 	ApiService *TaskAPIService
-	version float32
 	accountId *int64
 	name *string
 	appKey *string
@@ -124,14 +122,12 @@ CreateTask Create Task
 Create a Task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateTaskRequest
 */
-func (a *TaskAPIService) CreateTask(ctx context.Context, version float32) ApiCreateTaskRequest {
+func (a *TaskAPIService) CreateTask(ctx context.Context) ApiCreateTaskRequest {
 	return ApiCreateTaskRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -150,8 +146,7 @@ func (a *TaskAPIService) CreateTaskExecute(r ApiCreateTaskRequest) (*TaskRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/task/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/task/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -256,7 +251,6 @@ func (a *TaskAPIService) CreateTaskExecute(r ApiCreateTaskRequest) (*TaskRespons
 type ApiDeleteTaskRequest struct {
 	ctx context.Context
 	ApiService *TaskAPIService
-	version float32
 	accountId *int64
 	taskId *int64
 }
@@ -283,14 +277,12 @@ DeleteTask Delete Task
 Delete a Task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteTaskRequest
 */
-func (a *TaskAPIService) DeleteTask(ctx context.Context, version float32) ApiDeleteTaskRequest {
+func (a *TaskAPIService) DeleteTask(ctx context.Context) ApiDeleteTaskRequest {
 	return ApiDeleteTaskRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -309,8 +301,7 @@ func (a *TaskAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/task/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/task/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -381,7 +372,6 @@ func (a *TaskAPIService) DeleteTaskExecute(r ApiDeleteTaskRequest) (*SirqulRespo
 type ApiGetTaskRequest struct {
 	ctx context.Context
 	ApiService *TaskAPIService
-	version float32
 	accountId *int64
 	taskId *int64
 }
@@ -408,14 +398,12 @@ GetTask Get Task
 Get a Task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTaskRequest
 */
-func (a *TaskAPIService) GetTask(ctx context.Context, version float32) ApiGetTaskRequest {
+func (a *TaskAPIService) GetTask(ctx context.Context) ApiGetTaskRequest {
 	return ApiGetTaskRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -434,8 +422,7 @@ func (a *TaskAPIService) GetTaskExecute(r ApiGetTaskRequest) (*TaskResponse, *ht
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/task/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/task/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -506,7 +493,6 @@ func (a *TaskAPIService) GetTaskExecute(r ApiGetTaskRequest) (*TaskResponse, *ht
 type ApiSearchTasksRequest struct {
 	ctx context.Context
 	ApiService *TaskAPIService
-	version float32
 	accountId *int64
 	groupingId *string
 	filter *string
@@ -603,14 +589,12 @@ SearchTasks Search Tasks
 Search on Tasks
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTasksRequest
 */
-func (a *TaskAPIService) SearchTasks(ctx context.Context, version float32) ApiSearchTasksRequest {
+func (a *TaskAPIService) SearchTasks(ctx context.Context) ApiSearchTasksRequest {
 	return ApiSearchTasksRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -629,8 +613,7 @@ func (a *TaskAPIService) SearchTasksExecute(r ApiSearchTasksRequest) ([]TaskResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/task/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/task/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -758,7 +741,6 @@ func (a *TaskAPIService) SearchTasksExecute(r ApiSearchTasksRequest) ([]TaskResp
 type ApiUpdateTaskRequest struct {
 	ctx context.Context
 	ApiService *TaskAPIService
-	version float32
 	taskId *int64
 	accountId *int64
 	name *string
@@ -862,14 +844,12 @@ UpdateTask Update Task
 Update a Task
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateTaskRequest
 */
-func (a *TaskAPIService) UpdateTask(ctx context.Context, version float32) ApiUpdateTaskRequest {
+func (a *TaskAPIService) UpdateTask(ctx context.Context) ApiUpdateTaskRequest {
 	return ApiUpdateTaskRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -888,8 +868,7 @@ func (a *TaskAPIService) UpdateTaskExecute(r ApiUpdateTaskRequest) (*TaskRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/task/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/task/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type NotificationAPIService service
 type ApiCreateNotificationTemplateRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	conduit *string
 	title *string
@@ -89,14 +87,12 @@ CreateNotificationTemplate Create Notification Template
 Create a notification template. Developers will only be able to create notification templates for their own applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateNotificationTemplateRequest
 */
-func (a *NotificationAPIService) CreateNotificationTemplate(ctx context.Context, version float32) ApiCreateNotificationTemplateRequest {
+func (a *NotificationAPIService) CreateNotificationTemplate(ctx context.Context) ApiCreateNotificationTemplateRequest {
 	return ApiCreateNotificationTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *NotificationAPIService) CreateNotificationTemplateExecute(r ApiCreateNo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/template/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/template/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -204,7 +199,6 @@ func (a *NotificationAPIService) CreateNotificationTemplateExecute(r ApiCreateNo
 type ApiCreateOrUpdateBlockedNotificationsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	appKey *string
 	data *string
 	accountId *int64
@@ -238,14 +232,12 @@ CreateOrUpdateBlockedNotifications Create or update blocked notification setting
 Create or update blocked notification settings
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOrUpdateBlockedNotificationsRequest
 */
-func (a *NotificationAPIService) CreateOrUpdateBlockedNotifications(ctx context.Context, version float32) ApiCreateOrUpdateBlockedNotificationsRequest {
+func (a *NotificationAPIService) CreateOrUpdateBlockedNotifications(ctx context.Context) ApiCreateOrUpdateBlockedNotificationsRequest {
 	return ApiCreateOrUpdateBlockedNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -264,8 +256,7 @@ func (a *NotificationAPIService) CreateOrUpdateBlockedNotificationsExecute(r Api
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/blocked/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/blocked/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -339,7 +330,6 @@ func (a *NotificationAPIService) CreateOrUpdateBlockedNotificationsExecute(r Api
 type ApiDeleteNotificationTemplateRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	notificationTemplateId *int64
 }
@@ -366,14 +356,12 @@ DeleteNotificationTemplate Delete Notification Template
 Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteNotificationTemplateRequest
 */
-func (a *NotificationAPIService) DeleteNotificationTemplate(ctx context.Context, version float32) ApiDeleteNotificationTemplateRequest {
+func (a *NotificationAPIService) DeleteNotificationTemplate(ctx context.Context) ApiDeleteNotificationTemplateRequest {
 	return ApiDeleteNotificationTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -392,8 +380,7 @@ func (a *NotificationAPIService) DeleteNotificationTemplateExecute(r ApiDeleteNo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/template/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/template/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -464,7 +451,6 @@ func (a *NotificationAPIService) DeleteNotificationTemplateExecute(r ApiDeleteNo
 type ApiGetNotificationTemplateRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	notificationTemplateId *int64
 }
@@ -491,14 +477,12 @@ GetNotificationTemplate Get Notification Template
 Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetNotificationTemplateRequest
 */
-func (a *NotificationAPIService) GetNotificationTemplate(ctx context.Context, version float32) ApiGetNotificationTemplateRequest {
+func (a *NotificationAPIService) GetNotificationTemplate(ctx context.Context) ApiGetNotificationTemplateRequest {
 	return ApiGetNotificationTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -517,8 +501,7 @@ func (a *NotificationAPIService) GetNotificationTemplateExecute(r ApiGetNotifica
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/template/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/template/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -589,7 +572,6 @@ func (a *NotificationAPIService) GetNotificationTemplateExecute(r ApiGetNotifica
 type ApiGetNotificationsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	connectionAccountId *int64
@@ -749,14 +731,12 @@ GetNotifications Get Notifications
 Get a list of notifications for a user. If the "markAsRead" parameter is set to true, the returned notifications will be marked as "read" after the response has been sent. By default, read messages will not be returned, so to see read messages, set "returnReadMessages" to true.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetNotificationsRequest
 */
-func (a *NotificationAPIService) GetNotifications(ctx context.Context, version float32) ApiGetNotificationsRequest {
+func (a *NotificationAPIService) GetNotifications(ctx context.Context) ApiGetNotificationsRequest {
 	return ApiGetNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -775,8 +755,7 @@ func (a *NotificationAPIService) GetNotificationsExecute(r ApiGetNotificationsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -902,7 +881,6 @@ func (a *NotificationAPIService) GetNotificationsExecute(r ApiGetNotificationsRe
 type ApiRegisterNotificationTokenRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	token *string
 	pushType *string
 	deviceId *string
@@ -985,14 +963,12 @@ RegisterNotificationToken Register Notification Token
 Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRegisterNotificationTokenRequest
 */
-func (a *NotificationAPIService) RegisterNotificationToken(ctx context.Context, version float32) ApiRegisterNotificationTokenRequest {
+func (a *NotificationAPIService) RegisterNotificationToken(ctx context.Context) ApiRegisterNotificationTokenRequest {
 	return ApiRegisterNotificationTokenRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1011,8 +987,7 @@ func (a *NotificationAPIService) RegisterNotificationTokenExecute(r ApiRegisterN
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/token"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/token"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1107,7 +1082,6 @@ func (a *NotificationAPIService) RegisterNotificationTokenExecute(r ApiRegisterN
 type ApiSearchBlockedNotificationsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	appKey *string
 	accountId *int64
 	searchTags *string
@@ -1204,14 +1178,12 @@ SearchBlockedNotifications Search on the user's blocked notification settings
 Search on the user's blocked notification settings
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchBlockedNotificationsRequest
 */
-func (a *NotificationAPIService) SearchBlockedNotifications(ctx context.Context, version float32) ApiSearchBlockedNotificationsRequest {
+func (a *NotificationAPIService) SearchBlockedNotifications(ctx context.Context) ApiSearchBlockedNotificationsRequest {
 	return ApiSearchBlockedNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1230,8 +1202,7 @@ func (a *NotificationAPIService) SearchBlockedNotificationsExecute(r ApiSearchBl
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/blocked/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/blocked/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1331,7 +1302,6 @@ func (a *NotificationAPIService) SearchBlockedNotificationsExecute(r ApiSearchBl
 type ApiSearchNotificationTemplateRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -1421,14 +1391,12 @@ SearchNotificationTemplate Search Notification Templates
 Search for notification templates on owned applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchNotificationTemplateRequest
 */
-func (a *NotificationAPIService) SearchNotificationTemplate(ctx context.Context, version float32) ApiSearchNotificationTemplateRequest {
+func (a *NotificationAPIService) SearchNotificationTemplate(ctx context.Context) ApiSearchNotificationTemplateRequest {
 	return ApiSearchNotificationTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1447,8 +1415,7 @@ func (a *NotificationAPIService) SearchNotificationTemplateExecute(r ApiSearchNo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/template/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/template/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1549,7 +1516,6 @@ func (a *NotificationAPIService) SearchNotificationTemplateExecute(r ApiSearchNo
 type ApiSearchRecipientsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	sortField *string
 	deviceId *string
 	accountId *int64
@@ -1653,14 +1619,12 @@ SearchRecipients Search for Recipients
 Search for application users to send notifications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRecipientsRequest
 */
-func (a *NotificationAPIService) SearchRecipients(ctx context.Context, version float32) ApiSearchRecipientsRequest {
+func (a *NotificationAPIService) SearchRecipients(ctx context.Context) ApiSearchRecipientsRequest {
 	return ApiSearchRecipientsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1679,8 +1643,7 @@ func (a *NotificationAPIService) SearchRecipientsExecute(r ApiSearchRecipientsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/recipient/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/recipient/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1783,7 +1746,6 @@ func (a *NotificationAPIService) SearchRecipientsExecute(r ApiSearchRecipientsRe
 type ApiSearchRecipientsCountRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -1880,14 +1842,12 @@ SearchRecipientsCount Search for Recipients (Counts/Grouped)
 Search for application users to send notifications (count/grouped variant).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRecipientsCountRequest
 */
-func (a *NotificationAPIService) SearchRecipientsCount(ctx context.Context, version float32) ApiSearchRecipientsCountRequest {
+func (a *NotificationAPIService) SearchRecipientsCount(ctx context.Context) ApiSearchRecipientsCountRequest {
 	return ApiSearchRecipientsCountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1906,8 +1866,7 @@ func (a *NotificationAPIService) SearchRecipientsCountExecute(r ApiSearchRecipie
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/recipient/search/count"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/recipient/search/count"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2006,7 +1965,6 @@ func (a *NotificationAPIService) SearchRecipientsCountExecute(r ApiSearchRecipie
 type ApiSendBatchNotificationsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	customMessage *string
@@ -2082,14 +2040,12 @@ SendBatchNotifications Send Batch Notifications
 Send notifications to all users of an application. Only someone with permissions to the application can do this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSendBatchNotificationsRequest
 */
-func (a *NotificationAPIService) SendBatchNotifications(ctx context.Context, version float32) ApiSendBatchNotificationsRequest {
+func (a *NotificationAPIService) SendBatchNotifications(ctx context.Context) ApiSendBatchNotificationsRequest {
 	return ApiSendBatchNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2108,8 +2064,7 @@ func (a *NotificationAPIService) SendBatchNotificationsExecute(r ApiSendBatchNot
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2202,7 +2157,6 @@ func (a *NotificationAPIService) SendBatchNotificationsExecute(r ApiSendBatchNot
 type ApiSendCustomNotificationsRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	receiverAccountIds *string
@@ -2341,14 +2295,12 @@ SendCustomNotifications Send Custom Notifications
 Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSendCustomNotificationsRequest
 */
-func (a *NotificationAPIService) SendCustomNotifications(ctx context.Context, version float32) ApiSendCustomNotificationsRequest {
+func (a *NotificationAPIService) SendCustomNotifications(ctx context.Context) ApiSendCustomNotificationsRequest {
 	return ApiSendCustomNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2367,8 +2319,7 @@ func (a *NotificationAPIService) SendCustomNotificationsExecute(r ApiSendCustomN
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/custom"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/custom"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2485,7 +2436,6 @@ func (a *NotificationAPIService) SendCustomNotificationsExecute(r ApiSendCustomN
 type ApiUpdateNotificationTemplateRequest struct {
 	ctx context.Context
 	ApiService *NotificationAPIService
-	version float32
 	accountId *int64
 	notificationTemplateId *int64
 	title *string
@@ -2533,14 +2483,12 @@ UpdateNotificationTemplate Update Notification Template
 Update a notification template. Developers will only be able to update notification templates for their own applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateNotificationTemplateRequest
 */
-func (a *NotificationAPIService) UpdateNotificationTemplate(ctx context.Context, version float32) ApiUpdateNotificationTemplateRequest {
+func (a *NotificationAPIService) UpdateNotificationTemplate(ctx context.Context) ApiUpdateNotificationTemplateRequest {
 	return ApiUpdateNotificationTemplateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2559,8 +2507,7 @@ func (a *NotificationAPIService) UpdateNotificationTemplateExecute(r ApiUpdateNo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/template/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/template/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

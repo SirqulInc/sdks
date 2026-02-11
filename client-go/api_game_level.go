@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type GameLevelAPIService service
 type ApiCreateGameLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	name *string
 	gameData *string
@@ -222,14 +220,12 @@ CreateGameLevel Create Game Level
 Create a game level. Currently does NOT support game objects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateGameLevelRequest
 */
-func (a *GameLevelAPIService) CreateGameLevel(ctx context.Context, version float32) ApiCreateGameLevelRequest {
+func (a *GameLevelAPIService) CreateGameLevel(ctx context.Context) ApiCreateGameLevelRequest {
 	return ApiCreateGameLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -248,8 +244,7 @@ func (a *GameLevelAPIService) CreateGameLevelExecute(r ApiCreateGameLevelRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -394,7 +389,6 @@ func (a *GameLevelAPIService) CreateGameLevelExecute(r ApiCreateGameLevelRequest
 type ApiDeleteGameLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	levelId *int64
 }
@@ -421,14 +415,12 @@ DeleteGameLevel Delete Game Level
 Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteGameLevelRequest
 */
-func (a *GameLevelAPIService) DeleteGameLevel(ctx context.Context, version float32) ApiDeleteGameLevelRequest {
+func (a *GameLevelAPIService) DeleteGameLevel(ctx context.Context) ApiDeleteGameLevelRequest {
 	return ApiDeleteGameLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -447,8 +439,7 @@ func (a *GameLevelAPIService) DeleteGameLevelExecute(r ApiDeleteGameLevelRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -519,7 +510,6 @@ func (a *GameLevelAPIService) DeleteGameLevelExecute(r ApiDeleteGameLevelRequest
 type ApiGetGameLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	levelId *int64
 	includeGameData *bool
@@ -553,14 +543,12 @@ GetGameLevel Get Game Level
 Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGameLevelRequest
 */
-func (a *GameLevelAPIService) GetGameLevel(ctx context.Context, version float32) ApiGetGameLevelRequest {
+func (a *GameLevelAPIService) GetGameLevel(ctx context.Context) ApiGetGameLevelRequest {
 	return ApiGetGameLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -579,8 +567,7 @@ func (a *GameLevelAPIService) GetGameLevelExecute(r ApiGetGameLevelRequest) (*Ga
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -654,7 +641,6 @@ func (a *GameLevelAPIService) GetGameLevelExecute(r ApiGetGameLevelRequest) (*Ga
 type ApiGetGameLevelsByApplicationRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	keyword *string
@@ -737,14 +723,12 @@ GetGameLevelsByApplication Search Game Levels
 Get a list of levels for an application, just those the account has permissions to view.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGameLevelsByApplicationRequest
 */
-func (a *GameLevelAPIService) GetGameLevelsByApplication(ctx context.Context, version float32) ApiGetGameLevelsByApplicationRequest {
+func (a *GameLevelAPIService) GetGameLevelsByApplication(ctx context.Context) ApiGetGameLevelsByApplicationRequest {
 	return ApiGetGameLevelsByApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -763,8 +747,7 @@ func (a *GameLevelAPIService) GetGameLevelsByApplicationExecute(r ApiGetGameLeve
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -859,7 +842,6 @@ func (a *GameLevelAPIService) GetGameLevelsByApplicationExecute(r ApiGetGameLeve
 type ApiGetGameLevelsByBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	keyword *string
@@ -928,14 +910,12 @@ GetGameLevelsByBillableEntity Search Game Level by Billable Entity
 Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGameLevelsByBillableEntityRequest
 */
-func (a *GameLevelAPIService) GetGameLevelsByBillableEntity(ctx context.Context, version float32) ApiGetGameLevelsByBillableEntityRequest {
+func (a *GameLevelAPIService) GetGameLevelsByBillableEntity(ctx context.Context) ApiGetGameLevelsByBillableEntityRequest {
 	return ApiGetGameLevelsByBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -954,8 +934,7 @@ func (a *GameLevelAPIService) GetGameLevelsByBillableEntityExecute(r ApiGetGameL
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/searchByBillableEntity"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/searchByBillableEntity"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1043,7 +1022,6 @@ func (a *GameLevelAPIService) GetGameLevelsByBillableEntityExecute(r ApiGetGameL
 type ApiGetQuestionsInLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	levelId *int64
 	accountId *int64
 }
@@ -1070,14 +1048,12 @@ GetQuestionsInLevel Get Level Questions
 Get questions within a level.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetQuestionsInLevelRequest
 */
-func (a *GameLevelAPIService) GetQuestionsInLevel(ctx context.Context, version float32) ApiGetQuestionsInLevelRequest {
+func (a *GameLevelAPIService) GetQuestionsInLevel(ctx context.Context) ApiGetQuestionsInLevelRequest {
 	return ApiGetQuestionsInLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1096,8 +1072,7 @@ func (a *GameLevelAPIService) GetQuestionsInLevelExecute(r ApiGetQuestionsInLeve
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/questions/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/questions/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1168,7 +1143,6 @@ func (a *GameLevelAPIService) GetQuestionsInLevelExecute(r ApiGetQuestionsInLeve
 type ApiGetWordsInLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	levelId *int64
 	accountId *int64
 }
@@ -1195,14 +1169,12 @@ GetWordsInLevel Get Level Words
 Get words within a level.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetWordsInLevelRequest
 */
-func (a *GameLevelAPIService) GetWordsInLevel(ctx context.Context, version float32) ApiGetWordsInLevelRequest {
+func (a *GameLevelAPIService) GetWordsInLevel(ctx context.Context) ApiGetWordsInLevelRequest {
 	return ApiGetWordsInLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1221,8 +1193,7 @@ func (a *GameLevelAPIService) GetWordsInLevelExecute(r ApiGetWordsInLevelRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/words/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/words/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1293,7 +1264,6 @@ func (a *GameLevelAPIService) GetWordsInLevelExecute(r ApiGetWordsInLevelRequest
 type ApiUpdateGameLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	accountId *int64
 	levelId *int64
 	appKey *string
@@ -1495,14 +1465,12 @@ UpdateGameLevel Update Game Level
 Update a game level. Currently does NOT support game objects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateGameLevelRequest
 */
-func (a *GameLevelAPIService) UpdateGameLevel(ctx context.Context, version float32) ApiUpdateGameLevelRequest {
+func (a *GameLevelAPIService) UpdateGameLevel(ctx context.Context) ApiUpdateGameLevelRequest {
 	return ApiUpdateGameLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1521,8 +1489,7 @@ func (a *GameLevelAPIService) UpdateGameLevelExecute(r ApiUpdateGameLevelRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1668,7 +1635,6 @@ func (a *GameLevelAPIService) UpdateGameLevelExecute(r ApiUpdateGameLevelRequest
 type ApiUpdateQuestionsInLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	levelId *int64
 	accountId *int64
 	questionIds *string
@@ -1702,14 +1668,12 @@ UpdateQuestionsInLevel Update Level Questions
 Updates a level with question game objects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateQuestionsInLevelRequest
 */
-func (a *GameLevelAPIService) UpdateQuestionsInLevel(ctx context.Context, version float32) ApiUpdateQuestionsInLevelRequest {
+func (a *GameLevelAPIService) UpdateQuestionsInLevel(ctx context.Context) ApiUpdateQuestionsInLevelRequest {
 	return ApiUpdateQuestionsInLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1728,8 +1692,7 @@ func (a *GameLevelAPIService) UpdateQuestionsInLevelExecute(r ApiUpdateQuestions
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/questions/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/questions/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1804,7 +1767,6 @@ func (a *GameLevelAPIService) UpdateQuestionsInLevelExecute(r ApiUpdateQuestions
 type ApiUpdateWordsInLevelRequest struct {
 	ctx context.Context
 	ApiService *GameLevelAPIService
-	version float32
 	levelId *int64
 	accountId *int64
 	wordIds *string
@@ -1838,14 +1800,12 @@ UpdateWordsInLevel Update Level Words
 Updates a level with word game objects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateWordsInLevelRequest
 */
-func (a *GameLevelAPIService) UpdateWordsInLevel(ctx context.Context, version float32) ApiUpdateWordsInLevelRequest {
+func (a *GameLevelAPIService) UpdateWordsInLevel(ctx context.Context) ApiUpdateWordsInLevelRequest {
 	return ApiUpdateWordsInLevelRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1864,8 +1824,7 @@ func (a *GameLevelAPIService) UpdateWordsInLevelExecute(r ApiUpdateWordsInLevelR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/level/words/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/level/words/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

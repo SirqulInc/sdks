@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AccountAPIService service
 type ApiAccountLocationSearchRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	q *string
@@ -278,14 +276,12 @@ AccountLocationSearch Search Accounts by Location
 Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAccountLocationSearchRequest
 */
-func (a *AccountAPIService) AccountLocationSearch(ctx context.Context, version float32) ApiAccountLocationSearchRequest {
+func (a *AccountAPIService) AccountLocationSearch(ctx context.Context) ApiAccountLocationSearchRequest {
 	return ApiAccountLocationSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -304,8 +300,7 @@ func (a *AccountAPIService) AccountLocationSearchExecute(r ApiAccountLocationSea
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -502,7 +497,6 @@ func (a *AccountAPIService) AccountLocationSearchExecute(r ApiAccountLocationSea
 type ApiBlockAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountIdBeingBlocked *int64
 	deviceId *string
 	accountId *int64
@@ -564,14 +558,12 @@ BlockAccount Block Account
 Moves or removes an account into the user's blocked group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiBlockAccountRequest
 */
-func (a *AccountAPIService) BlockAccount(ctx context.Context, version float32) ApiBlockAccountRequest {
+func (a *AccountAPIService) BlockAccount(ctx context.Context) ApiBlockAccountRequest {
 	return ApiBlockAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -590,8 +582,7 @@ func (a *AccountAPIService) BlockAccountExecute(r ApiBlockAccountRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/block"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/block"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -684,7 +675,6 @@ func (a *AccountAPIService) BlockAccountExecute(r ApiBlockAccountRequest) (*Sirq
 type ApiCreateAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	username *string
 	password *string
 	name *string
@@ -1201,14 +1191,12 @@ CreateAccount Create Account
 Create a new account by role.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateAccountRequest
 */
-func (a *AccountAPIService) CreateAccount(ctx context.Context, version float32) ApiCreateAccountRequest {
+func (a *AccountAPIService) CreateAccount(ctx context.Context) ApiCreateAccountRequest {
 	return ApiCreateAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1227,8 +1215,7 @@ func (a *AccountAPIService) CreateAccountExecute(r ApiCreateAccountRequest) (*Ac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1509,7 +1496,6 @@ func (a *AccountAPIService) CreateAccountExecute(r ApiCreateAccountRequest) (*Ac
 type ApiEditAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	connectionAccountId *int64
@@ -2096,14 +2082,12 @@ EditAccount Update Account
 Edit the user's profile information
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiEditAccountRequest
 */
-func (a *AccountAPIService) EditAccount(ctx context.Context, version float32) ApiEditAccountRequest {
+func (a *AccountAPIService) EditAccount(ctx context.Context) ApiEditAccountRequest {
 	return ApiEditAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2122,8 +2106,7 @@ func (a *AccountAPIService) EditAccountExecute(r ApiEditAccountRequest) (*Profil
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/profile/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/profile/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2436,7 +2419,6 @@ func (a *AccountAPIService) EditAccountExecute(r ApiEditAccountRequest) (*Profil
 type ApiEditUsernameRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	emailAddress *string
@@ -2477,14 +2459,12 @@ EditUsername Update Username and Email
 Update account's own username and/or emailAddress
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiEditUsernameRequest
 */
-func (a *AccountAPIService) EditUsername(ctx context.Context, version float32) ApiEditUsernameRequest {
+func (a *AccountAPIService) EditUsername(ctx context.Context) ApiEditUsernameRequest {
 	return ApiEditUsernameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2503,8 +2483,7 @@ func (a *AccountAPIService) EditUsernameExecute(r ApiEditUsernameRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/username/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/username/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2579,7 +2558,6 @@ func (a *AccountAPIService) EditUsernameExecute(r ApiEditUsernameRequest) (*Sirq
 type ApiGetAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	returnNulls *bool
 	deviceId *string
 	accountId *int64
@@ -2676,14 +2654,12 @@ GetAccount Get Account
 Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAccountRequest
 */
-func (a *AccountAPIService) GetAccount(ctx context.Context, version float32) ApiGetAccountRequest {
+func (a *AccountAPIService) GetAccount(ctx context.Context) ApiGetAccountRequest {
 	return ApiGetAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2702,8 +2678,7 @@ func (a *AccountAPIService) GetAccountExecute(r ApiGetAccountRequest) (*ProfileR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/profile/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/profile/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2822,7 +2797,6 @@ func (a *AccountAPIService) GetAccountExecute(r ApiGetAccountRequest) (*ProfileR
 type ApiGetProfileAssetsRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	returnNulls *bool
 	deviceId *string
 	accountId *int64
@@ -2933,14 +2907,12 @@ GetProfileAssets Get Profile Assets
 Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetProfileAssetsRequest
 */
-func (a *AccountAPIService) GetProfileAssets(ctx context.Context, version float32) ApiGetProfileAssetsRequest {
+func (a *AccountAPIService) GetProfileAssets(ctx context.Context) ApiGetProfileAssetsRequest {
 	return ApiGetProfileAssetsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2959,8 +2931,7 @@ func (a *AccountAPIService) GetProfileAssetsExecute(r ApiGetProfileAssetsRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/profile/assets"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/profile/assets"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3085,7 +3056,6 @@ func (a *AccountAPIService) GetProfileAssetsExecute(r ApiGetProfileAssetsRequest
 type ApiGetReferralListRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	retrieveType *string
@@ -3175,14 +3145,12 @@ GetReferralList Search Accounts
 Gets a user's account profile and their referral List.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetReferralListRequest
 */
-func (a *AccountAPIService) GetReferralList(ctx context.Context, version float32) ApiGetReferralListRequest {
+func (a *AccountAPIService) GetReferralList(ctx context.Context) ApiGetReferralListRequest {
 	return ApiGetReferralListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3199,8 +3167,7 @@ func (a *AccountAPIService) GetReferralListExecute(r ApiGetReferralListRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/referral/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/referral/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3291,7 +3258,6 @@ func (a *AccountAPIService) GetReferralListExecute(r ApiGetReferralListRequest) 
 type ApiGetSettingsRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -3332,14 +3298,12 @@ GetSettings Get Account Settings
 Get the account settings for a user
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSettingsRequest
 */
-func (a *AccountAPIService) GetSettings(ctx context.Context, version float32) ApiGetSettingsRequest {
+func (a *AccountAPIService) GetSettings(ctx context.Context) ApiGetSettingsRequest {
 	return ApiGetSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3358,8 +3322,7 @@ func (a *AccountAPIService) GetSettingsExecute(r ApiGetSettingsRequest) (*UserSe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/settings/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/settings/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3434,7 +3397,6 @@ func (a *AccountAPIService) GetSettingsExecute(r ApiGetSettingsRequest) (*UserSe
 type ApiLoginDelegateRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accessToken *string
 	appKey *string
 	deviceId *string
@@ -3516,14 +3478,12 @@ LoginDelegate Login as Account
 A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLoginDelegateRequest
 */
-func (a *AccountAPIService) LoginDelegate(ctx context.Context, version float32) ApiLoginDelegateRequest {
+func (a *AccountAPIService) LoginDelegate(ctx context.Context) ApiLoginDelegateRequest {
 	return ApiLoginDelegateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3542,8 +3502,7 @@ func (a *AccountAPIService) LoginDelegateExecute(r ApiLoginDelegateRequest) (*Pr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/login/delegate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/login/delegate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3653,7 +3612,6 @@ func (a *AccountAPIService) LoginDelegateExecute(r ApiLoginDelegateRequest) (*Pr
 type ApiLoginGeneralRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accessToken *string
 	networkUID *string
 	appKey *string
@@ -3757,14 +3715,12 @@ LoginGeneral Login Account
 General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLoginGeneralRequest
 */
-func (a *AccountAPIService) LoginGeneral(ctx context.Context, version float32) ApiLoginGeneralRequest {
+func (a *AccountAPIService) LoginGeneral(ctx context.Context) ApiLoginGeneralRequest {
 	return ApiLoginGeneralRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3783,8 +3739,7 @@ func (a *AccountAPIService) LoginGeneralExecute(r ApiLoginGeneralRequest) (*Prof
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/login"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/login"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3909,7 +3864,6 @@ func (a *AccountAPIService) LoginGeneralExecute(r ApiLoginGeneralRequest) (*Prof
 type ApiLoginUsernameRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	username *string
 	password *string
 	deviceId *string
@@ -3992,14 +3946,12 @@ LoginUsername Login Account (Username)
 Login to system with an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLoginUsernameRequest
 */
-func (a *AccountAPIService) LoginUsername(ctx context.Context, version float32) ApiLoginUsernameRequest {
+func (a *AccountAPIService) LoginUsername(ctx context.Context) ApiLoginUsernameRequest {
 	return ApiLoginUsernameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4018,8 +3970,7 @@ func (a *AccountAPIService) LoginUsernameExecute(r ApiLoginUsernameRequest) (*Pr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4114,7 +4065,6 @@ func (a *AccountAPIService) LoginUsernameExecute(r ApiLoginUsernameRequest) (*Pr
 type ApiLogoutRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	deviceIdType *string
 	accountId *int64
@@ -4162,14 +4112,12 @@ Logout Logout Account
 Cleans up the users data for logging out.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLogoutRequest
 */
-func (a *AccountAPIService) Logout(ctx context.Context, version float32) ApiLogoutRequest {
+func (a *AccountAPIService) Logout(ctx context.Context) ApiLogoutRequest {
 	return ApiLogoutRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4188,8 +4136,7 @@ func (a *AccountAPIService) LogoutExecute(r ApiLogoutRequest) (*SirqulResponse, 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/logout"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/logout"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4267,7 +4214,6 @@ func (a *AccountAPIService) LogoutExecute(r ApiLogoutRequest) (*SirqulResponse, 
 type ApiMergeAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	mergeAccountId *int64
 	appKey *string
 	deviceId *string
@@ -4308,14 +4254,12 @@ MergeAccount Merge Account
 Merges the analytics, achievements, leaderboards of two accounts.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiMergeAccountRequest
 */
-func (a *AccountAPIService) MergeAccount(ctx context.Context, version float32) ApiMergeAccountRequest {
+func (a *AccountAPIService) MergeAccount(ctx context.Context) ApiMergeAccountRequest {
 	return ApiMergeAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4334,8 +4278,7 @@ func (a *AccountAPIService) MergeAccountExecute(r ApiMergeAccountRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/merge"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/merge"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4412,7 +4355,6 @@ func (a *AccountAPIService) MergeAccountExecute(r ApiMergeAccountRequest) (*Sirq
 type ApiPasswordChangeRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountId *int64
 	oldPassword *string
 	newPassword *string
@@ -4453,14 +4395,12 @@ PasswordChange Update Password
 Update the account password.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPasswordChangeRequest
 */
-func (a *AccountAPIService) PasswordChange(ctx context.Context, version float32) ApiPasswordChangeRequest {
+func (a *AccountAPIService) PasswordChange(ctx context.Context) ApiPasswordChangeRequest {
 	return ApiPasswordChangeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4479,8 +4419,7 @@ func (a *AccountAPIService) PasswordChangeExecute(r ApiPasswordChangeRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/passwordchange"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/passwordchange"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4559,7 +4498,6 @@ func (a *AccountAPIService) PasswordChangeExecute(r ApiPasswordChangeRequest) (*
 type ApiPasswordResetRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	token *string
 	password *string
 	confirm *string
@@ -4593,14 +4531,12 @@ PasswordReset Reset Password
 Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPasswordResetRequest
 */
-func (a *AccountAPIService) PasswordReset(ctx context.Context, version float32) ApiPasswordResetRequest {
+func (a *AccountAPIService) PasswordReset(ctx context.Context) ApiPasswordResetRequest {
 	return ApiPasswordResetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4619,8 +4555,7 @@ func (a *AccountAPIService) PasswordResetExecute(r ApiPasswordResetRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/passwordreset"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/passwordreset"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4695,7 +4630,6 @@ func (a *AccountAPIService) PasswordResetExecute(r ApiPasswordResetRequest) (*Si
 type ApiRequestPasswordResetRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	email *string
 	from *string
 	domain *string
@@ -4743,14 +4677,12 @@ RequestPasswordReset Request Password Reset
 Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRequestPasswordResetRequest
 */
-func (a *AccountAPIService) RequestPasswordReset(ctx context.Context, version float32) ApiRequestPasswordResetRequest {
+func (a *AccountAPIService) RequestPasswordReset(ctx context.Context) ApiRequestPasswordResetRequest {
 	return ApiRequestPasswordResetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4769,8 +4701,7 @@ func (a *AccountAPIService) RequestPasswordResetExecute(r ApiRequestPasswordRese
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/requestpasswordreset"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/requestpasswordreset"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4857,7 +4788,6 @@ func (a *AccountAPIService) RequestPasswordResetExecute(r ApiRequestPasswordRese
 type ApiRequestValidateAccountRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountId *int64
 }
 
@@ -4877,14 +4807,12 @@ RequestValidateAccount Send Validation Request
 Send an email to validate a user's account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRequestValidateAccountRequest
 */
-func (a *AccountAPIService) RequestValidateAccount(ctx context.Context, version float32) ApiRequestValidateAccountRequest {
+func (a *AccountAPIService) RequestValidateAccount(ctx context.Context) ApiRequestValidateAccountRequest {
 	return ApiRequestValidateAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4903,8 +4831,7 @@ func (a *AccountAPIService) RequestValidateAccountExecute(r ApiRequestValidateAc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/requestValidateAccount"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/requestValidateAccount"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4971,7 +4898,6 @@ func (a *AccountAPIService) RequestValidateAccountExecute(r ApiRequestValidateAc
 type ApiSearchAccountsRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	keyword *string
@@ -5110,14 +5036,12 @@ SearchAccounts Search Accounts
 Search for account profiles.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAccountsRequest
 */
-func (a *AccountAPIService) SearchAccounts(ctx context.Context, version float32) ApiSearchAccountsRequest {
+func (a *AccountAPIService) SearchAccounts(ctx context.Context) ApiSearchAccountsRequest {
 	return ApiSearchAccountsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5136,8 +5060,7 @@ func (a *AccountAPIService) SearchAccountsExecute(r ApiSearchAccountsRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/profile/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/profile/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5292,7 +5215,6 @@ func (a *AccountAPIService) SearchAccountsExecute(r ApiSearchAccountsRequest) ([
 type ApiSecureLoginRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	username *string
 	password *string
 	gameType *string
@@ -5368,14 +5290,12 @@ SecureLogin Login Account (Encrypted Username)
 ogin with encrypted user-name and password.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSecureLoginRequest
 */
-func (a *AccountAPIService) SecureLogin(ctx context.Context, version float32) ApiSecureLoginRequest {
+func (a *AccountAPIService) SecureLogin(ctx context.Context) ApiSecureLoginRequest {
 	return ApiSecureLoginRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5394,8 +5314,7 @@ func (a *AccountAPIService) SecureLoginExecute(r ApiSecureLoginRequest) (*Profil
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/login/validate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/login/validate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5500,7 +5419,6 @@ func (a *AccountAPIService) SecureLoginExecute(r ApiSecureLoginRequest) (*Profil
 type ApiSecureSignupRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	username *string
 	password *string
@@ -5940,14 +5858,12 @@ SecureSignup Create Account (Encrypted Username)
 Create a new account by role (with encrypted user-name and password)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSecureSignupRequest
 */
-func (a *AccountAPIService) SecureSignup(ctx context.Context, version float32) ApiSecureSignupRequest {
+func (a *AccountAPIService) SecureSignup(ctx context.Context) ApiSecureSignupRequest {
 	return ApiSecureSignupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5966,8 +5882,7 @@ func (a *AccountAPIService) SecureSignupExecute(r ApiSecureSignupRequest) (*Prof
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/create/validate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/create/validate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6228,7 +6143,6 @@ func (a *AccountAPIService) SecureSignupExecute(r ApiSecureSignupRequest) (*Prof
 type ApiSetMatchTokenRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	matchToken *string
@@ -6290,14 +6204,12 @@ SetMatchToken Save Match Token
 Save user's match token to be used for profile match making
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSetMatchTokenRequest
 */
-func (a *AccountAPIService) SetMatchToken(ctx context.Context, version float32) ApiSetMatchTokenRequest {
+func (a *AccountAPIService) SetMatchToken(ctx context.Context) ApiSetMatchTokenRequest {
 	return ApiSetMatchTokenRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6316,8 +6228,7 @@ func (a *AccountAPIService) SetMatchTokenExecute(r ApiSetMatchTokenRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/profile/matchToken"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/profile/matchToken"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6405,7 +6316,6 @@ func (a *AccountAPIService) SetMatchTokenExecute(r ApiSetMatchTokenRequest) (*Si
 type ApiUpdateActveStatusRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	accountId *int64
 	connectionAccountId *int64
 	active *bool
@@ -6453,14 +6363,12 @@ UpdateActveStatus Update Account Active Status
 Activate or deactivate an account (requires appropriate permissions).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateActveStatusRequest
 */
-func (a *AccountAPIService) UpdateActveStatus(ctx context.Context, version float32) ApiUpdateActveStatusRequest {
+func (a *AccountAPIService) UpdateActveStatus(ctx context.Context) ApiUpdateActveStatusRequest {
 	return ApiUpdateActveStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6479,8 +6387,7 @@ func (a *AccountAPIService) UpdateActveStatusExecute(r ApiUpdateActveStatusReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/active/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/active/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6561,7 +6468,6 @@ func (a *AccountAPIService) UpdateActveStatusExecute(r ApiUpdateActveStatusReque
 type ApiUpdateLocationRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -6609,14 +6515,12 @@ UpdateLocation Update Location
 Update the account location
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateLocationRequest
 */
-func (a *AccountAPIService) UpdateLocation(ctx context.Context, version float32) ApiUpdateLocationRequest {
+func (a *AccountAPIService) UpdateLocation(ctx context.Context) ApiUpdateLocationRequest {
 	return ApiUpdateLocationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6635,8 +6539,7 @@ func (a *AccountAPIService) UpdateLocationExecute(r ApiUpdateLocationRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/location/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/location/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6714,7 +6617,6 @@ func (a *AccountAPIService) UpdateLocationExecute(r ApiUpdateLocationRequest) (*
 type ApiUpdateSettingsRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	blockedNotifications *string
@@ -6811,14 +6713,12 @@ UpdateSettings Update Account Settings
 Update the account settings for a user
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateSettingsRequest
 */
-func (a *AccountAPIService) UpdateSettings(ctx context.Context, version float32) ApiUpdateSettingsRequest {
+func (a *AccountAPIService) UpdateSettings(ctx context.Context) ApiUpdateSettingsRequest {
 	return ApiUpdateSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6837,8 +6737,7 @@ func (a *AccountAPIService) UpdateSettingsExecute(r ApiUpdateSettingsRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/settings/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/settings/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6937,7 +6836,6 @@ func (a *AccountAPIService) UpdateSettingsExecute(r ApiUpdateSettingsRequest) (*
 type ApiValidateAccountSignupRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	token *string
 }
 
@@ -6957,14 +6855,12 @@ ValidateAccountSignup Save Validation Status
 Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiValidateAccountSignupRequest
 */
-func (a *AccountAPIService) ValidateAccountSignup(ctx context.Context, version float32) ApiValidateAccountSignupRequest {
+func (a *AccountAPIService) ValidateAccountSignup(ctx context.Context) ApiValidateAccountSignupRequest {
 	return ApiValidateAccountSignupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6983,8 +6879,7 @@ func (a *AccountAPIService) ValidateAccountSignupExecute(r ApiValidateAccountSig
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/validateAccountSignup"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/validateAccountSignup"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7051,7 +6946,6 @@ func (a *AccountAPIService) ValidateAccountSignupExecute(r ApiValidateAccountSig
 type ApiValidatePasswordResetRequest struct {
 	ctx context.Context
 	ApiService *AccountAPIService
-	version float32
 	token *string
 }
 
@@ -7071,14 +6965,12 @@ ValidatePasswordReset Validate Password Reset Token
 Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiValidatePasswordResetRequest
 */
-func (a *AccountAPIService) ValidatePasswordReset(ctx context.Context, version float32) ApiValidatePasswordResetRequest {
+func (a *AccountAPIService) ValidatePasswordReset(ctx context.Context) ApiValidatePasswordResetRequest {
 	return ApiValidatePasswordResetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -7097,8 +6989,7 @@ func (a *AccountAPIService) ValidatePasswordResetExecute(r ApiValidatePasswordRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/validatepasswordreset"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/validatepasswordreset"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

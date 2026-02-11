@@ -27,7 +27,6 @@ type VehicleTypeAPIService service
 type ApiCreateVehicleTypeRequest struct {
 	ctx context.Context
 	ApiService *VehicleTypeAPIService
-	version float32
 	vehicleType *string
 	body *VehicleType
 }
@@ -53,14 +52,12 @@ CreateVehicleType Create Vehicle Type
 Create a new vehicle type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateVehicleTypeRequest
 */
-func (a *VehicleTypeAPIService) CreateVehicleType(ctx context.Context, version float32) ApiCreateVehicleTypeRequest {
+func (a *VehicleTypeAPIService) CreateVehicleType(ctx context.Context) ApiCreateVehicleTypeRequest {
 	return ApiCreateVehicleTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -79,8 +76,7 @@ func (a *VehicleTypeAPIService) CreateVehicleTypeExecute(r ApiCreateVehicleTypeR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vehicle/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vehicle/type"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -149,7 +145,6 @@ func (a *VehicleTypeAPIService) CreateVehicleTypeExecute(r ApiCreateVehicleTypeR
 type ApiDeleteVehicleTypeRequest struct {
 	ctx context.Context
 	ApiService *VehicleTypeAPIService
-	version float32
 	vehicleTypeId int64
 }
 
@@ -163,15 +158,13 @@ DeleteVehicleType Delete Vehicle Type
 Delete a vehicle type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param vehicleTypeId The id of the requested vehicle type
  @return ApiDeleteVehicleTypeRequest
 */
-func (a *VehicleTypeAPIService) DeleteVehicleType(ctx context.Context, version float32, vehicleTypeId int64) ApiDeleteVehicleTypeRequest {
+func (a *VehicleTypeAPIService) DeleteVehicleType(ctx context.Context, vehicleTypeId int64) ApiDeleteVehicleTypeRequest {
 	return ApiDeleteVehicleTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		vehicleTypeId: vehicleTypeId,
 	}
 }
@@ -189,8 +182,7 @@ func (a *VehicleTypeAPIService) DeleteVehicleTypeExecute(r ApiDeleteVehicleTypeR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vehicle/type/{vehicleTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vehicle/type/{vehicleTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"vehicleTypeId"+"}", url.PathEscape(parameterValueToString(r.vehicleTypeId, "vehicleTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -245,7 +237,6 @@ func (a *VehicleTypeAPIService) DeleteVehicleTypeExecute(r ApiDeleteVehicleTypeR
 type ApiGetVehicleTypeRequest struct {
 	ctx context.Context
 	ApiService *VehicleTypeAPIService
-	version float32
 	vehicleTypeId int64
 }
 
@@ -259,15 +250,13 @@ GetVehicleType Get Vehicle Type
 Get a vehicle type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param vehicleTypeId The id of the requested vehicle type
  @return ApiGetVehicleTypeRequest
 */
-func (a *VehicleTypeAPIService) GetVehicleType(ctx context.Context, version float32, vehicleTypeId int64) ApiGetVehicleTypeRequest {
+func (a *VehicleTypeAPIService) GetVehicleType(ctx context.Context, vehicleTypeId int64) ApiGetVehicleTypeRequest {
 	return ApiGetVehicleTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		vehicleTypeId: vehicleTypeId,
 	}
 }
@@ -287,8 +276,7 @@ func (a *VehicleTypeAPIService) GetVehicleTypeExecute(r ApiGetVehicleTypeRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vehicle/type/{vehicleTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vehicle/type/{vehicleTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"vehicleTypeId"+"}", url.PathEscape(parameterValueToString(r.vehicleTypeId, "vehicleTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -352,7 +340,6 @@ func (a *VehicleTypeAPIService) GetVehicleTypeExecute(r ApiGetVehicleTypeRequest
 type ApiSearchVehicleTypesRequest struct {
 	ctx context.Context
 	ApiService *VehicleTypeAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -414,14 +401,12 @@ SearchVehicleTypes Search Vehicle Type
 Search for types of vehicles
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchVehicleTypesRequest
 */
-func (a *VehicleTypeAPIService) SearchVehicleTypes(ctx context.Context, version float32) ApiSearchVehicleTypesRequest {
+func (a *VehicleTypeAPIService) SearchVehicleTypes(ctx context.Context) ApiSearchVehicleTypesRequest {
 	return ApiSearchVehicleTypesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -440,8 +425,7 @@ func (a *VehicleTypeAPIService) SearchVehicleTypesExecute(r ApiSearchVehicleType
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vehicle/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vehicle/type"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -530,7 +514,6 @@ func (a *VehicleTypeAPIService) SearchVehicleTypesExecute(r ApiSearchVehicleType
 type ApiUpdateVehicleTypeRequest struct {
 	ctx context.Context
 	ApiService *VehicleTypeAPIService
-	version float32
 	vehicleTypeId int64
 	vehicleType *string
 	body *VehicleType
@@ -557,15 +540,13 @@ UpdateVehicleType Update Vehicle Type
 Update a vehicle type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param vehicleTypeId The id of the vehicle type to update
  @return ApiUpdateVehicleTypeRequest
 */
-func (a *VehicleTypeAPIService) UpdateVehicleType(ctx context.Context, version float32, vehicleTypeId int64) ApiUpdateVehicleTypeRequest {
+func (a *VehicleTypeAPIService) UpdateVehicleType(ctx context.Context, vehicleTypeId int64) ApiUpdateVehicleTypeRequest {
 	return ApiUpdateVehicleTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		vehicleTypeId: vehicleTypeId,
 	}
 }
@@ -585,8 +566,7 @@ func (a *VehicleTypeAPIService) UpdateVehicleTypeExecute(r ApiUpdateVehicleTypeR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vehicle/type/{vehicleTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vehicle/type/{vehicleTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"vehicleTypeId"+"}", url.PathEscape(parameterValueToString(r.vehicleTypeId, "vehicleTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

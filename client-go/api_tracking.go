@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TrackingAPIService service
 type ApiBatchSaveTrackingRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	data *string
 	deviceId *string
 	accountId *int64
@@ -89,14 +87,12 @@ BatchSaveTracking Create Batch Tracking
 Batch create tracking legs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiBatchSaveTrackingRequest
 */
-func (a *TrackingAPIService) BatchSaveTracking(ctx context.Context, version float32) ApiBatchSaveTrackingRequest {
+func (a *TrackingAPIService) BatchSaveTracking(ctx context.Context) ApiBatchSaveTrackingRequest {
 	return ApiBatchSaveTrackingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *TrackingAPIService) BatchSaveTrackingExecute(r ApiBatchSaveTrackingRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/batch/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/batch/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -205,7 +200,6 @@ func (a *TrackingAPIService) BatchSaveTrackingExecute(r ApiBatchSaveTrackingRequ
 type ApiGetPredictedLocationsRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	accountId *int64
 	latitude *float64
 	longitude *float64
@@ -281,14 +275,12 @@ GetPredictedLocations Get Predicted Locations
 Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPredictedLocationsRequest
 */
-func (a *TrackingAPIService) GetPredictedLocations(ctx context.Context, version float32) ApiGetPredictedLocationsRequest {
+func (a *TrackingAPIService) GetPredictedLocations(ctx context.Context) ApiGetPredictedLocationsRequest {
 	return ApiGetPredictedLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -307,8 +299,7 @@ func (a *TrackingAPIService) GetPredictedLocationsExecute(r ApiGetPredictedLocat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/predicted/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/predicted/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -415,7 +406,6 @@ func (a *TrackingAPIService) GetPredictedLocationsExecute(r ApiGetPredictedLocat
 type ApiGetPredictedPathRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	accountId *int64
 	startStepId *int64
 	endStepId *int64
@@ -449,14 +439,12 @@ GetPredictedPath Get Tracking Path
 Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPredictedPathRequest
 */
-func (a *TrackingAPIService) GetPredictedPath(ctx context.Context, version float32) ApiGetPredictedPathRequest {
+func (a *TrackingAPIService) GetPredictedPath(ctx context.Context) ApiGetPredictedPathRequest {
 	return ApiGetPredictedPathRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -475,8 +463,7 @@ func (a *TrackingAPIService) GetPredictedPathExecute(r ApiGetPredictedPathReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/path/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/path/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -551,7 +538,6 @@ func (a *TrackingAPIService) GetPredictedPathExecute(r ApiGetPredictedPathReques
 type ApiGetPreferredLocationsRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	accountId *int64
 	latitude *float64
 	longitude *float64
@@ -641,14 +627,12 @@ GetPreferredLocations Search Preferred Locations
 Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPreferredLocationsRequest
 */
-func (a *TrackingAPIService) GetPreferredLocations(ctx context.Context, version float32) ApiGetPreferredLocationsRequest {
+func (a *TrackingAPIService) GetPreferredLocations(ctx context.Context) ApiGetPreferredLocationsRequest {
 	return ApiGetPreferredLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -667,8 +651,7 @@ func (a *TrackingAPIService) GetPreferredLocationsExecute(r ApiGetPreferredLocat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/preferred/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/preferred/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -789,7 +772,6 @@ func (a *TrackingAPIService) GetPreferredLocationsExecute(r ApiGetPreferredLocat
 type ApiGetTrackingLegsRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	ownerId *int64
@@ -858,14 +840,12 @@ GetTrackingLegs Search Tracking
 Retrieve tracking data to be able to show where a user has been.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTrackingLegsRequest
 */
-func (a *TrackingAPIService) GetTrackingLegs(ctx context.Context, version float32) ApiGetTrackingLegsRequest {
+func (a *TrackingAPIService) GetTrackingLegs(ctx context.Context) ApiGetTrackingLegsRequest {
 	return ApiGetTrackingLegsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -884,8 +864,7 @@ func (a *TrackingAPIService) GetTrackingLegsExecute(r ApiGetTrackingLegsRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -976,7 +955,6 @@ func (a *TrackingAPIService) GetTrackingLegsExecute(r ApiGetTrackingLegsRequest)
 type ApiSaveTrackingLegRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	startLat *float64
 	startLng *float64
 	startDate *int64
@@ -1073,14 +1051,12 @@ SaveTrackingLeg Create Tracking Leg
 Send tracking points to be able to generate pathing data
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSaveTrackingLegRequest
 */
-func (a *TrackingAPIService) SaveTrackingLeg(ctx context.Context, version float32) ApiSaveTrackingLegRequest {
+func (a *TrackingAPIService) SaveTrackingLeg(ctx context.Context) ApiSaveTrackingLegRequest {
 	return ApiSaveTrackingLegRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1099,8 +1075,7 @@ func (a *TrackingAPIService) SaveTrackingLegExecute(r ApiSaveTrackingLegRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/leg/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/leg/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1205,7 +1180,6 @@ func (a *TrackingAPIService) SaveTrackingLegExecute(r ApiSaveTrackingLegRequest)
 type ApiSaveTrackingStepRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	legId *int64
 	startLat *float64
 	startLng *float64
@@ -1295,14 +1269,12 @@ SaveTrackingStep Create Tracking Step
 Send tracking points to be able to generate pathing data
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSaveTrackingStepRequest
 */
-func (a *TrackingAPIService) SaveTrackingStep(ctx context.Context, version float32) ApiSaveTrackingStepRequest {
+func (a *TrackingAPIService) SaveTrackingStep(ctx context.Context) ApiSaveTrackingStepRequest {
 	return ApiSaveTrackingStepRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1321,8 +1293,7 @@ func (a *TrackingAPIService) SaveTrackingStepExecute(r ApiSaveTrackingStepReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/step/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/step/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1425,7 +1396,6 @@ func (a *TrackingAPIService) SaveTrackingStepExecute(r ApiSaveTrackingStepReques
 type ApiSearchAccountsWithTrackingLegsRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	startDate *int64
@@ -1536,14 +1506,12 @@ SearchAccountsWithTrackingLegs List Tracking
 Search for all accounts that have tracking legs data by the given constraints.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAccountsWithTrackingLegsRequest
 */
-func (a *TrackingAPIService) SearchAccountsWithTrackingLegs(ctx context.Context, version float32) ApiSearchAccountsWithTrackingLegsRequest {
+func (a *TrackingAPIService) SearchAccountsWithTrackingLegs(ctx context.Context) ApiSearchAccountsWithTrackingLegsRequest {
 	return ApiSearchAccountsWithTrackingLegsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1562,8 +1530,7 @@ func (a *TrackingAPIService) SearchAccountsWithTrackingLegsExecute(r ApiSearchAc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1693,7 +1660,6 @@ func (a *TrackingAPIService) SearchAccountsWithTrackingLegsExecute(r ApiSearchAc
 type ApiSearchTrackingLegsRequest struct {
 	ctx context.Context
 	ApiService *TrackingAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	trackingDeviceId *string
@@ -1762,14 +1728,12 @@ SearchTrackingLegs Search Tracking (Billable)
 Retrieve tracking data for billable/account scoped queries.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTrackingLegsRequest
 */
-func (a *TrackingAPIService) SearchTrackingLegs(ctx context.Context, version float32) ApiSearchTrackingLegsRequest {
+func (a *TrackingAPIService) SearchTrackingLegs(ctx context.Context) ApiSearchTrackingLegsRequest {
 	return ApiSearchTrackingLegsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1788,8 +1752,7 @@ func (a *TrackingAPIService) SearchTrackingLegsExecute(r ApiSearchTrackingLegsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tracking/searchByBillable"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tracking/searchByBillable"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ConnectionAPIService service
 type ApiAddConnectionToGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	groupId *int64
 	deviceId *string
@@ -103,14 +101,12 @@ AddConnectionToGroup Add Connection
 Adds a connection to a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddConnectionToGroupRequest
 */
-func (a *ConnectionAPIService) AddConnectionToGroup(ctx context.Context, version float32) ApiAddConnectionToGroupRequest {
+func (a *ConnectionAPIService) AddConnectionToGroup(ctx context.Context) ApiAddConnectionToGroupRequest {
 	return ApiAddConnectionToGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -129,8 +125,7 @@ func (a *ConnectionAPIService) AddConnectionToGroupExecute(r ApiAddConnectionToG
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/addConnection"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/addConnection"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -222,7 +217,6 @@ func (a *ConnectionAPIService) AddConnectionToGroupExecute(r ApiAddConnectionToG
 type ApiAddConnectionsToGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	connectionGroupId *int64
 	deviceId *string
 	accountId *int64
@@ -284,14 +278,12 @@ AddConnectionsToGroup Add Connections
 Adds a list of connections to a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddConnectionsToGroupRequest
 */
-func (a *ConnectionAPIService) AddConnectionsToGroup(ctx context.Context, version float32) ApiAddConnectionsToGroupRequest {
+func (a *ConnectionAPIService) AddConnectionsToGroup(ctx context.Context) ApiAddConnectionsToGroupRequest {
 	return ApiAddConnectionsToGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -310,8 +302,7 @@ func (a *ConnectionAPIService) AddConnectionsToGroupExecute(r ApiAddConnectionsT
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/connection/group/addConnections"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/connection/group/addConnections"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -396,7 +387,6 @@ func (a *ConnectionAPIService) AddConnectionsToGroupExecute(r ApiAddConnectionsT
 type ApiAddSubGroupsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	groupId *int64
 	subGroupIds *string
@@ -458,14 +448,12 @@ AddSubGroups Add Connection Groups
 Add sub groups to a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddSubGroupsRequest
 */
-func (a *ConnectionAPIService) AddSubGroups(ctx context.Context, version float32) ApiAddSubGroupsRequest {
+func (a *ConnectionAPIService) AddSubGroups(ctx context.Context) ApiAddSubGroupsRequest {
 	return ApiAddSubGroupsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -484,8 +472,7 @@ func (a *ConnectionAPIService) AddSubGroupsExecute(r ApiAddSubGroupsRequest) (*C
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/addSubGroup"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/addSubGroup"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -572,7 +559,6 @@ func (a *ConnectionAPIService) AddSubGroupsExecute(r ApiAddSubGroupsRequest) (*C
 type ApiCreateOrUpdateConnectionRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	connectionId *int64
@@ -683,14 +669,12 @@ CreateOrUpdateConnection Create or Update Connection
 Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOrUpdateConnectionRequest
 */
-func (a *ConnectionAPIService) CreateOrUpdateConnection(ctx context.Context, version float32) ApiCreateOrUpdateConnectionRequest {
+func (a *ConnectionAPIService) CreateOrUpdateConnection(ctx context.Context) ApiCreateOrUpdateConnectionRequest {
 	return ApiCreateOrUpdateConnectionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -709,8 +693,7 @@ func (a *ConnectionAPIService) CreateOrUpdateConnectionExecute(r ApiCreateOrUpda
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/add"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/add"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -815,7 +798,6 @@ func (a *ConnectionAPIService) CreateOrUpdateConnectionExecute(r ApiCreateOrUpda
 type ApiCreateOrUpdateGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	deviceId *string
 	accountId *int64
@@ -926,14 +908,12 @@ CreateOrUpdateGroup Create or Update Connection Group
 Creates a new private group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOrUpdateGroupRequest
 */
-func (a *ConnectionAPIService) CreateOrUpdateGroup(ctx context.Context, version float32) ApiCreateOrUpdateGroupRequest {
+func (a *ConnectionAPIService) CreateOrUpdateGroup(ctx context.Context) ApiCreateOrUpdateGroupRequest {
 	return ApiCreateOrUpdateGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -952,8 +932,7 @@ func (a *ConnectionAPIService) CreateOrUpdateGroupExecute(r ApiCreateOrUpdateGro
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1059,7 +1038,6 @@ func (a *ConnectionAPIService) CreateOrUpdateGroupExecute(r ApiCreateOrUpdateGro
 type ApiFollowAcceptRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	accountId *int64
 	connectionAccountId *int64
 	appKey *string
@@ -1093,14 +1071,12 @@ FollowAccept Accept Follow Request
 Accept someone's follow request.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFollowAcceptRequest
 */
-func (a *ConnectionAPIService) FollowAccept(ctx context.Context, version float32) ApiFollowAcceptRequest {
+func (a *ConnectionAPIService) FollowAccept(ctx context.Context) ApiFollowAcceptRequest {
 	return ApiFollowAcceptRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1119,8 +1095,7 @@ func (a *ConnectionAPIService) FollowAcceptExecute(r ApiFollowAcceptRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/follow/accept"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/follow/accept"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1195,7 +1170,6 @@ func (a *ConnectionAPIService) FollowAcceptExecute(r ApiFollowAcceptRequest) (*S
 type ApiFollowRejectRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	accountId *int64
 	connectionAccountId *int64
 	appKey *string
@@ -1229,14 +1203,12 @@ FollowReject Reject Follow Request
 Reject someone's follow request or remove them as a follower.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFollowRejectRequest
 */
-func (a *ConnectionAPIService) FollowReject(ctx context.Context, version float32) ApiFollowRejectRequest {
+func (a *ConnectionAPIService) FollowReject(ctx context.Context) ApiFollowRejectRequest {
 	return ApiFollowRejectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1255,8 +1227,7 @@ func (a *ConnectionAPIService) FollowRejectExecute(r ApiFollowRejectRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/follow/reject"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/follow/reject"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1331,7 +1302,6 @@ func (a *ConnectionAPIService) FollowRejectExecute(r ApiFollowRejectRequest) (*S
 type ApiFollowRemoveRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	accountId *int64
 	connectionAccountId *int64
 	appKey *string
@@ -1365,14 +1335,12 @@ FollowRemove Remove Follower / Unfollow
 Unfollow someone you are following or remove them as a follower.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFollowRemoveRequest
 */
-func (a *ConnectionAPIService) FollowRemove(ctx context.Context, version float32) ApiFollowRemoveRequest {
+func (a *ConnectionAPIService) FollowRemove(ctx context.Context) ApiFollowRemoveRequest {
 	return ApiFollowRemoveRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1391,8 +1359,7 @@ func (a *ConnectionAPIService) FollowRemoveExecute(r ApiFollowRemoveRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/follow/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/follow/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1467,7 +1434,6 @@ func (a *ConnectionAPIService) FollowRemoveExecute(r ApiFollowRemoveRequest) (*S
 type ApiFollowRequestRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	accountId *int64
 	connectionAccountId *int64
 	appKey *string
@@ -1508,14 +1474,12 @@ FollowRequest Send Follow Request
 Send a request to follow someone.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFollowRequestRequest
 */
-func (a *ConnectionAPIService) FollowRequest(ctx context.Context, version float32) ApiFollowRequestRequest {
+func (a *ConnectionAPIService) FollowRequest(ctx context.Context) ApiFollowRequestRequest {
 	return ApiFollowRequestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1534,8 +1498,7 @@ func (a *ConnectionAPIService) FollowRequestExecute(r ApiFollowRequestRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/follow/request"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/follow/request"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1617,7 +1580,6 @@ func (a *ConnectionAPIService) FollowRequestExecute(r ApiFollowRequestRequest) (
 type ApiFriendAcceptRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	friendAccountId *int64
 	notifyFriend *bool
 	deviceId *string
@@ -1679,14 +1641,12 @@ FriendAccept Accept Friend
 Accept a friend request and optionally sends a notification.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFriendAcceptRequest
 */
-func (a *ConnectionAPIService) FriendAccept(ctx context.Context, version float32) ApiFriendAcceptRequest {
+func (a *ConnectionAPIService) FriendAccept(ctx context.Context) ApiFriendAcceptRequest {
 	return ApiFriendAcceptRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1705,8 +1665,7 @@ func (a *ConnectionAPIService) FriendAcceptExecute(r ApiFriendAcceptRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/friend/accept"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/friend/accept"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1792,7 +1751,6 @@ func (a *ConnectionAPIService) FriendAcceptExecute(r ApiFriendAcceptRequest) (*S
 type ApiFriendRejectRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	friendAccountId *int64
 	deviceId *string
 	accountId *int64
@@ -1854,14 +1812,12 @@ FriendReject Decline Friend
 Request a friend request and optionally sends a notification.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFriendRejectRequest
 */
-func (a *ConnectionAPIService) FriendReject(ctx context.Context, version float32) ApiFriendRejectRequest {
+func (a *ConnectionAPIService) FriendReject(ctx context.Context) ApiFriendRejectRequest {
 	return ApiFriendRejectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1880,8 +1836,7 @@ func (a *ConnectionAPIService) FriendRejectExecute(r ApiFriendRejectRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/friend/reject"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/friend/reject"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1966,7 +1921,6 @@ func (a *ConnectionAPIService) FriendRejectExecute(r ApiFriendRejectRequest) (*S
 type ApiFriendRemoveRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	friendAccountId *int64
 	deviceId *string
 	accountId *int64
@@ -2014,14 +1968,12 @@ FriendRemove Delete Friend
 Removes a friend from the user's friends list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFriendRemoveRequest
 */
-func (a *ConnectionAPIService) FriendRemove(ctx context.Context, version float32) ApiFriendRemoveRequest {
+func (a *ConnectionAPIService) FriendRemove(ctx context.Context) ApiFriendRemoveRequest {
 	return ApiFriendRemoveRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2040,8 +1992,7 @@ func (a *ConnectionAPIService) FriendRemoveExecute(r ApiFriendRemoveRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/friend/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/friend/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2120,7 +2071,6 @@ func (a *ConnectionAPIService) FriendRemoveExecute(r ApiFriendRemoveRequest) (*S
 type ApiFriendRequestRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	friendAccountId *int64
 	deviceId *string
 	accountId *int64
@@ -2175,14 +2125,12 @@ FriendRequest Request Friend
 Sends a friend request notification to another user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFriendRequestRequest
 */
-func (a *ConnectionAPIService) FriendRequest(ctx context.Context, version float32) ApiFriendRequestRequest {
+func (a *ConnectionAPIService) FriendRequest(ctx context.Context) ApiFriendRequestRequest {
 	return ApiFriendRequestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2201,8 +2149,7 @@ func (a *ConnectionAPIService) FriendRequestExecute(r ApiFriendRequestRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/friend/request"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/friend/request"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2284,7 +2231,6 @@ func (a *ConnectionAPIService) FriendRequestExecute(r ApiFriendRequestRequest) (
 type ApiGetConnectionSentFriendRequestsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 }
@@ -2311,14 +2257,12 @@ GetConnectionSentFriendRequests Get Sent Friend Requests
 Gets the connection sent friend requests.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetConnectionSentFriendRequestsRequest
 */
-func (a *ConnectionAPIService) GetConnectionSentFriendRequests(ctx context.Context, version float32) ApiGetConnectionSentFriendRequestsRequest {
+func (a *ConnectionAPIService) GetConnectionSentFriendRequests(ctx context.Context) ApiGetConnectionSentFriendRequestsRequest {
 	return ApiGetConnectionSentFriendRequestsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2337,8 +2281,7 @@ func (a *ConnectionAPIService) GetConnectionSentFriendRequestsExecute(r ApiGetCo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/getRequested"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/getRequested"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2407,7 +2350,6 @@ func (a *ConnectionAPIService) GetConnectionSentFriendRequestsExecute(r ApiGetCo
 type ApiGetConnectionsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	filter *string
 	sortField *string
@@ -2525,14 +2467,12 @@ GetConnections Search Connections
 Gets the connections.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetConnectionsRequest
 */
-func (a *ConnectionAPIService) GetConnections(ctx context.Context, version float32) ApiGetConnectionsRequest {
+func (a *ConnectionAPIService) GetConnections(ctx context.Context) ApiGetConnectionsRequest {
 	return ApiGetConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2551,8 +2491,7 @@ func (a *ConnectionAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2666,7 +2605,6 @@ func (a *ConnectionAPIService) GetConnectionsExecute(r ApiGetConnectionsRequest)
 type ApiGetGroupDetailsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	combineConnections *bool
 	deviceId *string
 	accountId *int64
@@ -2719,14 +2657,12 @@ func (r ApiGetGroupDetailsRequest) Execute() (*ConnectionGroupResponse, *http.Re
 GetGroupDetails Get Connection Group
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGroupDetailsRequest
 */
-func (a *ConnectionAPIService) GetGroupDetails(ctx context.Context, version float32) ApiGetGroupDetailsRequest {
+func (a *ConnectionAPIService) GetGroupDetails(ctx context.Context) ApiGetGroupDetailsRequest {
 	return ApiGetGroupDetailsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2745,8 +2681,7 @@ func (a *ConnectionAPIService) GetGroupDetailsExecute(r ApiGetGroupDetailsReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/details/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/details/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2828,7 +2763,6 @@ func (a *ConnectionAPIService) GetGroupDetailsExecute(r ApiGetGroupDetailsReques
 type ApiGroupSearchRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	sortField *string
 	descending *bool
 	activeOnly *bool
@@ -2911,14 +2845,12 @@ GroupSearch Search Connection Groups
 Gets a user's private groups and default groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGroupSearchRequest
 */
-func (a *ConnectionAPIService) GroupSearch(ctx context.Context, version float32) ApiGroupSearchRequest {
+func (a *ConnectionAPIService) GroupSearch(ctx context.Context) ApiGroupSearchRequest {
 	return ApiGroupSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2937,8 +2869,7 @@ func (a *ConnectionAPIService) GroupSearchExecute(r ApiGroupSearchRequest) ([]Co
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/connection/group/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/connection/group/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3036,7 +2967,6 @@ func (a *ConnectionAPIService) GroupSearchExecute(r ApiGroupSearchRequest) ([]Co
 type ApiRemoveConnectionFromGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	groupId *int64
 	deviceId *string
@@ -3112,14 +3042,12 @@ RemoveConnectionFromGroup Delete Connection
 Removes the connection from group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveConnectionFromGroupRequest
 */
-func (a *ConnectionAPIService) RemoveConnectionFromGroup(ctx context.Context, version float32) ApiRemoveConnectionFromGroupRequest {
+func (a *ConnectionAPIService) RemoveConnectionFromGroup(ctx context.Context) ApiRemoveConnectionFromGroupRequest {
 	return ApiRemoveConnectionFromGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3138,8 +3066,7 @@ func (a *ConnectionAPIService) RemoveConnectionFromGroupExecute(r ApiRemoveConne
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/removeConnection"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/removeConnection"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3231,7 +3158,6 @@ func (a *ConnectionAPIService) RemoveConnectionFromGroupExecute(r ApiRemoveConne
 type ApiRemoveConnectionsFromGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	connectionGroupId *int64
 	deviceId *string
 	accountId *int64
@@ -3293,14 +3219,12 @@ RemoveConnectionsFromGroup Remove Connections
 Remove a list of connections from a group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveConnectionsFromGroupRequest
 */
-func (a *ConnectionAPIService) RemoveConnectionsFromGroup(ctx context.Context, version float32) ApiRemoveConnectionsFromGroupRequest {
+func (a *ConnectionAPIService) RemoveConnectionsFromGroup(ctx context.Context) ApiRemoveConnectionsFromGroupRequest {
 	return ApiRemoveConnectionsFromGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3319,8 +3243,7 @@ func (a *ConnectionAPIService) RemoveConnectionsFromGroupExecute(r ApiRemoveConn
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/connection/group/removeConnections"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/connection/group/removeConnections"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3405,7 +3328,6 @@ func (a *ConnectionAPIService) RemoveConnectionsFromGroupExecute(r ApiRemoveConn
 type ApiRemoveGroupRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	groupId *int64
 	deviceId *string
@@ -3460,14 +3382,12 @@ RemoveGroup Delete Connection Group
 Remove a user's group.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveGroupRequest
 */
-func (a *ConnectionAPIService) RemoveGroup(ctx context.Context, version float32) ApiRemoveGroupRequest {
+func (a *ConnectionAPIService) RemoveGroup(ctx context.Context) ApiRemoveGroupRequest {
 	return ApiRemoveGroupRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3486,8 +3406,7 @@ func (a *ConnectionAPIService) RemoveGroupExecute(r ApiRemoveGroupRequest) (*Sir
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3570,7 +3489,6 @@ func (a *ConnectionAPIService) RemoveGroupExecute(r ApiRemoveGroupRequest) (*Sir
 type ApiRemoveSubGroupsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	groupId *int64
 	subGroupIds *string
@@ -3632,14 +3550,12 @@ RemoveSubGroups Remove Connection Groups
 Remove sub groups from a group
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveSubGroupsRequest
 */
-func (a *ConnectionAPIService) RemoveSubGroups(ctx context.Context, version float32) ApiRemoveSubGroupsRequest {
+func (a *ConnectionAPIService) RemoveSubGroups(ctx context.Context) ApiRemoveSubGroupsRequest {
 	return ApiRemoveSubGroupsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3658,8 +3574,7 @@ func (a *ConnectionAPIService) RemoveSubGroupsExecute(r ApiRemoveSubGroupsReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/connection/group/removeSubGroup"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/connection/group/removeSubGroup"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3746,7 +3661,6 @@ func (a *ConnectionAPIService) RemoveSubGroupsExecute(r ApiRemoveSubGroupsReques
 type ApiSearchConnectionsRequest struct {
 	ctx context.Context
 	ApiService *ConnectionAPIService
-	version float32
 	returnNulls *bool
 	start *int32
 	limit *int32
@@ -3864,14 +3778,12 @@ SearchConnections Search Possible Connections
 Search for accounts that the user may not have a connection with.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchConnectionsRequest
 */
-func (a *ConnectionAPIService) SearchConnections(ctx context.Context, version float32) ApiSearchConnectionsRequest {
+func (a *ConnectionAPIService) SearchConnections(ctx context.Context) ApiSearchConnectionsRequest {
 	return ApiSearchConnectionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3890,8 +3802,7 @@ func (a *ConnectionAPIService) SearchConnectionsExecute(r ApiSearchConnectionsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/connection/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/connection/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

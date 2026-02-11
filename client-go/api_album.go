@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type AlbumAPIService service
 type ApiAddAlbumCollectionRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	title *string
 	coverAssetNullable *bool
 	includeCoverInAssetList *bool
@@ -363,14 +361,12 @@ AddAlbumCollection Create Album
 Create an Album.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddAlbumCollectionRequest
 */
-func (a *AlbumAPIService) AddAlbumCollection(ctx context.Context, version float32) ApiAddAlbumCollectionRequest {
+func (a *AlbumAPIService) AddAlbumCollection(ctx context.Context) ApiAddAlbumCollectionRequest {
 	return ApiAddAlbumCollectionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -389,8 +385,7 @@ func (a *AlbumAPIService) AddAlbumCollectionExecute(r ApiAddAlbumCollectionReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -599,7 +594,6 @@ func (a *AlbumAPIService) AddAlbumCollectionExecute(r ApiAddAlbumCollectionReque
 type ApiAddAlbumUsersRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	includeFriendGroup *bool
 	deviceId *string
@@ -682,14 +676,12 @@ AddAlbumUsers Add Album Users
 Add users to an album as participants.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddAlbumUsersRequest
 */
-func (a *AlbumAPIService) AddAlbumUsers(ctx context.Context, version float32) ApiAddAlbumUsersRequest {
+func (a *AlbumAPIService) AddAlbumUsers(ctx context.Context) ApiAddAlbumUsersRequest {
 	return ApiAddAlbumUsersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -708,8 +700,7 @@ func (a *AlbumAPIService) AddAlbumUsersExecute(r ApiAddAlbumUsersRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/user/add"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/user/add"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -804,7 +795,6 @@ func (a *AlbumAPIService) AddAlbumUsersExecute(r ApiAddAlbumUsersRequest) (*Sirq
 type ApiApproveAlbumRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	deviceId *string
 	accountId *int64
@@ -852,14 +842,12 @@ ApproveAlbum Approve Album
 Sets the approval status of an Album.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiApproveAlbumRequest
 */
-func (a *AlbumAPIService) ApproveAlbum(ctx context.Context, version float32) ApiApproveAlbumRequest {
+func (a *AlbumAPIService) ApproveAlbum(ctx context.Context) ApiApproveAlbumRequest {
 	return ApiApproveAlbumRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -878,8 +866,7 @@ func (a *AlbumAPIService) ApproveAlbumExecute(r ApiApproveAlbumRequest) (*Sirqul
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/approve"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/approve"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -958,7 +945,6 @@ func (a *AlbumAPIService) ApproveAlbumExecute(r ApiApproveAlbumRequest) (*Sirqul
 type ApiGetAlbumCollectionRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	returnNulls *bool
 	albumId *int64
 	deviceId *string
@@ -1034,14 +1020,12 @@ GetAlbumCollection  Get Album
 Get an Album.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAlbumCollectionRequest
 */
-func (a *AlbumAPIService) GetAlbumCollection(ctx context.Context, version float32) ApiGetAlbumCollectionRequest {
+func (a *AlbumAPIService) GetAlbumCollection(ctx context.Context) ApiGetAlbumCollectionRequest {
 	return ApiGetAlbumCollectionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1060,8 +1044,7 @@ func (a *AlbumAPIService) GetAlbumCollectionExecute(r ApiGetAlbumCollectionReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1153,7 +1136,6 @@ func (a *AlbumAPIService) GetAlbumCollectionExecute(r ApiGetAlbumCollectionReque
 type ApiLeaveAlbumRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	deviceId *string
 	accountId *int64
@@ -1187,14 +1169,12 @@ LeaveAlbum Leave Album
  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLeaveAlbumRequest
 */
-func (a *AlbumAPIService) LeaveAlbum(ctx context.Context, version float32) ApiLeaveAlbumRequest {
+func (a *AlbumAPIService) LeaveAlbum(ctx context.Context) ApiLeaveAlbumRequest {
 	return ApiLeaveAlbumRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1213,8 +1193,7 @@ func (a *AlbumAPIService) LeaveAlbumExecute(r ApiLeaveAlbumRequest) (*SirqulResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/user/leave"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/user/leave"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1287,7 +1266,6 @@ func (a *AlbumAPIService) LeaveAlbumExecute(r ApiLeaveAlbumRequest) (*SirqulResp
 type ApiRemoveAlbumRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	deviceId *string
 	accountId *int64
@@ -1321,14 +1299,12 @@ RemoveAlbum Delete Album
 Deletes an Album
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveAlbumRequest
 */
-func (a *AlbumAPIService) RemoveAlbum(ctx context.Context, version float32) ApiRemoveAlbumRequest {
+func (a *AlbumAPIService) RemoveAlbum(ctx context.Context) ApiRemoveAlbumRequest {
 	return ApiRemoveAlbumRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1347,8 +1323,7 @@ func (a *AlbumAPIService) RemoveAlbumExecute(r ApiRemoveAlbumRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1421,7 +1396,6 @@ func (a *AlbumAPIService) RemoveAlbumExecute(r ApiRemoveAlbumRequest) (*SirqulRe
 type ApiRemoveAlbumUsersRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	removeFriendGroup *bool
 	deviceId *string
@@ -1476,14 +1450,12 @@ RemoveAlbumUsers Remove Album Users
 Remove participants of an album.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveAlbumUsersRequest
 */
-func (a *AlbumAPIService) RemoveAlbumUsers(ctx context.Context, version float32) ApiRemoveAlbumUsersRequest {
+func (a *AlbumAPIService) RemoveAlbumUsers(ctx context.Context) ApiRemoveAlbumUsersRequest {
 	return ApiRemoveAlbumUsersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1502,8 +1474,7 @@ func (a *AlbumAPIService) RemoveAlbumUsersExecute(r ApiRemoveAlbumUsersRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/user/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/user/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1586,7 +1557,6 @@ func (a *AlbumAPIService) RemoveAlbumUsersExecute(r ApiRemoveAlbumUsersRequest) 
 type ApiSearchAlbumsRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	filter *string
 	albumTypeId *int64
 	subType *string
@@ -2019,14 +1989,12 @@ SearchAlbums Search Albums
 Searches on Albums.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAlbumsRequest
 */
-func (a *AlbumAPIService) SearchAlbums(ctx context.Context, version float32) ApiSearchAlbumsRequest {
+func (a *AlbumAPIService) SearchAlbums(ctx context.Context) ApiSearchAlbumsRequest {
 	return ApiSearchAlbumsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2045,8 +2013,7 @@ func (a *AlbumAPIService) SearchAlbumsExecute(r ApiSearchAlbumsRequest) ([]Album
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2310,7 +2277,6 @@ func (a *AlbumAPIService) SearchAlbumsExecute(r ApiSearchAlbumsRequest) ([]Album
 type ApiUpdateAlbumCollectionRequest struct {
 	ctx context.Context
 	ApiService *AlbumAPIService
-	version float32
 	albumId *int64
 	deviceId *string
 	accountId *int64
@@ -2638,14 +2604,12 @@ UpdateAlbumCollection Update Album
 Update an Album.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateAlbumCollectionRequest
 */
-func (a *AlbumAPIService) UpdateAlbumCollection(ctx context.Context, version float32) ApiUpdateAlbumCollectionRequest {
+func (a *AlbumAPIService) UpdateAlbumCollection(ctx context.Context) ApiUpdateAlbumCollectionRequest {
 	return ApiUpdateAlbumCollectionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2664,8 +2628,7 @@ func (a *AlbumAPIService) UpdateAlbumCollectionExecute(r ApiUpdateAlbumCollectio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/album/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/album/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

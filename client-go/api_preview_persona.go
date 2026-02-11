@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PreviewPersonaAPIService service
 type ApiCreatePersonaRequest struct {
 	ctx context.Context
 	ApiService *PreviewPersonaAPIService
-	version float32
 	accountId *int64
 	title *string
 	previewAccounts *string
@@ -103,14 +101,12 @@ CreatePersona Create Persona
 Creates a new persona. If the given params are null those attributes will be override by null.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreatePersonaRequest
 */
-func (a *PreviewPersonaAPIService) CreatePersona(ctx context.Context, version float32) ApiCreatePersonaRequest {
+func (a *PreviewPersonaAPIService) CreatePersona(ctx context.Context) ApiCreatePersonaRequest {
 	return ApiCreatePersonaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -129,8 +125,7 @@ func (a *PreviewPersonaAPIService) CreatePersonaExecute(r ApiCreatePersonaReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/persona/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/persona/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -222,7 +217,6 @@ func (a *PreviewPersonaAPIService) CreatePersonaExecute(r ApiCreatePersonaReques
 type ApiDeletePersonaRequest struct {
 	ctx context.Context
 	ApiService *PreviewPersonaAPIService
-	version float32
 	accountId *int64
 	personaId *int64
 }
@@ -249,14 +243,12 @@ DeletePersona Delete Persona
 Mark the persona for deletion.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeletePersonaRequest
 */
-func (a *PreviewPersonaAPIService) DeletePersona(ctx context.Context, version float32) ApiDeletePersonaRequest {
+func (a *PreviewPersonaAPIService) DeletePersona(ctx context.Context) ApiDeletePersonaRequest {
 	return ApiDeletePersonaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -275,8 +267,7 @@ func (a *PreviewPersonaAPIService) DeletePersonaExecute(r ApiDeletePersonaReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/persona/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/persona/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -347,7 +338,6 @@ func (a *PreviewPersonaAPIService) DeletePersonaExecute(r ApiDeletePersonaReques
 type ApiGetPersonaListRequest struct {
 	ctx context.Context
 	ApiService *PreviewPersonaAPIService
-	version float32
 	accountId *int64
 	personaId *int64
 }
@@ -374,14 +364,12 @@ GetPersonaList Get Persona
 Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPersonaListRequest
 */
-func (a *PreviewPersonaAPIService) GetPersonaList(ctx context.Context, version float32) ApiGetPersonaListRequest {
+func (a *PreviewPersonaAPIService) GetPersonaList(ctx context.Context) ApiGetPersonaListRequest {
 	return ApiGetPersonaListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -400,8 +388,7 @@ func (a *PreviewPersonaAPIService) GetPersonaListExecute(r ApiGetPersonaListRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/persona/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/persona/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -472,7 +459,6 @@ func (a *PreviewPersonaAPIService) GetPersonaListExecute(r ApiGetPersonaListRequ
 type ApiSearchPersonaRequest struct {
 	ctx context.Context
 	ApiService *PreviewPersonaAPIService
-	version float32
 	accountId *int64
 	start *int32
 	limit *int32
@@ -506,14 +492,12 @@ SearchPersona Search Personas
 Search for persona that the account owns by the given account ID.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPersonaRequest
 */
-func (a *PreviewPersonaAPIService) SearchPersona(ctx context.Context, version float32) ApiSearchPersonaRequest {
+func (a *PreviewPersonaAPIService) SearchPersona(ctx context.Context) ApiSearchPersonaRequest {
 	return ApiSearchPersonaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -532,8 +516,7 @@ func (a *PreviewPersonaAPIService) SearchPersonaExecute(r ApiSearchPersonaReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/persona/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/persona/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -608,7 +591,6 @@ func (a *PreviewPersonaAPIService) SearchPersonaExecute(r ApiSearchPersonaReques
 type ApiUpdatePersonaRequest struct {
 	ctx context.Context
 	ApiService *PreviewPersonaAPIService
-	version float32
 	accountId *int64
 	personaId *int64
 	title *string
@@ -698,14 +680,12 @@ UpdatePersona Update Persona
 Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdatePersonaRequest
 */
-func (a *PreviewPersonaAPIService) UpdatePersona(ctx context.Context, version float32) ApiUpdatePersonaRequest {
+func (a *PreviewPersonaAPIService) UpdatePersona(ctx context.Context) ApiUpdatePersonaRequest {
 	return ApiUpdatePersonaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -724,8 +704,7 @@ func (a *PreviewPersonaAPIService) UpdatePersonaExecute(r ApiUpdatePersonaReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/persona/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/persona/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

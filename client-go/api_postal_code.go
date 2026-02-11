@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PostalCodeAPIService service
 type ApiCreatePostalCodeRequest struct {
 	ctx context.Context
 	ApiService *PostalCodeAPIService
-	version float32
 	accountId *int64
 	code *string
 	latitude *float64
@@ -89,14 +87,12 @@ CreatePostalCode Create Postal Code
 Create a Postal Code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreatePostalCodeRequest
 */
-func (a *PostalCodeAPIService) CreatePostalCode(ctx context.Context, version float32) ApiCreatePostalCodeRequest {
+func (a *PostalCodeAPIService) CreatePostalCode(ctx context.Context) ApiCreatePostalCodeRequest {
 	return ApiCreatePostalCodeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *PostalCodeAPIService) CreatePostalCodeExecute(r ApiCreatePostalCodeRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/postalCode/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/postalCode/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -204,7 +199,6 @@ func (a *PostalCodeAPIService) CreatePostalCodeExecute(r ApiCreatePostalCodeRequ
 type ApiDeletePostalCodeRequest struct {
 	ctx context.Context
 	ApiService *PostalCodeAPIService
-	version float32
 	accountId *int64
 	postalCodeId *int64
 }
@@ -231,14 +225,12 @@ DeletePostalCode Delete Postal Code
 Delete a Postal Code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeletePostalCodeRequest
 */
-func (a *PostalCodeAPIService) DeletePostalCode(ctx context.Context, version float32) ApiDeletePostalCodeRequest {
+func (a *PostalCodeAPIService) DeletePostalCode(ctx context.Context) ApiDeletePostalCodeRequest {
 	return ApiDeletePostalCodeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -257,8 +249,7 @@ func (a *PostalCodeAPIService) DeletePostalCodeExecute(r ApiDeletePostalCodeRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/postalCode/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/postalCode/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -329,7 +320,6 @@ func (a *PostalCodeAPIService) DeletePostalCodeExecute(r ApiDeletePostalCodeRequ
 type ApiGetPostalCodeRequest struct {
 	ctx context.Context
 	ApiService *PostalCodeAPIService
-	version float32
 	postalCodeId *int64
 }
 
@@ -349,14 +339,12 @@ GetPostalCode Get Postal Code
 Get a Postal Code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPostalCodeRequest
 */
-func (a *PostalCodeAPIService) GetPostalCode(ctx context.Context, version float32) ApiGetPostalCodeRequest {
+func (a *PostalCodeAPIService) GetPostalCode(ctx context.Context) ApiGetPostalCodeRequest {
 	return ApiGetPostalCodeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -375,8 +363,7 @@ func (a *PostalCodeAPIService) GetPostalCodeExecute(r ApiGetPostalCodeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/postalCode/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/postalCode/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -443,7 +430,6 @@ func (a *PostalCodeAPIService) GetPostalCodeExecute(r ApiGetPostalCodeRequest) (
 type ApiGetPostalCodesRequest struct {
 	ctx context.Context
 	ApiService *PostalCodeAPIService
-	version float32
 	sortField *string
 	descending *bool
 	latitude *float64
@@ -512,14 +498,12 @@ GetPostalCodes Search Postal Codes
 Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPostalCodesRequest
 */
-func (a *PostalCodeAPIService) GetPostalCodes(ctx context.Context, version float32) ApiGetPostalCodesRequest {
+func (a *PostalCodeAPIService) GetPostalCodes(ctx context.Context) ApiGetPostalCodesRequest {
 	return ApiGetPostalCodesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -538,8 +522,7 @@ func (a *PostalCodeAPIService) GetPostalCodesExecute(r ApiGetPostalCodesRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/postalCode/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/postalCode/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -628,7 +611,6 @@ func (a *PostalCodeAPIService) GetPostalCodesExecute(r ApiGetPostalCodesRequest)
 type ApiUpdatePostalCodeRequest struct {
 	ctx context.Context
 	ApiService *PostalCodeAPIService
-	version float32
 	accountId *int64
 	postalCodeId *int64
 	code *string
@@ -697,14 +679,12 @@ UpdatePostalCode Update Postal Code
 Update a Postal Code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdatePostalCodeRequest
 */
-func (a *PostalCodeAPIService) UpdatePostalCode(ctx context.Context, version float32) ApiUpdatePostalCodeRequest {
+func (a *PostalCodeAPIService) UpdatePostalCode(ctx context.Context) ApiUpdatePostalCodeRequest {
 	return ApiUpdatePostalCodeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -723,8 +703,7 @@ func (a *PostalCodeAPIService) UpdatePostalCodeExecute(r ApiUpdatePostalCodeRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/postalCode/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/postalCode/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

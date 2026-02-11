@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type EventAPIService service
 type ApiAttendEventRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -110,14 +108,12 @@ AttendEvent Attend Event
  Specify whether the user is attending an event at a particular location. This can also be used as a "check-in" action.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAttendEventRequest
 */
-func (a *EventAPIService) AttendEvent(ctx context.Context, version float32) ApiAttendEventRequest {
+func (a *EventAPIService) AttendEvent(ctx context.Context) ApiAttendEventRequest {
 	return ApiAttendEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -136,8 +132,7 @@ func (a *EventAPIService) AttendEventExecute(r ApiAttendEventRequest) (*OfferRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/attend"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/attend"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -230,7 +225,6 @@ func (a *EventAPIService) AttendEventExecute(r ApiAttendEventRequest) (*OfferRes
 type ApiCreateEventRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	accountId *int64
 	title *string
 	retailerLocationIds *string
@@ -327,14 +321,12 @@ CreateEvent Create Event
 Create a private event to share with associates.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateEventRequest
 */
-func (a *EventAPIService) CreateEvent(ctx context.Context, version float32) ApiCreateEventRequest {
+func (a *EventAPIService) CreateEvent(ctx context.Context) ApiCreateEventRequest {
 	return ApiCreateEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -353,8 +345,7 @@ func (a *EventAPIService) CreateEventExecute(r ApiCreateEventRequest) (*OfferRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -455,7 +446,6 @@ func (a *EventAPIService) CreateEventExecute(r ApiCreateEventRequest) (*OfferRes
 type ApiDeleteEventRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	accountId *int64
 	eventId *int64
 }
@@ -482,14 +472,12 @@ DeleteEvent Delete Event
 Delete an event that the user has permissions to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteEventRequest
 */
-func (a *EventAPIService) DeleteEvent(ctx context.Context, version float32) ApiDeleteEventRequest {
+func (a *EventAPIService) DeleteEvent(ctx context.Context) ApiDeleteEventRequest {
 	return ApiDeleteEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -508,8 +496,7 @@ func (a *EventAPIService) DeleteEventExecute(r ApiDeleteEventRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -580,7 +567,6 @@ func (a *EventAPIService) DeleteEventExecute(r ApiDeleteEventRequest) (*SirqulRe
 type ApiGetEventRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	accountId *int64
 	eventId *int64
 }
@@ -607,14 +593,12 @@ GetEvent Get Event
 Get an event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetEventRequest
 */
-func (a *EventAPIService) GetEvent(ctx context.Context, version float32) ApiGetEventRequest {
+func (a *EventAPIService) GetEvent(ctx context.Context) ApiGetEventRequest {
 	return ApiGetEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -633,8 +617,7 @@ func (a *EventAPIService) GetEventExecute(r ApiGetEventRequest) (*OfferResponse,
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -705,7 +688,6 @@ func (a *EventAPIService) GetEventExecute(r ApiGetEventRequest) (*OfferResponse,
 type ApiSearchEventTransactionsRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -851,14 +833,12 @@ SearchEventTransactions Search Event Attendance
 Searches on event type transactions. This can be used to see who is attending an event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchEventTransactionsRequest
 */
-func (a *EventAPIService) SearchEventTransactions(ctx context.Context, version float32) ApiSearchEventTransactionsRequest {
+func (a *EventAPIService) SearchEventTransactions(ctx context.Context) ApiSearchEventTransactionsRequest {
 	return ApiSearchEventTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -877,8 +857,7 @@ func (a *EventAPIService) SearchEventTransactionsExecute(r ApiSearchEventTransac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/attendance/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/attendance/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -998,7 +977,6 @@ func (a *EventAPIService) SearchEventTransactionsExecute(r ApiSearchEventTransac
 type ApiSearchEventsRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	activeOnly *bool
@@ -1102,14 +1080,12 @@ SearchEvents Search Events
 Searches on events that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchEventsRequest
 */
-func (a *EventAPIService) SearchEvents(ctx context.Context, version float32) ApiSearchEventsRequest {
+func (a *EventAPIService) SearchEvents(ctx context.Context) ApiSearchEventsRequest {
 	return ApiSearchEventsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1128,8 +1104,7 @@ func (a *EventAPIService) SearchEventsExecute(r ApiSearchEventsRequest) ([]Offer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1232,7 +1207,6 @@ func (a *EventAPIService) SearchEventsExecute(r ApiSearchEventsRequest) ([]Offer
 type ApiUpdateEventRequest struct {
 	ctx context.Context
 	ApiService *EventAPIService
-	version float32
 	accountId *int64
 	eventId *int64
 	retailerLocationIds *string
@@ -1329,14 +1303,12 @@ UpdateEvent Update Event
 Update a private event to share with associates.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateEventRequest
 */
-func (a *EventAPIService) UpdateEvent(ctx context.Context, version float32) ApiUpdateEventRequest {
+func (a *EventAPIService) UpdateEvent(ctx context.Context) ApiUpdateEventRequest {
 	return ApiUpdateEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1355,8 +1327,7 @@ func (a *EventAPIService) UpdateEventExecute(r ApiUpdateEventRequest) (*OfferRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/event/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/event/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

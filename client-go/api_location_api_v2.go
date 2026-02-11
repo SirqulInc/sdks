@@ -27,7 +27,6 @@ type LocationApiV2APIService service
 type ApiCreateLocationV2Request struct {
 	ctx context.Context
 	ApiService *LocationApiV2APIService
-	version float32
 	body *Location
 }
 
@@ -46,14 +45,12 @@ CreateLocationV2 Create new location
 Create a new location from a real object location.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateLocationV2Request
 */
-func (a *LocationApiV2APIService) CreateLocationV2(ctx context.Context, version float32) ApiCreateLocationV2Request {
+func (a *LocationApiV2APIService) CreateLocationV2(ctx context.Context) ApiCreateLocationV2Request {
 	return ApiCreateLocationV2Request{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *LocationApiV2APIService) CreateLocationV2Execute(r ApiCreateLocationV2R
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *LocationApiV2APIService) CreateLocationV2Execute(r ApiCreateLocationV2R
 type ApiUpdateLocationV2Request struct {
 	ctx context.Context
 	ApiService *LocationApiV2APIService
-	version float32
 	id int64
 	body *Location
 }
@@ -158,15 +153,13 @@ UpdateLocationV2 Update an existing location
 Update an existing location
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the location to update
  @return ApiUpdateLocationV2Request
 */
-func (a *LocationApiV2APIService) UpdateLocationV2(ctx context.Context, version float32, id int64) ApiUpdateLocationV2Request {
+func (a *LocationApiV2APIService) UpdateLocationV2(ctx context.Context, id int64) ApiUpdateLocationV2Request {
 	return ApiUpdateLocationV2Request{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -186,8 +179,7 @@ func (a *LocationApiV2APIService) UpdateLocationV2Execute(r ApiUpdateLocationV2R
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)

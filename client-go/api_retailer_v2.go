@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type RetailerV2APIService service
 type ApiGetRetaokilerRequest struct {
 	ctx context.Context
 	ApiService *RetailerV2APIService
-	version float32
 	retailerId *int64
 	activeOnly *bool
 	keyword *string
@@ -82,14 +80,12 @@ GetRetaokiler Get Retailer
 Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRetaokilerRequest
 */
-func (a *RetailerV2APIService) GetRetaokiler(ctx context.Context, version float32) ApiGetRetaokilerRequest {
+func (a *RetailerV2APIService) GetRetaokiler(ctx context.Context) ApiGetRetaokilerRequest {
 	return ApiGetRetaokilerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -108,8 +104,7 @@ func (a *RetailerV2APIService) GetRetaokilerExecute(r ApiGetRetaokilerRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

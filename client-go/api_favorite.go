@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type FavoriteAPIService service
 type ApiAddFavoriteRequest struct {
 	ctx context.Context
 	ApiService *FavoriteAPIService
-	version float32
 	favoritableId *int64
 	favoritableType *string
 	deviceId *string
@@ -82,14 +80,12 @@ AddFavorite Create Favorite
 Adds an offer, offer location, retailer location, or category to your favorites.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddFavoriteRequest
 */
-func (a *FavoriteAPIService) AddFavorite(ctx context.Context, version float32) ApiAddFavoriteRequest {
+func (a *FavoriteAPIService) AddFavorite(ctx context.Context) ApiAddFavoriteRequest {
 	return ApiAddFavoriteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -108,8 +104,7 @@ func (a *FavoriteAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Wrapp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/favorite/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/favorite/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -192,7 +187,6 @@ func (a *FavoriteAPIService) AddFavoriteExecute(r ApiAddFavoriteRequest) (*Wrapp
 type ApiDeleteFavoriteRequest struct {
 	ctx context.Context
 	ApiService *FavoriteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	favoriteId *int64
@@ -240,14 +234,12 @@ DeleteFavorite Delete Favorite
 Removes a favorited item from the user's favorites list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteFavoriteRequest
 */
-func (a *FavoriteAPIService) DeleteFavorite(ctx context.Context, version float32) ApiDeleteFavoriteRequest {
+func (a *FavoriteAPIService) DeleteFavorite(ctx context.Context) ApiDeleteFavoriteRequest {
 	return ApiDeleteFavoriteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -266,8 +258,7 @@ func (a *FavoriteAPIService) DeleteFavoriteExecute(r ApiDeleteFavoriteRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/favorite/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/favorite/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -345,7 +336,6 @@ func (a *FavoriteAPIService) DeleteFavoriteExecute(r ApiDeleteFavoriteRequest) (
 type ApiGetFavoriteRequest struct {
 	ctx context.Context
 	ApiService *FavoriteAPIService
-	version float32
 	favoriteId *int64
 	deviceId *string
 	accountId *int64
@@ -393,14 +383,12 @@ GetFavorite Get Favorite
 Retrieves a single favorited item.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetFavoriteRequest
 */
-func (a *FavoriteAPIService) GetFavorite(ctx context.Context, version float32) ApiGetFavoriteRequest {
+func (a *FavoriteAPIService) GetFavorite(ctx context.Context) ApiGetFavoriteRequest {
 	return ApiGetFavoriteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -419,8 +407,7 @@ func (a *FavoriteAPIService) GetFavoriteExecute(r ApiGetFavoriteRequest) (*Wrapp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/favorite/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/favorite/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -499,7 +486,6 @@ func (a *FavoriteAPIService) GetFavoriteExecute(r ApiGetFavoriteRequest) (*Wrapp
 type ApiSearchFavoritesRequest struct {
 	ctx context.Context
 	ApiService *FavoriteAPIService
-	version float32
 	favoritableType *string
 	sortField *string
 	descending *bool
@@ -610,14 +596,12 @@ SearchFavorites Search Favorites
 Searches on the user's favorites.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchFavoritesRequest
 */
-func (a *FavoriteAPIService) SearchFavorites(ctx context.Context, version float32) ApiSearchFavoritesRequest {
+func (a *FavoriteAPIService) SearchFavorites(ctx context.Context) ApiSearchFavoritesRequest {
 	return ApiSearchFavoritesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -636,8 +620,7 @@ func (a *FavoriteAPIService) SearchFavoritesExecute(r ApiSearchFavoritesRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/favorite/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/favorite/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -749,7 +732,6 @@ func (a *FavoriteAPIService) SearchFavoritesExecute(r ApiSearchFavoritesRequest)
 type ApiWhoHasFavoritedRequest struct {
 	ctx context.Context
 	ApiService *FavoriteAPIService
-	version float32
 	favoritableId *int64
 	favoritableType *string
 	start *int32
@@ -825,14 +807,12 @@ WhoHasFavorited Who has Favorited
 Searches for everyone that has favorited an item
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiWhoHasFavoritedRequest
 */
-func (a *FavoriteAPIService) WhoHasFavorited(ctx context.Context, version float32) ApiWhoHasFavoritedRequest {
+func (a *FavoriteAPIService) WhoHasFavorited(ctx context.Context) ApiWhoHasFavoritedRequest {
 	return ApiWhoHasFavoritedRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -851,8 +831,7 @@ func (a *FavoriteAPIService) WhoHasFavoritedExecute(r ApiWhoHasFavoritedRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/favorite/whois"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/favorite/whois"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

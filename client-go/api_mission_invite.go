@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type MissionInviteAPIService service
 type ApiCreateMissionInviteRequest struct {
 	ctx context.Context
 	ApiService *MissionInviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	missionId *int64
@@ -75,14 +73,12 @@ CreateMissionInvite Create Mission Invite
 Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateMissionInviteRequest
 */
-func (a *MissionInviteAPIService) CreateMissionInvite(ctx context.Context, version float32) ApiCreateMissionInviteRequest {
+func (a *MissionInviteAPIService) CreateMissionInvite(ctx context.Context) ApiCreateMissionInviteRequest {
 	return ApiCreateMissionInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -101,8 +97,7 @@ func (a *MissionInviteAPIService) CreateMissionInviteExecute(r ApiCreateMissionI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/invite/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/invite/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -180,7 +175,6 @@ func (a *MissionInviteAPIService) CreateMissionInviteExecute(r ApiCreateMissionI
 type ApiDeleteMissionInviteRequest struct {
 	ctx context.Context
 	ApiService *MissionInviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	missionId *int64
@@ -228,14 +222,12 @@ DeleteMissionInvite Delete Mission Invite
 Update the mission invite status to quit.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteMissionInviteRequest
 */
-func (a *MissionInviteAPIService) DeleteMissionInvite(ctx context.Context, version float32) ApiDeleteMissionInviteRequest {
+func (a *MissionInviteAPIService) DeleteMissionInvite(ctx context.Context) ApiDeleteMissionInviteRequest {
 	return ApiDeleteMissionInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -254,8 +246,7 @@ func (a *MissionInviteAPIService) DeleteMissionInviteExecute(r ApiDeleteMissionI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/invite/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/invite/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -333,7 +324,6 @@ func (a *MissionInviteAPIService) DeleteMissionInviteExecute(r ApiDeleteMissionI
 type ApiGetMissionInviteRequest struct {
 	ctx context.Context
 	ApiService *MissionInviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	missionId *int64
@@ -388,14 +378,12 @@ GetMissionInvite Get Mission Invite
 Get the mission invite. An account can only be invited to a mission one time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetMissionInviteRequest
 */
-func (a *MissionInviteAPIService) GetMissionInvite(ctx context.Context, version float32) ApiGetMissionInviteRequest {
+func (a *MissionInviteAPIService) GetMissionInvite(ctx context.Context) ApiGetMissionInviteRequest {
 	return ApiGetMissionInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -414,8 +402,7 @@ func (a *MissionInviteAPIService) GetMissionInviteExecute(r ApiGetMissionInviteR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/invite/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/invite/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -496,7 +483,6 @@ func (a *MissionInviteAPIService) GetMissionInviteExecute(r ApiGetMissionInviteR
 type ApiSearchMissionInvitesRequest struct {
 	ctx context.Context
 	ApiService *MissionInviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -600,14 +586,12 @@ SearchMissionInvites Search Mission Invites
 Get a list of mission invites that the account has.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchMissionInvitesRequest
 */
-func (a *MissionInviteAPIService) SearchMissionInvites(ctx context.Context, version float32) ApiSearchMissionInvitesRequest {
+func (a *MissionInviteAPIService) SearchMissionInvites(ctx context.Context) ApiSearchMissionInvitesRequest {
 	return ApiSearchMissionInvitesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -626,8 +610,7 @@ func (a *MissionInviteAPIService) SearchMissionInvitesExecute(r ApiSearchMission
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/invite/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/invite/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -729,7 +712,6 @@ func (a *MissionInviteAPIService) SearchMissionInvitesExecute(r ApiSearchMission
 type ApiUpdateMissionInviteRequest struct {
 	ctx context.Context
 	ApiService *MissionInviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -819,14 +801,12 @@ UpdateMissionInvite Update Mission Invite
 Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateMissionInviteRequest
 */
-func (a *MissionInviteAPIService) UpdateMissionInvite(ctx context.Context, version float32) ApiUpdateMissionInviteRequest {
+func (a *MissionInviteAPIService) UpdateMissionInvite(ctx context.Context) ApiUpdateMissionInviteRequest {
 	return ApiUpdateMissionInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -845,8 +825,7 @@ func (a *MissionInviteAPIService) UpdateMissionInviteExecute(r ApiUpdateMissionI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/invite/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/invite/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

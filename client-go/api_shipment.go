@@ -27,7 +27,6 @@ type ShipmentAPIService service
 type ApiCancelShipmentRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	id int64
 }
 
@@ -41,15 +40,13 @@ CancelShipment Cancel Shipment
 Remove shipment from route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the shipment to cancel
  @return ApiCancelShipmentRequest
 */
-func (a *ShipmentAPIService) CancelShipment(ctx context.Context, version float32, id int64) ApiCancelShipmentRequest {
+func (a *ShipmentAPIService) CancelShipment(ctx context.Context, id int64) ApiCancelShipmentRequest {
 	return ApiCancelShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -67,8 +64,7 @@ func (a *ShipmentAPIService) CancelShipmentExecute(r ApiCancelShipmentRequest) (
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/{id}/cancel"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/{id}/cancel"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -123,7 +119,6 @@ func (a *ShipmentAPIService) CancelShipmentExecute(r ApiCancelShipmentRequest) (
 type ApiCreateShipmentRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	body *Shipment
 }
 
@@ -142,14 +137,12 @@ CreateShipment Create Shipment
 Create new shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateShipmentRequest
 */
-func (a *ShipmentAPIService) CreateShipment(ctx context.Context, version float32) ApiCreateShipmentRequest {
+func (a *ShipmentAPIService) CreateShipment(ctx context.Context) ApiCreateShipmentRequest {
 	return ApiCreateShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -168,8 +161,7 @@ func (a *ShipmentAPIService) CreateShipmentExecute(r ApiCreateShipmentRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -234,7 +226,6 @@ func (a *ShipmentAPIService) CreateShipmentExecute(r ApiCreateShipmentRequest) (
 type ApiDeleteShipmentRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	id int64
 }
 
@@ -248,15 +239,13 @@ DeleteShipment Delete Shipment
 Delete an existing shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the shipment to delete
  @return ApiDeleteShipmentRequest
 */
-func (a *ShipmentAPIService) DeleteShipment(ctx context.Context, version float32, id int64) ApiDeleteShipmentRequest {
+func (a *ShipmentAPIService) DeleteShipment(ctx context.Context, id int64) ApiDeleteShipmentRequest {
 	return ApiDeleteShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -274,8 +263,7 @@ func (a *ShipmentAPIService) DeleteShipmentExecute(r ApiDeleteShipmentRequest) (
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -330,7 +318,6 @@ func (a *ShipmentAPIService) DeleteShipmentExecute(r ApiDeleteShipmentRequest) (
 type ApiGetShipmentRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	id int64
 }
 
@@ -344,15 +331,13 @@ GetShipment Get Shipment
 Get an existing shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the shipment to get
  @return ApiGetShipmentRequest
 */
-func (a *ShipmentAPIService) GetShipment(ctx context.Context, version float32, id int64) ApiGetShipmentRequest {
+func (a *ShipmentAPIService) GetShipment(ctx context.Context, id int64) ApiGetShipmentRequest {
 	return ApiGetShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -372,8 +357,7 @@ func (a *ShipmentAPIService) GetShipmentExecute(r ApiGetShipmentRequest) (*Shipm
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -437,7 +421,6 @@ func (a *ShipmentAPIService) GetShipmentExecute(r ApiGetShipmentRequest) (*Shipm
 type ApiSearchShipmentsRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -506,14 +489,12 @@ SearchShipments Search Shipments
 Search for shipments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchShipmentsRequest
 */
-func (a *ShipmentAPIService) SearchShipments(ctx context.Context, version float32) ApiSearchShipmentsRequest {
+func (a *ShipmentAPIService) SearchShipments(ctx context.Context) ApiSearchShipmentsRequest {
 	return ApiSearchShipmentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -532,8 +513,7 @@ func (a *ShipmentAPIService) SearchShipmentsExecute(r ApiSearchShipmentsRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -625,7 +605,6 @@ func (a *ShipmentAPIService) SearchShipmentsExecute(r ApiSearchShipmentsRequest)
 type ApiUpdateShipmentRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	id int64
 	body *Shipment
 }
@@ -645,15 +624,13 @@ UpdateShipment Update Shipment
 Update an existing shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the shipment to update
  @return ApiUpdateShipmentRequest
 */
-func (a *ShipmentAPIService) UpdateShipment(ctx context.Context, version float32, id int64) ApiUpdateShipmentRequest {
+func (a *ShipmentAPIService) UpdateShipment(ctx context.Context, id int64) ApiUpdateShipmentRequest {
 	return ApiUpdateShipmentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -673,8 +650,7 @@ func (a *ShipmentAPIService) UpdateShipmentExecute(r ApiUpdateShipmentRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -740,7 +716,6 @@ func (a *ShipmentAPIService) UpdateShipmentExecute(r ApiUpdateShipmentRequest) (
 type ApiUpdateShipmentStatusRequest struct {
 	ctx context.Context
 	ApiService *ShipmentAPIService
-	version float32
 	id int64
 	body *map[string]bool
 }
@@ -760,15 +735,13 @@ UpdateShipmentStatus Uupdate Shipment Status
 Update status of an existing shipment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the shipment to update status
  @return ApiUpdateShipmentStatusRequest
 */
-func (a *ShipmentAPIService) UpdateShipmentStatus(ctx context.Context, version float32, id int64) ApiUpdateShipmentStatusRequest {
+func (a *ShipmentAPIService) UpdateShipmentStatus(ctx context.Context, id int64) ApiUpdateShipmentStatusRequest {
 	return ApiUpdateShipmentStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -786,8 +759,7 @@ func (a *ShipmentAPIService) UpdateShipmentStatusExecute(r ApiUpdateShipmentStat
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/{id}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/{id}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -28,7 +28,6 @@ type AssetAPIService service
 type ApiAssetDownloadRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	filename string
 }
 
@@ -42,15 +41,13 @@ AssetDownload Download Asset
 Downloads an asset from the server for assets that have been uploaded to the server.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param filename the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}
  @return ApiAssetDownloadRequest
 */
-func (a *AssetAPIService) AssetDownload(ctx context.Context, version float32, filename string) ApiAssetDownloadRequest {
+func (a *AssetAPIService) AssetDownload(ctx context.Context, filename string) ApiAssetDownloadRequest {
 	return ApiAssetDownloadRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		filename: filename,
 	}
 }
@@ -70,8 +67,7 @@ func (a *AssetAPIService) AssetDownloadExecute(r ApiAssetDownloadRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/download/{filename}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/download/{filename}"
 	localVarPath = strings.Replace(localVarPath, "{"+"filename"+"}", url.PathEscape(parameterValueToString(r.filename, "filename")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -135,7 +131,6 @@ func (a *AssetAPIService) AssetDownloadExecute(r ApiAssetDownloadRequest) (*Sirq
 type ApiAssetMorphRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	offerId *int64
 	adSize *string
 	creativeId *int64
@@ -197,14 +192,12 @@ AssetMorph Convert Offer to Creative
 Converts an offer image + text into a creative image.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssetMorphRequest
 */
-func (a *AssetAPIService) AssetMorph(ctx context.Context, version float32) ApiAssetMorphRequest {
+func (a *AssetAPIService) AssetMorph(ctx context.Context) ApiAssetMorphRequest {
 	return ApiAssetMorphRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -223,8 +216,7 @@ func (a *AssetAPIService) AssetMorphExecute(r ApiAssetMorphRequest) (*AssetShort
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/morph"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/morph"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -310,7 +302,6 @@ func (a *AssetAPIService) AssetMorphExecute(r ApiAssetMorphRequest) (*AssetShort
 type ApiCreateAssetRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	returnNulls *bool
 	deviceId *string
 	accountId *int64
@@ -561,14 +552,12 @@ CreateAsset Create Asset
 Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateAssetRequest
 */
-func (a *AssetAPIService) CreateAsset(ctx context.Context, version float32) ApiCreateAssetRequest {
+func (a *AssetAPIService) CreateAsset(ctx context.Context) ApiCreateAssetRequest {
 	return ApiCreateAssetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -587,8 +576,7 @@ func (a *AssetAPIService) CreateAssetExecute(r ApiCreateAssetRequest) (*AssetRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -753,7 +741,6 @@ func (a *AssetAPIService) CreateAssetExecute(r ApiCreateAssetRequest) (*AssetRes
 type ApiDeleteAssetRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	assetId *string
 	deviceId *string
 	accountId *int64
@@ -801,14 +788,12 @@ DeleteAsset Delete Asset
 Delete an asset.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteAssetRequest
 */
-func (a *AssetAPIService) DeleteAsset(ctx context.Context, version float32) ApiDeleteAssetRequest {
+func (a *AssetAPIService) DeleteAsset(ctx context.Context) ApiDeleteAssetRequest {
 	return ApiDeleteAssetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -827,8 +812,7 @@ func (a *AssetAPIService) DeleteAssetExecute(r ApiDeleteAssetRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -907,7 +891,6 @@ func (a *AssetAPIService) DeleteAssetExecute(r ApiDeleteAssetRequest) (*SirqulRe
 type ApiGetAssetRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	assetId *int64
 	deviceId *string
 	accountId *int64
@@ -948,14 +931,12 @@ GetAsset Get Asset
 Gets the full asset response including attached likes and notes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAssetRequest
 */
-func (a *AssetAPIService) GetAsset(ctx context.Context, version float32) ApiGetAssetRequest {
+func (a *AssetAPIService) GetAsset(ctx context.Context) ApiGetAssetRequest {
 	return ApiGetAssetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -974,8 +955,7 @@ func (a *AssetAPIService) GetAssetExecute(r ApiGetAssetRequest) (*AssetFullRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1055,7 +1035,6 @@ func (a *AssetAPIService) GetAssetExecute(r ApiGetAssetRequest) (*AssetFullRespo
 type ApiRemoveAssetRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	assetId *string
 	deviceId *string
 	accountId *int64
@@ -1124,14 +1103,12 @@ RemoveAsset Remove Asset from Collection
 Remove assets from collections
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveAssetRequest
 */
-func (a *AssetAPIService) RemoveAsset(ctx context.Context, version float32) ApiRemoveAssetRequest {
+func (a *AssetAPIService) RemoveAsset(ctx context.Context) ApiRemoveAssetRequest {
 	return ApiRemoveAssetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1150,8 +1127,7 @@ func (a *AssetAPIService) RemoveAssetExecute(r ApiRemoveAssetRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1239,7 +1215,6 @@ func (a *AssetAPIService) RemoveAssetExecute(r ApiRemoveAssetRequest) (*SirqulRe
 type ApiSearchAssetsRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	albumIds *string
@@ -1420,14 +1395,12 @@ SearchAssets Search Assets
 Searches for assets
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAssetsRequest
 */
-func (a *AssetAPIService) SearchAssets(ctx context.Context, version float32) ApiSearchAssetsRequest {
+func (a *AssetAPIService) SearchAssets(ctx context.Context) ApiSearchAssetsRequest {
 	return ApiSearchAssetsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1446,8 +1419,7 @@ func (a *AssetAPIService) SearchAssetsExecute(r ApiSearchAssetsRequest) ([]Asset
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1582,7 +1554,6 @@ func (a *AssetAPIService) SearchAssetsExecute(r ApiSearchAssetsRequest) ([]Asset
 type ApiUpdateAssetRequest struct {
 	ctx context.Context
 	ApiService *AssetAPIService
-	version float32
 	assetId *int64
 	deviceId *string
 	accountId *int64
@@ -1812,14 +1783,12 @@ UpdateAsset Update Asset
 Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateAssetRequest
 */
-func (a *AssetAPIService) UpdateAsset(ctx context.Context, version float32) ApiUpdateAssetRequest {
+func (a *AssetAPIService) UpdateAsset(ctx context.Context) ApiUpdateAssetRequest {
 	return ApiUpdateAssetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1838,8 +1807,7 @@ func (a *AssetAPIService) UpdateAssetExecute(r ApiUpdateAssetRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/asset/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/asset/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

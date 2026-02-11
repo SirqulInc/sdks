@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AMQPAPIService service
 type ApiConsumerCreateRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	appKey *string
 	name *string
 	hostname *string
@@ -138,14 +136,12 @@ ConsumerCreate Create Consumer
 Create a connection to an existing amqp queue and register as a consumer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiConsumerCreateRequest
 */
-func (a *AMQPAPIService) ConsumerCreate(ctx context.Context, version float32) ApiConsumerCreateRequest {
+func (a *AMQPAPIService) ConsumerCreate(ctx context.Context) ApiConsumerCreateRequest {
 	return ApiConsumerCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -164,8 +160,7 @@ func (a *AMQPAPIService) ConsumerCreateExecute(r ApiConsumerCreateRequest) (*Que
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/consumer/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/consumer/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -284,7 +279,6 @@ func (a *AMQPAPIService) ConsumerCreateExecute(r ApiConsumerCreateRequest) (*Que
 type ApiConsumerUpdateRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	appKey *string
 	queueId *int64
 	dataMapping *string
@@ -339,14 +333,12 @@ ConsumerUpdate Update Consumer
 Update an existing amqp queue's data mapping.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiConsumerUpdateRequest
 */
-func (a *AMQPAPIService) ConsumerUpdate(ctx context.Context, version float32) ApiConsumerUpdateRequest {
+func (a *AMQPAPIService) ConsumerUpdate(ctx context.Context) ApiConsumerUpdateRequest {
 	return ApiConsumerUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -365,8 +357,7 @@ func (a *AMQPAPIService) ConsumerUpdateExecute(r ApiConsumerUpdateRequest) (*Que
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/consumer/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/consumer/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -450,7 +441,6 @@ func (a *AMQPAPIService) ConsumerUpdateExecute(r ApiConsumerUpdateRequest) (*Que
 type ApiQueueCreateRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	appKey *string
 	name *string
 	deviceId *string
@@ -547,14 +537,12 @@ QueueCreate Create Queue
 Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueueCreateRequest
 */
-func (a *AMQPAPIService) QueueCreate(ctx context.Context, version float32) ApiQueueCreateRequest {
+func (a *AMQPAPIService) QueueCreate(ctx context.Context) ApiQueueCreateRequest {
 	return ApiQueueCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -573,8 +561,7 @@ func (a *AMQPAPIService) QueueCreateExecute(r ApiQueueCreateRequest) (*QueueResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -679,7 +666,6 @@ func (a *AMQPAPIService) QueueCreateExecute(r ApiQueueCreateRequest) (*QueueResp
 type ApiQueueDeleteRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	queueId *int64
 	deviceId *string
 	accountId *int64
@@ -713,14 +699,12 @@ QueueDelete Delete Queue
 Delete the stored queue record and close any active connections to the AMQP servers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueueDeleteRequest
 */
-func (a *AMQPAPIService) QueueDelete(ctx context.Context, version float32) ApiQueueDeleteRequest {
+func (a *AMQPAPIService) QueueDelete(ctx context.Context) ApiQueueDeleteRequest {
 	return ApiQueueDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -739,8 +723,7 @@ func (a *AMQPAPIService) QueueDeleteExecute(r ApiQueueDeleteRequest) (*SirqulRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -813,7 +796,6 @@ func (a *AMQPAPIService) QueueDeleteExecute(r ApiQueueDeleteRequest) (*SirqulRes
 type ApiQueueGetRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	queueId *int64
@@ -875,14 +857,12 @@ QueueGet Get Queue
 Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueueGetRequest
 */
-func (a *AMQPAPIService) QueueGet(ctx context.Context, version float32) ApiQueueGetRequest {
+func (a *AMQPAPIService) QueueGet(ctx context.Context) ApiQueueGetRequest {
 	return ApiQueueGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -901,8 +881,7 @@ func (a *AMQPAPIService) QueueGetExecute(r ApiQueueGetRequest) (*QueueResponse, 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -986,7 +965,6 @@ func (a *AMQPAPIService) QueueGetExecute(r ApiQueueGetRequest) (*QueueResponse, 
 type ApiQueuePublishRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	message *string
 	queueId *int64
 	appKey *string
@@ -1041,14 +1019,12 @@ QueuePublish Publish Queue
 Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueuePublishRequest
 */
-func (a *AMQPAPIService) QueuePublish(ctx context.Context, version float32) ApiQueuePublishRequest {
+func (a *AMQPAPIService) QueuePublish(ctx context.Context) ApiQueuePublishRequest {
 	return ApiQueuePublishRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1067,8 +1043,7 @@ func (a *AMQPAPIService) QueuePublishExecute(r ApiQueuePublishRequest) (*SirqulR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/publish"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/publish"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1150,7 +1125,6 @@ func (a *AMQPAPIService) QueuePublishExecute(r ApiQueuePublishRequest) (*SirqulR
 type ApiQueueSearchRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	queueId *int64
 	deviceId *string
 	accountId *int64
@@ -1205,14 +1179,12 @@ QueueSearch Search Queue
 Get the queues setup for the BillableEntity's applications.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueueSearchRequest
 */
-func (a *AMQPAPIService) QueueSearch(ctx context.Context, version float32) ApiQueueSearchRequest {
+func (a *AMQPAPIService) QueueSearch(ctx context.Context) ApiQueueSearchRequest {
 	return ApiQueueSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1231,8 +1203,7 @@ func (a *AMQPAPIService) QueueSearchExecute(r ApiQueueSearchRequest) (*QueueResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1321,7 +1292,6 @@ func (a *AMQPAPIService) QueueSearchExecute(r ApiQueueSearchRequest) (*QueueResp
 type ApiQueueUpdateRequest struct {
 	ctx context.Context
 	ApiService *AMQPAPIService
-	version float32
 	queueId *int64
 	deviceId *string
 	accountId *int64
@@ -1418,14 +1388,12 @@ QueueUpdate Update Queue
 Update the basic AMQP queue.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiQueueUpdateRequest
 */
-func (a *AMQPAPIService) QueueUpdate(ctx context.Context, version float32) ApiQueueUpdateRequest {
+func (a *AMQPAPIService) QueueUpdate(ctx context.Context) ApiQueueUpdateRequest {
 	return ApiQueueUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1444,8 +1412,7 @@ func (a *AMQPAPIService) QueueUpdateExecute(r ApiQueueUpdateRequest) (*QueueResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/queue/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/queue/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

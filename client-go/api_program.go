@@ -27,7 +27,6 @@ type ProgramAPIService service
 type ApiCreateProgramRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	body *Program
 }
 
@@ -46,14 +45,12 @@ CreateProgram Create Program
 Create a new program
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateProgramRequest
 */
-func (a *ProgramAPIService) CreateProgram(ctx context.Context, version float32) ApiCreateProgramRequest {
+func (a *ProgramAPIService) CreateProgram(ctx context.Context) ApiCreateProgramRequest {
 	return ApiCreateProgramRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *ProgramAPIService) CreateProgramExecute(r ApiCreateProgramRequest) (*Pr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *ProgramAPIService) CreateProgramExecute(r ApiCreateProgramRequest) (*Pr
 type ApiDeleteProgramRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	id int64
 }
 
@@ -152,15 +147,13 @@ DeleteProgram Delete Program
 Delete an existing program
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the program
  @return ApiDeleteProgramRequest
 */
-func (a *ProgramAPIService) DeleteProgram(ctx context.Context, version float32, id int64) ApiDeleteProgramRequest {
+func (a *ProgramAPIService) DeleteProgram(ctx context.Context, id int64) ApiDeleteProgramRequest {
 	return ApiDeleteProgramRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -178,8 +171,7 @@ func (a *ProgramAPIService) DeleteProgramExecute(r ApiDeleteProgramRequest) (*ht
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -234,7 +226,6 @@ func (a *ProgramAPIService) DeleteProgramExecute(r ApiDeleteProgramRequest) (*ht
 type ApiGetProgramRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	id int64
 }
 
@@ -248,15 +239,13 @@ GetProgram Get Program
 Get an existing program
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the program
  @return ApiGetProgramRequest
 */
-func (a *ProgramAPIService) GetProgram(ctx context.Context, version float32, id int64) ApiGetProgramRequest {
+func (a *ProgramAPIService) GetProgram(ctx context.Context, id int64) ApiGetProgramRequest {
 	return ApiGetProgramRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -276,8 +265,7 @@ func (a *ProgramAPIService) GetProgramExecute(r ApiGetProgramRequest) (*Program,
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -341,7 +329,6 @@ func (a *ProgramAPIService) GetProgramExecute(r ApiGetProgramRequest) (*Program,
 type ApiPostProgramRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	id int64
 	body *Program
 }
@@ -361,15 +348,13 @@ PostProgram Update Program
 Update an existing program
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the program
  @return ApiPostProgramRequest
 */
-func (a *ProgramAPIService) PostProgram(ctx context.Context, version float32, id int64) ApiPostProgramRequest {
+func (a *ProgramAPIService) PostProgram(ctx context.Context, id int64) ApiPostProgramRequest {
 	return ApiPostProgramRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -389,8 +374,7 @@ func (a *ProgramAPIService) PostProgramExecute(r ApiPostProgramRequest) (*Progra
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -456,7 +440,6 @@ func (a *ProgramAPIService) PostProgramExecute(r ApiPostProgramRequest) (*Progra
 type ApiPutProgramRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	id int64
 	body *Program
 }
@@ -476,15 +459,13 @@ PutProgram Update Program
 Update an existing program
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the program
  @return ApiPutProgramRequest
 */
-func (a *ProgramAPIService) PutProgram(ctx context.Context, version float32, id int64) ApiPutProgramRequest {
+func (a *ProgramAPIService) PutProgram(ctx context.Context, id int64) ApiPutProgramRequest {
 	return ApiPutProgramRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -504,8 +485,7 @@ func (a *ProgramAPIService) PutProgramExecute(r ApiPutProgramRequest) (*Program,
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -571,7 +551,6 @@ func (a *ProgramAPIService) PutProgramExecute(r ApiPutProgramRequest) (*Program,
 type ApiSearchProgramsRequest struct {
 	ctx context.Context
 	ApiService *ProgramAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -626,14 +605,12 @@ SearchPrograms Search Programs
 Search for programs
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchProgramsRequest
 */
-func (a *ProgramAPIService) SearchPrograms(ctx context.Context, version float32) ApiSearchProgramsRequest {
+func (a *ProgramAPIService) SearchPrograms(ctx context.Context) ApiSearchProgramsRequest {
 	return ApiSearchProgramsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -652,8 +629,7 @@ func (a *ProgramAPIService) SearchProgramsExecute(r ApiSearchProgramsRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/program"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/program"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

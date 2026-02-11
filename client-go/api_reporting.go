@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ReportingAPIService service
 type ApiCreateBatchRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	accountId *int64
 	status *string
 	previewLimit *int32
@@ -117,14 +115,12 @@ CreateBatch Create Offline Report
 Create an entry for the batch for offline report
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateBatchRequest
 */
-func (a *ReportingAPIService) CreateBatch(ctx context.Context, version float32) ApiCreateBatchRequest {
+func (a *ReportingAPIService) CreateBatch(ctx context.Context) ApiCreateBatchRequest {
 	return ApiCreateBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -143,8 +139,7 @@ func (a *ReportingAPIService) CreateBatchExecute(r ApiCreateBatchRequest) (*Repo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/batch/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/batch/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -243,7 +238,6 @@ func (a *ReportingAPIService) CreateBatchExecute(r ApiCreateBatchRequest) (*Repo
 type ApiCreateRegionLegSummaryBatchRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	body *[]RegionLegSummary
 }
 
@@ -262,14 +256,12 @@ CreateRegionLegSummaryBatch Create Offline Report
 Create an entry for the batch for offline report
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRegionLegSummaryBatchRequest
 */
-func (a *ReportingAPIService) CreateRegionLegSummaryBatch(ctx context.Context, version float32) ApiCreateRegionLegSummaryBatchRequest {
+func (a *ReportingAPIService) CreateRegionLegSummaryBatch(ctx context.Context) ApiCreateRegionLegSummaryBatchRequest {
 	return ApiCreateRegionLegSummaryBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -288,8 +280,7 @@ func (a *ReportingAPIService) CreateRegionLegSummaryBatchExecute(r ApiCreateRegi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/region/summary/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/region/summary/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -354,7 +345,6 @@ func (a *ReportingAPIService) CreateRegionLegSummaryBatchExecute(r ApiCreateRegi
 type ApiDeleteBatchRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	accountId *int64
 	batchId *int64
 }
@@ -381,14 +371,12 @@ DeleteBatch Delete Offline Report
 Deletes a batch report.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteBatchRequest
 */
-func (a *ReportingAPIService) DeleteBatch(ctx context.Context, version float32) ApiDeleteBatchRequest {
+func (a *ReportingAPIService) DeleteBatch(ctx context.Context) ApiDeleteBatchRequest {
 	return ApiDeleteBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -407,8 +395,7 @@ func (a *ReportingAPIService) DeleteBatchExecute(r ApiDeleteBatchRequest) (*Sirq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/batch/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/batch/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -479,7 +466,6 @@ func (a *ReportingAPIService) DeleteBatchExecute(r ApiDeleteBatchRequest) (*Sirq
 type ApiGetReportBatchRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	accountId *int64
 	batchId *int64
 	allResults *bool
@@ -513,14 +499,12 @@ GetReportBatch Get Offline Report
 Checks status of batch report.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetReportBatchRequest
 */
-func (a *ReportingAPIService) GetReportBatch(ctx context.Context, version float32) ApiGetReportBatchRequest {
+func (a *ReportingAPIService) GetReportBatch(ctx context.Context) ApiGetReportBatchRequest {
 	return ApiGetReportBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -539,8 +523,7 @@ func (a *ReportingAPIService) GetReportBatchExecute(r ApiGetReportBatchRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/batch/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/batch/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -615,7 +598,6 @@ func (a *ReportingAPIService) GetReportBatchExecute(r ApiGetReportBatchRequest) 
 type ApiRunReportRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	desc *bool
 	accountId *int64
 	query *string
@@ -684,14 +666,12 @@ RunReport Run Report
  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRunReportRequest
 */
-func (a *ReportingAPIService) RunReport(ctx context.Context, version float32) ApiRunReportRequest {
+func (a *ReportingAPIService) RunReport(ctx context.Context) ApiRunReportRequest {
 	return ApiRunReportRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -710,8 +690,7 @@ func (a *ReportingAPIService) RunReportExecute(r ApiRunReportRequest) (*ReportRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/run"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/run"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -799,7 +778,6 @@ func (a *ReportingAPIService) RunReportExecute(r ApiRunReportRequest) (*ReportRe
 type ApiSearchBatchRequest struct {
 	ctx context.Context
 	ApiService *ReportingAPIService
-	version float32
 	accountId *int64
 	start *int32
 	limit *int32
@@ -875,14 +853,12 @@ SearchBatch Search Offline Reports
 Retrieves batches for a user..
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchBatchRequest
 */
-func (a *ReportingAPIService) SearchBatch(ctx context.Context, version float32) ApiSearchBatchRequest {
+func (a *ReportingAPIService) SearchBatch(ctx context.Context) ApiSearchBatchRequest {
 	return ApiSearchBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -901,8 +877,7 @@ func (a *ReportingAPIService) SearchBatchExecute(r ApiSearchBatchRequest) ([]Rep
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/report/batch/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/report/batch/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

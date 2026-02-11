@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type WordAPIService service
 type ApiCreateWordRequest struct {
 	ctx context.Context
 	ApiService *WordAPIService
-	version float32
 	accountId *int64
 	word *string
 	definition *string
@@ -103,14 +101,12 @@ CreateWord Create Word
 Create a word by the given params.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateWordRequest
 */
-func (a *WordAPIService) CreateWord(ctx context.Context, version float32) ApiCreateWordRequest {
+func (a *WordAPIService) CreateWord(ctx context.Context) ApiCreateWordRequest {
 	return ApiCreateWordRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -129,8 +125,7 @@ func (a *WordAPIService) CreateWordExecute(r ApiCreateWordRequest) (*WordzWordRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/word/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/word/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -226,7 +221,6 @@ func (a *WordAPIService) CreateWordExecute(r ApiCreateWordRequest) (*WordzWordRe
 type ApiDeleteWordRequest struct {
 	ctx context.Context
 	ApiService *WordAPIService
-	version float32
 	wordId *int64
 	accountId *int64
 }
@@ -253,14 +247,12 @@ DeleteWord Delete Word
 Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteWordRequest
 */
-func (a *WordAPIService) DeleteWord(ctx context.Context, version float32) ApiDeleteWordRequest {
+func (a *WordAPIService) DeleteWord(ctx context.Context) ApiDeleteWordRequest {
 	return ApiDeleteWordRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -279,8 +271,7 @@ func (a *WordAPIService) DeleteWordExecute(r ApiDeleteWordRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/word/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/word/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -351,7 +342,6 @@ func (a *WordAPIService) DeleteWordExecute(r ApiDeleteWordRequest) (*SirqulRespo
 type ApiGetWordRequest struct {
 	ctx context.Context
 	ApiService *WordAPIService
-	version float32
 	wordId *int64
 	accountId *int64
 }
@@ -378,14 +368,12 @@ GetWord Get Word
 Get a word by the given id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetWordRequest
 */
-func (a *WordAPIService) GetWord(ctx context.Context, version float32) ApiGetWordRequest {
+func (a *WordAPIService) GetWord(ctx context.Context) ApiGetWordRequest {
 	return ApiGetWordRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -404,8 +392,7 @@ func (a *WordAPIService) GetWordExecute(r ApiGetWordRequest) (*WordzWordResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/word/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/word/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -476,7 +463,6 @@ func (a *WordAPIService) GetWordExecute(r ApiGetWordRequest) (*WordzWordResponse
 type ApiGetWordsRequest struct {
 	ctx context.Context
 	ApiService *WordAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -538,14 +524,12 @@ GetWords Search Words
 Search for words by the given params.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetWordsRequest
 */
-func (a *WordAPIService) GetWords(ctx context.Context, version float32) ApiGetWordsRequest {
+func (a *WordAPIService) GetWords(ctx context.Context) ApiGetWordsRequest {
 	return ApiGetWordsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -564,8 +548,7 @@ func (a *WordAPIService) GetWordsExecute(r ApiGetWordsRequest) ([]WordzWordRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/word/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/word/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -655,7 +638,6 @@ func (a *WordAPIService) GetWordsExecute(r ApiGetWordsRequest) ([]WordzWordRespo
 type ApiUpdateWordRequest struct {
 	ctx context.Context
 	ApiService *WordAPIService
-	version float32
 	wordId *int64
 	accountId *int64
 	ticketCount *int64
@@ -738,14 +720,12 @@ UpdateWord Update Word
 Update a word by the given params.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateWordRequest
 */
-func (a *WordAPIService) UpdateWord(ctx context.Context, version float32) ApiUpdateWordRequest {
+func (a *WordAPIService) UpdateWord(ctx context.Context) ApiUpdateWordRequest {
 	return ApiUpdateWordRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -764,8 +744,7 @@ func (a *WordAPIService) UpdateWordExecute(r ApiUpdateWordRequest) (*WordzWordRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/word/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/word/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

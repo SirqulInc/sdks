@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type ParticipantsAPIService service
 type ApiProcessAllParticipantsRequest struct {
 	ctx context.Context
 	ApiService *ParticipantsAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	useShortNameAsID *bool
@@ -62,14 +60,12 @@ ProcessAllParticipants Process All Participant Feeds
 Processes all supported participant feeds.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiProcessAllParticipantsRequest
 */
-func (a *ParticipantsAPIService) ProcessAllParticipants(ctx context.Context, version float32) ApiProcessAllParticipantsRequest {
+func (a *ParticipantsAPIService) ProcessAllParticipants(ctx context.Context) ApiProcessAllParticipantsRequest {
 	return ApiProcessAllParticipantsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -88,8 +84,7 @@ func (a *ParticipantsAPIService) ProcessAllParticipantsExecute(r ApiProcessAllPa
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/participant/process/all"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/participant/process/all"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -162,7 +157,6 @@ func (a *ParticipantsAPIService) ProcessAllParticipantsExecute(r ApiProcessAllPa
 type ApiProcessParticipantsRequest struct {
 	ctx context.Context
 	ApiService *ParticipantsAPIService
-	version float32
 	accountId *int64
 	league *string
 	appKey *string
@@ -210,14 +204,12 @@ ProcessParticipants Process Participants Feed
 Processes a participant feed or uploaded file for a specific league.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiProcessParticipantsRequest
 */
-func (a *ParticipantsAPIService) ProcessParticipants(ctx context.Context, version float32) ApiProcessParticipantsRequest {
+func (a *ParticipantsAPIService) ProcessParticipants(ctx context.Context) ApiProcessParticipantsRequest {
 	return ApiProcessParticipantsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -236,8 +228,7 @@ func (a *ParticipantsAPIService) ProcessParticipantsExecute(r ApiProcessParticip
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/participant/process"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/participant/process"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

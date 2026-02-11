@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type StripeAPIService service
 type ApiCreateStripeCheckoutSessionRequest struct {
 	ctx context.Context
 	ApiService *StripeAPIService
-	version float32
 	appKey *string
 	stripeParameters *string
 }
@@ -54,14 +52,12 @@ CreateStripeCheckoutSession Create Stripe Checkout Session
 Create a Stripe checkout session
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateStripeCheckoutSessionRequest
 */
-func (a *StripeAPIService) CreateStripeCheckoutSession(ctx context.Context, version float32) ApiCreateStripeCheckoutSessionRequest {
+func (a *StripeAPIService) CreateStripeCheckoutSession(ctx context.Context) ApiCreateStripeCheckoutSessionRequest {
 	return ApiCreateStripeCheckoutSessionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -80,8 +76,7 @@ func (a *StripeAPIService) CreateStripeCheckoutSessionExecute(r ApiCreateStripeC
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/stripe/checkout/session/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/stripe/checkout/session/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

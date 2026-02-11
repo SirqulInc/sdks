@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type MissionAPIService service
 type ApiCreateMissionRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	title *string
 	description *string
@@ -222,14 +220,12 @@ CreateMission Create Mission
 Create a user defined mission.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateMissionRequest
 */
-func (a *MissionAPIService) CreateMission(ctx context.Context, version float32) ApiCreateMissionRequest {
+func (a *MissionAPIService) CreateMission(ctx context.Context) ApiCreateMissionRequest {
 	return ApiCreateMissionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -248,8 +244,7 @@ func (a *MissionAPIService) CreateMissionExecute(r ApiCreateMissionRequest) (*Mi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -392,7 +387,6 @@ func (a *MissionAPIService) CreateMissionExecute(r ApiCreateMissionRequest) (*Mi
 type ApiDeleteMissionRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 }
@@ -419,14 +413,12 @@ DeleteMission Delete Mission
 Delete a mission.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteMissionRequest
 */
-func (a *MissionAPIService) DeleteMission(ctx context.Context, version float32) ApiDeleteMissionRequest {
+func (a *MissionAPIService) DeleteMission(ctx context.Context) ApiDeleteMissionRequest {
 	return ApiDeleteMissionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -445,8 +437,7 @@ func (a *MissionAPIService) DeleteMissionExecute(r ApiDeleteMissionRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -517,7 +508,6 @@ func (a *MissionAPIService) DeleteMissionExecute(r ApiDeleteMissionRequest) (*Si
 type ApiFindMissionsRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	appKey *string
 	suffix *string
 	type_ *string
@@ -663,14 +653,12 @@ FindMissions Find Missions
 Get a set of ad filtered by the parameters provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFindMissionsRequest
 */
-func (a *MissionAPIService) FindMissions(ctx context.Context, version float32) ApiFindMissionsRequest {
+func (a *MissionAPIService) FindMissions(ctx context.Context) ApiFindMissionsRequest {
 	return ApiFindMissionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -689,8 +677,7 @@ func (a *MissionAPIService) FindMissionsExecute(r ApiFindMissionsRequest) (*Miss
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/find"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/find"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -811,7 +798,6 @@ func (a *MissionAPIService) FindMissionsExecute(r ApiFindMissionsRequest) (*Miss
 type ApiGetMissionRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 	returnCreative *bool
@@ -845,14 +831,12 @@ GetMission Get Mission
 Get a mission.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetMissionRequest
 */
-func (a *MissionAPIService) GetMission(ctx context.Context, version float32) ApiGetMissionRequest {
+func (a *MissionAPIService) GetMission(ctx context.Context) ApiGetMissionRequest {
 	return ApiGetMissionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -871,8 +855,7 @@ func (a *MissionAPIService) GetMissionExecute(r ApiGetMissionRequest) (*MissionR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -946,7 +929,6 @@ func (a *MissionAPIService) GetMissionExecute(r ApiGetMissionRequest) (*MissionR
 type ApiImportMissionRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	latitude *float64
 	longitude *float64
@@ -1015,14 +997,12 @@ ImportMission Import Mission
 Create a mission using a source item such as an offer location.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiImportMissionRequest
 */
-func (a *MissionAPIService) ImportMission(ctx context.Context, version float32) ApiImportMissionRequest {
+func (a *MissionAPIService) ImportMission(ctx context.Context) ApiImportMissionRequest {
 	return ApiImportMissionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1041,8 +1021,7 @@ func (a *MissionAPIService) ImportMissionExecute(r ApiImportMissionRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/import"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/import"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1133,7 +1112,6 @@ func (a *MissionAPIService) ImportMissionExecute(r ApiImportMissionRequest) (*Si
 type ApiSearchMissionFormatsRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	start *int32
 	limit *int32
 	activeOnly *bool
@@ -1167,14 +1145,12 @@ SearchMissionFormats Search Mission Formats
 Searches on pre-defined mission formats
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchMissionFormatsRequest
 */
-func (a *MissionAPIService) SearchMissionFormats(ctx context.Context, version float32) ApiSearchMissionFormatsRequest {
+func (a *MissionAPIService) SearchMissionFormats(ctx context.Context) ApiSearchMissionFormatsRequest {
 	return ApiSearchMissionFormatsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1193,8 +1169,7 @@ func (a *MissionAPIService) SearchMissionFormatsExecute(r ApiSearchMissionFormat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/format/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/format/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1269,7 +1244,6 @@ func (a *MissionAPIService) SearchMissionFormatsExecute(r ApiSearchMissionFormat
 type ApiSearchMissionsRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	subType *string
@@ -1359,14 +1333,12 @@ SearchMissions Search Missions
 Get the list missions available to the account.  
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchMissionsRequest
 */
-func (a *MissionAPIService) SearchMissions(ctx context.Context, version float32) ApiSearchMissionsRequest {
+func (a *MissionAPIService) SearchMissions(ctx context.Context) ApiSearchMissionsRequest {
 	return ApiSearchMissionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1385,8 +1357,7 @@ func (a *MissionAPIService) SearchMissionsExecute(r ApiSearchMissionsRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1483,7 +1454,6 @@ func (a *MissionAPIService) SearchMissionsExecute(r ApiSearchMissionsRequest) ([
 type ApiSearchMissionsByBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	start *int32
@@ -1566,14 +1536,12 @@ SearchMissionsByBillableEntity Search Missions by Billable Entity
 Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchMissionsByBillableEntityRequest
 */
-func (a *MissionAPIService) SearchMissionsByBillableEntity(ctx context.Context, version float32) ApiSearchMissionsByBillableEntityRequest {
+func (a *MissionAPIService) SearchMissionsByBillableEntity(ctx context.Context) ApiSearchMissionsByBillableEntityRequest {
 	return ApiSearchMissionsByBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1592,8 +1560,7 @@ func (a *MissionAPIService) SearchMissionsByBillableEntityExecute(r ApiSearchMis
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/searchByBillableEntity"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/searchByBillableEntity"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1687,7 +1654,6 @@ func (a *MissionAPIService) SearchMissionsByBillableEntityExecute(r ApiSearchMis
 type ApiUpdateMissionRequest struct {
 	ctx context.Context
 	ApiService *MissionAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 	title *string
@@ -1875,14 +1841,12 @@ UpdateMission Update Mission
 Update a mission.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateMissionRequest
 */
-func (a *MissionAPIService) UpdateMission(ctx context.Context, version float32) ApiUpdateMissionRequest {
+func (a *MissionAPIService) UpdateMission(ctx context.Context) ApiUpdateMissionRequest {
 	return ApiUpdateMissionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1901,8 +1865,7 @@ func (a *MissionAPIService) UpdateMissionExecute(r ApiUpdateMissionRequest) (*Mi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/mission/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/mission/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

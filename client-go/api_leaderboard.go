@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type LeaderboardAPIService service
 type ApiCreateLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	rankType *string
@@ -132,14 +130,12 @@ CreateLeaderboard Create a leaderboard based on the rankingType, rankMode(leader
 Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateLeaderboardRequest
 */
-func (a *LeaderboardAPIService) CreateLeaderboard(ctx context.Context, version float32) ApiCreateLeaderboardRequest {
+func (a *LeaderboardAPIService) CreateLeaderboard(ctx context.Context) ApiCreateLeaderboardRequest {
 	return ApiCreateLeaderboardRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -158,8 +154,7 @@ func (a *LeaderboardAPIService) CreateLeaderboardExecute(r ApiCreateLeaderboardR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/leaderboard/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/leaderboard/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -261,7 +256,6 @@ func (a *LeaderboardAPIService) CreateLeaderboardExecute(r ApiCreateLeaderboardR
 type ApiDeleteLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
-	version float32
 	leaderboardId *int64
 	accountId *int64
 }
@@ -288,14 +282,12 @@ DeleteLeaderboard Delete the Leader Board
 Removes a leader board id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteLeaderboardRequest
 */
-func (a *LeaderboardAPIService) DeleteLeaderboard(ctx context.Context, version float32) ApiDeleteLeaderboardRequest {
+func (a *LeaderboardAPIService) DeleteLeaderboard(ctx context.Context) ApiDeleteLeaderboardRequest {
 	return ApiDeleteLeaderboardRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -314,8 +306,7 @@ func (a *LeaderboardAPIService) DeleteLeaderboardExecute(r ApiDeleteLeaderboardR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/leaderboard/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/leaderboard/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -385,7 +376,6 @@ func (a *LeaderboardAPIService) DeleteLeaderboardExecute(r ApiDeleteLeaderboardR
 type ApiGetLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
-	version float32
 	leaderboardId *int64
 	accountId *int64
 	includeFullRankingList *bool
@@ -419,14 +409,12 @@ GetLeaderboard Read a leaderboard by id and retrieve the matching ranking list
 Read a leaderboard by id and retrieve the matching ranking list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetLeaderboardRequest
 */
-func (a *LeaderboardAPIService) GetLeaderboard(ctx context.Context, version float32) ApiGetLeaderboardRequest {
+func (a *LeaderboardAPIService) GetLeaderboard(ctx context.Context) ApiGetLeaderboardRequest {
 	return ApiGetLeaderboardRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -445,8 +433,7 @@ func (a *LeaderboardAPIService) GetLeaderboardExecute(r ApiGetLeaderboardRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/leaderboard/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/leaderboard/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -519,7 +506,6 @@ func (a *LeaderboardAPIService) GetLeaderboardExecute(r ApiGetLeaderboardRequest
 type ApiSearchLeaderboardsRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	globalOnly *bool
@@ -616,14 +602,12 @@ SearchLeaderboards Search leaderboard and retrieve the matching ranking list
 Search leaderboard and retrieve the matching ranking list
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchLeaderboardsRequest
 */
-func (a *LeaderboardAPIService) SearchLeaderboards(ctx context.Context, version float32) ApiSearchLeaderboardsRequest {
+func (a *LeaderboardAPIService) SearchLeaderboards(ctx context.Context) ApiSearchLeaderboardsRequest {
 	return ApiSearchLeaderboardsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -642,8 +626,7 @@ func (a *LeaderboardAPIService) SearchLeaderboardsExecute(r ApiSearchLeaderboard
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/leaderboard/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/leaderboard/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -742,7 +725,6 @@ func (a *LeaderboardAPIService) SearchLeaderboardsExecute(r ApiSearchLeaderboard
 type ApiUpdateLeaderboardRequest struct {
 	ctx context.Context
 	ApiService *LeaderboardAPIService
-	version float32
 	leaderboardId *int64
 	accountId *int64
 	appKey *string
@@ -860,14 +842,12 @@ UpdateLeaderboard Update a leaderboard based on the rankingType, rankMode(leader
 Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateLeaderboardRequest
 */
-func (a *LeaderboardAPIService) UpdateLeaderboard(ctx context.Context, version float32) ApiUpdateLeaderboardRequest {
+func (a *LeaderboardAPIService) UpdateLeaderboard(ctx context.Context) ApiUpdateLeaderboardRequest {
 	return ApiUpdateLeaderboardRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -886,8 +866,7 @@ func (a *LeaderboardAPIService) UpdateLeaderboardExecute(r ApiUpdateLeaderboardR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/leaderboard/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/leaderboard/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

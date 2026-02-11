@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type TicketAPIService service
 type ApiGetTicketCountRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	gameType *string
@@ -76,14 +74,12 @@ GetTicketCount Get Ticket Count
 Gets the ticket count.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTicketCountRequest
 */
-func (a *TicketAPIService) GetTicketCount(ctx context.Context, version float32) ApiGetTicketCountRequest {
+func (a *TicketAPIService) GetTicketCount(ctx context.Context) ApiGetTicketCountRequest {
 	return ApiGetTicketCountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -102,8 +98,7 @@ func (a *TicketAPIService) GetTicketCountExecute(r ApiGetTicketCountRequest) (*C
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ticket/count"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ticket/count"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -181,7 +176,6 @@ func (a *TicketAPIService) GetTicketCountExecute(r ApiGetTicketCountRequest) (*C
 type ApiGetTicketListRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	ticketObjectType *string
@@ -257,14 +251,12 @@ GetTicketList Get Ticket List
 Gets the list of tickets.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTicketListRequest
 */
-func (a *TicketAPIService) GetTicketList(ctx context.Context, version float32) ApiGetTicketListRequest {
+func (a *TicketAPIService) GetTicketList(ctx context.Context) ApiGetTicketListRequest {
 	return ApiGetTicketListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -283,8 +275,7 @@ func (a *TicketAPIService) GetTicketListExecute(r ApiGetTicketListRequest) (*Tic
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ticket/getList"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ticket/getList"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -374,7 +365,6 @@ func (a *TicketAPIService) GetTicketListExecute(r ApiGetTicketListRequest) (*Tic
 type ApiGiftPurchaseRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 	receiverAccountId *int64
 	ticketId *int64
 	deviceId *string
@@ -443,14 +433,12 @@ GiftPurchase Gift Tickets
 Gift tickets to another user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGiftPurchaseRequest
 */
-func (a *TicketAPIService) GiftPurchase(ctx context.Context, version float32) ApiGiftPurchaseRequest {
+func (a *TicketAPIService) GiftPurchase(ctx context.Context) ApiGiftPurchaseRequest {
 	return ApiGiftPurchaseRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -469,8 +457,7 @@ func (a *TicketAPIService) GiftPurchaseExecute(r ApiGiftPurchaseRequest) (*Sirqu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/gift"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/gift"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -559,7 +546,6 @@ func (a *TicketAPIService) GiftPurchaseExecute(r ApiGiftPurchaseRequest) (*Sirqu
 type ApiSaveTicketRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 	actionType *string
 	ticketObjectType *string
 	returnNulls *bool
@@ -698,14 +684,12 @@ SaveTicket Save Ticket
 Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSaveTicketRequest
 */
-func (a *TicketAPIService) SaveTicket(ctx context.Context, version float32) ApiSaveTicketRequest {
+func (a *TicketAPIService) SaveTicket(ctx context.Context) ApiSaveTicketRequest {
 	return ApiSaveTicketRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -724,8 +708,7 @@ func (a *TicketAPIService) SaveTicketExecute(r ApiSaveTicketRequest) (*ProfileRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ticket/save"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ticket/save"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -844,7 +827,6 @@ func (a *TicketAPIService) SaveTicketExecute(r ApiSaveTicketRequest) (*ProfileRe
 type ApiSaveTicketViaFileUploadRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 	actionType *string
 	ticketObjectType *string
 	receiptData *os.File
@@ -983,14 +965,12 @@ SaveTicketViaFileUpload Save Ticket with Reciept
 Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSaveTicketViaFileUploadRequest
 */
-func (a *TicketAPIService) SaveTicketViaFileUpload(ctx context.Context, version float32) ApiSaveTicketViaFileUploadRequest {
+func (a *TicketAPIService) SaveTicketViaFileUpload(ctx context.Context) ApiSaveTicketViaFileUploadRequest {
 	return ApiSaveTicketViaFileUploadRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1009,8 +989,7 @@ func (a *TicketAPIService) SaveTicketViaFileUploadExecute(r ApiSaveTicketViaFile
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ticket/save/fileUpload"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ticket/save/fileUpload"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1130,7 +1109,6 @@ func (a *TicketAPIService) SaveTicketViaFileUploadExecute(r ApiSaveTicketViaFile
 type ApiTicketOffersRequest struct {
 	ctx context.Context
 	ApiService *TicketAPIService
-	version float32
 }
 
 func (r ApiTicketOffersRequest) Execute() (*TicketOfferResponse, *http.Response, error) {
@@ -1143,14 +1121,12 @@ TicketOffers Get Ticket Offers
 Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiTicketOffersRequest
 */
-func (a *TicketAPIService) TicketOffers(ctx context.Context, version float32) ApiTicketOffersRequest {
+func (a *TicketAPIService) TicketOffers(ctx context.Context) ApiTicketOffersRequest {
 	return ApiTicketOffersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1169,8 +1145,7 @@ func (a *TicketAPIService) TicketOffersExecute(r ApiTicketOffersRequest) (*Ticke
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ticket/ticketoffers"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ticket/ticketoffers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

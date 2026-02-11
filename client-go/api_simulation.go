@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type SimulationAPIService service
 type ApiSimulationRequest struct {
 	ctx context.Context
 	ApiService *SimulationAPIService
-	version float32
 	data *string
 	realTime *bool
 }
@@ -54,14 +52,12 @@ Simulation Routing Simulation
 Simulates routing requests.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSimulationRequest
 */
-func (a *SimulationAPIService) Simulation(ctx context.Context, version float32) ApiSimulationRequest {
+func (a *SimulationAPIService) Simulation(ctx context.Context) ApiSimulationRequest {
 	return ApiSimulationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -80,8 +76,7 @@ func (a *SimulationAPIService) SimulationExecute(r ApiSimulationRequest) (*Sirqu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/simulation/routing"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/simulation/routing"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

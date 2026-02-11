@@ -27,7 +27,6 @@ type OptimizeAPIService service
 type ApiGetOptimizationResultRequest struct {
 	ctx context.Context
 	ApiService *OptimizeAPIService
-	version float32
 	batchID string
 	start *int32
 	limit *int32
@@ -55,15 +54,13 @@ GetOptimizationResult Get Optimization Result
 Get the results of the import batch.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param batchID The batchID for getting the import status of.
  @return ApiGetOptimizationResultRequest
 */
-func (a *OptimizeAPIService) GetOptimizationResult(ctx context.Context, version float32, batchID string) ApiGetOptimizationResultRequest {
+func (a *OptimizeAPIService) GetOptimizationResult(ctx context.Context, batchID string) ApiGetOptimizationResultRequest {
 	return ApiGetOptimizationResultRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		batchID: batchID,
 	}
 }
@@ -83,8 +80,7 @@ func (a *OptimizeAPIService) GetOptimizationResultExecute(r ApiGetOptimizationRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/optimize/result/{batchID}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/optimize/result/{batchID}"
 	localVarPath = strings.Replace(localVarPath, "{"+"batchID"+"}", url.PathEscape(parameterValueToString(r.batchID, "batchID")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -156,7 +152,6 @@ func (a *OptimizeAPIService) GetOptimizationResultExecute(r ApiGetOptimizationRe
 type ApiRequestOptimizationRequest struct {
 	ctx context.Context
 	ApiService *OptimizeAPIService
-	version float32
 	body *Orders
 }
 
@@ -175,14 +170,12 @@ RequestOptimization Request Optimization
 Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRequestOptimizationRequest
 */
-func (a *OptimizeAPIService) RequestOptimization(ctx context.Context, version float32) ApiRequestOptimizationRequest {
+func (a *OptimizeAPIService) RequestOptimization(ctx context.Context) ApiRequestOptimizationRequest {
 	return ApiRequestOptimizationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -201,8 +194,7 @@ func (a *OptimizeAPIService) RequestOptimizationExecute(r ApiRequestOptimization
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/optimize/request"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/optimize/request"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TriggerAPIService service
 type ApiCreateTriggerRequest struct {
 	ctx context.Context
 	ApiService *TriggerAPIService
-	version float32
 	accountId *int64
 	name *string
 	appKey *string
@@ -131,14 +129,12 @@ CreateTrigger Create Trigger
 Create a trigger
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateTriggerRequest
 */
-func (a *TriggerAPIService) CreateTrigger(ctx context.Context, version float32) ApiCreateTriggerRequest {
+func (a *TriggerAPIService) CreateTrigger(ctx context.Context) ApiCreateTriggerRequest {
 	return ApiCreateTriggerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -157,8 +153,7 @@ func (a *TriggerAPIService) CreateTriggerExecute(r ApiCreateTriggerRequest) (*Tr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trigger/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trigger/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -266,7 +261,6 @@ func (a *TriggerAPIService) CreateTriggerExecute(r ApiCreateTriggerRequest) (*Tr
 type ApiDeleteTriggerRequest struct {
 	ctx context.Context
 	ApiService *TriggerAPIService
-	version float32
 	accountId *int64
 	triggerId *int64
 }
@@ -293,14 +287,12 @@ DeleteTrigger Delete Trigger
 Mark a trigger as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteTriggerRequest
 */
-func (a *TriggerAPIService) DeleteTrigger(ctx context.Context, version float32) ApiDeleteTriggerRequest {
+func (a *TriggerAPIService) DeleteTrigger(ctx context.Context) ApiDeleteTriggerRequest {
 	return ApiDeleteTriggerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -319,8 +311,7 @@ func (a *TriggerAPIService) DeleteTriggerExecute(r ApiDeleteTriggerRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trigger/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trigger/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -391,7 +382,6 @@ func (a *TriggerAPIService) DeleteTriggerExecute(r ApiDeleteTriggerRequest) (*Si
 type ApiGetTriggerRequest struct {
 	ctx context.Context
 	ApiService *TriggerAPIService
-	version float32
 	accountId *int64
 	triggerId *int64
 }
@@ -418,14 +408,12 @@ GetTrigger Get Trigger
 Get a trigger
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTriggerRequest
 */
-func (a *TriggerAPIService) GetTrigger(ctx context.Context, version float32) ApiGetTriggerRequest {
+func (a *TriggerAPIService) GetTrigger(ctx context.Context) ApiGetTriggerRequest {
 	return ApiGetTriggerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -444,8 +432,7 @@ func (a *TriggerAPIService) GetTriggerExecute(r ApiGetTriggerRequest) (*TriggerR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trigger/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trigger/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -516,7 +503,6 @@ func (a *TriggerAPIService) GetTriggerExecute(r ApiGetTriggerRequest) (*TriggerR
 type ApiSearchTriggersRequest struct {
 	ctx context.Context
 	ApiService *TriggerAPIService
-	version float32
 	accountId *int64
 	groupingId *string
 	filter *string
@@ -613,14 +599,12 @@ SearchTriggers Search Triggers
 Search for triggers
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTriggersRequest
 */
-func (a *TriggerAPIService) SearchTriggers(ctx context.Context, version float32) ApiSearchTriggersRequest {
+func (a *TriggerAPIService) SearchTriggers(ctx context.Context) ApiSearchTriggersRequest {
 	return ApiSearchTriggersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -639,8 +623,7 @@ func (a *TriggerAPIService) SearchTriggersExecute(r ApiSearchTriggersRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trigger/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trigger/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -768,7 +751,6 @@ func (a *TriggerAPIService) SearchTriggersExecute(r ApiSearchTriggersRequest) ([
 type ApiUpdateTriggerRequest struct {
 	ctx context.Context
 	ApiService *TriggerAPIService
-	version float32
 	triggerId *int64
 	accountId *int64
 	name *string
@@ -879,14 +861,12 @@ UpdateTrigger Update Trigger
 Update a trigger
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateTriggerRequest
 */
-func (a *TriggerAPIService) UpdateTrigger(ctx context.Context, version float32) ApiUpdateTriggerRequest {
+func (a *TriggerAPIService) UpdateTrigger(ctx context.Context) ApiUpdateTriggerRequest {
 	return ApiUpdateTriggerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -905,8 +885,7 @@ func (a *TriggerAPIService) UpdateTriggerExecute(r ApiUpdateTriggerRequest) (*Tr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trigger/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trigger/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

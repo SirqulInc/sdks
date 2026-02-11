@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PurchaseItemAPIService service
 type ApiCreatePurchaseItemRequest struct {
 	ctx context.Context
 	ApiService *PurchaseItemAPIService
-	version float32
 	appKey *string
 	name *string
 	purchaseType *string
@@ -180,14 +178,12 @@ CreatePurchaseItem Create Purchase
 Creates a purchase item for in app purchases
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreatePurchaseItemRequest
 */
-func (a *PurchaseItemAPIService) CreatePurchaseItem(ctx context.Context, version float32) ApiCreatePurchaseItemRequest {
+func (a *PurchaseItemAPIService) CreatePurchaseItem(ctx context.Context) ApiCreatePurchaseItemRequest {
 	return ApiCreatePurchaseItemRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -206,8 +202,7 @@ func (a *PurchaseItemAPIService) CreatePurchaseItemExecute(r ApiCreatePurchaseIt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -341,7 +336,6 @@ func (a *PurchaseItemAPIService) CreatePurchaseItemExecute(r ApiCreatePurchaseIt
 type ApiDeletePurchaseItemRequest struct {
 	ctx context.Context
 	ApiService *PurchaseItemAPIService
-	version float32
 	purchaseItemId *int64
 	deviceId *string
 	accountId *int64
@@ -375,14 +369,12 @@ DeletePurchaseItem Delete Purchase
 Marks the purchase item as deleted
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeletePurchaseItemRequest
 */
-func (a *PurchaseItemAPIService) DeletePurchaseItem(ctx context.Context, version float32) ApiDeletePurchaseItemRequest {
+func (a *PurchaseItemAPIService) DeletePurchaseItem(ctx context.Context) ApiDeletePurchaseItemRequest {
 	return ApiDeletePurchaseItemRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -401,8 +393,7 @@ func (a *PurchaseItemAPIService) DeletePurchaseItemExecute(r ApiDeletePurchaseIt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -475,7 +466,6 @@ func (a *PurchaseItemAPIService) DeletePurchaseItemExecute(r ApiDeletePurchaseIt
 type ApiGetPurchaseItemRequest struct {
 	ctx context.Context
 	ApiService *PurchaseItemAPIService
-	version float32
 	purchaseItemId *int64
 	deviceId *string
 	accountId *int64
@@ -509,14 +499,12 @@ GetPurchaseItem Get Purchase
 Get detailed information about a purchase item
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPurchaseItemRequest
 */
-func (a *PurchaseItemAPIService) GetPurchaseItem(ctx context.Context, version float32) ApiGetPurchaseItemRequest {
+func (a *PurchaseItemAPIService) GetPurchaseItem(ctx context.Context) ApiGetPurchaseItemRequest {
 	return ApiGetPurchaseItemRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -535,8 +523,7 @@ func (a *PurchaseItemAPIService) GetPurchaseItemExecute(r ApiGetPurchaseItemRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -609,7 +596,6 @@ func (a *PurchaseItemAPIService) GetPurchaseItemExecute(r ApiGetPurchaseItemRequ
 type ApiSearchPurchaseItemsRequest struct {
 	ctx context.Context
 	ApiService *PurchaseItemAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -706,14 +692,12 @@ SearchPurchaseItems Search Purchases
 Search for purchasable items from the system
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPurchaseItemsRequest
 */
-func (a *PurchaseItemAPIService) SearchPurchaseItems(ctx context.Context, version float32) ApiSearchPurchaseItemsRequest {
+func (a *PurchaseItemAPIService) SearchPurchaseItems(ctx context.Context) ApiSearchPurchaseItemsRequest {
 	return ApiSearchPurchaseItemsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -732,8 +716,7 @@ func (a *PurchaseItemAPIService) SearchPurchaseItemsExecute(r ApiSearchPurchaseI
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -856,7 +839,6 @@ func (a *PurchaseItemAPIService) SearchPurchaseItemsExecute(r ApiSearchPurchaseI
 type ApiUpdatePurchaseItemRequest struct {
 	ctx context.Context
 	ApiService *PurchaseItemAPIService
-	version float32
 	purchaseItemId *int64
 	deviceId *string
 	accountId *int64
@@ -1016,14 +998,12 @@ UpdatePurchaseItem Update Purchase
 Updates a purchase item for in app purchases
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdatePurchaseItemRequest
 */
-func (a *PurchaseItemAPIService) UpdatePurchaseItem(ctx context.Context, version float32) ApiUpdatePurchaseItemRequest {
+func (a *PurchaseItemAPIService) UpdatePurchaseItem(ctx context.Context) ApiUpdatePurchaseItemRequest {
 	return ApiUpdatePurchaseItemRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1042,8 +1022,7 @@ func (a *PurchaseItemAPIService) UpdatePurchaseItemExecute(r ApiUpdatePurchaseIt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/purchase/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/purchase/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

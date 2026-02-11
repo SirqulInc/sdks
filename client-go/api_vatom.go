@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type VatomAPIService service
 type ApiCreateFollowingRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -61,14 +59,12 @@ CreateFollowing Create following
 Create following.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateFollowingRequest
 */
-func (a *VatomAPIService) CreateFollowing(ctx context.Context, version float32) ApiCreateFollowingRequest {
+func (a *VatomAPIService) CreateFollowing(ctx context.Context) ApiCreateFollowingRequest {
 	return ApiCreateFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -85,8 +81,7 @@ func (a *VatomAPIService) CreateFollowingExecute(r ApiCreateFollowingRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/rels/following/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/rels/following/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -151,7 +146,6 @@ func (a *VatomAPIService) CreateFollowingExecute(r ApiCreateFollowingRequest) (*
 type ApiCreateSpaceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -192,14 +186,12 @@ CreateSpace Create Vatom Space
 Create a Vatom space.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateSpaceRequest
 */
-func (a *VatomAPIService) CreateSpace(ctx context.Context, version float32) ApiCreateSpaceRequest {
+func (a *VatomAPIService) CreateSpace(ctx context.Context) ApiCreateSpaceRequest {
 	return ApiCreateSpaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -216,8 +208,7 @@ func (a *VatomAPIService) CreateSpaceExecute(r ApiCreateSpaceRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/spaces/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/spaces/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -286,7 +277,6 @@ func (a *VatomAPIService) CreateSpaceExecute(r ApiCreateSpaceRequest) (*http.Res
 type ApiCreateVatomEventRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -327,14 +317,12 @@ CreateVatomEvent Create Vatom Event
 Create a Vatom event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateVatomEventRequest
 */
-func (a *VatomAPIService) CreateVatomEvent(ctx context.Context, version float32) ApiCreateVatomEventRequest {
+func (a *VatomAPIService) CreateVatomEvent(ctx context.Context) ApiCreateVatomEventRequest {
 	return ApiCreateVatomEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -351,8 +339,7 @@ func (a *VatomAPIService) CreateVatomEventExecute(r ApiCreateVatomEventRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -421,7 +408,6 @@ func (a *VatomAPIService) CreateVatomEventExecute(r ApiCreateVatomEventRequest) 
 type ApiDeleteFollowingRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomRelsKey *string
 	returnRawResponse *bool
@@ -455,14 +441,12 @@ DeleteFollowing Delete following
 Delete following.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteFollowingRequest
 */
-func (a *VatomAPIService) DeleteFollowing(ctx context.Context, version float32) ApiDeleteFollowingRequest {
+func (a *VatomAPIService) DeleteFollowing(ctx context.Context) ApiDeleteFollowingRequest {
 	return ApiDeleteFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -479,8 +463,7 @@ func (a *VatomAPIService) DeleteFollowingExecute(r ApiDeleteFollowingRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/rels/following/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/rels/following/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -545,7 +528,6 @@ func (a *VatomAPIService) DeleteFollowingExecute(r ApiDeleteFollowingRequest) (*
 type ApiDeletePointsBalanceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -586,14 +568,12 @@ DeletePointsBalance Reset All Points Balance
 Reset All Points Balance.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeletePointsBalanceRequest
 */
-func (a *VatomAPIService) DeletePointsBalance(ctx context.Context, version float32) ApiDeletePointsBalanceRequest {
+func (a *VatomAPIService) DeletePointsBalance(ctx context.Context) ApiDeletePointsBalanceRequest {
 	return ApiDeletePointsBalanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -610,8 +590,7 @@ func (a *VatomAPIService) DeletePointsBalanceExecute(r ApiDeletePointsBalanceReq
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign/points/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign/points/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -680,7 +659,6 @@ func (a *VatomAPIService) DeletePointsBalanceExecute(r ApiDeletePointsBalanceReq
 type ApiDeleteSpaceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomSpaceId *string
@@ -721,14 +699,12 @@ DeleteSpace Delete Vatom Space
 Delete a Vatom space.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteSpaceRequest
 */
-func (a *VatomAPIService) DeleteSpace(ctx context.Context, version float32) ApiDeleteSpaceRequest {
+func (a *VatomAPIService) DeleteSpace(ctx context.Context) ApiDeleteSpaceRequest {
 	return ApiDeleteSpaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -745,8 +721,7 @@ func (a *VatomAPIService) DeleteSpaceExecute(r ApiDeleteSpaceRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/spaces/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/spaces/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -815,7 +790,6 @@ func (a *VatomAPIService) DeleteSpaceExecute(r ApiDeleteSpaceRequest) (*http.Res
 type ApiDeleteVatomEventRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomEventId *string
@@ -856,14 +830,12 @@ DeleteVatomEvent Delete Vatom Event
 Delete a Vatom event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteVatomEventRequest
 */
-func (a *VatomAPIService) DeleteVatomEvent(ctx context.Context, version float32) ApiDeleteVatomEventRequest {
+func (a *VatomAPIService) DeleteVatomEvent(ctx context.Context) ApiDeleteVatomEventRequest {
 	return ApiDeleteVatomEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -880,8 +852,7 @@ func (a *VatomAPIService) DeleteVatomEventExecute(r ApiDeleteVatomEventRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -950,7 +921,6 @@ func (a *VatomAPIService) DeleteVatomEventExecute(r ApiDeleteVatomEventRequest) 
 type ApiDeleteVatomNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomId *string
 	returnRawResponse *bool
@@ -984,14 +954,12 @@ DeleteVatomNFT Delete Vatom NFT
 Delete Vatom NFT
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteVatomNFTRequest
 */
-func (a *VatomAPIService) DeleteVatomNFT(ctx context.Context, version float32) ApiDeleteVatomNFTRequest {
+func (a *VatomAPIService) DeleteVatomNFT(ctx context.Context) ApiDeleteVatomNFTRequest {
 	return ApiDeleteVatomNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1008,8 +976,7 @@ func (a *VatomAPIService) DeleteVatomNFTExecute(r ApiDeleteVatomNFTRequest) (*ht
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/vatoms/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/vatoms/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1074,7 +1041,6 @@ func (a *VatomAPIService) DeleteVatomNFTExecute(r ApiDeleteVatomNFTRequest) (*ht
 type ApiExecuteActionOnNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomId *string
 	vatomParameters *string
@@ -1115,14 +1081,12 @@ ExecuteActionOnNFT Execute Action on NFT
 Execute Action on NFT.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiExecuteActionOnNFTRequest
 */
-func (a *VatomAPIService) ExecuteActionOnNFT(ctx context.Context, version float32) ApiExecuteActionOnNFTRequest {
+func (a *VatomAPIService) ExecuteActionOnNFT(ctx context.Context) ApiExecuteActionOnNFTRequest {
 	return ApiExecuteActionOnNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1139,8 +1103,7 @@ func (a *VatomAPIService) ExecuteActionOnNFTExecute(r ApiExecuteActionOnNFTReque
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/vatoms/execute-action"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/vatoms/execute-action"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1209,7 +1172,6 @@ func (a *VatomAPIService) ExecuteActionOnNFTExecute(r ApiExecuteActionOnNFTReque
 type ApiGeomapSearchRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -1243,14 +1205,12 @@ GeomapSearch Search Vatom Geo Map
 Search Vatom Geo Map
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGeomapSearchRequest
 */
-func (a *VatomAPIService) GeomapSearch(ctx context.Context, version float32) ApiGeomapSearchRequest {
+func (a *VatomAPIService) GeomapSearch(ctx context.Context) ApiGeomapSearchRequest {
 	return ApiGeomapSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1267,8 +1227,7 @@ func (a *VatomAPIService) GeomapSearchExecute(r ApiGeomapSearchRequest) (*http.R
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/vatoms/geo-map/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/vatoms/geo-map/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1333,7 +1292,6 @@ func (a *VatomAPIService) GeomapSearchExecute(r ApiGeomapSearchRequest) (*http.R
 type ApiGetBusinessBehaviorsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	returnRawResponse *bool
@@ -1367,14 +1325,12 @@ GetBusinessBehaviors Get Vatom Business Behaviors
 Gets the behaviors of a business.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBusinessBehaviorsRequest
 */
-func (a *VatomAPIService) GetBusinessBehaviors(ctx context.Context, version float32) ApiGetBusinessBehaviorsRequest {
+func (a *VatomAPIService) GetBusinessBehaviors(ctx context.Context) ApiGetBusinessBehaviorsRequest {
 	return ApiGetBusinessBehaviorsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1391,8 +1347,7 @@ func (a *VatomAPIService) GetBusinessBehaviorsExecute(r ApiGetBusinessBehaviorsR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/behaviors"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/behaviors"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1457,7 +1412,6 @@ func (a *VatomAPIService) GetBusinessBehaviorsExecute(r ApiGetBusinessBehaviorsR
 type ApiGetBusinessCoinsBalanceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	returnRawResponse *bool
@@ -1491,14 +1445,12 @@ GetBusinessCoinsBalance Get the coins for a Business
 Get the coins for a Businesss.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBusinessCoinsBalanceRequest
 */
-func (a *VatomAPIService) GetBusinessCoinsBalance(ctx context.Context, version float32) ApiGetBusinessCoinsBalanceRequest {
+func (a *VatomAPIService) GetBusinessCoinsBalance(ctx context.Context) ApiGetBusinessCoinsBalanceRequest {
 	return ApiGetBusinessCoinsBalanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1515,8 +1467,7 @@ func (a *VatomAPIService) GetBusinessCoinsBalanceExecute(r ApiGetBusinessCoinsBa
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/coins/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/coins/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1581,7 +1532,6 @@ func (a *VatomAPIService) GetBusinessCoinsBalanceExecute(r ApiGetBusinessCoinsBa
 type ApiGetBusinessIdsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	returnRawResponse *bool
 }
@@ -1608,14 +1558,12 @@ GetBusinessIds Get the user business ids
 Get the business ids the logged in user has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBusinessIdsRequest
 */
-func (a *VatomAPIService) GetBusinessIds(ctx context.Context, version float32) ApiGetBusinessIdsRequest {
+func (a *VatomAPIService) GetBusinessIds(ctx context.Context) ApiGetBusinessIdsRequest {
 	return ApiGetBusinessIdsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1632,8 +1580,7 @@ func (a *VatomAPIService) GetBusinessIdsExecute(r ApiGetBusinessIdsRequest) (*ht
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/businesses"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/businesses"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1694,7 +1641,6 @@ func (a *VatomAPIService) GetBusinessIdsExecute(r ApiGetBusinessIdsRequest) (*ht
 type ApiGetBusinessInfoRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -1735,14 +1681,12 @@ GetBusinessInfo Get Vatom Business Info
 Gets the business info tied to this account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBusinessInfoRequest
 */
-func (a *VatomAPIService) GetBusinessInfo(ctx context.Context, version float32) ApiGetBusinessInfoRequest {
+func (a *VatomAPIService) GetBusinessInfo(ctx context.Context) ApiGetBusinessInfoRequest {
 	return ApiGetBusinessInfoRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1759,8 +1703,7 @@ func (a *VatomAPIService) GetBusinessInfoExecute(r ApiGetBusinessInfoRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1828,7 +1771,6 @@ func (a *VatomAPIService) GetBusinessInfoExecute(r ApiGetBusinessInfoRequest) (*
 type ApiGetBusinessUsersRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	returnRawResponse *bool
@@ -1862,14 +1804,12 @@ GetBusinessUsers Get Vatom Business Users
 Gets the users of a business.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBusinessUsersRequest
 */
-func (a *VatomAPIService) GetBusinessUsers(ctx context.Context, version float32) ApiGetBusinessUsersRequest {
+func (a *VatomAPIService) GetBusinessUsers(ctx context.Context) ApiGetBusinessUsersRequest {
 	return ApiGetBusinessUsersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1886,8 +1826,7 @@ func (a *VatomAPIService) GetBusinessUsersExecute(r ApiGetBusinessUsersRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/users"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/users"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1952,7 +1891,6 @@ func (a *VatomAPIService) GetBusinessUsersExecute(r ApiGetBusinessUsersRequest) 
 type ApiGetCampaignGroupEntitiesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -1993,14 +1931,12 @@ GetCampaignGroupEntities Get Campaign Group Entities
 Get campaign group entities.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCampaignGroupEntitiesRequest
 */
-func (a *VatomAPIService) GetCampaignGroupEntities(ctx context.Context, version float32) ApiGetCampaignGroupEntitiesRequest {
+func (a *VatomAPIService) GetCampaignGroupEntities(ctx context.Context) ApiGetCampaignGroupEntitiesRequest {
 	return ApiGetCampaignGroupEntitiesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2017,8 +1953,7 @@ func (a *VatomAPIService) GetCampaignGroupEntitiesExecute(r ApiGetCampaignGroupE
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign-groups/entities"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign-groups/entities"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2087,7 +2022,6 @@ func (a *VatomAPIService) GetCampaignGroupEntitiesExecute(r ApiGetCampaignGroupE
 type ApiGetCampaignGroupRulesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -2128,14 +2062,12 @@ GetCampaignGroupRules Get Campaign Group Rules
 Get campaign group rules.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCampaignGroupRulesRequest
 */
-func (a *VatomAPIService) GetCampaignGroupRules(ctx context.Context, version float32) ApiGetCampaignGroupRulesRequest {
+func (a *VatomAPIService) GetCampaignGroupRules(ctx context.Context) ApiGetCampaignGroupRulesRequest {
 	return ApiGetCampaignGroupRulesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2152,8 +2084,7 @@ func (a *VatomAPIService) GetCampaignGroupRulesExecute(r ApiGetCampaignGroupRule
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign-groups/rules"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign-groups/rules"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2222,7 +2153,6 @@ func (a *VatomAPIService) GetCampaignGroupRulesExecute(r ApiGetCampaignGroupRule
 type ApiGetCampaignGroupStatsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -2263,14 +2193,12 @@ GetCampaignGroupStats Get Campaign Group Stats
 Get campaign group stats.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCampaignGroupStatsRequest
 */
-func (a *VatomAPIService) GetCampaignGroupStats(ctx context.Context, version float32) ApiGetCampaignGroupStatsRequest {
+func (a *VatomAPIService) GetCampaignGroupStats(ctx context.Context) ApiGetCampaignGroupStatsRequest {
 	return ApiGetCampaignGroupStatsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2287,8 +2215,7 @@ func (a *VatomAPIService) GetCampaignGroupStatsExecute(r ApiGetCampaignGroupStat
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign-groups/stats"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign-groups/stats"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2357,7 +2284,6 @@ func (a *VatomAPIService) GetCampaignGroupStatsExecute(r ApiGetCampaignGroupStat
 type ApiGetCampaignInfoRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -2398,14 +2324,12 @@ GetCampaignInfo Get Campaign Info
 Gets the info on a campaign.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCampaignInfoRequest
 */
-func (a *VatomAPIService) GetCampaignInfo(ctx context.Context, version float32) ApiGetCampaignInfoRequest {
+func (a *VatomAPIService) GetCampaignInfo(ctx context.Context) ApiGetCampaignInfoRequest {
 	return ApiGetCampaignInfoRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2422,8 +2346,7 @@ func (a *VatomAPIService) GetCampaignInfoExecute(r ApiGetCampaignInfoRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign-groups/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign-groups/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2492,7 +2415,6 @@ func (a *VatomAPIService) GetCampaignInfoExecute(r ApiGetCampaignInfoRequest) (*
 type ApiGetEventGuestListRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomEventId *string
@@ -2533,14 +2455,12 @@ GetEventGuestList Get Vatom Event Guest List
 Gets the guest list of an event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetEventGuestListRequest
 */
-func (a *VatomAPIService) GetEventGuestList(ctx context.Context, version float32) ApiGetEventGuestListRequest {
+func (a *VatomAPIService) GetEventGuestList(ctx context.Context) ApiGetEventGuestListRequest {
 	return ApiGetEventGuestListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2557,8 +2477,7 @@ func (a *VatomAPIService) GetEventGuestListExecute(r ApiGetEventGuestListRequest
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/guests/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/guests/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2627,7 +2546,6 @@ func (a *VatomAPIService) GetEventGuestListExecute(r ApiGetEventGuestListRequest
 type ApiGetInventoryRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -2661,14 +2579,12 @@ GetInventory Get Vatom User's Inventory
 Gets the logged in user's Vatom Inventory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetInventoryRequest
 */
-func (a *VatomAPIService) GetInventory(ctx context.Context, version float32) ApiGetInventoryRequest {
+func (a *VatomAPIService) GetInventory(ctx context.Context) ApiGetInventoryRequest {
 	return ApiGetInventoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2685,8 +2601,7 @@ func (a *VatomAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*http.R
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/inventory"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/inventory"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2751,7 +2666,6 @@ func (a *VatomAPIService) GetInventoryExecute(r ApiGetInventoryRequest) (*http.R
 type ApiGetMyFollowingRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	returnRawResponse *bool
 }
@@ -2778,14 +2692,12 @@ GetMyFollowing Get following
 Get following.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetMyFollowingRequest
 */
-func (a *VatomAPIService) GetMyFollowing(ctx context.Context, version float32) ApiGetMyFollowingRequest {
+func (a *VatomAPIService) GetMyFollowing(ctx context.Context) ApiGetMyFollowingRequest {
 	return ApiGetMyFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2802,8 +2714,7 @@ func (a *VatomAPIService) GetMyFollowingExecute(r ApiGetMyFollowingRequest) (*ht
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/rels/following"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/rels/following"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2864,7 +2775,6 @@ func (a *VatomAPIService) GetMyFollowingExecute(r ApiGetMyFollowingRequest) (*ht
 type ApiGetPointsBalanceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	vatomCampaignId *string
@@ -2905,14 +2815,12 @@ GetPointsBalance Get Points Balance
 Gets the points balance of a Vatom user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPointsBalanceRequest
 */
-func (a *VatomAPIService) GetPointsBalance(ctx context.Context, version float32) ApiGetPointsBalanceRequest {
+func (a *VatomAPIService) GetPointsBalance(ctx context.Context) ApiGetPointsBalanceRequest {
 	return ApiGetPointsBalanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2929,8 +2837,7 @@ func (a *VatomAPIService) GetPointsBalanceExecute(r ApiGetPointsBalanceRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/u/campaign/points/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/u/campaign/points/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2999,7 +2906,6 @@ func (a *VatomAPIService) GetPointsBalanceExecute(r ApiGetPointsBalanceRequest) 
 type ApiGetPointsBalanceAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomUserId *string
@@ -3047,14 +2953,12 @@ GetPointsBalanceAsBusiness Get Points Balance as Business
 Gets the points balance of a Vatom user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPointsBalanceAsBusinessRequest
 */
-func (a *VatomAPIService) GetPointsBalanceAsBusiness(ctx context.Context, version float32) ApiGetPointsBalanceAsBusinessRequest {
+func (a *VatomAPIService) GetPointsBalanceAsBusiness(ctx context.Context) ApiGetPointsBalanceAsBusinessRequest {
 	return ApiGetPointsBalanceAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3071,8 +2975,7 @@ func (a *VatomAPIService) GetPointsBalanceAsBusinessExecute(r ApiGetPointsBalanc
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign/u/points/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign/u/points/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3145,7 +3048,6 @@ func (a *VatomAPIService) GetPointsBalanceAsBusinessExecute(r ApiGetPointsBalanc
 type ApiGetSpaceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomSpaceId *string
@@ -3186,14 +3088,12 @@ GetSpace Get Vatom Space
 Gets the details of a space.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetSpaceRequest
 */
-func (a *VatomAPIService) GetSpace(ctx context.Context, version float32) ApiGetSpaceRequest {
+func (a *VatomAPIService) GetSpace(ctx context.Context) ApiGetSpaceRequest {
 	return ApiGetSpaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3210,8 +3110,7 @@ func (a *VatomAPIService) GetSpaceExecute(r ApiGetSpaceRequest) (*http.Response,
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/spaces/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/spaces/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3280,7 +3179,6 @@ func (a *VatomAPIService) GetSpaceExecute(r ApiGetSpaceRequest) (*http.Response,
 type ApiGetUserCoinsAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	appKey *string
@@ -3321,14 +3219,12 @@ GetUserCoinsAsBusiness Get the coins for a user (as a Business)
 Get the coins for a user (as a Business).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserCoinsAsBusinessRequest
 */
-func (a *VatomAPIService) GetUserCoinsAsBusiness(ctx context.Context, version float32) ApiGetUserCoinsAsBusinessRequest {
+func (a *VatomAPIService) GetUserCoinsAsBusiness(ctx context.Context) ApiGetUserCoinsAsBusinessRequest {
 	return ApiGetUserCoinsAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3345,8 +3241,7 @@ func (a *VatomAPIService) GetUserCoinsAsBusinessExecute(r ApiGetUserCoinsAsBusin
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/users/coins/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/users/coins/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3415,7 +3310,6 @@ func (a *VatomAPIService) GetUserCoinsAsBusinessExecute(r ApiGetUserCoinsAsBusin
 type ApiGetUserCoinsBalanceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	vatomParameters *string
@@ -3456,14 +3350,12 @@ GetUserCoinsBalance Gets the coins balance for a Vatom User
 Gets the coins balance for a Vatom User.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserCoinsBalanceRequest
 */
-func (a *VatomAPIService) GetUserCoinsBalance(ctx context.Context, version float32) ApiGetUserCoinsBalanceRequest {
+func (a *VatomAPIService) GetUserCoinsBalance(ctx context.Context) ApiGetUserCoinsBalanceRequest {
 	return ApiGetUserCoinsBalanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3480,8 +3372,7 @@ func (a *VatomAPIService) GetUserCoinsBalanceExecute(r ApiGetUserCoinsBalanceReq
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/u/coins/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/u/coins/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3549,7 +3440,6 @@ func (a *VatomAPIService) GetUserCoinsBalanceExecute(r ApiGetUserCoinsBalanceReq
 type ApiGetUserFollowersRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	returnRawResponse *bool
@@ -3583,14 +3473,12 @@ GetUserFollowers Get user followers
 Get user followers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserFollowersRequest
 */
-func (a *VatomAPIService) GetUserFollowers(ctx context.Context, version float32) ApiGetUserFollowersRequest {
+func (a *VatomAPIService) GetUserFollowers(ctx context.Context) ApiGetUserFollowersRequest {
 	return ApiGetUserFollowersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3607,8 +3495,7 @@ func (a *VatomAPIService) GetUserFollowersExecute(r ApiGetUserFollowersRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/users/rels/followers"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/users/rels/followers"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3673,7 +3560,6 @@ func (a *VatomAPIService) GetUserFollowersExecute(r ApiGetUserFollowersRequest) 
 type ApiGetUserFollowingRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	returnRawResponse *bool
@@ -3707,14 +3593,12 @@ GetUserFollowing Get user following
 Get user following.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserFollowingRequest
 */
-func (a *VatomAPIService) GetUserFollowing(ctx context.Context, version float32) ApiGetUserFollowingRequest {
+func (a *VatomAPIService) GetUserFollowing(ctx context.Context) ApiGetUserFollowingRequest {
 	return ApiGetUserFollowingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3731,8 +3615,7 @@ func (a *VatomAPIService) GetUserFollowingExecute(r ApiGetUserFollowingRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/users/rels/following"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/users/rels/following"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3797,7 +3680,6 @@ func (a *VatomAPIService) GetUserFollowingExecute(r ApiGetUserFollowingRequest) 
 type ApiGetUserInfoRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	returnRawResponse *bool
@@ -3831,14 +3713,12 @@ GetUserInfo Get User Info
 Get a User's Info.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserInfoRequest
 */
-func (a *VatomAPIService) GetUserInfo(ctx context.Context, version float32) ApiGetUserInfoRequest {
+func (a *VatomAPIService) GetUserInfo(ctx context.Context) ApiGetUserInfoRequest {
 	return ApiGetUserInfoRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3855,8 +3735,7 @@ func (a *VatomAPIService) GetUserInfoExecute(r ApiGetUserInfoRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/user/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/user/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3921,7 +3800,6 @@ func (a *VatomAPIService) GetUserInfoExecute(r ApiGetUserInfoRequest) (*http.Res
 type ApiGetUserProfileRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	returnRawResponse *bool
 }
@@ -3948,14 +3826,12 @@ GetUserProfile Get Vatom User Profile
 Gets the logged in user's profile in Vatom.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserProfileRequest
 */
-func (a *VatomAPIService) GetUserProfile(ctx context.Context, version float32) ApiGetUserProfileRequest {
+func (a *VatomAPIService) GetUserProfile(ctx context.Context) ApiGetUserProfileRequest {
 	return ApiGetUserProfileRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3972,8 +3848,7 @@ func (a *VatomAPIService) GetUserProfileExecute(r ApiGetUserProfileRequest) (*ht
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4034,7 +3909,6 @@ func (a *VatomAPIService) GetUserProfileExecute(r ApiGetUserProfileRequest) (*ht
 type ApiGetVatomEventRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomEventId *string
@@ -4075,14 +3949,12 @@ GetVatomEvent Get Vatom Event
 Gets the details of a event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetVatomEventRequest
 */
-func (a *VatomAPIService) GetVatomEvent(ctx context.Context, version float32) ApiGetVatomEventRequest {
+func (a *VatomAPIService) GetVatomEvent(ctx context.Context) ApiGetVatomEventRequest {
 	return ApiGetVatomEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4099,8 +3971,7 @@ func (a *VatomAPIService) GetVatomEventExecute(r ApiGetVatomEventRequest) (*http
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4169,7 +4040,6 @@ func (a *VatomAPIService) GetVatomEventExecute(r ApiGetVatomEventRequest) (*http
 type ApiGetVatomNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomId *string
 	returnRawResponse *bool
@@ -4203,14 +4073,12 @@ GetVatomNFT Get Vatom NFT Details
 Get Vatom NFT Details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetVatomNFTRequest
 */
-func (a *VatomAPIService) GetVatomNFT(ctx context.Context, version float32) ApiGetVatomNFTRequest {
+func (a *VatomAPIService) GetVatomNFT(ctx context.Context) ApiGetVatomNFTRequest {
 	return ApiGetVatomNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4227,8 +4095,7 @@ func (a *VatomAPIService) GetVatomNFTExecute(r ApiGetVatomNFTRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/vatoms/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/vatoms/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4293,7 +4160,6 @@ func (a *VatomAPIService) GetVatomNFTExecute(r ApiGetVatomNFTRequest) (*http.Res
 type ApiListCommunitiesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -4334,14 +4200,12 @@ ListCommunities List Vatom Communities
 Gets the communities tied to a business.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListCommunitiesRequest
 */
-func (a *VatomAPIService) ListCommunities(ctx context.Context, version float32) ApiListCommunitiesRequest {
+func (a *VatomAPIService) ListCommunities(ctx context.Context) ApiListCommunitiesRequest {
 	return ApiListCommunitiesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4358,8 +4222,7 @@ func (a *VatomAPIService) ListCommunitiesExecute(r ApiListCommunitiesRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/communities/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/communities/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4427,7 +4290,6 @@ func (a *VatomAPIService) ListCommunitiesExecute(r ApiListCommunitiesRequest) (*
 type ApiListEventsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -4468,14 +4330,12 @@ ListEvents List Vatom Events
 Gets the events tied to a business.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListEventsRequest
 */
-func (a *VatomAPIService) ListEvents(ctx context.Context, version float32) ApiListEventsRequest {
+func (a *VatomAPIService) ListEvents(ctx context.Context) ApiListEventsRequest {
 	return ApiListEventsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4492,8 +4352,7 @@ func (a *VatomAPIService) ListEventsExecute(r ApiListEventsRequest) (*http.Respo
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4561,7 +4420,6 @@ func (a *VatomAPIService) ListEventsExecute(r ApiListEventsRequest) (*http.Respo
 type ApiListSpacesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -4602,14 +4460,12 @@ ListSpaces List Vatom Spaces
 Gets the spaces tied to a business.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListSpacesRequest
 */
-func (a *VatomAPIService) ListSpaces(ctx context.Context, version float32) ApiListSpacesRequest {
+func (a *VatomAPIService) ListSpaces(ctx context.Context) ApiListSpacesRequest {
 	return ApiListSpacesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4626,8 +4482,7 @@ func (a *VatomAPIService) ListSpacesExecute(r ApiListSpacesRequest) (*http.Respo
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/spaces/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/spaces/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4695,7 +4550,6 @@ func (a *VatomAPIService) ListSpacesExecute(r ApiListSpacesRequest) (*http.Respo
 type ApiListUserCoinTransactionsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	vatomParameters *string
@@ -4736,14 +4590,12 @@ ListUserCoinTransactions List Coin Transactions for a Vatom User
 Gets the logged in user's Vatom coin transactions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListUserCoinTransactionsRequest
 */
-func (a *VatomAPIService) ListUserCoinTransactions(ctx context.Context, version float32) ApiListUserCoinTransactionsRequest {
+func (a *VatomAPIService) ListUserCoinTransactions(ctx context.Context) ApiListUserCoinTransactionsRequest {
 	return ApiListUserCoinTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4760,8 +4612,7 @@ func (a *VatomAPIService) ListUserCoinTransactionsExecute(r ApiListUserCoinTrans
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/u/coins/txns/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/u/coins/txns/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4829,7 +4680,6 @@ func (a *VatomAPIService) ListUserCoinTransactionsExecute(r ApiListUserCoinTrans
 type ApiListUserCoinTransactionsAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	appKey *string
@@ -4877,14 +4727,12 @@ ListUserCoinTransactionsAsBusiness List coin transactions for a user (as a Busin
 List coin transactions for a user (as a Business).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListUserCoinTransactionsAsBusinessRequest
 */
-func (a *VatomAPIService) ListUserCoinTransactionsAsBusiness(ctx context.Context, version float32) ApiListUserCoinTransactionsAsBusinessRequest {
+func (a *VatomAPIService) ListUserCoinTransactionsAsBusiness(ctx context.Context) ApiListUserCoinTransactionsAsBusinessRequest {
 	return ApiListUserCoinTransactionsAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4901,8 +4749,7 @@ func (a *VatomAPIService) ListUserCoinTransactionsAsBusinessExecute(r ApiListUse
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/users/coins/txns/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/users/coins/txns/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4974,7 +4821,6 @@ func (a *VatomAPIService) ListUserCoinTransactionsAsBusinessExecute(r ApiListUse
 type ApiPerformActionOnNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomId *string
 	vatomAction *string
@@ -5022,14 +4868,12 @@ PerformActionOnNFT Perform Action on NFT
 Perform Action on NFT.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPerformActionOnNFTRequest
 */
-func (a *VatomAPIService) PerformActionOnNFT(ctx context.Context, version float32) ApiPerformActionOnNFTRequest {
+func (a *VatomAPIService) PerformActionOnNFT(ctx context.Context) ApiPerformActionOnNFTRequest {
 	return ApiPerformActionOnNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5046,8 +4890,7 @@ func (a *VatomAPIService) PerformActionOnNFTExecute(r ApiPerformActionOnNFTReque
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/vatoms/actions"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/vatoms/actions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5120,7 +4963,6 @@ func (a *VatomAPIService) PerformActionOnNFTExecute(r ApiPerformActionOnNFTReque
 type ApiRedeemNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -5161,14 +5003,12 @@ RedeemNFT Redeem NFT
 Redeem an NFT.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRedeemNFTRequest
 */
-func (a *VatomAPIService) RedeemNFT(ctx context.Context, version float32) ApiRedeemNFTRequest {
+func (a *VatomAPIService) RedeemNFT(ctx context.Context) ApiRedeemNFTRequest {
 	return ApiRedeemNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5185,8 +5025,7 @@ func (a *VatomAPIService) RedeemNFTExecute(r ApiRedeemNFTRequest) (*http.Respons
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/redemptions"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/redemptions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5255,7 +5094,6 @@ func (a *VatomAPIService) RedeemNFTExecute(r ApiRedeemNFTRequest) (*http.Respons
 type ApiRedeemUserCoinsAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	appKey *string
@@ -5303,14 +5141,12 @@ RedeemUserCoinsAsBusiness Redeem the coins for a user (as a Business)
 Redeem the coins for a user (as a Business).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRedeemUserCoinsAsBusinessRequest
 */
-func (a *VatomAPIService) RedeemUserCoinsAsBusiness(ctx context.Context, version float32) ApiRedeemUserCoinsAsBusinessRequest {
+func (a *VatomAPIService) RedeemUserCoinsAsBusiness(ctx context.Context) ApiRedeemUserCoinsAsBusinessRequest {
 	return ApiRedeemUserCoinsAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5327,8 +5163,7 @@ func (a *VatomAPIService) RedeemUserCoinsAsBusinessExecute(r ApiRedeemUserCoinsA
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/users/coins/redeem"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/users/coins/redeem"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5401,7 +5236,6 @@ func (a *VatomAPIService) RedeemUserCoinsAsBusinessExecute(r ApiRedeemUserCoinsA
 type ApiSearchBusinessesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -5435,14 +5269,12 @@ SearchBusinesses Search for Vatom Businesses
 Searches for Vatom businesses.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchBusinessesRequest
 */
-func (a *VatomAPIService) SearchBusinesses(ctx context.Context, version float32) ApiSearchBusinessesRequest {
+func (a *VatomAPIService) SearchBusinesses(ctx context.Context) ApiSearchBusinessesRequest {
 	return ApiSearchBusinessesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5459,8 +5291,7 @@ func (a *VatomAPIService) SearchBusinessesExecute(r ApiSearchBusinessesRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5524,7 +5355,6 @@ func (a *VatomAPIService) SearchBusinessesExecute(r ApiSearchBusinessesRequest) 
 type ApiSearchCampaignGroupsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	returnRawResponse *bool
@@ -5558,14 +5388,12 @@ SearchCampaignGroups Search Campaign Groups
 Search campaign groups.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchCampaignGroupsRequest
 */
-func (a *VatomAPIService) SearchCampaignGroups(ctx context.Context, version float32) ApiSearchCampaignGroupsRequest {
+func (a *VatomAPIService) SearchCampaignGroups(ctx context.Context) ApiSearchCampaignGroupsRequest {
 	return ApiSearchCampaignGroupsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5582,8 +5410,7 @@ func (a *VatomAPIService) SearchCampaignGroupsExecute(r ApiSearchCampaignGroupsR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign-groups/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign-groups/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5648,7 +5475,6 @@ func (a *VatomAPIService) SearchCampaignGroupsExecute(r ApiSearchCampaignGroupsR
 type ApiSearchIdentitiesRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	returnRawResponse *bool
 }
@@ -5675,14 +5501,12 @@ SearchIdentities Search User Identities
 Search User Identities.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchIdentitiesRequest
 */
-func (a *VatomAPIService) SearchIdentities(ctx context.Context, version float32) ApiSearchIdentitiesRequest {
+func (a *VatomAPIService) SearchIdentities(ctx context.Context) ApiSearchIdentitiesRequest {
 	return ApiSearchIdentitiesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5699,8 +5523,7 @@ func (a *VatomAPIService) SearchIdentitiesExecute(r ApiSearchIdentitiesRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/identities/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/identities/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5761,7 +5584,6 @@ func (a *VatomAPIService) SearchIdentitiesExecute(r ApiSearchIdentitiesRequest) 
 type ApiSearchInventoryRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -5795,14 +5617,12 @@ SearchInventory Search Vatom User's Inventory
 Searches the logged in user's Vatom Inventory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchInventoryRequest
 */
-func (a *VatomAPIService) SearchInventory(ctx context.Context, version float32) ApiSearchInventoryRequest {
+func (a *VatomAPIService) SearchInventory(ctx context.Context) ApiSearchInventoryRequest {
 	return ApiSearchInventoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5819,8 +5639,7 @@ func (a *VatomAPIService) SearchInventoryExecute(r ApiSearchInventoryRequest) (*
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/user-inventory/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/user-inventory/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -5884,7 +5703,6 @@ func (a *VatomAPIService) SearchInventoryExecute(r ApiSearchInventoryRequest) (*
 type ApiSendNFTRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomCampaignId *string
@@ -5932,14 +5750,12 @@ SendNFT Send NFT
 Send an NFT.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSendNFTRequest
 */
-func (a *VatomAPIService) SendNFT(ctx context.Context, version float32) ApiSendNFTRequest {
+func (a *VatomAPIService) SendNFT(ctx context.Context) ApiSendNFTRequest {
 	return ApiSendNFTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -5956,8 +5772,7 @@ func (a *VatomAPIService) SendNFTExecute(r ApiSendNFTRequest) (*http.Response, e
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaigns/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaigns/send"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6030,7 +5845,6 @@ func (a *VatomAPIService) SendNFTExecute(r ApiSendNFTRequest) (*http.Response, e
 type ApiSetPointsBalanceAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomUserId *string
@@ -6085,14 +5899,12 @@ SetPointsBalanceAsBusiness Set Points Balance as Business
 Sets the points balance of a Vatom user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSetPointsBalanceAsBusinessRequest
 */
-func (a *VatomAPIService) SetPointsBalanceAsBusiness(ctx context.Context, version float32) ApiSetPointsBalanceAsBusinessRequest {
+func (a *VatomAPIService) SetPointsBalanceAsBusiness(ctx context.Context) ApiSetPointsBalanceAsBusinessRequest {
 	return ApiSetPointsBalanceAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6109,8 +5921,7 @@ func (a *VatomAPIService) SetPointsBalanceAsBusinessExecute(r ApiSetPointsBalanc
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/campaign/u/points/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/campaign/u/points/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6187,7 +5998,6 @@ func (a *VatomAPIService) SetPointsBalanceAsBusinessExecute(r ApiSetPointsBalanc
 type ApiTransferUserCoinsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	vatomParameters *string
@@ -6228,14 +6038,12 @@ TransferUserCoins Transfer coins from Vatom Users
 Transfer coins from Vatom Users.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiTransferUserCoinsRequest
 */
-func (a *VatomAPIService) TransferUserCoins(ctx context.Context, version float32) ApiTransferUserCoinsRequest {
+func (a *VatomAPIService) TransferUserCoins(ctx context.Context) ApiTransferUserCoinsRequest {
 	return ApiTransferUserCoinsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6252,8 +6060,7 @@ func (a *VatomAPIService) TransferUserCoinsExecute(r ApiTransferUserCoinsRequest
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/u/coins/transfer"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/u/coins/transfer"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6322,7 +6129,6 @@ func (a *VatomAPIService) TransferUserCoinsExecute(r ApiTransferUserCoinsRequest
 type ApiUpdateBusinessCoinsRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomParameters *string
@@ -6363,14 +6169,12 @@ UpdateBusinessCoins Fund coins for a Business
 Fund/update coins for a Businesss.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateBusinessCoinsRequest
 */
-func (a *VatomAPIService) UpdateBusinessCoins(ctx context.Context, version float32) ApiUpdateBusinessCoinsRequest {
+func (a *VatomAPIService) UpdateBusinessCoins(ctx context.Context) ApiUpdateBusinessCoinsRequest {
 	return ApiUpdateBusinessCoinsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6387,8 +6191,7 @@ func (a *VatomAPIService) UpdateBusinessCoinsExecute(r ApiUpdateBusinessCoinsReq
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/coins/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/coins/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6457,7 +6260,6 @@ func (a *VatomAPIService) UpdateBusinessCoinsExecute(r ApiUpdateBusinessCoinsReq
 type ApiUpdateEventGuestListRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomEventId *string
@@ -6505,14 +6307,12 @@ UpdateEventGuestList Update Vatom Event Guest List
 Update the guest list of an event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateEventGuestListRequest
 */
-func (a *VatomAPIService) UpdateEventGuestList(ctx context.Context, version float32) ApiUpdateEventGuestListRequest {
+func (a *VatomAPIService) UpdateEventGuestList(ctx context.Context) ApiUpdateEventGuestListRequest {
 	return ApiUpdateEventGuestListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6529,8 +6329,7 @@ func (a *VatomAPIService) UpdateEventGuestListExecute(r ApiUpdateEventGuestListR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/guests/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/guests/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6603,7 +6402,6 @@ func (a *VatomAPIService) UpdateEventGuestListExecute(r ApiUpdateEventGuestListR
 type ApiUpdateSpaceRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomSpaceId *string
@@ -6651,14 +6449,12 @@ UpdateSpace Update Vatom Space
 Update a Vatom space.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateSpaceRequest
 */
-func (a *VatomAPIService) UpdateSpace(ctx context.Context, version float32) ApiUpdateSpaceRequest {
+func (a *VatomAPIService) UpdateSpace(ctx context.Context) ApiUpdateSpaceRequest {
 	return ApiUpdateSpaceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6675,8 +6471,7 @@ func (a *VatomAPIService) UpdateSpaceExecute(r ApiUpdateSpaceRequest) (*http.Res
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/spaces/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/spaces/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6749,7 +6544,6 @@ func (a *VatomAPIService) UpdateSpaceExecute(r ApiUpdateSpaceRequest) (*http.Res
 type ApiUpdateUserCoinsAsBusinessRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomUserId *string
 	appKey *string
@@ -6797,14 +6591,12 @@ UpdateUserCoinsAsBusiness Update the coins for a user (as a Business)
 Update the coins for a user (as a Business).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateUserCoinsAsBusinessRequest
 */
-func (a *VatomAPIService) UpdateUserCoinsAsBusiness(ctx context.Context, version float32) ApiUpdateUserCoinsAsBusinessRequest {
+func (a *VatomAPIService) UpdateUserCoinsAsBusiness(ctx context.Context) ApiUpdateUserCoinsAsBusinessRequest {
 	return ApiUpdateUserCoinsAsBusinessRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6821,8 +6613,7 @@ func (a *VatomAPIService) UpdateUserCoinsAsBusinessExecute(r ApiUpdateUserCoinsA
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/users/coins/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/users/coins/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -6895,7 +6686,6 @@ func (a *VatomAPIService) UpdateUserCoinsAsBusinessExecute(r ApiUpdateUserCoinsA
 type ApiUpdateUserProfileRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	vatomParameters *string
 	returnRawResponse *bool
@@ -6929,14 +6719,12 @@ UpdateUserProfile Update Vatom User Profile
 Gets the logged in user's profile in Vatom.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateUserProfileRequest
 */
-func (a *VatomAPIService) UpdateUserProfile(ctx context.Context, version float32) ApiUpdateUserProfileRequest {
+func (a *VatomAPIService) UpdateUserProfile(ctx context.Context) ApiUpdateUserProfileRequest {
 	return ApiUpdateUserProfileRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -6953,8 +6741,7 @@ func (a *VatomAPIService) UpdateUserProfileExecute(r ApiUpdateUserProfileRequest
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/me/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/me/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -7019,7 +6806,6 @@ func (a *VatomAPIService) UpdateUserProfileExecute(r ApiUpdateUserProfileRequest
 type ApiUpdateVatomEventRequest struct {
 	ctx context.Context
 	ApiService *VatomAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	vatomEventId *string
@@ -7067,14 +6853,12 @@ UpdateVatomEvent Update Vatom Event
 Update a Vatom event.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateVatomEventRequest
 */
-func (a *VatomAPIService) UpdateVatomEvent(ctx context.Context, version float32) ApiUpdateVatomEventRequest {
+func (a *VatomAPIService) UpdateVatomEvent(ctx context.Context) ApiUpdateVatomEventRequest {
 	return ApiUpdateVatomEventRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -7091,8 +6875,7 @@ func (a *VatomAPIService) UpdateVatomEventExecute(r ApiUpdateVatomEventRequest) 
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/vatom/b/events/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/vatom/b/events/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

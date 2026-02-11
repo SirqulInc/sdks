@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AssignmentAPIService service
 type ApiAssigmentAssigneeAccountSearchRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	keyword *string
 }
@@ -54,14 +52,12 @@ AssigmentAssigneeAccountSearch Search Assignment Assignees
 Search for avaiable users for creating or updating assignment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssigmentAssigneeAccountSearchRequest
 */
-func (a *AssignmentAPIService) AssigmentAssigneeAccountSearch(ctx context.Context, version float32) ApiAssigmentAssigneeAccountSearchRequest {
+func (a *AssignmentAPIService) AssigmentAssigneeAccountSearch(ctx context.Context) ApiAssigmentAssigneeAccountSearchRequest {
 	return ApiAssigmentAssigneeAccountSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -80,8 +76,7 @@ func (a *AssignmentAPIService) AssigmentAssigneeAccountSearchExecute(r ApiAssigm
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/assignee/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/assignee/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -151,7 +146,6 @@ func (a *AssignmentAPIService) AssigmentAssigneeAccountSearchExecute(r ApiAssigm
 type ApiAssignmentCreateRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	name *string
 	assigneeAccountId *int64
@@ -213,14 +207,12 @@ AssignmentCreate Create Assignment
 Create an assignment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentCreateRequest
 */
-func (a *AssignmentAPIService) AssignmentCreate(ctx context.Context, version float32) ApiAssignmentCreateRequest {
+func (a *AssignmentAPIService) AssignmentCreate(ctx context.Context) ApiAssignmentCreateRequest {
 	return ApiAssignmentCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -239,8 +231,7 @@ func (a *AssignmentAPIService) AssignmentCreateExecute(r ApiAssignmentCreateRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -327,7 +318,6 @@ func (a *AssignmentAPIService) AssignmentCreateExecute(r ApiAssignmentCreateRequ
 type ApiAssignmentDeleteRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentId *int64
 }
@@ -354,14 +344,12 @@ AssignmentDelete Delete Assignment
 Delete an assignment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentDeleteRequest
 */
-func (a *AssignmentAPIService) AssignmentDelete(ctx context.Context, version float32) ApiAssignmentDeleteRequest {
+func (a *AssignmentAPIService) AssignmentDelete(ctx context.Context) ApiAssignmentDeleteRequest {
 	return ApiAssignmentDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -380,8 +368,7 @@ func (a *AssignmentAPIService) AssignmentDeleteExecute(r ApiAssignmentDeleteRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -452,7 +439,6 @@ func (a *AssignmentAPIService) AssignmentDeleteExecute(r ApiAssignmentDeleteRequ
 type ApiAssignmentGetRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentId *int64
 }
@@ -479,14 +465,12 @@ AssignmentGet Get Assignment
 Get the details of an assignment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentGetRequest
 */
-func (a *AssignmentAPIService) AssignmentGet(ctx context.Context, version float32) ApiAssignmentGetRequest {
+func (a *AssignmentAPIService) AssignmentGet(ctx context.Context) ApiAssignmentGetRequest {
 	return ApiAssignmentGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -505,8 +489,7 @@ func (a *AssignmentAPIService) AssignmentGetExecute(r ApiAssignmentGetRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -577,7 +560,6 @@ func (a *AssignmentAPIService) AssignmentGetExecute(r ApiAssignmentGetRequest) (
 type ApiAssignmentSearchRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -667,14 +649,12 @@ AssignmentSearch Search Assignments
 Search for assignments by the given parameters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentSearchRequest
 */
-func (a *AssignmentAPIService) AssignmentSearch(ctx context.Context, version float32) ApiAssignmentSearchRequest {
+func (a *AssignmentAPIService) AssignmentSearch(ctx context.Context) ApiAssignmentSearchRequest {
 	return ApiAssignmentSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -693,8 +673,7 @@ func (a *AssignmentAPIService) AssignmentSearchExecute(r ApiAssignmentSearchRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -796,7 +775,6 @@ func (a *AssignmentAPIService) AssignmentSearchExecute(r ApiAssignmentSearchRequ
 type ApiAssignmentStatusCreateRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentId *int64
 	scheduledNotificationId *int64
@@ -886,14 +864,12 @@ AssignmentStatusCreate Create Assignment Status
 Create an assignment status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentStatusCreateRequest
 */
-func (a *AssignmentAPIService) AssignmentStatusCreate(ctx context.Context, version float32) ApiAssignmentStatusCreateRequest {
+func (a *AssignmentAPIService) AssignmentStatusCreate(ctx context.Context) ApiAssignmentStatusCreateRequest {
 	return ApiAssignmentStatusCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -912,8 +888,7 @@ func (a *AssignmentAPIService) AssignmentStatusCreateExecute(r ApiAssignmentStat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/status/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/status/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1011,7 +986,6 @@ func (a *AssignmentAPIService) AssignmentStatusCreateExecute(r ApiAssignmentStat
 type ApiAssignmentStatusDeleteRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentStatusId *int64
 }
@@ -1038,14 +1012,12 @@ AssignmentStatusDelete Deletes Assignment Status
 Deletes an assignment status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentStatusDeleteRequest
 */
-func (a *AssignmentAPIService) AssignmentStatusDelete(ctx context.Context, version float32) ApiAssignmentStatusDeleteRequest {
+func (a *AssignmentAPIService) AssignmentStatusDelete(ctx context.Context) ApiAssignmentStatusDeleteRequest {
 	return ApiAssignmentStatusDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1064,8 +1036,7 @@ func (a *AssignmentAPIService) AssignmentStatusDeleteExecute(r ApiAssignmentStat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/status/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/status/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1136,7 +1107,6 @@ func (a *AssignmentAPIService) AssignmentStatusDeleteExecute(r ApiAssignmentStat
 type ApiAssignmentStatusGetRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentStatusId *int64
 }
@@ -1163,14 +1133,12 @@ AssignmentStatusGet Get Assignment Status
 Get an assignment status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentStatusGetRequest
 */
-func (a *AssignmentAPIService) AssignmentStatusGet(ctx context.Context, version float32) ApiAssignmentStatusGetRequest {
+func (a *AssignmentAPIService) AssignmentStatusGet(ctx context.Context) ApiAssignmentStatusGetRequest {
 	return ApiAssignmentStatusGetRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1189,8 +1157,7 @@ func (a *AssignmentAPIService) AssignmentStatusGetExecute(r ApiAssignmentStatusG
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/status/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/status/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1261,7 +1228,6 @@ func (a *AssignmentAPIService) AssignmentStatusGetExecute(r ApiAssignmentStatusG
 type ApiAssignmentStatusSearchRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -1358,14 +1324,12 @@ AssignmentStatusSearch Search Assignment Statuses
 Search on assignment statuses.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentStatusSearchRequest
 */
-func (a *AssignmentAPIService) AssignmentStatusSearch(ctx context.Context, version float32) ApiAssignmentStatusSearchRequest {
+func (a *AssignmentAPIService) AssignmentStatusSearch(ctx context.Context) ApiAssignmentStatusSearchRequest {
 	return ApiAssignmentStatusSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1384,8 +1348,7 @@ func (a *AssignmentAPIService) AssignmentStatusSearchExecute(r ApiAssignmentStat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/status/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/status/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1490,7 +1453,6 @@ func (a *AssignmentAPIService) AssignmentStatusSearchExecute(r ApiAssignmentStat
 type ApiAssignmentStatusUpdateRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentStatusId *int64
 	scheduledNotificationId *int64
@@ -1580,14 +1542,12 @@ AssignmentStatusUpdate Update Assignment Status
 Updates an assignment status.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentStatusUpdateRequest
 */
-func (a *AssignmentAPIService) AssignmentStatusUpdate(ctx context.Context, version float32) ApiAssignmentStatusUpdateRequest {
+func (a *AssignmentAPIService) AssignmentStatusUpdate(ctx context.Context) ApiAssignmentStatusUpdateRequest {
 	return ApiAssignmentStatusUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1606,8 +1566,7 @@ func (a *AssignmentAPIService) AssignmentStatusUpdateExecute(r ApiAssignmentStat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/status/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/status/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1705,7 +1664,6 @@ func (a *AssignmentAPIService) AssignmentStatusUpdateExecute(r ApiAssignmentStat
 type ApiAssignmentUpdateRequest struct {
 	ctx context.Context
 	ApiService *AssignmentAPIService
-	version float32
 	accountId *int64
 	assignmentId *int64
 	name *string
@@ -1774,14 +1732,12 @@ AssignmentUpdate Update Assignment
 Updates an assignment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignmentUpdateRequest
 */
-func (a *AssignmentAPIService) AssignmentUpdate(ctx context.Context, version float32) ApiAssignmentUpdateRequest {
+func (a *AssignmentAPIService) AssignmentUpdate(ctx context.Context) ApiAssignmentUpdateRequest {
 	return ApiAssignmentUpdateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1800,8 +1756,7 @@ func (a *AssignmentAPIService) AssignmentUpdateExecute(r ApiAssignmentUpdateRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/assignment/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/assignment/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AudienceAPIService service
 type ApiCreateAudienceRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	name *string
 	description *string
@@ -243,14 +241,12 @@ CreateAudience Create Audience
 Create a user defined audience.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateAudienceRequest
 */
-func (a *AudienceAPIService) CreateAudience(ctx context.Context, version float32) ApiCreateAudienceRequest {
+func (a *AudienceAPIService) CreateAudience(ctx context.Context) ApiCreateAudienceRequest {
 	return ApiCreateAudienceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -269,8 +265,7 @@ func (a *AudienceAPIService) CreateAudienceExecute(r ApiCreateAudienceRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -426,7 +421,6 @@ func (a *AudienceAPIService) CreateAudienceExecute(r ApiCreateAudienceRequest) (
 type ApiDeleteAudienceRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	audienceId *int64
 }
@@ -453,14 +447,12 @@ DeleteAudience Delete Audience
 Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteAudienceRequest
 */
-func (a *AudienceAPIService) DeleteAudience(ctx context.Context, version float32) ApiDeleteAudienceRequest {
+func (a *AudienceAPIService) DeleteAudience(ctx context.Context) ApiDeleteAudienceRequest {
 	return ApiDeleteAudienceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -479,8 +471,7 @@ func (a *AudienceAPIService) DeleteAudienceExecute(r ApiDeleteAudienceRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -551,7 +542,6 @@ func (a *AudienceAPIService) DeleteAudienceExecute(r ApiDeleteAudienceRequest) (
 type ApiGetAgeGroupsRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 }
 
 func (r ApiGetAgeGroupsRequest) Execute() ([]AgeGroupResponse, *http.Response, error) {
@@ -564,14 +554,12 @@ GetAgeGroups Get Age Groups
 Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAgeGroupsRequest
 */
-func (a *AudienceAPIService) GetAgeGroups(ctx context.Context, version float32) ApiGetAgeGroupsRequest {
+func (a *AudienceAPIService) GetAgeGroups(ctx context.Context) ApiGetAgeGroupsRequest {
 	return ApiGetAgeGroupsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -590,8 +578,7 @@ func (a *AudienceAPIService) GetAgeGroupsExecute(r ApiGetAgeGroupsRequest) ([]Ag
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/ageGroups"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/ageGroups"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -654,7 +641,6 @@ func (a *AudienceAPIService) GetAgeGroupsExecute(r ApiGetAgeGroupsRequest) ([]Ag
 type ApiGetAudienceRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	audienceId *int64
 	appKey *string
@@ -709,14 +695,12 @@ GetAudience Get Audience
 Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAudienceRequest
 */
-func (a *AudienceAPIService) GetAudience(ctx context.Context, version float32) ApiGetAudienceRequest {
+func (a *AudienceAPIService) GetAudience(ctx context.Context) ApiGetAudienceRequest {
 	return ApiGetAudienceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -735,8 +719,7 @@ func (a *AudienceAPIService) GetAudienceExecute(r ApiGetAudienceRequest) (*Audie
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -827,7 +810,6 @@ func (a *AudienceAPIService) GetAudienceExecute(r ApiGetAudienceRequest) (*Audie
 type ApiGetAudienceListRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	albumIds *string
 	keyword *string
@@ -973,14 +955,12 @@ GetAudienceList Search Audiences
 Get the list audiences owned by the account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAudienceListRequest
 */
-func (a *AudienceAPIService) GetAudienceList(ctx context.Context, version float32) ApiGetAudienceListRequest {
+func (a *AudienceAPIService) GetAudienceList(ctx context.Context) ApiGetAudienceListRequest {
 	return ApiGetAudienceListRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -999,8 +979,7 @@ func (a *AudienceAPIService) GetAudienceListExecute(r ApiGetAudienceListRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1148,7 +1127,6 @@ func (a *AudienceAPIService) GetAudienceListExecute(r ApiGetAudienceListRequest)
 type ApiGetDevicesRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	includeInactive *bool
 }
 
@@ -1168,14 +1146,12 @@ GetDevices Get Devices
 Gets the list of available devices that can be selected by consumers and retailers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetDevicesRequest
 */
-func (a *AudienceAPIService) GetDevices(ctx context.Context, version float32) ApiGetDevicesRequest {
+func (a *AudienceAPIService) GetDevices(ctx context.Context) ApiGetDevicesRequest {
 	return ApiGetDevicesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1194,8 +1170,7 @@ func (a *AudienceAPIService) GetDevicesExecute(r ApiGetDevicesRequest) ([]Audien
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/devices"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/devices"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1262,7 +1237,6 @@ func (a *AudienceAPIService) GetDevicesExecute(r ApiGetDevicesRequest) ([]Audien
 type ApiGetExperiencesRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 }
 
 func (r ApiGetExperiencesRequest) Execute() (*SirqulResponse, *http.Response, error) {
@@ -1275,14 +1249,12 @@ GetExperiences Get Experiences
 Gets the list of available experiences that can be selected by consumers and retailers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetExperiencesRequest
 */
-func (a *AudienceAPIService) GetExperiences(ctx context.Context, version float32) ApiGetExperiencesRequest {
+func (a *AudienceAPIService) GetExperiences(ctx context.Context) ApiGetExperiencesRequest {
 	return ApiGetExperiencesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1301,8 +1273,7 @@ func (a *AudienceAPIService) GetExperiencesExecute(r ApiGetExperiencesRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/experiences"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/experiences"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1365,7 +1336,6 @@ func (a *AudienceAPIService) GetExperiencesExecute(r ApiGetExperiencesRequest) (
 type ApiGetGroupedAudiencesRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	audienceGroupingId *string
 }
@@ -1392,14 +1362,12 @@ GetGroupedAudiences Get GroupedAudiences
 Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGroupedAudiencesRequest
 */
-func (a *AudienceAPIService) GetGroupedAudiences(ctx context.Context, version float32) ApiGetGroupedAudiencesRequest {
+func (a *AudienceAPIService) GetGroupedAudiences(ctx context.Context) ApiGetGroupedAudiencesRequest {
 	return ApiGetGroupedAudiencesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1418,8 +1386,7 @@ func (a *AudienceAPIService) GetGroupedAudiencesExecute(r ApiGetGroupedAudiences
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/grouped/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/grouped/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1490,7 +1457,6 @@ func (a *AudienceAPIService) GetGroupedAudiencesExecute(r ApiGetGroupedAudiences
 type ApiListByAccountRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	limit *int32
 	suggestionType *string
@@ -1524,14 +1490,12 @@ ListByAccount List Suggestions by Audience
 List either Missions or Offers that the user matches the assigned audience.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListByAccountRequest
 */
-func (a *AudienceAPIService) ListByAccount(ctx context.Context, version float32) ApiListByAccountRequest {
+func (a *AudienceAPIService) ListByAccount(ctx context.Context) ApiListByAccountRequest {
 	return ApiListByAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1550,8 +1514,7 @@ func (a *AudienceAPIService) ListByAccountExecute(r ApiListByAccountRequest) (*O
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/suggestion/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/suggestion/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1626,7 +1589,6 @@ func (a *AudienceAPIService) ListByAccountExecute(r ApiListByAccountRequest) (*O
 type ApiListByAudienceRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	limit *int32
 	gender *string
 	age *int32
@@ -1681,14 +1643,12 @@ ListByAudience List Offers by Audience
 Get a list of offer locations based on audience information provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListByAudienceRequest
 */
-func (a *AudienceAPIService) ListByAudience(ctx context.Context, version float32) ApiListByAudienceRequest {
+func (a *AudienceAPIService) ListByAudience(ctx context.Context) ApiListByAudienceRequest {
 	return ApiListByAudienceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1707,8 +1667,7 @@ func (a *AudienceAPIService) ListByAudienceExecute(r ApiListByAudienceRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/suggestion/offersByAudience"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/suggestion/offersByAudience"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1790,7 +1749,6 @@ func (a *AudienceAPIService) ListByAudienceExecute(r ApiListByAudienceRequest) (
 type ApiListLastestByAccountRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	timeframe *int32
 	suggestionType *string
@@ -1824,14 +1782,12 @@ ListLastestByAccount List Sent Suggestions
 Return list of recent trigger suggestions that have been sent to the user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListLastestByAccountRequest
 */
-func (a *AudienceAPIService) ListLastestByAccount(ctx context.Context, version float32) ApiListLastestByAccountRequest {
+func (a *AudienceAPIService) ListLastestByAccount(ctx context.Context) ApiListLastestByAccountRequest {
 	return ApiListLastestByAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1850,8 +1806,7 @@ func (a *AudienceAPIService) ListLastestByAccountExecute(r ApiListLastestByAccou
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/suggestion/latest"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/suggestion/latest"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1926,7 +1881,6 @@ func (a *AudienceAPIService) ListLastestByAccountExecute(r ApiListLastestByAccou
 type ApiSendByAccountRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	latitude *float64
 	longitude *float64
@@ -1960,14 +1914,12 @@ SendByAccount Send Suggestions
 Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSendByAccountRequest
 */
-func (a *AudienceAPIService) SendByAccount(ctx context.Context, version float32) ApiSendByAccountRequest {
+func (a *AudienceAPIService) SendByAccount(ctx context.Context) ApiSendByAccountRequest {
 	return ApiSendByAccountRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1986,8 +1938,7 @@ func (a *AudienceAPIService) SendByAccountExecute(r ApiSendByAccountRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/suggestion/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/suggestion/send"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2062,7 +2013,6 @@ func (a *AudienceAPIService) SendByAccountExecute(r ApiSendByAccountRequest) (*S
 type ApiUpdateAudienceRequest struct {
 	ctx context.Context
 	ApiService *AudienceAPIService
-	version float32
 	accountId *int64
 	audienceId *int64
 	name *string
@@ -2292,14 +2242,12 @@ UpdateAudience Update Audience
 Update a user defined audience.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateAudienceRequest
 */
-func (a *AudienceAPIService) UpdateAudience(ctx context.Context, version float32) ApiUpdateAudienceRequest {
+func (a *AudienceAPIService) UpdateAudience(ctx context.Context) ApiUpdateAudienceRequest {
 	return ApiUpdateAudienceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2318,8 +2266,7 @@ func (a *AudienceAPIService) UpdateAudienceExecute(r ApiUpdateAudienceRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/audience/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/audience/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type RetailerAPIService service
 type ApiCreateRetailerRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	name *string
 	deviceId *string
 	accountId *int64
@@ -272,14 +270,12 @@ CreateRetailer Create Retailer
 Create a retailer record. A billable entity must be created first before a retailer record can be made.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRetailerRequest
 */
-func (a *RetailerAPIService) CreateRetailer(ctx context.Context, version float32) ApiCreateRetailerRequest {
+func (a *RetailerAPIService) CreateRetailer(ctx context.Context) ApiCreateRetailerRequest {
 	return ApiCreateRetailerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -298,8 +294,7 @@ func (a *RetailerAPIService) CreateRetailerExecute(r ApiCreateRetailerRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -462,7 +457,6 @@ func (a *RetailerAPIService) CreateRetailerExecute(r ApiCreateRetailerRequest) (
 type ApiDeleteRetailerRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	retailerId *int64
@@ -496,14 +490,12 @@ DeleteRetailer Delete Retailer
 Set the deleted timestamp to current time.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteRetailerRequest
 */
-func (a *RetailerAPIService) DeleteRetailer(ctx context.Context, version float32) ApiDeleteRetailerRequest {
+func (a *RetailerAPIService) DeleteRetailer(ctx context.Context) ApiDeleteRetailerRequest {
 	return ApiDeleteRetailerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -522,8 +514,7 @@ func (a *RetailerAPIService) DeleteRetailerExecute(r ApiDeleteRetailerRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -595,7 +586,6 @@ func (a *RetailerAPIService) DeleteRetailerExecute(r ApiDeleteRetailerRequest) (
 type ApiGetRetailerRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	retailerId *int64
 	deviceId *string
 	accountId *int64
@@ -636,14 +626,12 @@ GetRetailer Get Retailer
 Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRetailerRequest
 */
-func (a *RetailerAPIService) GetRetailer(ctx context.Context, version float32) ApiGetRetailerRequest {
+func (a *RetailerAPIService) GetRetailer(ctx context.Context) ApiGetRetailerRequest {
 	return ApiGetRetailerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -662,8 +650,7 @@ func (a *RetailerAPIService) GetRetailerExecute(r ApiGetRetailerRequest) (*Retai
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -739,7 +726,6 @@ func (a *RetailerAPIService) GetRetailerExecute(r ApiGetRetailerRequest) (*Retai
 type ApiGetRetailersRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	visibility *string
 	sortField *string
 	descending *bool
@@ -850,14 +836,12 @@ GetRetailers Search Retailers
 earches on retailers that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRetailersRequest
 */
-func (a *RetailerAPIService) GetRetailers(ctx context.Context, version float32) ApiGetRetailersRequest {
+func (a *RetailerAPIService) GetRetailers(ctx context.Context) ApiGetRetailersRequest {
 	return ApiGetRetailersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -876,8 +860,7 @@ func (a *RetailerAPIService) GetRetailersExecute(r ApiGetRetailersRequest) ([]Re
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -988,7 +971,6 @@ func (a *RetailerAPIService) GetRetailersExecute(r ApiGetRetailersRequest) ([]Re
 type ApiRetailerLoginCheckRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	username *string
 	password *string
 	deviceId *string
@@ -1043,14 +1025,12 @@ RetailerLoginCheck Login Retailer
 Retailer login check.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRetailerLoginCheckRequest
 */
-func (a *RetailerAPIService) RetailerLoginCheck(ctx context.Context, version float32) ApiRetailerLoginCheckRequest {
+func (a *RetailerAPIService) RetailerLoginCheck(ctx context.Context) ApiRetailerLoginCheckRequest {
 	return ApiRetailerLoginCheckRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1069,8 +1049,7 @@ func (a *RetailerAPIService) RetailerLoginCheckExecute(r ApiRetailerLoginCheckRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/login"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/login"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1153,7 +1132,6 @@ func (a *RetailerAPIService) RetailerLoginCheckExecute(r ApiRetailerLoginCheckRe
 type ApiUpdateRetailerRequest struct {
 	ctx context.Context
 	ApiService *RetailerAPIService
-	version float32
 	retailerId *int64
 	deviceId *string
 	accountId *int64
@@ -1390,14 +1368,12 @@ UpdateRetailer Update Retailer
 Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateRetailerRequest
 */
-func (a *RetailerAPIService) UpdateRetailer(ctx context.Context, version float32) ApiUpdateRetailerRequest {
+func (a *RetailerAPIService) UpdateRetailer(ctx context.Context) ApiUpdateRetailerRequest {
 	return ApiUpdateRetailerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1416,8 +1392,7 @@ func (a *RetailerAPIService) UpdateRetailerExecute(r ApiUpdateRetailerRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/retailer/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/retailer/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

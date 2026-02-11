@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ScheduledNotificationAPIService service
 type ApiCreateScheduledNotificationRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	accountId *int64
 	name *string
 	type_ *string
@@ -278,14 +276,12 @@ CreateScheduledNotification Create Scheduled Notification
 This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateScheduledNotificationRequest
 */
-func (a *ScheduledNotificationAPIService) CreateScheduledNotification(ctx context.Context, version float32) ApiCreateScheduledNotificationRequest {
+func (a *ScheduledNotificationAPIService) CreateScheduledNotification(ctx context.Context) ApiCreateScheduledNotificationRequest {
 	return ApiCreateScheduledNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -304,8 +300,7 @@ func (a *ScheduledNotificationAPIService) CreateScheduledNotificationExecute(r A
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -478,7 +473,6 @@ func (a *ScheduledNotificationAPIService) CreateScheduledNotificationExecute(r A
 type ApiDeleteScheduledNotificationRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	accountId *int64
 	scheduledNotificationId *int64
 	deleteByGroupingId *bool
@@ -512,14 +506,12 @@ DeleteScheduledNotification Delete Scheduled Notification
 This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteScheduledNotificationRequest
 */
-func (a *ScheduledNotificationAPIService) DeleteScheduledNotification(ctx context.Context, version float32) ApiDeleteScheduledNotificationRequest {
+func (a *ScheduledNotificationAPIService) DeleteScheduledNotification(ctx context.Context) ApiDeleteScheduledNotificationRequest {
 	return ApiDeleteScheduledNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -538,8 +530,7 @@ func (a *ScheduledNotificationAPIService) DeleteScheduledNotificationExecute(r A
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -613,7 +604,6 @@ func (a *ScheduledNotificationAPIService) DeleteScheduledNotificationExecute(r A
 type ApiGetScheduledNotificationRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	accountId *int64
 	scheduledNotificationId *int64
 }
@@ -640,14 +630,12 @@ GetScheduledNotification Get Scheduled Notification
 Get a ScheduledNotification
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetScheduledNotificationRequest
 */
-func (a *ScheduledNotificationAPIService) GetScheduledNotification(ctx context.Context, version float32) ApiGetScheduledNotificationRequest {
+func (a *ScheduledNotificationAPIService) GetScheduledNotification(ctx context.Context) ApiGetScheduledNotificationRequest {
 	return ApiGetScheduledNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -666,8 +654,7 @@ func (a *ScheduledNotificationAPIService) GetScheduledNotificationExecute(r ApiG
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -738,7 +725,6 @@ func (a *ScheduledNotificationAPIService) GetScheduledNotificationExecute(r ApiG
 type ApiScheduleNotificationListingsRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	reportName *string
@@ -807,14 +793,12 @@ ScheduleNotificationListings Generate Schedule Notifications
 Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiScheduleNotificationListingsRequest
 */
-func (a *ScheduledNotificationAPIService) ScheduleNotificationListings(ctx context.Context, version float32) ApiScheduleNotificationListingsRequest {
+func (a *ScheduledNotificationAPIService) ScheduleNotificationListings(ctx context.Context) ApiScheduleNotificationListingsRequest {
 	return ApiScheduleNotificationListingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -833,8 +817,7 @@ func (a *ScheduledNotificationAPIService) ScheduleNotificationListingsExecute(r 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/generate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/generate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -927,7 +910,6 @@ func (a *ScheduledNotificationAPIService) ScheduleNotificationListingsExecute(r 
 type ApiSearchScheduledNotificationsRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	accountId *int64
 	groupingId *string
 	audienceId *int64
@@ -1082,14 +1064,12 @@ This endpoint searches on Scheduled Notifications. If a scheduled notification w
 In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchScheduledNotificationsRequest
 */
-func (a *ScheduledNotificationAPIService) SearchScheduledNotifications(ctx context.Context, version float32) ApiSearchScheduledNotificationsRequest {
+func (a *ScheduledNotificationAPIService) SearchScheduledNotifications(ctx context.Context) ApiSearchScheduledNotificationsRequest {
 	return ApiSearchScheduledNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1108,8 +1088,7 @@ func (a *ScheduledNotificationAPIService) SearchScheduledNotificationsExecute(r 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1233,7 +1212,6 @@ func (a *ScheduledNotificationAPIService) SearchScheduledNotificationsExecute(r 
 type ApiUpdateScheduledNotificationRequest struct {
 	ctx context.Context
 	ApiService *ScheduledNotificationAPIService
-	version float32
 	scheduledNotificationId *int64
 	accountId *int64
 	name *string
@@ -1514,14 +1492,12 @@ This endpoint updates a Scheduled Notification message that can be configured to
 Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateScheduledNotificationRequest
 */
-func (a *ScheduledNotificationAPIService) UpdateScheduledNotification(ctx context.Context, version float32) ApiUpdateScheduledNotificationRequest {
+func (a *ScheduledNotificationAPIService) UpdateScheduledNotification(ctx context.Context) ApiUpdateScheduledNotificationRequest {
 	return ApiUpdateScheduledNotificationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1540,8 +1516,7 @@ func (a *ScheduledNotificationAPIService) UpdateScheduledNotificationExecute(r A
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/notification/schedule/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/notification/schedule/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

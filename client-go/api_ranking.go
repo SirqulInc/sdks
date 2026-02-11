@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type RankingAPIService service
 type ApiGetHistoricalRankingsRequest struct {
 	ctx context.Context
 	ApiService *RankingAPIService
-	version float32
 	appKey *string
 	rankType *string
 	startDate *int64
@@ -110,14 +108,12 @@ GetHistoricalRankings Search Historical Rankings
 Get historical leaderboard rankings by time-frame.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetHistoricalRankingsRequest
 */
-func (a *RankingAPIService) GetHistoricalRankings(ctx context.Context, version float32) ApiGetHistoricalRankingsRequest {
+func (a *RankingAPIService) GetHistoricalRankings(ctx context.Context) ApiGetHistoricalRankingsRequest {
 	return ApiGetHistoricalRankingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -136,8 +132,7 @@ func (a *RankingAPIService) GetHistoricalRankingsExecute(r ApiGetHistoricalRanki
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ranking/historical/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ranking/historical/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -250,7 +245,6 @@ func (a *RankingAPIService) GetHistoricalRankingsExecute(r ApiGetHistoricalRanki
 type ApiGetRankingsRequest struct {
 	ctx context.Context
 	ApiService *RankingAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	gameType *string
@@ -389,14 +383,12 @@ GetRankings Search Rankings
 Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRankingsRequest
 */
-func (a *RankingAPIService) GetRankings(ctx context.Context, version float32) ApiGetRankingsRequest {
+func (a *RankingAPIService) GetRankings(ctx context.Context) ApiGetRankingsRequest {
 	return ApiGetRankingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -415,8 +407,7 @@ func (a *RankingAPIService) GetRankingsExecute(r ApiGetRankingsRequest) (*RankFu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ranking/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ranking/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -561,7 +552,6 @@ func (a *RankingAPIService) GetRankingsExecute(r ApiGetRankingsRequest) (*RankFu
 type ApiGetUserRankRequest struct {
 	ctx context.Context
 	ApiService *RankingAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -651,14 +641,12 @@ GetUserRank Get Personal Rankings
 Returns the user's ranks for one or more rank types and modes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserRankRequest
 */
-func (a *RankingAPIService) GetUserRank(ctx context.Context, version float32) ApiGetUserRankRequest {
+func (a *RankingAPIService) GetUserRank(ctx context.Context) ApiGetUserRankRequest {
 	return ApiGetUserRankRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -677,8 +665,7 @@ func (a *RankingAPIService) GetUserRankExecute(r ApiGetUserRankRequest) (map[str
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ranking/personal/ranks"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ranking/personal/ranks"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -798,7 +785,6 @@ func (a *RankingAPIService) GetUserRankExecute(r ApiGetUserRankRequest) (map[str
 type ApiOverrideUserRankRequest struct {
 	ctx context.Context
 	ApiService *RankingAPIService
-	version float32
 	accountId *int64
 	ownerAccountId *int64
 	appKey *string
@@ -965,14 +951,12 @@ OverrideUserRank Override User Rank
 Allows an admin of an application to override a user's scores for a leaderboard.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiOverrideUserRankRequest
 */
-func (a *RankingAPIService) OverrideUserRank(ctx context.Context, version float32) ApiOverrideUserRankRequest {
+func (a *RankingAPIService) OverrideUserRank(ctx context.Context) ApiOverrideUserRankRequest {
 	return ApiOverrideUserRankRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -991,8 +975,7 @@ func (a *RankingAPIService) OverrideUserRankExecute(r ApiOverrideUserRankRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ranking/override"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ranking/override"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1125,7 +1108,6 @@ func (a *RankingAPIService) OverrideUserRankExecute(r ApiOverrideUserRankRequest
 type ApiUpdateRankingsRequest struct {
 	ctx context.Context
 	ApiService *RankingAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	rankType *string
@@ -1208,14 +1190,12 @@ UpdateRankings Update Ranking
 Update the rank value 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateRankingsRequest
 */
-func (a *RankingAPIService) UpdateRankings(ctx context.Context, version float32) ApiUpdateRankingsRequest {
+func (a *RankingAPIService) UpdateRankings(ctx context.Context) ApiUpdateRankingsRequest {
 	return ApiUpdateRankingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1234,8 +1214,7 @@ func (a *RankingAPIService) UpdateRankingsExecute(r ApiUpdateRankingsRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ranking/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ranking/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

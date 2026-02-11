@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PackAPIService service
 type ApiCreatePackRequest struct {
 	ctx context.Context
 	ApiService *PackAPIService
-	version float32
 	accountId *int64
 	title *string
 	packOrder *int64
@@ -208,14 +206,12 @@ CreatePack Create Pack
 Create a pack.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreatePackRequest
 */
-func (a *PackAPIService) CreatePack(ctx context.Context, version float32) ApiCreatePackRequest {
+func (a *PackAPIService) CreatePack(ctx context.Context) ApiCreatePackRequest {
 	return ApiCreatePackRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -234,8 +230,7 @@ func (a *PackAPIService) CreatePackExecute(r ApiCreatePackRequest) (*PackRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pack/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pack/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -377,7 +372,6 @@ func (a *PackAPIService) CreatePackExecute(r ApiCreatePackRequest) (*PackRespons
 type ApiDeletePackRequest struct {
 	ctx context.Context
 	ApiService *PackAPIService
-	version float32
 	accountId *int64
 	packId *int64
 }
@@ -404,14 +398,12 @@ DeletePack Delete Pack
 Delete a pack.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeletePackRequest
 */
-func (a *PackAPIService) DeletePack(ctx context.Context, version float32) ApiDeletePackRequest {
+func (a *PackAPIService) DeletePack(ctx context.Context) ApiDeletePackRequest {
 	return ApiDeletePackRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -430,8 +422,7 @@ func (a *PackAPIService) DeletePackExecute(r ApiDeletePackRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pack/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pack/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -502,7 +493,6 @@ func (a *PackAPIService) DeletePackExecute(r ApiDeletePackRequest) (*SirqulRespo
 type ApiGetPackRequest struct {
 	ctx context.Context
 	ApiService *PackAPIService
-	version float32
 	accountId *int64
 	packId *int64
 	includeGameData *bool
@@ -536,14 +526,12 @@ GetPack Get Pack
 Get a pack.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPackRequest
 */
-func (a *PackAPIService) GetPack(ctx context.Context, version float32) ApiGetPackRequest {
+func (a *PackAPIService) GetPack(ctx context.Context) ApiGetPackRequest {
 	return ApiGetPackRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -562,8 +550,7 @@ func (a *PackAPIService) GetPackExecute(r ApiGetPackRequest) (*PackResponse, *ht
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pack/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pack/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -638,7 +625,6 @@ func (a *PackAPIService) GetPackExecute(r ApiGetPackRequest) (*PackResponse, *ht
 type ApiSearchPacksRequest struct {
 	ctx context.Context
 	ApiService *PackAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -721,14 +707,12 @@ SearchPacks Search Packs
 Search on packs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPacksRequest
 */
-func (a *PackAPIService) SearchPacks(ctx context.Context, version float32) ApiSearchPacksRequest {
+func (a *PackAPIService) SearchPacks(ctx context.Context) ApiSearchPacksRequest {
 	return ApiSearchPacksRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -747,8 +731,7 @@ func (a *PackAPIService) SearchPacksExecute(r ApiSearchPacksRequest) ([]PackResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pack/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pack/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -844,7 +827,6 @@ func (a *PackAPIService) SearchPacksExecute(r ApiSearchPacksRequest) ([]PackResp
 type ApiUpdatePackRequest struct {
 	ctx context.Context
 	ApiService *PackAPIService
-	version float32
 	accountId *int64
 	packId *int64
 	allocateTickets *bool
@@ -1032,14 +1014,12 @@ UpdatePack Update Pack
 Update a pack.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdatePackRequest
 */
-func (a *PackAPIService) UpdatePack(ctx context.Context, version float32) ApiUpdatePackRequest {
+func (a *PackAPIService) UpdatePack(ctx context.Context) ApiUpdatePackRequest {
 	return ApiUpdatePackRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1058,8 +1038,7 @@ func (a *PackAPIService) UpdatePackExecute(r ApiUpdatePackRequest) (*PackRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pack/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pack/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

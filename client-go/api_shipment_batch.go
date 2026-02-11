@@ -27,7 +27,6 @@ type ShipmentBatchAPIService service
 type ApiCreateShipmentBatchRequest struct {
 	ctx context.Context
 	ApiService *ShipmentBatchAPIService
-	version float32
 	body *ShipmentBatch
 }
 
@@ -46,14 +45,12 @@ CreateShipmentBatch Create Shipment Batch
 Create a new shipment batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateShipmentBatchRequest
 */
-func (a *ShipmentBatchAPIService) CreateShipmentBatch(ctx context.Context, version float32) ApiCreateShipmentBatchRequest {
+func (a *ShipmentBatchAPIService) CreateShipmentBatch(ctx context.Context) ApiCreateShipmentBatchRequest {
 	return ApiCreateShipmentBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *ShipmentBatchAPIService) CreateShipmentBatchExecute(r ApiCreateShipment
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *ShipmentBatchAPIService) CreateShipmentBatchExecute(r ApiCreateShipment
 type ApiDeleteShipmentBatchRequest struct {
 	ctx context.Context
 	ApiService *ShipmentBatchAPIService
-	version float32
 	batchId int64
 }
 
@@ -152,15 +147,13 @@ DeleteShipmentBatch Delete Shipment Batch
 Search for shipment batches
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param batchId the id of the shipment batch to delete
  @return ApiDeleteShipmentBatchRequest
 */
-func (a *ShipmentBatchAPIService) DeleteShipmentBatch(ctx context.Context, version float32, batchId int64) ApiDeleteShipmentBatchRequest {
+func (a *ShipmentBatchAPIService) DeleteShipmentBatch(ctx context.Context, batchId int64) ApiDeleteShipmentBatchRequest {
 	return ApiDeleteShipmentBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		batchId: batchId,
 	}
 }
@@ -178,8 +171,7 @@ func (a *ShipmentBatchAPIService) DeleteShipmentBatchExecute(r ApiDeleteShipment
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/batch/{batchId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/batch/{batchId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"batchId"+"}", url.PathEscape(parameterValueToString(r.batchId, "batchId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -234,7 +226,6 @@ func (a *ShipmentBatchAPIService) DeleteShipmentBatchExecute(r ApiDeleteShipment
 type ApiGetShipmentBatchRequest struct {
 	ctx context.Context
 	ApiService *ShipmentBatchAPIService
-	version float32
 	batchId int64
 }
 
@@ -248,15 +239,13 @@ GetShipmentBatch Get Shipment Batch
 Get an existing shipment batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param batchId the id of the shipment batch to get
  @return ApiGetShipmentBatchRequest
 */
-func (a *ShipmentBatchAPIService) GetShipmentBatch(ctx context.Context, version float32, batchId int64) ApiGetShipmentBatchRequest {
+func (a *ShipmentBatchAPIService) GetShipmentBatch(ctx context.Context, batchId int64) ApiGetShipmentBatchRequest {
 	return ApiGetShipmentBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		batchId: batchId,
 	}
 }
@@ -276,8 +265,7 @@ func (a *ShipmentBatchAPIService) GetShipmentBatchExecute(r ApiGetShipmentBatchR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/batch/{batchId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/batch/{batchId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"batchId"+"}", url.PathEscape(parameterValueToString(r.batchId, "batchId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -341,7 +329,6 @@ func (a *ShipmentBatchAPIService) GetShipmentBatchExecute(r ApiGetShipmentBatchR
 type ApiGetShipmentBatchStatusRequest struct {
 	ctx context.Context
 	ApiService *ShipmentBatchAPIService
-	version float32
 	batchId int64
 	accountId *int64
 	sortField *string
@@ -432,15 +419,13 @@ GetShipmentBatchStatus Get Shipment Batch Status
 Get the import status list of the import shipment batch
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param batchId The id of the requested shipment batch
  @return ApiGetShipmentBatchStatusRequest
 */
-func (a *ShipmentBatchAPIService) GetShipmentBatchStatus(ctx context.Context, version float32, batchId int64) ApiGetShipmentBatchStatusRequest {
+func (a *ShipmentBatchAPIService) GetShipmentBatchStatus(ctx context.Context, batchId int64) ApiGetShipmentBatchStatusRequest {
 	return ApiGetShipmentBatchStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		batchId: batchId,
 	}
 }
@@ -460,8 +445,7 @@ func (a *ShipmentBatchAPIService) GetShipmentBatchStatusExecute(r ApiGetShipment
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/batch/{batchId}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/batch/{batchId}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"batchId"+"}", url.PathEscape(parameterValueToString(r.batchId, "batchId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -563,7 +547,6 @@ func (a *ShipmentBatchAPIService) GetShipmentBatchStatusExecute(r ApiGetShipment
 type ApiSearchShipmentBatchRequest struct {
 	ctx context.Context
 	ApiService *ShipmentBatchAPIService
-	version float32
 	hubId *int64
 	sortField *string
 	descending *bool
@@ -611,14 +594,12 @@ SearchShipmentBatch Search Shipment Batch
 Search for shipment batches
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchShipmentBatchRequest
 */
-func (a *ShipmentBatchAPIService) SearchShipmentBatch(ctx context.Context, version float32) ApiSearchShipmentBatchRequest {
+func (a *ShipmentBatchAPIService) SearchShipmentBatch(ctx context.Context) ApiSearchShipmentBatchRequest {
 	return ApiSearchShipmentBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -637,8 +618,7 @@ func (a *ShipmentBatchAPIService) SearchShipmentBatchExecute(r ApiSearchShipment
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/shipment/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/shipment/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

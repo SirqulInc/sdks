@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type BidAPIService service
 type ApiCreateBidRequest struct {
 	ctx context.Context
 	ApiService *BidAPIService
-	version float32
 	biddableType *string
 	biddableId *int64
 	amountPerView *float64
@@ -96,14 +94,12 @@ CreateBid Create Bid
 Creates a bid on a biddable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateBidRequest
 */
-func (a *BidAPIService) CreateBid(ctx context.Context, version float32) ApiCreateBidRequest {
+func (a *BidAPIService) CreateBid(ctx context.Context) ApiCreateBidRequest {
 	return ApiCreateBidRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -122,8 +118,7 @@ func (a *BidAPIService) CreateBidExecute(r ApiCreateBidRequest) (*BidResponse, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/bid/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/bid/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -216,7 +211,6 @@ func (a *BidAPIService) CreateBidExecute(r ApiCreateBidRequest) (*BidResponse, *
 type ApiDeleteBidRequest struct {
 	ctx context.Context
 	ApiService *BidAPIService
-	version float32
 	bidId *int64
 	deviceId *string
 	accountId *int64
@@ -250,14 +244,12 @@ DeleteBid Delete Bid
 Deleted a bid on a biddable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteBidRequest
 */
-func (a *BidAPIService) DeleteBid(ctx context.Context, version float32) ApiDeleteBidRequest {
+func (a *BidAPIService) DeleteBid(ctx context.Context) ApiDeleteBidRequest {
 	return ApiDeleteBidRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -276,8 +268,7 @@ func (a *BidAPIService) DeleteBidExecute(r ApiDeleteBidRequest) (*SirqulResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/bid/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/bid/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -350,7 +341,6 @@ func (a *BidAPIService) DeleteBidExecute(r ApiDeleteBidRequest) (*SirqulResponse
 type ApiGetBidRequest struct {
 	ctx context.Context
 	ApiService *BidAPIService
-	version float32
 	bidId *int64
 	deviceId *string
 	accountId *int64
@@ -384,14 +374,12 @@ GetBid Get Bid
 Get the bid details of a biddable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBidRequest
 */
-func (a *BidAPIService) GetBid(ctx context.Context, version float32) ApiGetBidRequest {
+func (a *BidAPIService) GetBid(ctx context.Context) ApiGetBidRequest {
 	return ApiGetBidRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -410,8 +398,7 @@ func (a *BidAPIService) GetBidExecute(r ApiGetBidRequest) (*BidResponse, *http.R
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/bid/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/bid/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -484,7 +471,6 @@ func (a *BidAPIService) GetBidExecute(r ApiGetBidRequest) (*BidResponse, *http.R
 type ApiUpdateBidRequest struct {
 	ctx context.Context
 	ApiService *BidAPIService
-	version float32
 	bidId *int64
 	deviceId *string
 	accountId *int64
@@ -546,14 +532,12 @@ UpdateBid Update Bid
 Updates a bid on a biddable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateBidRequest
 */
-func (a *BidAPIService) UpdateBid(ctx context.Context, version float32) ApiUpdateBidRequest {
+func (a *BidAPIService) UpdateBid(ctx context.Context) ApiUpdateBidRequest {
 	return ApiUpdateBidRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -572,8 +556,7 @@ func (a *BidAPIService) UpdateBidExecute(r ApiUpdateBidRequest) (*BidResponse, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/bid/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/bid/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

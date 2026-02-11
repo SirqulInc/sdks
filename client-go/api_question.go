@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type QuestionAPIService service
 type ApiCreateQuestionRequest struct {
 	ctx context.Context
 	ApiService *QuestionAPIService
-	version float32
 	accountId *int64
 	question *string
 	answers *string
@@ -117,14 +115,12 @@ CreateQuestion Create Question
 Create a question and related answers by the given params.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateQuestionRequest
 */
-func (a *QuestionAPIService) CreateQuestion(ctx context.Context, version float32) ApiCreateQuestionRequest {
+func (a *QuestionAPIService) CreateQuestion(ctx context.Context) ApiCreateQuestionRequest {
 	return ApiCreateQuestionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -143,8 +139,7 @@ func (a *QuestionAPIService) CreateQuestionExecute(r ApiCreateQuestionRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/question/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/question/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -246,7 +241,6 @@ func (a *QuestionAPIService) CreateQuestionExecute(r ApiCreateQuestionRequest) (
 type ApiDeleteQuestionRequest struct {
 	ctx context.Context
 	ApiService *QuestionAPIService
-	version float32
 	questionId *int64
 	accountId *int64
 }
@@ -273,14 +267,12 @@ DeleteQuestion Delete Question
 Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteQuestionRequest
 */
-func (a *QuestionAPIService) DeleteQuestion(ctx context.Context, version float32) ApiDeleteQuestionRequest {
+func (a *QuestionAPIService) DeleteQuestion(ctx context.Context) ApiDeleteQuestionRequest {
 	return ApiDeleteQuestionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -299,8 +291,7 @@ func (a *QuestionAPIService) DeleteQuestionExecute(r ApiDeleteQuestionRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/question/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/question/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -371,7 +362,6 @@ func (a *QuestionAPIService) DeleteQuestionExecute(r ApiDeleteQuestionRequest) (
 type ApiGetQuestionRequest struct {
 	ctx context.Context
 	ApiService *QuestionAPIService
-	version float32
 	questionId *int64
 	accountId *int64
 }
@@ -398,14 +388,12 @@ GetQuestion Get Question
 Get a question by the given id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetQuestionRequest
 */
-func (a *QuestionAPIService) GetQuestion(ctx context.Context, version float32) ApiGetQuestionRequest {
+func (a *QuestionAPIService) GetQuestion(ctx context.Context) ApiGetQuestionRequest {
 	return ApiGetQuestionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -424,8 +412,7 @@ func (a *QuestionAPIService) GetQuestionExecute(r ApiGetQuestionRequest) (*Quest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/question/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/question/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -496,7 +483,6 @@ func (a *QuestionAPIService) GetQuestionExecute(r ApiGetQuestionRequest) (*Quest
 type ApiSearchQuestionsRequest struct {
 	ctx context.Context
 	ApiService *QuestionAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -558,14 +544,12 @@ SearchQuestions Search Questions
 Search for questions by the given params.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchQuestionsRequest
 */
-func (a *QuestionAPIService) SearchQuestions(ctx context.Context, version float32) ApiSearchQuestionsRequest {
+func (a *QuestionAPIService) SearchQuestions(ctx context.Context) ApiSearchQuestionsRequest {
 	return ApiSearchQuestionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -584,8 +568,7 @@ func (a *QuestionAPIService) SearchQuestionsExecute(r ApiSearchQuestionsRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/question/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/question/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -675,7 +658,6 @@ func (a *QuestionAPIService) SearchQuestionsExecute(r ApiSearchQuestionsRequest)
 type ApiUpdateQuestionRequest struct {
 	ctx context.Context
 	ApiService *QuestionAPIService
-	version float32
 	questionId *int64
 	accountId *int64
 	ticketCount *int64
@@ -772,14 +754,12 @@ UpdateQuestion Update Question
 Update a question and related answers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateQuestionRequest
 */
-func (a *QuestionAPIService) UpdateQuestion(ctx context.Context, version float32) ApiUpdateQuestionRequest {
+func (a *QuestionAPIService) UpdateQuestion(ctx context.Context) ApiUpdateQuestionRequest {
 	return ApiUpdateQuestionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -798,8 +778,7 @@ func (a *QuestionAPIService) UpdateQuestionExecute(r ApiUpdateQuestionRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/question/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/question/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

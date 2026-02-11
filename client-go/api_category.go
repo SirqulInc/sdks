@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type CategoryAPIService service
 type ApiCategoryDistanceSearchRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	appKey *string
@@ -180,14 +178,12 @@ CategoryDistanceSearch Search Categories by Distance
 Search for categories by distance.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCategoryDistanceSearchRequest
 */
-func (a *CategoryAPIService) CategoryDistanceSearch(ctx context.Context, version float32) ApiCategoryDistanceSearchRequest {
+func (a *CategoryAPIService) CategoryDistanceSearch(ctx context.Context) ApiCategoryDistanceSearchRequest {
 	return ApiCategoryDistanceSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -206,8 +202,7 @@ func (a *CategoryAPIService) CategoryDistanceSearchExecute(r ApiCategoryDistance
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/distancesearch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/distancesearch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -350,7 +345,6 @@ func (a *CategoryAPIService) CategoryDistanceSearchExecute(r ApiCategoryDistance
 type ApiCreateCategoryRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	name *string
 	appKey *string
@@ -461,14 +455,12 @@ CreateCategory Create Category
 Create a new category.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateCategoryRequest
 */
-func (a *CategoryAPIService) CreateCategory(ctx context.Context, version float32) ApiCreateCategoryRequest {
+func (a *CategoryAPIService) CreateCategory(ctx context.Context) ApiCreateCategoryRequest {
 	return ApiCreateCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -487,8 +479,7 @@ func (a *CategoryAPIService) CreateCategoryExecute(r ApiCreateCategoryRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -595,7 +586,6 @@ func (a *CategoryAPIService) CreateCategoryExecute(r ApiCreateCategoryRequest) (
 type ApiDeleteCategoryRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	categoryId *int64
 }
@@ -622,14 +612,12 @@ DeleteCategory Delete Category
 Delete a category.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteCategoryRequest
 */
-func (a *CategoryAPIService) DeleteCategory(ctx context.Context, version float32) ApiDeleteCategoryRequest {
+func (a *CategoryAPIService) DeleteCategory(ctx context.Context) ApiDeleteCategoryRequest {
 	return ApiDeleteCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -648,8 +636,7 @@ func (a *CategoryAPIService) DeleteCategoryExecute(r ApiDeleteCategoryRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -720,7 +707,6 @@ func (a *CategoryAPIService) DeleteCategoryExecute(r ApiDeleteCategoryRequest) (
 type ApiDuplicateCategoryRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	categoryId *int64
 	appKey *string
@@ -761,14 +747,12 @@ DuplicateCategory Duplicate Category
 Duplicate a category, including all its children.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDuplicateCategoryRequest
 */
-func (a *CategoryAPIService) DuplicateCategory(ctx context.Context, version float32) ApiDuplicateCategoryRequest {
+func (a *CategoryAPIService) DuplicateCategory(ctx context.Context) ApiDuplicateCategoryRequest {
 	return ApiDuplicateCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -787,8 +771,7 @@ func (a *CategoryAPIService) DuplicateCategoryExecute(r ApiDuplicateCategoryRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/duplicate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/duplicate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -865,7 +848,6 @@ func (a *CategoryAPIService) DuplicateCategoryExecute(r ApiDuplicateCategoryRequ
 type ApiGetCategoryRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	categoryId *int64
 	returnExternal *bool
 }
@@ -892,14 +874,12 @@ GetCategory Get Category
 Get the details of a specific category. Recursively include all child categories and their children.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCategoryRequest
 */
-func (a *CategoryAPIService) GetCategory(ctx context.Context, version float32) ApiGetCategoryRequest {
+func (a *CategoryAPIService) GetCategory(ctx context.Context) ApiGetCategoryRequest {
 	return ApiGetCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -918,8 +898,7 @@ func (a *CategoryAPIService) GetCategoryExecute(r ApiGetCategoryRequest) (*Categ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -993,7 +972,6 @@ func (a *CategoryAPIService) GetCategoryExecute(r ApiGetCategoryRequest) (*Categ
 type ApiSearchCategoriesRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	appKey *string
@@ -1153,14 +1131,12 @@ SearchCategories Search Categories
 Search for categories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchCategoriesRequest
 */
-func (a *CategoryAPIService) SearchCategories(ctx context.Context, version float32) ApiSearchCategoriesRequest {
+func (a *CategoryAPIService) SearchCategories(ctx context.Context) ApiSearchCategoriesRequest {
 	return ApiSearchCategoriesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1179,8 +1155,7 @@ func (a *CategoryAPIService) SearchCategoriesExecute(r ApiSearchCategoriesReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1338,7 +1313,6 @@ func (a *CategoryAPIService) SearchCategoriesExecute(r ApiSearchCategoriesReques
 type ApiUpdateCategoryRequest struct {
 	ctx context.Context
 	ApiService *CategoryAPIService
-	version float32
 	accountId *int64
 	categoryId *int64
 	parentCategoryId *int64
@@ -1449,14 +1423,12 @@ UpdateCategory Update Category
 Update a category.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateCategoryRequest
 */
-func (a *CategoryAPIService) UpdateCategory(ctx context.Context, version float32) ApiUpdateCategoryRequest {
+func (a *CategoryAPIService) UpdateCategory(ctx context.Context) ApiUpdateCategoryRequest {
 	return ApiUpdateCategoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1475,8 +1447,7 @@ func (a *CategoryAPIService) UpdateCategoryExecute(r ApiUpdateCategoryRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/category/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/category/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

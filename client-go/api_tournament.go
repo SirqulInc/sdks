@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TournamentAPIService service
 type ApiCreateTournamentRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	title *string
@@ -285,14 +283,12 @@ CreateTournament Create Tournament
 Create a tournament.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateTournamentRequest
 */
-func (a *TournamentAPIService) CreateTournament(ctx context.Context, version float32) ApiCreateTournamentRequest {
+func (a *TournamentAPIService) CreateTournament(ctx context.Context) ApiCreateTournamentRequest {
 	return ApiCreateTournamentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -311,8 +307,7 @@ func (a *TournamentAPIService) CreateTournamentExecute(r ApiCreateTournamentRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -545,7 +540,6 @@ func (a *TournamentAPIService) CreateTournamentExecute(r ApiCreateTournamentRequ
 type ApiDeleteTournamentRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 }
@@ -572,14 +566,12 @@ DeleteTournament Delete Tournament
 Delete a tournament.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteTournamentRequest
 */
-func (a *TournamentAPIService) DeleteTournament(ctx context.Context, version float32) ApiDeleteTournamentRequest {
+func (a *TournamentAPIService) DeleteTournament(ctx context.Context) ApiDeleteTournamentRequest {
 	return ApiDeleteTournamentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -598,8 +590,7 @@ func (a *TournamentAPIService) DeleteTournamentExecute(r ApiDeleteTournamentRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -670,7 +661,6 @@ func (a *TournamentAPIService) DeleteTournamentExecute(r ApiDeleteTournamentRequ
 type ApiGetTournamentRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 	joinCode *string
@@ -718,14 +708,12 @@ GetTournament Get Tournament
 Get a tournament.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTournamentRequest
 */
-func (a *TournamentAPIService) GetTournament(ctx context.Context, version float32) ApiGetTournamentRequest {
+func (a *TournamentAPIService) GetTournament(ctx context.Context) ApiGetTournamentRequest {
 	return ApiGetTournamentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -744,8 +732,7 @@ func (a *TournamentAPIService) GetTournamentExecute(r ApiGetTournamentRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -828,7 +815,6 @@ func (a *TournamentAPIService) GetTournamentExecute(r ApiGetTournamentRequest) (
 type ApiSearchObjectsRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	gameLevelId *int64
 	sortField *string
@@ -883,14 +869,12 @@ SearchObjects Search Tournament Objects
 Search on game objects of tournaments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchObjectsRequest
 */
-func (a *TournamentAPIService) SearchObjects(ctx context.Context, version float32) ApiSearchObjectsRequest {
+func (a *TournamentAPIService) SearchObjects(ctx context.Context) ApiSearchObjectsRequest {
 	return ApiSearchObjectsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -909,8 +893,7 @@ func (a *TournamentAPIService) SearchObjectsExecute(r ApiSearchObjectsRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/object/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/object/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1009,7 +992,6 @@ func (a *TournamentAPIService) SearchObjectsExecute(r ApiSearchObjectsRequest) (
 type ApiSearchRoundsRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	status *string
@@ -1078,14 +1060,12 @@ SearchRounds Search Tournament Rounds
 Search for the user's tournament games.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRoundsRequest
 */
-func (a *TournamentAPIService) SearchRounds(ctx context.Context, version float32) ApiSearchRoundsRequest {
+func (a *TournamentAPIService) SearchRounds(ctx context.Context) ApiSearchRoundsRequest {
 	return ApiSearchRoundsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1104,8 +1084,7 @@ func (a *TournamentAPIService) SearchRoundsExecute(r ApiSearchRoundsRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/round/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/round/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1214,7 +1193,6 @@ func (a *TournamentAPIService) SearchRoundsExecute(r ApiSearchRoundsRequest) (*S
 type ApiSearchTournamentsRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	keyword *string
@@ -1311,14 +1289,12 @@ SearchTournaments Search Tournaments
 Search for tournaments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTournamentsRequest
 */
-func (a *TournamentAPIService) SearchTournaments(ctx context.Context, version float32) ApiSearchTournamentsRequest {
+func (a *TournamentAPIService) SearchTournaments(ctx context.Context) ApiSearchTournamentsRequest {
 	return ApiSearchTournamentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1337,8 +1313,7 @@ func (a *TournamentAPIService) SearchTournamentsExecute(r ApiSearchTournamentsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1467,7 +1442,6 @@ func (a *TournamentAPIService) SearchTournamentsExecute(r ApiSearchTournamentsRe
 type ApiSubmitTournamentScoreRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	missionId *int64
@@ -1529,14 +1503,12 @@ SubmitTournamentScore Submit Tournament Score
 Submit an array of scores for a tournament match. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSubmitTournamentScoreRequest
 */
-func (a *TournamentAPIService) SubmitTournamentScore(ctx context.Context, version float32) ApiSubmitTournamentScoreRequest {
+func (a *TournamentAPIService) SubmitTournamentScore(ctx context.Context) ApiSubmitTournamentScoreRequest {
 	return ApiSubmitTournamentScoreRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1555,8 +1527,7 @@ func (a *TournamentAPIService) SubmitTournamentScoreExecute(r ApiSubmitTournamen
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/score"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/score"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1646,7 +1617,6 @@ func (a *TournamentAPIService) SubmitTournamentScoreExecute(r ApiSubmitTournamen
 type ApiSubmitTournamentVoteRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	missionId *int64
@@ -1701,14 +1671,12 @@ SubmitTournamentVote Submit a vote for a multi-stage album tournament.
 Submit a vote for a multi-stage album tournament.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSubmitTournamentVoteRequest
 */
-func (a *TournamentAPIService) SubmitTournamentVote(ctx context.Context, version float32) ApiSubmitTournamentVoteRequest {
+func (a *TournamentAPIService) SubmitTournamentVote(ctx context.Context) ApiSubmitTournamentVoteRequest {
 	return ApiSubmitTournamentVoteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1727,8 +1695,7 @@ func (a *TournamentAPIService) SubmitTournamentVoteExecute(r ApiSubmitTournament
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/vote"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/vote"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1817,7 +1784,6 @@ func (a *TournamentAPIService) SubmitTournamentVoteExecute(r ApiSubmitTournament
 type ApiSubstituteTournamentPlayerRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 	packId *int64
@@ -1858,14 +1824,12 @@ SubstituteTournamentPlayer Substitute Tournament Player
 Service to replace the user's opponent in the current level - pack - mission with an AI account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSubstituteTournamentPlayerRequest
 */
-func (a *TournamentAPIService) SubstituteTournamentPlayer(ctx context.Context, version float32) ApiSubstituteTournamentPlayerRequest {
+func (a *TournamentAPIService) SubstituteTournamentPlayer(ctx context.Context) ApiSubstituteTournamentPlayerRequest {
 	return ApiSubstituteTournamentPlayerRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1884,8 +1848,7 @@ func (a *TournamentAPIService) SubstituteTournamentPlayerExecute(r ApiSubstitute
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/substitute"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/substitute"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1964,7 +1927,6 @@ func (a *TournamentAPIService) SubstituteTournamentPlayerExecute(r ApiSubstitute
 type ApiUpdateTournamentRequest struct {
 	ctx context.Context
 	ApiService *TournamentAPIService
-	version float32
 	accountId *int64
 	missionId *int64
 	title *string
@@ -2215,14 +2177,12 @@ UpdateTournament Update Tournament
 Update a tournament.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateTournamentRequest
 */
-func (a *TournamentAPIService) UpdateTournament(ctx context.Context, version float32) ApiUpdateTournamentRequest {
+func (a *TournamentAPIService) UpdateTournament(ctx context.Context) ApiUpdateTournamentRequest {
 	return ApiUpdateTournamentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2241,8 +2201,7 @@ func (a *TournamentAPIService) UpdateTournamentExecute(r ApiUpdateTournamentRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/tournament/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/tournament/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

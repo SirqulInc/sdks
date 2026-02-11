@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ReservationAPIService service
 type ApiCreateReservationRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	startDate *int64
@@ -96,14 +94,12 @@ CreateReservation Create Reservation
 Creates a reservation on an offer object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateReservationRequest
 */
-func (a *ReservationAPIService) CreateReservation(ctx context.Context, version float32) ApiCreateReservationRequest {
+func (a *ReservationAPIService) CreateReservation(ctx context.Context) ApiCreateReservationRequest {
 	return ApiCreateReservationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -120,8 +116,7 @@ func (a *ReservationAPIService) CreateReservationExecute(r ApiCreateReservationR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservation/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservation/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -199,7 +194,6 @@ func (a *ReservationAPIService) CreateReservationExecute(r ApiCreateReservationR
 type ApiDeleteReservationRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	reservationId *int64
 	deviceId *string
 	accountId *int64
@@ -233,14 +227,12 @@ DeleteReservation Delete Reservation
 Deleted a reservation on a reservation object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteReservationRequest
 */
-func (a *ReservationAPIService) DeleteReservation(ctx context.Context, version float32) ApiDeleteReservationRequest {
+func (a *ReservationAPIService) DeleteReservation(ctx context.Context) ApiDeleteReservationRequest {
 	return ApiDeleteReservationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -257,8 +249,7 @@ func (a *ReservationAPIService) DeleteReservationExecute(r ApiDeleteReservationR
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservation/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservation/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -322,7 +313,6 @@ func (a *ReservationAPIService) DeleteReservationExecute(r ApiDeleteReservationR
 type ApiReservableAvailabilityRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	reservableId *int64
 	reservableType *string
 	deviceId *string
@@ -375,14 +365,12 @@ func (r ApiReservableAvailabilityRequest) Execute() ([]AvailabilityResponse, *ht
 ReservableAvailability Update Availability
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiReservableAvailabilityRequest
 */
-func (a *ReservationAPIService) ReservableAvailability(ctx context.Context, version float32) ApiReservableAvailabilityRequest {
+func (a *ReservationAPIService) ReservableAvailability(ctx context.Context) ApiReservableAvailabilityRequest {
 	return ApiReservableAvailabilityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -401,8 +389,7 @@ func (a *ReservationAPIService) ReservableAvailabilityExecute(r ApiReservableAva
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservable/availability/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservable/availability/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -485,7 +472,6 @@ func (a *ReservationAPIService) ReservableAvailabilityExecute(r ApiReservableAva
 type ApiSearchAvailabilityRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	reservableId *int64
 	reservableType *string
 	deviceId *string
@@ -552,14 +538,12 @@ func (r ApiSearchAvailabilityRequest) Execute() ([]AvailabilityResponse, *http.R
 SearchAvailability Search Availability
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAvailabilityRequest
 */
-func (a *ReservationAPIService) SearchAvailability(ctx context.Context, version float32) ApiSearchAvailabilityRequest {
+func (a *ReservationAPIService) SearchAvailability(ctx context.Context) ApiSearchAvailabilityRequest {
 	return ApiSearchAvailabilityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -578,8 +562,7 @@ func (a *ReservationAPIService) SearchAvailabilityExecute(r ApiSearchAvailabilit
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservable/availability/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservable/availability/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -676,7 +659,6 @@ func (a *ReservationAPIService) SearchAvailabilityExecute(r ApiSearchAvailabilit
 type ApiSearchReservationsRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	deviceId *string
 	appKey *string
 	accountId *int64
@@ -764,14 +746,12 @@ func (r ApiSearchReservationsRequest) Execute() ([]ReservationResponse, *http.Re
 SearchReservations Search Reservations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchReservationsRequest
 */
-func (a *ReservationAPIService) SearchReservations(ctx context.Context, version float32) ApiSearchReservationsRequest {
+func (a *ReservationAPIService) SearchReservations(ctx context.Context) ApiSearchReservationsRequest {
 	return ApiSearchReservationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -790,8 +770,7 @@ func (a *ReservationAPIService) SearchReservationsExecute(r ApiSearchReservation
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservation/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservation/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -895,7 +874,6 @@ func (a *ReservationAPIService) SearchReservationsExecute(r ApiSearchReservation
 type ApiSearchScheduleRequest struct {
 	ctx context.Context
 	ApiService *ReservationAPIService
-	version float32
 	reservableId *int64
 	reservableType *string
 	startDate *int64
@@ -955,14 +933,12 @@ func (r ApiSearchScheduleRequest) Execute() ([]TimeSlotResponse, *http.Response,
 SearchSchedule Search Schedule
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchScheduleRequest
 */
-func (a *ReservationAPIService) SearchSchedule(ctx context.Context, version float32) ApiSearchScheduleRequest {
+func (a *ReservationAPIService) SearchSchedule(ctx context.Context) ApiSearchScheduleRequest {
 	return ApiSearchScheduleRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -981,8 +957,7 @@ func (a *ReservationAPIService) SearchScheduleExecute(r ApiSearchScheduleRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/reservable/schedule/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/reservable/schedule/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

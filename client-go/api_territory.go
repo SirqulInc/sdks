@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TerritoryAPIService service
 type ApiCreateTerritoryRequest struct {
 	ctx context.Context
 	ApiService *TerritoryAPIService
-	version float32
 	accountId *int64
 	name *string
 	active *bool
@@ -61,14 +59,12 @@ CreateTerritory Create Territory
 Creates a territory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateTerritoryRequest
 */
-func (a *TerritoryAPIService) CreateTerritory(ctx context.Context, version float32) ApiCreateTerritoryRequest {
+func (a *TerritoryAPIService) CreateTerritory(ctx context.Context) ApiCreateTerritoryRequest {
 	return ApiCreateTerritoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -87,8 +83,7 @@ func (a *TerritoryAPIService) CreateTerritoryExecute(r ApiCreateTerritoryRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/territory/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/territory/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -162,7 +157,6 @@ func (a *TerritoryAPIService) CreateTerritoryExecute(r ApiCreateTerritoryRequest
 type ApiDeleteTerritoryRequest struct {
 	ctx context.Context
 	ApiService *TerritoryAPIService
-	version float32
 	accountId *int64
 	territoryId *int64
 }
@@ -189,14 +183,12 @@ DeleteTerritory Delete Territory
 Deletes a territory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteTerritoryRequest
 */
-func (a *TerritoryAPIService) DeleteTerritory(ctx context.Context, version float32) ApiDeleteTerritoryRequest {
+func (a *TerritoryAPIService) DeleteTerritory(ctx context.Context) ApiDeleteTerritoryRequest {
 	return ApiDeleteTerritoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -215,8 +207,7 @@ func (a *TerritoryAPIService) DeleteTerritoryExecute(r ApiDeleteTerritoryRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/territory/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/territory/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -287,7 +278,6 @@ func (a *TerritoryAPIService) DeleteTerritoryExecute(r ApiDeleteTerritoryRequest
 type ApiGetTerritoryRequest struct {
 	ctx context.Context
 	ApiService *TerritoryAPIService
-	version float32
 	territoryId *int64
 }
 
@@ -307,14 +297,12 @@ GetTerritory Get Territory
 Get a territory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetTerritoryRequest
 */
-func (a *TerritoryAPIService) GetTerritory(ctx context.Context, version float32) ApiGetTerritoryRequest {
+func (a *TerritoryAPIService) GetTerritory(ctx context.Context) ApiGetTerritoryRequest {
 	return ApiGetTerritoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -333,8 +321,7 @@ func (a *TerritoryAPIService) GetTerritoryExecute(r ApiGetTerritoryRequest) (*Te
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/territory/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/territory/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -401,7 +388,6 @@ func (a *TerritoryAPIService) GetTerritoryExecute(r ApiGetTerritoryRequest) (*Te
 type ApiSearchTerritoriesRequest struct {
 	ctx context.Context
 	ApiService *TerritoryAPIService
-	version float32
 	sortField *string
 	descending *bool
 	keyword *string
@@ -449,14 +435,12 @@ SearchTerritories Search Territories
 Searches on territories.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTerritoriesRequest
 */
-func (a *TerritoryAPIService) SearchTerritories(ctx context.Context, version float32) ApiSearchTerritoriesRequest {
+func (a *TerritoryAPIService) SearchTerritories(ctx context.Context) ApiSearchTerritoriesRequest {
 	return ApiSearchTerritoriesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -475,8 +459,7 @@ func (a *TerritoryAPIService) SearchTerritoriesExecute(r ApiSearchTerritoriesReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/territory/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/territory/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -556,7 +539,6 @@ func (a *TerritoryAPIService) SearchTerritoriesExecute(r ApiSearchTerritoriesReq
 type ApiUpdateTerritoryRequest struct {
 	ctx context.Context
 	ApiService *TerritoryAPIService
-	version float32
 	accountId *int64
 	territoryId *int64
 	name *string
@@ -597,14 +579,12 @@ UpdateTerritory Update Territory
 Updates a territory.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateTerritoryRequest
 */
-func (a *TerritoryAPIService) UpdateTerritory(ctx context.Context, version float32) ApiUpdateTerritoryRequest {
+func (a *TerritoryAPIService) UpdateTerritory(ctx context.Context) ApiUpdateTerritoryRequest {
 	return ApiUpdateTerritoryRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -623,8 +603,7 @@ func (a *TerritoryAPIService) UpdateTerritoryExecute(r ApiUpdateTerritoryRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/territory/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/territory/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

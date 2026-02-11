@@ -27,7 +27,6 @@ type CargoTypeAPIService service
 type ApiCreateCargoTypeRequest struct {
 	ctx context.Context
 	ApiService *CargoTypeAPIService
-	version float32
 	body *CargoType
 }
 
@@ -46,14 +45,12 @@ CreateCargoType Create Cargo Type
 Create new cargo type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateCargoTypeRequest
 */
-func (a *CargoTypeAPIService) CreateCargoType(ctx context.Context, version float32) ApiCreateCargoTypeRequest {
+func (a *CargoTypeAPIService) CreateCargoType(ctx context.Context) ApiCreateCargoTypeRequest {
 	return ApiCreateCargoTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *CargoTypeAPIService) CreateCargoTypeExecute(r ApiCreateCargoTypeRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/type"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *CargoTypeAPIService) CreateCargoTypeExecute(r ApiCreateCargoTypeRequest
 type ApiDeleteCargoTypeRequest struct {
 	ctx context.Context
 	ApiService *CargoTypeAPIService
-	version float32
 	cargoTypeId int64
 }
 
@@ -152,15 +147,13 @@ DeleteCargoType Delete Cargo Type
 Delete a type of cargo
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param cargoTypeId the ID of the cargo type
  @return ApiDeleteCargoTypeRequest
 */
-func (a *CargoTypeAPIService) DeleteCargoType(ctx context.Context, version float32, cargoTypeId int64) ApiDeleteCargoTypeRequest {
+func (a *CargoTypeAPIService) DeleteCargoType(ctx context.Context, cargoTypeId int64) ApiDeleteCargoTypeRequest {
 	return ApiDeleteCargoTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		cargoTypeId: cargoTypeId,
 	}
 }
@@ -178,8 +171,7 @@ func (a *CargoTypeAPIService) DeleteCargoTypeExecute(r ApiDeleteCargoTypeRequest
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/type/{cargoTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/type/{cargoTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cargoTypeId"+"}", url.PathEscape(parameterValueToString(r.cargoTypeId, "cargoTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -234,7 +226,6 @@ func (a *CargoTypeAPIService) DeleteCargoTypeExecute(r ApiDeleteCargoTypeRequest
 type ApiGetCargoTypeRequest struct {
 	ctx context.Context
 	ApiService *CargoTypeAPIService
-	version float32
 	cargoTypeId int64
 }
 
@@ -248,15 +239,13 @@ GetCargoType Get Cargo Type
 Get an existing cargo type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param cargoTypeId the cargo type ID
  @return ApiGetCargoTypeRequest
 */
-func (a *CargoTypeAPIService) GetCargoType(ctx context.Context, version float32, cargoTypeId int64) ApiGetCargoTypeRequest {
+func (a *CargoTypeAPIService) GetCargoType(ctx context.Context, cargoTypeId int64) ApiGetCargoTypeRequest {
 	return ApiGetCargoTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		cargoTypeId: cargoTypeId,
 	}
 }
@@ -276,8 +265,7 @@ func (a *CargoTypeAPIService) GetCargoTypeExecute(r ApiGetCargoTypeRequest) (*Ca
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/type/{cargoTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/type/{cargoTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cargoTypeId"+"}", url.PathEscape(parameterValueToString(r.cargoTypeId, "cargoTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -341,7 +329,6 @@ func (a *CargoTypeAPIService) GetCargoTypeExecute(r ApiGetCargoTypeRequest) (*Ca
 type ApiSearchCargoTypesRequest struct {
 	ctx context.Context
 	ApiService *CargoTypeAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -403,14 +390,12 @@ SearchCargoTypes Search Cargo Type
 Search for types of cargo
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchCargoTypesRequest
 */
-func (a *CargoTypeAPIService) SearchCargoTypes(ctx context.Context, version float32) ApiSearchCargoTypesRequest {
+func (a *CargoTypeAPIService) SearchCargoTypes(ctx context.Context) ApiSearchCargoTypesRequest {
 	return ApiSearchCargoTypesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -429,8 +414,7 @@ func (a *CargoTypeAPIService) SearchCargoTypesExecute(r ApiSearchCargoTypesReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/type"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/type"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -519,7 +503,6 @@ func (a *CargoTypeAPIService) SearchCargoTypesExecute(r ApiSearchCargoTypesReque
 type ApiUpdateCargoTypeRequest struct {
 	ctx context.Context
 	ApiService *CargoTypeAPIService
-	version float32
 	cargoTypeId int64
 	body *CargoType
 }
@@ -539,15 +522,13 @@ UpdateCargoType Update Cargo Type
 Update an existing cargo type
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param cargoTypeId the ID of the cargo type
  @return ApiUpdateCargoTypeRequest
 */
-func (a *CargoTypeAPIService) UpdateCargoType(ctx context.Context, version float32, cargoTypeId int64) ApiUpdateCargoTypeRequest {
+func (a *CargoTypeAPIService) UpdateCargoType(ctx context.Context, cargoTypeId int64) ApiUpdateCargoTypeRequest {
 	return ApiUpdateCargoTypeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		cargoTypeId: cargoTypeId,
 	}
 }
@@ -567,8 +548,7 @@ func (a *CargoTypeAPIService) UpdateCargoTypeExecute(r ApiUpdateCargoTypeRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/type/{cargoTypeId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/type/{cargoTypeId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"cargoTypeId"+"}", url.PathEscape(parameterValueToString(r.cargoTypeId, "cargoTypeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)

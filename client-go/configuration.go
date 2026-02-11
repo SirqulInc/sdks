@@ -94,8 +94,14 @@ func NewConfiguration() *Configuration {
 		Debug:            false,
 		Servers:          ServerConfigurations{
 			{
-				URL: "",
+				URL: "https://dev.sirqul.com/api/{version}",
 				Description: "No description provided",
+				Variables: map[string]ServerVariable{
+					"version": ServerVariable{
+						Description: "No description provided",
+						DefaultValue: "3.18",
+					},
+				},
 			},
 		},
 		OperationServers: map[string]ServerConfigurations{

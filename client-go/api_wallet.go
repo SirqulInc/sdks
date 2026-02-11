@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type WalletAPIService service
 type ApiCreateOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	offerId *int64
@@ -118,14 +116,12 @@ CreateOfferTransaction Create Wallet Offers
 Adds offers to the wallet
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateOfferTransactionRequest
 */
-func (a *WalletAPIService) CreateOfferTransaction(ctx context.Context, version float32) ApiCreateOfferTransactionRequest {
+func (a *WalletAPIService) CreateOfferTransaction(ctx context.Context) ApiCreateOfferTransactionRequest {
 	return ApiCreateOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -144,8 +140,7 @@ func (a *WalletAPIService) CreateOfferTransactionExecute(r ApiCreateOfferTransac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -245,7 +240,6 @@ func (a *WalletAPIService) CreateOfferTransactionExecute(r ApiCreateOfferTransac
 type ApiDeleteOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	transactionId *int64
 	deviceId *string
 	accountId *int64
@@ -279,14 +273,12 @@ DeleteOfferTransaction Delete Wallet Offer
 Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteOfferTransactionRequest
 */
-func (a *WalletAPIService) DeleteOfferTransaction(ctx context.Context, version float32) ApiDeleteOfferTransactionRequest {
+func (a *WalletAPIService) DeleteOfferTransaction(ctx context.Context) ApiDeleteOfferTransactionRequest {
 	return ApiDeleteOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -305,8 +297,7 @@ func (a *WalletAPIService) DeleteOfferTransactionExecute(r ApiDeleteOfferTransac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -379,7 +370,6 @@ func (a *WalletAPIService) DeleteOfferTransactionExecute(r ApiDeleteOfferTransac
 type ApiGetOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	transactionId *int64
 	deviceId *string
 	accountId *int64
@@ -439,14 +429,12 @@ func (r ApiGetOfferTransactionRequest) Execute() (*OfferTransactionResponse, *ht
 GetOfferTransaction Get Wallet Offer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetOfferTransactionRequest
 */
-func (a *WalletAPIService) GetOfferTransaction(ctx context.Context, version float32) ApiGetOfferTransactionRequest {
+func (a *WalletAPIService) GetOfferTransaction(ctx context.Context) ApiGetOfferTransactionRequest {
 	return ApiGetOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -465,8 +453,7 @@ func (a *WalletAPIService) GetOfferTransactionExecute(r ApiGetOfferTransactionRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -559,7 +546,6 @@ func (a *WalletAPIService) GetOfferTransactionExecute(r ApiGetOfferTransactionRe
 type ApiPreviewOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	offerId *int64
@@ -643,14 +629,12 @@ PreviewOfferTransaction Preview Wallet Offers
 Preview the final cost of a transaction without charging the user
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiPreviewOfferTransactionRequest
 */
-func (a *WalletAPIService) PreviewOfferTransaction(ctx context.Context, version float32) ApiPreviewOfferTransactionRequest {
+func (a *WalletAPIService) PreviewOfferTransaction(ctx context.Context) ApiPreviewOfferTransactionRequest {
 	return ApiPreviewOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -669,8 +653,7 @@ func (a *WalletAPIService) PreviewOfferTransactionExecute(r ApiPreviewOfferTrans
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/preview"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/preview"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -767,7 +750,6 @@ func (a *WalletAPIService) PreviewOfferTransactionExecute(r ApiPreviewOfferTrans
 type ApiSearchOfferTransactionsRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	keyword *string
@@ -1067,14 +1049,12 @@ SearchOfferTransactions Search Wallet Offers
 Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchOfferTransactionsRequest
 */
-func (a *WalletAPIService) SearchOfferTransactions(ctx context.Context, version float32) ApiSearchOfferTransactionsRequest {
+func (a *WalletAPIService) SearchOfferTransactions(ctx context.Context) ApiSearchOfferTransactionsRequest {
 	return ApiSearchOfferTransactionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1093,8 +1073,7 @@ func (a *WalletAPIService) SearchOfferTransactionsExecute(r ApiSearchOfferTransa
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1316,7 +1295,6 @@ func (a *WalletAPIService) SearchOfferTransactionsExecute(r ApiSearchOfferTransa
 type ApiUpdateOfferTransactionRequest struct {
 	ctx context.Context
 	ApiService *WalletAPIService
-	version float32
 	transactionId *int64
 	status *int32
 	deviceId *string
@@ -1427,14 +1405,12 @@ Redeemable means the customer has chosen to use the offer and wishes to redeem i
 Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateOfferTransactionRequest
 */
-func (a *WalletAPIService) UpdateOfferTransaction(ctx context.Context, version float32) ApiUpdateOfferTransactionRequest {
+func (a *WalletAPIService) UpdateOfferTransaction(ctx context.Context) ApiUpdateOfferTransactionRequest {
 	return ApiUpdateOfferTransactionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1453,8 +1429,7 @@ func (a *WalletAPIService) UpdateOfferTransactionExecute(r ApiUpdateOfferTransac
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/wallet/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/wallet/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

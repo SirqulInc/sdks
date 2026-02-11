@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type LocationAPIService service
 type ApiCacheTrilaterationDataRequest struct {
 	ctx context.Context
 	ApiService *LocationAPIService
-	version float32
 	udid *string
 	sourceTime *int64
 	minimumSampleSize *int32
@@ -76,14 +74,12 @@ CacheTrilaterationData Create Trilateration Data with File
 Creates trilateration samples for a source device (i.e. a router).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCacheTrilaterationDataRequest
 */
-func (a *LocationAPIService) CacheTrilaterationData(ctx context.Context, version float32) ApiCacheTrilaterationDataRequest {
+func (a *LocationAPIService) CacheTrilaterationData(ctx context.Context) ApiCacheTrilaterationDataRequest {
 	return ApiCacheTrilaterationDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -102,8 +98,7 @@ func (a *LocationAPIService) CacheTrilaterationDataExecute(r ApiCacheTrilaterati
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/trilaterate/cache"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/trilaterate/cache"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -182,7 +177,6 @@ func (a *LocationAPIService) CacheTrilaterationDataExecute(r ApiCacheTrilaterati
 type ApiCacheTrilaterationDataGzipRequest struct {
 	ctx context.Context
 	ApiService *LocationAPIService
-	version float32
 	body *TrilatCacheRequest
 }
 
@@ -201,14 +195,12 @@ CacheTrilaterationDataGzip Create Trilateration Data with Rest
 Creates trilateration samples for a source device (i.e. a router).
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCacheTrilaterationDataGzipRequest
 */
-func (a *LocationAPIService) CacheTrilaterationDataGzip(ctx context.Context, version float32) ApiCacheTrilaterationDataGzipRequest {
+func (a *LocationAPIService) CacheTrilaterationDataGzip(ctx context.Context) ApiCacheTrilaterationDataGzipRequest {
 	return ApiCacheTrilaterationDataGzipRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -227,8 +219,7 @@ func (a *LocationAPIService) CacheTrilaterationDataGzipExecute(r ApiCacheTrilate
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/trilaterate/cache/submit"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/trilaterate/cache/submit"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -293,7 +284,6 @@ func (a *LocationAPIService) CacheTrilaterationDataGzipExecute(r ApiCacheTrilate
 type ApiGetLocationByIpRequest struct {
 	ctx context.Context
 	ApiService *LocationAPIService
-	version float32
 	ip *string
 }
 
@@ -313,14 +303,12 @@ GetLocationByIp Get Location by IP
 Get location information based on an IP address.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetLocationByIpRequest
 */
-func (a *LocationAPIService) GetLocationByIp(ctx context.Context, version float32) ApiGetLocationByIpRequest {
+func (a *LocationAPIService) GetLocationByIp(ctx context.Context) ApiGetLocationByIpRequest {
 	return ApiGetLocationByIpRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -339,8 +327,7 @@ func (a *LocationAPIService) GetLocationByIpExecute(r ApiGetLocationByIpRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/ip"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/ip"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -406,7 +393,6 @@ func (a *LocationAPIService) GetLocationByIpExecute(r ApiGetLocationByIpRequest)
 type ApiGetLocationByTrilaterationRequest struct {
 	ctx context.Context
 	ApiService *LocationAPIService
-	version float32
 	accountId *int64
 	latitude *float64
 	longitude *float64
@@ -454,14 +440,12 @@ GetLocationByTrilateration Get Location by Trilateration
 Send in device data and calculate a position based on signal strengths.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetLocationByTrilaterationRequest
 */
-func (a *LocationAPIService) GetLocationByTrilateration(ctx context.Context, version float32) ApiGetLocationByTrilaterationRequest {
+func (a *LocationAPIService) GetLocationByTrilateration(ctx context.Context) ApiGetLocationByTrilaterationRequest {
 	return ApiGetLocationByTrilaterationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -480,8 +464,7 @@ func (a *LocationAPIService) GetLocationByTrilaterationExecute(r ApiGetLocationB
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/account/location/trilaterate"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/account/location/trilaterate"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -559,7 +542,6 @@ func (a *LocationAPIService) GetLocationByTrilaterationExecute(r ApiGetLocationB
 type ApiGetLocationsRequest struct {
 	ctx context.Context
 	ApiService *LocationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	currentlatitude *float64
@@ -705,14 +687,12 @@ GetLocations Search Regions or Postal Codes
 Searches geographic locations by proximity via address or keyword.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetLocationsRequest
 */
-func (a *LocationAPIService) GetLocations(ctx context.Context, version float32) ApiGetLocationsRequest {
+func (a *LocationAPIService) GetLocations(ctx context.Context) ApiGetLocationsRequest {
 	return ApiGetLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -731,8 +711,7 @@ func (a *LocationAPIService) GetLocationsExecute(r ApiGetLocationsRequest) (*Loc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

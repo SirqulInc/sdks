@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type NoteAPIService service
 type ApiBatchOperationRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	notableId *int64
 	notableType *string
 	deviceId *string
@@ -77,14 +75,12 @@ Perform a batch operation on notes for a notable object (for example: DELETE_ALL
 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiBatchOperationRequest
 */
-func (a *NoteAPIService) BatchOperation(ctx context.Context, version float32) ApiBatchOperationRequest {
+func (a *NoteAPIService) BatchOperation(ctx context.Context) ApiBatchOperationRequest {
 	return ApiBatchOperationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -103,8 +99,7 @@ func (a *NoteAPIService) BatchOperationExecute(r ApiBatchOperationRequest) (*Sir
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -184,7 +179,6 @@ func (a *NoteAPIService) BatchOperationExecute(r ApiBatchOperationRequest) (*Sir
 type ApiCreateNoteRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	comment *string
 	deviceId *string
 	accountId *int64
@@ -491,14 +485,12 @@ CreateNote Create Note
 This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateNoteRequest
 */
-func (a *NoteAPIService) CreateNote(ctx context.Context, version float32) ApiCreateNoteRequest {
+func (a *NoteAPIService) CreateNote(ctx context.Context) ApiCreateNoteRequest {
 	return ApiCreateNoteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -517,8 +509,7 @@ func (a *NoteAPIService) CreateNoteExecute(r ApiCreateNoteRequest) (*NoteRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -708,7 +699,6 @@ func (a *NoteAPIService) CreateNoteExecute(r ApiCreateNoteRequest) (*NoteRespons
 type ApiDeleteNoteRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	noteId *int64
 	deviceId *string
 	accountId *int64
@@ -763,14 +753,12 @@ DeleteNote Delete Note
 Sets a comment (note) as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteNoteRequest
 */
-func (a *NoteAPIService) DeleteNote(ctx context.Context, version float32) ApiDeleteNoteRequest {
+func (a *NoteAPIService) DeleteNote(ctx context.Context) ApiDeleteNoteRequest {
 	return ApiDeleteNoteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -789,8 +777,7 @@ func (a *NoteAPIService) DeleteNoteExecute(r ApiDeleteNoteRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -872,7 +859,6 @@ func (a *NoteAPIService) DeleteNoteExecute(r ApiDeleteNoteRequest) (*SirqulRespo
 type ApiGetNoteRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	noteId *int64
 	deviceId *string
 	accountId *int64
@@ -913,14 +899,12 @@ GetNote Get Note
 Get for a note based on its Id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetNoteRequest
 */
-func (a *NoteAPIService) GetNote(ctx context.Context, version float32) ApiGetNoteRequest {
+func (a *NoteAPIService) GetNote(ctx context.Context) ApiGetNoteRequest {
 	return ApiGetNoteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -939,8 +923,7 @@ func (a *NoteAPIService) GetNoteExecute(r ApiGetNoteRequest) (*SirqulResponse, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1016,7 +999,6 @@ func (a *NoteAPIService) GetNoteExecute(r ApiGetNoteRequest) (*SirqulResponse, *
 type ApiSearchNotesRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	notableType *string
@@ -1148,14 +1130,12 @@ SearchNotes Search Notes
 Search for notes on a notable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchNotesRequest
 */
-func (a *NoteAPIService) SearchNotes(ctx context.Context, version float32) ApiSearchNotesRequest {
+func (a *NoteAPIService) SearchNotes(ctx context.Context) ApiSearchNotesRequest {
 	return ApiSearchNotesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1174,8 +1154,7 @@ func (a *NoteAPIService) SearchNotesExecute(r ApiSearchNotesRequest) ([]NoteResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1289,7 +1268,6 @@ func (a *NoteAPIService) SearchNotesExecute(r ApiSearchNotesRequest) ([]NoteResp
 type ApiUpdateNoteRequest struct {
 	ctx context.Context
 	ApiService *NoteAPIService
-	version float32
 	noteId *int64
 	deviceId *string
 	accountId *int64
@@ -1589,14 +1567,12 @@ UpdateNote Update Note
 Update an existing comment (note). Only the creator of the note have permission to update.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateNoteRequest
 */
-func (a *NoteAPIService) UpdateNote(ctx context.Context, version float32) ApiUpdateNoteRequest {
+func (a *NoteAPIService) UpdateNote(ctx context.Context) ApiUpdateNoteRequest {
 	return ApiUpdateNoteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1615,8 +1591,7 @@ func (a *NoteAPIService) UpdateNoteExecute(r ApiUpdateNoteRequest) (*NoteRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/note/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/note/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

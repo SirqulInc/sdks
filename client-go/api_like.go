@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type LikeAPIService service
 type ApiRegisterLikeRequest struct {
 	ctx context.Context
 	ApiService *LikeAPIService
-	version float32
 	likableType *string
 	likableId *int64
 	deviceId *string
@@ -124,14 +122,12 @@ RegisterLike Create Like
 Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\dislikes on the same object will replace the previous one.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRegisterLikeRequest
 */
-func (a *LikeAPIService) RegisterLike(ctx context.Context, version float32) ApiRegisterLikeRequest {
+func (a *LikeAPIService) RegisterLike(ctx context.Context) ApiRegisterLikeRequest {
 	return ApiRegisterLikeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -150,8 +146,7 @@ func (a *LikeAPIService) RegisterLikeExecute(r ApiRegisterLikeRequest) (*Likable
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/like"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/like"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -252,7 +247,6 @@ func (a *LikeAPIService) RegisterLikeExecute(r ApiRegisterLikeRequest) (*Likable
 type ApiRemoveLikeRequest struct {
 	ctx context.Context
 	ApiService *LikeAPIService
-	version float32
 	likableType *string
 	likableId *int64
 	deviceId *string
@@ -307,14 +301,12 @@ RemoveLike Delete Like
 Removes a like. This will make the user "neutral".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveLikeRequest
 */
-func (a *LikeAPIService) RemoveLike(ctx context.Context, version float32) ApiRemoveLikeRequest {
+func (a *LikeAPIService) RemoveLike(ctx context.Context) ApiRemoveLikeRequest {
 	return ApiRemoveLikeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -333,8 +325,7 @@ func (a *LikeAPIService) RemoveLikeExecute(r ApiRemoveLikeRequest) (*LikableResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/like/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/like/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -417,7 +408,6 @@ func (a *LikeAPIService) RemoveLikeExecute(r ApiRemoveLikeRequest) (*LikableResp
 type ApiSearchLikesRequest struct {
 	ctx context.Context
 	ApiService *LikeAPIService
-	version float32
 	likableType *string
 	likableId *int64
 	deviceId *string
@@ -507,14 +497,12 @@ SearchLikes Search Likes
 Search for likes on a likable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchLikesRequest
 */
-func (a *LikeAPIService) SearchLikes(ctx context.Context, version float32) ApiSearchLikesRequest {
+func (a *LikeAPIService) SearchLikes(ctx context.Context) ApiSearchLikesRequest {
 	return ApiSearchLikesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -533,8 +521,7 @@ func (a *LikeAPIService) SearchLikesExecute(r ApiSearchLikesRequest) (*SearchRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/like/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/like/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

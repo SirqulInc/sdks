@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type ThirdPartyCredentialsAPIService service
 type ApiCreateCredentialRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	thirdPartyId *string
 	thirdPartyToken *string
 	networkUID *string
@@ -164,14 +162,12 @@ The thirdPartyId parameter is used to determine if the user already exists in Si
  The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateCredentialRequest
 */
-func (a *ThirdPartyCredentialsAPIService) CreateCredential(ctx context.Context, version float32) ApiCreateCredentialRequest {
+func (a *ThirdPartyCredentialsAPIService) CreateCredential(ctx context.Context) ApiCreateCredentialRequest {
 	return ApiCreateCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -190,8 +186,7 @@ func (a *ThirdPartyCredentialsAPIService) CreateCredentialExecute(r ApiCreateCre
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -313,7 +308,6 @@ func (a *ThirdPartyCredentialsAPIService) CreateCredentialExecute(r ApiCreateCre
 type ApiCreateNetworkRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	name *string
 	enableIntrospection *bool
@@ -444,14 +438,12 @@ CreateNetwork Create Network
 Creates a custom third party network.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateNetworkRequest
 */
-func (a *ThirdPartyCredentialsAPIService) CreateNetwork(ctx context.Context, version float32) ApiCreateNetworkRequest {
+func (a *ThirdPartyCredentialsAPIService) CreateNetwork(ctx context.Context) ApiCreateNetworkRequest {
 	return ApiCreateNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -470,8 +462,7 @@ func (a *ThirdPartyCredentialsAPIService) CreateNetworkExecute(r ApiCreateNetwor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/network/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/network/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -587,7 +578,6 @@ func (a *ThirdPartyCredentialsAPIService) CreateNetworkExecute(r ApiCreateNetwor
 type ApiDeleteCredentialRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	networkUID *string
 	thirdPartyId *string
@@ -628,14 +618,12 @@ DeleteCredential Delete Credential
 Delete a third party network on a Sirqul account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteCredentialRequest
 */
-func (a *ThirdPartyCredentialsAPIService) DeleteCredential(ctx context.Context, version float32) ApiDeleteCredentialRequest {
+func (a *ThirdPartyCredentialsAPIService) DeleteCredential(ctx context.Context) ApiDeleteCredentialRequest {
 	return ApiDeleteCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -654,8 +642,7 @@ func (a *ThirdPartyCredentialsAPIService) DeleteCredentialExecute(r ApiDeleteCre
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -734,7 +721,6 @@ func (a *ThirdPartyCredentialsAPIService) DeleteCredentialExecute(r ApiDeleteCre
 type ApiDeleteNetworkRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	networkUID *string
 }
@@ -761,14 +747,12 @@ DeleteNetwork Delete Network
 Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteNetworkRequest
 */
-func (a *ThirdPartyCredentialsAPIService) DeleteNetwork(ctx context.Context, version float32) ApiDeleteNetworkRequest {
+func (a *ThirdPartyCredentialsAPIService) DeleteNetwork(ctx context.Context) ApiDeleteNetworkRequest {
 	return ApiDeleteNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -787,8 +771,7 @@ func (a *ThirdPartyCredentialsAPIService) DeleteNetworkExecute(r ApiDeleteNetwor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/network/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/network/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -859,7 +842,6 @@ func (a *ThirdPartyCredentialsAPIService) DeleteNetworkExecute(r ApiDeleteNetwor
 type ApiGetCredentialRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	networkUID *string
 	appKey *string
 	accountId *int64
@@ -977,14 +959,12 @@ GetCredential Get Credential
 Gets the account information given a third party token.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCredentialRequest
 */
-func (a *ThirdPartyCredentialsAPIService) GetCredential(ctx context.Context, version float32) ApiGetCredentialRequest {
+func (a *ThirdPartyCredentialsAPIService) GetCredential(ctx context.Context) ApiGetCredentialRequest {
 	return ApiGetCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1003,8 +983,7 @@ func (a *ThirdPartyCredentialsAPIService) GetCredentialExecute(r ApiGetCredentia
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1118,7 +1097,6 @@ func (a *ThirdPartyCredentialsAPIService) GetCredentialExecute(r ApiGetCredentia
 type ApiGetNetworkRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	networkUID *string
 }
@@ -1145,14 +1123,12 @@ GetNetwork Get Network
 Get the details of a third party network. Only the network owners and managers have access to this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetNetworkRequest
 */
-func (a *ThirdPartyCredentialsAPIService) GetNetwork(ctx context.Context, version float32) ApiGetNetworkRequest {
+func (a *ThirdPartyCredentialsAPIService) GetNetwork(ctx context.Context) ApiGetNetworkRequest {
 	return ApiGetNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1171,8 +1147,7 @@ func (a *ThirdPartyCredentialsAPIService) GetNetworkExecute(r ApiGetNetworkReque
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/network/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/network/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1243,7 +1218,6 @@ func (a *ThirdPartyCredentialsAPIService) GetNetworkExecute(r ApiGetNetworkReque
 type ApiSearchCredentialsRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	networkUID *string
@@ -1298,14 +1272,12 @@ SearchCredentials Search Credentials
 Search on a user's linked third party networks.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchCredentialsRequest
 */
-func (a *ThirdPartyCredentialsAPIService) SearchCredentials(ctx context.Context, version float32) ApiSearchCredentialsRequest {
+func (a *ThirdPartyCredentialsAPIService) SearchCredentials(ctx context.Context) ApiSearchCredentialsRequest {
 	return ApiSearchCredentialsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1324,8 +1296,7 @@ func (a *ThirdPartyCredentialsAPIService) SearchCredentialsExecute(r ApiSearchCr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1415,7 +1386,6 @@ func (a *ThirdPartyCredentialsAPIService) SearchCredentialsExecute(r ApiSearchCr
 type ApiSearchNetworksRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -1484,14 +1454,12 @@ SearchNetworks Search Networks
 Search on supported third party networks and custom networks from external users.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchNetworksRequest
 */
-func (a *ThirdPartyCredentialsAPIService) SearchNetworks(ctx context.Context, version float32) ApiSearchNetworksRequest {
+func (a *ThirdPartyCredentialsAPIService) SearchNetworks(ctx context.Context) ApiSearchNetworksRequest {
 	return ApiSearchNetworksRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1510,8 +1478,7 @@ func (a *ThirdPartyCredentialsAPIService) SearchNetworksExecute(r ApiSearchNetwo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/network/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/network/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1604,7 +1571,6 @@ func (a *ThirdPartyCredentialsAPIService) SearchNetworksExecute(r ApiSearchNetwo
 type ApiSendMFAChallengeRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	networkUID *string
 	appKey *string
 	thirdPartyToken *string
@@ -1652,14 +1618,12 @@ SendMFAChallenge Send MFA Challenge
 Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSendMFAChallengeRequest
 */
-func (a *ThirdPartyCredentialsAPIService) SendMFAChallenge(ctx context.Context, version float32) ApiSendMFAChallengeRequest {
+func (a *ThirdPartyCredentialsAPIService) SendMFAChallenge(ctx context.Context) ApiSendMFAChallengeRequest {
 	return ApiSendMFAChallengeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1678,8 +1642,7 @@ func (a *ThirdPartyCredentialsAPIService) SendMFAChallengeExecute(r ApiSendMFACh
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/mfa/send"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/mfa/send"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1759,7 +1722,6 @@ func (a *ThirdPartyCredentialsAPIService) SendMFAChallengeExecute(r ApiSendMFACh
 type ApiUpdateCredentialRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	networkUID *string
 	thirdPartyId *string
 	appKey *string
@@ -1835,14 +1797,12 @@ UpdateCredential Update Credential
 Updates a third-party login for an account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateCredentialRequest
 */
-func (a *ThirdPartyCredentialsAPIService) UpdateCredential(ctx context.Context, version float32) ApiUpdateCredentialRequest {
+func (a *ThirdPartyCredentialsAPIService) UpdateCredential(ctx context.Context) ApiUpdateCredentialRequest {
 	return ApiUpdateCredentialRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1861,8 +1821,7 @@ func (a *ThirdPartyCredentialsAPIService) UpdateCredentialExecute(r ApiUpdateCre
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/credential/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/credential/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1955,7 +1914,6 @@ func (a *ThirdPartyCredentialsAPIService) UpdateCredentialExecute(r ApiUpdateCre
 type ApiUpdateNetworkRequest struct {
 	ctx context.Context
 	ApiService *ThirdPartyCredentialsAPIService
-	version float32
 	accountId *int64
 	networkUID *string
 	name *string
@@ -2093,14 +2051,12 @@ UpdateNetwork Update Network
 Updates a custom third party network. Only the network owners and managers have access to this.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateNetworkRequest
 */
-func (a *ThirdPartyCredentialsAPIService) UpdateNetwork(ctx context.Context, version float32) ApiUpdateNetworkRequest {
+func (a *ThirdPartyCredentialsAPIService) UpdateNetwork(ctx context.Context) ApiUpdateNetworkRequest {
 	return ApiUpdateNetworkRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2119,8 +2075,7 @@ func (a *ThirdPartyCredentialsAPIService) UpdateNetworkExecute(r ApiUpdateNetwor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/thirdparty/network/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/thirdparty/network/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

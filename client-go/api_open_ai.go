@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type OpenAIAPIService service
 type ApiImageGenerationRequest struct {
 	ctx context.Context
 	ApiService *OpenAIAPIService
-	version float32
 	accountId *int64
 	postBody *string
 	returnRawResponse *bool
@@ -61,14 +59,12 @@ ImageGeneration Generate images with OpenAI
 Generate images with OpenAI.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiImageGenerationRequest
 */
-func (a *OpenAIAPIService) ImageGeneration(ctx context.Context, version float32) ApiImageGenerationRequest {
+func (a *OpenAIAPIService) ImageGeneration(ctx context.Context) ApiImageGenerationRequest {
 	return ApiImageGenerationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -87,8 +83,7 @@ func (a *OpenAIAPIService) ImageGenerationExecute(r ApiImageGenerationRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/openai/v1/images/generations"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/openai/v1/images/generations"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

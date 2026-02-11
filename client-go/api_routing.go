@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type RoutingAPIService service
 type ApiComputeRoutingRequest struct {
 	ctx context.Context
 	ApiService *RoutingAPIService
-	version float32
 	data *string
 }
 
@@ -47,14 +45,12 @@ ComputeRouting Compute Route
 This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiComputeRoutingRequest
 */
-func (a *RoutingAPIService) ComputeRouting(ctx context.Context, version float32) ApiComputeRoutingRequest {
+func (a *RoutingAPIService) ComputeRouting(ctx context.Context) ApiComputeRoutingRequest {
 	return ApiComputeRoutingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -73,8 +69,7 @@ func (a *RoutingAPIService) ComputeRoutingExecute(r ApiComputeRoutingRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/routing/compute"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/routing/compute"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

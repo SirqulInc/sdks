@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type CSVImportAPIService service
 type ApiGetStatusCSVRequest struct {
 	ctx context.Context
 	ApiService *CSVImportAPIService
-	version float32
 	accountId *int64
 	batchId *int64
 	responseGroup *string
@@ -74,14 +72,12 @@ func (r ApiGetStatusCSVRequest) Execute() (*SirqulResponse, *http.Response, erro
 GetStatusCSV Detail Status
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetStatusCSVRequest
 */
-func (a *CSVImportAPIService) GetStatusCSV(ctx context.Context, version float32) ApiGetStatusCSVRequest {
+func (a *CSVImportAPIService) GetStatusCSV(ctx context.Context) ApiGetStatusCSVRequest {
 	return ApiGetStatusCSVRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -100,8 +96,7 @@ func (a *CSVImportAPIService) GetStatusCSVExecute(r ApiGetStatusCSVRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/csvimport/batch/status/details"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/csvimport/batch/status/details"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -184,7 +179,6 @@ func (a *CSVImportAPIService) GetStatusCSVExecute(r ApiGetStatusCSVRequest) (*Si
 type ApiListStatusCSVRequest struct {
 	ctx context.Context
 	ApiService *CSVImportAPIService
-	version float32
 	accountId *int64
 	start *int32
 	limit *int32
@@ -218,14 +212,12 @@ ListStatusCSV Search Status
 Retrieves batches for a user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListStatusCSVRequest
 */
-func (a *CSVImportAPIService) ListStatusCSV(ctx context.Context, version float32) ApiListStatusCSVRequest {
+func (a *CSVImportAPIService) ListStatusCSV(ctx context.Context) ApiListStatusCSVRequest {
 	return ApiListStatusCSVRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -244,8 +236,7 @@ func (a *CSVImportAPIService) ListStatusCSVExecute(r ApiListStatusCSVRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/csvimport/batch/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/csvimport/batch/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -320,7 +311,6 @@ func (a *CSVImportAPIService) ListStatusCSVExecute(r ApiListStatusCSVRequest) (*
 type ApiStatusCSVRequest struct {
 	ctx context.Context
 	ApiService *CSVImportAPIService
-	version float32
 	accountId *int64
 	batchId *int64
 }
@@ -347,14 +337,12 @@ StatusCSV Batch Status
 Checks status of batch upload.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiStatusCSVRequest
 */
-func (a *CSVImportAPIService) StatusCSV(ctx context.Context, version float32) ApiStatusCSVRequest {
+func (a *CSVImportAPIService) StatusCSV(ctx context.Context) ApiStatusCSVRequest {
 	return ApiStatusCSVRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -373,8 +361,7 @@ func (a *CSVImportAPIService) StatusCSVExecute(r ApiStatusCSVRequest) (*CsvImpor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/csvimport/batch/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/csvimport/batch/status"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -445,7 +432,6 @@ func (a *CSVImportAPIService) StatusCSVExecute(r ApiStatusCSVRequest) (*CsvImpor
 type ApiUploadCSVRequest struct {
 	ctx context.Context
 	ApiService *CSVImportAPIService
-	version float32
 	accountId *int64
 	uploadType *string
 	importFile *os.File
@@ -493,14 +479,12 @@ UploadCSV Upload CSV
 Uploads a CSV import file.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUploadCSVRequest
 */
-func (a *CSVImportAPIService) UploadCSV(ctx context.Context, version float32) ApiUploadCSVRequest {
+func (a *CSVImportAPIService) UploadCSV(ctx context.Context) ApiUploadCSVRequest {
 	return ApiUploadCSVRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -519,8 +503,7 @@ func (a *CSVImportAPIService) UploadCSVExecute(r ApiUploadCSVRequest) (*CsvImpor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/csvimport/upload"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/csvimport/upload"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

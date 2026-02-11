@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type EmployeeAPIService service
 type ApiAssignEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	managerAccountId *int64
 	employeeAccountId *int64
@@ -68,14 +66,12 @@ AssignEmployee Assign Employee
 Assign An existing account to be an employee
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignEmployeeRequest
 */
-func (a *EmployeeAPIService) AssignEmployee(ctx context.Context, version float32) ApiAssignEmployeeRequest {
+func (a *EmployeeAPIService) AssignEmployee(ctx context.Context) ApiAssignEmployeeRequest {
 	return ApiAssignEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -94,8 +90,7 @@ func (a *EmployeeAPIService) AssignEmployeeExecute(r ApiAssignEmployeeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/assign"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/assign"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -173,7 +168,6 @@ func (a *EmployeeAPIService) AssignEmployeeExecute(r ApiAssignEmployeeRequest) (
 type ApiAssignToLocationEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	retailerLocationId *int64
 	employeeAccountId *int64
@@ -214,14 +208,12 @@ AssignToLocationEmployee Assign Employee to Location
 Assign or unassign the account to a retailer location.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAssignToLocationEmployeeRequest
 */
-func (a *EmployeeAPIService) AssignToLocationEmployee(ctx context.Context, version float32) ApiAssignToLocationEmployeeRequest {
+func (a *EmployeeAPIService) AssignToLocationEmployee(ctx context.Context) ApiAssignToLocationEmployeeRequest {
 	return ApiAssignToLocationEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -240,8 +232,7 @@ func (a *EmployeeAPIService) AssignToLocationEmployeeExecute(r ApiAssignToLocati
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/assignToLocation"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/assignToLocation"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -322,7 +313,6 @@ func (a *EmployeeAPIService) AssignToLocationEmployeeExecute(r ApiAssignToLocati
 type ApiCreateEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	managerAccountId *int64
 	username *string
@@ -545,14 +535,12 @@ CreateEmployee Create Employee
 Create a new account record with the provided information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateEmployeeRequest
 */
-func (a *EmployeeAPIService) CreateEmployee(ctx context.Context, version float32) ApiCreateEmployeeRequest {
+func (a *EmployeeAPIService) CreateEmployee(ctx context.Context) ApiCreateEmployeeRequest {
 	return ApiCreateEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -571,8 +559,7 @@ func (a *EmployeeAPIService) CreateEmployeeExecute(r ApiCreateEmployeeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -729,7 +716,6 @@ func (a *EmployeeAPIService) CreateEmployeeExecute(r ApiCreateEmployeeRequest) (
 type ApiDeleteEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	employeeAccountId *int64
 }
@@ -756,14 +742,12 @@ DeleteEmployee Delete Employee
 Set the deleted date field which marks the record as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteEmployeeRequest
 */
-func (a *EmployeeAPIService) DeleteEmployee(ctx context.Context, version float32) ApiDeleteEmployeeRequest {
+func (a *EmployeeAPIService) DeleteEmployee(ctx context.Context) ApiDeleteEmployeeRequest {
 	return ApiDeleteEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -782,8 +766,7 @@ func (a *EmployeeAPIService) DeleteEmployeeExecute(r ApiDeleteEmployeeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -854,7 +837,6 @@ func (a *EmployeeAPIService) DeleteEmployeeExecute(r ApiDeleteEmployeeRequest) (
 type ApiGetEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	employeeAccountId *int64
 	settingsAppKey *string
@@ -888,14 +870,12 @@ GetEmployee Get Employee
 Get the account record for the account id provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetEmployeeRequest
 */
-func (a *EmployeeAPIService) GetEmployee(ctx context.Context, version float32) ApiGetEmployeeRequest {
+func (a *EmployeeAPIService) GetEmployee(ctx context.Context) ApiGetEmployeeRequest {
 	return ApiGetEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -914,8 +894,7 @@ func (a *EmployeeAPIService) GetEmployeeExecute(r ApiGetEmployeeRequest) (*Emplo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -989,7 +968,6 @@ func (a *EmployeeAPIService) GetEmployeeExecute(r ApiGetEmployeeRequest) (*Emplo
 type ApiSearchEmployeesRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	role *string
 	retailerId *int64
@@ -1121,14 +1099,12 @@ SearchEmployees Search Employees
 Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchEmployeesRequest
 */
-func (a *EmployeeAPIService) SearchEmployees(ctx context.Context, version float32) ApiSearchEmployeesRequest {
+func (a *EmployeeAPIService) SearchEmployees(ctx context.Context) ApiSearchEmployeesRequest {
 	return ApiSearchEmployeesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1147,8 +1123,7 @@ func (a *EmployeeAPIService) SearchEmployeesExecute(r ApiSearchEmployeesRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1279,7 +1254,6 @@ func (a *EmployeeAPIService) SearchEmployeesExecute(r ApiSearchEmployeesRequest)
 type ApiUnassignEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	employeeAccountId *int64
 }
@@ -1306,14 +1280,12 @@ UnassignEmployee Unassign Employee
 Unassign An existing account to be an employee
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUnassignEmployeeRequest
 */
-func (a *EmployeeAPIService) UnassignEmployee(ctx context.Context, version float32) ApiUnassignEmployeeRequest {
+func (a *EmployeeAPIService) UnassignEmployee(ctx context.Context) ApiUnassignEmployeeRequest {
 	return ApiUnassignEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1332,8 +1304,7 @@ func (a *EmployeeAPIService) UnassignEmployeeExecute(r ApiUnassignEmployeeReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/unassign"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/unassign"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1404,7 +1375,6 @@ func (a *EmployeeAPIService) UnassignEmployeeExecute(r ApiUnassignEmployeeReques
 type ApiUpdateEmployeeRequest struct {
 	ctx context.Context
 	ApiService *EmployeeAPIService
-	version float32
 	accountId *int64
 	employeeAccountId *int64
 	managerAccountId *int64
@@ -1627,14 +1597,12 @@ UpdateEmployee Update Employee
 Update the account record with the provided information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateEmployeeRequest
 */
-func (a *EmployeeAPIService) UpdateEmployee(ctx context.Context, version float32) ApiUpdateEmployeeRequest {
+func (a *EmployeeAPIService) UpdateEmployee(ctx context.Context) ApiUpdateEmployeeRequest {
 	return ApiUpdateEmployeeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1653,8 +1621,7 @@ func (a *EmployeeAPIService) UpdateEmployeeExecute(r ApiUpdateEmployeeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/employee/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/employee/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

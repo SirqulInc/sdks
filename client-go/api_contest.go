@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ContestAPIService service
 type ApiAddOrUpdateAlbumContestRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	publicRead *bool
 	publicWrite *bool
 	publicDelete *bool
@@ -215,14 +213,12 @@ AddOrUpdateAlbumContest Create or Update Contest
 Creates or updates a contest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddOrUpdateAlbumContestRequest
 */
-func (a *ContestAPIService) AddOrUpdateAlbumContest(ctx context.Context, version float32) ApiAddOrUpdateAlbumContestRequest {
+func (a *ContestAPIService) AddOrUpdateAlbumContest(ctx context.Context) ApiAddOrUpdateAlbumContestRequest {
 	return ApiAddOrUpdateAlbumContestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -241,8 +237,7 @@ func (a *ContestAPIService) AddOrUpdateAlbumContestExecute(r ApiAddOrUpdateAlbum
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -386,7 +381,6 @@ func (a *ContestAPIService) AddOrUpdateAlbumContestExecute(r ApiAddOrUpdateAlbum
 type ApiApproveAlbumContestRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	albumContestId *int64
 	approvalStatus *string
 	deviceId *string
@@ -427,14 +421,12 @@ ApproveAlbumContest Approve Contest
 Sets the approval status of a contest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiApproveAlbumContestRequest
 */
-func (a *ContestAPIService) ApproveAlbumContest(ctx context.Context, version float32) ApiApproveAlbumContestRequest {
+func (a *ContestAPIService) ApproveAlbumContest(ctx context.Context) ApiApproveAlbumContestRequest {
 	return ApiApproveAlbumContestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -453,8 +445,7 @@ func (a *ContestAPIService) ApproveAlbumContestExecute(r ApiApproveAlbumContestR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest/approve"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest/approve"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -531,7 +522,6 @@ func (a *ContestAPIService) ApproveAlbumContestExecute(r ApiApproveAlbumContestR
 type ApiDeleteContestRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	albumContestId *int64
 	deviceId *string
 	accountId *int64
@@ -579,14 +569,12 @@ DeleteContest Delete Contest
 Deletes a contest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteContestRequest
 */
-func (a *ContestAPIService) DeleteContest(ctx context.Context, version float32) ApiDeleteContestRequest {
+func (a *ContestAPIService) DeleteContest(ctx context.Context) ApiDeleteContestRequest {
 	return ApiDeleteContestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -605,8 +593,7 @@ func (a *ContestAPIService) DeleteContestExecute(r ApiDeleteContestRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -685,7 +672,6 @@ func (a *ContestAPIService) DeleteContestExecute(r ApiDeleteContestRequest) (*Si
 type ApiGetAlbumContestRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	albumContestId *int64
 	deviceId *string
 	accountId *int64
@@ -733,14 +719,12 @@ GetAlbumContest Get Contest
 Gets the contest object including the likes and notes
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAlbumContestRequest
 */
-func (a *ContestAPIService) GetAlbumContest(ctx context.Context, version float32) ApiGetAlbumContestRequest {
+func (a *ContestAPIService) GetAlbumContest(ctx context.Context) ApiGetAlbumContestRequest {
 	return ApiGetAlbumContestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -759,8 +743,7 @@ func (a *ContestAPIService) GetAlbumContestExecute(r ApiGetAlbumContestRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -839,7 +822,6 @@ func (a *ContestAPIService) GetAlbumContestExecute(r ApiGetAlbumContestRequest) 
 type ApiGetAlbumContestsRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	filter *string
 	sortField *string
 	descending *bool
@@ -985,14 +967,12 @@ GetAlbumContests Search Contests
 Searches on contests.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAlbumContestsRequest
 */
-func (a *ContestAPIService) GetAlbumContests(ctx context.Context, version float32) ApiGetAlbumContestsRequest {
+func (a *ContestAPIService) GetAlbumContests(ctx context.Context) ApiGetAlbumContestsRequest {
 	return ApiGetAlbumContestsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1011,8 +991,7 @@ func (a *ContestAPIService) GetAlbumContestsExecute(r ApiGetAlbumContestsRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1137,7 +1116,6 @@ func (a *ContestAPIService) GetAlbumContestsExecute(r ApiGetAlbumContestsRequest
 type ApiVoteOnAlbumContestRequest struct {
 	ctx context.Context
 	ApiService *ContestAPIService
-	version float32
 	albumContestId *int64
 	albumId *int64
 	deviceId *string
@@ -1199,14 +1177,12 @@ VoteOnAlbumContest Vote on Contest
 Vote on a collection in a contest.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiVoteOnAlbumContestRequest
 */
-func (a *ContestAPIService) VoteOnAlbumContest(ctx context.Context, version float32) ApiVoteOnAlbumContestRequest {
+func (a *ContestAPIService) VoteOnAlbumContest(ctx context.Context) ApiVoteOnAlbumContestRequest {
 	return ApiVoteOnAlbumContestRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1225,8 +1201,7 @@ func (a *ContestAPIService) VoteOnAlbumContestExecute(r ApiVoteOnAlbumContestReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/album/contest/vote"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/album/contest/vote"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

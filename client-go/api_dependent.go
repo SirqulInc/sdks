@@ -27,7 +27,6 @@ type DependentAPIService service
 type ApiCreateRequest struct {
 	ctx context.Context
 	ApiService *DependentAPIService
-	version float32
 	accountId int64
 	body *Account
 }
@@ -47,15 +46,13 @@ Create Create Dependent
 Create dependent of the account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param accountId the id of the parent account to create a dependent for
  @return ApiCreateRequest
 */
-func (a *DependentAPIService) Create(ctx context.Context, version float32, accountId int64) ApiCreateRequest {
+func (a *DependentAPIService) Create(ctx context.Context, accountId int64) ApiCreateRequest {
 	return ApiCreateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		accountId: accountId,
 	}
 }
@@ -75,8 +72,7 @@ func (a *DependentAPIService) CreateExecute(r ApiCreateRequest) (*SirqulResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/dependent/{accountId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/dependent/{accountId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -142,7 +138,6 @@ func (a *DependentAPIService) CreateExecute(r ApiCreateRequest) (*SirqulResponse
 type ApiGetDependentsRequest struct {
 	ctx context.Context
 	ApiService *DependentAPIService
-	version float32
 	accountId int64
 }
 
@@ -156,15 +151,13 @@ GetDependents Get dependent list of an account
 Get the dependent list of an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param accountId the id of the parent account to get a list of dependents
  @return ApiGetDependentsRequest
 */
-func (a *DependentAPIService) GetDependents(ctx context.Context, version float32, accountId int64) ApiGetDependentsRequest {
+func (a *DependentAPIService) GetDependents(ctx context.Context, accountId int64) ApiGetDependentsRequest {
 	return ApiGetDependentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		accountId: accountId,
 	}
 }
@@ -184,8 +177,7 @@ func (a *DependentAPIService) GetDependentsExecute(r ApiGetDependentsRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/dependent/{accountId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/dependent/{accountId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -249,7 +241,6 @@ func (a *DependentAPIService) GetDependentsExecute(r ApiGetDependentsRequest) (*
 type ApiRemoveDependentRequest struct {
 	ctx context.Context
 	ApiService *DependentAPIService
-	version float32
 	accountId int64
 	dependentId int64
 }
@@ -264,16 +255,14 @@ RemoveDependent Delete Dependent
 Delete the Dependent
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param accountId the id of the parent account tied to the dependent
  @param dependentId the id of the dependent to delete
  @return ApiRemoveDependentRequest
 */
-func (a *DependentAPIService) RemoveDependent(ctx context.Context, version float32, accountId int64, dependentId int64) ApiRemoveDependentRequest {
+func (a *DependentAPIService) RemoveDependent(ctx context.Context, accountId int64, dependentId int64) ApiRemoveDependentRequest {
 	return ApiRemoveDependentRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		accountId: accountId,
 		dependentId: dependentId,
 	}
@@ -292,8 +281,7 @@ func (a *DependentAPIService) RemoveDependentExecute(r ApiRemoveDependentRequest
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/cargo/dependent/{accountId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/cargo/dependent/{accountId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"accountId"+"}", url.PathEscape(parameterValueToString(r.accountId, "accountId")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"dependentId"+"}", url.PathEscape(parameterValueToString(r.dependentId, "dependentId")), -1)
 

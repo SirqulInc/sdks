@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type FlagAPIService service
 type ApiCreateFlagRequest struct {
 	ctx context.Context
 	ApiService *FlagAPIService
-	version float32
 	flagableType *string
 	flagableId *int64
 	deviceId *string
@@ -89,14 +87,12 @@ CreateFlag Create Flag
 Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateFlagRequest
 */
-func (a *FlagAPIService) CreateFlag(ctx context.Context, version float32) ApiCreateFlagRequest {
+func (a *FlagAPIService) CreateFlag(ctx context.Context) ApiCreateFlagRequest {
 	return ApiCreateFlagRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *FlagAPIService) CreateFlagExecute(r ApiCreateFlagRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/flag/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/flag/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -202,7 +197,6 @@ func (a *FlagAPIService) CreateFlagExecute(r ApiCreateFlagRequest) (*SirqulRespo
 type ApiDeleteFlagRequest struct {
 	ctx context.Context
 	ApiService *FlagAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	itemBeingFlaggedType *string
@@ -257,14 +251,12 @@ DeleteFlag Delete Flag
 Deletes a flag.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteFlagRequest
 */
-func (a *FlagAPIService) DeleteFlag(ctx context.Context, version float32) ApiDeleteFlagRequest {
+func (a *FlagAPIService) DeleteFlag(ctx context.Context) ApiDeleteFlagRequest {
 	return ApiDeleteFlagRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -283,8 +275,7 @@ func (a *FlagAPIService) DeleteFlagExecute(r ApiDeleteFlagRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/flag/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/flag/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -365,7 +356,6 @@ func (a *FlagAPIService) DeleteFlagExecute(r ApiDeleteFlagRequest) (*SirqulRespo
 type ApiGetFlagRequest struct {
 	ctx context.Context
 	ApiService *FlagAPIService
-	version float32
 	flagableType *string
 	flagableId *int64
 	deviceId *string
@@ -420,14 +410,12 @@ GetFlag Get Flag
 Gets the details on whether the user has flagged a particular flagable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetFlagRequest
 */
-func (a *FlagAPIService) GetFlag(ctx context.Context, version float32) ApiGetFlagRequest {
+func (a *FlagAPIService) GetFlag(ctx context.Context) ApiGetFlagRequest {
 	return ApiGetFlagRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -446,8 +434,7 @@ func (a *FlagAPIService) GetFlagExecute(r ApiGetFlagRequest) (*FlagResponse, *ht
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/flag/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/flag/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -530,7 +517,6 @@ func (a *FlagAPIService) GetFlagExecute(r ApiGetFlagRequest) (*FlagResponse, *ht
 type ApiGetFlagThresholdRequest struct {
 	ctx context.Context
 	ApiService *FlagAPIService
-	version float32
 	itemBeingFlaggedType *string
 	appKey *string
 }
@@ -557,14 +543,12 @@ GetFlagThreshold Get Flag Threshold
 Get the flag threshold value on an object type for a particular application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetFlagThresholdRequest
 */
-func (a *FlagAPIService) GetFlagThreshold(ctx context.Context, version float32) ApiGetFlagThresholdRequest {
+func (a *FlagAPIService) GetFlagThreshold(ctx context.Context) ApiGetFlagThresholdRequest {
 	return ApiGetFlagThresholdRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -583,8 +567,7 @@ func (a *FlagAPIService) GetFlagThresholdExecute(r ApiGetFlagThresholdRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/flag/threshold/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/flag/threshold/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -655,7 +638,6 @@ func (a *FlagAPIService) GetFlagThresholdExecute(r ApiGetFlagThresholdRequest) (
 type ApiUpdateFlagThresholdRequest struct {
 	ctx context.Context
 	ApiService *FlagAPIService
-	version float32
 	itemBeingFlaggedType *string
 	threshold *int64
 	appKey *string
@@ -703,14 +685,12 @@ UpdateFlagThreshold Update Flag Threshold
 Update the flag threshold on an object type for a particular application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateFlagThresholdRequest
 */
-func (a *FlagAPIService) UpdateFlagThreshold(ctx context.Context, version float32) ApiUpdateFlagThresholdRequest {
+func (a *FlagAPIService) UpdateFlagThreshold(ctx context.Context) ApiUpdateFlagThresholdRequest {
 	return ApiUpdateFlagThresholdRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -729,8 +709,7 @@ func (a *FlagAPIService) UpdateFlagThresholdExecute(r ApiUpdateFlagThresholdRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/flag/threshold/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/flag/threshold/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

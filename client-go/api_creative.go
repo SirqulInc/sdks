@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type CreativeAPIService service
 type ApiAddPreviewRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	creativeId *int64
 }
@@ -54,14 +52,12 @@ AddPreview Add Preview
 Enable this ad for preview for this account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddPreviewRequest
 */
-func (a *CreativeAPIService) AddPreview(ctx context.Context, version float32) ApiAddPreviewRequest {
+func (a *CreativeAPIService) AddPreview(ctx context.Context) ApiAddPreviewRequest {
 	return ApiAddPreviewRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -80,8 +76,7 @@ func (a *CreativeAPIService) AddPreviewExecute(r ApiAddPreviewRequest) (*SirqulR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/addpreview"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/addpreview"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -152,7 +147,6 @@ func (a *CreativeAPIService) AddPreviewExecute(r ApiAddPreviewRequest) (*SirqulR
 type ApiAdsFindRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	appKey *string
 	randomize *bool
 	targetedAdsOnly *bool
@@ -277,14 +271,12 @@ AdsFind Find Missions
 Get a set of ad filtered by the parameters provided.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAdsFindRequest
 */
-func (a *CreativeAPIService) AdsFind(ctx context.Context, version float32) ApiAdsFindRequest {
+func (a *CreativeAPIService) AdsFind(ctx context.Context) ApiAdsFindRequest {
 	return ApiAdsFindRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -303,8 +295,7 @@ func (a *CreativeAPIService) AdsFindExecute(r ApiAdsFindRequest) ([]MissionRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/ads/find"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/ads/find"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -418,7 +409,6 @@ func (a *CreativeAPIService) AdsFindExecute(r ApiAdsFindRequest) ([]MissionRespo
 type ApiCreateCreativeRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	name *string
 	active *bool
@@ -536,14 +526,12 @@ CreateCreative Create Creative
 Create a creative
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateCreativeRequest
 */
-func (a *CreativeAPIService) CreateCreative(ctx context.Context, version float32) ApiCreateCreativeRequest {
+func (a *CreativeAPIService) CreateCreative(ctx context.Context) ApiCreateCreativeRequest {
 	return ApiCreateCreativeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -562,8 +550,7 @@ func (a *CreativeAPIService) CreateCreativeExecute(r ApiCreateCreativeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -675,7 +662,6 @@ func (a *CreativeAPIService) CreateCreativeExecute(r ApiCreateCreativeRequest) (
 type ApiDeleteCreativeRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	creativeId *int64
 }
@@ -702,14 +688,12 @@ DeleteCreative Delete Creative
 Delete a creative
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteCreativeRequest
 */
-func (a *CreativeAPIService) DeleteCreative(ctx context.Context, version float32) ApiDeleteCreativeRequest {
+func (a *CreativeAPIService) DeleteCreative(ctx context.Context) ApiDeleteCreativeRequest {
 	return ApiDeleteCreativeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -728,8 +712,7 @@ func (a *CreativeAPIService) DeleteCreativeExecute(r ApiDeleteCreativeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -800,7 +783,6 @@ func (a *CreativeAPIService) DeleteCreativeExecute(r ApiDeleteCreativeRequest) (
 type ApiGetCreativeRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	creativeId *int64
 }
@@ -827,14 +809,12 @@ GetCreative Get Creative
 Get a creative
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCreativeRequest
 */
-func (a *CreativeAPIService) GetCreative(ctx context.Context, version float32) ApiGetCreativeRequest {
+func (a *CreativeAPIService) GetCreative(ctx context.Context) ApiGetCreativeRequest {
 	return ApiGetCreativeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -853,8 +833,7 @@ func (a *CreativeAPIService) GetCreativeExecute(r ApiGetCreativeRequest) (*Creat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -925,7 +904,6 @@ func (a *CreativeAPIService) GetCreativeExecute(r ApiGetCreativeRequest) (*Creat
 type ApiGetCreativesByApplicationRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	start *int32
@@ -980,14 +958,12 @@ GetCreativesByApplication Search Creatives
 Get a list of levels for an application, just those the account has permissions to view.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCreativesByApplicationRequest
 */
-func (a *CreativeAPIService) GetCreativesByApplication(ctx context.Context, version float32) ApiGetCreativesByApplicationRequest {
+func (a *CreativeAPIService) GetCreativesByApplication(ctx context.Context) ApiGetCreativesByApplicationRequest {
 	return ApiGetCreativesByApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1006,8 +982,7 @@ func (a *CreativeAPIService) GetCreativesByApplicationExecute(r ApiGetCreativesB
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1092,7 +1067,6 @@ func (a *CreativeAPIService) GetCreativesByApplicationExecute(r ApiGetCreativesB
 type ApiRemovePreviewRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	creativeId *int64
 }
@@ -1119,14 +1093,12 @@ RemovePreview Remove Preview
 Remove this ad for preview for this account.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemovePreviewRequest
 */
-func (a *CreativeAPIService) RemovePreview(ctx context.Context, version float32) ApiRemovePreviewRequest {
+func (a *CreativeAPIService) RemovePreview(ctx context.Context) ApiRemovePreviewRequest {
 	return ApiRemovePreviewRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1145,8 +1117,7 @@ func (a *CreativeAPIService) RemovePreviewExecute(r ApiRemovePreviewRequest) (*S
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/removepreview"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/removepreview"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1217,7 +1188,6 @@ func (a *CreativeAPIService) RemovePreviewExecute(r ApiRemovePreviewRequest) (*S
 type ApiUpdateCreativeRequest struct {
 	ctx context.Context
 	ApiService *CreativeAPIService
-	version float32
 	accountId *int64
 	creativeId *int64
 	name *string
@@ -1328,14 +1298,12 @@ UpdateCreative Update Creative
 Update a creative
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateCreativeRequest
 */
-func (a *CreativeAPIService) UpdateCreative(ctx context.Context, version float32) ApiUpdateCreativeRequest {
+func (a *CreativeAPIService) UpdateCreative(ctx context.Context) ApiUpdateCreativeRequest {
 	return ApiUpdateCreativeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1354,8 +1322,7 @@ func (a *CreativeAPIService) UpdateCreativeExecute(r ApiUpdateCreativeRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/creative/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/creative/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

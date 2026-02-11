@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type ApplicationAPIService service
 type ApiCreateApplicationRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appName *string
 	deviceId *string
 	accountId *int64
@@ -594,14 +592,12 @@ CreateApplication Create Application
 Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateApplicationRequest
 */
-func (a *ApplicationAPIService) CreateApplication(ctx context.Context, version float32) ApiCreateApplicationRequest {
+func (a *ApplicationAPIService) CreateApplication(ctx context.Context) ApiCreateApplicationRequest {
 	return ApiCreateApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -620,8 +616,7 @@ func (a *ApplicationAPIService) CreateApplicationExecute(r ApiCreateApplicationR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -990,7 +985,6 @@ func (a *ApplicationAPIService) CreateApplicationExecute(r ApiCreateApplicationR
 type ApiCreateApplicationPlacementRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	size *string
 	deviceId *string
@@ -1080,14 +1074,12 @@ CreateApplicationPlacement Create Ad Placement
 Creates a new ad placement for an application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateApplicationPlacementRequest
 */
-func (a *ApplicationAPIService) CreateApplicationPlacement(ctx context.Context, version float32) ApiCreateApplicationPlacementRequest {
+func (a *ApplicationAPIService) CreateApplicationPlacement(ctx context.Context) ApiCreateApplicationPlacementRequest {
 	return ApiCreateApplicationPlacementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1106,8 +1098,7 @@ func (a *ApplicationAPIService) CreateApplicationPlacementExecute(r ApiCreateApp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/placement/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/placement/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1205,7 +1196,6 @@ func (a *ApplicationAPIService) CreateApplicationPlacementExecute(r ApiCreateApp
 type ApiDeleteApplicationRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	accountId *int64
 	appKey *string
 }
@@ -1232,14 +1222,12 @@ DeleteApplication Delete Application
 Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteApplicationRequest
 */
-func (a *ApplicationAPIService) DeleteApplication(ctx context.Context, version float32) ApiDeleteApplicationRequest {
+func (a *ApplicationAPIService) DeleteApplication(ctx context.Context) ApiDeleteApplicationRequest {
 	return ApiDeleteApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1258,8 +1246,7 @@ func (a *ApplicationAPIService) DeleteApplicationExecute(r ApiDeleteApplicationR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1328,7 +1315,6 @@ func (a *ApplicationAPIService) DeleteApplicationExecute(r ApiDeleteApplicationR
 type ApiDeleteApplicationPlacementRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	placementId *int64
 	deviceId *string
 	accountId *int64
@@ -1362,14 +1348,12 @@ DeleteApplicationPlacement Delete Ad Placement
 Deletes an ad placement for an application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteApplicationPlacementRequest
 */
-func (a *ApplicationAPIService) DeleteApplicationPlacement(ctx context.Context, version float32) ApiDeleteApplicationPlacementRequest {
+func (a *ApplicationAPIService) DeleteApplicationPlacement(ctx context.Context) ApiDeleteApplicationPlacementRequest {
 	return ApiDeleteApplicationPlacementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1388,8 +1372,7 @@ func (a *ApplicationAPIService) DeleteApplicationPlacementExecute(r ApiDeleteApp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/placement/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/placement/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1462,7 +1445,6 @@ func (a *ApplicationAPIService) DeleteApplicationPlacementExecute(r ApiDeleteApp
 type ApiGetApplicationRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	applicationId *int64
 }
@@ -1489,14 +1471,12 @@ GetApplication Get Application
 Get a specific application by appKey
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetApplicationRequest
 */
-func (a *ApplicationAPIService) GetApplication(ctx context.Context, version float32) ApiGetApplicationRequest {
+func (a *ApplicationAPIService) GetApplication(ctx context.Context) ApiGetApplicationRequest {
 	return ApiGetApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1515,8 +1495,7 @@ func (a *ApplicationAPIService) GetApplicationExecute(r ApiGetApplicationRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1585,7 +1564,6 @@ func (a *ApplicationAPIService) GetApplicationExecute(r ApiGetApplicationRequest
 type ApiGetApplicationPlacementRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	placementId *int64
 	deviceId *string
 	accountId *int64
@@ -1619,14 +1597,12 @@ GetApplicationPlacement Get Ad Placement
 Get details of an ad placement
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetApplicationPlacementRequest
 */
-func (a *ApplicationAPIService) GetApplicationPlacement(ctx context.Context, version float32) ApiGetApplicationPlacementRequest {
+func (a *ApplicationAPIService) GetApplicationPlacement(ctx context.Context) ApiGetApplicationPlacementRequest {
 	return ApiGetApplicationPlacementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1645,8 +1621,7 @@ func (a *ApplicationAPIService) GetApplicationPlacementExecute(r ApiGetApplicati
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/placement/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/placement/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1719,7 +1694,6 @@ func (a *ApplicationAPIService) GetApplicationPlacementExecute(r ApiGetApplicati
 type ApiGetApplicationVersionsRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 }
 
 func (r ApiGetApplicationVersionsRequest) Execute() (*SirqulResponse, *http.Response, error) {
@@ -1732,14 +1706,12 @@ GetApplicationVersions Get API versions
 Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetApplicationVersionsRequest
 */
-func (a *ApplicationAPIService) GetApplicationVersions(ctx context.Context, version float32) ApiGetApplicationVersionsRequest {
+func (a *ApplicationAPIService) GetApplicationVersions(ctx context.Context) ApiGetApplicationVersionsRequest {
 	return ApiGetApplicationVersionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1758,8 +1730,7 @@ func (a *ApplicationAPIService) GetApplicationVersionsExecute(r ApiGetApplicatio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/versions"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/versions"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1822,7 +1793,6 @@ func (a *ApplicationAPIService) GetApplicationVersionsExecute(r ApiGetApplicatio
 type ApiGetUniqueUsersByAppRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	q *string
 	keyword *string
@@ -1894,14 +1864,12 @@ GetUniqueUsersByApp Search Application Users
 Get a list of users per application
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUniqueUsersByAppRequest
 */
-func (a *ApplicationAPIService) GetUniqueUsersByApp(ctx context.Context, version float32) ApiGetUniqueUsersByAppRequest {
+func (a *ApplicationAPIService) GetUniqueUsersByApp(ctx context.Context) ApiGetUniqueUsersByAppRequest {
 	return ApiGetUniqueUsersByAppRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1920,8 +1888,7 @@ func (a *ApplicationAPIService) GetUniqueUsersByAppExecute(r ApiGetUniqueUsersBy
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/users"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/users"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2017,7 +1984,6 @@ func (a *ApplicationAPIService) GetUniqueUsersByAppExecute(r ApiGetUniqueUsersBy
 type ApiListApplicationsRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	accountId *int64
 	q *string
 	keyword *string
@@ -2173,14 +2139,12 @@ ListApplications List Applications
 List active applications matching the criteria (as a consumer)
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListApplicationsRequest
 */
-func (a *ApplicationAPIService) ListApplications(ctx context.Context, version float32) ApiListApplicationsRequest {
+func (a *ApplicationAPIService) ListApplications(ctx context.Context) ApiListApplicationsRequest {
 	return ApiListApplicationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2199,8 +2163,7 @@ func (a *ApplicationAPIService) ListApplicationsExecute(r ApiListApplicationsReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2347,7 +2310,6 @@ func (a *ApplicationAPIService) ListApplicationsExecute(r ApiListApplicationsReq
 type ApiSearchApplicationPlacementRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	deviceId *string
 	accountId *int64
@@ -2395,14 +2357,12 @@ SearchApplicationPlacement Search for Ad Placements
 Searches placements for an application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchApplicationPlacementRequest
 */
-func (a *ApplicationAPIService) SearchApplicationPlacement(ctx context.Context, version float32) ApiSearchApplicationPlacementRequest {
+func (a *ApplicationAPIService) SearchApplicationPlacement(ctx context.Context) ApiSearchApplicationPlacementRequest {
 	return ApiSearchApplicationPlacementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2421,8 +2381,7 @@ func (a *ApplicationAPIService) SearchApplicationPlacementExecute(r ApiSearchApp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/placement/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/placement/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2509,7 +2468,6 @@ func (a *ApplicationAPIService) SearchApplicationPlacementExecute(r ApiSearchApp
 type ApiSearchApplicationSettingsRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	connectionAccountId *int64
@@ -2578,14 +2536,12 @@ SearchApplicationSettings Search for Application Settings
 Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchApplicationSettingsRequest
 */
-func (a *ApplicationAPIService) SearchApplicationSettings(ctx context.Context, version float32) ApiSearchApplicationSettingsRequest {
+func (a *ApplicationAPIService) SearchApplicationSettings(ctx context.Context) ApiSearchApplicationSettingsRequest {
 	return ApiSearchApplicationSettingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2604,8 +2560,7 @@ func (a *ApplicationAPIService) SearchApplicationSettingsExecute(r ApiSearchAppl
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/settings/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/settings/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2708,7 +2663,6 @@ func (a *ApplicationAPIService) SearchApplicationSettingsExecute(r ApiSearchAppl
 type ApiSearchApplicationsRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	latitude *float64
@@ -2836,14 +2790,12 @@ SearchApplications Search Applications
 Search for applications matching the criteria that the logged in user has access to
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchApplicationsRequest
 */
-func (a *ApplicationAPIService) SearchApplications(ctx context.Context, version float32) ApiSearchApplicationsRequest {
+func (a *ApplicationAPIService) SearchApplications(ctx context.Context) ApiSearchApplicationsRequest {
 	return ApiSearchApplicationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2862,8 +2814,7 @@ func (a *ApplicationAPIService) SearchApplicationsExecute(r ApiSearchApplication
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2998,7 +2949,6 @@ func (a *ApplicationAPIService) SearchApplicationsExecute(r ApiSearchApplication
 type ApiUpdateApplicationRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	appName *string
 	deviceId *string
@@ -3571,14 +3521,12 @@ UpdateApplication Update Application
 Update an application record
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateApplicationRequest
 */
-func (a *ApplicationAPIService) UpdateApplication(ctx context.Context, version float32) ApiUpdateApplicationRequest {
+func (a *ApplicationAPIService) UpdateApplication(ctx context.Context) ApiUpdateApplicationRequest {
 	return ApiUpdateApplicationRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3597,8 +3545,7 @@ func (a *ApplicationAPIService) UpdateApplicationExecute(r ApiUpdateApplicationR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3971,7 +3918,6 @@ func (a *ApplicationAPIService) UpdateApplicationExecute(r ApiUpdateApplicationR
 type ApiUpdateApplicationActiveRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	active *bool
@@ -4005,14 +3951,12 @@ UpdateApplicationActive Change Appliation Status
 Set the application's active flag to true/false. This effectively activates or deactivates the application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateApplicationActiveRequest
 */
-func (a *ApplicationAPIService) UpdateApplicationActive(ctx context.Context, version float32) ApiUpdateApplicationActiveRequest {
+func (a *ApplicationAPIService) UpdateApplicationActive(ctx context.Context) ApiUpdateApplicationActiveRequest {
 	return ApiUpdateApplicationActiveRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4031,8 +3975,7 @@ func (a *ApplicationAPIService) UpdateApplicationActiveExecute(r ApiUpdateApplic
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/active"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/active"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4107,7 +4050,6 @@ func (a *ApplicationAPIService) UpdateApplicationActiveExecute(r ApiUpdateApplic
 type ApiUpdateApplicationPlacementRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	placementId *int64
 	deviceId *string
 	accountId *int64
@@ -4197,14 +4139,12 @@ UpdateApplicationPlacement Update Ad Placement
 Updates an ad placement for an application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateApplicationPlacementRequest
 */
-func (a *ApplicationAPIService) UpdateApplicationPlacement(ctx context.Context, version float32) ApiUpdateApplicationPlacementRequest {
+func (a *ApplicationAPIService) UpdateApplicationPlacement(ctx context.Context) ApiUpdateApplicationPlacementRequest {
 	return ApiUpdateApplicationPlacementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4223,8 +4163,7 @@ func (a *ApplicationAPIService) UpdateApplicationPlacementExecute(r ApiUpdateApp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/placement/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/placement/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -4321,7 +4260,6 @@ func (a *ApplicationAPIService) UpdateApplicationPlacementExecute(r ApiUpdateApp
 type ApiUploadApplicationCertificateRequest struct {
 	ctx context.Context
 	ApiService *ApplicationAPIService
-	version float32
 	appKey *string
 	deviceId *string
 	accountId *int64
@@ -4362,14 +4300,12 @@ UploadApplicationCertificate Create Application Certificate
 Uploads a certificate for an application that the user has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUploadApplicationCertificateRequest
 */
-func (a *ApplicationAPIService) UploadApplicationCertificate(ctx context.Context, version float32) ApiUploadApplicationCertificateRequest {
+func (a *ApplicationAPIService) UploadApplicationCertificate(ctx context.Context) ApiUploadApplicationCertificateRequest {
 	return ApiUploadApplicationCertificateRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -4388,8 +4324,7 @@ func (a *ApplicationAPIService) UploadApplicationCertificateExecute(r ApiUploadA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/application/certificate/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/application/certificate/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

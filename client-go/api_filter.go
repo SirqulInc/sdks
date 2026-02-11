@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type FilterAPIService service
 type ApiCreateFilterRequest struct {
 	ctx context.Context
 	ApiService *FilterAPIService
-	version float32
 	accountId *int64
 	name *string
 	appKey *string
@@ -103,14 +101,12 @@ CreateFilter Create Filter
 Create a filter
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateFilterRequest
 */
-func (a *FilterAPIService) CreateFilter(ctx context.Context, version float32) ApiCreateFilterRequest {
+func (a *FilterAPIService) CreateFilter(ctx context.Context) ApiCreateFilterRequest {
 	return ApiCreateFilterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -129,8 +125,7 @@ func (a *FilterAPIService) CreateFilterExecute(r ApiCreateFilterRequest) (*Filte
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/filter/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/filter/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -222,7 +217,6 @@ func (a *FilterAPIService) CreateFilterExecute(r ApiCreateFilterRequest) (*Filte
 type ApiDeleteFilterRequest struct {
 	ctx context.Context
 	ApiService *FilterAPIService
-	version float32
 	accountId *int64
 	filterId *int64
 }
@@ -249,14 +243,12 @@ DeleteFilter Delete Filter
 Delete a filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteFilterRequest
 */
-func (a *FilterAPIService) DeleteFilter(ctx context.Context, version float32) ApiDeleteFilterRequest {
+func (a *FilterAPIService) DeleteFilter(ctx context.Context) ApiDeleteFilterRequest {
 	return ApiDeleteFilterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -275,8 +267,7 @@ func (a *FilterAPIService) DeleteFilterExecute(r ApiDeleteFilterRequest) (*Sirqu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/filter/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/filter/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -347,7 +338,6 @@ func (a *FilterAPIService) DeleteFilterExecute(r ApiDeleteFilterRequest) (*Sirqu
 type ApiGetFilterRequest struct {
 	ctx context.Context
 	ApiService *FilterAPIService
-	version float32
 	filterId *int64
 }
 
@@ -367,14 +357,12 @@ GetFilter Get Filter
 Get the details of a specific filter. Recursively include all child filters and their children.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetFilterRequest
 */
-func (a *FilterAPIService) GetFilter(ctx context.Context, version float32) ApiGetFilterRequest {
+func (a *FilterAPIService) GetFilter(ctx context.Context) ApiGetFilterRequest {
 	return ApiGetFilterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -393,8 +381,7 @@ func (a *FilterAPIService) GetFilterExecute(r ApiGetFilterRequest) (*FilterTreeR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/filter/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/filter/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -461,7 +448,6 @@ func (a *FilterAPIService) GetFilterExecute(r ApiGetFilterRequest) (*FilterTreeR
 type ApiSearchFiltersRequest struct {
 	ctx context.Context
 	ApiService *FilterAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	appKey *string
@@ -544,14 +530,12 @@ SearchFilters Search Filters
 Search for filters.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchFiltersRequest
 */
-func (a *FilterAPIService) SearchFilters(ctx context.Context, version float32) ApiSearchFiltersRequest {
+func (a *FilterAPIService) SearchFilters(ctx context.Context) ApiSearchFiltersRequest {
 	return ApiSearchFiltersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -570,8 +554,7 @@ func (a *FilterAPIService) SearchFiltersExecute(r ApiSearchFiltersRequest) ([]Fi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/filter/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/filter/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -684,7 +667,6 @@ func (a *FilterAPIService) SearchFiltersExecute(r ApiSearchFiltersRequest) ([]Fi
 type ApiUpdateFilterRequest struct {
 	ctx context.Context
 	ApiService *FilterAPIService
-	version float32
 	accountId *int64
 	filterId *int64
 	parentFilterId *int64
@@ -760,14 +742,12 @@ UpdateFilter Update Filter
 Update a filter.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateFilterRequest
 */
-func (a *FilterAPIService) UpdateFilter(ctx context.Context, version float32) ApiUpdateFilterRequest {
+func (a *FilterAPIService) UpdateFilter(ctx context.Context) ApiUpdateFilterRequest {
 	return ApiUpdateFilterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -786,8 +766,7 @@ func (a *FilterAPIService) UpdateFilterExecute(r ApiUpdateFilterRequest) (*Filte
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/filter/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/filter/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

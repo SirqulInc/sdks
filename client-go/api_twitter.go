@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type TwitterAPIService service
 type ApiAuthorizeTwitterRequest struct {
 	ctx context.Context
 	ApiService *TwitterAPIService
-	version float32
 	appKey *string
 }
 
@@ -47,14 +45,12 @@ AuthorizeTwitter Authorize Twitter
 Makes an authorization call to twitter for a user to login and allow any app permissions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAuthorizeTwitterRequest
 */
-func (a *TwitterAPIService) AuthorizeTwitter(ctx context.Context, version float32) ApiAuthorizeTwitterRequest {
+func (a *TwitterAPIService) AuthorizeTwitter(ctx context.Context) ApiAuthorizeTwitterRequest {
 	return ApiAuthorizeTwitterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -73,8 +69,7 @@ func (a *TwitterAPIService) AuthorizeTwitterExecute(r ApiAuthorizeTwitterRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/twitter/authorize"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/twitter/authorize"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -141,7 +136,6 @@ func (a *TwitterAPIService) AuthorizeTwitterExecute(r ApiAuthorizeTwitterRequest
 type ApiLoginTwitterRequest struct {
 	ctx context.Context
 	ApiService *TwitterAPIService
-	version float32
 	accessToken *string
 	accessTokenSecret *string
 	appKey *string
@@ -203,14 +197,12 @@ LoginTwitter Login Twitter
 Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLoginTwitterRequest
 */
-func (a *TwitterAPIService) LoginTwitter(ctx context.Context, version float32) ApiLoginTwitterRequest {
+func (a *TwitterAPIService) LoginTwitter(ctx context.Context) ApiLoginTwitterRequest {
 	return ApiLoginTwitterRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -229,8 +221,7 @@ func (a *TwitterAPIService) LoginTwitterExecute(r ApiLoginTwitterRequest) (*Prof
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/twitter/login"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/twitter/login"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

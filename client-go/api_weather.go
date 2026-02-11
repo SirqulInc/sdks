@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type WeatherAPIService service
 type ApiSearchWeatherRequest struct {
 	ctx context.Context
 	ApiService *WeatherAPIService
-	version float32
 	regionId *int64
 	latitude *float64
 	longitude *float64
@@ -68,14 +66,12 @@ SearchWeather Search Weather
 Search the weather forcast for the next 5 days
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchWeatherRequest
 */
-func (a *WeatherAPIService) SearchWeather(ctx context.Context, version float32) ApiSearchWeatherRequest {
+func (a *WeatherAPIService) SearchWeather(ctx context.Context) ApiSearchWeatherRequest {
 	return ApiSearchWeatherRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -94,8 +90,7 @@ func (a *WeatherAPIService) SearchWeatherExecute(r ApiSearchWeatherRequest) (*We
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/weather/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/weather/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

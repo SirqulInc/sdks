@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ScoreAPIService service
 type ApiCreateScoreRequest struct {
 	ctx context.Context
 	ApiService *ScoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	points *int32
@@ -111,14 +109,12 @@ Create a score.  The response object will contain a series of   coded messages d
 a list of {@link MessageResponse}.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateScoreRequest
 */
-func (a *ScoreAPIService) CreateScore(ctx context.Context, version float32) ApiCreateScoreRequest {
+func (a *ScoreAPIService) CreateScore(ctx context.Context) ApiCreateScoreRequest {
 	return ApiCreateScoreRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -137,8 +133,7 @@ func (a *ScoreAPIService) CreateScoreExecute(r ApiCreateScoreRequest) (*ScoreRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/score/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/score/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -234,7 +229,6 @@ func (a *ScoreAPIService) CreateScoreExecute(r ApiCreateScoreRequest) (*ScoreRes
 type ApiGetScoreRequest struct {
 	ctx context.Context
 	ApiService *ScoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	missionId *int64
@@ -310,14 +304,12 @@ GetScore Get Score
 Get the high score for an item.  Pass in the full path IDs for the score.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetScoreRequest
 */
-func (a *ScoreAPIService) GetScore(ctx context.Context, version float32) ApiGetScoreRequest {
+func (a *ScoreAPIService) GetScore(ctx context.Context) ApiGetScoreRequest {
 	return ApiGetScoreRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -336,8 +328,7 @@ func (a *ScoreAPIService) GetScoreExecute(r ApiGetScoreRequest) (*ScoreResponse,
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/score/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/score/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -429,7 +420,6 @@ func (a *ScoreAPIService) GetScoreExecute(r ApiGetScoreRequest) (*ScoreResponse,
 type ApiSearchScoresRequest struct {
 	ctx context.Context
 	ApiService *ScoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	missionId *int64
@@ -491,14 +481,12 @@ SearchScores Search Score
 Search the scores for an item.  Pass in the full path IDs for the scores.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchScoresRequest
 */
-func (a *ScoreAPIService) SearchScores(ctx context.Context, version float32) ApiSearchScoresRequest {
+func (a *ScoreAPIService) SearchScores(ctx context.Context) ApiSearchScoresRequest {
 	return ApiSearchScoresRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -517,8 +505,7 @@ func (a *ScoreAPIService) SearchScoresExecute(r ApiSearchScoresRequest) ([]Score
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/score/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/score/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

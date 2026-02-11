@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -28,7 +27,6 @@ type ThemeDescriptorAPIService service
 type ApiAddOrUpdateThemeDescriptorRequest struct {
 	ctx context.Context
 	ApiService *ThemeDescriptorAPIService
-	version float32
 	publicRead *bool
 	publicWrite *bool
 	publicDelete *bool
@@ -230,14 +228,12 @@ AddOrUpdateThemeDescriptor Create/Update Theme
 Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddOrUpdateThemeDescriptorRequest
 */
-func (a *ThemeDescriptorAPIService) AddOrUpdateThemeDescriptor(ctx context.Context, version float32) ApiAddOrUpdateThemeDescriptorRequest {
+func (a *ThemeDescriptorAPIService) AddOrUpdateThemeDescriptor(ctx context.Context) ApiAddOrUpdateThemeDescriptorRequest {
 	return ApiAddOrUpdateThemeDescriptorRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -256,8 +252,7 @@ func (a *ThemeDescriptorAPIService) AddOrUpdateThemeDescriptorExecute(r ApiAddOr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/theme"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/theme"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -408,7 +403,6 @@ func (a *ThemeDescriptorAPIService) AddOrUpdateThemeDescriptorExecute(r ApiAddOr
 type ApiGetThemeDescriptorRequest struct {
 	ctx context.Context
 	ApiService *ThemeDescriptorAPIService
-	version float32
 	themeDescriptorId *int64
 	deviceId *string
 	accountId *int64
@@ -463,14 +457,12 @@ GetThemeDescriptor Get Theme
 Gets a theme.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetThemeDescriptorRequest
 */
-func (a *ThemeDescriptorAPIService) GetThemeDescriptor(ctx context.Context, version float32) ApiGetThemeDescriptorRequest {
+func (a *ThemeDescriptorAPIService) GetThemeDescriptor(ctx context.Context) ApiGetThemeDescriptorRequest {
 	return ApiGetThemeDescriptorRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -489,8 +481,7 @@ func (a *ThemeDescriptorAPIService) GetThemeDescriptorExecute(r ApiGetThemeDescr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/theme/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/theme/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -572,7 +563,6 @@ func (a *ThemeDescriptorAPIService) GetThemeDescriptorExecute(r ApiGetThemeDescr
 type ApiGetThemeDescriptorsRequest struct {
 	ctx context.Context
 	ApiService *ThemeDescriptorAPIService
-	version float32
 	filter *string
 	sortField *string
 	descending *bool
@@ -711,14 +701,12 @@ GetThemeDescriptors Search Themes
 Searches for themes.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetThemeDescriptorsRequest
 */
-func (a *ThemeDescriptorAPIService) GetThemeDescriptors(ctx context.Context, version float32) ApiGetThemeDescriptorsRequest {
+func (a *ThemeDescriptorAPIService) GetThemeDescriptors(ctx context.Context) ApiGetThemeDescriptorsRequest {
 	return ApiGetThemeDescriptorsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -737,8 +725,7 @@ func (a *ThemeDescriptorAPIService) GetThemeDescriptorsExecute(r ApiGetThemeDesc
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/theme/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/theme/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -860,7 +847,6 @@ func (a *ThemeDescriptorAPIService) GetThemeDescriptorsExecute(r ApiGetThemeDesc
 type ApiRemoveThemeDescriptorRequest struct {
 	ctx context.Context
 	ApiService *ThemeDescriptorAPIService
-	version float32
 	themeDescriptorId *int64
 	deviceId *string
 	accountId *int64
@@ -915,14 +901,12 @@ RemoveThemeDescriptor Delete Theme
 Removes a theme.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveThemeDescriptorRequest
 */
-func (a *ThemeDescriptorAPIService) RemoveThemeDescriptor(ctx context.Context, version float32) ApiRemoveThemeDescriptorRequest {
+func (a *ThemeDescriptorAPIService) RemoveThemeDescriptor(ctx context.Context) ApiRemoveThemeDescriptorRequest {
 	return ApiRemoveThemeDescriptorRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -941,8 +925,7 @@ func (a *ThemeDescriptorAPIService) RemoveThemeDescriptorExecute(r ApiRemoveThem
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/theme/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/theme/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

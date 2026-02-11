@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type UserPermissionsAPIService service
 type ApiAddUsersToPermissionableRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	permissionableType *string
 	permissionableId *int64
 	deviceId *string
@@ -159,14 +157,12 @@ AddUsersToPermissionable Add User
 Adds a user to a permissionable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddUsersToPermissionableRequest
 */
-func (a *UserPermissionsAPIService) AddUsersToPermissionable(ctx context.Context, version float32) ApiAddUsersToPermissionableRequest {
+func (a *UserPermissionsAPIService) AddUsersToPermissionable(ctx context.Context) ApiAddUsersToPermissionableRequest {
 	return ApiAddUsersToPermissionableRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -185,8 +181,7 @@ func (a *UserPermissionsAPIService) AddUsersToPermissionableExecute(r ApiAddUser
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/permissions/add"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/permissions/add"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -326,7 +321,6 @@ func (a *UserPermissionsAPIService) AddUsersToPermissionableExecute(r ApiAddUser
 type ApiApprovePermissionableRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	permissionableType *string
 	permissionableId *int64
 	deviceId *string
@@ -374,14 +368,12 @@ ApprovePermissionable Approve Permissionable
 Sets the approval status of a permissionable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiApprovePermissionableRequest
 */
-func (a *UserPermissionsAPIService) ApprovePermissionable(ctx context.Context, version float32) ApiApprovePermissionableRequest {
+func (a *UserPermissionsAPIService) ApprovePermissionable(ctx context.Context) ApiApprovePermissionableRequest {
 	return ApiApprovePermissionableRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -400,8 +392,7 @@ func (a *UserPermissionsAPIService) ApprovePermissionableExecute(r ApiApprovePer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/permissionable/approve"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/permissionable/approve"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -485,7 +476,6 @@ func (a *UserPermissionsAPIService) ApprovePermissionableExecute(r ApiApprovePer
 type ApiLeaveFromPermissionableRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	permissionableType *string
 	permissionableId *int64
 	deviceId *string
@@ -540,14 +530,12 @@ LeaveFromPermissionable Leave
 Used when the user wants to leave from someone else's permissionable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiLeaveFromPermissionableRequest
 */
-func (a *UserPermissionsAPIService) LeaveFromPermissionable(ctx context.Context, version float32) ApiLeaveFromPermissionableRequest {
+func (a *UserPermissionsAPIService) LeaveFromPermissionable(ctx context.Context) ApiLeaveFromPermissionableRequest {
 	return ApiLeaveFromPermissionableRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -566,8 +554,7 @@ func (a *UserPermissionsAPIService) LeaveFromPermissionableExecute(r ApiLeaveFro
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/permissions/leave"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/permissions/leave"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -650,7 +637,6 @@ func (a *UserPermissionsAPIService) LeaveFromPermissionableExecute(r ApiLeaveFro
 type ApiRemoveUsersFromPermissionableRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	permissionableType *string
 	permissionableId *int64
 	deviceId *string
@@ -740,14 +726,12 @@ RemoveUsersFromPermissionable Remove User
 Used to remove someone (assuming they have permission) from a permissionable object
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRemoveUsersFromPermissionableRequest
 */
-func (a *UserPermissionsAPIService) RemoveUsersFromPermissionable(ctx context.Context, version float32) ApiRemoveUsersFromPermissionableRequest {
+func (a *UserPermissionsAPIService) RemoveUsersFromPermissionable(ctx context.Context) ApiRemoveUsersFromPermissionableRequest {
 	return ApiRemoveUsersFromPermissionableRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -766,8 +750,7 @@ func (a *UserPermissionsAPIService) RemoveUsersFromPermissionableExecute(r ApiRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/consumer/permissions/remove"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/consumer/permissions/remove"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -869,7 +852,6 @@ func (a *UserPermissionsAPIService) RemoveUsersFromPermissionableExecute(r ApiRe
 type ApiSearchPermissionablesRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	connectionAccountId *int64
@@ -973,14 +955,12 @@ SearchPermissionables Search Permissionables
 Search on UserPermissions
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPermissionablesRequest
 */
-func (a *UserPermissionsAPIService) SearchPermissionables(ctx context.Context, version float32) ApiSearchPermissionablesRequest {
+func (a *UserPermissionsAPIService) SearchPermissionables(ctx context.Context) ApiSearchPermissionablesRequest {
 	return ApiSearchPermissionablesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -999,8 +979,7 @@ func (a *UserPermissionsAPIService) SearchPermissionablesExecute(r ApiSearchPerm
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/permissions/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/permissions/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1110,7 +1089,6 @@ func (a *UserPermissionsAPIService) SearchPermissionablesExecute(r ApiSearchPerm
 type ApiSearchPermissionablesFollowingDistanceRequest struct {
 	ctx context.Context
 	ApiService *UserPermissionsAPIService
-	version float32
 	latitude *float64
 	longitude *float64
 	deviceId *string
@@ -1221,14 +1199,12 @@ SearchPermissionablesFollowingDistance Search Permissionables by Distnace
 Search on UserPermissions by distance
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPermissionablesFollowingDistanceRequest
 */
-func (a *UserPermissionsAPIService) SearchPermissionablesFollowingDistance(ctx context.Context, version float32) ApiSearchPermissionablesFollowingDistanceRequest {
+func (a *UserPermissionsAPIService) SearchPermissionablesFollowingDistance(ctx context.Context) ApiSearchPermissionablesFollowingDistanceRequest {
 	return ApiSearchPermissionablesFollowingDistanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1247,8 +1223,7 @@ func (a *UserPermissionsAPIService) SearchPermissionablesFollowingDistanceExecut
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/permissions/distancesearch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/permissions/distancesearch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

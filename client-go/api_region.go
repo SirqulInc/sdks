@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type RegionAPIService service
 type ApiCreateRegionRequest struct {
 	ctx context.Context
 	ApiService *RegionAPIService
-	version float32
 	accountId *int64
 	regionClass *string
 	shortName *string
@@ -187,14 +185,12 @@ CreateRegion Create Region
 Create a region.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRegionRequest
 */
-func (a *RegionAPIService) CreateRegion(ctx context.Context, version float32) ApiCreateRegionRequest {
+func (a *RegionAPIService) CreateRegion(ctx context.Context) ApiCreateRegionRequest {
 	return ApiCreateRegionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -213,8 +209,7 @@ func (a *RegionAPIService) CreateRegionExecute(r ApiCreateRegionRequest) (*Regio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/region/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/region/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -343,7 +338,6 @@ func (a *RegionAPIService) CreateRegionExecute(r ApiCreateRegionRequest) (*Regio
 type ApiDeleteRegionRequest struct {
 	ctx context.Context
 	ApiService *RegionAPIService
-	version float32
 	accountId *int64
 	regionId *int64
 }
@@ -370,14 +364,12 @@ DeleteRegion Delete Region
 Delete a region.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteRegionRequest
 */
-func (a *RegionAPIService) DeleteRegion(ctx context.Context, version float32) ApiDeleteRegionRequest {
+func (a *RegionAPIService) DeleteRegion(ctx context.Context) ApiDeleteRegionRequest {
 	return ApiDeleteRegionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -396,8 +388,7 @@ func (a *RegionAPIService) DeleteRegionExecute(r ApiDeleteRegionRequest) (*Regio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/region/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/region/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -468,7 +459,6 @@ func (a *RegionAPIService) DeleteRegionExecute(r ApiDeleteRegionRequest) (*Regio
 type ApiGetRegionRequest struct {
 	ctx context.Context
 	ApiService *RegionAPIService
-	version float32
 	regionId *int64
 	accountId *int64
 }
@@ -495,14 +485,12 @@ GetRegion Get Region
 Get a region.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetRegionRequest
 */
-func (a *RegionAPIService) GetRegion(ctx context.Context, version float32) ApiGetRegionRequest {
+func (a *RegionAPIService) GetRegion(ctx context.Context) ApiGetRegionRequest {
 	return ApiGetRegionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -521,8 +509,7 @@ func (a *RegionAPIService) GetRegionExecute(r ApiGetRegionRequest) (*RegionRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/region/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/region/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -592,7 +579,6 @@ func (a *RegionAPIService) GetRegionExecute(r ApiGetRegionRequest) (*RegionRespo
 type ApiSearchRegionsRequest struct {
 	ctx context.Context
 	ApiService *RegionAPIService
-	version float32
 	accountId *int64
 	query *string
 	keyword *string
@@ -759,14 +745,12 @@ SearchRegions Search Regions
 Get the list of regions.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRegionsRequest
 */
-func (a *RegionAPIService) SearchRegions(ctx context.Context, version float32) ApiSearchRegionsRequest {
+func (a *RegionAPIService) SearchRegions(ctx context.Context) ApiSearchRegionsRequest {
 	return ApiSearchRegionsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -785,8 +769,7 @@ func (a *RegionAPIService) SearchRegionsExecute(r ApiSearchRegionsRequest) ([]Re
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/region/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/region/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -915,7 +898,6 @@ func (a *RegionAPIService) SearchRegionsExecute(r ApiSearchRegionsRequest) ([]Re
 type ApiUpdateRegionRequest struct {
 	ctx context.Context
 	ApiService *RegionAPIService
-	version float32
 	accountId *int64
 	regionId *int64
 	regionClass *string
@@ -1089,14 +1071,12 @@ UpdateRegion Update Region
 Update a region.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateRegionRequest
 */
-func (a *RegionAPIService) UpdateRegion(ctx context.Context, version float32) ApiUpdateRegionRequest {
+func (a *RegionAPIService) UpdateRegion(ctx context.Context) ApiUpdateRegionRequest {
 	return ApiUpdateRegionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1115,8 +1095,7 @@ func (a *RegionAPIService) UpdateRegionExecute(r ApiUpdateRegionRequest) (*Regio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/region/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/region/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

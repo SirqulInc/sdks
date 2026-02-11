@@ -27,7 +27,6 @@ type TwilioAPIService service
 type ApiSmsBuyOfferRequest struct {
 	ctx context.Context
 	ApiService *TwilioAPIService
-	version float32
 	appKey string
 	body *string
 	from *string
@@ -62,15 +61,13 @@ SmsBuyOffer Buy Offer by SMS
 Recieve an SMS payload from Twillio to purchase an offer.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param appKey the application key
  @return ApiSmsBuyOfferRequest
 */
-func (a *TwilioAPIService) SmsBuyOffer(ctx context.Context, version float32, appKey string) ApiSmsBuyOfferRequest {
+func (a *TwilioAPIService) SmsBuyOffer(ctx context.Context, appKey string) ApiSmsBuyOfferRequest {
 	return ApiSmsBuyOfferRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		appKey: appKey,
 	}
 }
@@ -90,8 +87,7 @@ func (a *TwilioAPIService) SmsBuyOfferExecute(r ApiSmsBuyOfferRequest) (*TwiMLRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/sms/buyoffer/{appKey}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/sms/buyoffer/{appKey}"
 	localVarPath = strings.Replace(localVarPath, "{"+"appKey"+"}", url.PathEscape(parameterValueToString(r.appKey, "appKey")), -1)
 
 	localVarHeaderParams := make(map[string]string)

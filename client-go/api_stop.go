@@ -27,7 +27,6 @@ type StopAPIService service
 type ApiGetStopRequest struct {
 	ctx context.Context
 	ApiService *StopAPIService
-	version float32
 	id int64
 }
 
@@ -41,15 +40,13 @@ GetStop Get Stop
 Get an existing stop
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the stop to get
  @return ApiGetStopRequest
 */
-func (a *StopAPIService) GetStop(ctx context.Context, version float32, id int64) ApiGetStopRequest {
+func (a *StopAPIService) GetStop(ctx context.Context, id int64) ApiGetStopRequest {
 	return ApiGetStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -69,8 +66,7 @@ func (a *StopAPIService) GetStopExecute(r ApiGetStopRequest) (*Stop, *http.Respo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/stop/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/stop/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -134,7 +130,6 @@ func (a *StopAPIService) GetStopExecute(r ApiGetStopRequest) (*Stop, *http.Respo
 type ApiUpdateStopRequest struct {
 	ctx context.Context
 	ApiService *StopAPIService
-	version float32
 	id int64
 	body *Stop
 }
@@ -154,15 +149,13 @@ UpdateStop Update Stop
 Update an existing stop
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the stop to update
  @return ApiUpdateStopRequest
 */
-func (a *StopAPIService) UpdateStop(ctx context.Context, version float32, id int64) ApiUpdateStopRequest {
+func (a *StopAPIService) UpdateStop(ctx context.Context, id int64) ApiUpdateStopRequest {
 	return ApiUpdateStopRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -182,8 +175,7 @@ func (a *StopAPIService) UpdateStopExecute(r ApiUpdateStopRequest) (*Stop, *http
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/stop/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/stop/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)

@@ -27,7 +27,6 @@ type TripAPIService service
 type ApiCreateTripRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	body *Trip
 }
 
@@ -46,14 +45,12 @@ CreateTrip Create Trip
 Create a new trip
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateTripRequest
 */
-func (a *TripAPIService) CreateTrip(ctx context.Context, version float32) ApiCreateTripRequest {
+func (a *TripAPIService) CreateTrip(ctx context.Context) ApiCreateTripRequest {
 	return ApiCreateTripRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *TripAPIService) CreateTripExecute(r ApiCreateTripRequest) (*Trip, *http
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *TripAPIService) CreateTripExecute(r ApiCreateTripRequest) (*Trip, *http
 type ApiDeleteRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 }
 
@@ -152,15 +147,13 @@ Delete Delete Trip
 Delete an existing trip
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip to delete
  @return ApiDeleteRequest
 */
-func (a *TripAPIService) Delete(ctx context.Context, version float32, id int64) ApiDeleteRequest {
+func (a *TripAPIService) Delete(ctx context.Context, id int64) ApiDeleteRequest {
 	return ApiDeleteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -178,8 +171,7 @@ func (a *TripAPIService) DeleteExecute(r ApiDeleteRequest) (*http.Response, erro
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -234,7 +226,6 @@ func (a *TripAPIService) DeleteExecute(r ApiDeleteRequest) (*http.Response, erro
 type ApiDriveTripRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	recurrence *bool
 }
@@ -255,15 +246,13 @@ DriveTrip Set Trip Preference Driver
 Update trip preference to drive, also create a route and assign the trip to the route
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip
  @return ApiDriveTripRequest
 */
-func (a *TripAPIService) DriveTrip(ctx context.Context, version float32, id int64) ApiDriveTripRequest {
+func (a *TripAPIService) DriveTrip(ctx context.Context, id int64) ApiDriveTripRequest {
 	return ApiDriveTripRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -283,8 +272,7 @@ func (a *TripAPIService) DriveTripExecute(r ApiDriveTripRequest) (*Trip, *http.R
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/drive"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/drive"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -352,7 +340,6 @@ func (a *TripAPIService) DriveTripExecute(r ApiDriveTripRequest) (*Trip, *http.R
 type ApiFlexibleTripRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	recurrence *bool
 }
@@ -373,15 +360,13 @@ FlexibleTrip Set Trip Preference Flexible
 Update trip preference to flexible.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip
  @return ApiFlexibleTripRequest
 */
-func (a *TripAPIService) FlexibleTrip(ctx context.Context, version float32, id int64) ApiFlexibleTripRequest {
+func (a *TripAPIService) FlexibleTrip(ctx context.Context, id int64) ApiFlexibleTripRequest {
 	return ApiFlexibleTripRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -401,8 +386,7 @@ func (a *TripAPIService) FlexibleTripExecute(r ApiFlexibleTripRequest) (*Trip, *
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/flexible"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/flexible"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -470,7 +454,6 @@ func (a *TripAPIService) FlexibleTripExecute(r ApiFlexibleTripRequest) (*Trip, *
 type ApiGetTripRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 }
 
@@ -484,15 +467,13 @@ GetTrip Get Trip
 Get an existing trip
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip to get
  @return ApiGetTripRequest
 */
-func (a *TripAPIService) GetTrip(ctx context.Context, version float32, id int64) ApiGetTripRequest {
+func (a *TripAPIService) GetTrip(ctx context.Context, id int64) ApiGetTripRequest {
 	return ApiGetTripRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -512,8 +493,7 @@ func (a *TripAPIService) GetTripExecute(r ApiGetTripRequest) (*Trip, *http.Respo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -577,7 +557,6 @@ func (a *TripAPIService) GetTripExecute(r ApiGetTripRequest) (*Trip, *http.Respo
 type ApiGetTripMatchesRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	sortField *string
 	descending *bool
@@ -640,15 +619,13 @@ GetTripMatches Get Trip Matches
 Get matching trips of specific trip
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id The id The id of the trip to search for matches for
  @return ApiGetTripMatchesRequest
 */
-func (a *TripAPIService) GetTripMatches(ctx context.Context, version float32, id int64) ApiGetTripMatchesRequest {
+func (a *TripAPIService) GetTripMatches(ctx context.Context, id int64) ApiGetTripMatchesRequest {
 	return ApiGetTripMatchesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -668,8 +645,7 @@ func (a *TripAPIService) GetTripMatchesExecute(r ApiGetTripMatchesRequest) ([]Tr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/match"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/match"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -759,7 +735,6 @@ func (a *TripAPIService) GetTripMatchesExecute(r ApiGetTripMatchesRequest) ([]Tr
 type ApiProcessTripMatchesRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	startDate *int64
 	endDate *int64
 	tripId *int64
@@ -793,14 +768,12 @@ ProcessTripMatches Process Trip Matches
 Process trip matching, assign trips with no route to matched trips with route.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiProcessTripMatchesRequest
 */
-func (a *TripAPIService) ProcessTripMatches(ctx context.Context, version float32) ApiProcessTripMatchesRequest {
+func (a *TripAPIService) ProcessTripMatches(ctx context.Context) ApiProcessTripMatchesRequest {
 	return ApiProcessTripMatchesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -819,8 +792,7 @@ func (a *TripAPIService) ProcessTripMatchesExecute(r ApiProcessTripMatchesReques
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/match/process"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/match/process"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -892,7 +864,6 @@ func (a *TripAPIService) ProcessTripMatchesExecute(r ApiProcessTripMatchesReques
 type ApiRideRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	recurrence *bool
 }
@@ -913,15 +884,13 @@ Ride Set Trip Preference Rider
 Update trip preference to ride.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip
  @return ApiRideRequest
 */
-func (a *TripAPIService) Ride(ctx context.Context, version float32, id int64) ApiRideRequest {
+func (a *TripAPIService) Ride(ctx context.Context, id int64) ApiRideRequest {
 	return ApiRideRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -941,8 +910,7 @@ func (a *TripAPIService) RideExecute(r ApiRideRequest) (*Trip, *http.Response, e
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/ride"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/ride"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1010,7 +978,6 @@ func (a *TripAPIService) RideExecute(r ApiRideRequest) (*Trip, *http.Response, e
 type ApiSearchRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -1086,14 +1053,12 @@ Search Search Trips
 Search for trips
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRequest
 */
-func (a *TripAPIService) Search(ctx context.Context, version float32) ApiSearchRequest {
+func (a *TripAPIService) Search(ctx context.Context) ApiSearchRequest {
 	return ApiSearchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1112,8 +1077,7 @@ func (a *TripAPIService) SearchExecute(r ApiSearchRequest) ([]Trip, *http.Respon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1209,7 +1173,6 @@ func (a *TripAPIService) SearchExecute(r ApiSearchRequest) ([]Trip, *http.Respon
 type ApiSearchTripsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	accountId *int64
 	sortField *string
 	descending *bool
@@ -1292,14 +1255,12 @@ SearchTrips Search Trips
 Search for trips with matching information.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchTripsRequest
 */
-func (a *TripAPIService) SearchTrips(ctx context.Context, version float32) ApiSearchTripsRequest {
+func (a *TripAPIService) SearchTrips(ctx context.Context) ApiSearchTripsRequest {
 	return ApiSearchTripsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1318,8 +1279,7 @@ func (a *TripAPIService) SearchTripsExecute(r ApiSearchTripsRequest) ([]Trip, *h
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/match"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/match"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1418,7 +1378,6 @@ func (a *TripAPIService) SearchTripsExecute(r ApiSearchTripsRequest) ([]Trip, *h
 type ApiUpdateLocationsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	body *Trip
 }
@@ -1436,15 +1395,13 @@ func (r ApiUpdateLocationsRequest) Execute() (*Trip, *http.Response, error) {
 UpdateLocations Update Trip Locations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip to update locations for
  @return ApiUpdateLocationsRequest
 */
-func (a *TripAPIService) UpdateLocations(ctx context.Context, version float32, id int64) ApiUpdateLocationsRequest {
+func (a *TripAPIService) UpdateLocations(ctx context.Context, id int64) ApiUpdateLocationsRequest {
 	return ApiUpdateLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -1464,8 +1421,7 @@ func (a *TripAPIService) UpdateLocationsExecute(r ApiUpdateLocationsRequest) (*T
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/locations"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/locations"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1531,7 +1487,6 @@ func (a *TripAPIService) UpdateLocationsExecute(r ApiUpdateLocationsRequest) (*T
 type ApiUpdateRecurrenceLocationsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	body *Trip
 }
@@ -1549,15 +1504,13 @@ func (r ApiUpdateRecurrenceLocationsRequest) Execute() ([]Trip, *http.Response, 
 UpdateRecurrenceLocations Update Recurrence Locations
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip
  @return ApiUpdateRecurrenceLocationsRequest
 */
-func (a *TripAPIService) UpdateRecurrenceLocations(ctx context.Context, version float32, id int64) ApiUpdateRecurrenceLocationsRequest {
+func (a *TripAPIService) UpdateRecurrenceLocations(ctx context.Context, id int64) ApiUpdateRecurrenceLocationsRequest {
 	return ApiUpdateRecurrenceLocationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -1577,8 +1530,7 @@ func (a *TripAPIService) UpdateRecurrenceLocationsExecute(r ApiUpdateRecurrenceL
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/locations/recurrence"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/locations/recurrence"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1644,7 +1596,6 @@ func (a *TripAPIService) UpdateRecurrenceLocationsExecute(r ApiUpdateRecurrenceL
 type ApiUpdateRecurrenceShipmentsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	body *Trip
 }
@@ -1662,15 +1613,13 @@ func (r ApiUpdateRecurrenceShipmentsRequest) Execute() ([]Trip, *http.Response, 
 UpdateRecurrenceShipments Update Recurrence Shipments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip
  @return ApiUpdateRecurrenceShipmentsRequest
 */
-func (a *TripAPIService) UpdateRecurrenceShipments(ctx context.Context, version float32, id int64) ApiUpdateRecurrenceShipmentsRequest {
+func (a *TripAPIService) UpdateRecurrenceShipments(ctx context.Context, id int64) ApiUpdateRecurrenceShipmentsRequest {
 	return ApiUpdateRecurrenceShipmentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -1690,8 +1639,7 @@ func (a *TripAPIService) UpdateRecurrenceShipmentsExecute(r ApiUpdateRecurrenceS
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/shipments/recurrence"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/shipments/recurrence"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1757,7 +1705,6 @@ func (a *TripAPIService) UpdateRecurrenceShipmentsExecute(r ApiUpdateRecurrenceS
 type ApiUpdateShipmentsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	body *Trip
 }
@@ -1775,15 +1722,13 @@ func (r ApiUpdateShipmentsRequest) Execute() (*Trip, *http.Response, error) {
 UpdateShipments Update Trip Shipments
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip shipments to update
  @return ApiUpdateShipmentsRequest
 */
-func (a *TripAPIService) UpdateShipments(ctx context.Context, version float32, id int64) ApiUpdateShipmentsRequest {
+func (a *TripAPIService) UpdateShipments(ctx context.Context, id int64) ApiUpdateShipmentsRequest {
 	return ApiUpdateShipmentsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -1803,8 +1748,7 @@ func (a *TripAPIService) UpdateShipmentsExecute(r ApiUpdateShipmentsRequest) (*T
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}/shipments"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}/shipments"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1870,7 +1814,6 @@ func (a *TripAPIService) UpdateShipmentsExecute(r ApiUpdateShipmentsRequest) (*T
 type ApiUpdateTripRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id int64
 	body *Trip
 }
@@ -1890,15 +1833,13 @@ UpdateTrip Update Trip
 Update an existing trip. Does not support recurring trip update.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the trip to update
  @return ApiUpdateTripRequest
 */
-func (a *TripAPIService) UpdateTrip(ctx context.Context, version float32, id int64) ApiUpdateTripRequest {
+func (a *TripAPIService) UpdateTrip(ctx context.Context, id int64) ApiUpdateTripRequest {
 	return ApiUpdateTripRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -1918,8 +1859,7 @@ func (a *TripAPIService) UpdateTripExecute(r ApiUpdateTripRequest) (*Trip, *http
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1985,7 +1925,6 @@ func (a *TripAPIService) UpdateTripExecute(r ApiUpdateTripRequest) (*Trip, *http
 type ApiUpdateTripNotificationsRequest struct {
 	ctx context.Context
 	ApiService *TripAPIService
-	version float32
 	id *int64
 	notifications *string
 }
@@ -2012,14 +1951,12 @@ UpdateTripNotifications Trip Notifications
 Update the trip notifications
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateTripNotificationsRequest
 */
-func (a *TripAPIService) UpdateTripNotifications(ctx context.Context, version float32) ApiUpdateTripNotificationsRequest {
+func (a *TripAPIService) UpdateTripNotifications(ctx context.Context) ApiUpdateTripNotificationsRequest {
 	return ApiUpdateTripNotificationsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2038,8 +1975,7 @@ func (a *TripAPIService) UpdateTripNotificationsExecute(r ApiUpdateTripNotificat
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/trip/notifications"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/trip/notifications"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

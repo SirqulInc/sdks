@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type DisbursementAPIService service
 type ApiCheckDisbursementsRequest struct {
 	ctx context.Context
 	ApiService *DisbursementAPIService
-	version float32
 	disbursementId *int64
 }
 
@@ -47,14 +45,12 @@ CheckDisbursements Check Disbursements
 Checks the status of a captured disbrusement to see if it has been settled.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCheckDisbursementsRequest
 */
-func (a *DisbursementAPIService) CheckDisbursements(ctx context.Context, version float32) ApiCheckDisbursementsRequest {
+func (a *DisbursementAPIService) CheckDisbursements(ctx context.Context) ApiCheckDisbursementsRequest {
 	return ApiCheckDisbursementsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -73,8 +69,7 @@ func (a *DisbursementAPIService) CheckDisbursementsExecute(r ApiCheckDisbursemen
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/disbursement/check"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/disbursement/check"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -141,7 +136,6 @@ func (a *DisbursementAPIService) CheckDisbursementsExecute(r ApiCheckDisbursemen
 type ApiCreateDisbursementRequest struct {
 	ctx context.Context
 	ApiService *DisbursementAPIService
-	version float32
 	accountId *int64
 	receiverAccountId *int64
 	originalSenderAccountId *int64
@@ -224,14 +218,12 @@ CreateDisbursement Create Disbursement
 Creates a Disbursement for sending money to a retailer
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateDisbursementRequest
 */
-func (a *DisbursementAPIService) CreateDisbursement(ctx context.Context, version float32) ApiCreateDisbursementRequest {
+func (a *DisbursementAPIService) CreateDisbursement(ctx context.Context) ApiCreateDisbursementRequest {
 	return ApiCreateDisbursementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -250,8 +242,7 @@ func (a *DisbursementAPIService) CreateDisbursementExecute(r ApiCreateDisburseme
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/disbursement/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/disbursement/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -349,7 +340,6 @@ func (a *DisbursementAPIService) CreateDisbursementExecute(r ApiCreateDisburseme
 type ApiGetDisbursementRequest struct {
 	ctx context.Context
 	ApiService *DisbursementAPIService
-	version float32
 	accountId *int64
 	disbursementId *int64
 }
@@ -376,14 +366,12 @@ GetDisbursement Get Disbursement
 Get Disbursement details
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetDisbursementRequest
 */
-func (a *DisbursementAPIService) GetDisbursement(ctx context.Context, version float32) ApiGetDisbursementRequest {
+func (a *DisbursementAPIService) GetDisbursement(ctx context.Context) ApiGetDisbursementRequest {
 	return ApiGetDisbursementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -402,8 +390,7 @@ func (a *DisbursementAPIService) GetDisbursementExecute(r ApiGetDisbursementRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/disbursement/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/disbursement/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -474,7 +461,6 @@ func (a *DisbursementAPIService) GetDisbursementExecute(r ApiGetDisbursementRequ
 type ApiSearchDisbursementsRequest struct {
 	ctx context.Context
 	ApiService *DisbursementAPIService
-	version float32
 	accountId *int64
 	receiverAccountId *int64
 	statuses *string
@@ -557,14 +543,12 @@ SearchDisbursements Search Disbursements
 Search Disbursements
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchDisbursementsRequest
 */
-func (a *DisbursementAPIService) SearchDisbursements(ctx context.Context, version float32) ApiSearchDisbursementsRequest {
+func (a *DisbursementAPIService) SearchDisbursements(ctx context.Context) ApiSearchDisbursementsRequest {
 	return ApiSearchDisbursementsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -583,8 +567,7 @@ func (a *DisbursementAPIService) SearchDisbursementsExecute(r ApiSearchDisbursem
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/disbursement/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/disbursement/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -690,7 +673,6 @@ func (a *DisbursementAPIService) SearchDisbursementsExecute(r ApiSearchDisbursem
 type ApiUpdateDisbursementRequest struct {
 	ctx context.Context
 	ApiService *DisbursementAPIService
-	version float32
 	accountId *int64
 	disbursementId *int64
 	amount *float32
@@ -773,14 +755,12 @@ UpdateDisbursement Update Disbursement
 Update Disbursement
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateDisbursementRequest
 */
-func (a *DisbursementAPIService) UpdateDisbursement(ctx context.Context, version float32) ApiUpdateDisbursementRequest {
+func (a *DisbursementAPIService) UpdateDisbursement(ctx context.Context) ApiUpdateDisbursementRequest {
 	return ApiUpdateDisbursementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -799,8 +779,7 @@ func (a *DisbursementAPIService) UpdateDisbursementExecute(r ApiUpdateDisburseme
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/disbursement/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/disbursement/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

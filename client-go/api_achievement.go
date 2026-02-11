@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 	"os"
 )
 
@@ -25,10 +24,9 @@ import (
 // AchievementAPIService AchievementAPI service
 type AchievementAPIService service
 
-type ApiApiVersionAchievementTierSearchPostRequest struct {
+type ApiAchievementTierSearchPostRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appKey *string
@@ -43,95 +41,93 @@ type ApiApiVersionAchievementTierSearchPostRequest struct {
 }
 
 // a unique id given by the device (deviceId or accountId required)
-func (r ApiApiVersionAchievementTierSearchPostRequest) DeviceId(deviceId string) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) DeviceId(deviceId string) ApiAchievementTierSearchPostRequest {
 	r.deviceId = &deviceId
 	return r
 }
 
 // the account id of the user (deviceId or accountId required)
-func (r ApiApiVersionAchievementTierSearchPostRequest) AccountId(accountId int64) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) AccountId(accountId int64) ApiAchievementTierSearchPostRequest {
 	r.accountId = &accountId
 	return r
 }
 
 // the application key
-func (r ApiApiVersionAchievementTierSearchPostRequest) AppKey(appKey string) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) AppKey(appKey string) ApiAchievementTierSearchPostRequest {
 	r.appKey = &appKey
 	return r
 }
 
 // the keyword used to filter resutls with (this returns results that have the keyword in the title or the description of the achievement tier)
-func (r ApiApiVersionAchievementTierSearchPostRequest) Keyword(keyword string) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) Keyword(keyword string) ApiAchievementTierSearchPostRequest {
 	r.keyword = &keyword
 	return r
 }
 
 // filter results by achievementType (these are exact case sensitive matches)
-func (r ApiApiVersionAchievementTierSearchPostRequest) AchievementType(achievementType int64) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) AchievementType(achievementType int64) ApiAchievementTierSearchPostRequest {
 	r.achievementType = &achievementType
 	return r
 }
 
 // filter results by the rankType (these are the exact case sensitive matches)
-func (r ApiApiVersionAchievementTierSearchPostRequest) RankType(rankType string) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) RankType(rankType string) ApiAchievementTierSearchPostRequest {
 	r.rankType = &rankType
 	return r
 }
 
 // the field to sort by. See {@link AchievementApiMap}
-func (r ApiApiVersionAchievementTierSearchPostRequest) SortField(sortField string) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) SortField(sortField string) ApiAchievementTierSearchPostRequest {
 	r.sortField = &sortField
 	return r
 }
 
 // determines whether the sort list is in descending or ascending order (of the achievement)
-func (r ApiApiVersionAchievementTierSearchPostRequest) Descending(descending bool) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) Descending(descending bool) ApiAchievementTierSearchPostRequest {
 	r.descending = &descending
 	return r
 }
 
 // determines whether the results are in descending or ascending order by the tier goal count (after the initial sort on the achievement)
-func (r ApiApiVersionAchievementTierSearchPostRequest) DescendingGoal(descendingGoal bool) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) DescendingGoal(descendingGoal bool) ApiAchievementTierSearchPostRequest {
 	r.descendingGoal = &descendingGoal
 	return r
 }
 
 // The start of the index for pagination
-func (r ApiApiVersionAchievementTierSearchPostRequest) Start(start int64) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) Start(start int64) ApiAchievementTierSearchPostRequest {
 	r.start = &start
 	return r
 }
 
 // the limit for pagination (has a hard limit of 1000)
-func (r ApiApiVersionAchievementTierSearchPostRequest) Limit(limit int64) ApiApiVersionAchievementTierSearchPostRequest {
+func (r ApiAchievementTierSearchPostRequest) Limit(limit int64) ApiAchievementTierSearchPostRequest {
 	r.limit = &limit
 	return r
 }
 
-func (r ApiApiVersionAchievementTierSearchPostRequest) Execute() (*AchievementTierResponse, *http.Response, error) {
-	return r.ApiService.ApiVersionAchievementTierSearchPostExecute(r)
+func (r ApiAchievementTierSearchPostRequest) Execute() (*AchievementTierResponse, *http.Response, error) {
+	return r.ApiService.AchievementTierSearchPostExecute(r)
 }
 
 /*
-ApiVersionAchievementTierSearchPost Searches an Achievement Tier
+AchievementTierSearchPost Searches an Achievement Tier
 
 Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
- @return ApiApiVersionAchievementTierSearchPostRequest
+ @return ApiAchievementTierSearchPostRequest
 */
-func (a *AchievementAPIService) ApiVersionAchievementTierSearchPost(ctx context.Context, version float32) ApiApiVersionAchievementTierSearchPostRequest {
-	return ApiApiVersionAchievementTierSearchPostRequest{
+func (a *AchievementAPIService) AchievementTierSearchPost(ctx context.Context) ApiAchievementTierSearchPostRequest {
+	return ApiAchievementTierSearchPostRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
 // Execute executes the request
 //  @return AchievementTierResponse
-func (a *AchievementAPIService) ApiVersionAchievementTierSearchPostExecute(r ApiApiVersionAchievementTierSearchPostRequest) (*AchievementTierResponse, *http.Response, error) {
+func (a *AchievementAPIService) AchievementTierSearchPostExecute(r ApiAchievementTierSearchPostRequest) (*AchievementTierResponse, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodPost
 		localVarPostBody     interface{}
@@ -139,13 +135,12 @@ func (a *AchievementAPIService) ApiVersionAchievementTierSearchPostExecute(r Api
 		localVarReturnValue  *AchievementTierResponse
 	)
 
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AchievementAPIService.ApiVersionAchievementTierSearchPost")
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "AchievementAPIService.AchievementTierSearchPost")
 	if err != nil {
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tier/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tier/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -241,7 +236,6 @@ func (a *AchievementAPIService) ApiVersionAchievementTierSearchPostExecute(r Api
 type ApiCreateAchievementRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	appKey *string
 	title *string
 	deviceId *string
@@ -345,14 +339,12 @@ CreateAchievement Create Achievement
 Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateAchievementRequest
 */
-func (a *AchievementAPIService) CreateAchievement(ctx context.Context, version float32) ApiCreateAchievementRequest {
+func (a *AchievementAPIService) CreateAchievement(ctx context.Context) ApiCreateAchievementRequest {
 	return ApiCreateAchievementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -371,8 +363,7 @@ func (a *AchievementAPIService) CreateAchievementExecute(r ApiCreateAchievementR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -476,7 +467,6 @@ func (a *AchievementAPIService) CreateAchievementExecute(r ApiCreateAchievementR
 type ApiCreateAchievementTierRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	achievementId *int64
 	scoreAllInstances *bool
 	deviceId *string
@@ -587,14 +577,12 @@ CreateAchievementTier Create Achievement Tier
 Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateAchievementTierRequest
 */
-func (a *AchievementAPIService) CreateAchievementTier(ctx context.Context, version float32) ApiCreateAchievementTierRequest {
+func (a *AchievementAPIService) CreateAchievementTier(ctx context.Context) ApiCreateAchievementTierRequest {
 	return ApiCreateAchievementTierRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -613,8 +601,7 @@ func (a *AchievementAPIService) CreateAchievementTierExecute(r ApiCreateAchievem
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tier/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tier/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -721,7 +708,6 @@ func (a *AchievementAPIService) CreateAchievementTierExecute(r ApiCreateAchievem
 type ApiDeleteAchievementRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	achievementId *int64
 	accountId *int64
 }
@@ -748,14 +734,12 @@ DeleteAchievement Delete Achievement
 Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteAchievementRequest
 */
-func (a *AchievementAPIService) DeleteAchievement(ctx context.Context, version float32) ApiDeleteAchievementRequest {
+func (a *AchievementAPIService) DeleteAchievement(ctx context.Context) ApiDeleteAchievementRequest {
 	return ApiDeleteAchievementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -774,8 +758,7 @@ func (a *AchievementAPIService) DeleteAchievementExecute(r ApiDeleteAchievementR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -845,7 +828,6 @@ func (a *AchievementAPIService) DeleteAchievementExecute(r ApiDeleteAchievementR
 type ApiDeleteAchievementTierRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	achievementTierId *int64
 	accountId *int64
 }
@@ -872,14 +854,12 @@ DeleteAchievementTier Delete Achievement Tier
 Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteAchievementTierRequest
 */
-func (a *AchievementAPIService) DeleteAchievementTier(ctx context.Context, version float32) ApiDeleteAchievementTierRequest {
+func (a *AchievementAPIService) DeleteAchievementTier(ctx context.Context) ApiDeleteAchievementTierRequest {
 	return ApiDeleteAchievementTierRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -898,8 +878,7 @@ func (a *AchievementAPIService) DeleteAchievementTierExecute(r ApiDeleteAchievem
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tier/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tier/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -969,7 +948,6 @@ func (a *AchievementAPIService) DeleteAchievementTierExecute(r ApiDeleteAchievem
 type ApiGetAchievementRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	achievementId *int64
 	deviceId *string
 	accountId *int64
@@ -1010,14 +988,12 @@ GetAchievement Get Achievement
 Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAchievementRequest
 */
-func (a *AchievementAPIService) GetAchievement(ctx context.Context, version float32) ApiGetAchievementRequest {
+func (a *AchievementAPIService) GetAchievement(ctx context.Context) ApiGetAchievementRequest {
 	return ApiGetAchievementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1036,8 +1012,7 @@ func (a *AchievementAPIService) GetAchievementExecute(r ApiGetAchievementRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1113,7 +1088,6 @@ func (a *AchievementAPIService) GetAchievementExecute(r ApiGetAchievementRequest
 type ApiGetAchievementTierRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	accountId *int64
 	achievementTierId *int64
 }
@@ -1140,14 +1114,12 @@ GetAchievementTier Gets an achievement tier
 Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetAchievementTierRequest
 */
-func (a *AchievementAPIService) GetAchievementTier(ctx context.Context, version float32) ApiGetAchievementTierRequest {
+func (a *AchievementAPIService) GetAchievementTier(ctx context.Context) ApiGetAchievementTierRequest {
 	return ApiGetAchievementTierRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1166,8 +1138,7 @@ func (a *AchievementAPIService) GetAchievementTierExecute(r ApiGetAchievementTie
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tier/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tier/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1238,7 +1209,6 @@ func (a *AchievementAPIService) GetAchievementTierExecute(r ApiGetAchievementTie
 type ApiGetUserAchievementsRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	returnNulls *bool
 	appKey *string
 	includeUndiscovered *bool
@@ -1328,14 +1298,12 @@ GetUserAchievements Get Achievement Progress
 Gets a list of user achievements.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetUserAchievementsRequest
 */
-func (a *AchievementAPIService) GetUserAchievements(ctx context.Context, version float32) ApiGetUserAchievementsRequest {
+func (a *AchievementAPIService) GetUserAchievements(ctx context.Context) ApiGetUserAchievementsRequest {
 	return ApiGetUserAchievementsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1354,8 +1322,7 @@ func (a *AchievementAPIService) GetUserAchievementsExecute(r ApiGetUserAchieveme
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/progress/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/progress/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1454,7 +1421,6 @@ func (a *AchievementAPIService) GetUserAchievementsExecute(r ApiGetUserAchieveme
 type ApiListAchievementTagsRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	appKey *string
 }
 
@@ -1474,14 +1440,12 @@ ListAchievementTags List Achievement Tags
 List achievement tags by application
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListAchievementTagsRequest
 */
-func (a *AchievementAPIService) ListAchievementTags(ctx context.Context, version float32) ApiListAchievementTagsRequest {
+func (a *AchievementAPIService) ListAchievementTags(ctx context.Context) ApiListAchievementTagsRequest {
 	return ApiListAchievementTagsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1500,8 +1464,7 @@ func (a *AchievementAPIService) ListAchievementTagsExecute(r ApiListAchievementT
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tag/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tag/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1567,7 +1530,6 @@ func (a *AchievementAPIService) ListAchievementTagsExecute(r ApiListAchievementT
 type ApiListAchievementsRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -1657,14 +1619,12 @@ ListAchievements List Achievements
 List achievements by billable.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiListAchievementsRequest
 */
-func (a *AchievementAPIService) ListAchievements(ctx context.Context, version float32) ApiListAchievementsRequest {
+func (a *AchievementAPIService) ListAchievements(ctx context.Context) ApiListAchievementsRequest {
 	return ApiListAchievementsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1683,8 +1643,7 @@ func (a *AchievementAPIService) ListAchievementsExecute(r ApiListAchievementsReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/list"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/list"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1785,7 +1744,6 @@ func (a *AchievementAPIService) ListAchievementsExecute(r ApiListAchievementsReq
 type ApiSearchAchievementsRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	appKey *string
 	sortField *string
 	descending *bool
@@ -1882,14 +1840,12 @@ SearchAchievements Search Achievements
 Searches achievements by application for consumers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchAchievementsRequest
 */
-func (a *AchievementAPIService) SearchAchievements(ctx context.Context, version float32) ApiSearchAchievementsRequest {
+func (a *AchievementAPIService) SearchAchievements(ctx context.Context) ApiSearchAchievementsRequest {
 	return ApiSearchAchievementsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1908,8 +1864,7 @@ func (a *AchievementAPIService) SearchAchievementsExecute(r ApiSearchAchievement
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2015,7 +1970,6 @@ func (a *AchievementAPIService) SearchAchievementsExecute(r ApiSearchAchievement
 type ApiUpdateAchievementRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	achievementId *int64
@@ -2133,14 +2087,12 @@ UpdateAchievement Update Achievement
 Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateAchievementRequest
 */
-func (a *AchievementAPIService) UpdateAchievement(ctx context.Context, version float32) ApiUpdateAchievementRequest {
+func (a *AchievementAPIService) UpdateAchievement(ctx context.Context) ApiUpdateAchievementRequest {
 	return ApiUpdateAchievementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2159,8 +2111,7 @@ func (a *AchievementAPIService) UpdateAchievementExecute(r ApiUpdateAchievementR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2268,7 +2219,6 @@ func (a *AchievementAPIService) UpdateAchievementExecute(r ApiUpdateAchievementR
 type ApiUpdateAchievementTierRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	achievementTierId *int64
 	deviceId *string
 	accountId *int64
@@ -2379,14 +2329,12 @@ UpdateAchievementTier Update Achievement Tier
 Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateAchievementTierRequest
 */
-func (a *AchievementAPIService) UpdateAchievementTier(ctx context.Context, version float32) ApiUpdateAchievementTierRequest {
+func (a *AchievementAPIService) UpdateAchievementTier(ctx context.Context) ApiUpdateAchievementTierRequest {
 	return ApiUpdateAchievementTierRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2405,8 +2353,7 @@ func (a *AchievementAPIService) UpdateAchievementTierExecute(r ApiUpdateAchievem
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/tier/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/tier/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2512,7 +2459,6 @@ func (a *AchievementAPIService) UpdateAchievementTierExecute(r ApiUpdateAchievem
 type ApiUpdateUserAchievementRequest struct {
 	ctx context.Context
 	ApiService *AchievementAPIService
-	version float32
 	accountId *int64
 	achievementId *int64
 	tag *string
@@ -2581,14 +2527,12 @@ UpdateUserAchievement Update Achievement Progress
 Update user achievement progress.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateUserAchievementRequest
 */
-func (a *AchievementAPIService) UpdateUserAchievement(ctx context.Context, version float32) ApiUpdateUserAchievementRequest {
+func (a *AchievementAPIService) UpdateUserAchievement(ctx context.Context) ApiUpdateUserAchievementRequest {
 	return ApiUpdateUserAchievementRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2607,8 +2551,7 @@ func (a *AchievementAPIService) UpdateUserAchievementExecute(r ApiUpdateUserAchi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/achievement/progress/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/achievement/progress/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type PathingAPIService service
 type ApiComputePathRequest struct {
 	ctx context.Context
 	ApiService *PathingAPIService
-	version float32
 	data *string
 	units *string
 	reducePath *bool
@@ -68,14 +66,12 @@ ComputePath Calculate Path
 Calculates the shortest path from point to point on a grid
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiComputePathRequest
 */
-func (a *PathingAPIService) ComputePath(ctx context.Context, version float32) ApiComputePathRequest {
+func (a *PathingAPIService) ComputePath(ctx context.Context) ApiComputePathRequest {
 	return ApiComputePathRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -94,8 +90,7 @@ func (a *PathingAPIService) ComputePathExecute(r ApiComputePathRequest) (*Pathin
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/pathing/compute"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/pathing/compute"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

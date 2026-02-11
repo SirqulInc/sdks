@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type BillingInfoAPIService service
 type ApiAddPaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	paymentMethodId *int64
 	accountName *string
@@ -201,14 +199,12 @@ AddPaymentMethod Update Payment Method
 Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddPaymentMethodRequest
 */
-func (a *BillingInfoAPIService) AddPaymentMethod(ctx context.Context, version float32) ApiAddPaymentMethodRequest {
+func (a *BillingInfoAPIService) AddPaymentMethod(ctx context.Context) ApiAddPaymentMethodRequest {
 	return ApiAddPaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -227,8 +223,7 @@ func (a *BillingInfoAPIService) AddPaymentMethodExecute(r ApiAddPaymentMethodReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -361,7 +356,6 @@ func (a *BillingInfoAPIService) AddPaymentMethodExecute(r ApiAddPaymentMethodReq
 type ApiCreatePaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	accountName *string
 	firstName *string
@@ -549,14 +543,12 @@ CreatePaymentMethod Create Payment Method
 Add a new method of payment.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreatePaymentMethodRequest
 */
-func (a *BillingInfoAPIService) CreatePaymentMethod(ctx context.Context, version float32) ApiCreatePaymentMethodRequest {
+func (a *BillingInfoAPIService) CreatePaymentMethod(ctx context.Context) ApiCreatePaymentMethodRequest {
 	return ApiCreatePaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -575,8 +567,7 @@ func (a *BillingInfoAPIService) CreatePaymentMethodExecute(r ApiCreatePaymentMet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -723,7 +714,6 @@ func (a *BillingInfoAPIService) CreatePaymentMethodExecute(r ApiCreatePaymentMet
 type ApiCreateSmartContractRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	tokenName *string
 	tokenSymbol *string
@@ -764,14 +754,12 @@ CreateSmartContract Create Smart Contract
 Adds a smart contract.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateSmartContractRequest
 */
-func (a *BillingInfoAPIService) CreateSmartContract(ctx context.Context, version float32) ApiCreateSmartContractRequest {
+func (a *BillingInfoAPIService) CreateSmartContract(ctx context.Context) ApiCreateSmartContractRequest {
 	return ApiCreateSmartContractRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -790,8 +778,7 @@ func (a *BillingInfoAPIService) CreateSmartContractExecute(r ApiCreateSmartContr
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/crypto/transfer"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/crypto/transfer"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -869,7 +856,6 @@ func (a *BillingInfoAPIService) CreateSmartContractExecute(r ApiCreateSmartContr
 type ApiGetCryptoBalanceRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	ownerAccountId *int64
 	paymentMethodId *int64
@@ -903,14 +889,12 @@ GetCryptoBalance Get Crypto Balances
 Get the cypto balance details for a user
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetCryptoBalanceRequest
 */
-func (a *BillingInfoAPIService) GetCryptoBalance(ctx context.Context, version float32) ApiGetCryptoBalanceRequest {
+func (a *BillingInfoAPIService) GetCryptoBalance(ctx context.Context) ApiGetCryptoBalanceRequest {
 	return ApiGetCryptoBalanceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -929,8 +913,7 @@ func (a *BillingInfoAPIService) GetCryptoBalanceExecute(r ApiGetCryptoBalanceReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/crypto/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/crypto/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1003,7 +986,6 @@ func (a *BillingInfoAPIService) GetCryptoBalanceExecute(r ApiGetCryptoBalanceReq
 type ApiGetPaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	paymentMethodId *int64
 	getCurrentBalance *bool
@@ -1037,14 +1019,12 @@ GetPaymentMethod Get Payment Method
 Get the details of the user's payment method or their current default method of payment
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetPaymentMethodRequest
 */
-func (a *BillingInfoAPIService) GetPaymentMethod(ctx context.Context, version float32) ApiGetPaymentMethodRequest {
+func (a *BillingInfoAPIService) GetPaymentMethod(ctx context.Context) ApiGetPaymentMethodRequest {
 	return ApiGetPaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1063,8 +1043,7 @@ func (a *BillingInfoAPIService) GetPaymentMethodExecute(r ApiGetPaymentMethodReq
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1137,7 +1116,6 @@ func (a *BillingInfoAPIService) GetPaymentMethodExecute(r ApiGetPaymentMethodReq
 type ApiSearchPaymentMethodRequest struct {
 	ctx context.Context
 	ApiService *BillingInfoAPIService
-	version float32
 	accountId *int64
 	provider *string
 	type_ *string
@@ -1206,14 +1184,12 @@ SearchPaymentMethod Search Payment Methods
 Search the payment methods of an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchPaymentMethodRequest
 */
-func (a *BillingInfoAPIService) SearchPaymentMethod(ctx context.Context, version float32) ApiSearchPaymentMethodRequest {
+func (a *BillingInfoAPIService) SearchPaymentMethod(ctx context.Context) ApiSearchPaymentMethodRequest {
 	return ApiSearchPaymentMethodRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1232,8 +1208,7 @@ func (a *BillingInfoAPIService) SearchPaymentMethodExecute(r ApiSearchPaymentMet
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billing/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billing/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

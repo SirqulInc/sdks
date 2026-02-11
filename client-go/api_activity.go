@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ActivityAPIService service
 type ApiCreateEntityReferenceRequest struct {
 	ctx context.Context
 	ApiService *ActivityAPIService
-	version float32
 	body *EntityReference
 }
 
@@ -47,14 +45,12 @@ CreateEntityReference Create an entity reference.
 Creates a reference for an entity for syncing data between servers.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateEntityReferenceRequest
 */
-func (a *ActivityAPIService) CreateEntityReference(ctx context.Context, version float32) ApiCreateEntityReferenceRequest {
+func (a *ActivityAPIService) CreateEntityReference(ctx context.Context) ApiCreateEntityReferenceRequest {
 	return ApiCreateEntityReferenceRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -73,8 +69,7 @@ func (a *ActivityAPIService) CreateEntityReferenceExecute(r ApiCreateEntityRefer
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/entity/reference"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/entity/reference"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

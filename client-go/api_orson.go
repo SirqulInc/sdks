@@ -28,7 +28,6 @@ type OrsonAPIService service
 type ApiAddMovieRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	movieName *string
 	thirdPartyAccountId *string
@@ -90,14 +89,12 @@ AddMovie Add Movie
 Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddMovieRequest
 */
-func (a *OrsonAPIService) AddMovie(ctx context.Context, version float32) ApiAddMovieRequest {
+func (a *OrsonAPIService) AddMovie(ctx context.Context) ApiAddMovieRequest {
 	return ApiAddMovieRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -116,8 +113,7 @@ func (a *OrsonAPIService) AddMovieExecute(r ApiAddMovieRequest) (*OrsonAiAddMovi
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/addMovie"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/addMovie"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -203,7 +199,6 @@ func (a *OrsonAPIService) AddMovieExecute(r ApiAddMovieRequest) (*OrsonAiAddMovi
 type ApiAiDocsRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	doc *string
 	returnTopics *bool
@@ -251,14 +246,12 @@ AiDocs Search Docs
 Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAiDocsRequest
 */
-func (a *OrsonAPIService) AiDocs(ctx context.Context, version float32) ApiAiDocsRequest {
+func (a *OrsonAPIService) AiDocs(ctx context.Context) ApiAiDocsRequest {
 	return ApiAiDocsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -277,8 +270,7 @@ func (a *OrsonAPIService) AiDocsExecute(r ApiAiDocsRequest) (*OrsonAiProtoRespon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/docs"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/docs"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -358,7 +350,6 @@ func (a *OrsonAPIService) AiDocsExecute(r ApiAiDocsRequest) (*OrsonAiProtoRespon
 type ApiAiFindImagesRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	text *string
 	parseFlag *string
@@ -406,14 +397,12 @@ AiFindImages Find images
 Returns a list of URIs of images that match the text.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAiFindImagesRequest
 */
-func (a *OrsonAPIService) AiFindImages(ctx context.Context, version float32) ApiAiFindImagesRequest {
+func (a *OrsonAPIService) AiFindImages(ctx context.Context) ApiAiFindImagesRequest {
 	return ApiAiFindImagesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -432,8 +421,7 @@ func (a *OrsonAPIService) AiFindImagesExecute(r ApiAiFindImagesRequest) (*OrsonA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/img"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/img"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -513,7 +501,6 @@ func (a *OrsonAPIService) AiFindImagesExecute(r ApiAiFindImagesRequest) (*OrsonA
 type ApiAiTagsRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	tags *string
 	conditional *string
@@ -561,14 +548,12 @@ AiTags Search Tags
 Search the tags column of user provided tags using this endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAiTagsRequest
 */
-func (a *OrsonAPIService) AiTags(ctx context.Context, version float32) ApiAiTagsRequest {
+func (a *OrsonAPIService) AiTags(ctx context.Context) ApiAiTagsRequest {
 	return ApiAiTagsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -587,8 +572,7 @@ func (a *OrsonAPIService) AiTagsExecute(r ApiAiTagsRequest) (*OrsonAiProtoRespon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/tags"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/tags"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -668,7 +652,6 @@ func (a *OrsonAPIService) AiTagsExecute(r ApiAiTagsRequest) (*OrsonAiProtoRespon
 type ApiAiTextRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	terms *string
 	conditional *string
@@ -716,14 +699,12 @@ AiText Search Text
 Search the movie text column of movie text using this endpoint.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAiTextRequest
 */
-func (a *OrsonAPIService) AiText(ctx context.Context, version float32) ApiAiTextRequest {
+func (a *OrsonAPIService) AiText(ctx context.Context) ApiAiTextRequest {
 	return ApiAiTextRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -742,8 +723,7 @@ func (a *OrsonAPIService) AiTextExecute(r ApiAiTextRequest) (*OrsonAiProtoRespon
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/text"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/text"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -823,7 +803,6 @@ func (a *OrsonAPIService) AiTextExecute(r ApiAiTextRequest) (*OrsonAiProtoRespon
 type ApiBatchRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	thirdPartyAccountId *string
 	limit *int32
@@ -885,14 +864,12 @@ Batch Batch Analysis
 Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiBatchRequest
 */
-func (a *OrsonAPIService) Batch(ctx context.Context, version float32) ApiBatchRequest {
+func (a *OrsonAPIService) Batch(ctx context.Context) ApiBatchRequest {
 	return ApiBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -911,8 +888,7 @@ func (a *OrsonAPIService) BatchExecute(r ApiBatchRequest) (*OrsonAiBatchResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -997,7 +973,6 @@ func (a *OrsonAPIService) BatchExecute(r ApiBatchRequest) (*OrsonAiBatchResponse
 type ApiCreateInstantEpisodeRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	data *string
 }
@@ -1024,14 +999,12 @@ CreateInstantEpisode Creates an instant episode
 Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateInstantEpisodeRequest
 */
-func (a *OrsonAPIService) CreateInstantEpisode(ctx context.Context, version float32) ApiCreateInstantEpisodeRequest {
+func (a *OrsonAPIService) CreateInstantEpisode(ctx context.Context) ApiCreateInstantEpisodeRequest {
 	return ApiCreateInstantEpisodeRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1050,8 +1023,7 @@ func (a *OrsonAPIService) CreateInstantEpisodeExecute(r ApiCreateInstantEpisodeR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/stories/episodes/instant"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/stories/episodes/instant"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1122,7 +1094,6 @@ func (a *OrsonAPIService) CreateInstantEpisodeExecute(r ApiCreateInstantEpisodeR
 type ApiCreateVoiceCanvasRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	dimensions *string
 	thirdPartyAccountId *string
@@ -1198,14 +1169,12 @@ CreateVoiceCanvas Create VoiceCanvas images
 Create VoiceCanvas images for provided text, file upload, or file URL
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateVoiceCanvasRequest
 */
-func (a *OrsonAPIService) CreateVoiceCanvas(ctx context.Context, version float32) ApiCreateVoiceCanvasRequest {
+func (a *OrsonAPIService) CreateVoiceCanvas(ctx context.Context) ApiCreateVoiceCanvasRequest {
 	return ApiCreateVoiceCanvasRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1224,8 +1193,7 @@ func (a *OrsonAPIService) CreateVoiceCanvasExecute(r ApiCreateVoiceCanvasRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/voiceCanvas"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/voiceCanvas"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1317,7 +1285,6 @@ func (a *OrsonAPIService) CreateVoiceCanvasExecute(r ApiCreateVoiceCanvasRequest
 type ApiEmotionRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	thirdPartyAccountId *string
 	file *os.File
@@ -1365,14 +1332,12 @@ Emotion Detect emotions
 Detects emotions in an audio or video recording.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiEmotionRequest
 */
-func (a *OrsonAPIService) Emotion(ctx context.Context, version float32) ApiEmotionRequest {
+func (a *OrsonAPIService) Emotion(ctx context.Context) ApiEmotionRequest {
 	return ApiEmotionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1391,8 +1356,7 @@ func (a *OrsonAPIService) EmotionExecute(r ApiEmotionRequest) (*OrsonAiEmotionsR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/emotion"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/emotion"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1471,7 +1435,6 @@ func (a *OrsonAPIService) EmotionExecute(r ApiEmotionRequest) (*OrsonAiEmotionsR
 type ApiGetAddMovieResultRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -1492,15 +1455,13 @@ GetAddMovieResult Get Add Movie Result
 Get the result of an in progress Add Movie request from an earlier POST.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetAddMovieResultRequest
 */
-func (a *OrsonAPIService) GetAddMovieResult(ctx context.Context, version float32, requestId string) ApiGetAddMovieResultRequest {
+func (a *OrsonAPIService) GetAddMovieResult(ctx context.Context, requestId string) ApiGetAddMovieResultRequest {
 	return ApiGetAddMovieResultRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -1520,8 +1481,7 @@ func (a *OrsonAPIService) GetAddMovieResultExecute(r ApiGetAddMovieResultRequest
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/addMovie/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/addMovie/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1589,7 +1549,6 @@ func (a *OrsonAPIService) GetAddMovieResultExecute(r ApiGetAddMovieResultRequest
 type ApiGetBatchRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -1610,15 +1569,13 @@ GetBatch Get Batch Analysis Results
 Gets the completed Video Batch results, if done, or an error or status update if not.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetBatchRequest
 */
-func (a *OrsonAPIService) GetBatch(ctx context.Context, version float32, requestId string) ApiGetBatchRequest {
+func (a *OrsonAPIService) GetBatch(ctx context.Context, requestId string) ApiGetBatchRequest {
 	return ApiGetBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -1638,8 +1595,7 @@ func (a *OrsonAPIService) GetBatchExecute(r ApiGetBatchRequest) (*OrsonAiBatchRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/batch/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/batch/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1707,7 +1663,6 @@ func (a *OrsonAPIService) GetBatchExecute(r ApiGetBatchRequest) (*OrsonAiBatchRe
 type ApiGetEmotionRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -1728,15 +1683,13 @@ GetEmotion Get Emotion Results
 Checks the Emotion analysis and returns in progress, results, or error.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetEmotionRequest
 */
-func (a *OrsonAPIService) GetEmotion(ctx context.Context, version float32, requestId string) ApiGetEmotionRequest {
+func (a *OrsonAPIService) GetEmotion(ctx context.Context, requestId string) ApiGetEmotionRequest {
 	return ApiGetEmotionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -1756,8 +1709,7 @@ func (a *OrsonAPIService) GetEmotionExecute(r ApiGetEmotionRequest) (*OrsonAiEmo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/emotion/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/emotion/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1825,7 +1777,6 @@ func (a *OrsonAPIService) GetEmotionExecute(r ApiGetEmotionRequest) (*OrsonAiEmo
 type ApiGetEpisodeStatusRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	episodeId int64
 	accountId *int64
 }
@@ -1846,15 +1797,13 @@ GetEpisodeStatus Check episode status
 Gets a summary of the episode's status, including any renders.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param episodeId Episode ID
  @return ApiGetEpisodeStatusRequest
 */
-func (a *OrsonAPIService) GetEpisodeStatus(ctx context.Context, version float32, episodeId int64) ApiGetEpisodeStatusRequest {
+func (a *OrsonAPIService) GetEpisodeStatus(ctx context.Context, episodeId int64) ApiGetEpisodeStatusRequest {
 	return ApiGetEpisodeStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		episodeId: episodeId,
 	}
 }
@@ -1874,8 +1823,7 @@ func (a *OrsonAPIService) GetEpisodeStatusExecute(r ApiGetEpisodeStatusRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/stories/episodes/{episodeId}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/stories/episodes/{episodeId}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"episodeId"+"}", url.PathEscape(parameterValueToString(r.episodeId, "episodeId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1943,7 +1891,6 @@ func (a *OrsonAPIService) GetEpisodeStatusExecute(r ApiGetEpisodeStatusRequest) 
 type ApiGetRenderStatusRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	renderId string
 	accountId *int64
 }
@@ -1964,15 +1911,13 @@ GetRenderStatus Check episode status
 Gets a summary of the episode's status, including any renders.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param renderId Render ID
  @return ApiGetRenderStatusRequest
 */
-func (a *OrsonAPIService) GetRenderStatus(ctx context.Context, version float32, renderId string) ApiGetRenderStatusRequest {
+func (a *OrsonAPIService) GetRenderStatus(ctx context.Context, renderId string) ApiGetRenderStatusRequest {
 	return ApiGetRenderStatusRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		renderId: renderId,
 	}
 }
@@ -1992,8 +1937,7 @@ func (a *OrsonAPIService) GetRenderStatusExecute(r ApiGetRenderStatusRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/stories/renders/{renderId}/status"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/stories/renders/{renderId}/status"
 	localVarPath = strings.Replace(localVarPath, "{"+"renderId"+"}", url.PathEscape(parameterValueToString(r.renderId, "renderId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2061,7 +2005,6 @@ func (a *OrsonAPIService) GetRenderStatusExecute(r ApiGetRenderStatusRequest) (*
 type ApiGetSTTRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -2082,15 +2025,13 @@ GetSTT Get Speach to Text Result
 The results of the video transcription and optional translation.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetSTTRequest
 */
-func (a *OrsonAPIService) GetSTT(ctx context.Context, version float32, requestId string) ApiGetSTTRequest {
+func (a *OrsonAPIService) GetSTT(ctx context.Context, requestId string) ApiGetSTTRequest {
 	return ApiGetSTTRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -2110,8 +2051,7 @@ func (a *OrsonAPIService) GetSTTExecute(r ApiGetSTTRequest) (*OrsonAiSTTResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/stt/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/stt/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2179,7 +2119,6 @@ func (a *OrsonAPIService) GetSTTExecute(r ApiGetSTTRequest) (*OrsonAiSTTResponse
 type ApiGetTTSRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -2200,15 +2139,13 @@ GetTTS Get Text to Speach Result
 Check the status of an in progress Text-to-Speech call or download the result.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetTTSRequest
 */
-func (a *OrsonAPIService) GetTTS(ctx context.Context, version float32, requestId string) ApiGetTTSRequest {
+func (a *OrsonAPIService) GetTTS(ctx context.Context, requestId string) ApiGetTTSRequest {
 	return ApiGetTTSRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -2228,8 +2165,7 @@ func (a *OrsonAPIService) GetTTSExecute(r ApiGetTTSRequest) (*OrsonAiTTSResponse
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/tts/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/tts/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2297,7 +2233,6 @@ func (a *OrsonAPIService) GetTTSExecute(r ApiGetTTSRequest) (*OrsonAiTTSResponse
 type ApiGetTechTuneRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -2318,15 +2253,13 @@ GetTechTune Get TechTune Results
 Get a result or continue waiting for a pending request for TechTune analysis.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetTechTuneRequest
 */
-func (a *OrsonAPIService) GetTechTune(ctx context.Context, version float32, requestId string) ApiGetTechTuneRequest {
+func (a *OrsonAPIService) GetTechTune(ctx context.Context, requestId string) ApiGetTechTuneRequest {
 	return ApiGetTechTuneRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -2346,8 +2279,7 @@ func (a *OrsonAPIService) GetTechTuneExecute(r ApiGetTechTuneRequest) (*OrsonAiT
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/techTune/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/techTune/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2415,7 +2347,6 @@ func (a *OrsonAPIService) GetTechTuneExecute(r ApiGetTechTuneRequest) (*OrsonAiT
 type ApiGetTopicsRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -2436,15 +2367,13 @@ GetTopics Get Topics
 Get the result of an in progress Topics Analysis from an earlier POST.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetTopicsRequest
 */
-func (a *OrsonAPIService) GetTopics(ctx context.Context, version float32, requestId string) ApiGetTopicsRequest {
+func (a *OrsonAPIService) GetTopics(ctx context.Context, requestId string) ApiGetTopicsRequest {
 	return ApiGetTopicsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -2464,8 +2393,7 @@ func (a *OrsonAPIService) GetTopicsExecute(r ApiGetTopicsRequest) (*OrsonAiTopic
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/topics/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/topics/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2533,7 +2461,6 @@ func (a *OrsonAPIService) GetTopicsExecute(r ApiGetTopicsRequest) (*OrsonAiTopic
 type ApiGetVoiceCanvasRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	requestId string
 	accountId *int64
 }
@@ -2554,15 +2481,13 @@ GetVoiceCanvas Get VoiceCanvas images
 Get a result or continue waiting for a pending request for VoiceCanvas Images.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param requestId Orson Request Id
  @return ApiGetVoiceCanvasRequest
 */
-func (a *OrsonAPIService) GetVoiceCanvas(ctx context.Context, version float32, requestId string) ApiGetVoiceCanvasRequest {
+func (a *OrsonAPIService) GetVoiceCanvas(ctx context.Context, requestId string) ApiGetVoiceCanvasRequest {
 	return ApiGetVoiceCanvasRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		requestId: requestId,
 	}
 }
@@ -2582,8 +2507,7 @@ func (a *OrsonAPIService) GetVoiceCanvasExecute(r ApiGetVoiceCanvasRequest) (*Or
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/voiceCanvas/{requestId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/voiceCanvas/{requestId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"requestId"+"}", url.PathEscape(parameterValueToString(r.requestId, "requestId")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -2651,7 +2575,6 @@ func (a *OrsonAPIService) GetVoiceCanvasExecute(r ApiGetVoiceCanvasRequest) (*Or
 type ApiStartVideoRenderRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	data *string
 }
@@ -2678,14 +2601,12 @@ StartVideoRender Starts a StoryStitch video render
 Starts a StoryStitch video render to produce your final video, returning the status details.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiStartVideoRenderRequest
 */
-func (a *OrsonAPIService) StartVideoRender(ctx context.Context, version float32) ApiStartVideoRenderRequest {
+func (a *OrsonAPIService) StartVideoRender(ctx context.Context) ApiStartVideoRenderRequest {
 	return ApiStartVideoRenderRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2704,8 +2625,7 @@ func (a *OrsonAPIService) StartVideoRenderExecute(r ApiStartVideoRenderRequest) 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/stories/renders"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/stories/renders"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2776,7 +2696,6 @@ func (a *OrsonAPIService) StartVideoRenderExecute(r ApiStartVideoRenderRequest) 
 type ApiSttRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	thirdPartyAccountId *string
 	sourceLanguage *string
@@ -2838,14 +2757,12 @@ Stt Speach to Text
 Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSttRequest
 */
-func (a *OrsonAPIService) Stt(ctx context.Context, version float32) ApiSttRequest {
+func (a *OrsonAPIService) Stt(ctx context.Context) ApiSttRequest {
 	return ApiSttRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -2864,8 +2781,7 @@ func (a *OrsonAPIService) SttExecute(r ApiSttRequest) (*OrsonAiSTTResponse, *htt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/stt"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/stt"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -2950,7 +2866,6 @@ func (a *OrsonAPIService) SttExecute(r ApiSttRequest) (*OrsonAiSTTResponse, *htt
 type ApiSummarizeTopicsRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	thirdPartyAccountId *string
 	doc *string
@@ -3019,14 +2934,12 @@ SummarizeTopics Summarize Topics
 Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSummarizeTopicsRequest
 */
-func (a *OrsonAPIService) SummarizeTopics(ctx context.Context, version float32) ApiSummarizeTopicsRequest {
+func (a *OrsonAPIService) SummarizeTopics(ctx context.Context) ApiSummarizeTopicsRequest {
 	return ApiSummarizeTopicsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3045,8 +2958,7 @@ func (a *OrsonAPIService) SummarizeTopicsExecute(r ApiSummarizeTopicsRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/topics"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/topics"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3134,7 +3046,6 @@ func (a *OrsonAPIService) SummarizeTopicsExecute(r ApiSummarizeTopicsRequest) (*
 type ApiTechTuneRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	numFacesExpected *int32
 	thirdPartyAccountId *string
@@ -3189,14 +3100,12 @@ TechTune Detect Technical Issues
 Analyses a movie file to detect technical issues, such as too few people in frame.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiTechTuneRequest
 */
-func (a *OrsonAPIService) TechTune(ctx context.Context, version float32) ApiTechTuneRequest {
+func (a *OrsonAPIService) TechTune(ctx context.Context) ApiTechTuneRequest {
 	return ApiTechTuneRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3215,8 +3124,7 @@ func (a *OrsonAPIService) TechTuneExecute(r ApiTechTuneRequest) (*OrsonAiTechTun
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/techTune"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/techTune"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -3299,7 +3207,6 @@ func (a *OrsonAPIService) TechTuneExecute(r ApiTechTuneRequest) (*OrsonAiTechTun
 type ApiTtsRequest struct {
 	ctx context.Context
 	ApiService *OrsonAPIService
-	version float32
 	accountId *int64
 	text *string
 	thirdPartyAccountId *string
@@ -3354,14 +3261,12 @@ Tts Text to Speach
 Creates an audio file for the given text, with the option of language and voice selection.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiTtsRequest
 */
-func (a *OrsonAPIService) Tts(ctx context.Context, version float32) ApiTtsRequest {
+func (a *OrsonAPIService) Tts(ctx context.Context) ApiTtsRequest {
 	return ApiTtsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -3380,8 +3285,7 @@ func (a *OrsonAPIService) TtsExecute(r ApiTtsRequest) (*OrsonAiTTSResponse, *htt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/orson/ai/tts"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/orson/ai/tts"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type GameAPIService service
 type ApiCreateGameRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	title *string
@@ -89,14 +87,12 @@ CreateGame Create a Game
 Create a Game.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateGameRequest
 */
-func (a *GameAPIService) CreateGame(ctx context.Context, version float32) ApiCreateGameRequest {
+func (a *GameAPIService) CreateGame(ctx context.Context) ApiCreateGameRequest {
 	return ApiCreateGameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *GameAPIService) CreateGameExecute(r ApiCreateGameRequest) (*GameRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -200,7 +195,6 @@ func (a *GameAPIService) CreateGameExecute(r ApiCreateGameRequest) (*GameRespons
 type ApiDeleteGameRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
-	version float32
 	accountId *int64
 	gameId *int64
 }
@@ -227,14 +221,12 @@ DeleteGame Delete a Game
 Delete a game.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteGameRequest
 */
-func (a *GameAPIService) DeleteGame(ctx context.Context, version float32) ApiDeleteGameRequest {
+func (a *GameAPIService) DeleteGame(ctx context.Context) ApiDeleteGameRequest {
 	return ApiDeleteGameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -253,8 +245,7 @@ func (a *GameAPIService) DeleteGameExecute(r ApiDeleteGameRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -325,7 +316,6 @@ func (a *GameAPIService) DeleteGameExecute(r ApiDeleteGameRequest) (*SirqulRespo
 type ApiGetGameRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
-	version float32
 	accountId *int64
 	gameId *int64
 	includeGameData *bool
@@ -359,14 +349,12 @@ GetGame Get a Game by id
 Get a Game by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetGameRequest
 */
-func (a *GameAPIService) GetGame(ctx context.Context, version float32) ApiGetGameRequest {
+func (a *GameAPIService) GetGame(ctx context.Context) ApiGetGameRequest {
 	return ApiGetGameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -385,8 +373,7 @@ func (a *GameAPIService) GetGameExecute(r ApiGetGameRequest) (*GameResponse, *ht
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -460,7 +447,6 @@ func (a *GameAPIService) GetGameExecute(r ApiGetGameRequest) (*GameResponse, *ht
 type ApiSearchGamesRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	start *int32
@@ -529,14 +515,12 @@ SearchGames Search a Game
 Get a list of games for an application, just those the account has permissions to view.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchGamesRequest
 */
-func (a *GameAPIService) SearchGames(ctx context.Context, version float32) ApiSearchGamesRequest {
+func (a *GameAPIService) SearchGames(ctx context.Context) ApiSearchGamesRequest {
 	return ApiSearchGamesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -555,8 +539,7 @@ func (a *GameAPIService) SearchGamesExecute(r ApiSearchGamesRequest) (*GameRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -647,7 +630,6 @@ func (a *GameAPIService) SearchGamesExecute(r ApiSearchGamesRequest) (*GameRespo
 type ApiUpdateGameRequest struct {
 	ctx context.Context
 	ApiService *GameAPIService
-	version float32
 	accountId *int64
 	gameId *int64
 	appKey *string
@@ -716,14 +698,12 @@ UpdateGame Update a Game
 Update a Game
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateGameRequest
 */
-func (a *GameAPIService) UpdateGame(ctx context.Context, version float32) ApiUpdateGameRequest {
+func (a *GameAPIService) UpdateGame(ctx context.Context) ApiUpdateGameRequest {
 	return ApiUpdateGameRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -742,8 +722,7 @@ func (a *GameAPIService) UpdateGameExecute(r ApiUpdateGameRequest) (*GameRespons
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/game/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/game/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

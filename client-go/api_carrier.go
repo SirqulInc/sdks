@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type CarrierAPIService service
 type ApiSearchCarriersRequest struct {
 	ctx context.Context
 	ApiService *CarrierAPIService
-	version float32
 	keyword *string
 	descending *bool
 	start *int32
@@ -75,14 +73,12 @@ SearchCarriers Search Carriers
 Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchCarriersRequest
 */
-func (a *CarrierAPIService) SearchCarriers(ctx context.Context, version float32) ApiSearchCarriersRequest {
+func (a *CarrierAPIService) SearchCarriers(ctx context.Context) ApiSearchCarriersRequest {
 	return ApiSearchCarriersRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -101,8 +97,7 @@ func (a *CarrierAPIService) SearchCarriersExecute(r ApiSearchCarriersRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/carrier/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/carrier/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

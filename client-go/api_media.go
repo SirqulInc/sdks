@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type MediaAPIService service
 type ApiCreateMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
-	version float32
 	accountId *int64
 	title *string
 	barcodeType *string
@@ -439,14 +437,12 @@ CreateMedia Create Media
 Create a media offering.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateMediaRequest
 */
-func (a *MediaAPIService) CreateMedia(ctx context.Context, version float32) ApiCreateMediaRequest {
+func (a *MediaAPIService) CreateMedia(ctx context.Context) ApiCreateMediaRequest {
 	return ApiCreateMediaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -465,8 +461,7 @@ func (a *MediaAPIService) CreateMediaExecute(r ApiCreateMediaRequest) (*MediaOff
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/media/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/media/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -715,7 +710,6 @@ func (a *MediaAPIService) CreateMediaExecute(r ApiCreateMediaRequest) (*MediaOff
 type ApiDeleteMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
-	version float32
 	accountId *int64
 	mediaId *int64
 }
@@ -742,14 +736,12 @@ DeleteMedia Delete Media
 Delete a media offering that the user has permissions to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteMediaRequest
 */
-func (a *MediaAPIService) DeleteMedia(ctx context.Context, version float32) ApiDeleteMediaRequest {
+func (a *MediaAPIService) DeleteMedia(ctx context.Context) ApiDeleteMediaRequest {
 	return ApiDeleteMediaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -768,8 +760,7 @@ func (a *MediaAPIService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*SirqulRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/media/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/media/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -840,7 +831,6 @@ func (a *MediaAPIService) DeleteMediaExecute(r ApiDeleteMediaRequest) (*SirqulRe
 type ApiGetMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
-	version float32
 	accountId *int64
 	mediaId *int64
 }
@@ -867,14 +857,12 @@ GetMedia Media Get
 Get a media offering.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetMediaRequest
 */
-func (a *MediaAPIService) GetMedia(ctx context.Context, version float32) ApiGetMediaRequest {
+func (a *MediaAPIService) GetMedia(ctx context.Context) ApiGetMediaRequest {
 	return ApiGetMediaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -893,8 +881,7 @@ func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*MediaOfferResp
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/media/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/media/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -965,7 +952,6 @@ func (a *MediaAPIService) GetMediaExecute(r ApiGetMediaRequest) (*MediaOfferResp
 type ApiSearchMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
-	version float32
 	accountId *int64
 	activeOnly *bool
 	sortField *string
@@ -1041,14 +1027,12 @@ SearchMedia Search Media
 Searches on events that the account has access to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchMediaRequest
 */
-func (a *MediaAPIService) SearchMedia(ctx context.Context, version float32) ApiSearchMediaRequest {
+func (a *MediaAPIService) SearchMedia(ctx context.Context) ApiSearchMediaRequest {
 	return ApiSearchMediaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1067,8 +1051,7 @@ func (a *MediaAPIService) SearchMediaExecute(r ApiSearchMediaRequest) ([]MediaOf
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/media/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/media/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1162,7 +1145,6 @@ func (a *MediaAPIService) SearchMediaExecute(r ApiSearchMediaRequest) ([]MediaOf
 type ApiUpdateMediaRequest struct {
 	ctx context.Context
 	ApiService *MediaAPIService
-	version float32
 	accountId *int64
 	mediaId *int64
 	retailerLocationIds *string
@@ -1588,14 +1570,12 @@ UpdateMedia Update Media
 Update a media offering.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateMediaRequest
 */
-func (a *MediaAPIService) UpdateMedia(ctx context.Context, version float32) ApiUpdateMediaRequest {
+func (a *MediaAPIService) UpdateMedia(ctx context.Context) ApiUpdateMediaRequest {
 	return ApiUpdateMediaRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1614,8 +1594,7 @@ func (a *MediaAPIService) UpdateMediaExecute(r ApiUpdateMediaRequest) (*MediaOff
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/media/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/media/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ListingAPIService service
 type ApiCreateListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	accountId *int64
 	name *string
 	filterIds *string
@@ -138,14 +136,12 @@ CreateListing Create Listing
 Creates a listing.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateListingRequest
 */
-func (a *ListingAPIService) CreateListing(ctx context.Context, version float32) ApiCreateListingRequest {
+func (a *ListingAPIService) CreateListing(ctx context.Context) ApiCreateListingRequest {
 	return ApiCreateListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -164,8 +160,7 @@ func (a *ListingAPIService) CreateListingExecute(r ApiCreateListingRequest) (*Li
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -276,7 +271,6 @@ func (a *ListingAPIService) CreateListingExecute(r ApiCreateListingRequest) (*Li
 type ApiDeleteListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	accountId *int64
 	listingId *int64
 }
@@ -303,14 +297,12 @@ DeleteListing Delete Listing
 Delete a listing.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteListingRequest
 */
-func (a *ListingAPIService) DeleteListing(ctx context.Context, version float32) ApiDeleteListingRequest {
+func (a *ListingAPIService) DeleteListing(ctx context.Context) ApiDeleteListingRequest {
 	return ApiDeleteListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -329,8 +321,7 @@ func (a *ListingAPIService) DeleteListingExecute(r ApiDeleteListingRequest) (*Si
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -401,7 +392,6 @@ func (a *ListingAPIService) DeleteListingExecute(r ApiDeleteListingRequest) (*Si
 type ApiGetListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	listingId *int64
 }
 
@@ -421,14 +411,12 @@ GetListing Get Listing
 Get a listing by id.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetListingRequest
 */
-func (a *ListingAPIService) GetListing(ctx context.Context, version float32) ApiGetListingRequest {
+func (a *ListingAPIService) GetListing(ctx context.Context) ApiGetListingRequest {
 	return ApiGetListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -447,8 +435,7 @@ func (a *ListingAPIService) GetListingExecute(r ApiGetListingRequest) (*ListingF
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -515,7 +502,6 @@ func (a *ListingAPIService) GetListingExecute(r ApiGetListingRequest) (*ListingF
 type ApiSearchListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	accountId *int64
 	keyword *string
 	start *int32
@@ -633,14 +619,12 @@ SearchListing Search Listings
 Search for event listings from the start time to end time
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchListingRequest
 */
-func (a *ListingAPIService) SearchListing(ctx context.Context, version float32) ApiSearchListingRequest {
+func (a *ListingAPIService) SearchListing(ctx context.Context) ApiSearchListingRequest {
 	return ApiSearchListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -659,8 +643,7 @@ func (a *ListingAPIService) SearchListingExecute(r ApiSearchListingRequest) ([]L
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -784,7 +767,6 @@ func (a *ListingAPIService) SearchListingExecute(r ApiSearchListingRequest) ([]L
 type ApiSummaryListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	accountId *int64
 	startDate *int64
 	categoryIds *string
@@ -832,14 +814,12 @@ SummaryListing Summary Listing
 Search for a list of summary listings from the start time up to 8 days out.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSummaryListingRequest
 */
-func (a *ListingAPIService) SummaryListing(ctx context.Context, version float32) ApiSummaryListingRequest {
+func (a *ListingAPIService) SummaryListing(ctx context.Context) ApiSummaryListingRequest {
 	return ApiSummaryListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -858,8 +838,7 @@ func (a *ListingAPIService) SummaryListingExecute(r ApiSummaryListingRequest) ([
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/summary"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/summary"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -945,7 +924,6 @@ func (a *ListingAPIService) SummaryListingExecute(r ApiSummaryListingRequest) ([
 type ApiUpdateListingRequest struct {
 	ctx context.Context
 	ApiService *ListingAPIService
-	version float32
 	accountId *int64
 	listingId *int64
 	filterIds *string
@@ -1063,14 +1041,12 @@ UpdateListing Update Listing
 Updates a listing.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateListingRequest
 */
-func (a *ListingAPIService) UpdateListing(ctx context.Context, version float32) ApiUpdateListingRequest {
+func (a *ListingAPIService) UpdateListing(ctx context.Context) ApiUpdateListingRequest {
 	return ApiUpdateListingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1089,8 +1065,7 @@ func (a *ListingAPIService) UpdateListingExecute(r ApiUpdateListingRequest) (*Li
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/listing/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/listing/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

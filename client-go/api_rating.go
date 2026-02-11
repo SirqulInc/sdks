@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type RatingAPIService service
 type ApiCreateRatingRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	ratableType *string
 	ratableId *int64
 	ratingValue *int32
@@ -117,14 +115,12 @@ CreateRating Create Rating
 This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateRatingRequest
 */
-func (a *RatingAPIService) CreateRating(ctx context.Context, version float32) ApiCreateRatingRequest {
+func (a *RatingAPIService) CreateRating(ctx context.Context) ApiCreateRatingRequest {
 	return ApiCreateRatingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -143,8 +139,7 @@ func (a *RatingAPIService) CreateRatingExecute(r ApiCreateRatingRequest) (*Ratin
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/rating/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/rating/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -243,7 +238,6 @@ func (a *RatingAPIService) CreateRatingExecute(r ApiCreateRatingRequest) (*Ratin
 type ApiDeleteRatingRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	ratingId *int64
 	deviceId *string
 	accountId *int64
@@ -277,14 +271,12 @@ DeleteRating Delete Rating
 Sets a rating as deleted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteRatingRequest
 */
-func (a *RatingAPIService) DeleteRating(ctx context.Context, version float32) ApiDeleteRatingRequest {
+func (a *RatingAPIService) DeleteRating(ctx context.Context) ApiDeleteRatingRequest {
 	return ApiDeleteRatingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -303,8 +295,7 @@ func (a *RatingAPIService) DeleteRatingExecute(r ApiDeleteRatingRequest) (*Sirqu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/rating/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/rating/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -377,7 +368,6 @@ func (a *RatingAPIService) DeleteRatingExecute(r ApiDeleteRatingRequest) (*Sirqu
 type ApiSearchLocationRatingIndexesRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	categoryIds *string
 	keyword *string
 	locationType *string
@@ -509,14 +499,12 @@ SearchLocationRatingIndexes Search Location Rating Indexes
 Search for retailer locations by averages near you.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchLocationRatingIndexesRequest
 */
-func (a *RatingAPIService) SearchLocationRatingIndexes(ctx context.Context, version float32) ApiSearchLocationRatingIndexesRequest {
+func (a *RatingAPIService) SearchLocationRatingIndexes(ctx context.Context) ApiSearchLocationRatingIndexesRequest {
 	return ApiSearchLocationRatingIndexesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -535,8 +523,7 @@ func (a *RatingAPIService) SearchLocationRatingIndexesExecute(r ApiSearchLocatio
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/location/rating/index/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/location/rating/index/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -650,7 +637,6 @@ func (a *RatingAPIService) SearchLocationRatingIndexesExecute(r ApiSearchLocatio
 type ApiSearchRatingIndexesRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	ratableType *string
 	ratableIds *string
 	categoryIds *string
@@ -754,14 +740,12 @@ SearchRatingIndexes Search Rating Indexes
 Search for ratable items by averages.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRatingIndexesRequest
 */
-func (a *RatingAPIService) SearchRatingIndexes(ctx context.Context, version float32) ApiSearchRatingIndexesRequest {
+func (a *RatingAPIService) SearchRatingIndexes(ctx context.Context) ApiSearchRatingIndexesRequest {
 	return ApiSearchRatingIndexesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -780,8 +764,7 @@ func (a *RatingAPIService) SearchRatingIndexesExecute(r ApiSearchRatingIndexesRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/rating/index/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/rating/index/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -884,7 +867,6 @@ func (a *RatingAPIService) SearchRatingIndexesExecute(r ApiSearchRatingIndexesRe
 type ApiSearchRatingsRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	filterAccountId *int64
@@ -974,14 +956,12 @@ SearchRatings Search Ratings
 Search for ratings on a ratable object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchRatingsRequest
 */
-func (a *RatingAPIService) SearchRatings(ctx context.Context, version float32) ApiSearchRatingsRequest {
+func (a *RatingAPIService) SearchRatings(ctx context.Context) ApiSearchRatingsRequest {
 	return ApiSearchRatingsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1000,8 +980,7 @@ func (a *RatingAPIService) SearchRatingsExecute(r ApiSearchRatingsRequest) ([]Ra
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/rating/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/rating/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1097,7 +1076,6 @@ func (a *RatingAPIService) SearchRatingsExecute(r ApiSearchRatingsRequest) ([]Ra
 type ApiUpdateRatingRequest struct {
 	ctx context.Context
 	ApiService *RatingAPIService
-	version float32
 	ratingId *int64
 	deviceId *string
 	accountId *int64
@@ -1180,14 +1158,12 @@ UpdateRating Update Rating
 Update an existing rating. Only the creator of the rating have permission to update.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateRatingRequest
 */
-func (a *RatingAPIService) UpdateRating(ctx context.Context, version float32) ApiUpdateRatingRequest {
+func (a *RatingAPIService) UpdateRating(ctx context.Context) ApiUpdateRatingRequest {
 	return ApiUpdateRatingRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1206,8 +1182,7 @@ func (a *RatingAPIService) UpdateRatingExecute(r ApiUpdateRatingRequest) (*Ratin
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/rating/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/rating/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

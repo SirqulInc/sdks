@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type ApplicationConfigAPIService service
 type ApiCreateApplicationConfigRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	configVersion *string
@@ -89,14 +87,12 @@ CreateApplicationConfig Create AppConfig
 Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateApplicationConfigRequest
 */
-func (a *ApplicationConfigAPIService) CreateApplicationConfig(ctx context.Context, version float32) ApiCreateApplicationConfigRequest {
+func (a *ApplicationConfigAPIService) CreateApplicationConfig(ctx context.Context) ApiCreateApplicationConfigRequest {
 	return ApiCreateApplicationConfigRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -115,8 +111,7 @@ func (a *ApplicationConfigAPIService) CreateApplicationConfigExecute(r ApiCreate
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -204,7 +199,6 @@ func (a *ApplicationConfigAPIService) CreateApplicationConfigExecute(r ApiCreate
 type ApiDeleteApplicationConfigRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	accountId *int64
 	configId *int64
 }
@@ -231,14 +225,12 @@ DeleteApplicationConfig Delete AppConfig
 Mark the application configuration for deletion.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteApplicationConfigRequest
 */
-func (a *ApplicationConfigAPIService) DeleteApplicationConfig(ctx context.Context, version float32) ApiDeleteApplicationConfigRequest {
+func (a *ApplicationConfigAPIService) DeleteApplicationConfig(ctx context.Context) ApiDeleteApplicationConfigRequest {
 	return ApiDeleteApplicationConfigRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -257,8 +249,7 @@ func (a *ApplicationConfigAPIService) DeleteApplicationConfigExecute(r ApiDelete
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -329,7 +320,6 @@ func (a *ApplicationConfigAPIService) DeleteApplicationConfigExecute(r ApiDelete
 type ApiGetApplicationConfigRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	accountId *int64
 	configId *int64
 }
@@ -356,14 +346,12 @@ GetApplicationConfig Get AppConfig
 Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetApplicationConfigRequest
 */
-func (a *ApplicationConfigAPIService) GetApplicationConfig(ctx context.Context, version float32) ApiGetApplicationConfigRequest {
+func (a *ApplicationConfigAPIService) GetApplicationConfig(ctx context.Context) ApiGetApplicationConfigRequest {
 	return ApiGetApplicationConfigRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -382,8 +370,7 @@ func (a *ApplicationConfigAPIService) GetApplicationConfigExecute(r ApiGetApplic
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -454,7 +441,6 @@ func (a *ApplicationConfigAPIService) GetApplicationConfigExecute(r ApiGetApplic
 type ApiGetApplicationConfigByConfigVersionRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	appKey *string
 	configVersion *string
 	retailerId *int64
@@ -509,14 +495,12 @@ GetApplicationConfigByConfigVersion Get AppConfig by Version
 Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetApplicationConfigByConfigVersionRequest
 */
-func (a *ApplicationConfigAPIService) GetApplicationConfigByConfigVersion(ctx context.Context, version float32) ApiGetApplicationConfigByConfigVersionRequest {
+func (a *ApplicationConfigAPIService) GetApplicationConfigByConfigVersion(ctx context.Context) ApiGetApplicationConfigByConfigVersionRequest {
 	return ApiGetApplicationConfigByConfigVersionRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -535,8 +519,7 @@ func (a *ApplicationConfigAPIService) GetApplicationConfigByConfigVersionExecute
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/getbyversion"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/getbyversion"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -623,7 +606,6 @@ func (a *ApplicationConfigAPIService) GetApplicationConfigByConfigVersionExecute
 type ApiSearchApplicationConfigRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	retailerId *int64
@@ -706,14 +688,12 @@ SearchApplicationConfig Search AppConfigs
 Gets all versions of application configurations in a particular app by the given appKey.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchApplicationConfigRequest
 */
-func (a *ApplicationConfigAPIService) SearchApplicationConfig(ctx context.Context, version float32) ApiSearchApplicationConfigRequest {
+func (a *ApplicationConfigAPIService) SearchApplicationConfig(ctx context.Context) ApiSearchApplicationConfigRequest {
 	return ApiSearchApplicationConfigRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -732,8 +712,7 @@ func (a *ApplicationConfigAPIService) SearchApplicationConfigExecute(r ApiSearch
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -843,7 +822,6 @@ func (a *ApplicationConfigAPIService) SearchApplicationConfigExecute(r ApiSearch
 type ApiUpdateApplicationConfigRequest struct {
 	ctx context.Context
 	ApiService *ApplicationConfigAPIService
-	version float32
 	accountId *int64
 	configId *int64
 	appKey *string
@@ -912,14 +890,12 @@ UpdateApplicationConfig Update AppConfig
 pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateApplicationConfigRequest
 */
-func (a *ApplicationConfigAPIService) UpdateApplicationConfig(ctx context.Context, version float32) ApiUpdateApplicationConfigRequest {
+func (a *ApplicationConfigAPIService) UpdateApplicationConfig(ctx context.Context) ApiUpdateApplicationConfigRequest {
 	return ApiUpdateApplicationConfigRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -938,8 +914,7 @@ func (a *ApplicationConfigAPIService) UpdateApplicationConfigExecute(r ApiUpdate
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/appconfig/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/appconfig/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

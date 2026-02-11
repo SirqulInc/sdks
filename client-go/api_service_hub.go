@@ -27,7 +27,6 @@ type ServiceHubAPIService service
 type ApiCreateServiceHubRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	body *ServiceHub
 }
 
@@ -46,14 +45,12 @@ CreateServiceHub Create Service Hub
 Create new service hub
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateServiceHubRequest
 */
-func (a *ServiceHubAPIService) CreateServiceHub(ctx context.Context, version float32) ApiCreateServiceHubRequest {
+func (a *ServiceHubAPIService) CreateServiceHub(ctx context.Context) ApiCreateServiceHubRequest {
 	return ApiCreateServiceHubRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -72,8 +69,7 @@ func (a *ServiceHubAPIService) CreateServiceHubExecute(r ApiCreateServiceHubRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -138,7 +134,6 @@ func (a *ServiceHubAPIService) CreateServiceHubExecute(r ApiCreateServiceHubRequ
 type ApiDeleteServiceHubRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	id int64
 }
 
@@ -152,15 +147,13 @@ DeleteServiceHub Delete Service Hub
 Delete an existing service hub
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the service hub to delete
  @return ApiDeleteServiceHubRequest
 */
-func (a *ServiceHubAPIService) DeleteServiceHub(ctx context.Context, version float32, id int64) ApiDeleteServiceHubRequest {
+func (a *ServiceHubAPIService) DeleteServiceHub(ctx context.Context, id int64) ApiDeleteServiceHubRequest {
 	return ApiDeleteServiceHubRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -178,8 +171,7 @@ func (a *ServiceHubAPIService) DeleteServiceHubExecute(r ApiDeleteServiceHubRequ
 		return nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -234,7 +226,6 @@ func (a *ServiceHubAPIService) DeleteServiceHubExecute(r ApiDeleteServiceHubRequ
 type ApiGetServiceHubRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	id int64
 }
 
@@ -248,15 +239,13 @@ GetServiceHub Get Service Hub
 Get an existing service hub
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the service hub to get
  @return ApiGetServiceHubRequest
 */
-func (a *ServiceHubAPIService) GetServiceHub(ctx context.Context, version float32, id int64) ApiGetServiceHubRequest {
+func (a *ServiceHubAPIService) GetServiceHub(ctx context.Context, id int64) ApiGetServiceHubRequest {
 	return ApiGetServiceHubRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -276,8 +265,7 @@ func (a *ServiceHubAPIService) GetServiceHubExecute(r ApiGetServiceHubRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -341,7 +329,6 @@ func (a *ServiceHubAPIService) GetServiceHubExecute(r ApiGetServiceHubRequest) (
 type ApiPostServiceHubRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	id int64
 	body *ServiceHub
 }
@@ -361,15 +348,13 @@ PostServiceHub Update Service Hub
 Update an existing service hub
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the service hub
  @return ApiPostServiceHubRequest
 */
-func (a *ServiceHubAPIService) PostServiceHub(ctx context.Context, version float32, id int64) ApiPostServiceHubRequest {
+func (a *ServiceHubAPIService) PostServiceHub(ctx context.Context, id int64) ApiPostServiceHubRequest {
 	return ApiPostServiceHubRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -389,8 +374,7 @@ func (a *ServiceHubAPIService) PostServiceHubExecute(r ApiPostServiceHubRequest)
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -456,7 +440,6 @@ func (a *ServiceHubAPIService) PostServiceHubExecute(r ApiPostServiceHubRequest)
 type ApiPutServiceHubRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	id int64
 	body *ServiceHub
 }
@@ -476,15 +459,13 @@ PutServiceHub Update Service Hub
 Update an existing service hub
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param id the id of the service hub
  @return ApiPutServiceHubRequest
 */
-func (a *ServiceHubAPIService) PutServiceHub(ctx context.Context, version float32, id int64) ApiPutServiceHubRequest {
+func (a *ServiceHubAPIService) PutServiceHub(ctx context.Context, id int64) ApiPutServiceHubRequest {
 	return ApiPutServiceHubRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		id: id,
 	}
 }
@@ -504,8 +485,7 @@ func (a *ServiceHubAPIService) PutServiceHubExecute(r ApiPutServiceHubRequest) (
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub/{id}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub/{id}"
 	localVarPath = strings.Replace(localVarPath, "{"+"id"+"}", url.PathEscape(parameterValueToString(r.id, "id")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -571,7 +551,6 @@ func (a *ServiceHubAPIService) PutServiceHubExecute(r ApiPutServiceHubRequest) (
 type ApiSearchServiceHubsRequest struct {
 	ctx context.Context
 	ApiService *ServiceHubAPIService
-	version float32
 	sortField *string
 	descending *bool
 	start *int32
@@ -633,14 +612,12 @@ SearchServiceHubs Search Service Hubs
 Search for service hubs.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchServiceHubsRequest
 */
-func (a *ServiceHubAPIService) SearchServiceHubs(ctx context.Context, version float32) ApiSearchServiceHubsRequest {
+func (a *ServiceHubAPIService) SearchServiceHubs(ctx context.Context) ApiSearchServiceHubsRequest {
 	return ApiSearchServiceHubsRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -659,8 +636,7 @@ func (a *ServiceHubAPIService) SearchServiceHubsExecute(r ApiSearchServiceHubsRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/hub"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/hub"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

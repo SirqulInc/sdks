@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type WorkflowAPIService service
 type ApiRunWorkflowRequest struct {
 	ctx context.Context
 	ApiService *WorkflowAPIService
-	version float32
 	accountId *int64
 	workflowId *int64
 	skuId *int64
@@ -75,14 +73,12 @@ RunWorkflow Run Workflow
 Runs a published executable workflow
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRunWorkflowRequest
 */
-func (a *WorkflowAPIService) RunWorkflow(ctx context.Context, version float32) ApiRunWorkflowRequest {
+func (a *WorkflowAPIService) RunWorkflow(ctx context.Context) ApiRunWorkflowRequest {
 	return ApiRunWorkflowRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -101,8 +97,7 @@ func (a *WorkflowAPIService) RunWorkflowExecute(r ApiRunWorkflowRequest) (*Sirqu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/workflow/run"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/workflow/run"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

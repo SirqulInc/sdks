@@ -79,693 +79,693 @@ ctx = context.WithValue(context.Background(), openapi.ContextOperationServerVari
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://dev.sirqul.com/api/3.18*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AMQPAPI* | [**ConsumerCreate**](docs/AMQPAPI.md#consumercreate) | **Post** /api/{version}/queue/consumer/create | Create Consumer
-*AMQPAPI* | [**ConsumerUpdate**](docs/AMQPAPI.md#consumerupdate) | **Post** /api/{version}/queue/consumer/update | Update Consumer
-*AMQPAPI* | [**QueueCreate**](docs/AMQPAPI.md#queuecreate) | **Post** /api/{version}/queue/create | Create Queue
-*AMQPAPI* | [**QueueDelete**](docs/AMQPAPI.md#queuedelete) | **Post** /api/{version}/queue/delete | Delete Queue
-*AMQPAPI* | [**QueueGet**](docs/AMQPAPI.md#queueget) | **Get** /api/{version}/queue/get | Get Queue
-*AMQPAPI* | [**QueuePublish**](docs/AMQPAPI.md#queuepublish) | **Post** /api/{version}/queue/publish | Publish Queue
-*AMQPAPI* | [**QueueSearch**](docs/AMQPAPI.md#queuesearch) | **Get** /api/{version}/queue/search | Search Queue
-*AMQPAPI* | [**QueueUpdate**](docs/AMQPAPI.md#queueupdate) | **Post** /api/{version}/queue/update | Update Queue
-*AccountAPI* | [**AccountLocationSearch**](docs/AccountAPI.md#accountlocationsearch) | **Get** /api/{version}/account/search | Search Accounts by Location
-*AccountAPI* | [**BlockAccount**](docs/AccountAPI.md#blockaccount) | **Post** /api/{version}/account/block | Block Account
-*AccountAPI* | [**CreateAccount**](docs/AccountAPI.md#createaccount) | **Post** /api/{version}/account/create | Create Account
-*AccountAPI* | [**EditAccount**](docs/AccountAPI.md#editaccount) | **Post** /api/{version}/account/profile/update | Update Account
-*AccountAPI* | [**EditUsername**](docs/AccountAPI.md#editusername) | **Post** /api/{version}/account/username/update | Update Username and Email
-*AccountAPI* | [**GetAccount**](docs/AccountAPI.md#getaccount) | **Get** /api/{version}/account/profile/get | Get Account
-*AccountAPI* | [**GetProfileAssets**](docs/AccountAPI.md#getprofileassets) | **Get** /api/{version}/account/profile/assets | Get Profile Assets
-*AccountAPI* | [**GetReferralList**](docs/AccountAPI.md#getreferrallist) | **Get** /api/{version}/account/referral/list | Search Accounts
-*AccountAPI* | [**GetSettings**](docs/AccountAPI.md#getsettings) | **Get** /api/{version}/account/settings/get | Get Account Settings
-*AccountAPI* | [**LoginDelegate**](docs/AccountAPI.md#logindelegate) | **Post** /api/{version}/account/login/delegate | Login as Account
-*AccountAPI* | [**LoginGeneral**](docs/AccountAPI.md#logingeneral) | **Post** /api/{version}/account/login | Login Account
-*AccountAPI* | [**LoginUsername**](docs/AccountAPI.md#loginusername) | **Post** /api/{version}/account/get | Login Account (Username)
-*AccountAPI* | [**Logout**](docs/AccountAPI.md#logout) | **Post** /api/{version}/account/logout | Logout Account
-*AccountAPI* | [**MergeAccount**](docs/AccountAPI.md#mergeaccount) | **Post** /api/{version}/account/merge | Merge Account
-*AccountAPI* | [**PasswordChange**](docs/AccountAPI.md#passwordchange) | **Post** /api/{version}/account/passwordchange | Update Password
-*AccountAPI* | [**PasswordReset**](docs/AccountAPI.md#passwordreset) | **Post** /api/{version}/account/passwordreset | Reset Password
-*AccountAPI* | [**RequestPasswordReset**](docs/AccountAPI.md#requestpasswordreset) | **Post** /api/{version}/account/requestpasswordreset | Request Password Reset
-*AccountAPI* | [**RequestValidateAccount**](docs/AccountAPI.md#requestvalidateaccount) | **Post** /api/{version}/account/requestValidateAccount | Send Validation Request
-*AccountAPI* | [**SearchAccounts**](docs/AccountAPI.md#searchaccounts) | **Get** /api/{version}/account/profile/search | Search Accounts
-*AccountAPI* | [**SecureLogin**](docs/AccountAPI.md#securelogin) | **Post** /api/{version}/account/login/validate | Login Account (Encrypted Username)
-*AccountAPI* | [**SecureSignup**](docs/AccountAPI.md#securesignup) | **Post** /api/{version}/account/create/validate | Create Account (Encrypted Username)
-*AccountAPI* | [**SetMatchToken**](docs/AccountAPI.md#setmatchtoken) | **Post** /api/{version}/consumer/profile/matchToken | Save Match Token
-*AccountAPI* | [**UpdateActveStatus**](docs/AccountAPI.md#updateactvestatus) | **Post** /api/{version}/account/active/update | Update Account Active Status
-*AccountAPI* | [**UpdateLocation**](docs/AccountAPI.md#updatelocation) | **Post** /api/{version}/account/location/update | Update Location
-*AccountAPI* | [**UpdateSettings**](docs/AccountAPI.md#updatesettings) | **Post** /api/{version}/account/settings/update | Update Account Settings
-*AccountAPI* | [**ValidateAccountSignup**](docs/AccountAPI.md#validateaccountsignup) | **Post** /api/{version}/account/validateAccountSignup | Save Validation Status
-*AccountAPI* | [**ValidatePasswordReset**](docs/AccountAPI.md#validatepasswordreset) | **Post** /api/{version}/account/validatepasswordreset | Validate Password Reset Token
-*AchievementAPI* | [**ApiVersionAchievementTierSearchPost**](docs/AchievementAPI.md#apiversionachievementtiersearchpost) | **Post** /api/{version}/achievement/tier/search | Searches an Achievement Tier
-*AchievementAPI* | [**CreateAchievement**](docs/AchievementAPI.md#createachievement) | **Post** /api/{version}/achievement/create | Create Achievement
-*AchievementAPI* | [**CreateAchievementTier**](docs/AchievementAPI.md#createachievementtier) | **Post** /api/{version}/achievement/tier/create | Create Achievement Tier
-*AchievementAPI* | [**DeleteAchievement**](docs/AchievementAPI.md#deleteachievement) | **Post** /api/{version}/achievement/delete | Delete Achievement
-*AchievementAPI* | [**DeleteAchievementTier**](docs/AchievementAPI.md#deleteachievementtier) | **Post** /api/{version}/achievement/tier/delete | Delete Achievement Tier
-*AchievementAPI* | [**GetAchievement**](docs/AchievementAPI.md#getachievement) | **Get** /api/{version}/achievement/get | Get Achievement
-*AchievementAPI* | [**GetAchievementTier**](docs/AchievementAPI.md#getachievementtier) | **Post** /api/{version}/achievement/tier/get | Gets an achievement tier
-*AchievementAPI* | [**GetUserAchievements**](docs/AchievementAPI.md#getuserachievements) | **Get** /api/{version}/achievement/progress/get | Get Achievement Progress
-*AchievementAPI* | [**ListAchievementTags**](docs/AchievementAPI.md#listachievementtags) | **Get** /api/{version}/achievement/tag/list | List Achievement Tags
-*AchievementAPI* | [**ListAchievements**](docs/AchievementAPI.md#listachievements) | **Get** /api/{version}/achievement/list | List Achievements
-*AchievementAPI* | [**SearchAchievements**](docs/AchievementAPI.md#searchachievements) | **Get** /api/{version}/achievement/search | Search Achievements
-*AchievementAPI* | [**UpdateAchievement**](docs/AchievementAPI.md#updateachievement) | **Post** /api/{version}/achievement/update | Update Achievement
-*AchievementAPI* | [**UpdateAchievementTier**](docs/AchievementAPI.md#updateachievementtier) | **Post** /api/{version}/achievement/tier/update | Update Achievement Tier
-*AchievementAPI* | [**UpdateUserAchievement**](docs/AchievementAPI.md#updateuserachievement) | **Post** /api/{version}/achievement/progress/update | Update Achievement Progress
-*ActivityAPI* | [**CreateEntityReference**](docs/ActivityAPI.md#createentityreference) | **Post** /api/{version}/entity/reference | Create an entity reference.
-*AlbumAPI* | [**AddAlbumCollection**](docs/AlbumAPI.md#addalbumcollection) | **Post** /api/{version}/album/create | Create Album
-*AlbumAPI* | [**AddAlbumUsers**](docs/AlbumAPI.md#addalbumusers) | **Post** /api/{version}/album/user/add | Add Album Users
-*AlbumAPI* | [**ApproveAlbum**](docs/AlbumAPI.md#approvealbum) | **Post** /api/{version}/album/approve | Approve Album
-*AlbumAPI* | [**GetAlbumCollection**](docs/AlbumAPI.md#getalbumcollection) | **Get** /api/{version}/album/get |  Get Album
-*AlbumAPI* | [**LeaveAlbum**](docs/AlbumAPI.md#leavealbum) | **Post** /api/{version}/album/user/leave | Leave Album
-*AlbumAPI* | [**RemoveAlbum**](docs/AlbumAPI.md#removealbum) | **Post** /api/{version}/album/delete | Delete Album
-*AlbumAPI* | [**RemoveAlbumUsers**](docs/AlbumAPI.md#removealbumusers) | **Post** /api/{version}/album/user/delete | Remove Album Users
-*AlbumAPI* | [**SearchAlbums**](docs/AlbumAPI.md#searchalbums) | **Get** /api/{version}/album/search | Search Albums
-*AlbumAPI* | [**UpdateAlbumCollection**](docs/AlbumAPI.md#updatealbumcollection) | **Post** /api/{version}/album/update | Update Album
-*AnalyticsAPI* | [**Activities**](docs/AnalyticsAPI.md#activities) | **Get** /api/{version}/analytics/useractivity | Get User Activity
-*AnalyticsAPI* | [**AggregatedFilteredUsage**](docs/AnalyticsAPI.md#aggregatedfilteredusage) | **Get** /api/{version}/analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
-*AnalyticsAPI* | [**FilteredUsage**](docs/AnalyticsAPI.md#filteredusage) | **Get** /api/{version}/analytics/filteredUsage | Get Filtered Usage
-*AnalyticsAPI* | [**Usage**](docs/AnalyticsAPI.md#usage) | **Post** /api/{version}/analytics/usage | Create Usage Record
-*AnalyticsAPI* | [**UsageBatch**](docs/AnalyticsAPI.md#usagebatch) | **Post** /api/{version}/analytics/usage/batch | Create Multiple Usage Records
-*AppDataAPI* | [**GetAppData**](docs/AppDataAPI.md#getappdata) | **Get** /api/{version}/app/get | Get App Data
-*AppDataAPI* | [**PostAppData**](docs/AppDataAPI.md#postappdata) | **Post** /api/{version}/app/post | Create App Data
-*AppDataAPI* | [**RegenAppData**](docs/AppDataAPI.md#regenappdata) | **Post** /api/{version}/app/regen | Regenerate App Data
-*ApplicationAPI* | [**CreateApplication**](docs/ApplicationAPI.md#createapplication) | **Post** /api/{version}/application/create | Create Application
-*ApplicationAPI* | [**CreateApplicationPlacement**](docs/ApplicationAPI.md#createapplicationplacement) | **Post** /api/{version}/application/placement/create | Create Ad Placement
-*ApplicationAPI* | [**DeleteApplication**](docs/ApplicationAPI.md#deleteapplication) | **Post** /api/{version}/application/delete | Delete Application
-*ApplicationAPI* | [**DeleteApplicationPlacement**](docs/ApplicationAPI.md#deleteapplicationplacement) | **Post** /api/{version}/application/placement/delete | Delete Ad Placement
-*ApplicationAPI* | [**GetApplication**](docs/ApplicationAPI.md#getapplication) | **Get** /api/{version}/application/get | Get Application
-*ApplicationAPI* | [**GetApplicationPlacement**](docs/ApplicationAPI.md#getapplicationplacement) | **Get** /api/{version}/application/placement/get | Get Ad Placement
-*ApplicationAPI* | [**GetApplicationVersions**](docs/ApplicationAPI.md#getapplicationversions) | **Get** /api/{version}/application/versions | Get API versions
-*ApplicationAPI* | [**GetUniqueUsersByApp**](docs/ApplicationAPI.md#getuniqueusersbyapp) | **Get** /api/{version}/application/users | Search Application Users
-*ApplicationAPI* | [**ListApplications**](docs/ApplicationAPI.md#listapplications) | **Get** /api/{version}/application/list | List Applications
-*ApplicationAPI* | [**SearchApplicationPlacement**](docs/ApplicationAPI.md#searchapplicationplacement) | **Get** /api/{version}/application/placement/search | Search for Ad Placements
-*ApplicationAPI* | [**SearchApplicationSettings**](docs/ApplicationAPI.md#searchapplicationsettings) | **Get** /api/{version}/application/settings/search | Search for Application Settings
-*ApplicationAPI* | [**SearchApplications**](docs/ApplicationAPI.md#searchapplications) | **Get** /api/{version}/application/search | Search Applications
-*ApplicationAPI* | [**UpdateApplication**](docs/ApplicationAPI.md#updateapplication) | **Post** /api/{version}/application/update | Update Application
-*ApplicationAPI* | [**UpdateApplicationActive**](docs/ApplicationAPI.md#updateapplicationactive) | **Post** /api/{version}/application/active | Change Appliation Status
-*ApplicationAPI* | [**UpdateApplicationPlacement**](docs/ApplicationAPI.md#updateapplicationplacement) | **Post** /api/{version}/application/placement/update | Update Ad Placement
-*ApplicationAPI* | [**UploadApplicationCertificate**](docs/ApplicationAPI.md#uploadapplicationcertificate) | **Post** /api/{version}/application/certificate/create | Create Application Certificate
-*ApplicationConfigAPI* | [**CreateApplicationConfig**](docs/ApplicationConfigAPI.md#createapplicationconfig) | **Post** /api/{version}/appconfig/create | Create AppConfig
-*ApplicationConfigAPI* | [**DeleteApplicationConfig**](docs/ApplicationConfigAPI.md#deleteapplicationconfig) | **Post** /api/{version}/appconfig/delete | Delete AppConfig
-*ApplicationConfigAPI* | [**GetApplicationConfig**](docs/ApplicationConfigAPI.md#getapplicationconfig) | **Get** /api/{version}/appconfig/get | Get AppConfig
-*ApplicationConfigAPI* | [**GetApplicationConfigByConfigVersion**](docs/ApplicationConfigAPI.md#getapplicationconfigbyconfigversion) | **Get** /api/{version}/appconfig/getbyversion | Get AppConfig by Version
-*ApplicationConfigAPI* | [**SearchApplicationConfig**](docs/ApplicationConfigAPI.md#searchapplicationconfig) | **Get** /api/{version}/appconfig/search | Search AppConfigs
-*ApplicationConfigAPI* | [**UpdateApplicationConfig**](docs/ApplicationConfigAPI.md#updateapplicationconfig) | **Post** /api/{version}/appconfig/update | Update AppConfig
-*AssetAPI* | [**AssetDownload**](docs/AssetAPI.md#assetdownload) | **Get** /api/{version}/asset/download/{filename} | Download Asset
-*AssetAPI* | [**AssetMorph**](docs/AssetAPI.md#assetmorph) | **Post** /api/{version}/asset/morph | Convert Offer to Creative
-*AssetAPI* | [**CreateAsset**](docs/AssetAPI.md#createasset) | **Post** /api/{version}/asset/create | Create Asset
-*AssetAPI* | [**DeleteAsset**](docs/AssetAPI.md#deleteasset) | **Post** /api/{version}/asset/delete | Delete Asset
-*AssetAPI* | [**GetAsset**](docs/AssetAPI.md#getasset) | **Get** /api/{version}/asset/get | Get Asset
-*AssetAPI* | [**RemoveAsset**](docs/AssetAPI.md#removeasset) | **Post** /api/{version}/asset/remove | Remove Asset from Collection
-*AssetAPI* | [**SearchAssets**](docs/AssetAPI.md#searchassets) | **Get** /api/{version}/asset/search | Search Assets
-*AssetAPI* | [**UpdateAsset**](docs/AssetAPI.md#updateasset) | **Post** /api/{version}/asset/update | Update Asset
-*AssignmentAPI* | [**AssigmentAssigneeAccountSearch**](docs/AssignmentAPI.md#assigmentassigneeaccountsearch) | **Get** /api/{version}/assignment/assignee/search | Search Assignment Assignees
-*AssignmentAPI* | [**AssignmentCreate**](docs/AssignmentAPI.md#assignmentcreate) | **Post** /api/{version}/assignment/create | Create Assignment
-*AssignmentAPI* | [**AssignmentDelete**](docs/AssignmentAPI.md#assignmentdelete) | **Post** /api/{version}/assignment/delete | Delete Assignment
-*AssignmentAPI* | [**AssignmentGet**](docs/AssignmentAPI.md#assignmentget) | **Get** /api/{version}/assignment/get | Get Assignment
-*AssignmentAPI* | [**AssignmentSearch**](docs/AssignmentAPI.md#assignmentsearch) | **Get** /api/{version}/assignment/search | Search Assignments
-*AssignmentAPI* | [**AssignmentStatusCreate**](docs/AssignmentAPI.md#assignmentstatuscreate) | **Post** /api/{version}/assignment/status/create | Create Assignment Status
-*AssignmentAPI* | [**AssignmentStatusDelete**](docs/AssignmentAPI.md#assignmentstatusdelete) | **Post** /api/{version}/assignment/status/delete | Deletes Assignment Status
-*AssignmentAPI* | [**AssignmentStatusGet**](docs/AssignmentAPI.md#assignmentstatusget) | **Get** /api/{version}/assignment/status/get | Get Assignment Status
-*AssignmentAPI* | [**AssignmentStatusSearch**](docs/AssignmentAPI.md#assignmentstatussearch) | **Get** /api/{version}/assignment/status/search | Search Assignment Statuses
-*AssignmentAPI* | [**AssignmentStatusUpdate**](docs/AssignmentAPI.md#assignmentstatusupdate) | **Post** /api/{version}/assignment/status/update | Update Assignment Status
-*AssignmentAPI* | [**AssignmentUpdate**](docs/AssignmentAPI.md#assignmentupdate) | **Post** /api/{version}/assignment/update | Update Assignment
-*AudienceAPI* | [**CreateAudience**](docs/AudienceAPI.md#createaudience) | **Post** /api/{version}/audience/create | Create Audience
-*AudienceAPI* | [**DeleteAudience**](docs/AudienceAPI.md#deleteaudience) | **Post** /api/{version}/audience/delete | Delete Audience
-*AudienceAPI* | [**GetAgeGroups**](docs/AudienceAPI.md#getagegroups) | **Get** /api/{version}/audience/ageGroups | Get Age Groups
-*AudienceAPI* | [**GetAudience**](docs/AudienceAPI.md#getaudience) | **Get** /api/{version}/audience/get | Get Audience
-*AudienceAPI* | [**GetAudienceList**](docs/AudienceAPI.md#getaudiencelist) | **Get** /api/{version}/audience/search | Search Audiences
-*AudienceAPI* | [**GetDevices**](docs/AudienceAPI.md#getdevices) | **Get** /api/{version}/audience/devices | Get Devices
-*AudienceAPI* | [**GetExperiences**](docs/AudienceAPI.md#getexperiences) | **Get** /api/{version}/audience/experiences | Get Experiences
-*AudienceAPI* | [**GetGroupedAudiences**](docs/AudienceAPI.md#getgroupedaudiences) | **Get** /api/{version}/audience/grouped/get | Get GroupedAudiences
-*AudienceAPI* | [**ListByAccount**](docs/AudienceAPI.md#listbyaccount) | **Post** /api/{version}/audience/suggestion/list | List Suggestions by Audience
-*AudienceAPI* | [**ListByAudience**](docs/AudienceAPI.md#listbyaudience) | **Get** /api/{version}/audience/suggestion/offersByAudience | List Offers by Audience
-*AudienceAPI* | [**ListLastestByAccount**](docs/AudienceAPI.md#listlastestbyaccount) | **Get** /api/{version}/audience/suggestion/latest | List Sent Suggestions 
-*AudienceAPI* | [**SendByAccount**](docs/AudienceAPI.md#sendbyaccount) | **Post** /api/{version}/audience/suggestion/send | Send Suggestions
-*AudienceAPI* | [**UpdateAudience**](docs/AudienceAPI.md#updateaudience) | **Post** /api/{version}/audience/update | Update Audience
-*BidAPI* | [**CreateBid**](docs/BidAPI.md#createbid) | **Post** /api/{version}/bid/create | Create Bid
-*BidAPI* | [**DeleteBid**](docs/BidAPI.md#deletebid) | **Post** /api/{version}/bid/delete | Delete Bid
-*BidAPI* | [**GetBid**](docs/BidAPI.md#getbid) | **Get** /api/{version}/bid/get | Get Bid
-*BidAPI* | [**UpdateBid**](docs/BidAPI.md#updatebid) | **Post** /api/{version}/bid/update | Update Bid
-*BillableEntityAPI* | [**CreateBillableEntity**](docs/BillableEntityAPI.md#createbillableentity) | **Post** /api/{version}/billable/create | Create Billable
-*BillableEntityAPI* | [**DeleteBillableEntity**](docs/BillableEntityAPI.md#deletebillableentity) | **Post** /api/{version}/billable/delete | Delete Billable
-*BillableEntityAPI* | [**GetBillableEntity**](docs/BillableEntityAPI.md#getbillableentity) | **Get** /api/{version}/billable/get | Get Billable
-*BillableEntityAPI* | [**UpdateBillableEntity**](docs/BillableEntityAPI.md#updatebillableentity) | **Post** /api/{version}/billable/update | Update Billable
-*BillingInfoAPI* | [**AddPaymentMethod**](docs/BillingInfoAPI.md#addpaymentmethod) | **Post** /api/{version}/billing/update | Update Payment Method
-*BillingInfoAPI* | [**CreatePaymentMethod**](docs/BillingInfoAPI.md#createpaymentmethod) | **Post** /api/{version}/billing/create | Create Payment Method
-*BillingInfoAPI* | [**CreateSmartContract**](docs/BillingInfoAPI.md#createsmartcontract) | **Post** /api/{version}/billing/crypto/transfer | Create Smart Contract
-*BillingInfoAPI* | [**GetCryptoBalance**](docs/BillingInfoAPI.md#getcryptobalance) | **Get** /api/{version}/billing/crypto/get | Get Crypto Balances
-*BillingInfoAPI* | [**GetPaymentMethod**](docs/BillingInfoAPI.md#getpaymentmethod) | **Get** /api/{version}/billing/get | Get Payment Method
-*BillingInfoAPI* | [**SearchPaymentMethod**](docs/BillingInfoAPI.md#searchpaymentmethod) | **Get** /api/{version}/billing/search | Search Payment Methods
-*CSVImportAPI* | [**GetStatusCSV**](docs/CSVImportAPI.md#getstatuscsv) | **Get** /api/{version}/csvimport/batch/status/details | Detail Status
-*CSVImportAPI* | [**ListStatusCSV**](docs/CSVImportAPI.md#liststatuscsv) | **Get** /api/{version}/csvimport/batch/list | Search Status
-*CSVImportAPI* | [**StatusCSV**](docs/CSVImportAPI.md#statuscsv) | **Get** /api/{version}/csvimport/batch/status | Batch Status
-*CSVImportAPI* | [**UploadCSV**](docs/CSVImportAPI.md#uploadcsv) | **Post** /api/{version}/csvimport/upload | Upload CSV
-*CargoTypeAPI* | [**CreateCargoType**](docs/CargoTypeAPI.md#createcargotype) | **Post** /api/{version}/cargo/type | Create Cargo Type
-*CargoTypeAPI* | [**DeleteCargoType**](docs/CargoTypeAPI.md#deletecargotype) | **Delete** /api/{version}/cargo/type/{cargoTypeId} | Delete Cargo Type
-*CargoTypeAPI* | [**GetCargoType**](docs/CargoTypeAPI.md#getcargotype) | **Get** /api/{version}/cargo/type/{cargoTypeId} | Get Cargo Type
-*CargoTypeAPI* | [**SearchCargoTypes**](docs/CargoTypeAPI.md#searchcargotypes) | **Get** /api/{version}/cargo/type | Search Cargo Type
-*CargoTypeAPI* | [**UpdateCargoType**](docs/CargoTypeAPI.md#updatecargotype) | **Put** /api/{version}/cargo/type/{cargoTypeId} | Update Cargo Type
-*CarrierAPI* | [**SearchCarriers**](docs/CarrierAPI.md#searchcarriers) | **Get** /api/{version}/carrier/search | Search Carriers
-*CategoryAPI* | [**CategoryDistanceSearch**](docs/CategoryAPI.md#categorydistancesearch) | **Get** /api/{version}/category/distancesearch | Search Categories by Distance
-*CategoryAPI* | [**CreateCategory**](docs/CategoryAPI.md#createcategory) | **Post** /api/{version}/category/create | Create Category
-*CategoryAPI* | [**DeleteCategory**](docs/CategoryAPI.md#deletecategory) | **Post** /api/{version}/category/delete | Delete Category
-*CategoryAPI* | [**DuplicateCategory**](docs/CategoryAPI.md#duplicatecategory) | **Post** /api/{version}/category/duplicate | Duplicate Category
-*CategoryAPI* | [**GetCategory**](docs/CategoryAPI.md#getcategory) | **Get** /api/{version}/category/get | Get Category
-*CategoryAPI* | [**SearchCategories**](docs/CategoryAPI.md#searchcategories) | **Get** /api/{version}/category/search | Search Categories
-*CategoryAPI* | [**UpdateCategory**](docs/CategoryAPI.md#updatecategory) | **Post** /api/{version}/category/update | Update Category
-*ConnectionAPI* | [**AddConnectionToGroup**](docs/ConnectionAPI.md#addconnectiontogroup) | **Post** /api/{version}/consumer/connection/group/addConnection | Add Connection
-*ConnectionAPI* | [**AddConnectionsToGroup**](docs/ConnectionAPI.md#addconnectionstogroup) | **Post** /api/{version}/connection/group/addConnections | Add Connections
-*ConnectionAPI* | [**AddSubGroups**](docs/ConnectionAPI.md#addsubgroups) | **Post** /api/{version}/consumer/connection/group/addSubGroup | Add Connection Groups
-*ConnectionAPI* | [**CreateOrUpdateConnection**](docs/ConnectionAPI.md#createorupdateconnection) | **Post** /api/{version}/consumer/connection/add | Create or Update Connection
-*ConnectionAPI* | [**CreateOrUpdateGroup**](docs/ConnectionAPI.md#createorupdategroup) | **Post** /api/{version}/consumer/connection/group | Create or Update Connection Group
-*ConnectionAPI* | [**FollowAccept**](docs/ConnectionAPI.md#followaccept) | **Post** /api/{version}/consumer/follow/accept | Accept Follow Request
-*ConnectionAPI* | [**FollowReject**](docs/ConnectionAPI.md#followreject) | **Post** /api/{version}/consumer/follow/reject | Reject Follow Request
-*ConnectionAPI* | [**FollowRemove**](docs/ConnectionAPI.md#followremove) | **Post** /api/{version}/consumer/follow/remove | Remove Follower / Unfollow
-*ConnectionAPI* | [**FollowRequest**](docs/ConnectionAPI.md#followrequest) | **Post** /api/{version}/consumer/follow/request | Send Follow Request
-*ConnectionAPI* | [**FriendAccept**](docs/ConnectionAPI.md#friendaccept) | **Post** /api/{version}/consumer/friend/accept | Accept Friend
-*ConnectionAPI* | [**FriendReject**](docs/ConnectionAPI.md#friendreject) | **Post** /api/{version}/consumer/friend/reject | Decline Friend
-*ConnectionAPI* | [**FriendRemove**](docs/ConnectionAPI.md#friendremove) | **Post** /api/{version}/consumer/friend/remove | Delete Friend
-*ConnectionAPI* | [**FriendRequest**](docs/ConnectionAPI.md#friendrequest) | **Post** /api/{version}/consumer/friend/request | Request Friend
-*ConnectionAPI* | [**GetConnectionSentFriendRequests**](docs/ConnectionAPI.md#getconnectionsentfriendrequests) | **Get** /api/{version}/consumer/connection/getRequested | Get Sent Friend Requests
-*ConnectionAPI* | [**GetConnections**](docs/ConnectionAPI.md#getconnections) | **Get** /api/{version}/consumer/connection/get | Search Connections
-*ConnectionAPI* | [**GetGroupDetails**](docs/ConnectionAPI.md#getgroupdetails) | **Get** /api/{version}/consumer/connection/group/details/get | Get Connection Group
-*ConnectionAPI* | [**GroupSearch**](docs/ConnectionAPI.md#groupsearch) | **Get** /api/{version}/connection/group/search | Search Connection Groups
-*ConnectionAPI* | [**RemoveConnectionFromGroup**](docs/ConnectionAPI.md#removeconnectionfromgroup) | **Post** /api/{version}/consumer/connection/group/removeConnection | Delete Connection
-*ConnectionAPI* | [**RemoveConnectionsFromGroup**](docs/ConnectionAPI.md#removeconnectionsfromgroup) | **Post** /api/{version}/connection/group/removeConnections | Remove Connections
-*ConnectionAPI* | [**RemoveGroup**](docs/ConnectionAPI.md#removegroup) | **Post** /api/{version}/consumer/connection/group/remove | Delete Connection Group
-*ConnectionAPI* | [**RemoveSubGroups**](docs/ConnectionAPI.md#removesubgroups) | **Post** /api/{version}/consumer/connection/group/removeSubGroup | Remove Connection Groups
-*ConnectionAPI* | [**SearchConnections**](docs/ConnectionAPI.md#searchconnections) | **Get** /api/{version}/connection/search | Search Possible Connections
-*ContestAPI* | [**AddOrUpdateAlbumContest**](docs/ContestAPI.md#addorupdatealbumcontest) | **Post** /api/{version}/consumer/album/contest | Create or Update Contest
-*ContestAPI* | [**ApproveAlbumContest**](docs/ContestAPI.md#approvealbumcontest) | **Post** /api/{version}/consumer/album/contest/approve | Approve Contest
-*ContestAPI* | [**DeleteContest**](docs/ContestAPI.md#deletecontest) | **Post** /api/{version}/consumer/album/contest/remove | Delete Contest
-*ContestAPI* | [**GetAlbumContest**](docs/ContestAPI.md#getalbumcontest) | **Get** /api/{version}/consumer/album/contest/get | Get Contest
-*ContestAPI* | [**GetAlbumContests**](docs/ContestAPI.md#getalbumcontests) | **Get** /api/{version}/consumer/album/contest/search | Search Contests
-*ContestAPI* | [**VoteOnAlbumContest**](docs/ContestAPI.md#voteonalbumcontest) | **Post** /api/{version}/consumer/album/contest/vote | Vote on Contest
-*CreativeAPI* | [**AddPreview**](docs/CreativeAPI.md#addpreview) | **Post** /api/{version}/creative/addpreview | Add Preview
-*CreativeAPI* | [**AdsFind**](docs/CreativeAPI.md#adsfind) | **Get** /api/{version}/ads/find | Find Missions
-*CreativeAPI* | [**CreateCreative**](docs/CreativeAPI.md#createcreative) | **Post** /api/{version}/creative/create | Create Creative
-*CreativeAPI* | [**DeleteCreative**](docs/CreativeAPI.md#deletecreative) | **Post** /api/{version}/creative/delete | Delete Creative
-*CreativeAPI* | [**GetCreative**](docs/CreativeAPI.md#getcreative) | **Get** /api/{version}/creative/get | Get Creative
-*CreativeAPI* | [**GetCreativesByApplication**](docs/CreativeAPI.md#getcreativesbyapplication) | **Get** /api/{version}/creative/search | Search Creatives
-*CreativeAPI* | [**RemovePreview**](docs/CreativeAPI.md#removepreview) | **Post** /api/{version}/creative/removepreview | Remove Preview
-*CreativeAPI* | [**UpdateCreative**](docs/CreativeAPI.md#updatecreative) | **Post** /api/{version}/creative/update | Update Creative
-*DependentAPI* | [**Create**](docs/DependentAPI.md#create) | **Put** /api/{version}/cargo/dependent/{accountId} | Create Dependent
-*DependentAPI* | [**GetDependents**](docs/DependentAPI.md#getdependents) | **Get** /api/{version}/cargo/dependent/{accountId} | Get dependent list of an account
-*DependentAPI* | [**RemoveDependent**](docs/DependentAPI.md#removedependent) | **Delete** /api/{version}/cargo/dependent/{accountId} | Delete Dependent
-*DisbursementAPI* | [**CheckDisbursements**](docs/DisbursementAPI.md#checkdisbursements) | **Get** /api/{version}/disbursement/check | Check Disbursements
-*DisbursementAPI* | [**CreateDisbursement**](docs/DisbursementAPI.md#createdisbursement) | **Post** /api/{version}/disbursement/create | Create Disbursement
-*DisbursementAPI* | [**GetDisbursement**](docs/DisbursementAPI.md#getdisbursement) | **Get** /api/{version}/disbursement/get | Get Disbursement
-*DisbursementAPI* | [**SearchDisbursements**](docs/DisbursementAPI.md#searchdisbursements) | **Get** /api/{version}/disbursement/search | Search Disbursements
-*DisbursementAPI* | [**UpdateDisbursement**](docs/DisbursementAPI.md#updatedisbursement) | **Post** /api/{version}/disbursement/update | Update Disbursement
-*EmployeeAPI* | [**AssignEmployee**](docs/EmployeeAPI.md#assignemployee) | **Post** /api/{version}/employee/assign | Assign Employee
-*EmployeeAPI* | [**AssignToLocationEmployee**](docs/EmployeeAPI.md#assigntolocationemployee) | **Post** /api/{version}/employee/assignToLocation | Assign Employee to Location
-*EmployeeAPI* | [**CreateEmployee**](docs/EmployeeAPI.md#createemployee) | **Post** /api/{version}/employee/create | Create Employee
-*EmployeeAPI* | [**DeleteEmployee**](docs/EmployeeAPI.md#deleteemployee) | **Post** /api/{version}/employee/delete | Delete Employee
-*EmployeeAPI* | [**GetEmployee**](docs/EmployeeAPI.md#getemployee) | **Post** /api/{version}/employee/get | Get Employee
-*EmployeeAPI* | [**SearchEmployees**](docs/EmployeeAPI.md#searchemployees) | **Post** /api/{version}/employee/search | Search Employees
-*EmployeeAPI* | [**UnassignEmployee**](docs/EmployeeAPI.md#unassignemployee) | **Post** /api/{version}/employee/unassign | Unassign Employee
-*EmployeeAPI* | [**UpdateEmployee**](docs/EmployeeAPI.md#updateemployee) | **Post** /api/{version}/employee/update | Update Employee
-*EventAPI* | [**AttendEvent**](docs/EventAPI.md#attendevent) | **Post** /api/{version}/event/attend | Attend Event
-*EventAPI* | [**CreateEvent**](docs/EventAPI.md#createevent) | **Post** /api/{version}/event/create | Create Event
-*EventAPI* | [**DeleteEvent**](docs/EventAPI.md#deleteevent) | **Post** /api/{version}/event/delete | Delete Event
-*EventAPI* | [**GetEvent**](docs/EventAPI.md#getevent) | **Get** /api/{version}/event/get | Get Event
-*EventAPI* | [**SearchEventTransactions**](docs/EventAPI.md#searcheventtransactions) | **Get** /api/{version}/event/attendance/search | Search Event Attendance
-*EventAPI* | [**SearchEvents**](docs/EventAPI.md#searchevents) | **Get** /api/{version}/event/search | Search Events
-*EventAPI* | [**UpdateEvent**](docs/EventAPI.md#updateevent) | **Post** /api/{version}/event/update | Update Event
-*FacebookAPI* | [**GetToken**](docs/FacebookAPI.md#gettoken) | **Get** /api/{version}/facebook/getfbtoken | Get Facebook Token
-*FacebookAPI* | [**GraphInterface**](docs/FacebookAPI.md#graphinterface) | **Post** /api/{version}/facebook/graph | Post to Facebook
-*FavoriteAPI* | [**AddFavorite**](docs/FavoriteAPI.md#addfavorite) | **Post** /api/{version}/favorite/create | Create Favorite
-*FavoriteAPI* | [**DeleteFavorite**](docs/FavoriteAPI.md#deletefavorite) | **Post** /api/{version}/favorite/delete | Delete Favorite
-*FavoriteAPI* | [**GetFavorite**](docs/FavoriteAPI.md#getfavorite) | **Get** /api/{version}/favorite/get | Get Favorite
-*FavoriteAPI* | [**SearchFavorites**](docs/FavoriteAPI.md#searchfavorites) | **Get** /api/{version}/favorite/search | Search Favorites
-*FavoriteAPI* | [**WhoHasFavorited**](docs/FavoriteAPI.md#whohasfavorited) | **Get** /api/{version}/favorite/whois | Who has Favorited
-*FilterAPI* | [**CreateFilter**](docs/FilterAPI.md#createfilter) | **Post** /api/{version}/filter/create | Create Filter
-*FilterAPI* | [**DeleteFilter**](docs/FilterAPI.md#deletefilter) | **Post** /api/{version}/filter/delete | Delete Filter
-*FilterAPI* | [**GetFilter**](docs/FilterAPI.md#getfilter) | **Get** /api/{version}/filter/get | Get Filter
-*FilterAPI* | [**SearchFilters**](docs/FilterAPI.md#searchfilters) | **Get** /api/{version}/filter/search | Search Filters
-*FilterAPI* | [**UpdateFilter**](docs/FilterAPI.md#updatefilter) | **Post** /api/{version}/filter/update | Update Filter
-*FlagAPI* | [**CreateFlag**](docs/FlagAPI.md#createflag) | **Post** /api/{version}/flag/create | Create Flag
-*FlagAPI* | [**DeleteFlag**](docs/FlagAPI.md#deleteflag) | **Post** /api/{version}/flag/delete | Delete Flag
-*FlagAPI* | [**GetFlag**](docs/FlagAPI.md#getflag) | **Get** /api/{version}/flag/get | Get Flag
-*FlagAPI* | [**GetFlagThreshold**](docs/FlagAPI.md#getflagthreshold) | **Get** /api/{version}/flag/threshold/get | Get Flag Threshold
-*FlagAPI* | [**UpdateFlagThreshold**](docs/FlagAPI.md#updateflagthreshold) | **Post** /api/{version}/flag/threshold/update | Update Flag Threshold
-*GameAPI* | [**CreateGame**](docs/GameAPI.md#creategame) | **Post** /api/{version}/game/create | Create a Game
-*GameAPI* | [**DeleteGame**](docs/GameAPI.md#deletegame) | **Post** /api/{version}/game/delete | Delete a Game
-*GameAPI* | [**GetGame**](docs/GameAPI.md#getgame) | **Get** /api/{version}/game/get | Get a Game by id
-*GameAPI* | [**SearchGames**](docs/GameAPI.md#searchgames) | **Get** /api/{version}/game/search | Search a Game
-*GameAPI* | [**UpdateGame**](docs/GameAPI.md#updategame) | **Post** /api/{version}/game/update | Update a Game
-*GameLevelAPI* | [**CreateGameLevel**](docs/GameLevelAPI.md#creategamelevel) | **Post** /api/{version}/level/create | Create Game Level
-*GameLevelAPI* | [**DeleteGameLevel**](docs/GameLevelAPI.md#deletegamelevel) | **Post** /api/{version}/level/delete | Delete Game Level
-*GameLevelAPI* | [**GetGameLevel**](docs/GameLevelAPI.md#getgamelevel) | **Get** /api/{version}/level/get | Get Game Level
-*GameLevelAPI* | [**GetGameLevelsByApplication**](docs/GameLevelAPI.md#getgamelevelsbyapplication) | **Get** /api/{version}/level/search | Search Game Levels
-*GameLevelAPI* | [**GetGameLevelsByBillableEntity**](docs/GameLevelAPI.md#getgamelevelsbybillableentity) | **Get** /api/{version}/level/searchByBillableEntity | Search Game Level by Billable Entity
-*GameLevelAPI* | [**GetQuestionsInLevel**](docs/GameLevelAPI.md#getquestionsinlevel) | **Get** /api/{version}/level/questions/get | Get Level Questions
-*GameLevelAPI* | [**GetWordsInLevel**](docs/GameLevelAPI.md#getwordsinlevel) | **Get** /api/{version}/level/words/get | Get Level Words
-*GameLevelAPI* | [**UpdateGameLevel**](docs/GameLevelAPI.md#updategamelevel) | **Post** /api/{version}/level/update | Update Game Level
-*GameLevelAPI* | [**UpdateQuestionsInLevel**](docs/GameLevelAPI.md#updatequestionsinlevel) | **Post** /api/{version}/level/questions/update | Update Level Questions
-*GameLevelAPI* | [**UpdateWordsInLevel**](docs/GameLevelAPI.md#updatewordsinlevel) | **Post** /api/{version}/level/words/update | Update Level Words
-*InviteAPI* | [**AcceptInvite**](docs/InviteAPI.md#acceptinvite) | **Post** /api/{version}/invite/accept | Accept Invite
-*InviteAPI* | [**AlbumContestInvite**](docs/InviteAPI.md#albumcontestinvite) | **Post** /api/{version}/invite/albumContest | Invite to Contest
-*InviteAPI* | [**AlbumInvite**](docs/InviteAPI.md#albuminvite) | **Post** /api/{version}/invite/album | Invite to Collection
-*InviteAPI* | [**EventInvite**](docs/InviteAPI.md#eventinvite) | **Post** /api/{version}/invite/event | Invite to Event
-*InviteAPI* | [**GameInvite**](docs/InviteAPI.md#gameinvite) | **Post** /api/{version}/invite/gameLevel | Invite to Game Level
-*InviteAPI* | [**GetInvite**](docs/InviteAPI.md#getinvite) | **Get** /api/{version}/invite/get | Get Invite
-*InviteAPI* | [**MissionInvite**](docs/InviteAPI.md#missioninvite) | **Post** /api/{version}/invite/mission | Invite to Mission
-*InviteAPI* | [**OfferInvite**](docs/InviteAPI.md#offerinvite) | **Post** /api/{version}/invite/offer | Invite to Offer
-*InviteAPI* | [**OfferLocationInvite**](docs/InviteAPI.md#offerlocationinvite) | **Post** /api/{version}/invite/offerLocation | Invite to Offer Location
-*InviteAPI* | [**RetailerLocationInvite**](docs/InviteAPI.md#retailerlocationinvite) | **Post** /api/{version}/invite/retailerLocation | Invite to Retailer Location
-*LeaderboardAPI* | [**CreateLeaderboard**](docs/LeaderboardAPI.md#createleaderboard) | **Post** /api/{version}/leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*LeaderboardAPI* | [**DeleteLeaderboard**](docs/LeaderboardAPI.md#deleteleaderboard) | **Post** /api/{version}/leaderboard/delete | Delete the Leader Board
-*LeaderboardAPI* | [**GetLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **Get** /api/{version}/leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
-*LeaderboardAPI* | [**SearchLeaderboards**](docs/LeaderboardAPI.md#searchleaderboards) | **Get** /api/{version}/leaderboard/search | Search leaderboard and retrieve the matching ranking list
-*LeaderboardAPI* | [**UpdateLeaderboard**](docs/LeaderboardAPI.md#updateleaderboard) | **Post** /api/{version}/leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-*LikeAPI* | [**RegisterLike**](docs/LikeAPI.md#registerlike) | **Post** /api/{version}/like | Create Like
-*LikeAPI* | [**RemoveLike**](docs/LikeAPI.md#removelike) | **Post** /api/{version}/like/delete | Delete Like
-*LikeAPI* | [**SearchLikes**](docs/LikeAPI.md#searchlikes) | **Get** /api/{version}/like/search | Search Likes
-*ListingAPI* | [**CreateListing**](docs/ListingAPI.md#createlisting) | **Post** /api/{version}/listing/create | Create Listing
-*ListingAPI* | [**DeleteListing**](docs/ListingAPI.md#deletelisting) | **Post** /api/{version}/listing/delete | Delete Listing
-*ListingAPI* | [**GetListing**](docs/ListingAPI.md#getlisting) | **Get** /api/{version}/listing/get | Get Listing
-*ListingAPI* | [**SearchListing**](docs/ListingAPI.md#searchlisting) | **Get** /api/{version}/listing/search | Search Listings
-*ListingAPI* | [**SummaryListing**](docs/ListingAPI.md#summarylisting) | **Get** /api/{version}/listing/summary | Summary Listing
-*ListingAPI* | [**UpdateListing**](docs/ListingAPI.md#updatelisting) | **Post** /api/{version}/listing/update | Update Listing
-*LocationAPI* | [**CacheTrilaterationData**](docs/LocationAPI.md#cachetrilaterationdata) | **Post** /api/{version}/location/trilaterate/cache | Create Trilateration Data with File
-*LocationAPI* | [**CacheTrilaterationDataGzip**](docs/LocationAPI.md#cachetrilaterationdatagzip) | **Post** /api/{version}/location/trilaterate/cache/submit | Create Trilateration Data with Rest
-*LocationAPI* | [**GetLocationByIp**](docs/LocationAPI.md#getlocationbyip) | **Get** /api/{version}/location/ip | Get Location by IP
-*LocationAPI* | [**GetLocationByTrilateration**](docs/LocationAPI.md#getlocationbytrilateration) | **Get** /api/{version}/account/location/trilaterate | Get Location by Trilateration
-*LocationAPI* | [**GetLocations**](docs/LocationAPI.md#getlocations) | **Get** /api/{version}/location/search | Search Regions or Postal Codes
-*LocationApiV2API* | [**CreateLocationV2**](docs/LocationApiV2API.md#createlocationv2) | **Post** /api/{version}/location | Create new location
-*LocationApiV2API* | [**UpdateLocationV2**](docs/LocationApiV2API.md#updatelocationv2) | **Post** /api/{version}/location/{id} | Update an existing location
-*MediaAPI* | [**CreateMedia**](docs/MediaAPI.md#createmedia) | **Post** /api/{version}/media/create | Create Media
-*MediaAPI* | [**DeleteMedia**](docs/MediaAPI.md#deletemedia) | **Post** /api/{version}/media/delete | Delete Media
-*MediaAPI* | [**GetMedia**](docs/MediaAPI.md#getmedia) | **Get** /api/{version}/media/get | Media Get
-*MediaAPI* | [**SearchMedia**](docs/MediaAPI.md#searchmedia) | **Get** /api/{version}/media/search | Search Media
-*MediaAPI* | [**UpdateMedia**](docs/MediaAPI.md#updatemedia) | **Post** /api/{version}/media/update | Update Media
-*MissionAPI* | [**CreateMission**](docs/MissionAPI.md#createmission) | **Post** /api/{version}/mission/create | Create Mission
-*MissionAPI* | [**DeleteMission**](docs/MissionAPI.md#deletemission) | **Post** /api/{version}/mission/delete | Delete Mission
-*MissionAPI* | [**FindMissions**](docs/MissionAPI.md#findmissions) | **Get** /api/{version}/mission/find | Find Missions
-*MissionAPI* | [**GetMission**](docs/MissionAPI.md#getmission) | **Get** /api/{version}/mission/get | Get Mission
-*MissionAPI* | [**ImportMission**](docs/MissionAPI.md#importmission) | **Post** /api/{version}/mission/import | Import Mission
-*MissionAPI* | [**SearchMissionFormats**](docs/MissionAPI.md#searchmissionformats) | **Get** /api/{version}/mission/format/search | Search Mission Formats
-*MissionAPI* | [**SearchMissions**](docs/MissionAPI.md#searchmissions) | **Get** /api/{version}/mission/search | Search Missions
-*MissionAPI* | [**SearchMissionsByBillableEntity**](docs/MissionAPI.md#searchmissionsbybillableentity) | **Get** /api/{version}/mission/searchByBillableEntity | Search Missions by Billable Entity
-*MissionAPI* | [**UpdateMission**](docs/MissionAPI.md#updatemission) | **Post** /api/{version}/mission/update | Update Mission
-*MissionInviteAPI* | [**CreateMissionInvite**](docs/MissionInviteAPI.md#createmissioninvite) | **Post** /api/{version}/mission/invite/create | Create Mission Invite
-*MissionInviteAPI* | [**DeleteMissionInvite**](docs/MissionInviteAPI.md#deletemissioninvite) | **Post** /api/{version}/mission/invite/delete | Delete Mission Invite
-*MissionInviteAPI* | [**GetMissionInvite**](docs/MissionInviteAPI.md#getmissioninvite) | **Get** /api/{version}/mission/invite/get | Get Mission Invite
-*MissionInviteAPI* | [**SearchMissionInvites**](docs/MissionInviteAPI.md#searchmissioninvites) | **Get** /api/{version}/mission/invite/search | Search Mission Invites
-*MissionInviteAPI* | [**UpdateMissionInvite**](docs/MissionInviteAPI.md#updatemissioninvite) | **Post** /api/{version}/mission/invite/update | Update Mission Invite
-*NoteAPI* | [**BatchOperation**](docs/NoteAPI.md#batchoperation) | **Post** /api/{version}/note/batch | Batch Note Operation
-*NoteAPI* | [**CreateNote**](docs/NoteAPI.md#createnote) | **Post** /api/{version}/note/create | Create Note
-*NoteAPI* | [**DeleteNote**](docs/NoteAPI.md#deletenote) | **Post** /api/{version}/note/delete | Delete Note
-*NoteAPI* | [**GetNote**](docs/NoteAPI.md#getnote) | **Post** /api/{version}/note/get | Get Note
-*NoteAPI* | [**SearchNotes**](docs/NoteAPI.md#searchnotes) | **Post** /api/{version}/note/search | Search Notes
-*NoteAPI* | [**UpdateNote**](docs/NoteAPI.md#updatenote) | **Post** /api/{version}/note/update | Update Note
-*NotificationAPI* | [**CreateNotificationTemplate**](docs/NotificationAPI.md#createnotificationtemplate) | **Post** /api/{version}/notification/template/create | Create Notification Template
-*NotificationAPI* | [**CreateOrUpdateBlockedNotifications**](docs/NotificationAPI.md#createorupdateblockednotifications) | **Post** /api/{version}/notification/blocked/batch | Create or update blocked notification settings
-*NotificationAPI* | [**DeleteNotificationTemplate**](docs/NotificationAPI.md#deletenotificationtemplate) | **Post** /api/{version}/notification/template/delete | Delete Notification Template
-*NotificationAPI* | [**GetNotificationTemplate**](docs/NotificationAPI.md#getnotificationtemplate) | **Get** /api/{version}/notification/template/get | Get Notification Template
-*NotificationAPI* | [**GetNotifications**](docs/NotificationAPI.md#getnotifications) | **Get** /api/{version}/notification/search | Get Notifications
-*NotificationAPI* | [**RegisterNotificationToken**](docs/NotificationAPI.md#registernotificationtoken) | **Post** /api/{version}/notification/token | Register Notification Token
-*NotificationAPI* | [**SearchBlockedNotifications**](docs/NotificationAPI.md#searchblockednotifications) | **Get** /api/{version}/notification/blocked/search | Search on the user&#39;s blocked notification settings
-*NotificationAPI* | [**SearchNotificationTemplate**](docs/NotificationAPI.md#searchnotificationtemplate) | **Get** /api/{version}/notification/template/search | Search Notification Templates
-*NotificationAPI* | [**SearchRecipients**](docs/NotificationAPI.md#searchrecipients) | **Get** /api/{version}/notification/recipient/search | Search for Recipients
-*NotificationAPI* | [**SearchRecipientsCount**](docs/NotificationAPI.md#searchrecipientscount) | **Get** /api/{version}/notification/recipient/search/count | Search for Recipients (Counts/Grouped)
-*NotificationAPI* | [**SendBatchNotifications**](docs/NotificationAPI.md#sendbatchnotifications) | **Post** /api/{version}/notification/batch | Send Batch Notifications
-*NotificationAPI* | [**SendCustomNotifications**](docs/NotificationAPI.md#sendcustomnotifications) | **Post** /api/{version}/notification/custom | Send Custom Notifications
-*NotificationAPI* | [**UpdateNotificationTemplate**](docs/NotificationAPI.md#updatenotificationtemplate) | **Post** /api/{version}/notification/template/update | Update Notification Template
-*ObjectStoreAPI* | [**AddField**](docs/ObjectStoreAPI.md#addfield) | **Post** /api/{version}/object/field/add | Create Field
-*ObjectStoreAPI* | [**CreateData**](docs/ObjectStoreAPI.md#createdata) | **Post** /api/{version}/object/data/{objectName} | Create Data
-*ObjectStoreAPI* | [**CreateObject**](docs/ObjectStoreAPI.md#createobject) | **Post** /api/{version}/object/create | Create Object
-*ObjectStoreAPI* | [**DeleteData**](docs/ObjectStoreAPI.md#deletedata) | **Delete** /api/{version}/object/data/{objectName}/{objectId} | Delete Data
-*ObjectStoreAPI* | [**DeleteField**](docs/ObjectStoreAPI.md#deletefield) | **Post** /api/{version}/object/field/delete | Delete Field
-*ObjectStoreAPI* | [**DeleteObject**](docs/ObjectStoreAPI.md#deleteobject) | **Post** /api/{version}/object/delete | Delete Object
-*ObjectStoreAPI* | [**GetData**](docs/ObjectStoreAPI.md#getdata) | **Get** /api/{version}/object/data/{objectName}/{objectId} | Get Data
-*ObjectStoreAPI* | [**GetObject**](docs/ObjectStoreAPI.md#getobject) | **Get** /api/{version}/object/get | Get Object
-*ObjectStoreAPI* | [**SearchData**](docs/ObjectStoreAPI.md#searchdata) | **Get** /api/{version}/object/data/{objectName} | Search Data
-*ObjectStoreAPI* | [**SearchObject**](docs/ObjectStoreAPI.md#searchobject) | **Get** /api/{version}/object/search | Search Objects
-*ObjectStoreAPI* | [**UpdateData**](docs/ObjectStoreAPI.md#updatedata) | **Put** /api/{version}/object/data/{objectName}/{objectId} | Update Data
-*OfferAPI* | [**BatchUpdateOfferLocations**](docs/OfferAPI.md#batchupdateofferlocations) | **Post** /api/{version}/retailer/offer/location/batchUpdate | Update Offer Locations
-*OfferAPI* | [**CreateOffer**](docs/OfferAPI.md#createoffer) | **Post** /api/{version}/retailer/offer/create | Create Offer
-*OfferAPI* | [**DeleteOffer**](docs/OfferAPI.md#deleteoffer) | **Post** /api/{version}/retailer/offer/delete | Delete Offer
-*OfferAPI* | [**DeleteOfferLocation**](docs/OfferAPI.md#deleteofferlocation) | **Post** /api/{version}/retailer/offer/location/delete | Delete Offer Location
-*OfferAPI* | [**GetOffer**](docs/OfferAPI.md#getoffer) | **Get** /api/{version}/retailer/offer/get | Get Offer
-*OfferAPI* | [**GetOfferDetails**](docs/OfferAPI.md#getofferdetails) | **Get** /api/{version}/offer/get | Get Offer
-*OfferAPI* | [**GetOfferListCounts**](docs/OfferAPI.md#getofferlistcounts) | **Get** /api/{version}/offer/lists/count | Get Offers (Counts)
-*OfferAPI* | [**GetOfferLocation**](docs/OfferAPI.md#getofferlocation) | **Get** /api/{version}/offer/location/get | Get Offer Location
-*OfferAPI* | [**GetOfferLocationsForRetailers**](docs/OfferAPI.md#getofferlocationsforretailers) | **Get** /api/{version}/retailer/offer/location/search | Search Offer Locations
-*OfferAPI* | [**GetOffersForRetailers**](docs/OfferAPI.md#getoffersforretailers) | **Get** /api/{version}/retailer/offer/search | Search Offers
-*OfferAPI* | [**RedeemOfferTransaction**](docs/OfferAPI.md#redeemoffertransaction) | **Post** /api/{version}/retailer/offer/transaction/update | Update Offer Transaction
-*OfferAPI* | [**SearchOfferTransactionsForRetailers**](docs/OfferAPI.md#searchoffertransactionsforretailers) | **Get** /api/{version}/retailer/offer/transaction/search | Search Offer Transactions
-*OfferAPI* | [**SearchOffersForConsumer**](docs/OfferAPI.md#searchoffersforconsumer) | **Get** /api/{version}/offer/lists | Search Offers
-*OfferAPI* | [**TopOfferTransactions**](docs/OfferAPI.md#topoffertransactions) | **Get** /api/{version}/offer/top | Get Offers (Top)
-*OfferAPI* | [**UpdateOffer**](docs/OfferAPI.md#updateoffer) | **Post** /api/{version}/retailer/offer/update | Update Offer
-*OfferAPI* | [**UpdateOfferStatus**](docs/OfferAPI.md#updateofferstatus) | **Post** /api/{version}/retailer/offer/status | Activate Offer
-*OfferStatusAPI* | [**CreateOfferTransactionStatus**](docs/OfferStatusAPI.md#createoffertransactionstatus) | **Post** /api/{version}/offer/status/create | Create Offer Status
-*OfferStatusAPI* | [**DeleteOfferTransactionStatus**](docs/OfferStatusAPI.md#deleteoffertransactionstatus) | **Post** /api/{version}/offer/status/delete | Delete Offer Status
-*OfferStatusAPI* | [**GetOfferTransactionStatus**](docs/OfferStatusAPI.md#getoffertransactionstatus) | **Get** /api/{version}/offer/status/get | Get Offer Status
-*OfferStatusAPI* | [**SearchOfferTransactionStatuses**](docs/OfferStatusAPI.md#searchoffertransactionstatuses) | **Get** /api/{version}/offer/status/search | Search Offer Status
-*OfferStatusAPI* | [**UpdateOfferTransactionStatus**](docs/OfferStatusAPI.md#updateoffertransactionstatus) | **Post** /api/{version}/offer/status/update | Update Offer Status
-*OpenAIAPI* | [**ImageGeneration**](docs/OpenAIAPI.md#imagegeneration) | **Post** /api/{version}/openai/v1/images/generations | Generate images with OpenAI
-*OptimizeAPI* | [**GetOptimizationResult**](docs/OptimizeAPI.md#getoptimizationresult) | **Get** /api/{version}/optimize/result/{batchID} | Get Optimization Result
-*OptimizeAPI* | [**RequestOptimization**](docs/OptimizeAPI.md#requestoptimization) | **Post** /api/{version}/optimize/request | Request Optimization
-*OrsonAPI* | [**AddMovie**](docs/OrsonAPI.md#addmovie) | **Post** /api/{version}/orson/ai/addMovie | Add Movie
-*OrsonAPI* | [**AiDocs**](docs/OrsonAPI.md#aidocs) | **Get** /api/{version}/orson/ai/docs | Search Docs
-*OrsonAPI* | [**AiFindImages**](docs/OrsonAPI.md#aifindimages) | **Get** /api/{version}/orson/ai/img | Find images
-*OrsonAPI* | [**AiTags**](docs/OrsonAPI.md#aitags) | **Get** /api/{version}/orson/ai/tags | Search Tags
-*OrsonAPI* | [**AiText**](docs/OrsonAPI.md#aitext) | **Get** /api/{version}/orson/ai/text | Search Text
-*OrsonAPI* | [**Batch**](docs/OrsonAPI.md#batch) | **Post** /api/{version}/orson/ai/batch | Batch Analysis
-*OrsonAPI* | [**CreateInstantEpisode**](docs/OrsonAPI.md#createinstantepisode) | **Post** /api/{version}/orson/stories/episodes/instant | Creates an instant episode
-*OrsonAPI* | [**CreateVoiceCanvas**](docs/OrsonAPI.md#createvoicecanvas) | **Post** /api/{version}/orson/ai/voiceCanvas | Create VoiceCanvas images
-*OrsonAPI* | [**Emotion**](docs/OrsonAPI.md#emotion) | **Post** /api/{version}/orson/ai/emotion | Detect emotions
-*OrsonAPI* | [**GetAddMovieResult**](docs/OrsonAPI.md#getaddmovieresult) | **Get** /api/{version}/orson/ai/addMovie/{requestId} | Get Add Movie Result
-*OrsonAPI* | [**GetBatch**](docs/OrsonAPI.md#getbatch) | **Get** /api/{version}/orson/ai/batch/{requestId} | Get Batch Analysis Results
-*OrsonAPI* | [**GetEmotion**](docs/OrsonAPI.md#getemotion) | **Get** /api/{version}/orson/ai/emotion/{requestId} | Get Emotion Results
-*OrsonAPI* | [**GetEpisodeStatus**](docs/OrsonAPI.md#getepisodestatus) | **Get** /api/{version}/orson/stories/episodes/{episodeId}/status | Check episode status
-*OrsonAPI* | [**GetRenderStatus**](docs/OrsonAPI.md#getrenderstatus) | **Get** /api/{version}/orson/stories/renders/{renderId}/status | Check episode status
-*OrsonAPI* | [**GetSTT**](docs/OrsonAPI.md#getstt) | **Get** /api/{version}/orson/ai/stt/{requestId} | Get Speach to Text Result
-*OrsonAPI* | [**GetTTS**](docs/OrsonAPI.md#gettts) | **Get** /api/{version}/orson/ai/tts/{requestId} | Get Text to Speach Result
-*OrsonAPI* | [**GetTechTune**](docs/OrsonAPI.md#gettechtune) | **Get** /api/{version}/orson/ai/techTune/{requestId} | Get TechTune Results
-*OrsonAPI* | [**GetTopics**](docs/OrsonAPI.md#gettopics) | **Get** /api/{version}/orson/ai/topics/{requestId} | Get Topics
-*OrsonAPI* | [**GetVoiceCanvas**](docs/OrsonAPI.md#getvoicecanvas) | **Get** /api/{version}/orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
-*OrsonAPI* | [**StartVideoRender**](docs/OrsonAPI.md#startvideorender) | **Post** /api/{version}/orson/stories/renders | Starts a StoryStitch video render
-*OrsonAPI* | [**Stt**](docs/OrsonAPI.md#stt) | **Post** /api/{version}/orson/ai/stt | Speach to Text
-*OrsonAPI* | [**SummarizeTopics**](docs/OrsonAPI.md#summarizetopics) | **Post** /api/{version}/orson/ai/topics | Summarize Topics
-*OrsonAPI* | [**TechTune**](docs/OrsonAPI.md#techtune) | **Post** /api/{version}/orson/ai/techTune | Detect Technical Issues
-*OrsonAPI* | [**Tts**](docs/OrsonAPI.md#tts) | **Post** /api/{version}/orson/ai/tts | Text to Speach
-*PackAPI* | [**CreatePack**](docs/PackAPI.md#createpack) | **Post** /api/{version}/pack/create | Create Pack
-*PackAPI* | [**DeletePack**](docs/PackAPI.md#deletepack) | **Post** /api/{version}/pack/delete | Delete Pack
-*PackAPI* | [**GetPack**](docs/PackAPI.md#getpack) | **Get** /api/{version}/pack/get | Get Pack
-*PackAPI* | [**SearchPacks**](docs/PackAPI.md#searchpacks) | **Get** /api/{version}/pack/search | Search Packs
-*PackAPI* | [**UpdatePack**](docs/PackAPI.md#updatepack) | **Post** /api/{version}/pack/update | Update Pack
-*ParticipantsAPI* | [**ProcessAllParticipants**](docs/ParticipantsAPI.md#processallparticipants) | **Post** /api/{version}/participant/process/all | Process All Participant Feeds
-*ParticipantsAPI* | [**ProcessParticipants**](docs/ParticipantsAPI.md#processparticipants) | **Post** /api/{version}/participant/process | Process Participants Feed
-*PathingAPI* | [**ComputePath**](docs/PathingAPI.md#computepath) | **Get** /api/{version}/pathing/compute | Calculate Path
-*PostalCodeAPI* | [**CreatePostalCode**](docs/PostalCodeAPI.md#createpostalcode) | **Post** /api/{version}/postalCode/create | Create Postal Code
-*PostalCodeAPI* | [**DeletePostalCode**](docs/PostalCodeAPI.md#deletepostalcode) | **Post** /api/{version}/postalCode/delete | Delete Postal Code
-*PostalCodeAPI* | [**GetPostalCode**](docs/PostalCodeAPI.md#getpostalcode) | **Get** /api/{version}/postalCode/get | Get Postal Code
-*PostalCodeAPI* | [**GetPostalCodes**](docs/PostalCodeAPI.md#getpostalcodes) | **Get** /api/{version}/postalCode/search | Search Postal Codes
-*PostalCodeAPI* | [**UpdatePostalCode**](docs/PostalCodeAPI.md#updatepostalcode) | **Post** /api/{version}/postalCode/update | Update Postal Code
-*PreviewPersonaAPI* | [**CreatePersona**](docs/PreviewPersonaAPI.md#createpersona) | **Post** /api/{version}/persona/create | Create Persona
-*PreviewPersonaAPI* | [**DeletePersona**](docs/PreviewPersonaAPI.md#deletepersona) | **Post** /api/{version}/persona/delete | Delete Persona
-*PreviewPersonaAPI* | [**GetPersonaList**](docs/PreviewPersonaAPI.md#getpersonalist) | **Get** /api/{version}/persona/get | Get Persona
-*PreviewPersonaAPI* | [**SearchPersona**](docs/PreviewPersonaAPI.md#searchpersona) | **Get** /api/{version}/persona/search | Search Personas
-*PreviewPersonaAPI* | [**UpdatePersona**](docs/PreviewPersonaAPI.md#updatepersona) | **Post** /api/{version}/persona/update | Update Persona
-*ProgramAPI* | [**CreateProgram**](docs/ProgramAPI.md#createprogram) | **Post** /api/{version}/program | Create Program
-*ProgramAPI* | [**DeleteProgram**](docs/ProgramAPI.md#deleteprogram) | **Delete** /api/{version}/program/{id} | Delete Program
-*ProgramAPI* | [**GetProgram**](docs/ProgramAPI.md#getprogram) | **Get** /api/{version}/program/{id} | Get Program
-*ProgramAPI* | [**PostProgram**](docs/ProgramAPI.md#postprogram) | **Post** /api/{version}/program/{id} | Update Program
-*ProgramAPI* | [**PutProgram**](docs/ProgramAPI.md#putprogram) | **Put** /api/{version}/program/{id} | Update Program
-*ProgramAPI* | [**SearchPrograms**](docs/ProgramAPI.md#searchprograms) | **Get** /api/{version}/program | Search Programs
-*PurchaseItemAPI* | [**CreatePurchaseItem**](docs/PurchaseItemAPI.md#createpurchaseitem) | **Post** /api/{version}/purchase/create | Create Purchase
-*PurchaseItemAPI* | [**DeletePurchaseItem**](docs/PurchaseItemAPI.md#deletepurchaseitem) | **Post** /api/{version}/purchase/delete | Delete Purchase
-*PurchaseItemAPI* | [**GetPurchaseItem**](docs/PurchaseItemAPI.md#getpurchaseitem) | **Get** /api/{version}/purchase/get | Get Purchase
-*PurchaseItemAPI* | [**SearchPurchaseItems**](docs/PurchaseItemAPI.md#searchpurchaseitems) | **Get** /api/{version}/purchase/search | Search Purchases
-*PurchaseItemAPI* | [**UpdatePurchaseItem**](docs/PurchaseItemAPI.md#updatepurchaseitem) | **Post** /api/{version}/purchase/update | Update Purchase
-*PurchaseOrderAPI* | [**CreateOrder**](docs/PurchaseOrderAPI.md#createorder) | **Post** /api/{version}/order/create | Create Order
-*PurchaseOrderAPI* | [**DeleteOrder**](docs/PurchaseOrderAPI.md#deleteorder) | **Post** /api/{version}/order/delete | Delete Order
-*PurchaseOrderAPI* | [**GetOrder**](docs/PurchaseOrderAPI.md#getorder) | **Get** /api/{version}/order/get | Get Order
-*PurchaseOrderAPI* | [**PreviewOrder**](docs/PurchaseOrderAPI.md#previeworder) | **Post** /api/{version}/order/preview | Preview Order
-*PurchaseOrderAPI* | [**SearchOrders**](docs/PurchaseOrderAPI.md#searchorders) | **Get** /api/{version}/order/search | Search Orders
-*PurchaseOrderAPI* | [**UpdateOrder**](docs/PurchaseOrderAPI.md#updateorder) | **Post** /api/{version}/order/update | Update Order
-*QuestionAPI* | [**CreateQuestion**](docs/QuestionAPI.md#createquestion) | **Post** /api/{version}/game/question/create | Create Question
-*QuestionAPI* | [**DeleteQuestion**](docs/QuestionAPI.md#deletequestion) | **Post** /api/{version}/game/question/delete | Delete Question
-*QuestionAPI* | [**GetQuestion**](docs/QuestionAPI.md#getquestion) | **Get** /api/{version}/game/question/get | Get Question
-*QuestionAPI* | [**SearchQuestions**](docs/QuestionAPI.md#searchquestions) | **Get** /api/{version}/game/question/search | Search Questions
-*QuestionAPI* | [**UpdateQuestion**](docs/QuestionAPI.md#updatequestion) | **Post** /api/{version}/game/question/update | Update Question
-*RankingAPI* | [**GetHistoricalRankings**](docs/RankingAPI.md#gethistoricalrankings) | **Get** /api/{version}/ranking/historical/search | Search Historical Rankings
-*RankingAPI* | [**GetRankings**](docs/RankingAPI.md#getrankings) | **Get** /api/{version}/ranking/search | Search Rankings
-*RankingAPI* | [**GetUserRank**](docs/RankingAPI.md#getuserrank) | **Post** /api/{version}/ranking/personal/ranks | Get Personal Rankings
-*RankingAPI* | [**OverrideUserRank**](docs/RankingAPI.md#overrideuserrank) | **Post** /api/{version}/ranking/override | Override User Rank
-*RankingAPI* | [**UpdateRankings**](docs/RankingAPI.md#updaterankings) | **Post** /api/{version}/ranking/update | Update Ranking
-*RatingAPI* | [**CreateRating**](docs/RatingAPI.md#createrating) | **Post** /api/{version}/rating/create | Create Rating
-*RatingAPI* | [**DeleteRating**](docs/RatingAPI.md#deleterating) | **Post** /api/{version}/rating/delete | Delete Rating
-*RatingAPI* | [**SearchLocationRatingIndexes**](docs/RatingAPI.md#searchlocationratingindexes) | **Get** /api/{version}/location/rating/index/search | Search Location Rating Indexes
-*RatingAPI* | [**SearchRatingIndexes**](docs/RatingAPI.md#searchratingindexes) | **Get** /api/{version}/rating/index/search | Search Rating Indexes
-*RatingAPI* | [**SearchRatings**](docs/RatingAPI.md#searchratings) | **Get** /api/{version}/rating/search | Search Ratings
-*RatingAPI* | [**UpdateRating**](docs/RatingAPI.md#updaterating) | **Post** /api/{version}/rating/update | Update Rating
-*RegionAPI* | [**CreateRegion**](docs/RegionAPI.md#createregion) | **Post** /api/{version}/region/create | Create Region
-*RegionAPI* | [**DeleteRegion**](docs/RegionAPI.md#deleteregion) | **Post** /api/{version}/region/delete | Delete Region
-*RegionAPI* | [**GetRegion**](docs/RegionAPI.md#getregion) | **Get** /api/{version}/region/get | Get Region
-*RegionAPI* | [**SearchRegions**](docs/RegionAPI.md#searchregions) | **Get** /api/{version}/region/search | Search Regions
-*RegionAPI* | [**UpdateRegion**](docs/RegionAPI.md#updateregion) | **Post** /api/{version}/region/update | Update Region
-*ReportingAPI* | [**CreateBatch**](docs/ReportingAPI.md#createbatch) | **Post** /api/{version}/report/batch/create | Create Offline Report
-*ReportingAPI* | [**CreateRegionLegSummaryBatch**](docs/ReportingAPI.md#createregionlegsummarybatch) | **Post** /api/{version}/report/region/summary/batch | Create Offline Report
-*ReportingAPI* | [**DeleteBatch**](docs/ReportingAPI.md#deletebatch) | **Post** /api/{version}/report/batch/delete | Delete Offline Report
-*ReportingAPI* | [**GetReportBatch**](docs/ReportingAPI.md#getreportbatch) | **Get** /api/{version}/report/batch/get | Get Offline Report
-*ReportingAPI* | [**RunReport**](docs/ReportingAPI.md#runreport) | **Post** /api/{version}/report/run | Run Report
-*ReportingAPI* | [**SearchBatch**](docs/ReportingAPI.md#searchbatch) | **Get** /api/{version}/report/batch/search | Search Offline Reports
-*ReservationAPI* | [**CreateReservation**](docs/ReservationAPI.md#createreservation) | **Post** /api/{version}/reservation/create | Create Reservation
-*ReservationAPI* | [**DeleteReservation**](docs/ReservationAPI.md#deletereservation) | **Post** /api/{version}/reservation/delete | Delete Reservation
-*ReservationAPI* | [**ReservableAvailability**](docs/ReservationAPI.md#reservableavailability) | **Post** /api/{version}/reservable/availability/update | Update Availability
-*ReservationAPI* | [**SearchAvailability**](docs/ReservationAPI.md#searchavailability) | **Get** /api/{version}/reservable/availability/search | Search Availability
-*ReservationAPI* | [**SearchReservations**](docs/ReservationAPI.md#searchreservations) | **Get** /api/{version}/reservation/search | Search Reservations
-*ReservationAPI* | [**SearchSchedule**](docs/ReservationAPI.md#searchschedule) | **Get** /api/{version}/reservable/schedule/search | Search Schedule
-*RetailerAPI* | [**CreateRetailer**](docs/RetailerAPI.md#createretailer) | **Post** /api/{version}/retailer/create | Create Retailer
-*RetailerAPI* | [**DeleteRetailer**](docs/RetailerAPI.md#deleteretailer) | **Post** /api/{version}/retailer/delete | Delete Retailer
-*RetailerAPI* | [**GetRetailer**](docs/RetailerAPI.md#getretailer) | **Get** /api/{version}/retailer/get | Get Retailer
-*RetailerAPI* | [**GetRetailers**](docs/RetailerAPI.md#getretailers) | **Get** /api/{version}/retailer/search | Search Retailers
-*RetailerAPI* | [**RetailerLoginCheck**](docs/RetailerAPI.md#retailerlogincheck) | **Post** /api/{version}/retailer/login | Login Retailer
-*RetailerAPI* | [**UpdateRetailer**](docs/RetailerAPI.md#updateretailer) | **Post** /api/{version}/retailer/update | Update Retailer
-*RetailerLocationAPI* | [**CreateRetailerLocationConsumer**](docs/RetailerLocationAPI.md#createretailerlocationconsumer) | **Post** /api/{version}/location/create | Create Retailer Location (Consumer)
-*RetailerLocationAPI* | [**CreateRetailerLocations**](docs/RetailerLocationAPI.md#createretailerlocations) | **Post** /api/{version}/retailer/location/create | Create Retailer Location
-*RetailerLocationAPI* | [**DeleteRetailerLocation**](docs/RetailerLocationAPI.md#deleteretailerlocation) | **Post** /api/{version}/retailer/location/delete | Delete Retailer Location
-*RetailerLocationAPI* | [**GetRetailerLocation**](docs/RetailerLocationAPI.md#getretailerlocation) | **Get** /api/{version}/retailer/location/get | Get Retailer Location
-*RetailerLocationAPI* | [**GetRetailerLocationConsumer**](docs/RetailerLocationAPI.md#getretailerlocationconsumer) | **Get** /api/{version}/location/get | Get Retailer Location (Consumer)
-*RetailerLocationAPI* | [**IndexedRetailerLocationDistanceSearch**](docs/RetailerLocationAPI.md#indexedretailerlocationdistancesearch) | **Get** /api/{version}/retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
-*RetailerLocationAPI* | [**IndexedRetailerLocationSearch**](docs/RetailerLocationAPI.md#indexedretailerlocationsearch) | **Get** /api/{version}/retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
-*RetailerLocationAPI* | [**SearchRetailerLocations**](docs/RetailerLocationAPI.md#searchretailerlocations) | **Get** /api/{version}/retailer/location/search | Search Retailer Locations (Owned)
-*RetailerLocationAPI* | [**UpdateRetailerLocations**](docs/RetailerLocationAPI.md#updateretailerlocations) | **Post** /api/{version}/retailer/location/update | Update Retailer Location
-*RetailerV2API* | [**GetRetaokiler**](docs/RetailerV2API.md#getretaokiler) | **Get** /api/{version}/retailer | Get Retailer
-*RouteAPI* | [**ApproveRoute**](docs/RouteAPI.md#approveroute) | **Post** /api/{version}/route/{routeId}/approve | Approve Route
-*RouteAPI* | [**CopyRoute**](docs/RouteAPI.md#copyroute) | **Post** /api/{version}/route/{routeId}/copy | Copy Route
-*RouteAPI* | [**CreateRoute**](docs/RouteAPI.md#createroute) | **Post** /api/{version}/route | Create Route
-*RouteAPI* | [**CreateRouteDirections**](docs/RouteAPI.md#createroutedirections) | **Put** /api/{version}/route/{routeId}/directions | Update Route Directions
-*RouteAPI* | [**CreateRoutePolyline**](docs/RouteAPI.md#createroutepolyline) | **Put** /api/{version}/route/{routeId}/polyline | Create Route Polyline
-*RouteAPI* | [**DeleteRoute**](docs/RouteAPI.md#deleteroute) | **Delete** /api/{version}/route/{routeId} | Delete Route
-*RouteAPI* | [**DisapproveRoute**](docs/RouteAPI.md#disapproveroute) | **Post** /api/{version}/route/{routeId}/disapprove | Disapprove Route
-*RouteAPI* | [**GetRoute**](docs/RouteAPI.md#getroute) | **Get** /api/{version}/route/{routeId} | Get Route
-*RouteAPI* | [**GetRouteDirections**](docs/RouteAPI.md#getroutedirections) | **Get** /api/{version}/route/{routeId}/directions | Get Route Directions
-*RouteAPI* | [**GetRouteShipments**](docs/RouteAPI.md#getrouteshipments) | **Get** /api/{version}/route/{routeId}/shipments | Get Route Shipments
-*RouteAPI* | [**GetRouteStop**](docs/RouteAPI.md#getroutestop) | **Get** /api/{version}/route/{routeId}/stop/{stopId} | Get Route Stop
-*RouteAPI* | [**GetRouteStops**](docs/RouteAPI.md#getroutestops) | **Get** /api/{version}/route/{routeId}/stops | Get Route Stops
-*RouteAPI* | [**GetShipmentsAtStop**](docs/RouteAPI.md#getshipmentsatstop) | **Get** /api/{version}/route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
-*RouteAPI* | [**OptimizeRoute**](docs/RouteAPI.md#optimizeroute) | **Post** /api/{version}/route/{routeId}/optimize | Optimize Route
-*RouteAPI* | [**RemoveStop**](docs/RouteAPI.md#removestop) | **Delete** /api/{version}/route/{routeId}/stop/{stopId} | Delete Stop
-*RouteAPI* | [**ReorderRouteStopsPatch**](docs/RouteAPI.md#reorderroutestopspatch) | **Patch** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*RouteAPI* | [**ReorderRouteStopsPost**](docs/RouteAPI.md#reorderroutestopspost) | **Post** /api/{version}/route/{routeId}/stops/reorder | Reorder Route Stops
-*RouteAPI* | [**SearchRoutes**](docs/RouteAPI.md#searchroutes) | **Get** /api/{version}/route | Search Routes
-*RouteAPI* | [**SetDriver**](docs/RouteAPI.md#setdriver) | **Post** /api/{version}/route/{id}/driver/{driverId} | Set Driver
-*RouteAPI* | [**UpdateRoute**](docs/RouteAPI.md#updateroute) | **Put** /api/{version}/route/{routeId} | Update Route
-*RouteAPI* | [**UpdateRouteStop**](docs/RouteAPI.md#updateroutestop) | **Put** /api/{version}/route/{routeId}/stop/{stopId} | Update Route Stop
-*RouteSettingAPI* | [**CreateRouteSettings**](docs/RouteSettingAPI.md#createroutesettings) | **Post** /api/{version}/route/setting | Create Route Setting
-*RouteSettingAPI* | [**DeleteRouteSettings**](docs/RouteSettingAPI.md#deleteroutesettings) | **Delete** /api/{version}/route/setting/{routeSettingsId} | Delete Route Setting
-*RouteSettingAPI* | [**GetRouteSettings**](docs/RouteSettingAPI.md#getroutesettings) | **Get** /api/{version}/route/setting/{routeSettingsId} | Get Route Setting
-*RouteSettingAPI* | [**SearchRouteSettings**](docs/RouteSettingAPI.md#searchroutesettings) | **Get** /api/{version}/route/setting | Search Route Settings
-*RouteSettingAPI* | [**UpdateRouteSettings**](docs/RouteSettingAPI.md#updateroutesettings) | **Put** /api/{version}/route/setting/{routeSettingsId} | Update Route Setting
-*RoutingAPI* | [**ComputeRouting**](docs/RoutingAPI.md#computerouting) | **Post** /api/{version}/routing/compute | Compute Route
-*ScheduledNotificationAPI* | [**CreateScheduledNotification**](docs/ScheduledNotificationAPI.md#createschedulednotification) | **Post** /api/{version}/notification/schedule/create | Create Scheduled Notification
-*ScheduledNotificationAPI* | [**DeleteScheduledNotification**](docs/ScheduledNotificationAPI.md#deleteschedulednotification) | **Post** /api/{version}/notification/schedule/delete | Delete Scheduled Notification
-*ScheduledNotificationAPI* | [**GetScheduledNotification**](docs/ScheduledNotificationAPI.md#getschedulednotification) | **Get** /api/{version}/notification/schedule/get | Get Scheduled Notification
-*ScheduledNotificationAPI* | [**ScheduleNotificationListings**](docs/ScheduledNotificationAPI.md#schedulenotificationlistings) | **Post** /api/{version}/notification/schedule/generate | Generate Schedule Notifications
-*ScheduledNotificationAPI* | [**SearchScheduledNotifications**](docs/ScheduledNotificationAPI.md#searchschedulednotifications) | **Get** /api/{version}/notification/schedule/search | Search Scheduled Notifications
-*ScheduledNotificationAPI* | [**UpdateScheduledNotification**](docs/ScheduledNotificationAPI.md#updateschedulednotification) | **Post** /api/{version}/notification/schedule/update | Update Scheduled Notification
-*ScoreAPI* | [**CreateScore**](docs/ScoreAPI.md#createscore) | **Post** /api/{version}/score/create | Create Score
-*ScoreAPI* | [**GetScore**](docs/ScoreAPI.md#getscore) | **Get** /api/{version}/score/get | Get Score
-*ScoreAPI* | [**SearchScores**](docs/ScoreAPI.md#searchscores) | **Get** /api/{version}/score/search | Search Score
-*SecureAppAPI* | [**CreateSecureApplication**](docs/SecureAppAPI.md#createsecureapplication) | **Post** /api/{version}/secure/application/create | Create Secure Application
-*SecureAppAPI* | [**DeleteSecureApplication**](docs/SecureAppAPI.md#deletesecureapplication) | **Post** /api/{version}/secure/application/delete | Delete Secure Application
-*SecureAppAPI* | [**LoginSecure**](docs/SecureAppAPI.md#loginsecure) | **Post** /api/{version}/secure/login | Login Clear
-*SecureAppAPI* | [**PurchaseSecure**](docs/SecureAppAPI.md#purchasesecure) | **Post** /api/{version}/secure/purchase | Purchase Clear
-*SecureAppAPI* | [**ResetSecure**](docs/SecureAppAPI.md#resetsecure) | **Post** /api/{version}/secure/application/reset | Rest Secure Application
-*SecureAppAPI* | [**UpdateSecureApplication**](docs/SecureAppAPI.md#updatesecureapplication) | **Post** /api/{version}/secure/application/update | Update Secure Application
-*ServiceHubAPI* | [**CreateServiceHub**](docs/ServiceHubAPI.md#createservicehub) | **Post** /api/{version}/hub | Create Service Hub
-*ServiceHubAPI* | [**DeleteServiceHub**](docs/ServiceHubAPI.md#deleteservicehub) | **Delete** /api/{version}/hub/{id} | Delete Service Hub
-*ServiceHubAPI* | [**GetServiceHub**](docs/ServiceHubAPI.md#getservicehub) | **Get** /api/{version}/hub/{id} | Get Service Hub
-*ServiceHubAPI* | [**PostServiceHub**](docs/ServiceHubAPI.md#postservicehub) | **Post** /api/{version}/hub/{id} | Update Service Hub
-*ServiceHubAPI* | [**PutServiceHub**](docs/ServiceHubAPI.md#putservicehub) | **Put** /api/{version}/hub/{id} | Update Service Hub
-*ServiceHubAPI* | [**SearchServiceHubs**](docs/ServiceHubAPI.md#searchservicehubs) | **Get** /api/{version}/hub | Search Service Hubs
-*ShipmentAPI* | [**CancelShipment**](docs/ShipmentAPI.md#cancelshipment) | **Post** /api/{version}/shipment/{id}/cancel | Cancel Shipment
-*ShipmentAPI* | [**CreateShipment**](docs/ShipmentAPI.md#createshipment) | **Post** /api/{version}/shipment | Create Shipment
-*ShipmentAPI* | [**DeleteShipment**](docs/ShipmentAPI.md#deleteshipment) | **Delete** /api/{version}/shipment/{id} | Delete Shipment
-*ShipmentAPI* | [**GetShipment**](docs/ShipmentAPI.md#getshipment) | **Get** /api/{version}/shipment/{id} | Get Shipment
-*ShipmentAPI* | [**SearchShipments**](docs/ShipmentAPI.md#searchshipments) | **Get** /api/{version}/shipment | Search Shipments
-*ShipmentAPI* | [**UpdateShipment**](docs/ShipmentAPI.md#updateshipment) | **Put** /api/{version}/shipment/{id} | Update Shipment
-*ShipmentAPI* | [**UpdateShipmentStatus**](docs/ShipmentAPI.md#updateshipmentstatus) | **Post** /api/{version}/shipment/{id}/status | Uupdate Shipment Status
-*ShipmentBatchAPI* | [**CreateShipmentBatch**](docs/ShipmentBatchAPI.md#createshipmentbatch) | **Post** /api/{version}/shipment/batch | Create Shipment Batch
-*ShipmentBatchAPI* | [**DeleteShipmentBatch**](docs/ShipmentBatchAPI.md#deleteshipmentbatch) | **Delete** /api/{version}/shipment/batch/{batchId} | Delete Shipment Batch
-*ShipmentBatchAPI* | [**GetShipmentBatch**](docs/ShipmentBatchAPI.md#getshipmentbatch) | **Get** /api/{version}/shipment/batch/{batchId} | Get Shipment Batch
-*ShipmentBatchAPI* | [**GetShipmentBatchStatus**](docs/ShipmentBatchAPI.md#getshipmentbatchstatus) | **Get** /api/{version}/shipment/batch/{batchId}/status | Get Shipment Batch Status
-*ShipmentBatchAPI* | [**SearchShipmentBatch**](docs/ShipmentBatchAPI.md#searchshipmentbatch) | **Get** /api/{version}/shipment/batch | Search Shipment Batch
-*SimulationAPI* | [**Simulation**](docs/SimulationAPI.md#simulation) | **Post** /api/{version}/simulation/routing | Routing Simulation
-*StopAPI* | [**GetStop**](docs/StopAPI.md#getstop) | **Get** /api/{version}/stop/{id} | Get Stop
-*StopAPI* | [**UpdateStop**](docs/StopAPI.md#updatestop) | **Put** /api/{version}/stop/{id} | Update Stop
-*StripeAPI* | [**CreateStripeCheckoutSession**](docs/StripeAPI.md#createstripecheckoutsession) | **Post** /api/{version}/stripe/checkout/session/create | Create Stripe Checkout Session
-*SubscriptionAPI* | [**CreateSubscription**](docs/SubscriptionAPI.md#createsubscription) | **Post** /api/{version}/subscription/create | Create Subscription
-*SubscriptionAPI* | [**DeleteSubscription**](docs/SubscriptionAPI.md#deletesubscription) | **Post** /api/{version}/subscription/delete | Delete Subscription
-*SubscriptionAPI* | [**GetSubscription**](docs/SubscriptionAPI.md#getsubscription) | **Get** /api/{version}/subscription/get | Get Subscription
-*SubscriptionAPI* | [**GetSubscriptionPlan**](docs/SubscriptionAPI.md#getsubscriptionplan) | **Get** /api/{version}/subscription/plan/get | Get Subscription Plan
-*SubscriptionAPI* | [**GetSubscriptionPlans**](docs/SubscriptionAPI.md#getsubscriptionplans) | **Get** /api/{version}/subscription/plan/list | List Subscription Plans
-*SubscriptionAPI* | [**GetSubscriptionUsage**](docs/SubscriptionAPI.md#getsubscriptionusage) | **Get** /api/{version}/subscription/usage/get | Get Subscription Usage
-*SubscriptionAPI* | [**UpdateSubscription**](docs/SubscriptionAPI.md#updatesubscription) | **Post** /api/{version}/subscription/update | Update Subscription
-*TaskAPI* | [**CreateTask**](docs/TaskAPI.md#createtask) | **Post** /api/{version}/task/create | Create Task
-*TaskAPI* | [**DeleteTask**](docs/TaskAPI.md#deletetask) | **Post** /api/{version}/task/delete | Delete Task
-*TaskAPI* | [**GetTask**](docs/TaskAPI.md#gettask) | **Get** /api/{version}/task/get | Get Task
-*TaskAPI* | [**SearchTasks**](docs/TaskAPI.md#searchtasks) | **Get** /api/{version}/task/search | Search Tasks
-*TaskAPI* | [**UpdateTask**](docs/TaskAPI.md#updatetask) | **Post** /api/{version}/task/update | Update Task
-*TerritoryAPI* | [**CreateTerritory**](docs/TerritoryAPI.md#createterritory) | **Post** /api/{version}/territory/create | Create Territory
-*TerritoryAPI* | [**DeleteTerritory**](docs/TerritoryAPI.md#deleteterritory) | **Post** /api/{version}/territory/delete | Delete Territory
-*TerritoryAPI* | [**GetTerritory**](docs/TerritoryAPI.md#getterritory) | **Get** /api/{version}/territory/get | Get Territory
-*TerritoryAPI* | [**SearchTerritories**](docs/TerritoryAPI.md#searchterritories) | **Get** /api/{version}/territory/search | Search Territories
-*TerritoryAPI* | [**UpdateTerritory**](docs/TerritoryAPI.md#updateterritory) | **Post** /api/{version}/territory/update | Update Territory
-*ThemeDescriptorAPI* | [**AddOrUpdateThemeDescriptor**](docs/ThemeDescriptorAPI.md#addorupdatethemedescriptor) | **Post** /api/{version}/consumer/theme | Create/Update Theme
-*ThemeDescriptorAPI* | [**GetThemeDescriptor**](docs/ThemeDescriptorAPI.md#getthemedescriptor) | **Get** /api/{version}/consumer/theme/get | Get Theme
-*ThemeDescriptorAPI* | [**GetThemeDescriptors**](docs/ThemeDescriptorAPI.md#getthemedescriptors) | **Get** /api/{version}/consumer/theme/search | Search Themes
-*ThemeDescriptorAPI* | [**RemoveThemeDescriptor**](docs/ThemeDescriptorAPI.md#removethemedescriptor) | **Post** /api/{version}/consumer/theme/remove | Delete Theme
-*ThirdPartyCredentialsAPI* | [**CreateCredential**](docs/ThirdPartyCredentialsAPI.md#createcredential) | **Post** /api/{version}/thirdparty/credential/create | Create Credential
-*ThirdPartyCredentialsAPI* | [**CreateNetwork**](docs/ThirdPartyCredentialsAPI.md#createnetwork) | **Post** /api/{version}/thirdparty/network/create | Create Network
-*ThirdPartyCredentialsAPI* | [**DeleteCredential**](docs/ThirdPartyCredentialsAPI.md#deletecredential) | **Post** /api/{version}/thirdparty/credential/delete | Delete Credential
-*ThirdPartyCredentialsAPI* | [**DeleteNetwork**](docs/ThirdPartyCredentialsAPI.md#deletenetwork) | **Post** /api/{version}/thirdparty/network/delete | Delete Network
-*ThirdPartyCredentialsAPI* | [**GetCredential**](docs/ThirdPartyCredentialsAPI.md#getcredential) | **Post** /api/{version}/thirdparty/credential/get | Get Credential
-*ThirdPartyCredentialsAPI* | [**GetNetwork**](docs/ThirdPartyCredentialsAPI.md#getnetwork) | **Get** /api/{version}/thirdparty/network/get | Get Network
-*ThirdPartyCredentialsAPI* | [**SearchCredentials**](docs/ThirdPartyCredentialsAPI.md#searchcredentials) | **Get** /api/{version}/thirdparty/credential/search | Search Credentials
-*ThirdPartyCredentialsAPI* | [**SearchNetworks**](docs/ThirdPartyCredentialsAPI.md#searchnetworks) | **Get** /api/{version}/thirdparty/network/search | Search Networks
-*ThirdPartyCredentialsAPI* | [**SendMFAChallenge**](docs/ThirdPartyCredentialsAPI.md#sendmfachallenge) | **Post** /api/{version}/thirdparty/credential/mfa/send | Send MFA Challenge
-*ThirdPartyCredentialsAPI* | [**UpdateCredential**](docs/ThirdPartyCredentialsAPI.md#updatecredential) | **Post** /api/{version}/thirdparty/credential/update | Update Credential
-*ThirdPartyCredentialsAPI* | [**UpdateNetwork**](docs/ThirdPartyCredentialsAPI.md#updatenetwork) | **Post** /api/{version}/thirdparty/network/update | Update Network
-*TicketAPI* | [**GetTicketCount**](docs/TicketAPI.md#getticketcount) | **Get** /api/{version}/ticket/count | Get Ticket Count
-*TicketAPI* | [**GetTicketList**](docs/TicketAPI.md#getticketlist) | **Get** /api/{version}/ticket/getList | Get Ticket List
-*TicketAPI* | [**GiftPurchase**](docs/TicketAPI.md#giftpurchase) | **Post** /api/{version}/purchase/gift | Gift Tickets
-*TicketAPI* | [**SaveTicket**](docs/TicketAPI.md#saveticket) | **Post** /api/{version}/ticket/save | Save Ticket
-*TicketAPI* | [**SaveTicketViaFileUpload**](docs/TicketAPI.md#saveticketviafileupload) | **Post** /api/{version}/ticket/save/fileUpload | Save Ticket with Reciept
-*TicketAPI* | [**TicketOffers**](docs/TicketAPI.md#ticketoffers) | **Get** /api/{version}/ticket/ticketoffers | Get Ticket Offers
-*TournamentAPI* | [**CreateTournament**](docs/TournamentAPI.md#createtournament) | **Post** /api/{version}/tournament/create | Create Tournament
-*TournamentAPI* | [**DeleteTournament**](docs/TournamentAPI.md#deletetournament) | **Post** /api/{version}/tournament/delete | Delete Tournament
-*TournamentAPI* | [**GetTournament**](docs/TournamentAPI.md#gettournament) | **Get** /api/{version}/tournament/get | Get Tournament
-*TournamentAPI* | [**SearchObjects**](docs/TournamentAPI.md#searchobjects) | **Get** /api/{version}/tournament/object/search | Search Tournament Objects
-*TournamentAPI* | [**SearchRounds**](docs/TournamentAPI.md#searchrounds) | **Get** /api/{version}/tournament/round/search | Search Tournament Rounds
-*TournamentAPI* | [**SearchTournaments**](docs/TournamentAPI.md#searchtournaments) | **Get** /api/{version}/tournament/search | Search Tournaments
-*TournamentAPI* | [**SubmitTournamentScore**](docs/TournamentAPI.md#submittournamentscore) | **Post** /api/{version}/tournament/score | Submit Tournament Score
-*TournamentAPI* | [**SubmitTournamentVote**](docs/TournamentAPI.md#submittournamentvote) | **Post** /api/{version}/tournament/vote | Submit a vote for a multi-stage album tournament.
-*TournamentAPI* | [**SubstituteTournamentPlayer**](docs/TournamentAPI.md#substitutetournamentplayer) | **Post** /api/{version}/tournament/substitute | Substitute Tournament Player
-*TournamentAPI* | [**UpdateTournament**](docs/TournamentAPI.md#updatetournament) | **Post** /api/{version}/tournament/update | Update Tournament
-*TrackingAPI* | [**BatchSaveTracking**](docs/TrackingAPI.md#batchsavetracking) | **Post** /api/{version}/tracking/batch/create | Create Batch Tracking
-*TrackingAPI* | [**GetPredictedLocations**](docs/TrackingAPI.md#getpredictedlocations) | **Get** /api/{version}/tracking/predicted/get | Get Predicted Locations
-*TrackingAPI* | [**GetPredictedPath**](docs/TrackingAPI.md#getpredictedpath) | **Get** /api/{version}/tracking/path/get | Get Tracking Path
-*TrackingAPI* | [**GetPreferredLocations**](docs/TrackingAPI.md#getpreferredlocations) | **Get** /api/{version}/tracking/preferred/search | Search Preferred Locations
-*TrackingAPI* | [**GetTrackingLegs**](docs/TrackingAPI.md#gettrackinglegs) | **Get** /api/{version}/tracking/search | Search Tracking
-*TrackingAPI* | [**SaveTrackingLeg**](docs/TrackingAPI.md#savetrackingleg) | **Post** /api/{version}/tracking/leg/create | Create Tracking Leg
-*TrackingAPI* | [**SaveTrackingStep**](docs/TrackingAPI.md#savetrackingstep) | **Post** /api/{version}/tracking/step/create | Create Tracking Step
-*TrackingAPI* | [**SearchAccountsWithTrackingLegs**](docs/TrackingAPI.md#searchaccountswithtrackinglegs) | **Get** /api/{version}/tracking/list | List Tracking
-*TrackingAPI* | [**SearchTrackingLegs**](docs/TrackingAPI.md#searchtrackinglegs) | **Get** /api/{version}/tracking/searchByBillable | Search Tracking (Billable)
-*TriggerAPI* | [**CreateTrigger**](docs/TriggerAPI.md#createtrigger) | **Post** /api/{version}/trigger/create | Create Trigger
-*TriggerAPI* | [**DeleteTrigger**](docs/TriggerAPI.md#deletetrigger) | **Post** /api/{version}/trigger/delete | Delete Trigger
-*TriggerAPI* | [**GetTrigger**](docs/TriggerAPI.md#gettrigger) | **Get** /api/{version}/trigger/get | Get Trigger
-*TriggerAPI* | [**SearchTriggers**](docs/TriggerAPI.md#searchtriggers) | **Get** /api/{version}/trigger/search | Search Triggers
-*TriggerAPI* | [**UpdateTrigger**](docs/TriggerAPI.md#updatetrigger) | **Post** /api/{version}/trigger/update | Update Trigger
-*TripAPI* | [**CreateTrip**](docs/TripAPI.md#createtrip) | **Post** /api/{version}/trip | Create Trip
-*TripAPI* | [**Delete**](docs/TripAPI.md#delete) | **Delete** /api/{version}/trip/{id} | Delete Trip
-*TripAPI* | [**DriveTrip**](docs/TripAPI.md#drivetrip) | **Post** /api/{version}/trip/{id}/drive | Set Trip Preference Driver
-*TripAPI* | [**FlexibleTrip**](docs/TripAPI.md#flexibletrip) | **Post** /api/{version}/trip/{id}/flexible | Set Trip Preference Flexible
-*TripAPI* | [**GetTrip**](docs/TripAPI.md#gettrip) | **Get** /api/{version}/trip/{id} | Get Trip
-*TripAPI* | [**GetTripMatches**](docs/TripAPI.md#gettripmatches) | **Get** /api/{version}/trip/{id}/match | Get Trip Matches
-*TripAPI* | [**ProcessTripMatches**](docs/TripAPI.md#processtripmatches) | **Post** /api/{version}/trip/match/process | Process Trip Matches
-*TripAPI* | [**Ride**](docs/TripAPI.md#ride) | **Post** /api/{version}/trip/{id}/ride | Set Trip Preference Rider
-*TripAPI* | [**Search**](docs/TripAPI.md#search) | **Get** /api/{version}/trip | Search Trips
-*TripAPI* | [**SearchTrips**](docs/TripAPI.md#searchtrips) | **Get** /api/{version}/trip/match | Search Trips
-*TripAPI* | [**UpdateLocations**](docs/TripAPI.md#updatelocations) | **Post** /api/{version}/trip/{id}/locations | Update Trip Locations
-*TripAPI* | [**UpdateRecurrenceLocations**](docs/TripAPI.md#updaterecurrencelocations) | **Post** /api/{version}/trip/{id}/locations/recurrence | Update Recurrence Locations
-*TripAPI* | [**UpdateRecurrenceShipments**](docs/TripAPI.md#updaterecurrenceshipments) | **Post** /api/{version}/trip/{id}/shipments/recurrence | Update Recurrence Shipments
-*TripAPI* | [**UpdateShipments**](docs/TripAPI.md#updateshipments) | **Post** /api/{version}/trip/{id}/shipments | Update Trip Shipments
-*TripAPI* | [**UpdateTrip**](docs/TripAPI.md#updatetrip) | **Put** /api/{version}/trip/{id} | Update Trip
-*TripAPI* | [**UpdateTripNotifications**](docs/TripAPI.md#updatetripnotifications) | **Post** /api/{version}/trip/notifications | Trip Notifications
-*TwilioAPI* | [**SmsBuyOffer**](docs/TwilioAPI.md#smsbuyoffer) | **Post** /api/{version}/sms/buyoffer/{appKey} | Buy Offer by SMS
-*TwitterAPI* | [**AuthorizeTwitter**](docs/TwitterAPI.md#authorizetwitter) | **Post** /api/{version}/twitter/authorize | Authorize Twitter
-*TwitterAPI* | [**LoginTwitter**](docs/TwitterAPI.md#logintwitter) | **Post** /api/{version}/twitter/login | Login Twitter
-*UserPermissionsAPI* | [**AddUsersToPermissionable**](docs/UserPermissionsAPI.md#adduserstopermissionable) | **Post** /api/{version}/consumer/permissions/add | Add User
-*UserPermissionsAPI* | [**ApprovePermissionable**](docs/UserPermissionsAPI.md#approvepermissionable) | **Post** /api/{version}/permissionable/approve | Approve Permissionable
-*UserPermissionsAPI* | [**LeaveFromPermissionable**](docs/UserPermissionsAPI.md#leavefrompermissionable) | **Post** /api/{version}/consumer/permissions/leave | Leave
-*UserPermissionsAPI* | [**RemoveUsersFromPermissionable**](docs/UserPermissionsAPI.md#removeusersfrompermissionable) | **Post** /api/{version}/consumer/permissions/remove | Remove User
-*UserPermissionsAPI* | [**SearchPermissionables**](docs/UserPermissionsAPI.md#searchpermissionables) | **Get** /api/{version}/permissions/search | Search Permissionables
-*UserPermissionsAPI* | [**SearchPermissionablesFollowingDistance**](docs/UserPermissionsAPI.md#searchpermissionablesfollowingdistance) | **Get** /api/{version}/permissions/distancesearch | Search Permissionables by Distnace
-*VatomAPI* | [**CreateFollowing**](docs/VatomAPI.md#createfollowing) | **Post** /api/{version}/vatom/me/rels/following/create | Create following
-*VatomAPI* | [**CreateSpace**](docs/VatomAPI.md#createspace) | **Post** /api/{version}/vatom/b/spaces/create | Create Vatom Space
-*VatomAPI* | [**CreateVatomEvent**](docs/VatomAPI.md#createvatomevent) | **Post** /api/{version}/vatom/b/events/create | Create Vatom Event
-*VatomAPI* | [**DeleteFollowing**](docs/VatomAPI.md#deletefollowing) | **Post** /api/{version}/vatom/me/rels/following/delete | Delete following
-*VatomAPI* | [**DeletePointsBalance**](docs/VatomAPI.md#deletepointsbalance) | **Post** /api/{version}/vatom/b/campaign/points/delete | Reset All Points Balance
-*VatomAPI* | [**DeleteSpace**](docs/VatomAPI.md#deletespace) | **Post** /api/{version}/vatom/b/spaces/delete | Delete Vatom Space
-*VatomAPI* | [**DeleteVatomEvent**](docs/VatomAPI.md#deletevatomevent) | **Post** /api/{version}/vatom/b/events/delete | Delete Vatom Event
-*VatomAPI* | [**DeleteVatomNFT**](docs/VatomAPI.md#deletevatomnft) | **Post** /api/{version}/vatom/vatoms/delete | Delete Vatom NFT
-*VatomAPI* | [**ExecuteActionOnNFT**](docs/VatomAPI.md#executeactiononnft) | **Post** /api/{version}/vatom/vatoms/execute-action | Execute Action on NFT
-*VatomAPI* | [**GeomapSearch**](docs/VatomAPI.md#geomapsearch) | **Get** /api/{version}/vatom/vatoms/geo-map/search | Search Vatom Geo Map
-*VatomAPI* | [**GetBusinessBehaviors**](docs/VatomAPI.md#getbusinessbehaviors) | **Get** /api/{version}/vatom/b/behaviors | Get Vatom Business Behaviors
-*VatomAPI* | [**GetBusinessCoinsBalance**](docs/VatomAPI.md#getbusinesscoinsbalance) | **Get** /api/{version}/vatom/b/coins/get | Get the coins for a Business
-*VatomAPI* | [**GetBusinessIds**](docs/VatomAPI.md#getbusinessids) | **Get** /api/{version}/vatom/me/businesses | Get the user business ids
-*VatomAPI* | [**GetBusinessInfo**](docs/VatomAPI.md#getbusinessinfo) | **Get** /api/{version}/vatom/b/get | Get Vatom Business Info
-*VatomAPI* | [**GetBusinessUsers**](docs/VatomAPI.md#getbusinessusers) | **Get** /api/{version}/vatom/b/users | Get Vatom Business Users
-*VatomAPI* | [**GetCampaignGroupEntities**](docs/VatomAPI.md#getcampaigngroupentities) | **Get** /api/{version}/vatom/b/campaign-groups/entities | Get Campaign Group Entities
-*VatomAPI* | [**GetCampaignGroupRules**](docs/VatomAPI.md#getcampaigngrouprules) | **Get** /api/{version}/vatom/b/campaign-groups/rules | Get Campaign Group Rules
-*VatomAPI* | [**GetCampaignGroupStats**](docs/VatomAPI.md#getcampaigngroupstats) | **Get** /api/{version}/vatom/b/campaign-groups/stats | Get Campaign Group Stats
-*VatomAPI* | [**GetCampaignInfo**](docs/VatomAPI.md#getcampaigninfo) | **Get** /api/{version}/vatom/b/campaign-groups/get | Get Campaign Info
-*VatomAPI* | [**GetEventGuestList**](docs/VatomAPI.md#geteventguestlist) | **Get** /api/{version}/vatom/b/events/guests/get | Get Vatom Event Guest List
-*VatomAPI* | [**GetInventory**](docs/VatomAPI.md#getinventory) | **Get** /api/{version}/vatom/me/inventory | Get Vatom User&#39;s Inventory
-*VatomAPI* | [**GetMyFollowing**](docs/VatomAPI.md#getmyfollowing) | **Get** /api/{version}/vatom/me/rels/following | Get following
-*VatomAPI* | [**GetPointsBalance**](docs/VatomAPI.md#getpointsbalance) | **Get** /api/{version}/vatom/u/campaign/points/get | Get Points Balance
-*VatomAPI* | [**GetPointsBalanceAsBusiness**](docs/VatomAPI.md#getpointsbalanceasbusiness) | **Get** /api/{version}/vatom/b/campaign/u/points/get | Get Points Balance as Business
-*VatomAPI* | [**GetSpace**](docs/VatomAPI.md#getspace) | **Get** /api/{version}/vatom/b/spaces/get | Get Vatom Space
-*VatomAPI* | [**GetUserCoinsAsBusiness**](docs/VatomAPI.md#getusercoinsasbusiness) | **Get** /api/{version}/vatom/b/users/coins/get | Get the coins for a user (as a Business)
-*VatomAPI* | [**GetUserCoinsBalance**](docs/VatomAPI.md#getusercoinsbalance) | **Get** /api/{version}/vatom/u/coins/get | Gets the coins balance for a Vatom User
-*VatomAPI* | [**GetUserFollowers**](docs/VatomAPI.md#getuserfollowers) | **Get** /api/{version}/vatom/users/rels/followers | Get user followers
-*VatomAPI* | [**GetUserFollowing**](docs/VatomAPI.md#getuserfollowing) | **Get** /api/{version}/vatom/users/rels/following | Get user following
-*VatomAPI* | [**GetUserInfo**](docs/VatomAPI.md#getuserinfo) | **Get** /api/{version}/vatom/user/get | Get User Info
-*VatomAPI* | [**GetUserProfile**](docs/VatomAPI.md#getuserprofile) | **Get** /api/{version}/vatom/me/get | Get Vatom User Profile
-*VatomAPI* | [**GetVatomEvent**](docs/VatomAPI.md#getvatomevent) | **Get** /api/{version}/vatom/b/events/get | Get Vatom Event
-*VatomAPI* | [**GetVatomNFT**](docs/VatomAPI.md#getvatomnft) | **Get** /api/{version}/vatom/vatoms/get | Get Vatom NFT Details
-*VatomAPI* | [**ListCommunities**](docs/VatomAPI.md#listcommunities) | **Get** /api/{version}/vatom/b/communities/search | List Vatom Communities
-*VatomAPI* | [**ListEvents**](docs/VatomAPI.md#listevents) | **Get** /api/{version}/vatom/b/events/search | List Vatom Events
-*VatomAPI* | [**ListSpaces**](docs/VatomAPI.md#listspaces) | **Get** /api/{version}/vatom/b/spaces/search | List Vatom Spaces
-*VatomAPI* | [**ListUserCoinTransactions**](docs/VatomAPI.md#listusercointransactions) | **Get** /api/{version}/vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
-*VatomAPI* | [**ListUserCoinTransactionsAsBusiness**](docs/VatomAPI.md#listusercointransactionsasbusiness) | **Get** /api/{version}/vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
-*VatomAPI* | [**PerformActionOnNFT**](docs/VatomAPI.md#performactiononnft) | **Post** /api/{version}/vatom/me/vatoms/actions | Perform Action on NFT
-*VatomAPI* | [**RedeemNFT**](docs/VatomAPI.md#redeemnft) | **Post** /api/{version}/vatom/b/redemptions | Redeem NFT
-*VatomAPI* | [**RedeemUserCoinsAsBusiness**](docs/VatomAPI.md#redeemusercoinsasbusiness) | **Post** /api/{version}/vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
-*VatomAPI* | [**SearchBusinesses**](docs/VatomAPI.md#searchbusinesses) | **Get** /api/{version}/vatom/b/search | Search for Vatom Businesses
-*VatomAPI* | [**SearchCampaignGroups**](docs/VatomAPI.md#searchcampaigngroups) | **Get** /api/{version}/vatom/b/campaign-groups/search | Search Campaign Groups
-*VatomAPI* | [**SearchIdentities**](docs/VatomAPI.md#searchidentities) | **Get** /api/{version}/vatom/me/identities/search | Search User Identities
-*VatomAPI* | [**SearchInventory**](docs/VatomAPI.md#searchinventory) | **Get** /api/{version}/vatom/user-inventory/search | Search Vatom User&#39;s Inventory
-*VatomAPI* | [**SendNFT**](docs/VatomAPI.md#sendnft) | **Post** /api/{version}/vatom/b/campaigns/send | Send NFT
-*VatomAPI* | [**SetPointsBalanceAsBusiness**](docs/VatomAPI.md#setpointsbalanceasbusiness) | **Post** /api/{version}/vatom/b/campaign/u/points/update | Set Points Balance as Business
-*VatomAPI* | [**TransferUserCoins**](docs/VatomAPI.md#transferusercoins) | **Post** /api/{version}/vatom/u/coins/transfer | Transfer coins from Vatom Users
-*VatomAPI* | [**UpdateBusinessCoins**](docs/VatomAPI.md#updatebusinesscoins) | **Post** /api/{version}/vatom/b/coins/update | Fund coins for a Business
-*VatomAPI* | [**UpdateEventGuestList**](docs/VatomAPI.md#updateeventguestlist) | **Post** /api/{version}/vatom/b/events/guests/update | Update Vatom Event Guest List
-*VatomAPI* | [**UpdateSpace**](docs/VatomAPI.md#updatespace) | **Post** /api/{version}/vatom/b/spaces/update | Update Vatom Space
-*VatomAPI* | [**UpdateUserCoinsAsBusiness**](docs/VatomAPI.md#updateusercoinsasbusiness) | **Post** /api/{version}/vatom/b/users/coins/update | Update the coins for a user (as a Business)
-*VatomAPI* | [**UpdateUserProfile**](docs/VatomAPI.md#updateuserprofile) | **Post** /api/{version}/vatom/me/update | Update Vatom User Profile
-*VatomAPI* | [**UpdateVatomEvent**](docs/VatomAPI.md#updatevatomevent) | **Post** /api/{version}/vatom/b/events/update | Update Vatom Event
-*VehicleAPI* | [**CreateVehicle**](docs/VehicleAPI.md#createvehicle) | **Post** /api/{version}/vehicle | Create Vehicle
-*VehicleAPI* | [**DeleteVehicle**](docs/VehicleAPI.md#deletevehicle) | **Delete** /api/{version}/vehicle/{id} | Delete Vehicle
-*VehicleAPI* | [**GetVehicle**](docs/VehicleAPI.md#getvehicle) | **Get** /api/{version}/vehicle/{id} | Get Vehicle
-*VehicleAPI* | [**SearchVehicle**](docs/VehicleAPI.md#searchvehicle) | **Get** /api/{version}/vehicle | Search Vehicle
-*VehicleAPI* | [**UpdateVehicle**](docs/VehicleAPI.md#updatevehicle) | **Put** /api/{version}/vehicle/{id} | Update Vehicle
-*VehicleTypeAPI* | [**CreateVehicleType**](docs/VehicleTypeAPI.md#createvehicletype) | **Post** /api/{version}/vehicle/type | Create Vehicle Type
-*VehicleTypeAPI* | [**DeleteVehicleType**](docs/VehicleTypeAPI.md#deletevehicletype) | **Delete** /api/{version}/vehicle/type/{vehicleTypeId} | Delete Vehicle Type
-*VehicleTypeAPI* | [**GetVehicleType**](docs/VehicleTypeAPI.md#getvehicletype) | **Get** /api/{version}/vehicle/type/{vehicleTypeId} | Get Vehicle Type
-*VehicleTypeAPI* | [**SearchVehicleTypes**](docs/VehicleTypeAPI.md#searchvehicletypes) | **Get** /api/{version}/vehicle/type | Search Vehicle Type
-*VehicleTypeAPI* | [**UpdateVehicleType**](docs/VehicleTypeAPI.md#updatevehicletype) | **Put** /api/{version}/vehicle/type/{vehicleTypeId} | Update Vehicle Type
-*WalletAPI* | [**CreateOfferTransaction**](docs/WalletAPI.md#createoffertransaction) | **Post** /api/{version}/wallet/create | Create Wallet Offers
-*WalletAPI* | [**DeleteOfferTransaction**](docs/WalletAPI.md#deleteoffertransaction) | **Post** /api/{version}/wallet/delete | Delete Wallet Offer
-*WalletAPI* | [**GetOfferTransaction**](docs/WalletAPI.md#getoffertransaction) | **Get** /api/{version}/wallet/get | Get Wallet Offer
-*WalletAPI* | [**PreviewOfferTransaction**](docs/WalletAPI.md#previewoffertransaction) | **Post** /api/{version}/wallet/preview | Preview Wallet Offers
-*WalletAPI* | [**SearchOfferTransactions**](docs/WalletAPI.md#searchoffertransactions) | **Get** /api/{version}/wallet/search | Search Wallet Offers
-*WalletAPI* | [**UpdateOfferTransaction**](docs/WalletAPI.md#updateoffertransaction) | **Post** /api/{version}/wallet/update | Update Wallet Offer
-*WeatherAPI* | [**SearchWeather**](docs/WeatherAPI.md#searchweather) | **Get** /api/{version}/weather/search | Search Weather
-*WordAPI* | [**CreateWord**](docs/WordAPI.md#createword) | **Post** /api/{version}/game/word/create | Create Word
-*WordAPI* | [**DeleteWord**](docs/WordAPI.md#deleteword) | **Delete** /api/{version}/game/word/delete | Delete Word
-*WordAPI* | [**GetWord**](docs/WordAPI.md#getword) | **Get** /api/{version}/game/word/get | Get Word
-*WordAPI* | [**GetWords**](docs/WordAPI.md#getwords) | **Get** /api/{version}/game/word/search | Search Words
-*WordAPI* | [**UpdateWord**](docs/WordAPI.md#updateword) | **Post** /api/{version}/game/word/update | Update Word
-*WorkflowAPI* | [**RunWorkflow**](docs/WorkflowAPI.md#runworkflow) | **Post** /api/{version}/workflow/run | Run Workflow
+*AMQPAPI* | [**ConsumerCreate**](docs/AMQPAPI.md#consumercreate) | **Post** /queue/consumer/create | Create Consumer
+*AMQPAPI* | [**ConsumerUpdate**](docs/AMQPAPI.md#consumerupdate) | **Post** /queue/consumer/update | Update Consumer
+*AMQPAPI* | [**QueueCreate**](docs/AMQPAPI.md#queuecreate) | **Post** /queue/create | Create Queue
+*AMQPAPI* | [**QueueDelete**](docs/AMQPAPI.md#queuedelete) | **Post** /queue/delete | Delete Queue
+*AMQPAPI* | [**QueueGet**](docs/AMQPAPI.md#queueget) | **Get** /queue/get | Get Queue
+*AMQPAPI* | [**QueuePublish**](docs/AMQPAPI.md#queuepublish) | **Post** /queue/publish | Publish Queue
+*AMQPAPI* | [**QueueSearch**](docs/AMQPAPI.md#queuesearch) | **Get** /queue/search | Search Queue
+*AMQPAPI* | [**QueueUpdate**](docs/AMQPAPI.md#queueupdate) | **Post** /queue/update | Update Queue
+*AccountAPI* | [**AccountLocationSearch**](docs/AccountAPI.md#accountlocationsearch) | **Get** /account/search | Search Accounts by Location
+*AccountAPI* | [**BlockAccount**](docs/AccountAPI.md#blockaccount) | **Post** /account/block | Block Account
+*AccountAPI* | [**CreateAccount**](docs/AccountAPI.md#createaccount) | **Post** /account/create | Create Account
+*AccountAPI* | [**EditAccount**](docs/AccountAPI.md#editaccount) | **Post** /account/profile/update | Update Account
+*AccountAPI* | [**EditUsername**](docs/AccountAPI.md#editusername) | **Post** /account/username/update | Update Username and Email
+*AccountAPI* | [**GetAccount**](docs/AccountAPI.md#getaccount) | **Get** /account/profile/get | Get Account
+*AccountAPI* | [**GetProfileAssets**](docs/AccountAPI.md#getprofileassets) | **Get** /account/profile/assets | Get Profile Assets
+*AccountAPI* | [**GetReferralList**](docs/AccountAPI.md#getreferrallist) | **Get** /account/referral/list | Search Accounts
+*AccountAPI* | [**GetSettings**](docs/AccountAPI.md#getsettings) | **Get** /account/settings/get | Get Account Settings
+*AccountAPI* | [**LoginDelegate**](docs/AccountAPI.md#logindelegate) | **Post** /account/login/delegate | Login as Account
+*AccountAPI* | [**LoginGeneral**](docs/AccountAPI.md#logingeneral) | **Post** /account/login | Login Account
+*AccountAPI* | [**LoginUsername**](docs/AccountAPI.md#loginusername) | **Post** /account/get | Login Account (Username)
+*AccountAPI* | [**Logout**](docs/AccountAPI.md#logout) | **Post** /account/logout | Logout Account
+*AccountAPI* | [**MergeAccount**](docs/AccountAPI.md#mergeaccount) | **Post** /account/merge | Merge Account
+*AccountAPI* | [**PasswordChange**](docs/AccountAPI.md#passwordchange) | **Post** /account/passwordchange | Update Password
+*AccountAPI* | [**PasswordReset**](docs/AccountAPI.md#passwordreset) | **Post** /account/passwordreset | Reset Password
+*AccountAPI* | [**RequestPasswordReset**](docs/AccountAPI.md#requestpasswordreset) | **Post** /account/requestpasswordreset | Request Password Reset
+*AccountAPI* | [**RequestValidateAccount**](docs/AccountAPI.md#requestvalidateaccount) | **Post** /account/requestValidateAccount | Send Validation Request
+*AccountAPI* | [**SearchAccounts**](docs/AccountAPI.md#searchaccounts) | **Get** /account/profile/search | Search Accounts
+*AccountAPI* | [**SecureLogin**](docs/AccountAPI.md#securelogin) | **Post** /account/login/validate | Login Account (Encrypted Username)
+*AccountAPI* | [**SecureSignup**](docs/AccountAPI.md#securesignup) | **Post** /account/create/validate | Create Account (Encrypted Username)
+*AccountAPI* | [**SetMatchToken**](docs/AccountAPI.md#setmatchtoken) | **Post** /consumer/profile/matchToken | Save Match Token
+*AccountAPI* | [**UpdateActveStatus**](docs/AccountAPI.md#updateactvestatus) | **Post** /account/active/update | Update Account Active Status
+*AccountAPI* | [**UpdateLocation**](docs/AccountAPI.md#updatelocation) | **Post** /account/location/update | Update Location
+*AccountAPI* | [**UpdateSettings**](docs/AccountAPI.md#updatesettings) | **Post** /account/settings/update | Update Account Settings
+*AccountAPI* | [**ValidateAccountSignup**](docs/AccountAPI.md#validateaccountsignup) | **Post** /account/validateAccountSignup | Save Validation Status
+*AccountAPI* | [**ValidatePasswordReset**](docs/AccountAPI.md#validatepasswordreset) | **Post** /account/validatepasswordreset | Validate Password Reset Token
+*AchievementAPI* | [**AchievementTierSearchPost**](docs/AchievementAPI.md#achievementtiersearchpost) | **Post** /achievement/tier/search | Searches an Achievement Tier
+*AchievementAPI* | [**CreateAchievement**](docs/AchievementAPI.md#createachievement) | **Post** /achievement/create | Create Achievement
+*AchievementAPI* | [**CreateAchievementTier**](docs/AchievementAPI.md#createachievementtier) | **Post** /achievement/tier/create | Create Achievement Tier
+*AchievementAPI* | [**DeleteAchievement**](docs/AchievementAPI.md#deleteachievement) | **Post** /achievement/delete | Delete Achievement
+*AchievementAPI* | [**DeleteAchievementTier**](docs/AchievementAPI.md#deleteachievementtier) | **Post** /achievement/tier/delete | Delete Achievement Tier
+*AchievementAPI* | [**GetAchievement**](docs/AchievementAPI.md#getachievement) | **Get** /achievement/get | Get Achievement
+*AchievementAPI* | [**GetAchievementTier**](docs/AchievementAPI.md#getachievementtier) | **Post** /achievement/tier/get | Gets an achievement tier
+*AchievementAPI* | [**GetUserAchievements**](docs/AchievementAPI.md#getuserachievements) | **Get** /achievement/progress/get | Get Achievement Progress
+*AchievementAPI* | [**ListAchievementTags**](docs/AchievementAPI.md#listachievementtags) | **Get** /achievement/tag/list | List Achievement Tags
+*AchievementAPI* | [**ListAchievements**](docs/AchievementAPI.md#listachievements) | **Get** /achievement/list | List Achievements
+*AchievementAPI* | [**SearchAchievements**](docs/AchievementAPI.md#searchachievements) | **Get** /achievement/search | Search Achievements
+*AchievementAPI* | [**UpdateAchievement**](docs/AchievementAPI.md#updateachievement) | **Post** /achievement/update | Update Achievement
+*AchievementAPI* | [**UpdateAchievementTier**](docs/AchievementAPI.md#updateachievementtier) | **Post** /achievement/tier/update | Update Achievement Tier
+*AchievementAPI* | [**UpdateUserAchievement**](docs/AchievementAPI.md#updateuserachievement) | **Post** /achievement/progress/update | Update Achievement Progress
+*ActivityAPI* | [**CreateEntityReference**](docs/ActivityAPI.md#createentityreference) | **Post** /entity/reference | Create an entity reference.
+*AlbumAPI* | [**AddAlbumCollection**](docs/AlbumAPI.md#addalbumcollection) | **Post** /album/create | Create Album
+*AlbumAPI* | [**AddAlbumUsers**](docs/AlbumAPI.md#addalbumusers) | **Post** /album/user/add | Add Album Users
+*AlbumAPI* | [**ApproveAlbum**](docs/AlbumAPI.md#approvealbum) | **Post** /album/approve | Approve Album
+*AlbumAPI* | [**GetAlbumCollection**](docs/AlbumAPI.md#getalbumcollection) | **Get** /album/get |  Get Album
+*AlbumAPI* | [**LeaveAlbum**](docs/AlbumAPI.md#leavealbum) | **Post** /album/user/leave | Leave Album
+*AlbumAPI* | [**RemoveAlbum**](docs/AlbumAPI.md#removealbum) | **Post** /album/delete | Delete Album
+*AlbumAPI* | [**RemoveAlbumUsers**](docs/AlbumAPI.md#removealbumusers) | **Post** /album/user/delete | Remove Album Users
+*AlbumAPI* | [**SearchAlbums**](docs/AlbumAPI.md#searchalbums) | **Get** /album/search | Search Albums
+*AlbumAPI* | [**UpdateAlbumCollection**](docs/AlbumAPI.md#updatealbumcollection) | **Post** /album/update | Update Album
+*AnalyticsAPI* | [**Activities**](docs/AnalyticsAPI.md#activities) | **Get** /analytics/useractivity | Get User Activity
+*AnalyticsAPI* | [**AggregatedFilteredUsage**](docs/AnalyticsAPI.md#aggregatedfilteredusage) | **Get** /analytics/aggregatedFilteredUsage | Get Aggregated Filtered Usage
+*AnalyticsAPI* | [**FilteredUsage**](docs/AnalyticsAPI.md#filteredusage) | **Get** /analytics/filteredUsage | Get Filtered Usage
+*AnalyticsAPI* | [**Usage**](docs/AnalyticsAPI.md#usage) | **Post** /analytics/usage | Create Usage Record
+*AnalyticsAPI* | [**UsageBatch**](docs/AnalyticsAPI.md#usagebatch) | **Post** /analytics/usage/batch | Create Multiple Usage Records
+*AppDataAPI* | [**GetAppData**](docs/AppDataAPI.md#getappdata) | **Get** /app/get | Get App Data
+*AppDataAPI* | [**PostAppData**](docs/AppDataAPI.md#postappdata) | **Post** /app/post | Create App Data
+*AppDataAPI* | [**RegenAppData**](docs/AppDataAPI.md#regenappdata) | **Post** /app/regen | Regenerate App Data
+*ApplicationAPI* | [**CreateApplication**](docs/ApplicationAPI.md#createapplication) | **Post** /application/create | Create Application
+*ApplicationAPI* | [**CreateApplicationPlacement**](docs/ApplicationAPI.md#createapplicationplacement) | **Post** /application/placement/create | Create Ad Placement
+*ApplicationAPI* | [**DeleteApplication**](docs/ApplicationAPI.md#deleteapplication) | **Post** /application/delete | Delete Application
+*ApplicationAPI* | [**DeleteApplicationPlacement**](docs/ApplicationAPI.md#deleteapplicationplacement) | **Post** /application/placement/delete | Delete Ad Placement
+*ApplicationAPI* | [**GetApplication**](docs/ApplicationAPI.md#getapplication) | **Get** /application/get | Get Application
+*ApplicationAPI* | [**GetApplicationPlacement**](docs/ApplicationAPI.md#getapplicationplacement) | **Get** /application/placement/get | Get Ad Placement
+*ApplicationAPI* | [**GetApplicationVersions**](docs/ApplicationAPI.md#getapplicationversions) | **Get** /application/versions | Get API versions
+*ApplicationAPI* | [**GetUniqueUsersByApp**](docs/ApplicationAPI.md#getuniqueusersbyapp) | **Get** /application/users | Search Application Users
+*ApplicationAPI* | [**ListApplications**](docs/ApplicationAPI.md#listapplications) | **Get** /application/list | List Applications
+*ApplicationAPI* | [**SearchApplicationPlacement**](docs/ApplicationAPI.md#searchapplicationplacement) | **Get** /application/placement/search | Search for Ad Placements
+*ApplicationAPI* | [**SearchApplicationSettings**](docs/ApplicationAPI.md#searchapplicationsettings) | **Get** /application/settings/search | Search for Application Settings
+*ApplicationAPI* | [**SearchApplications**](docs/ApplicationAPI.md#searchapplications) | **Get** /application/search | Search Applications
+*ApplicationAPI* | [**UpdateApplication**](docs/ApplicationAPI.md#updateapplication) | **Post** /application/update | Update Application
+*ApplicationAPI* | [**UpdateApplicationActive**](docs/ApplicationAPI.md#updateapplicationactive) | **Post** /application/active | Change Appliation Status
+*ApplicationAPI* | [**UpdateApplicationPlacement**](docs/ApplicationAPI.md#updateapplicationplacement) | **Post** /application/placement/update | Update Ad Placement
+*ApplicationAPI* | [**UploadApplicationCertificate**](docs/ApplicationAPI.md#uploadapplicationcertificate) | **Post** /application/certificate/create | Create Application Certificate
+*ApplicationConfigAPI* | [**CreateApplicationConfig**](docs/ApplicationConfigAPI.md#createapplicationconfig) | **Post** /appconfig/create | Create AppConfig
+*ApplicationConfigAPI* | [**DeleteApplicationConfig**](docs/ApplicationConfigAPI.md#deleteapplicationconfig) | **Post** /appconfig/delete | Delete AppConfig
+*ApplicationConfigAPI* | [**GetApplicationConfig**](docs/ApplicationConfigAPI.md#getapplicationconfig) | **Get** /appconfig/get | Get AppConfig
+*ApplicationConfigAPI* | [**GetApplicationConfigByConfigVersion**](docs/ApplicationConfigAPI.md#getapplicationconfigbyconfigversion) | **Get** /appconfig/getbyversion | Get AppConfig by Version
+*ApplicationConfigAPI* | [**SearchApplicationConfig**](docs/ApplicationConfigAPI.md#searchapplicationconfig) | **Get** /appconfig/search | Search AppConfigs
+*ApplicationConfigAPI* | [**UpdateApplicationConfig**](docs/ApplicationConfigAPI.md#updateapplicationconfig) | **Post** /appconfig/update | Update AppConfig
+*AssetAPI* | [**AssetDownload**](docs/AssetAPI.md#assetdownload) | **Get** /asset/download/{filename} | Download Asset
+*AssetAPI* | [**AssetMorph**](docs/AssetAPI.md#assetmorph) | **Post** /asset/morph | Convert Offer to Creative
+*AssetAPI* | [**CreateAsset**](docs/AssetAPI.md#createasset) | **Post** /asset/create | Create Asset
+*AssetAPI* | [**DeleteAsset**](docs/AssetAPI.md#deleteasset) | **Post** /asset/delete | Delete Asset
+*AssetAPI* | [**GetAsset**](docs/AssetAPI.md#getasset) | **Get** /asset/get | Get Asset
+*AssetAPI* | [**RemoveAsset**](docs/AssetAPI.md#removeasset) | **Post** /asset/remove | Remove Asset from Collection
+*AssetAPI* | [**SearchAssets**](docs/AssetAPI.md#searchassets) | **Get** /asset/search | Search Assets
+*AssetAPI* | [**UpdateAsset**](docs/AssetAPI.md#updateasset) | **Post** /asset/update | Update Asset
+*AssignmentAPI* | [**AssigmentAssigneeAccountSearch**](docs/AssignmentAPI.md#assigmentassigneeaccountsearch) | **Get** /assignment/assignee/search | Search Assignment Assignees
+*AssignmentAPI* | [**AssignmentCreate**](docs/AssignmentAPI.md#assignmentcreate) | **Post** /assignment/create | Create Assignment
+*AssignmentAPI* | [**AssignmentDelete**](docs/AssignmentAPI.md#assignmentdelete) | **Post** /assignment/delete | Delete Assignment
+*AssignmentAPI* | [**AssignmentGet**](docs/AssignmentAPI.md#assignmentget) | **Get** /assignment/get | Get Assignment
+*AssignmentAPI* | [**AssignmentSearch**](docs/AssignmentAPI.md#assignmentsearch) | **Get** /assignment/search | Search Assignments
+*AssignmentAPI* | [**AssignmentStatusCreate**](docs/AssignmentAPI.md#assignmentstatuscreate) | **Post** /assignment/status/create | Create Assignment Status
+*AssignmentAPI* | [**AssignmentStatusDelete**](docs/AssignmentAPI.md#assignmentstatusdelete) | **Post** /assignment/status/delete | Deletes Assignment Status
+*AssignmentAPI* | [**AssignmentStatusGet**](docs/AssignmentAPI.md#assignmentstatusget) | **Get** /assignment/status/get | Get Assignment Status
+*AssignmentAPI* | [**AssignmentStatusSearch**](docs/AssignmentAPI.md#assignmentstatussearch) | **Get** /assignment/status/search | Search Assignment Statuses
+*AssignmentAPI* | [**AssignmentStatusUpdate**](docs/AssignmentAPI.md#assignmentstatusupdate) | **Post** /assignment/status/update | Update Assignment Status
+*AssignmentAPI* | [**AssignmentUpdate**](docs/AssignmentAPI.md#assignmentupdate) | **Post** /assignment/update | Update Assignment
+*AudienceAPI* | [**CreateAudience**](docs/AudienceAPI.md#createaudience) | **Post** /audience/create | Create Audience
+*AudienceAPI* | [**DeleteAudience**](docs/AudienceAPI.md#deleteaudience) | **Post** /audience/delete | Delete Audience
+*AudienceAPI* | [**GetAgeGroups**](docs/AudienceAPI.md#getagegroups) | **Get** /audience/ageGroups | Get Age Groups
+*AudienceAPI* | [**GetAudience**](docs/AudienceAPI.md#getaudience) | **Get** /audience/get | Get Audience
+*AudienceAPI* | [**GetAudienceList**](docs/AudienceAPI.md#getaudiencelist) | **Get** /audience/search | Search Audiences
+*AudienceAPI* | [**GetDevices**](docs/AudienceAPI.md#getdevices) | **Get** /audience/devices | Get Devices
+*AudienceAPI* | [**GetExperiences**](docs/AudienceAPI.md#getexperiences) | **Get** /audience/experiences | Get Experiences
+*AudienceAPI* | [**GetGroupedAudiences**](docs/AudienceAPI.md#getgroupedaudiences) | **Get** /audience/grouped/get | Get GroupedAudiences
+*AudienceAPI* | [**ListByAccount**](docs/AudienceAPI.md#listbyaccount) | **Post** /audience/suggestion/list | List Suggestions by Audience
+*AudienceAPI* | [**ListByAudience**](docs/AudienceAPI.md#listbyaudience) | **Get** /audience/suggestion/offersByAudience | List Offers by Audience
+*AudienceAPI* | [**ListLastestByAccount**](docs/AudienceAPI.md#listlastestbyaccount) | **Get** /audience/suggestion/latest | List Sent Suggestions 
+*AudienceAPI* | [**SendByAccount**](docs/AudienceAPI.md#sendbyaccount) | **Post** /audience/suggestion/send | Send Suggestions
+*AudienceAPI* | [**UpdateAudience**](docs/AudienceAPI.md#updateaudience) | **Post** /audience/update | Update Audience
+*BidAPI* | [**CreateBid**](docs/BidAPI.md#createbid) | **Post** /bid/create | Create Bid
+*BidAPI* | [**DeleteBid**](docs/BidAPI.md#deletebid) | **Post** /bid/delete | Delete Bid
+*BidAPI* | [**GetBid**](docs/BidAPI.md#getbid) | **Get** /bid/get | Get Bid
+*BidAPI* | [**UpdateBid**](docs/BidAPI.md#updatebid) | **Post** /bid/update | Update Bid
+*BillableEntityAPI* | [**CreateBillableEntity**](docs/BillableEntityAPI.md#createbillableentity) | **Post** /billable/create | Create Billable
+*BillableEntityAPI* | [**DeleteBillableEntity**](docs/BillableEntityAPI.md#deletebillableentity) | **Post** /billable/delete | Delete Billable
+*BillableEntityAPI* | [**GetBillableEntity**](docs/BillableEntityAPI.md#getbillableentity) | **Get** /billable/get | Get Billable
+*BillableEntityAPI* | [**UpdateBillableEntity**](docs/BillableEntityAPI.md#updatebillableentity) | **Post** /billable/update | Update Billable
+*BillingInfoAPI* | [**AddPaymentMethod**](docs/BillingInfoAPI.md#addpaymentmethod) | **Post** /billing/update | Update Payment Method
+*BillingInfoAPI* | [**CreatePaymentMethod**](docs/BillingInfoAPI.md#createpaymentmethod) | **Post** /billing/create | Create Payment Method
+*BillingInfoAPI* | [**CreateSmartContract**](docs/BillingInfoAPI.md#createsmartcontract) | **Post** /billing/crypto/transfer | Create Smart Contract
+*BillingInfoAPI* | [**GetCryptoBalance**](docs/BillingInfoAPI.md#getcryptobalance) | **Get** /billing/crypto/get | Get Crypto Balances
+*BillingInfoAPI* | [**GetPaymentMethod**](docs/BillingInfoAPI.md#getpaymentmethod) | **Get** /billing/get | Get Payment Method
+*BillingInfoAPI* | [**SearchPaymentMethod**](docs/BillingInfoAPI.md#searchpaymentmethod) | **Get** /billing/search | Search Payment Methods
+*CSVImportAPI* | [**GetStatusCSV**](docs/CSVImportAPI.md#getstatuscsv) | **Get** /csvimport/batch/status/details | Detail Status
+*CSVImportAPI* | [**ListStatusCSV**](docs/CSVImportAPI.md#liststatuscsv) | **Get** /csvimport/batch/list | Search Status
+*CSVImportAPI* | [**StatusCSV**](docs/CSVImportAPI.md#statuscsv) | **Get** /csvimport/batch/status | Batch Status
+*CSVImportAPI* | [**UploadCSV**](docs/CSVImportAPI.md#uploadcsv) | **Post** /csvimport/upload | Upload CSV
+*CargoTypeAPI* | [**CreateCargoType**](docs/CargoTypeAPI.md#createcargotype) | **Post** /cargo/type | Create Cargo Type
+*CargoTypeAPI* | [**DeleteCargoType**](docs/CargoTypeAPI.md#deletecargotype) | **Delete** /cargo/type/{cargoTypeId} | Delete Cargo Type
+*CargoTypeAPI* | [**GetCargoType**](docs/CargoTypeAPI.md#getcargotype) | **Get** /cargo/type/{cargoTypeId} | Get Cargo Type
+*CargoTypeAPI* | [**SearchCargoTypes**](docs/CargoTypeAPI.md#searchcargotypes) | **Get** /cargo/type | Search Cargo Type
+*CargoTypeAPI* | [**UpdateCargoType**](docs/CargoTypeAPI.md#updatecargotype) | **Put** /cargo/type/{cargoTypeId} | Update Cargo Type
+*CarrierAPI* | [**SearchCarriers**](docs/CarrierAPI.md#searchcarriers) | **Get** /carrier/search | Search Carriers
+*CategoryAPI* | [**CategoryDistanceSearch**](docs/CategoryAPI.md#categorydistancesearch) | **Get** /category/distancesearch | Search Categories by Distance
+*CategoryAPI* | [**CreateCategory**](docs/CategoryAPI.md#createcategory) | **Post** /category/create | Create Category
+*CategoryAPI* | [**DeleteCategory**](docs/CategoryAPI.md#deletecategory) | **Post** /category/delete | Delete Category
+*CategoryAPI* | [**DuplicateCategory**](docs/CategoryAPI.md#duplicatecategory) | **Post** /category/duplicate | Duplicate Category
+*CategoryAPI* | [**GetCategory**](docs/CategoryAPI.md#getcategory) | **Get** /category/get | Get Category
+*CategoryAPI* | [**SearchCategories**](docs/CategoryAPI.md#searchcategories) | **Get** /category/search | Search Categories
+*CategoryAPI* | [**UpdateCategory**](docs/CategoryAPI.md#updatecategory) | **Post** /category/update | Update Category
+*ConnectionAPI* | [**AddConnectionToGroup**](docs/ConnectionAPI.md#addconnectiontogroup) | **Post** /consumer/connection/group/addConnection | Add Connection
+*ConnectionAPI* | [**AddConnectionsToGroup**](docs/ConnectionAPI.md#addconnectionstogroup) | **Post** /connection/group/addConnections | Add Connections
+*ConnectionAPI* | [**AddSubGroups**](docs/ConnectionAPI.md#addsubgroups) | **Post** /consumer/connection/group/addSubGroup | Add Connection Groups
+*ConnectionAPI* | [**CreateOrUpdateConnection**](docs/ConnectionAPI.md#createorupdateconnection) | **Post** /consumer/connection/add | Create or Update Connection
+*ConnectionAPI* | [**CreateOrUpdateGroup**](docs/ConnectionAPI.md#createorupdategroup) | **Post** /consumer/connection/group | Create or Update Connection Group
+*ConnectionAPI* | [**FollowAccept**](docs/ConnectionAPI.md#followaccept) | **Post** /consumer/follow/accept | Accept Follow Request
+*ConnectionAPI* | [**FollowReject**](docs/ConnectionAPI.md#followreject) | **Post** /consumer/follow/reject | Reject Follow Request
+*ConnectionAPI* | [**FollowRemove**](docs/ConnectionAPI.md#followremove) | **Post** /consumer/follow/remove | Remove Follower / Unfollow
+*ConnectionAPI* | [**FollowRequest**](docs/ConnectionAPI.md#followrequest) | **Post** /consumer/follow/request | Send Follow Request
+*ConnectionAPI* | [**FriendAccept**](docs/ConnectionAPI.md#friendaccept) | **Post** /consumer/friend/accept | Accept Friend
+*ConnectionAPI* | [**FriendReject**](docs/ConnectionAPI.md#friendreject) | **Post** /consumer/friend/reject | Decline Friend
+*ConnectionAPI* | [**FriendRemove**](docs/ConnectionAPI.md#friendremove) | **Post** /consumer/friend/remove | Delete Friend
+*ConnectionAPI* | [**FriendRequest**](docs/ConnectionAPI.md#friendrequest) | **Post** /consumer/friend/request | Request Friend
+*ConnectionAPI* | [**GetConnectionSentFriendRequests**](docs/ConnectionAPI.md#getconnectionsentfriendrequests) | **Get** /consumer/connection/getRequested | Get Sent Friend Requests
+*ConnectionAPI* | [**GetConnections**](docs/ConnectionAPI.md#getconnections) | **Get** /consumer/connection/get | Search Connections
+*ConnectionAPI* | [**GetGroupDetails**](docs/ConnectionAPI.md#getgroupdetails) | **Get** /consumer/connection/group/details/get | Get Connection Group
+*ConnectionAPI* | [**GroupSearch**](docs/ConnectionAPI.md#groupsearch) | **Get** /connection/group/search | Search Connection Groups
+*ConnectionAPI* | [**RemoveConnectionFromGroup**](docs/ConnectionAPI.md#removeconnectionfromgroup) | **Post** /consumer/connection/group/removeConnection | Delete Connection
+*ConnectionAPI* | [**RemoveConnectionsFromGroup**](docs/ConnectionAPI.md#removeconnectionsfromgroup) | **Post** /connection/group/removeConnections | Remove Connections
+*ConnectionAPI* | [**RemoveGroup**](docs/ConnectionAPI.md#removegroup) | **Post** /consumer/connection/group/remove | Delete Connection Group
+*ConnectionAPI* | [**RemoveSubGroups**](docs/ConnectionAPI.md#removesubgroups) | **Post** /consumer/connection/group/removeSubGroup | Remove Connection Groups
+*ConnectionAPI* | [**SearchConnections**](docs/ConnectionAPI.md#searchconnections) | **Get** /connection/search | Search Possible Connections
+*ContestAPI* | [**AddOrUpdateAlbumContest**](docs/ContestAPI.md#addorupdatealbumcontest) | **Post** /consumer/album/contest | Create or Update Contest
+*ContestAPI* | [**ApproveAlbumContest**](docs/ContestAPI.md#approvealbumcontest) | **Post** /consumer/album/contest/approve | Approve Contest
+*ContestAPI* | [**DeleteContest**](docs/ContestAPI.md#deletecontest) | **Post** /consumer/album/contest/remove | Delete Contest
+*ContestAPI* | [**GetAlbumContest**](docs/ContestAPI.md#getalbumcontest) | **Get** /consumer/album/contest/get | Get Contest
+*ContestAPI* | [**GetAlbumContests**](docs/ContestAPI.md#getalbumcontests) | **Get** /consumer/album/contest/search | Search Contests
+*ContestAPI* | [**VoteOnAlbumContest**](docs/ContestAPI.md#voteonalbumcontest) | **Post** /consumer/album/contest/vote | Vote on Contest
+*CreativeAPI* | [**AddPreview**](docs/CreativeAPI.md#addpreview) | **Post** /creative/addpreview | Add Preview
+*CreativeAPI* | [**AdsFind**](docs/CreativeAPI.md#adsfind) | **Get** /ads/find | Find Missions
+*CreativeAPI* | [**CreateCreative**](docs/CreativeAPI.md#createcreative) | **Post** /creative/create | Create Creative
+*CreativeAPI* | [**DeleteCreative**](docs/CreativeAPI.md#deletecreative) | **Post** /creative/delete | Delete Creative
+*CreativeAPI* | [**GetCreative**](docs/CreativeAPI.md#getcreative) | **Get** /creative/get | Get Creative
+*CreativeAPI* | [**GetCreativesByApplication**](docs/CreativeAPI.md#getcreativesbyapplication) | **Get** /creative/search | Search Creatives
+*CreativeAPI* | [**RemovePreview**](docs/CreativeAPI.md#removepreview) | **Post** /creative/removepreview | Remove Preview
+*CreativeAPI* | [**UpdateCreative**](docs/CreativeAPI.md#updatecreative) | **Post** /creative/update | Update Creative
+*DependentAPI* | [**Create**](docs/DependentAPI.md#create) | **Put** /cargo/dependent/{accountId} | Create Dependent
+*DependentAPI* | [**GetDependents**](docs/DependentAPI.md#getdependents) | **Get** /cargo/dependent/{accountId} | Get dependent list of an account
+*DependentAPI* | [**RemoveDependent**](docs/DependentAPI.md#removedependent) | **Delete** /cargo/dependent/{accountId} | Delete Dependent
+*DisbursementAPI* | [**CheckDisbursements**](docs/DisbursementAPI.md#checkdisbursements) | **Get** /disbursement/check | Check Disbursements
+*DisbursementAPI* | [**CreateDisbursement**](docs/DisbursementAPI.md#createdisbursement) | **Post** /disbursement/create | Create Disbursement
+*DisbursementAPI* | [**GetDisbursement**](docs/DisbursementAPI.md#getdisbursement) | **Get** /disbursement/get | Get Disbursement
+*DisbursementAPI* | [**SearchDisbursements**](docs/DisbursementAPI.md#searchdisbursements) | **Get** /disbursement/search | Search Disbursements
+*DisbursementAPI* | [**UpdateDisbursement**](docs/DisbursementAPI.md#updatedisbursement) | **Post** /disbursement/update | Update Disbursement
+*EmployeeAPI* | [**AssignEmployee**](docs/EmployeeAPI.md#assignemployee) | **Post** /employee/assign | Assign Employee
+*EmployeeAPI* | [**AssignToLocationEmployee**](docs/EmployeeAPI.md#assigntolocationemployee) | **Post** /employee/assignToLocation | Assign Employee to Location
+*EmployeeAPI* | [**CreateEmployee**](docs/EmployeeAPI.md#createemployee) | **Post** /employee/create | Create Employee
+*EmployeeAPI* | [**DeleteEmployee**](docs/EmployeeAPI.md#deleteemployee) | **Post** /employee/delete | Delete Employee
+*EmployeeAPI* | [**GetEmployee**](docs/EmployeeAPI.md#getemployee) | **Post** /employee/get | Get Employee
+*EmployeeAPI* | [**SearchEmployees**](docs/EmployeeAPI.md#searchemployees) | **Post** /employee/search | Search Employees
+*EmployeeAPI* | [**UnassignEmployee**](docs/EmployeeAPI.md#unassignemployee) | **Post** /employee/unassign | Unassign Employee
+*EmployeeAPI* | [**UpdateEmployee**](docs/EmployeeAPI.md#updateemployee) | **Post** /employee/update | Update Employee
+*EventAPI* | [**AttendEvent**](docs/EventAPI.md#attendevent) | **Post** /event/attend | Attend Event
+*EventAPI* | [**CreateEvent**](docs/EventAPI.md#createevent) | **Post** /event/create | Create Event
+*EventAPI* | [**DeleteEvent**](docs/EventAPI.md#deleteevent) | **Post** /event/delete | Delete Event
+*EventAPI* | [**GetEvent**](docs/EventAPI.md#getevent) | **Get** /event/get | Get Event
+*EventAPI* | [**SearchEventTransactions**](docs/EventAPI.md#searcheventtransactions) | **Get** /event/attendance/search | Search Event Attendance
+*EventAPI* | [**SearchEvents**](docs/EventAPI.md#searchevents) | **Get** /event/search | Search Events
+*EventAPI* | [**UpdateEvent**](docs/EventAPI.md#updateevent) | **Post** /event/update | Update Event
+*FacebookAPI* | [**GetToken**](docs/FacebookAPI.md#gettoken) | **Get** /facebook/getfbtoken | Get Facebook Token
+*FacebookAPI* | [**GraphInterface**](docs/FacebookAPI.md#graphinterface) | **Post** /facebook/graph | Post to Facebook
+*FavoriteAPI* | [**AddFavorite**](docs/FavoriteAPI.md#addfavorite) | **Post** /favorite/create | Create Favorite
+*FavoriteAPI* | [**DeleteFavorite**](docs/FavoriteAPI.md#deletefavorite) | **Post** /favorite/delete | Delete Favorite
+*FavoriteAPI* | [**GetFavorite**](docs/FavoriteAPI.md#getfavorite) | **Get** /favorite/get | Get Favorite
+*FavoriteAPI* | [**SearchFavorites**](docs/FavoriteAPI.md#searchfavorites) | **Get** /favorite/search | Search Favorites
+*FavoriteAPI* | [**WhoHasFavorited**](docs/FavoriteAPI.md#whohasfavorited) | **Get** /favorite/whois | Who has Favorited
+*FilterAPI* | [**CreateFilter**](docs/FilterAPI.md#createfilter) | **Post** /filter/create | Create Filter
+*FilterAPI* | [**DeleteFilter**](docs/FilterAPI.md#deletefilter) | **Post** /filter/delete | Delete Filter
+*FilterAPI* | [**GetFilter**](docs/FilterAPI.md#getfilter) | **Get** /filter/get | Get Filter
+*FilterAPI* | [**SearchFilters**](docs/FilterAPI.md#searchfilters) | **Get** /filter/search | Search Filters
+*FilterAPI* | [**UpdateFilter**](docs/FilterAPI.md#updatefilter) | **Post** /filter/update | Update Filter
+*FlagAPI* | [**CreateFlag**](docs/FlagAPI.md#createflag) | **Post** /flag/create | Create Flag
+*FlagAPI* | [**DeleteFlag**](docs/FlagAPI.md#deleteflag) | **Post** /flag/delete | Delete Flag
+*FlagAPI* | [**GetFlag**](docs/FlagAPI.md#getflag) | **Get** /flag/get | Get Flag
+*FlagAPI* | [**GetFlagThreshold**](docs/FlagAPI.md#getflagthreshold) | **Get** /flag/threshold/get | Get Flag Threshold
+*FlagAPI* | [**UpdateFlagThreshold**](docs/FlagAPI.md#updateflagthreshold) | **Post** /flag/threshold/update | Update Flag Threshold
+*GameAPI* | [**CreateGame**](docs/GameAPI.md#creategame) | **Post** /game/create | Create a Game
+*GameAPI* | [**DeleteGame**](docs/GameAPI.md#deletegame) | **Post** /game/delete | Delete a Game
+*GameAPI* | [**GetGame**](docs/GameAPI.md#getgame) | **Get** /game/get | Get a Game by id
+*GameAPI* | [**SearchGames**](docs/GameAPI.md#searchgames) | **Get** /game/search | Search a Game
+*GameAPI* | [**UpdateGame**](docs/GameAPI.md#updategame) | **Post** /game/update | Update a Game
+*GameLevelAPI* | [**CreateGameLevel**](docs/GameLevelAPI.md#creategamelevel) | **Post** /level/create | Create Game Level
+*GameLevelAPI* | [**DeleteGameLevel**](docs/GameLevelAPI.md#deletegamelevel) | **Post** /level/delete | Delete Game Level
+*GameLevelAPI* | [**GetGameLevel**](docs/GameLevelAPI.md#getgamelevel) | **Get** /level/get | Get Game Level
+*GameLevelAPI* | [**GetGameLevelsByApplication**](docs/GameLevelAPI.md#getgamelevelsbyapplication) | **Get** /level/search | Search Game Levels
+*GameLevelAPI* | [**GetGameLevelsByBillableEntity**](docs/GameLevelAPI.md#getgamelevelsbybillableentity) | **Get** /level/searchByBillableEntity | Search Game Level by Billable Entity
+*GameLevelAPI* | [**GetQuestionsInLevel**](docs/GameLevelAPI.md#getquestionsinlevel) | **Get** /level/questions/get | Get Level Questions
+*GameLevelAPI* | [**GetWordsInLevel**](docs/GameLevelAPI.md#getwordsinlevel) | **Get** /level/words/get | Get Level Words
+*GameLevelAPI* | [**UpdateGameLevel**](docs/GameLevelAPI.md#updategamelevel) | **Post** /level/update | Update Game Level
+*GameLevelAPI* | [**UpdateQuestionsInLevel**](docs/GameLevelAPI.md#updatequestionsinlevel) | **Post** /level/questions/update | Update Level Questions
+*GameLevelAPI* | [**UpdateWordsInLevel**](docs/GameLevelAPI.md#updatewordsinlevel) | **Post** /level/words/update | Update Level Words
+*InviteAPI* | [**AcceptInvite**](docs/InviteAPI.md#acceptinvite) | **Post** /invite/accept | Accept Invite
+*InviteAPI* | [**AlbumContestInvite**](docs/InviteAPI.md#albumcontestinvite) | **Post** /invite/albumContest | Invite to Contest
+*InviteAPI* | [**AlbumInvite**](docs/InviteAPI.md#albuminvite) | **Post** /invite/album | Invite to Collection
+*InviteAPI* | [**EventInvite**](docs/InviteAPI.md#eventinvite) | **Post** /invite/event | Invite to Event
+*InviteAPI* | [**GameInvite**](docs/InviteAPI.md#gameinvite) | **Post** /invite/gameLevel | Invite to Game Level
+*InviteAPI* | [**GetInvite**](docs/InviteAPI.md#getinvite) | **Get** /invite/get | Get Invite
+*InviteAPI* | [**MissionInvite**](docs/InviteAPI.md#missioninvite) | **Post** /invite/mission | Invite to Mission
+*InviteAPI* | [**OfferInvite**](docs/InviteAPI.md#offerinvite) | **Post** /invite/offer | Invite to Offer
+*InviteAPI* | [**OfferLocationInvite**](docs/InviteAPI.md#offerlocationinvite) | **Post** /invite/offerLocation | Invite to Offer Location
+*InviteAPI* | [**RetailerLocationInvite**](docs/InviteAPI.md#retailerlocationinvite) | **Post** /invite/retailerLocation | Invite to Retailer Location
+*LeaderboardAPI* | [**CreateLeaderboard**](docs/LeaderboardAPI.md#createleaderboard) | **Post** /leaderboard/create | Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*LeaderboardAPI* | [**DeleteLeaderboard**](docs/LeaderboardAPI.md#deleteleaderboard) | **Post** /leaderboard/delete | Delete the Leader Board
+*LeaderboardAPI* | [**GetLeaderboard**](docs/LeaderboardAPI.md#getleaderboard) | **Get** /leaderboard/get | Read a leaderboard by id and retrieve the matching ranking list
+*LeaderboardAPI* | [**SearchLeaderboards**](docs/LeaderboardAPI.md#searchleaderboards) | **Get** /leaderboard/search | Search leaderboard and retrieve the matching ranking list
+*LeaderboardAPI* | [**UpdateLeaderboard**](docs/LeaderboardAPI.md#updateleaderboard) | **Post** /leaderboard/update | Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
+*LikeAPI* | [**RegisterLike**](docs/LikeAPI.md#registerlike) | **Post** /like | Create Like
+*LikeAPI* | [**RemoveLike**](docs/LikeAPI.md#removelike) | **Post** /like/delete | Delete Like
+*LikeAPI* | [**SearchLikes**](docs/LikeAPI.md#searchlikes) | **Get** /like/search | Search Likes
+*ListingAPI* | [**CreateListing**](docs/ListingAPI.md#createlisting) | **Post** /listing/create | Create Listing
+*ListingAPI* | [**DeleteListing**](docs/ListingAPI.md#deletelisting) | **Post** /listing/delete | Delete Listing
+*ListingAPI* | [**GetListing**](docs/ListingAPI.md#getlisting) | **Get** /listing/get | Get Listing
+*ListingAPI* | [**SearchListing**](docs/ListingAPI.md#searchlisting) | **Get** /listing/search | Search Listings
+*ListingAPI* | [**SummaryListing**](docs/ListingAPI.md#summarylisting) | **Get** /listing/summary | Summary Listing
+*ListingAPI* | [**UpdateListing**](docs/ListingAPI.md#updatelisting) | **Post** /listing/update | Update Listing
+*LocationAPI* | [**CacheTrilaterationData**](docs/LocationAPI.md#cachetrilaterationdata) | **Post** /location/trilaterate/cache | Create Trilateration Data with File
+*LocationAPI* | [**CacheTrilaterationDataGzip**](docs/LocationAPI.md#cachetrilaterationdatagzip) | **Post** /location/trilaterate/cache/submit | Create Trilateration Data with Rest
+*LocationAPI* | [**GetLocationByIp**](docs/LocationAPI.md#getlocationbyip) | **Get** /location/ip | Get Location by IP
+*LocationAPI* | [**GetLocationByTrilateration**](docs/LocationAPI.md#getlocationbytrilateration) | **Get** /account/location/trilaterate | Get Location by Trilateration
+*LocationAPI* | [**GetLocations**](docs/LocationAPI.md#getlocations) | **Get** /location/search | Search Regions or Postal Codes
+*LocationApiV2API* | [**CreateLocationV2**](docs/LocationApiV2API.md#createlocationv2) | **Post** /location | Create new location
+*LocationApiV2API* | [**UpdateLocationV2**](docs/LocationApiV2API.md#updatelocationv2) | **Post** /location/{id} | Update an existing location
+*MediaAPI* | [**CreateMedia**](docs/MediaAPI.md#createmedia) | **Post** /media/create | Create Media
+*MediaAPI* | [**DeleteMedia**](docs/MediaAPI.md#deletemedia) | **Post** /media/delete | Delete Media
+*MediaAPI* | [**GetMedia**](docs/MediaAPI.md#getmedia) | **Get** /media/get | Media Get
+*MediaAPI* | [**SearchMedia**](docs/MediaAPI.md#searchmedia) | **Get** /media/search | Search Media
+*MediaAPI* | [**UpdateMedia**](docs/MediaAPI.md#updatemedia) | **Post** /media/update | Update Media
+*MissionAPI* | [**CreateMission**](docs/MissionAPI.md#createmission) | **Post** /mission/create | Create Mission
+*MissionAPI* | [**DeleteMission**](docs/MissionAPI.md#deletemission) | **Post** /mission/delete | Delete Mission
+*MissionAPI* | [**FindMissions**](docs/MissionAPI.md#findmissions) | **Get** /mission/find | Find Missions
+*MissionAPI* | [**GetMission**](docs/MissionAPI.md#getmission) | **Get** /mission/get | Get Mission
+*MissionAPI* | [**ImportMission**](docs/MissionAPI.md#importmission) | **Post** /mission/import | Import Mission
+*MissionAPI* | [**SearchMissionFormats**](docs/MissionAPI.md#searchmissionformats) | **Get** /mission/format/search | Search Mission Formats
+*MissionAPI* | [**SearchMissions**](docs/MissionAPI.md#searchmissions) | **Get** /mission/search | Search Missions
+*MissionAPI* | [**SearchMissionsByBillableEntity**](docs/MissionAPI.md#searchmissionsbybillableentity) | **Get** /mission/searchByBillableEntity | Search Missions by Billable Entity
+*MissionAPI* | [**UpdateMission**](docs/MissionAPI.md#updatemission) | **Post** /mission/update | Update Mission
+*MissionInviteAPI* | [**CreateMissionInvite**](docs/MissionInviteAPI.md#createmissioninvite) | **Post** /mission/invite/create | Create Mission Invite
+*MissionInviteAPI* | [**DeleteMissionInvite**](docs/MissionInviteAPI.md#deletemissioninvite) | **Post** /mission/invite/delete | Delete Mission Invite
+*MissionInviteAPI* | [**GetMissionInvite**](docs/MissionInviteAPI.md#getmissioninvite) | **Get** /mission/invite/get | Get Mission Invite
+*MissionInviteAPI* | [**SearchMissionInvites**](docs/MissionInviteAPI.md#searchmissioninvites) | **Get** /mission/invite/search | Search Mission Invites
+*MissionInviteAPI* | [**UpdateMissionInvite**](docs/MissionInviteAPI.md#updatemissioninvite) | **Post** /mission/invite/update | Update Mission Invite
+*NoteAPI* | [**BatchOperation**](docs/NoteAPI.md#batchoperation) | **Post** /note/batch | Batch Note Operation
+*NoteAPI* | [**CreateNote**](docs/NoteAPI.md#createnote) | **Post** /note/create | Create Note
+*NoteAPI* | [**DeleteNote**](docs/NoteAPI.md#deletenote) | **Post** /note/delete | Delete Note
+*NoteAPI* | [**GetNote**](docs/NoteAPI.md#getnote) | **Post** /note/get | Get Note
+*NoteAPI* | [**SearchNotes**](docs/NoteAPI.md#searchnotes) | **Post** /note/search | Search Notes
+*NoteAPI* | [**UpdateNote**](docs/NoteAPI.md#updatenote) | **Post** /note/update | Update Note
+*NotificationAPI* | [**CreateNotificationTemplate**](docs/NotificationAPI.md#createnotificationtemplate) | **Post** /notification/template/create | Create Notification Template
+*NotificationAPI* | [**CreateOrUpdateBlockedNotifications**](docs/NotificationAPI.md#createorupdateblockednotifications) | **Post** /notification/blocked/batch | Create or update blocked notification settings
+*NotificationAPI* | [**DeleteNotificationTemplate**](docs/NotificationAPI.md#deletenotificationtemplate) | **Post** /notification/template/delete | Delete Notification Template
+*NotificationAPI* | [**GetNotificationTemplate**](docs/NotificationAPI.md#getnotificationtemplate) | **Get** /notification/template/get | Get Notification Template
+*NotificationAPI* | [**GetNotifications**](docs/NotificationAPI.md#getnotifications) | **Get** /notification/search | Get Notifications
+*NotificationAPI* | [**RegisterNotificationToken**](docs/NotificationAPI.md#registernotificationtoken) | **Post** /notification/token | Register Notification Token
+*NotificationAPI* | [**SearchBlockedNotifications**](docs/NotificationAPI.md#searchblockednotifications) | **Get** /notification/blocked/search | Search on the user&#39;s blocked notification settings
+*NotificationAPI* | [**SearchNotificationTemplate**](docs/NotificationAPI.md#searchnotificationtemplate) | **Get** /notification/template/search | Search Notification Templates
+*NotificationAPI* | [**SearchRecipients**](docs/NotificationAPI.md#searchrecipients) | **Get** /notification/recipient/search | Search for Recipients
+*NotificationAPI* | [**SearchRecipientsCount**](docs/NotificationAPI.md#searchrecipientscount) | **Get** /notification/recipient/search/count | Search for Recipients (Counts/Grouped)
+*NotificationAPI* | [**SendBatchNotifications**](docs/NotificationAPI.md#sendbatchnotifications) | **Post** /notification/batch | Send Batch Notifications
+*NotificationAPI* | [**SendCustomNotifications**](docs/NotificationAPI.md#sendcustomnotifications) | **Post** /notification/custom | Send Custom Notifications
+*NotificationAPI* | [**UpdateNotificationTemplate**](docs/NotificationAPI.md#updatenotificationtemplate) | **Post** /notification/template/update | Update Notification Template
+*ObjectStoreAPI* | [**AddField**](docs/ObjectStoreAPI.md#addfield) | **Post** /object/field/add | Create Field
+*ObjectStoreAPI* | [**CreateData**](docs/ObjectStoreAPI.md#createdata) | **Post** /object/data/{objectName} | Create Data
+*ObjectStoreAPI* | [**CreateObject**](docs/ObjectStoreAPI.md#createobject) | **Post** /object/create | Create Object
+*ObjectStoreAPI* | [**DeleteData**](docs/ObjectStoreAPI.md#deletedata) | **Delete** /object/data/{objectName}/{objectId} | Delete Data
+*ObjectStoreAPI* | [**DeleteField**](docs/ObjectStoreAPI.md#deletefield) | **Post** /object/field/delete | Delete Field
+*ObjectStoreAPI* | [**DeleteObject**](docs/ObjectStoreAPI.md#deleteobject) | **Post** /object/delete | Delete Object
+*ObjectStoreAPI* | [**GetData**](docs/ObjectStoreAPI.md#getdata) | **Get** /object/data/{objectName}/{objectId} | Get Data
+*ObjectStoreAPI* | [**GetObject**](docs/ObjectStoreAPI.md#getobject) | **Get** /object/get | Get Object
+*ObjectStoreAPI* | [**SearchData**](docs/ObjectStoreAPI.md#searchdata) | **Get** /object/data/{objectName} | Search Data
+*ObjectStoreAPI* | [**SearchObject**](docs/ObjectStoreAPI.md#searchobject) | **Get** /object/search | Search Objects
+*ObjectStoreAPI* | [**UpdateData**](docs/ObjectStoreAPI.md#updatedata) | **Put** /object/data/{objectName}/{objectId} | Update Data
+*OfferAPI* | [**BatchUpdateOfferLocations**](docs/OfferAPI.md#batchupdateofferlocations) | **Post** /retailer/offer/location/batchUpdate | Update Offer Locations
+*OfferAPI* | [**CreateOffer**](docs/OfferAPI.md#createoffer) | **Post** /retailer/offer/create | Create Offer
+*OfferAPI* | [**DeleteOffer**](docs/OfferAPI.md#deleteoffer) | **Post** /retailer/offer/delete | Delete Offer
+*OfferAPI* | [**DeleteOfferLocation**](docs/OfferAPI.md#deleteofferlocation) | **Post** /retailer/offer/location/delete | Delete Offer Location
+*OfferAPI* | [**GetOffer**](docs/OfferAPI.md#getoffer) | **Get** /retailer/offer/get | Get Offer
+*OfferAPI* | [**GetOfferDetails**](docs/OfferAPI.md#getofferdetails) | **Get** /offer/get | Get Offer
+*OfferAPI* | [**GetOfferListCounts**](docs/OfferAPI.md#getofferlistcounts) | **Get** /offer/lists/count | Get Offers (Counts)
+*OfferAPI* | [**GetOfferLocation**](docs/OfferAPI.md#getofferlocation) | **Get** /offer/location/get | Get Offer Location
+*OfferAPI* | [**GetOfferLocationsForRetailers**](docs/OfferAPI.md#getofferlocationsforretailers) | **Get** /retailer/offer/location/search | Search Offer Locations
+*OfferAPI* | [**GetOffersForRetailers**](docs/OfferAPI.md#getoffersforretailers) | **Get** /retailer/offer/search | Search Offers
+*OfferAPI* | [**RedeemOfferTransaction**](docs/OfferAPI.md#redeemoffertransaction) | **Post** /retailer/offer/transaction/update | Update Offer Transaction
+*OfferAPI* | [**SearchOfferTransactionsForRetailers**](docs/OfferAPI.md#searchoffertransactionsforretailers) | **Get** /retailer/offer/transaction/search | Search Offer Transactions
+*OfferAPI* | [**SearchOffersForConsumer**](docs/OfferAPI.md#searchoffersforconsumer) | **Get** /offer/lists | Search Offers
+*OfferAPI* | [**TopOfferTransactions**](docs/OfferAPI.md#topoffertransactions) | **Get** /offer/top | Get Offers (Top)
+*OfferAPI* | [**UpdateOffer**](docs/OfferAPI.md#updateoffer) | **Post** /retailer/offer/update | Update Offer
+*OfferAPI* | [**UpdateOfferStatus**](docs/OfferAPI.md#updateofferstatus) | **Post** /retailer/offer/status | Activate Offer
+*OfferStatusAPI* | [**CreateOfferTransactionStatus**](docs/OfferStatusAPI.md#createoffertransactionstatus) | **Post** /offer/status/create | Create Offer Status
+*OfferStatusAPI* | [**DeleteOfferTransactionStatus**](docs/OfferStatusAPI.md#deleteoffertransactionstatus) | **Post** /offer/status/delete | Delete Offer Status
+*OfferStatusAPI* | [**GetOfferTransactionStatus**](docs/OfferStatusAPI.md#getoffertransactionstatus) | **Get** /offer/status/get | Get Offer Status
+*OfferStatusAPI* | [**SearchOfferTransactionStatuses**](docs/OfferStatusAPI.md#searchoffertransactionstatuses) | **Get** /offer/status/search | Search Offer Status
+*OfferStatusAPI* | [**UpdateOfferTransactionStatus**](docs/OfferStatusAPI.md#updateoffertransactionstatus) | **Post** /offer/status/update | Update Offer Status
+*OpenAIAPI* | [**ImageGeneration**](docs/OpenAIAPI.md#imagegeneration) | **Post** /openai/v1/images/generations | Generate images with OpenAI
+*OptimizeAPI* | [**GetOptimizationResult**](docs/OptimizeAPI.md#getoptimizationresult) | **Get** /optimize/result/{batchID} | Get Optimization Result
+*OptimizeAPI* | [**RequestOptimization**](docs/OptimizeAPI.md#requestoptimization) | **Post** /optimize/request | Request Optimization
+*OrsonAPI* | [**AddMovie**](docs/OrsonAPI.md#addmovie) | **Post** /orson/ai/addMovie | Add Movie
+*OrsonAPI* | [**AiDocs**](docs/OrsonAPI.md#aidocs) | **Get** /orson/ai/docs | Search Docs
+*OrsonAPI* | [**AiFindImages**](docs/OrsonAPI.md#aifindimages) | **Get** /orson/ai/img | Find images
+*OrsonAPI* | [**AiTags**](docs/OrsonAPI.md#aitags) | **Get** /orson/ai/tags | Search Tags
+*OrsonAPI* | [**AiText**](docs/OrsonAPI.md#aitext) | **Get** /orson/ai/text | Search Text
+*OrsonAPI* | [**Batch**](docs/OrsonAPI.md#batch) | **Post** /orson/ai/batch | Batch Analysis
+*OrsonAPI* | [**CreateInstantEpisode**](docs/OrsonAPI.md#createinstantepisode) | **Post** /orson/stories/episodes/instant | Creates an instant episode
+*OrsonAPI* | [**CreateVoiceCanvas**](docs/OrsonAPI.md#createvoicecanvas) | **Post** /orson/ai/voiceCanvas | Create VoiceCanvas images
+*OrsonAPI* | [**Emotion**](docs/OrsonAPI.md#emotion) | **Post** /orson/ai/emotion | Detect emotions
+*OrsonAPI* | [**GetAddMovieResult**](docs/OrsonAPI.md#getaddmovieresult) | **Get** /orson/ai/addMovie/{requestId} | Get Add Movie Result
+*OrsonAPI* | [**GetBatch**](docs/OrsonAPI.md#getbatch) | **Get** /orson/ai/batch/{requestId} | Get Batch Analysis Results
+*OrsonAPI* | [**GetEmotion**](docs/OrsonAPI.md#getemotion) | **Get** /orson/ai/emotion/{requestId} | Get Emotion Results
+*OrsonAPI* | [**GetEpisodeStatus**](docs/OrsonAPI.md#getepisodestatus) | **Get** /orson/stories/episodes/{episodeId}/status | Check episode status
+*OrsonAPI* | [**GetRenderStatus**](docs/OrsonAPI.md#getrenderstatus) | **Get** /orson/stories/renders/{renderId}/status | Check episode status
+*OrsonAPI* | [**GetSTT**](docs/OrsonAPI.md#getstt) | **Get** /orson/ai/stt/{requestId} | Get Speach to Text Result
+*OrsonAPI* | [**GetTTS**](docs/OrsonAPI.md#gettts) | **Get** /orson/ai/tts/{requestId} | Get Text to Speach Result
+*OrsonAPI* | [**GetTechTune**](docs/OrsonAPI.md#gettechtune) | **Get** /orson/ai/techTune/{requestId} | Get TechTune Results
+*OrsonAPI* | [**GetTopics**](docs/OrsonAPI.md#gettopics) | **Get** /orson/ai/topics/{requestId} | Get Topics
+*OrsonAPI* | [**GetVoiceCanvas**](docs/OrsonAPI.md#getvoicecanvas) | **Get** /orson/ai/voiceCanvas/{requestId} | Get VoiceCanvas images
+*OrsonAPI* | [**StartVideoRender**](docs/OrsonAPI.md#startvideorender) | **Post** /orson/stories/renders | Starts a StoryStitch video render
+*OrsonAPI* | [**Stt**](docs/OrsonAPI.md#stt) | **Post** /orson/ai/stt | Speach to Text
+*OrsonAPI* | [**SummarizeTopics**](docs/OrsonAPI.md#summarizetopics) | **Post** /orson/ai/topics | Summarize Topics
+*OrsonAPI* | [**TechTune**](docs/OrsonAPI.md#techtune) | **Post** /orson/ai/techTune | Detect Technical Issues
+*OrsonAPI* | [**Tts**](docs/OrsonAPI.md#tts) | **Post** /orson/ai/tts | Text to Speach
+*PackAPI* | [**CreatePack**](docs/PackAPI.md#createpack) | **Post** /pack/create | Create Pack
+*PackAPI* | [**DeletePack**](docs/PackAPI.md#deletepack) | **Post** /pack/delete | Delete Pack
+*PackAPI* | [**GetPack**](docs/PackAPI.md#getpack) | **Get** /pack/get | Get Pack
+*PackAPI* | [**SearchPacks**](docs/PackAPI.md#searchpacks) | **Get** /pack/search | Search Packs
+*PackAPI* | [**UpdatePack**](docs/PackAPI.md#updatepack) | **Post** /pack/update | Update Pack
+*ParticipantsAPI* | [**ProcessAllParticipants**](docs/ParticipantsAPI.md#processallparticipants) | **Post** /participant/process/all | Process All Participant Feeds
+*ParticipantsAPI* | [**ProcessParticipants**](docs/ParticipantsAPI.md#processparticipants) | **Post** /participant/process | Process Participants Feed
+*PathingAPI* | [**ComputePath**](docs/PathingAPI.md#computepath) | **Get** /pathing/compute | Calculate Path
+*PostalCodeAPI* | [**CreatePostalCode**](docs/PostalCodeAPI.md#createpostalcode) | **Post** /postalCode/create | Create Postal Code
+*PostalCodeAPI* | [**DeletePostalCode**](docs/PostalCodeAPI.md#deletepostalcode) | **Post** /postalCode/delete | Delete Postal Code
+*PostalCodeAPI* | [**GetPostalCode**](docs/PostalCodeAPI.md#getpostalcode) | **Get** /postalCode/get | Get Postal Code
+*PostalCodeAPI* | [**GetPostalCodes**](docs/PostalCodeAPI.md#getpostalcodes) | **Get** /postalCode/search | Search Postal Codes
+*PostalCodeAPI* | [**UpdatePostalCode**](docs/PostalCodeAPI.md#updatepostalcode) | **Post** /postalCode/update | Update Postal Code
+*PreviewPersonaAPI* | [**CreatePersona**](docs/PreviewPersonaAPI.md#createpersona) | **Post** /persona/create | Create Persona
+*PreviewPersonaAPI* | [**DeletePersona**](docs/PreviewPersonaAPI.md#deletepersona) | **Post** /persona/delete | Delete Persona
+*PreviewPersonaAPI* | [**GetPersonaList**](docs/PreviewPersonaAPI.md#getpersonalist) | **Get** /persona/get | Get Persona
+*PreviewPersonaAPI* | [**SearchPersona**](docs/PreviewPersonaAPI.md#searchpersona) | **Get** /persona/search | Search Personas
+*PreviewPersonaAPI* | [**UpdatePersona**](docs/PreviewPersonaAPI.md#updatepersona) | **Post** /persona/update | Update Persona
+*ProgramAPI* | [**CreateProgram**](docs/ProgramAPI.md#createprogram) | **Post** /program | Create Program
+*ProgramAPI* | [**DeleteProgram**](docs/ProgramAPI.md#deleteprogram) | **Delete** /program/{id} | Delete Program
+*ProgramAPI* | [**GetProgram**](docs/ProgramAPI.md#getprogram) | **Get** /program/{id} | Get Program
+*ProgramAPI* | [**PostProgram**](docs/ProgramAPI.md#postprogram) | **Post** /program/{id} | Update Program
+*ProgramAPI* | [**PutProgram**](docs/ProgramAPI.md#putprogram) | **Put** /program/{id} | Update Program
+*ProgramAPI* | [**SearchPrograms**](docs/ProgramAPI.md#searchprograms) | **Get** /program | Search Programs
+*PurchaseItemAPI* | [**CreatePurchaseItem**](docs/PurchaseItemAPI.md#createpurchaseitem) | **Post** /purchase/create | Create Purchase
+*PurchaseItemAPI* | [**DeletePurchaseItem**](docs/PurchaseItemAPI.md#deletepurchaseitem) | **Post** /purchase/delete | Delete Purchase
+*PurchaseItemAPI* | [**GetPurchaseItem**](docs/PurchaseItemAPI.md#getpurchaseitem) | **Get** /purchase/get | Get Purchase
+*PurchaseItemAPI* | [**SearchPurchaseItems**](docs/PurchaseItemAPI.md#searchpurchaseitems) | **Get** /purchase/search | Search Purchases
+*PurchaseItemAPI* | [**UpdatePurchaseItem**](docs/PurchaseItemAPI.md#updatepurchaseitem) | **Post** /purchase/update | Update Purchase
+*PurchaseOrderAPI* | [**CreateOrder**](docs/PurchaseOrderAPI.md#createorder) | **Post** /order/create | Create Order
+*PurchaseOrderAPI* | [**DeleteOrder**](docs/PurchaseOrderAPI.md#deleteorder) | **Post** /order/delete | Delete Order
+*PurchaseOrderAPI* | [**GetOrder**](docs/PurchaseOrderAPI.md#getorder) | **Get** /order/get | Get Order
+*PurchaseOrderAPI* | [**PreviewOrder**](docs/PurchaseOrderAPI.md#previeworder) | **Post** /order/preview | Preview Order
+*PurchaseOrderAPI* | [**SearchOrders**](docs/PurchaseOrderAPI.md#searchorders) | **Get** /order/search | Search Orders
+*PurchaseOrderAPI* | [**UpdateOrder**](docs/PurchaseOrderAPI.md#updateorder) | **Post** /order/update | Update Order
+*QuestionAPI* | [**CreateQuestion**](docs/QuestionAPI.md#createquestion) | **Post** /game/question/create | Create Question
+*QuestionAPI* | [**DeleteQuestion**](docs/QuestionAPI.md#deletequestion) | **Post** /game/question/delete | Delete Question
+*QuestionAPI* | [**GetQuestion**](docs/QuestionAPI.md#getquestion) | **Get** /game/question/get | Get Question
+*QuestionAPI* | [**SearchQuestions**](docs/QuestionAPI.md#searchquestions) | **Get** /game/question/search | Search Questions
+*QuestionAPI* | [**UpdateQuestion**](docs/QuestionAPI.md#updatequestion) | **Post** /game/question/update | Update Question
+*RankingAPI* | [**GetHistoricalRankings**](docs/RankingAPI.md#gethistoricalrankings) | **Get** /ranking/historical/search | Search Historical Rankings
+*RankingAPI* | [**GetRankings**](docs/RankingAPI.md#getrankings) | **Get** /ranking/search | Search Rankings
+*RankingAPI* | [**GetUserRank**](docs/RankingAPI.md#getuserrank) | **Post** /ranking/personal/ranks | Get Personal Rankings
+*RankingAPI* | [**OverrideUserRank**](docs/RankingAPI.md#overrideuserrank) | **Post** /ranking/override | Override User Rank
+*RankingAPI* | [**UpdateRankings**](docs/RankingAPI.md#updaterankings) | **Post** /ranking/update | Update Ranking
+*RatingAPI* | [**CreateRating**](docs/RatingAPI.md#createrating) | **Post** /rating/create | Create Rating
+*RatingAPI* | [**DeleteRating**](docs/RatingAPI.md#deleterating) | **Post** /rating/delete | Delete Rating
+*RatingAPI* | [**SearchLocationRatingIndexes**](docs/RatingAPI.md#searchlocationratingindexes) | **Get** /location/rating/index/search | Search Location Rating Indexes
+*RatingAPI* | [**SearchRatingIndexes**](docs/RatingAPI.md#searchratingindexes) | **Get** /rating/index/search | Search Rating Indexes
+*RatingAPI* | [**SearchRatings**](docs/RatingAPI.md#searchratings) | **Get** /rating/search | Search Ratings
+*RatingAPI* | [**UpdateRating**](docs/RatingAPI.md#updaterating) | **Post** /rating/update | Update Rating
+*RegionAPI* | [**CreateRegion**](docs/RegionAPI.md#createregion) | **Post** /region/create | Create Region
+*RegionAPI* | [**DeleteRegion**](docs/RegionAPI.md#deleteregion) | **Post** /region/delete | Delete Region
+*RegionAPI* | [**GetRegion**](docs/RegionAPI.md#getregion) | **Get** /region/get | Get Region
+*RegionAPI* | [**SearchRegions**](docs/RegionAPI.md#searchregions) | **Get** /region/search | Search Regions
+*RegionAPI* | [**UpdateRegion**](docs/RegionAPI.md#updateregion) | **Post** /region/update | Update Region
+*ReportingAPI* | [**CreateBatch**](docs/ReportingAPI.md#createbatch) | **Post** /report/batch/create | Create Offline Report
+*ReportingAPI* | [**CreateRegionLegSummaryBatch**](docs/ReportingAPI.md#createregionlegsummarybatch) | **Post** /report/region/summary/batch | Create Offline Report
+*ReportingAPI* | [**DeleteBatch**](docs/ReportingAPI.md#deletebatch) | **Post** /report/batch/delete | Delete Offline Report
+*ReportingAPI* | [**GetReportBatch**](docs/ReportingAPI.md#getreportbatch) | **Get** /report/batch/get | Get Offline Report
+*ReportingAPI* | [**RunReport**](docs/ReportingAPI.md#runreport) | **Post** /report/run | Run Report
+*ReportingAPI* | [**SearchBatch**](docs/ReportingAPI.md#searchbatch) | **Get** /report/batch/search | Search Offline Reports
+*ReservationAPI* | [**CreateReservation**](docs/ReservationAPI.md#createreservation) | **Post** /reservation/create | Create Reservation
+*ReservationAPI* | [**DeleteReservation**](docs/ReservationAPI.md#deletereservation) | **Post** /reservation/delete | Delete Reservation
+*ReservationAPI* | [**ReservableAvailability**](docs/ReservationAPI.md#reservableavailability) | **Post** /reservable/availability/update | Update Availability
+*ReservationAPI* | [**SearchAvailability**](docs/ReservationAPI.md#searchavailability) | **Get** /reservable/availability/search | Search Availability
+*ReservationAPI* | [**SearchReservations**](docs/ReservationAPI.md#searchreservations) | **Get** /reservation/search | Search Reservations
+*ReservationAPI* | [**SearchSchedule**](docs/ReservationAPI.md#searchschedule) | **Get** /reservable/schedule/search | Search Schedule
+*RetailerAPI* | [**CreateRetailer**](docs/RetailerAPI.md#createretailer) | **Post** /retailer/create | Create Retailer
+*RetailerAPI* | [**DeleteRetailer**](docs/RetailerAPI.md#deleteretailer) | **Post** /retailer/delete | Delete Retailer
+*RetailerAPI* | [**GetRetailer**](docs/RetailerAPI.md#getretailer) | **Get** /retailer/get | Get Retailer
+*RetailerAPI* | [**GetRetailers**](docs/RetailerAPI.md#getretailers) | **Get** /retailer/search | Search Retailers
+*RetailerAPI* | [**RetailerLoginCheck**](docs/RetailerAPI.md#retailerlogincheck) | **Post** /retailer/login | Login Retailer
+*RetailerAPI* | [**UpdateRetailer**](docs/RetailerAPI.md#updateretailer) | **Post** /retailer/update | Update Retailer
+*RetailerLocationAPI* | [**CreateRetailerLocationConsumer**](docs/RetailerLocationAPI.md#createretailerlocationconsumer) | **Post** /location/create | Create Retailer Location (Consumer)
+*RetailerLocationAPI* | [**CreateRetailerLocations**](docs/RetailerLocationAPI.md#createretailerlocations) | **Post** /retailer/location/create | Create Retailer Location
+*RetailerLocationAPI* | [**DeleteRetailerLocation**](docs/RetailerLocationAPI.md#deleteretailerlocation) | **Post** /retailer/location/delete | Delete Retailer Location
+*RetailerLocationAPI* | [**GetRetailerLocation**](docs/RetailerLocationAPI.md#getretailerlocation) | **Get** /retailer/location/get | Get Retailer Location
+*RetailerLocationAPI* | [**GetRetailerLocationConsumer**](docs/RetailerLocationAPI.md#getretailerlocationconsumer) | **Get** /location/get | Get Retailer Location (Consumer)
+*RetailerLocationAPI* | [**IndexedRetailerLocationDistanceSearch**](docs/RetailerLocationAPI.md#indexedretailerlocationdistancesearch) | **Get** /retailer/location/idistancesearch | Distance Search Retailer Locations (Indexed)
+*RetailerLocationAPI* | [**IndexedRetailerLocationSearch**](docs/RetailerLocationAPI.md#indexedretailerlocationsearch) | **Get** /retailer/location/isearch | Keyword Search Retailer Locations (Indexed)
+*RetailerLocationAPI* | [**SearchRetailerLocations**](docs/RetailerLocationAPI.md#searchretailerlocations) | **Get** /retailer/location/search | Search Retailer Locations (Owned)
+*RetailerLocationAPI* | [**UpdateRetailerLocations**](docs/RetailerLocationAPI.md#updateretailerlocations) | **Post** /retailer/location/update | Update Retailer Location
+*RetailerV2API* | [**GetRetaokiler**](docs/RetailerV2API.md#getretaokiler) | **Get** /retailer | Get Retailer
+*RouteAPI* | [**ApproveRoute**](docs/RouteAPI.md#approveroute) | **Post** /route/{routeId}/approve | Approve Route
+*RouteAPI* | [**CopyRoute**](docs/RouteAPI.md#copyroute) | **Post** /route/{routeId}/copy | Copy Route
+*RouteAPI* | [**CreateRoute**](docs/RouteAPI.md#createroute) | **Post** /route | Create Route
+*RouteAPI* | [**CreateRouteDirections**](docs/RouteAPI.md#createroutedirections) | **Put** /route/{routeId}/directions | Update Route Directions
+*RouteAPI* | [**CreateRoutePolyline**](docs/RouteAPI.md#createroutepolyline) | **Put** /route/{routeId}/polyline | Create Route Polyline
+*RouteAPI* | [**DeleteRoute**](docs/RouteAPI.md#deleteroute) | **Delete** /route/{routeId} | Delete Route
+*RouteAPI* | [**DisapproveRoute**](docs/RouteAPI.md#disapproveroute) | **Post** /route/{routeId}/disapprove | Disapprove Route
+*RouteAPI* | [**GetRoute**](docs/RouteAPI.md#getroute) | **Get** /route/{routeId} | Get Route
+*RouteAPI* | [**GetRouteDirections**](docs/RouteAPI.md#getroutedirections) | **Get** /route/{routeId}/directions | Get Route Directions
+*RouteAPI* | [**GetRouteShipments**](docs/RouteAPI.md#getrouteshipments) | **Get** /route/{routeId}/shipments | Get Route Shipments
+*RouteAPI* | [**GetRouteStop**](docs/RouteAPI.md#getroutestop) | **Get** /route/{routeId}/stop/{stopId} | Get Route Stop
+*RouteAPI* | [**GetRouteStops**](docs/RouteAPI.md#getroutestops) | **Get** /route/{routeId}/stops | Get Route Stops
+*RouteAPI* | [**GetShipmentsAtStop**](docs/RouteAPI.md#getshipmentsatstop) | **Get** /route/{routeId}/stop/{stopId}/shipments | Get Shipments At Stop
+*RouteAPI* | [**OptimizeRoute**](docs/RouteAPI.md#optimizeroute) | **Post** /route/{routeId}/optimize | Optimize Route
+*RouteAPI* | [**RemoveStop**](docs/RouteAPI.md#removestop) | **Delete** /route/{routeId}/stop/{stopId} | Delete Stop
+*RouteAPI* | [**ReorderRouteStopsPatch**](docs/RouteAPI.md#reorderroutestopspatch) | **Patch** /route/{routeId}/stops/reorder | Reorder Route Stops
+*RouteAPI* | [**ReorderRouteStopsPost**](docs/RouteAPI.md#reorderroutestopspost) | **Post** /route/{routeId}/stops/reorder | Reorder Route Stops
+*RouteAPI* | [**SearchRoutes**](docs/RouteAPI.md#searchroutes) | **Get** /route | Search Routes
+*RouteAPI* | [**SetDriver**](docs/RouteAPI.md#setdriver) | **Post** /route/{id}/driver/{driverId} | Set Driver
+*RouteAPI* | [**UpdateRoute**](docs/RouteAPI.md#updateroute) | **Put** /route/{routeId} | Update Route
+*RouteAPI* | [**UpdateRouteStop**](docs/RouteAPI.md#updateroutestop) | **Put** /route/{routeId}/stop/{stopId} | Update Route Stop
+*RouteSettingAPI* | [**CreateRouteSettings**](docs/RouteSettingAPI.md#createroutesettings) | **Post** /route/setting | Create Route Setting
+*RouteSettingAPI* | [**DeleteRouteSettings**](docs/RouteSettingAPI.md#deleteroutesettings) | **Delete** /route/setting/{routeSettingsId} | Delete Route Setting
+*RouteSettingAPI* | [**GetRouteSettings**](docs/RouteSettingAPI.md#getroutesettings) | **Get** /route/setting/{routeSettingsId} | Get Route Setting
+*RouteSettingAPI* | [**SearchRouteSettings**](docs/RouteSettingAPI.md#searchroutesettings) | **Get** /route/setting | Search Route Settings
+*RouteSettingAPI* | [**UpdateRouteSettings**](docs/RouteSettingAPI.md#updateroutesettings) | **Put** /route/setting/{routeSettingsId} | Update Route Setting
+*RoutingAPI* | [**ComputeRouting**](docs/RoutingAPI.md#computerouting) | **Post** /routing/compute | Compute Route
+*ScheduledNotificationAPI* | [**CreateScheduledNotification**](docs/ScheduledNotificationAPI.md#createschedulednotification) | **Post** /notification/schedule/create | Create Scheduled Notification
+*ScheduledNotificationAPI* | [**DeleteScheduledNotification**](docs/ScheduledNotificationAPI.md#deleteschedulednotification) | **Post** /notification/schedule/delete | Delete Scheduled Notification
+*ScheduledNotificationAPI* | [**GetScheduledNotification**](docs/ScheduledNotificationAPI.md#getschedulednotification) | **Get** /notification/schedule/get | Get Scheduled Notification
+*ScheduledNotificationAPI* | [**ScheduleNotificationListings**](docs/ScheduledNotificationAPI.md#schedulenotificationlistings) | **Post** /notification/schedule/generate | Generate Schedule Notifications
+*ScheduledNotificationAPI* | [**SearchScheduledNotifications**](docs/ScheduledNotificationAPI.md#searchschedulednotifications) | **Get** /notification/schedule/search | Search Scheduled Notifications
+*ScheduledNotificationAPI* | [**UpdateScheduledNotification**](docs/ScheduledNotificationAPI.md#updateschedulednotification) | **Post** /notification/schedule/update | Update Scheduled Notification
+*ScoreAPI* | [**CreateScore**](docs/ScoreAPI.md#createscore) | **Post** /score/create | Create Score
+*ScoreAPI* | [**GetScore**](docs/ScoreAPI.md#getscore) | **Get** /score/get | Get Score
+*ScoreAPI* | [**SearchScores**](docs/ScoreAPI.md#searchscores) | **Get** /score/search | Search Score
+*SecureAppAPI* | [**CreateSecureApplication**](docs/SecureAppAPI.md#createsecureapplication) | **Post** /secure/application/create | Create Secure Application
+*SecureAppAPI* | [**DeleteSecureApplication**](docs/SecureAppAPI.md#deletesecureapplication) | **Post** /secure/application/delete | Delete Secure Application
+*SecureAppAPI* | [**LoginSecure**](docs/SecureAppAPI.md#loginsecure) | **Post** /secure/login | Login Clear
+*SecureAppAPI* | [**PurchaseSecure**](docs/SecureAppAPI.md#purchasesecure) | **Post** /secure/purchase | Purchase Clear
+*SecureAppAPI* | [**ResetSecure**](docs/SecureAppAPI.md#resetsecure) | **Post** /secure/application/reset | Rest Secure Application
+*SecureAppAPI* | [**UpdateSecureApplication**](docs/SecureAppAPI.md#updatesecureapplication) | **Post** /secure/application/update | Update Secure Application
+*ServiceHubAPI* | [**CreateServiceHub**](docs/ServiceHubAPI.md#createservicehub) | **Post** /hub | Create Service Hub
+*ServiceHubAPI* | [**DeleteServiceHub**](docs/ServiceHubAPI.md#deleteservicehub) | **Delete** /hub/{id} | Delete Service Hub
+*ServiceHubAPI* | [**GetServiceHub**](docs/ServiceHubAPI.md#getservicehub) | **Get** /hub/{id} | Get Service Hub
+*ServiceHubAPI* | [**PostServiceHub**](docs/ServiceHubAPI.md#postservicehub) | **Post** /hub/{id} | Update Service Hub
+*ServiceHubAPI* | [**PutServiceHub**](docs/ServiceHubAPI.md#putservicehub) | **Put** /hub/{id} | Update Service Hub
+*ServiceHubAPI* | [**SearchServiceHubs**](docs/ServiceHubAPI.md#searchservicehubs) | **Get** /hub | Search Service Hubs
+*ShipmentAPI* | [**CancelShipment**](docs/ShipmentAPI.md#cancelshipment) | **Post** /shipment/{id}/cancel | Cancel Shipment
+*ShipmentAPI* | [**CreateShipment**](docs/ShipmentAPI.md#createshipment) | **Post** /shipment | Create Shipment
+*ShipmentAPI* | [**DeleteShipment**](docs/ShipmentAPI.md#deleteshipment) | **Delete** /shipment/{id} | Delete Shipment
+*ShipmentAPI* | [**GetShipment**](docs/ShipmentAPI.md#getshipment) | **Get** /shipment/{id} | Get Shipment
+*ShipmentAPI* | [**SearchShipments**](docs/ShipmentAPI.md#searchshipments) | **Get** /shipment | Search Shipments
+*ShipmentAPI* | [**UpdateShipment**](docs/ShipmentAPI.md#updateshipment) | **Put** /shipment/{id} | Update Shipment
+*ShipmentAPI* | [**UpdateShipmentStatus**](docs/ShipmentAPI.md#updateshipmentstatus) | **Post** /shipment/{id}/status | Uupdate Shipment Status
+*ShipmentBatchAPI* | [**CreateShipmentBatch**](docs/ShipmentBatchAPI.md#createshipmentbatch) | **Post** /shipment/batch | Create Shipment Batch
+*ShipmentBatchAPI* | [**DeleteShipmentBatch**](docs/ShipmentBatchAPI.md#deleteshipmentbatch) | **Delete** /shipment/batch/{batchId} | Delete Shipment Batch
+*ShipmentBatchAPI* | [**GetShipmentBatch**](docs/ShipmentBatchAPI.md#getshipmentbatch) | **Get** /shipment/batch/{batchId} | Get Shipment Batch
+*ShipmentBatchAPI* | [**GetShipmentBatchStatus**](docs/ShipmentBatchAPI.md#getshipmentbatchstatus) | **Get** /shipment/batch/{batchId}/status | Get Shipment Batch Status
+*ShipmentBatchAPI* | [**SearchShipmentBatch**](docs/ShipmentBatchAPI.md#searchshipmentbatch) | **Get** /shipment/batch | Search Shipment Batch
+*SimulationAPI* | [**Simulation**](docs/SimulationAPI.md#simulation) | **Post** /simulation/routing | Routing Simulation
+*StopAPI* | [**GetStop**](docs/StopAPI.md#getstop) | **Get** /stop/{id} | Get Stop
+*StopAPI* | [**UpdateStop**](docs/StopAPI.md#updatestop) | **Put** /stop/{id} | Update Stop
+*StripeAPI* | [**CreateStripeCheckoutSession**](docs/StripeAPI.md#createstripecheckoutsession) | **Post** /stripe/checkout/session/create | Create Stripe Checkout Session
+*SubscriptionAPI* | [**CreateSubscription**](docs/SubscriptionAPI.md#createsubscription) | **Post** /subscription/create | Create Subscription
+*SubscriptionAPI* | [**DeleteSubscription**](docs/SubscriptionAPI.md#deletesubscription) | **Post** /subscription/delete | Delete Subscription
+*SubscriptionAPI* | [**GetSubscription**](docs/SubscriptionAPI.md#getsubscription) | **Get** /subscription/get | Get Subscription
+*SubscriptionAPI* | [**GetSubscriptionPlan**](docs/SubscriptionAPI.md#getsubscriptionplan) | **Get** /subscription/plan/get | Get Subscription Plan
+*SubscriptionAPI* | [**GetSubscriptionPlans**](docs/SubscriptionAPI.md#getsubscriptionplans) | **Get** /subscription/plan/list | List Subscription Plans
+*SubscriptionAPI* | [**GetSubscriptionUsage**](docs/SubscriptionAPI.md#getsubscriptionusage) | **Get** /subscription/usage/get | Get Subscription Usage
+*SubscriptionAPI* | [**UpdateSubscription**](docs/SubscriptionAPI.md#updatesubscription) | **Post** /subscription/update | Update Subscription
+*TaskAPI* | [**CreateTask**](docs/TaskAPI.md#createtask) | **Post** /task/create | Create Task
+*TaskAPI* | [**DeleteTask**](docs/TaskAPI.md#deletetask) | **Post** /task/delete | Delete Task
+*TaskAPI* | [**GetTask**](docs/TaskAPI.md#gettask) | **Get** /task/get | Get Task
+*TaskAPI* | [**SearchTasks**](docs/TaskAPI.md#searchtasks) | **Get** /task/search | Search Tasks
+*TaskAPI* | [**UpdateTask**](docs/TaskAPI.md#updatetask) | **Post** /task/update | Update Task
+*TerritoryAPI* | [**CreateTerritory**](docs/TerritoryAPI.md#createterritory) | **Post** /territory/create | Create Territory
+*TerritoryAPI* | [**DeleteTerritory**](docs/TerritoryAPI.md#deleteterritory) | **Post** /territory/delete | Delete Territory
+*TerritoryAPI* | [**GetTerritory**](docs/TerritoryAPI.md#getterritory) | **Get** /territory/get | Get Territory
+*TerritoryAPI* | [**SearchTerritories**](docs/TerritoryAPI.md#searchterritories) | **Get** /territory/search | Search Territories
+*TerritoryAPI* | [**UpdateTerritory**](docs/TerritoryAPI.md#updateterritory) | **Post** /territory/update | Update Territory
+*ThemeDescriptorAPI* | [**AddOrUpdateThemeDescriptor**](docs/ThemeDescriptorAPI.md#addorupdatethemedescriptor) | **Post** /consumer/theme | Create/Update Theme
+*ThemeDescriptorAPI* | [**GetThemeDescriptor**](docs/ThemeDescriptorAPI.md#getthemedescriptor) | **Get** /consumer/theme/get | Get Theme
+*ThemeDescriptorAPI* | [**GetThemeDescriptors**](docs/ThemeDescriptorAPI.md#getthemedescriptors) | **Get** /consumer/theme/search | Search Themes
+*ThemeDescriptorAPI* | [**RemoveThemeDescriptor**](docs/ThemeDescriptorAPI.md#removethemedescriptor) | **Post** /consumer/theme/remove | Delete Theme
+*ThirdPartyCredentialsAPI* | [**CreateCredential**](docs/ThirdPartyCredentialsAPI.md#createcredential) | **Post** /thirdparty/credential/create | Create Credential
+*ThirdPartyCredentialsAPI* | [**CreateNetwork**](docs/ThirdPartyCredentialsAPI.md#createnetwork) | **Post** /thirdparty/network/create | Create Network
+*ThirdPartyCredentialsAPI* | [**DeleteCredential**](docs/ThirdPartyCredentialsAPI.md#deletecredential) | **Post** /thirdparty/credential/delete | Delete Credential
+*ThirdPartyCredentialsAPI* | [**DeleteNetwork**](docs/ThirdPartyCredentialsAPI.md#deletenetwork) | **Post** /thirdparty/network/delete | Delete Network
+*ThirdPartyCredentialsAPI* | [**GetCredential**](docs/ThirdPartyCredentialsAPI.md#getcredential) | **Post** /thirdparty/credential/get | Get Credential
+*ThirdPartyCredentialsAPI* | [**GetNetwork**](docs/ThirdPartyCredentialsAPI.md#getnetwork) | **Get** /thirdparty/network/get | Get Network
+*ThirdPartyCredentialsAPI* | [**SearchCredentials**](docs/ThirdPartyCredentialsAPI.md#searchcredentials) | **Get** /thirdparty/credential/search | Search Credentials
+*ThirdPartyCredentialsAPI* | [**SearchNetworks**](docs/ThirdPartyCredentialsAPI.md#searchnetworks) | **Get** /thirdparty/network/search | Search Networks
+*ThirdPartyCredentialsAPI* | [**SendMFAChallenge**](docs/ThirdPartyCredentialsAPI.md#sendmfachallenge) | **Post** /thirdparty/credential/mfa/send | Send MFA Challenge
+*ThirdPartyCredentialsAPI* | [**UpdateCredential**](docs/ThirdPartyCredentialsAPI.md#updatecredential) | **Post** /thirdparty/credential/update | Update Credential
+*ThirdPartyCredentialsAPI* | [**UpdateNetwork**](docs/ThirdPartyCredentialsAPI.md#updatenetwork) | **Post** /thirdparty/network/update | Update Network
+*TicketAPI* | [**GetTicketCount**](docs/TicketAPI.md#getticketcount) | **Get** /ticket/count | Get Ticket Count
+*TicketAPI* | [**GetTicketList**](docs/TicketAPI.md#getticketlist) | **Get** /ticket/getList | Get Ticket List
+*TicketAPI* | [**GiftPurchase**](docs/TicketAPI.md#giftpurchase) | **Post** /purchase/gift | Gift Tickets
+*TicketAPI* | [**SaveTicket**](docs/TicketAPI.md#saveticket) | **Post** /ticket/save | Save Ticket
+*TicketAPI* | [**SaveTicketViaFileUpload**](docs/TicketAPI.md#saveticketviafileupload) | **Post** /ticket/save/fileUpload | Save Ticket with Reciept
+*TicketAPI* | [**TicketOffers**](docs/TicketAPI.md#ticketoffers) | **Get** /ticket/ticketoffers | Get Ticket Offers
+*TournamentAPI* | [**CreateTournament**](docs/TournamentAPI.md#createtournament) | **Post** /tournament/create | Create Tournament
+*TournamentAPI* | [**DeleteTournament**](docs/TournamentAPI.md#deletetournament) | **Post** /tournament/delete | Delete Tournament
+*TournamentAPI* | [**GetTournament**](docs/TournamentAPI.md#gettournament) | **Get** /tournament/get | Get Tournament
+*TournamentAPI* | [**SearchObjects**](docs/TournamentAPI.md#searchobjects) | **Get** /tournament/object/search | Search Tournament Objects
+*TournamentAPI* | [**SearchRounds**](docs/TournamentAPI.md#searchrounds) | **Get** /tournament/round/search | Search Tournament Rounds
+*TournamentAPI* | [**SearchTournaments**](docs/TournamentAPI.md#searchtournaments) | **Get** /tournament/search | Search Tournaments
+*TournamentAPI* | [**SubmitTournamentScore**](docs/TournamentAPI.md#submittournamentscore) | **Post** /tournament/score | Submit Tournament Score
+*TournamentAPI* | [**SubmitTournamentVote**](docs/TournamentAPI.md#submittournamentvote) | **Post** /tournament/vote | Submit a vote for a multi-stage album tournament.
+*TournamentAPI* | [**SubstituteTournamentPlayer**](docs/TournamentAPI.md#substitutetournamentplayer) | **Post** /tournament/substitute | Substitute Tournament Player
+*TournamentAPI* | [**UpdateTournament**](docs/TournamentAPI.md#updatetournament) | **Post** /tournament/update | Update Tournament
+*TrackingAPI* | [**BatchSaveTracking**](docs/TrackingAPI.md#batchsavetracking) | **Post** /tracking/batch/create | Create Batch Tracking
+*TrackingAPI* | [**GetPredictedLocations**](docs/TrackingAPI.md#getpredictedlocations) | **Get** /tracking/predicted/get | Get Predicted Locations
+*TrackingAPI* | [**GetPredictedPath**](docs/TrackingAPI.md#getpredictedpath) | **Get** /tracking/path/get | Get Tracking Path
+*TrackingAPI* | [**GetPreferredLocations**](docs/TrackingAPI.md#getpreferredlocations) | **Get** /tracking/preferred/search | Search Preferred Locations
+*TrackingAPI* | [**GetTrackingLegs**](docs/TrackingAPI.md#gettrackinglegs) | **Get** /tracking/search | Search Tracking
+*TrackingAPI* | [**SaveTrackingLeg**](docs/TrackingAPI.md#savetrackingleg) | **Post** /tracking/leg/create | Create Tracking Leg
+*TrackingAPI* | [**SaveTrackingStep**](docs/TrackingAPI.md#savetrackingstep) | **Post** /tracking/step/create | Create Tracking Step
+*TrackingAPI* | [**SearchAccountsWithTrackingLegs**](docs/TrackingAPI.md#searchaccountswithtrackinglegs) | **Get** /tracking/list | List Tracking
+*TrackingAPI* | [**SearchTrackingLegs**](docs/TrackingAPI.md#searchtrackinglegs) | **Get** /tracking/searchByBillable | Search Tracking (Billable)
+*TriggerAPI* | [**CreateTrigger**](docs/TriggerAPI.md#createtrigger) | **Post** /trigger/create | Create Trigger
+*TriggerAPI* | [**DeleteTrigger**](docs/TriggerAPI.md#deletetrigger) | **Post** /trigger/delete | Delete Trigger
+*TriggerAPI* | [**GetTrigger**](docs/TriggerAPI.md#gettrigger) | **Get** /trigger/get | Get Trigger
+*TriggerAPI* | [**SearchTriggers**](docs/TriggerAPI.md#searchtriggers) | **Get** /trigger/search | Search Triggers
+*TriggerAPI* | [**UpdateTrigger**](docs/TriggerAPI.md#updatetrigger) | **Post** /trigger/update | Update Trigger
+*TripAPI* | [**CreateTrip**](docs/TripAPI.md#createtrip) | **Post** /trip | Create Trip
+*TripAPI* | [**Delete**](docs/TripAPI.md#delete) | **Delete** /trip/{id} | Delete Trip
+*TripAPI* | [**DriveTrip**](docs/TripAPI.md#drivetrip) | **Post** /trip/{id}/drive | Set Trip Preference Driver
+*TripAPI* | [**FlexibleTrip**](docs/TripAPI.md#flexibletrip) | **Post** /trip/{id}/flexible | Set Trip Preference Flexible
+*TripAPI* | [**GetTrip**](docs/TripAPI.md#gettrip) | **Get** /trip/{id} | Get Trip
+*TripAPI* | [**GetTripMatches**](docs/TripAPI.md#gettripmatches) | **Get** /trip/{id}/match | Get Trip Matches
+*TripAPI* | [**ProcessTripMatches**](docs/TripAPI.md#processtripmatches) | **Post** /trip/match/process | Process Trip Matches
+*TripAPI* | [**Ride**](docs/TripAPI.md#ride) | **Post** /trip/{id}/ride | Set Trip Preference Rider
+*TripAPI* | [**Search**](docs/TripAPI.md#search) | **Get** /trip | Search Trips
+*TripAPI* | [**SearchTrips**](docs/TripAPI.md#searchtrips) | **Get** /trip/match | Search Trips
+*TripAPI* | [**UpdateLocations**](docs/TripAPI.md#updatelocations) | **Post** /trip/{id}/locations | Update Trip Locations
+*TripAPI* | [**UpdateRecurrenceLocations**](docs/TripAPI.md#updaterecurrencelocations) | **Post** /trip/{id}/locations/recurrence | Update Recurrence Locations
+*TripAPI* | [**UpdateRecurrenceShipments**](docs/TripAPI.md#updaterecurrenceshipments) | **Post** /trip/{id}/shipments/recurrence | Update Recurrence Shipments
+*TripAPI* | [**UpdateShipments**](docs/TripAPI.md#updateshipments) | **Post** /trip/{id}/shipments | Update Trip Shipments
+*TripAPI* | [**UpdateTrip**](docs/TripAPI.md#updatetrip) | **Put** /trip/{id} | Update Trip
+*TripAPI* | [**UpdateTripNotifications**](docs/TripAPI.md#updatetripnotifications) | **Post** /trip/notifications | Trip Notifications
+*TwilioAPI* | [**SmsBuyOffer**](docs/TwilioAPI.md#smsbuyoffer) | **Post** /sms/buyoffer/{appKey} | Buy Offer by SMS
+*TwitterAPI* | [**AuthorizeTwitter**](docs/TwitterAPI.md#authorizetwitter) | **Post** /twitter/authorize | Authorize Twitter
+*TwitterAPI* | [**LoginTwitter**](docs/TwitterAPI.md#logintwitter) | **Post** /twitter/login | Login Twitter
+*UserPermissionsAPI* | [**AddUsersToPermissionable**](docs/UserPermissionsAPI.md#adduserstopermissionable) | **Post** /consumer/permissions/add | Add User
+*UserPermissionsAPI* | [**ApprovePermissionable**](docs/UserPermissionsAPI.md#approvepermissionable) | **Post** /permissionable/approve | Approve Permissionable
+*UserPermissionsAPI* | [**LeaveFromPermissionable**](docs/UserPermissionsAPI.md#leavefrompermissionable) | **Post** /consumer/permissions/leave | Leave
+*UserPermissionsAPI* | [**RemoveUsersFromPermissionable**](docs/UserPermissionsAPI.md#removeusersfrompermissionable) | **Post** /consumer/permissions/remove | Remove User
+*UserPermissionsAPI* | [**SearchPermissionables**](docs/UserPermissionsAPI.md#searchpermissionables) | **Get** /permissions/search | Search Permissionables
+*UserPermissionsAPI* | [**SearchPermissionablesFollowingDistance**](docs/UserPermissionsAPI.md#searchpermissionablesfollowingdistance) | **Get** /permissions/distancesearch | Search Permissionables by Distnace
+*VatomAPI* | [**CreateFollowing**](docs/VatomAPI.md#createfollowing) | **Post** /vatom/me/rels/following/create | Create following
+*VatomAPI* | [**CreateSpace**](docs/VatomAPI.md#createspace) | **Post** /vatom/b/spaces/create | Create Vatom Space
+*VatomAPI* | [**CreateVatomEvent**](docs/VatomAPI.md#createvatomevent) | **Post** /vatom/b/events/create | Create Vatom Event
+*VatomAPI* | [**DeleteFollowing**](docs/VatomAPI.md#deletefollowing) | **Post** /vatom/me/rels/following/delete | Delete following
+*VatomAPI* | [**DeletePointsBalance**](docs/VatomAPI.md#deletepointsbalance) | **Post** /vatom/b/campaign/points/delete | Reset All Points Balance
+*VatomAPI* | [**DeleteSpace**](docs/VatomAPI.md#deletespace) | **Post** /vatom/b/spaces/delete | Delete Vatom Space
+*VatomAPI* | [**DeleteVatomEvent**](docs/VatomAPI.md#deletevatomevent) | **Post** /vatom/b/events/delete | Delete Vatom Event
+*VatomAPI* | [**DeleteVatomNFT**](docs/VatomAPI.md#deletevatomnft) | **Post** /vatom/vatoms/delete | Delete Vatom NFT
+*VatomAPI* | [**ExecuteActionOnNFT**](docs/VatomAPI.md#executeactiononnft) | **Post** /vatom/vatoms/execute-action | Execute Action on NFT
+*VatomAPI* | [**GeomapSearch**](docs/VatomAPI.md#geomapsearch) | **Get** /vatom/vatoms/geo-map/search | Search Vatom Geo Map
+*VatomAPI* | [**GetBusinessBehaviors**](docs/VatomAPI.md#getbusinessbehaviors) | **Get** /vatom/b/behaviors | Get Vatom Business Behaviors
+*VatomAPI* | [**GetBusinessCoinsBalance**](docs/VatomAPI.md#getbusinesscoinsbalance) | **Get** /vatom/b/coins/get | Get the coins for a Business
+*VatomAPI* | [**GetBusinessIds**](docs/VatomAPI.md#getbusinessids) | **Get** /vatom/me/businesses | Get the user business ids
+*VatomAPI* | [**GetBusinessInfo**](docs/VatomAPI.md#getbusinessinfo) | **Get** /vatom/b/get | Get Vatom Business Info
+*VatomAPI* | [**GetBusinessUsers**](docs/VatomAPI.md#getbusinessusers) | **Get** /vatom/b/users | Get Vatom Business Users
+*VatomAPI* | [**GetCampaignGroupEntities**](docs/VatomAPI.md#getcampaigngroupentities) | **Get** /vatom/b/campaign-groups/entities | Get Campaign Group Entities
+*VatomAPI* | [**GetCampaignGroupRules**](docs/VatomAPI.md#getcampaigngrouprules) | **Get** /vatom/b/campaign-groups/rules | Get Campaign Group Rules
+*VatomAPI* | [**GetCampaignGroupStats**](docs/VatomAPI.md#getcampaigngroupstats) | **Get** /vatom/b/campaign-groups/stats | Get Campaign Group Stats
+*VatomAPI* | [**GetCampaignInfo**](docs/VatomAPI.md#getcampaigninfo) | **Get** /vatom/b/campaign-groups/get | Get Campaign Info
+*VatomAPI* | [**GetEventGuestList**](docs/VatomAPI.md#geteventguestlist) | **Get** /vatom/b/events/guests/get | Get Vatom Event Guest List
+*VatomAPI* | [**GetInventory**](docs/VatomAPI.md#getinventory) | **Get** /vatom/me/inventory | Get Vatom User&#39;s Inventory
+*VatomAPI* | [**GetMyFollowing**](docs/VatomAPI.md#getmyfollowing) | **Get** /vatom/me/rels/following | Get following
+*VatomAPI* | [**GetPointsBalance**](docs/VatomAPI.md#getpointsbalance) | **Get** /vatom/u/campaign/points/get | Get Points Balance
+*VatomAPI* | [**GetPointsBalanceAsBusiness**](docs/VatomAPI.md#getpointsbalanceasbusiness) | **Get** /vatom/b/campaign/u/points/get | Get Points Balance as Business
+*VatomAPI* | [**GetSpace**](docs/VatomAPI.md#getspace) | **Get** /vatom/b/spaces/get | Get Vatom Space
+*VatomAPI* | [**GetUserCoinsAsBusiness**](docs/VatomAPI.md#getusercoinsasbusiness) | **Get** /vatom/b/users/coins/get | Get the coins for a user (as a Business)
+*VatomAPI* | [**GetUserCoinsBalance**](docs/VatomAPI.md#getusercoinsbalance) | **Get** /vatom/u/coins/get | Gets the coins balance for a Vatom User
+*VatomAPI* | [**GetUserFollowers**](docs/VatomAPI.md#getuserfollowers) | **Get** /vatom/users/rels/followers | Get user followers
+*VatomAPI* | [**GetUserFollowing**](docs/VatomAPI.md#getuserfollowing) | **Get** /vatom/users/rels/following | Get user following
+*VatomAPI* | [**GetUserInfo**](docs/VatomAPI.md#getuserinfo) | **Get** /vatom/user/get | Get User Info
+*VatomAPI* | [**GetUserProfile**](docs/VatomAPI.md#getuserprofile) | **Get** /vatom/me/get | Get Vatom User Profile
+*VatomAPI* | [**GetVatomEvent**](docs/VatomAPI.md#getvatomevent) | **Get** /vatom/b/events/get | Get Vatom Event
+*VatomAPI* | [**GetVatomNFT**](docs/VatomAPI.md#getvatomnft) | **Get** /vatom/vatoms/get | Get Vatom NFT Details
+*VatomAPI* | [**ListCommunities**](docs/VatomAPI.md#listcommunities) | **Get** /vatom/b/communities/search | List Vatom Communities
+*VatomAPI* | [**ListEvents**](docs/VatomAPI.md#listevents) | **Get** /vatom/b/events/search | List Vatom Events
+*VatomAPI* | [**ListSpaces**](docs/VatomAPI.md#listspaces) | **Get** /vatom/b/spaces/search | List Vatom Spaces
+*VatomAPI* | [**ListUserCoinTransactions**](docs/VatomAPI.md#listusercointransactions) | **Get** /vatom/u/coins/txns/search | List Coin Transactions for a Vatom User
+*VatomAPI* | [**ListUserCoinTransactionsAsBusiness**](docs/VatomAPI.md#listusercointransactionsasbusiness) | **Get** /vatom/b/users/coins/txns/search | List coin transactions for a user (as a Business)
+*VatomAPI* | [**PerformActionOnNFT**](docs/VatomAPI.md#performactiononnft) | **Post** /vatom/me/vatoms/actions | Perform Action on NFT
+*VatomAPI* | [**RedeemNFT**](docs/VatomAPI.md#redeemnft) | **Post** /vatom/b/redemptions | Redeem NFT
+*VatomAPI* | [**RedeemUserCoinsAsBusiness**](docs/VatomAPI.md#redeemusercoinsasbusiness) | **Post** /vatom/b/users/coins/redeem | Redeem the coins for a user (as a Business)
+*VatomAPI* | [**SearchBusinesses**](docs/VatomAPI.md#searchbusinesses) | **Get** /vatom/b/search | Search for Vatom Businesses
+*VatomAPI* | [**SearchCampaignGroups**](docs/VatomAPI.md#searchcampaigngroups) | **Get** /vatom/b/campaign-groups/search | Search Campaign Groups
+*VatomAPI* | [**SearchIdentities**](docs/VatomAPI.md#searchidentities) | **Get** /vatom/me/identities/search | Search User Identities
+*VatomAPI* | [**SearchInventory**](docs/VatomAPI.md#searchinventory) | **Get** /vatom/user-inventory/search | Search Vatom User&#39;s Inventory
+*VatomAPI* | [**SendNFT**](docs/VatomAPI.md#sendnft) | **Post** /vatom/b/campaigns/send | Send NFT
+*VatomAPI* | [**SetPointsBalanceAsBusiness**](docs/VatomAPI.md#setpointsbalanceasbusiness) | **Post** /vatom/b/campaign/u/points/update | Set Points Balance as Business
+*VatomAPI* | [**TransferUserCoins**](docs/VatomAPI.md#transferusercoins) | **Post** /vatom/u/coins/transfer | Transfer coins from Vatom Users
+*VatomAPI* | [**UpdateBusinessCoins**](docs/VatomAPI.md#updatebusinesscoins) | **Post** /vatom/b/coins/update | Fund coins for a Business
+*VatomAPI* | [**UpdateEventGuestList**](docs/VatomAPI.md#updateeventguestlist) | **Post** /vatom/b/events/guests/update | Update Vatom Event Guest List
+*VatomAPI* | [**UpdateSpace**](docs/VatomAPI.md#updatespace) | **Post** /vatom/b/spaces/update | Update Vatom Space
+*VatomAPI* | [**UpdateUserCoinsAsBusiness**](docs/VatomAPI.md#updateusercoinsasbusiness) | **Post** /vatom/b/users/coins/update | Update the coins for a user (as a Business)
+*VatomAPI* | [**UpdateUserProfile**](docs/VatomAPI.md#updateuserprofile) | **Post** /vatom/me/update | Update Vatom User Profile
+*VatomAPI* | [**UpdateVatomEvent**](docs/VatomAPI.md#updatevatomevent) | **Post** /vatom/b/events/update | Update Vatom Event
+*VehicleAPI* | [**CreateVehicle**](docs/VehicleAPI.md#createvehicle) | **Post** /vehicle | Create Vehicle
+*VehicleAPI* | [**DeleteVehicle**](docs/VehicleAPI.md#deletevehicle) | **Delete** /vehicle/{id} | Delete Vehicle
+*VehicleAPI* | [**GetVehicle**](docs/VehicleAPI.md#getvehicle) | **Get** /vehicle/{id} | Get Vehicle
+*VehicleAPI* | [**SearchVehicle**](docs/VehicleAPI.md#searchvehicle) | **Get** /vehicle | Search Vehicle
+*VehicleAPI* | [**UpdateVehicle**](docs/VehicleAPI.md#updatevehicle) | **Put** /vehicle/{id} | Update Vehicle
+*VehicleTypeAPI* | [**CreateVehicleType**](docs/VehicleTypeAPI.md#createvehicletype) | **Post** /vehicle/type | Create Vehicle Type
+*VehicleTypeAPI* | [**DeleteVehicleType**](docs/VehicleTypeAPI.md#deletevehicletype) | **Delete** /vehicle/type/{vehicleTypeId} | Delete Vehicle Type
+*VehicleTypeAPI* | [**GetVehicleType**](docs/VehicleTypeAPI.md#getvehicletype) | **Get** /vehicle/type/{vehicleTypeId} | Get Vehicle Type
+*VehicleTypeAPI* | [**SearchVehicleTypes**](docs/VehicleTypeAPI.md#searchvehicletypes) | **Get** /vehicle/type | Search Vehicle Type
+*VehicleTypeAPI* | [**UpdateVehicleType**](docs/VehicleTypeAPI.md#updatevehicletype) | **Put** /vehicle/type/{vehicleTypeId} | Update Vehicle Type
+*WalletAPI* | [**CreateOfferTransaction**](docs/WalletAPI.md#createoffertransaction) | **Post** /wallet/create | Create Wallet Offers
+*WalletAPI* | [**DeleteOfferTransaction**](docs/WalletAPI.md#deleteoffertransaction) | **Post** /wallet/delete | Delete Wallet Offer
+*WalletAPI* | [**GetOfferTransaction**](docs/WalletAPI.md#getoffertransaction) | **Get** /wallet/get | Get Wallet Offer
+*WalletAPI* | [**PreviewOfferTransaction**](docs/WalletAPI.md#previewoffertransaction) | **Post** /wallet/preview | Preview Wallet Offers
+*WalletAPI* | [**SearchOfferTransactions**](docs/WalletAPI.md#searchoffertransactions) | **Get** /wallet/search | Search Wallet Offers
+*WalletAPI* | [**UpdateOfferTransaction**](docs/WalletAPI.md#updateoffertransaction) | **Post** /wallet/update | Update Wallet Offer
+*WeatherAPI* | [**SearchWeather**](docs/WeatherAPI.md#searchweather) | **Get** /weather/search | Search Weather
+*WordAPI* | [**CreateWord**](docs/WordAPI.md#createword) | **Post** /game/word/create | Create Word
+*WordAPI* | [**DeleteWord**](docs/WordAPI.md#deleteword) | **Delete** /game/word/delete | Delete Word
+*WordAPI* | [**GetWord**](docs/WordAPI.md#getword) | **Get** /game/word/get | Get Word
+*WordAPI* | [**GetWords**](docs/WordAPI.md#getwords) | **Get** /game/word/search | Search Words
+*WordAPI* | [**UpdateWord**](docs/WordAPI.md#updateword) | **Post** /game/word/update | Update Word
+*WorkflowAPI* | [**RunWorkflow**](docs/WorkflowAPI.md#runworkflow) | **Post** /workflow/run | Run Workflow
 
 
 ## Documentation For Models

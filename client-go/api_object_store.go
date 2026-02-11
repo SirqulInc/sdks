@@ -27,7 +27,6 @@ type ObjectStoreAPIService service
 type ApiAddFieldRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	objectName *string
@@ -81,14 +80,12 @@ The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD,
   The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAddFieldRequest
 */
-func (a *ObjectStoreAPIService) AddField(ctx context.Context, version float32) ApiAddFieldRequest {
+func (a *ObjectStoreAPIService) AddField(ctx context.Context) ApiAddFieldRequest {
 	return ApiAddFieldRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -107,8 +104,7 @@ func (a *ObjectStoreAPIService) AddFieldExecute(r ApiAddFieldRequest) (*ObjectSt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/field/add"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/field/add"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -191,7 +187,6 @@ func (a *ObjectStoreAPIService) AddFieldExecute(r ApiAddFieldRequest) (*ObjectSt
 type ApiCreateDataRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	objectName string
 	accountId *int64
 	body *string
@@ -218,15 +213,13 @@ CreateData Create Data
 Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param objectName the name of the object to create data for
  @return ApiCreateDataRequest
 */
-func (a *ObjectStoreAPIService) CreateData(ctx context.Context, version float32, objectName string) ApiCreateDataRequest {
+func (a *ObjectStoreAPIService) CreateData(ctx context.Context, objectName string) ApiCreateDataRequest {
 	return ApiCreateDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		objectName: objectName,
 	}
 }
@@ -246,8 +239,7 @@ func (a *ObjectStoreAPIService) CreateDataExecute(r ApiCreateDataRequest) (*Obje
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/data/{objectName}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/data/{objectName}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectName"+"}", url.PathEscape(parameterValueToString(r.objectName, "objectName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -316,7 +308,6 @@ func (a *ObjectStoreAPIService) CreateDataExecute(r ApiCreateDataRequest) (*Obje
 type ApiCreateObjectRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	objectName *string
@@ -354,14 +345,12 @@ Duplicate object names are not allowed.
 The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateObjectRequest
 */
-func (a *ObjectStoreAPIService) CreateObject(ctx context.Context, version float32) ApiCreateObjectRequest {
+func (a *ObjectStoreAPIService) CreateObject(ctx context.Context) ApiCreateObjectRequest {
 	return ApiCreateObjectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -380,8 +369,7 @@ func (a *ObjectStoreAPIService) CreateObjectExecute(r ApiCreateObjectRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -456,7 +444,6 @@ func (a *ObjectStoreAPIService) CreateObjectExecute(r ApiCreateObjectRequest) (*
 type ApiDeleteDataRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	objectName string
 	objectId string
 	accountId *int64
@@ -478,16 +465,14 @@ DeleteData Delete Data
 Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param objectName The name of the object to search upon
  @param objectId objectId The id of the record to return
  @return ApiDeleteDataRequest
 */
-func (a *ObjectStoreAPIService) DeleteData(ctx context.Context, version float32, objectName string, objectId string) ApiDeleteDataRequest {
+func (a *ObjectStoreAPIService) DeleteData(ctx context.Context, objectName string, objectId string) ApiDeleteDataRequest {
 	return ApiDeleteDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		objectName: objectName,
 		objectId: objectId,
 	}
@@ -508,8 +493,7 @@ func (a *ObjectStoreAPIService) DeleteDataExecute(r ApiDeleteDataRequest) (*Obje
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/data/{objectName}/{objectId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/data/{objectName}/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectName"+"}", url.PathEscape(parameterValueToString(r.objectName, "objectName")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
@@ -577,7 +561,6 @@ func (a *ObjectStoreAPIService) DeleteDataExecute(r ApiDeleteDataRequest) (*Obje
 type ApiDeleteFieldRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	objectName *string
@@ -620,14 +603,12 @@ Delete a field from an object.  This will remove the field, indexes,   and forei
 The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteFieldRequest
 */
-func (a *ObjectStoreAPIService) DeleteField(ctx context.Context, version float32) ApiDeleteFieldRequest {
+func (a *ObjectStoreAPIService) DeleteField(ctx context.Context) ApiDeleteFieldRequest {
 	return ApiDeleteFieldRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -646,8 +627,7 @@ func (a *ObjectStoreAPIService) DeleteFieldExecute(r ApiDeleteFieldRequest) (*Ob
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/field/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/field/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -726,7 +706,6 @@ func (a *ObjectStoreAPIService) DeleteFieldExecute(r ApiDeleteFieldRequest) (*Ob
 type ApiDeleteObjectRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	objectName *string
@@ -760,14 +739,12 @@ DeleteObject Delete Object
 Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteObjectRequest
 */
-func (a *ObjectStoreAPIService) DeleteObject(ctx context.Context, version float32) ApiDeleteObjectRequest {
+func (a *ObjectStoreAPIService) DeleteObject(ctx context.Context) ApiDeleteObjectRequest {
 	return ApiDeleteObjectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -786,8 +763,7 @@ func (a *ObjectStoreAPIService) DeleteObjectExecute(r ApiDeleteObjectRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -862,7 +838,6 @@ func (a *ObjectStoreAPIService) DeleteObjectExecute(r ApiDeleteObjectRequest) (*
 type ApiGetDataRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	objectName string
 	objectId string
 	accountId *int64
@@ -891,16 +866,14 @@ GetData Get Data
 Get a specific record from a specified object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param objectName The name of the object to search upon
  @param objectId objectId The id of the record to return
  @return ApiGetDataRequest
 */
-func (a *ObjectStoreAPIService) GetData(ctx context.Context, version float32, objectName string, objectId string) ApiGetDataRequest {
+func (a *ObjectStoreAPIService) GetData(ctx context.Context, objectName string, objectId string) ApiGetDataRequest {
 	return ApiGetDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		objectName: objectName,
 		objectId: objectId,
 	}
@@ -921,8 +894,7 @@ func (a *ObjectStoreAPIService) GetDataExecute(r ApiGetDataRequest) (*ObjectStor
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/data/{objectName}/{objectId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/data/{objectName}/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectName"+"}", url.PathEscape(parameterValueToString(r.objectName, "objectName")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 
@@ -993,7 +965,6 @@ func (a *ObjectStoreAPIService) GetDataExecute(r ApiGetDataRequest) (*ObjectStor
 type ApiGetObjectRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	objectName *string
@@ -1027,14 +998,12 @@ GetObject Get Object
 Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetObjectRequest
 */
-func (a *ObjectStoreAPIService) GetObject(ctx context.Context, version float32) ApiGetObjectRequest {
+func (a *ObjectStoreAPIService) GetObject(ctx context.Context) ApiGetObjectRequest {
 	return ApiGetObjectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1053,8 +1022,7 @@ func (a *ObjectStoreAPIService) GetObjectExecute(r ApiGetObjectRequest) (*Object
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1129,7 +1097,6 @@ func (a *ObjectStoreAPIService) GetObjectExecute(r ApiGetObjectRequest) (*Object
 type ApiSearchDataRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	objectName string
 	count *bool
 	start *int64
@@ -1192,15 +1159,13 @@ SearchData Search Data
 Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param objectName The name of the object to search upon
  @return ApiSearchDataRequest
 */
-func (a *ObjectStoreAPIService) SearchData(ctx context.Context, version float32, objectName string) ApiSearchDataRequest {
+func (a *ObjectStoreAPIService) SearchData(ctx context.Context, objectName string) ApiSearchDataRequest {
 	return ApiSearchDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		objectName: objectName,
 	}
 }
@@ -1220,8 +1185,7 @@ func (a *ObjectStoreAPIService) SearchDataExecute(r ApiSearchDataRequest) (*Obje
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/data/{objectName}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/data/{objectName}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectName"+"}", url.PathEscape(parameterValueToString(r.objectName, "objectName")), -1)
 
 	localVarHeaderParams := make(map[string]string)
@@ -1309,7 +1273,6 @@ func (a *ObjectStoreAPIService) SearchDataExecute(r ApiSearchDataRequest) (*Obje
 type ApiSearchObjectRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	start *int64
@@ -1357,14 +1320,12 @@ SearchObject Search Objects
 Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiSearchObjectRequest
 */
-func (a *ObjectStoreAPIService) SearchObject(ctx context.Context, version float32) ApiSearchObjectRequest {
+func (a *ObjectStoreAPIService) SearchObject(ctx context.Context) ApiSearchObjectRequest {
 	return ApiSearchObjectRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1383,8 +1344,7 @@ func (a *ObjectStoreAPIService) SearchObjectExecute(r ApiSearchObjectRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/search"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/search"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1466,7 +1426,6 @@ func (a *ObjectStoreAPIService) SearchObjectExecute(r ApiSearchObjectRequest) (*
 type ApiUpdateDataRequest struct {
 	ctx context.Context
 	ApiService *ObjectStoreAPIService
-	version float32
 	objectName string
 	objectId string
 	accountId *int64
@@ -1494,16 +1453,14 @@ UpdateData Update Data
 Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @param objectName The name of the object to search upon
  @param objectId objectId The id of the record to return
  @return ApiUpdateDataRequest
 */
-func (a *ObjectStoreAPIService) UpdateData(ctx context.Context, version float32, objectName string, objectId string) ApiUpdateDataRequest {
+func (a *ObjectStoreAPIService) UpdateData(ctx context.Context, objectName string, objectId string) ApiUpdateDataRequest {
 	return ApiUpdateDataRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 		objectName: objectName,
 		objectId: objectId,
 	}
@@ -1524,8 +1481,7 @@ func (a *ObjectStoreAPIService) UpdateDataExecute(r ApiUpdateDataRequest) (*Obje
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/object/data/{objectName}/{objectId}"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/object/data/{objectName}/{objectId}"
 	localVarPath = strings.Replace(localVarPath, "{"+"objectName"+"}", url.PathEscape(parameterValueToString(r.objectName, "objectName")), -1)
 	localVarPath = strings.Replace(localVarPath, "{"+"objectId"+"}", url.PathEscape(parameterValueToString(r.objectId, "objectId")), -1)
 

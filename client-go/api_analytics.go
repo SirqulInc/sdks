@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type AnalyticsAPIService service
 type ApiActivitiesRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	version float32
 	start *int32
 	limit *int32
 	accountId *int64
@@ -61,14 +59,12 @@ Activities Get User Activity
 Get an activity feed by user.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiActivitiesRequest
 */
-func (a *AnalyticsAPIService) Activities(ctx context.Context, version float32) ApiActivitiesRequest {
+func (a *AnalyticsAPIService) Activities(ctx context.Context) ApiActivitiesRequest {
 	return ApiActivitiesRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -87,8 +83,7 @@ func (a *AnalyticsAPIService) ActivitiesExecute(r ApiActivitiesRequest) ([]UserA
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/analytics/useractivity"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/analytics/useractivity"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -163,7 +158,6 @@ func (a *AnalyticsAPIService) ActivitiesExecute(r ApiActivitiesRequest) ([]UserA
 type ApiAggregatedFilteredUsageRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	applicationId *int64
@@ -393,14 +387,12 @@ AggregatedFilteredUsage Get Aggregated Filtered Usage
 Query analytics to get data used for nested graphs and charts
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAggregatedFilteredUsageRequest
 */
-func (a *AnalyticsAPIService) AggregatedFilteredUsage(ctx context.Context, version float32) ApiAggregatedFilteredUsageRequest {
+func (a *AnalyticsAPIService) AggregatedFilteredUsage(ctx context.Context) ApiAggregatedFilteredUsageRequest {
 	return ApiAggregatedFilteredUsageRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -419,8 +411,7 @@ func (a *AnalyticsAPIService) AggregatedFilteredUsageExecute(r ApiAggregatedFilt
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/analytics/aggregatedFilteredUsage"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/analytics/aggregatedFilteredUsage"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -576,7 +567,6 @@ func (a *AnalyticsAPIService) AggregatedFilteredUsageExecute(r ApiAggregatedFilt
 type ApiFilteredUsageRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	applicationId *int64
@@ -862,14 +852,12 @@ FilteredUsage Get Filtered Usage
 Query analytics to get data used for graphs and charts
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiFilteredUsageRequest
 */
-func (a *AnalyticsAPIService) FilteredUsage(ctx context.Context, version float32) ApiFilteredUsageRequest {
+func (a *AnalyticsAPIService) FilteredUsage(ctx context.Context) ApiFilteredUsageRequest {
 	return ApiFilteredUsageRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -888,8 +876,7 @@ func (a *AnalyticsAPIService) FilteredUsageExecute(r ApiFilteredUsageRequest) (*
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/analytics/filteredUsage"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/analytics/filteredUsage"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1069,7 +1056,6 @@ func (a *AnalyticsAPIService) FilteredUsageExecute(r ApiFilteredUsageRequest) (*
 type ApiUsageRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	version float32
 	tag *string
 	deviceId *string
 	accountId *int64
@@ -1299,14 +1285,12 @@ Usage Create Usage Record
 Record an analytic record for a known state within the application.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUsageRequest
 */
-func (a *AnalyticsAPIService) Usage(ctx context.Context, version float32) ApiUsageRequest {
+func (a *AnalyticsAPIService) Usage(ctx context.Context) ApiUsageRequest {
 	return ApiUsageRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1325,8 +1309,7 @@ func (a *AnalyticsAPIService) UsageExecute(r ApiUsageRequest) (*SirqulResponse, 
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/analytics/usage"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/analytics/usage"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1483,7 +1466,6 @@ func (a *AnalyticsAPIService) UsageExecute(r ApiUsageRequest) (*SirqulResponse, 
 type ApiUsageBatchRequest struct {
 	ctx context.Context
 	ApiService *AnalyticsAPIService
-	version float32
 	appKey *string
 	device *string
 	data *string
@@ -1573,14 +1555,12 @@ UsageBatch Create Multiple Usage Records
 Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUsageBatchRequest
 */
-func (a *AnalyticsAPIService) UsageBatch(ctx context.Context, version float32) ApiUsageBatchRequest {
+func (a *AnalyticsAPIService) UsageBatch(ctx context.Context) ApiUsageBatchRequest {
 	return ApiUsageBatchRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1599,8 +1579,7 @@ func (a *AnalyticsAPIService) UsageBatchExecute(r ApiUsageBatchRequest) (*Sirqul
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/analytics/usage/batch"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/analytics/usage/batch"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

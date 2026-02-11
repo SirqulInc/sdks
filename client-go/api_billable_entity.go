@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type BillableEntityAPIService service
 type ApiCreateBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *BillableEntityAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	name *string
@@ -124,14 +122,12 @@ CreateBillableEntity Create Billable
 reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiCreateBillableEntityRequest
 */
-func (a *BillableEntityAPIService) CreateBillableEntity(ctx context.Context, version float32) ApiCreateBillableEntityRequest {
+func (a *BillableEntityAPIService) CreateBillableEntity(ctx context.Context) ApiCreateBillableEntityRequest {
 	return ApiCreateBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -150,8 +146,7 @@ func (a *BillableEntityAPIService) CreateBillableEntityExecute(r ApiCreateBillab
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billable/create"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billable/create"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -250,7 +245,6 @@ func (a *BillableEntityAPIService) CreateBillableEntityExecute(r ApiCreateBillab
 type ApiDeleteBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *BillableEntityAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 }
@@ -277,14 +271,12 @@ DeleteBillableEntity Delete Billable
 Mark the billable as deleted
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiDeleteBillableEntityRequest
 */
-func (a *BillableEntityAPIService) DeleteBillableEntity(ctx context.Context, version float32) ApiDeleteBillableEntityRequest {
+func (a *BillableEntityAPIService) DeleteBillableEntity(ctx context.Context) ApiDeleteBillableEntityRequest {
 	return ApiDeleteBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -303,8 +295,7 @@ func (a *BillableEntityAPIService) DeleteBillableEntityExecute(r ApiDeleteBillab
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billable/delete"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billable/delete"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -373,7 +364,6 @@ func (a *BillableEntityAPIService) DeleteBillableEntityExecute(r ApiDeleteBillab
 type ApiGetBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *BillableEntityAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	includeCounts *bool
@@ -414,14 +404,12 @@ GetBillableEntity Get Billable
 Used to determine the associated BillableEntity of an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetBillableEntityRequest
 */
-func (a *BillableEntityAPIService) GetBillableEntity(ctx context.Context, version float32) ApiGetBillableEntityRequest {
+func (a *BillableEntityAPIService) GetBillableEntity(ctx context.Context) ApiGetBillableEntityRequest {
 	return ApiGetBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -440,8 +428,7 @@ func (a *BillableEntityAPIService) GetBillableEntityExecute(r ApiGetBillableEnti
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billable/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billable/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -524,7 +511,6 @@ func (a *BillableEntityAPIService) GetBillableEntityExecute(r ApiGetBillableEnti
 type ApiUpdateBillableEntityRequest struct {
 	ctx context.Context
 	ApiService *BillableEntityAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	name *string
@@ -621,14 +607,12 @@ UpdateBillableEntity Update Billable
 Updates the billable record for an account
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiUpdateBillableEntityRequest
 */
-func (a *BillableEntityAPIService) UpdateBillableEntity(ctx context.Context, version float32) ApiUpdateBillableEntityRequest {
+func (a *BillableEntityAPIService) UpdateBillableEntity(ctx context.Context) ApiUpdateBillableEntityRequest {
 	return ApiUpdateBillableEntityRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -647,8 +631,7 @@ func (a *BillableEntityAPIService) UpdateBillableEntityExecute(r ApiUpdateBillab
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/billable/update"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/billable/update"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}

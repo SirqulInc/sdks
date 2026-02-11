@@ -17,7 +17,6 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"strings"
 )
 
 
@@ -27,7 +26,6 @@ type InviteAPIService service
 type ApiAcceptInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	token *string
 	accountId *int64
 	albumId *int64
@@ -138,14 +136,12 @@ AcceptInvite Accept Invite
 Allows a user to accept an invite. The user could also become the inviter's friend.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAcceptInviteRequest
 */
-func (a *InviteAPIService) AcceptInvite(ctx context.Context, version float32) ApiAcceptInviteRequest {
+func (a *InviteAPIService) AcceptInvite(ctx context.Context) ApiAcceptInviteRequest {
 	return ApiAcceptInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -164,8 +160,7 @@ func (a *InviteAPIService) AcceptInviteExecute(r ApiAcceptInviteRequest) (*Consu
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/accept"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/accept"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -292,7 +287,6 @@ func (a *InviteAPIService) AcceptInviteExecute(r ApiAcceptInviteRequest) (*Consu
 type ApiAlbumContestInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appId *int64
@@ -354,14 +348,12 @@ AlbumContestInvite Invite to Contest
 Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAlbumContestInviteRequest
 */
-func (a *InviteAPIService) AlbumContestInvite(ctx context.Context, version float32) ApiAlbumContestInviteRequest {
+func (a *InviteAPIService) AlbumContestInvite(ctx context.Context) ApiAlbumContestInviteRequest {
 	return ApiAlbumContestInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -380,8 +372,7 @@ func (a *InviteAPIService) AlbumContestInviteExecute(r ApiAlbumContestInviteRequ
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/albumContest"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/albumContest"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -465,7 +456,6 @@ func (a *InviteAPIService) AlbumContestInviteExecute(r ApiAlbumContestInviteRequ
 type ApiAlbumInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appId *int64
@@ -527,14 +517,12 @@ AlbumInvite Invite to Collection
 Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiAlbumInviteRequest
 */
-func (a *InviteAPIService) AlbumInvite(ctx context.Context, version float32) ApiAlbumInviteRequest {
+func (a *InviteAPIService) AlbumInvite(ctx context.Context) ApiAlbumInviteRequest {
 	return ApiAlbumInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -553,8 +541,7 @@ func (a *InviteAPIService) AlbumInviteExecute(r ApiAlbumInviteRequest) (*InviteR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/album"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/album"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -638,7 +625,6 @@ func (a *InviteAPIService) AlbumInviteExecute(r ApiAlbumInviteRequest) (*InviteR
 type ApiEventInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	listingId *int64
@@ -686,14 +672,12 @@ EventInvite Invite to Event
 Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiEventInviteRequest
 */
-func (a *InviteAPIService) EventInvite(ctx context.Context, version float32) ApiEventInviteRequest {
+func (a *InviteAPIService) EventInvite(ctx context.Context) ApiEventInviteRequest {
 	return ApiEventInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -712,8 +696,7 @@ func (a *InviteAPIService) EventInviteExecute(r ApiEventInviteRequest) (*InviteR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/event"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/event"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -794,7 +777,6 @@ func (a *InviteAPIService) EventInviteExecute(r ApiEventInviteRequest) (*InviteR
 type ApiGameInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appId *int64
@@ -856,14 +838,12 @@ GameInvite Invite to Game Level
 Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGameInviteRequest
 */
-func (a *InviteAPIService) GameInvite(ctx context.Context, version float32) ApiGameInviteRequest {
+func (a *InviteAPIService) GameInvite(ctx context.Context) ApiGameInviteRequest {
 	return ApiGameInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -882,8 +862,7 @@ func (a *InviteAPIService) GameInviteExecute(r ApiGameInviteRequest) (*InviteRes
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/gameLevel"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/gameLevel"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -967,7 +946,6 @@ func (a *InviteAPIService) GameInviteExecute(r ApiGameInviteRequest) (*InviteRes
 type ApiGetInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	accountId *int64
 	token *string
 	albumId *int64
@@ -1043,14 +1021,12 @@ GetInvite Get Invite
 This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiGetInviteRequest
 */
-func (a *InviteAPIService) GetInvite(ctx context.Context, version float32) ApiGetInviteRequest {
+func (a *InviteAPIService) GetInvite(ctx context.Context) ApiGetInviteRequest {
 	return ApiGetInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1069,8 +1045,7 @@ func (a *InviteAPIService) GetInviteExecute(r ApiGetInviteRequest) (*SirqulRespo
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/get"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/get"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1160,7 +1135,6 @@ func (a *InviteAPIService) GetInviteExecute(r ApiGetInviteRequest) (*SirqulRespo
 type ApiMissionInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	deviceId *string
 	accountId *int64
 	appId *int64
@@ -1222,14 +1196,12 @@ MissionInvite Invite to Mission
 Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiMissionInviteRequest
 */
-func (a *InviteAPIService) MissionInvite(ctx context.Context, version float32) ApiMissionInviteRequest {
+func (a *InviteAPIService) MissionInvite(ctx context.Context) ApiMissionInviteRequest {
 	return ApiMissionInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1248,8 +1220,7 @@ func (a *InviteAPIService) MissionInviteExecute(r ApiMissionInviteRequest) (*Inv
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/mission"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/mission"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1333,7 +1304,6 @@ func (a *InviteAPIService) MissionInviteExecute(r ApiMissionInviteRequest) (*Inv
 type ApiOfferInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	offerId *int64
@@ -1367,14 +1337,12 @@ OfferInvite Invite to Offer
 Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiOfferInviteRequest
 */
-func (a *InviteAPIService) OfferInvite(ctx context.Context, version float32) ApiOfferInviteRequest {
+func (a *InviteAPIService) OfferInvite(ctx context.Context) ApiOfferInviteRequest {
 	return ApiOfferInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1393,8 +1361,7 @@ func (a *InviteAPIService) OfferInviteExecute(r ApiOfferInviteRequest) (*InviteR
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/offer"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/offer"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1469,7 +1436,6 @@ func (a *InviteAPIService) OfferInviteExecute(r ApiOfferInviteRequest) (*InviteR
 type ApiOfferLocationInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	offerLocationId *int64
@@ -1503,14 +1469,12 @@ OfferLocationInvite Invite to Offer Location
 Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiOfferLocationInviteRequest
 */
-func (a *InviteAPIService) OfferLocationInvite(ctx context.Context, version float32) ApiOfferLocationInviteRequest {
+func (a *InviteAPIService) OfferLocationInvite(ctx context.Context) ApiOfferLocationInviteRequest {
 	return ApiOfferLocationInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1529,8 +1493,7 @@ func (a *InviteAPIService) OfferLocationInviteExecute(r ApiOfferLocationInviteRe
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/offerLocation"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/offerLocation"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
@@ -1605,7 +1568,6 @@ func (a *InviteAPIService) OfferLocationInviteExecute(r ApiOfferLocationInviteRe
 type ApiRetailerLocationInviteRequest struct {
 	ctx context.Context
 	ApiService *InviteAPIService
-	version float32
 	accountId *int64
 	appKey *string
 	retailerLocationId *int64
@@ -1646,14 +1608,12 @@ RetailerLocationInvite Invite to Retailer Location
 Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param version
  @return ApiRetailerLocationInviteRequest
 */
-func (a *InviteAPIService) RetailerLocationInvite(ctx context.Context, version float32) ApiRetailerLocationInviteRequest {
+func (a *InviteAPIService) RetailerLocationInvite(ctx context.Context) ApiRetailerLocationInviteRequest {
 	return ApiRetailerLocationInviteRequest{
 		ApiService: a,
 		ctx: ctx,
-		version: version,
 	}
 }
 
@@ -1672,8 +1632,7 @@ func (a *InviteAPIService) RetailerLocationInviteExecute(r ApiRetailerLocationIn
 		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
 	}
 
-	localVarPath := localBasePath + "/api/{version}/invite/retailerLocation"
-	localVarPath = strings.Replace(localVarPath, "{"+"version"+"}", url.PathEscape(parameterValueToString(r.version, "version")), -1)
+	localVarPath := localBasePath + "/invite/retailerLocation"
 
 	localVarHeaderParams := make(map[string]string)
 	localVarQueryParams := url.Values{}
