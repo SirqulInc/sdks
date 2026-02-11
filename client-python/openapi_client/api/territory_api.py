@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 from openapi_client.models.territory_response import TerritoryResponse
@@ -44,7 +44,6 @@ class TerritoryApi:
     @validate_call
     def create_territory(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the territory")],
         active: Annotated[Optional[StrictBool], Field(description="If true set the game level as active. Default is true.")] = None,
@@ -65,8 +64,6 @@ class TerritoryApi:
 
         Creates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the territory (required)
@@ -96,7 +93,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._create_territory_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -123,7 +119,6 @@ class TerritoryApi:
     @validate_call
     def create_territory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the territory")],
         active: Annotated[Optional[StrictBool], Field(description="If true set the game level as active. Default is true.")] = None,
@@ -144,8 +139,6 @@ class TerritoryApi:
 
         Creates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the territory (required)
@@ -175,7 +168,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._create_territory_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -202,7 +194,6 @@ class TerritoryApi:
     @validate_call
     def create_territory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the territory")],
         active: Annotated[Optional[StrictBool], Field(description="If true set the game level as active. Default is true.")] = None,
@@ -223,8 +214,6 @@ class TerritoryApi:
 
         Creates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the territory (required)
@@ -254,7 +243,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._create_territory_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -276,7 +264,6 @@ class TerritoryApi:
 
     def _create_territory_serialize(
         self,
-        version,
         account_id,
         name,
         active,
@@ -301,8 +288,6 @@ class TerritoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -336,7 +321,7 @@ class TerritoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/territory/create',
+            resource_path='/territory/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -355,7 +340,6 @@ class TerritoryApi:
     @validate_call
     def delete_territory(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to delete")],
         _request_timeout: Union[
@@ -375,8 +359,6 @@ class TerritoryApi:
 
         Deletes a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param territory_id: the id of the territory to delete (required)
@@ -404,7 +386,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._delete_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             _request_auth=_request_auth,
@@ -430,7 +411,6 @@ class TerritoryApi:
     @validate_call
     def delete_territory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to delete")],
         _request_timeout: Union[
@@ -450,8 +430,6 @@ class TerritoryApi:
 
         Deletes a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param territory_id: the id of the territory to delete (required)
@@ -479,7 +457,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._delete_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             _request_auth=_request_auth,
@@ -505,7 +482,6 @@ class TerritoryApi:
     @validate_call
     def delete_territory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to delete")],
         _request_timeout: Union[
@@ -525,8 +501,6 @@ class TerritoryApi:
 
         Deletes a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param territory_id: the id of the territory to delete (required)
@@ -554,7 +528,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._delete_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             _request_auth=_request_auth,
@@ -575,7 +548,6 @@ class TerritoryApi:
 
     def _delete_territory_serialize(
         self,
-        version,
         account_id,
         territory_id,
         _request_auth,
@@ -599,8 +571,6 @@ class TerritoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -630,7 +600,7 @@ class TerritoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/territory/delete',
+            resource_path='/territory/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -649,7 +619,6 @@ class TerritoryApi:
     @validate_call
     def get_territory(
         self,
-        version: Union[StrictFloat, StrictInt],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to get")],
         _request_timeout: Union[
             None,
@@ -668,8 +637,6 @@ class TerritoryApi:
 
         Get a territory.
 
-        :param version: (required)
-        :type version: float
         :param territory_id: the id of the territory to get (required)
         :type territory_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -695,7 +662,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._get_territory_serialize(
-            version=version,
             territory_id=territory_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -720,7 +686,6 @@ class TerritoryApi:
     @validate_call
     def get_territory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to get")],
         _request_timeout: Union[
             None,
@@ -739,8 +704,6 @@ class TerritoryApi:
 
         Get a territory.
 
-        :param version: (required)
-        :type version: float
         :param territory_id: the id of the territory to get (required)
         :type territory_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -766,7 +729,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._get_territory_serialize(
-            version=version,
             territory_id=territory_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -791,7 +753,6 @@ class TerritoryApi:
     @validate_call
     def get_territory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to get")],
         _request_timeout: Union[
             None,
@@ -810,8 +771,6 @@ class TerritoryApi:
 
         Get a territory.
 
-        :param version: (required)
-        :type version: float
         :param territory_id: the id of the territory to get (required)
         :type territory_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -837,7 +796,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._get_territory_serialize(
-            version=version,
             territory_id=territory_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -857,7 +815,6 @@ class TerritoryApi:
 
     def _get_territory_serialize(
         self,
-        version,
         territory_id,
         _request_auth,
         _content_type,
@@ -880,8 +837,6 @@ class TerritoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if territory_id is not None:
             
@@ -907,7 +862,7 @@ class TerritoryApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/territory/get',
+            resource_path='/territory/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -926,7 +881,6 @@ class TerritoryApi:
     @validate_call
     def search_territories(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         keyword: Annotated[Optional[StrictStr], Field(description="Return results that match this keyword.")] = None,
@@ -949,8 +903,6 @@ class TerritoryApi:
 
         Searches on territories.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -984,7 +936,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._search_territories_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             keyword=keyword,
@@ -1013,7 +964,6 @@ class TerritoryApi:
     @validate_call
     def search_territories_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         keyword: Annotated[Optional[StrictStr], Field(description="Return results that match this keyword.")] = None,
@@ -1036,8 +986,6 @@ class TerritoryApi:
 
         Searches on territories.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -1071,7 +1019,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._search_territories_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             keyword=keyword,
@@ -1100,7 +1047,6 @@ class TerritoryApi:
     @validate_call
     def search_territories_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         keyword: Annotated[Optional[StrictStr], Field(description="Return results that match this keyword.")] = None,
@@ -1123,8 +1069,6 @@ class TerritoryApi:
 
         Searches on territories.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. Supported values include: ID, CREATED, UPDATED, NAME (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -1158,7 +1102,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._search_territories_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             keyword=keyword,
@@ -1182,7 +1125,6 @@ class TerritoryApi:
 
     def _search_territories_serialize(
         self,
-        version,
         sort_field,
         descending,
         keyword,
@@ -1209,8 +1151,6 @@ class TerritoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if keyword is not None:
             
@@ -1252,7 +1192,7 @@ class TerritoryApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/territory/search',
+            resource_path='/territory/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1271,7 +1211,6 @@ class TerritoryApi:
     @validate_call
     def update_territory(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to update")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the territory")] = None,
@@ -1293,8 +1232,6 @@ class TerritoryApi:
 
         Updates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param territory_id: the id of the territory to update (required)
@@ -1326,7 +1263,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._update_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             name=name,
@@ -1354,7 +1290,6 @@ class TerritoryApi:
     @validate_call
     def update_territory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to update")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the territory")] = None,
@@ -1376,8 +1311,6 @@ class TerritoryApi:
 
         Updates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param territory_id: the id of the territory to update (required)
@@ -1409,7 +1342,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._update_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             name=name,
@@ -1437,7 +1369,6 @@ class TerritoryApi:
     @validate_call
     def update_territory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         territory_id: Annotated[StrictInt, Field(description="the id of the territory to update")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the territory")] = None,
@@ -1459,8 +1390,6 @@ class TerritoryApi:
 
         Updates a territory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param territory_id: the id of the territory to update (required)
@@ -1492,7 +1421,6 @@ class TerritoryApi:
         """ # noqa: E501
 
         _param = self._update_territory_serialize(
-            version=version,
             account_id=account_id,
             territory_id=territory_id,
             name=name,
@@ -1515,7 +1443,6 @@ class TerritoryApi:
 
     def _update_territory_serialize(
         self,
-        version,
         account_id,
         territory_id,
         name,
@@ -1541,8 +1468,6 @@ class TerritoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1580,7 +1505,7 @@ class TerritoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/territory/update',
+            resource_path='/territory/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

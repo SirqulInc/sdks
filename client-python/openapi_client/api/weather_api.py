@@ -43,7 +43,6 @@ class WeatherApi:
     @validate_call
     def search_weather(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[Optional[StrictInt], Field(description="Region Id")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Longitude")] = None,
@@ -65,8 +64,6 @@ class WeatherApi:
 
         Search the weather forcast for the next 5 days
 
-        :param version: (required)
-        :type version: float
         :param region_id: Region Id
         :type region_id: int
         :param latitude: Latitude
@@ -98,7 +95,6 @@ class WeatherApi:
         """ # noqa: E501
 
         _param = self._search_weather_serialize(
-            version=version,
             region_id=region_id,
             latitude=latitude,
             longitude=longitude,
@@ -126,7 +122,6 @@ class WeatherApi:
     @validate_call
     def search_weather_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[Optional[StrictInt], Field(description="Region Id")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Longitude")] = None,
@@ -148,8 +143,6 @@ class WeatherApi:
 
         Search the weather forcast for the next 5 days
 
-        :param version: (required)
-        :type version: float
         :param region_id: Region Id
         :type region_id: int
         :param latitude: Latitude
@@ -181,7 +174,6 @@ class WeatherApi:
         """ # noqa: E501
 
         _param = self._search_weather_serialize(
-            version=version,
             region_id=region_id,
             latitude=latitude,
             longitude=longitude,
@@ -209,7 +201,6 @@ class WeatherApi:
     @validate_call
     def search_weather_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[Optional[StrictInt], Field(description="Region Id")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Latitude")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Longitude")] = None,
@@ -231,8 +222,6 @@ class WeatherApi:
 
         Search the weather forcast for the next 5 days
 
-        :param version: (required)
-        :type version: float
         :param region_id: Region Id
         :type region_id: int
         :param latitude: Latitude
@@ -264,7 +253,6 @@ class WeatherApi:
         """ # noqa: E501
 
         _param = self._search_weather_serialize(
-            version=version,
             region_id=region_id,
             latitude=latitude,
             longitude=longitude,
@@ -287,7 +275,6 @@ class WeatherApi:
 
     def _search_weather_serialize(
         self,
-        version,
         region_id,
         latitude,
         longitude,
@@ -313,8 +300,6 @@ class WeatherApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if region_id is not None:
             
@@ -352,7 +337,7 @@ class WeatherApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/weather/search',
+            resource_path='/weather/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

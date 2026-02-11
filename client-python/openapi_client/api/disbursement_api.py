@@ -43,7 +43,6 @@ class DisbursementApi:
     @validate_call
     def check_disbursements(
         self,
-        version: Union[StrictFloat, StrictInt],
         disbursement_id: Annotated[StrictInt, Field(description="the ID of the disbursement being checked on")],
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class DisbursementApi:
 
         Checks the status of a captured disbrusement to see if it has been settled.
 
-        :param version: (required)
-        :type version: float
         :param disbursement_id: the ID of the disbursement being checked on (required)
         :type disbursement_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._check_disbursements_serialize(
-            version=version,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class DisbursementApi:
     @validate_call
     def check_disbursements_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         disbursement_id: Annotated[StrictInt, Field(description="the ID of the disbursement being checked on")],
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class DisbursementApi:
 
         Checks the status of a captured disbrusement to see if it has been settled.
 
-        :param version: (required)
-        :type version: float
         :param disbursement_id: the ID of the disbursement being checked on (required)
         :type disbursement_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._check_disbursements_serialize(
-            version=version,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class DisbursementApi:
     @validate_call
     def check_disbursements_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         disbursement_id: Annotated[StrictInt, Field(description="the ID of the disbursement being checked on")],
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class DisbursementApi:
 
         Checks the status of a captured disbrusement to see if it has been settled.
 
-        :param version: (required)
-        :type version: float
         :param disbursement_id: the ID of the disbursement being checked on (required)
         :type disbursement_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._check_disbursements_serialize(
-            version=version,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class DisbursementApi:
 
     def _check_disbursements_serialize(
         self,
-        version,
         disbursement_id,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class DisbursementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if disbursement_id is not None:
             
@@ -301,7 +286,7 @@ class DisbursementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/disbursement/check',
+            resource_path='/disbursement/check',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -320,7 +305,6 @@ class DisbursementApi:
     @validate_call
     def create_disbursement(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logging in user (must be an EXECUTIVE account)")],
         receiver_account_id: Annotated[StrictInt, Field(description="the ID of the account receiving the disbursement")],
         original_sender_account_id: Annotated[StrictInt, Field(description="the ID of the original sender account")],
@@ -348,8 +332,6 @@ class DisbursementApi:
 
         Creates a Disbursement for sending money to a retailer
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logging in user (must be an EXECUTIVE account) (required)
         :type account_id: int
         :param receiver_account_id: the ID of the account receiving the disbursement (required)
@@ -393,7 +375,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._create_disbursement_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             original_sender_account_id=original_sender_account_id,
@@ -427,7 +408,6 @@ class DisbursementApi:
     @validate_call
     def create_disbursement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logging in user (must be an EXECUTIVE account)")],
         receiver_account_id: Annotated[StrictInt, Field(description="the ID of the account receiving the disbursement")],
         original_sender_account_id: Annotated[StrictInt, Field(description="the ID of the original sender account")],
@@ -455,8 +435,6 @@ class DisbursementApi:
 
         Creates a Disbursement for sending money to a retailer
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logging in user (must be an EXECUTIVE account) (required)
         :type account_id: int
         :param receiver_account_id: the ID of the account receiving the disbursement (required)
@@ -500,7 +478,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._create_disbursement_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             original_sender_account_id=original_sender_account_id,
@@ -534,7 +511,6 @@ class DisbursementApi:
     @validate_call
     def create_disbursement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logging in user (must be an EXECUTIVE account)")],
         receiver_account_id: Annotated[StrictInt, Field(description="the ID of the account receiving the disbursement")],
         original_sender_account_id: Annotated[StrictInt, Field(description="the ID of the original sender account")],
@@ -562,8 +538,6 @@ class DisbursementApi:
 
         Creates a Disbursement for sending money to a retailer
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logging in user (must be an EXECUTIVE account) (required)
         :type account_id: int
         :param receiver_account_id: the ID of the account receiving the disbursement (required)
@@ -607,7 +581,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._create_disbursement_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             original_sender_account_id=original_sender_account_id,
@@ -636,7 +609,6 @@ class DisbursementApi:
 
     def _create_disbursement_serialize(
         self,
-        version,
         account_id,
         receiver_account_id,
         original_sender_account_id,
@@ -668,8 +640,6 @@ class DisbursementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -731,7 +701,7 @@ class DisbursementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/disbursement/create',
+            resource_path='/disbursement/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -750,7 +720,6 @@ class DisbursementApi:
     @validate_call
     def get_disbursement(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement")],
         _request_timeout: Union[
@@ -770,8 +739,6 @@ class DisbursementApi:
 
         Get Disbursement details
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement (required)
@@ -799,7 +766,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._get_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
@@ -825,7 +791,6 @@ class DisbursementApi:
     @validate_call
     def get_disbursement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement")],
         _request_timeout: Union[
@@ -845,8 +810,6 @@ class DisbursementApi:
 
         Get Disbursement details
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement (required)
@@ -874,7 +837,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._get_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
@@ -900,7 +862,6 @@ class DisbursementApi:
     @validate_call
     def get_disbursement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement")],
         _request_timeout: Union[
@@ -920,8 +881,6 @@ class DisbursementApi:
 
         Get Disbursement details
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement (required)
@@ -949,7 +908,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._get_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             _request_auth=_request_auth,
@@ -970,7 +928,6 @@ class DisbursementApi:
 
     def _get_disbursement_serialize(
         self,
-        version,
         account_id,
         disbursement_id,
         _request_auth,
@@ -994,8 +951,6 @@ class DisbursementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1025,7 +980,7 @@ class DisbursementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/disbursement/get',
+            resource_path='/disbursement/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1044,7 +999,6 @@ class DisbursementApi:
     @validate_call
     def search_disbursements(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         receiver_account_id: Annotated[Optional[StrictInt], Field(description="filter results by the id of the account receiving the disbursement")] = None,
         statuses: Annotated[Optional[StrictStr], Field(description="comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED")] = None,
@@ -1072,8 +1026,6 @@ class DisbursementApi:
 
         Search Disbursements
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param receiver_account_id: filter results by the id of the account receiving the disbursement
@@ -1117,7 +1069,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._search_disbursements_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             statuses=statuses,
@@ -1151,7 +1102,6 @@ class DisbursementApi:
     @validate_call
     def search_disbursements_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         receiver_account_id: Annotated[Optional[StrictInt], Field(description="filter results by the id of the account receiving the disbursement")] = None,
         statuses: Annotated[Optional[StrictStr], Field(description="comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED")] = None,
@@ -1179,8 +1129,6 @@ class DisbursementApi:
 
         Search Disbursements
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param receiver_account_id: filter results by the id of the account receiving the disbursement
@@ -1224,7 +1172,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._search_disbursements_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             statuses=statuses,
@@ -1258,7 +1205,6 @@ class DisbursementApi:
     @validate_call
     def search_disbursements_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         receiver_account_id: Annotated[Optional[StrictInt], Field(description="filter results by the id of the account receiving the disbursement")] = None,
         statuses: Annotated[Optional[StrictStr], Field(description="comma separated list of status values to search for, possilbe values include: NEW, APPROVED, VALIDATING, ERROR, AUTHORIZED, CAPTURED, SETTLED")] = None,
@@ -1286,8 +1232,6 @@ class DisbursementApi:
 
         Search Disbursements
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param receiver_account_id: filter results by the id of the account receiving the disbursement
@@ -1331,7 +1275,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._search_disbursements_serialize(
-            version=version,
             account_id=account_id,
             receiver_account_id=receiver_account_id,
             statuses=statuses,
@@ -1360,7 +1303,6 @@ class DisbursementApi:
 
     def _search_disbursements_serialize(
         self,
-        version,
         account_id,
         receiver_account_id,
         statuses,
@@ -1392,8 +1334,6 @@ class DisbursementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1455,7 +1395,7 @@ class DisbursementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/disbursement/search',
+            resource_path='/disbursement/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1474,7 +1414,6 @@ class DisbursementApi:
     @validate_call
     def update_disbursement(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement being updated")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the disbursement dollar amount being updated")] = None,
@@ -1502,8 +1441,6 @@ class DisbursementApi:
 
         Update Disbursement
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement being updated (required)
@@ -1547,7 +1484,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._update_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             amount=amount,
@@ -1581,7 +1517,6 @@ class DisbursementApi:
     @validate_call
     def update_disbursement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement being updated")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the disbursement dollar amount being updated")] = None,
@@ -1609,8 +1544,6 @@ class DisbursementApi:
 
         Update Disbursement
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement being updated (required)
@@ -1654,7 +1587,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._update_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             amount=amount,
@@ -1688,7 +1620,6 @@ class DisbursementApi:
     @validate_call
     def update_disbursement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         disbursement_id: Annotated[StrictInt, Field(description="the id of the disbursement being updated")],
         amount: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the disbursement dollar amount being updated")] = None,
@@ -1716,8 +1647,6 @@ class DisbursementApi:
 
         Update Disbursement
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param disbursement_id: the id of the disbursement being updated (required)
@@ -1761,7 +1690,6 @@ class DisbursementApi:
         """ # noqa: E501
 
         _param = self._update_disbursement_serialize(
-            version=version,
             account_id=account_id,
             disbursement_id=disbursement_id,
             amount=amount,
@@ -1790,7 +1718,6 @@ class DisbursementApi:
 
     def _update_disbursement_serialize(
         self,
-        version,
         account_id,
         disbursement_id,
         amount,
@@ -1822,8 +1749,6 @@ class DisbursementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1885,7 +1810,7 @@ class DisbursementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/disbursement/update',
+            resource_path='/disbursement/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

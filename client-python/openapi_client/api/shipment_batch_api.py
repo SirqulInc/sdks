@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.shipment_batch import ShipmentBatch
 from openapi_client.models.shipment_import_status import ShipmentImportStatus
@@ -44,7 +44,6 @@ class ShipmentBatchApi:
     @validate_call
     def create_shipment_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[ShipmentBatch] = None,
         _request_timeout: Union[
             None,
@@ -63,8 +62,6 @@ class ShipmentBatchApi:
 
         Create a new shipment batch
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: ShipmentBatch
         :param _request_timeout: timeout setting for this request. If one
@@ -90,7 +87,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._create_shipment_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +111,6 @@ class ShipmentBatchApi:
     @validate_call
     def create_shipment_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[ShipmentBatch] = None,
         _request_timeout: Union[
             None,
@@ -134,8 +129,6 @@ class ShipmentBatchApi:
 
         Create a new shipment batch
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: ShipmentBatch
         :param _request_timeout: timeout setting for this request. If one
@@ -161,7 +154,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._create_shipment_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -186,7 +178,6 @@ class ShipmentBatchApi:
     @validate_call
     def create_shipment_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[ShipmentBatch] = None,
         _request_timeout: Union[
             None,
@@ -205,8 +196,6 @@ class ShipmentBatchApi:
 
         Create a new shipment batch
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: ShipmentBatch
         :param _request_timeout: timeout setting for this request. If one
@@ -232,7 +221,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._create_shipment_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -252,7 +240,6 @@ class ShipmentBatchApi:
 
     def _create_shipment_batch_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -275,8 +262,6 @@ class ShipmentBatchApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -300,7 +285,7 @@ class ShipmentBatchApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/shipment/batch',
+            resource_path='/shipment/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -319,7 +304,6 @@ class ShipmentBatchApi:
     @validate_call
     def delete_shipment_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to delete")],
         _request_timeout: Union[
             None,
@@ -338,8 +322,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to delete (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -365,7 +347,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -389,7 +370,6 @@ class ShipmentBatchApi:
     @validate_call
     def delete_shipment_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to delete")],
         _request_timeout: Union[
             None,
@@ -408,8 +388,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to delete (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -435,7 +413,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -459,7 +436,6 @@ class ShipmentBatchApi:
     @validate_call
     def delete_shipment_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to delete")],
         _request_timeout: Union[
             None,
@@ -478,8 +454,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to delete (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -505,7 +479,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -524,7 +497,6 @@ class ShipmentBatchApi:
 
     def _delete_shipment_batch_serialize(
         self,
-        version,
         batch_id,
         _request_auth,
         _content_type,
@@ -547,8 +519,6 @@ class ShipmentBatchApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if batch_id is not None:
             _path_params['batchId'] = batch_id
         # process the query parameters
@@ -565,7 +535,7 @@ class ShipmentBatchApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/shipment/batch/{batchId}',
+            resource_path='/shipment/batch/{batchId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -584,7 +554,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to get")],
         _request_timeout: Union[
             None,
@@ -603,8 +572,6 @@ class ShipmentBatchApi:
 
         Get an existing shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to get (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -630,7 +597,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -655,7 +621,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to get")],
         _request_timeout: Union[
             None,
@@ -674,8 +639,6 @@ class ShipmentBatchApi:
 
         Get an existing shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to get (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -701,7 +664,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -726,7 +688,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="the id of the shipment batch to get")],
         _request_timeout: Union[
             None,
@@ -745,8 +706,6 @@ class ShipmentBatchApi:
 
         Get an existing shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: the id of the shipment batch to get (required)
         :type batch_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -772,7 +731,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_serialize(
-            version=version,
             batch_id=batch_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -792,7 +750,6 @@ class ShipmentBatchApi:
 
     def _get_shipment_batch_serialize(
         self,
-        version,
         batch_id,
         _request_auth,
         _content_type,
@@ -815,8 +772,6 @@ class ShipmentBatchApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if batch_id is not None:
             _path_params['batchId'] = batch_id
         # process the query parameters
@@ -840,7 +795,7 @@ class ShipmentBatchApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/shipment/batch/{batchId}',
+            resource_path='/shipment/batch/{batchId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -859,7 +814,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="The id of the requested shipment batch")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
@@ -889,8 +843,6 @@ class ShipmentBatchApi:
 
         Get the import status list of the import shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The id of the requested shipment batch (required)
         :type batch_id: int
         :param account_id: the id of the logged in user (required)
@@ -938,7 +890,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_status_serialize(
-            version=version,
             batch_id=batch_id,
             account_id=account_id,
             sort_field=sort_field,
@@ -974,7 +925,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="The id of the requested shipment batch")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
@@ -1004,8 +954,6 @@ class ShipmentBatchApi:
 
         Get the import status list of the import shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The id of the requested shipment batch (required)
         :type batch_id: int
         :param account_id: the id of the logged in user (required)
@@ -1053,7 +1001,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_status_serialize(
-            version=version,
             batch_id=batch_id,
             account_id=account_id,
             sort_field=sort_field,
@@ -1089,7 +1036,6 @@ class ShipmentBatchApi:
     @validate_call
     def get_shipment_batch_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictInt, Field(description="The id of the requested shipment batch")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
@@ -1119,8 +1065,6 @@ class ShipmentBatchApi:
 
         Get the import status list of the import shipment batch
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The id of the requested shipment batch (required)
         :type batch_id: int
         :param account_id: the id of the logged in user (required)
@@ -1168,7 +1112,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._get_shipment_batch_status_serialize(
-            version=version,
             batch_id=batch_id,
             account_id=account_id,
             sort_field=sort_field,
@@ -1199,7 +1142,6 @@ class ShipmentBatchApi:
 
     def _get_shipment_batch_status_serialize(
         self,
-        version,
         batch_id,
         account_id,
         sort_field,
@@ -1233,8 +1175,6 @@ class ShipmentBatchApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if batch_id is not None:
             _path_params['batchId'] = batch_id
         # process the query parameters
@@ -1302,7 +1242,7 @@ class ShipmentBatchApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/shipment/batch/{batchId}/status',
+            resource_path='/shipment/batch/{batchId}/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1321,7 +1261,6 @@ class ShipmentBatchApi:
     @validate_call
     def search_shipment_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="The associated service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1344,8 +1283,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param hub_id: The associated service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -1379,7 +1316,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._search_shipment_batch_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -1408,7 +1344,6 @@ class ShipmentBatchApi:
     @validate_call
     def search_shipment_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="The associated service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1431,8 +1366,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param hub_id: The associated service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -1466,7 +1399,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._search_shipment_batch_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -1495,7 +1427,6 @@ class ShipmentBatchApi:
     @validate_call
     def search_shipment_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="The associated service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1518,8 +1449,6 @@ class ShipmentBatchApi:
 
         Search for shipment batches
 
-        :param version: (required)
-        :type version: float
         :param hub_id: The associated service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -1553,7 +1482,6 @@ class ShipmentBatchApi:
         """ # noqa: E501
 
         _param = self._search_shipment_batch_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -1577,7 +1505,6 @@ class ShipmentBatchApi:
 
     def _search_shipment_batch_serialize(
         self,
-        version,
         hub_id,
         sort_field,
         descending,
@@ -1604,8 +1531,6 @@ class ShipmentBatchApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if hub_id is not None:
             
@@ -1647,7 +1572,7 @@ class ShipmentBatchApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/shipment/batch',
+            resource_path='/shipment/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

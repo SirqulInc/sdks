@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.region_leg_summary import RegionLegSummary
 from openapi_client.models.report_batch_response import ReportBatchResponse
@@ -47,7 +47,6 @@ class ReportingApi:
     @validate_call
     def create_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user for passing account related params")],
         status: Annotated[StrictStr, Field(description="the status of the report")],
         preview_limit: Annotated[StrictInt, Field(description="the limit on how much you can preview of the batch report")],
@@ -76,8 +75,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user for passing account related params (required)
         :type account_id: int
         :param status: the status of the report (required)
@@ -123,7 +120,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_batch_serialize(
-            version=version,
             account_id=account_id,
             status=status,
             preview_limit=preview_limit,
@@ -158,7 +154,6 @@ class ReportingApi:
     @validate_call
     def create_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user for passing account related params")],
         status: Annotated[StrictStr, Field(description="the status of the report")],
         preview_limit: Annotated[StrictInt, Field(description="the limit on how much you can preview of the batch report")],
@@ -187,8 +182,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user for passing account related params (required)
         :type account_id: int
         :param status: the status of the report (required)
@@ -234,7 +227,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_batch_serialize(
-            version=version,
             account_id=account_id,
             status=status,
             preview_limit=preview_limit,
@@ -269,7 +261,6 @@ class ReportingApi:
     @validate_call
     def create_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user for passing account related params")],
         status: Annotated[StrictStr, Field(description="the status of the report")],
         preview_limit: Annotated[StrictInt, Field(description="the limit on how much you can preview of the batch report")],
@@ -298,8 +289,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user for passing account related params (required)
         :type account_id: int
         :param status: the status of the report (required)
@@ -345,7 +334,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_batch_serialize(
-            version=version,
             account_id=account_id,
             status=status,
             preview_limit=preview_limit,
@@ -375,7 +363,6 @@ class ReportingApi:
 
     def _create_batch_serialize(
         self,
-        version,
         account_id,
         status,
         preview_limit,
@@ -408,8 +395,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -475,7 +460,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/report/batch/create',
+            resource_path='/report/batch/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -494,7 +479,6 @@ class ReportingApi:
     @validate_call
     def create_region_leg_summary_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[List[RegionLegSummary]] = None,
         _request_timeout: Union[
             None,
@@ -513,8 +497,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: List[RegionLegSummary]
         :param _request_timeout: timeout setting for this request. If one
@@ -540,7 +522,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_region_leg_summary_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -565,7 +546,6 @@ class ReportingApi:
     @validate_call
     def create_region_leg_summary_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[List[RegionLegSummary]] = None,
         _request_timeout: Union[
             None,
@@ -584,8 +564,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: List[RegionLegSummary]
         :param _request_timeout: timeout setting for this request. If one
@@ -611,7 +589,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_region_leg_summary_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -636,7 +613,6 @@ class ReportingApi:
     @validate_call
     def create_region_leg_summary_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[List[RegionLegSummary]] = None,
         _request_timeout: Union[
             None,
@@ -655,8 +631,6 @@ class ReportingApi:
 
         Create an entry for the batch for offline report
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: List[RegionLegSummary]
         :param _request_timeout: timeout setting for this request. If one
@@ -682,7 +656,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._create_region_leg_summary_batch_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -702,7 +675,6 @@ class ReportingApi:
 
     def _create_region_leg_summary_batch_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -726,8 +698,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -751,7 +721,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/report/region/summary/batch',
+            resource_path='/report/region/summary/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -770,7 +740,6 @@ class ReportingApi:
     @validate_call
     def delete_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to delete")],
         _request_timeout: Union[
@@ -790,8 +759,6 @@ class ReportingApi:
 
         Deletes a batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to delete (required)
@@ -819,7 +786,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._delete_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -845,7 +811,6 @@ class ReportingApi:
     @validate_call
     def delete_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to delete")],
         _request_timeout: Union[
@@ -865,8 +830,6 @@ class ReportingApi:
 
         Deletes a batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to delete (required)
@@ -894,7 +857,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._delete_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -920,7 +882,6 @@ class ReportingApi:
     @validate_call
     def delete_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to delete")],
         _request_timeout: Union[
@@ -940,8 +901,6 @@ class ReportingApi:
 
         Deletes a batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to delete (required)
@@ -969,7 +928,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._delete_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -990,7 +948,6 @@ class ReportingApi:
 
     def _delete_batch_serialize(
         self,
-        version,
         account_id,
         batch_id,
         _request_auth,
@@ -1014,8 +971,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1045,7 +1000,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/report/batch/delete',
+            resource_path='/report/batch/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1064,7 +1019,6 @@ class ReportingApi:
     @validate_call
     def get_report_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="returned by /report/batch/create")],
         all_results: Annotated[StrictBool, Field(description="whether to return all batch results or not")],
@@ -1085,8 +1039,6 @@ class ReportingApi:
 
         Checks status of batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: returned by /report/batch/create (required)
@@ -1116,7 +1068,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._get_report_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             all_results=all_results,
@@ -1143,7 +1094,6 @@ class ReportingApi:
     @validate_call
     def get_report_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="returned by /report/batch/create")],
         all_results: Annotated[StrictBool, Field(description="whether to return all batch results or not")],
@@ -1164,8 +1114,6 @@ class ReportingApi:
 
         Checks status of batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: returned by /report/batch/create (required)
@@ -1195,7 +1143,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._get_report_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             all_results=all_results,
@@ -1222,7 +1169,6 @@ class ReportingApi:
     @validate_call
     def get_report_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="returned by /report/batch/create")],
         all_results: Annotated[StrictBool, Field(description="whether to return all batch results or not")],
@@ -1243,8 +1189,6 @@ class ReportingApi:
 
         Checks status of batch report.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: returned by /report/batch/create (required)
@@ -1274,7 +1218,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._get_report_batch_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             all_results=all_results,
@@ -1296,7 +1239,6 @@ class ReportingApi:
 
     def _get_report_batch_serialize(
         self,
-        version,
         account_id,
         batch_id,
         all_results,
@@ -1321,8 +1263,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1356,7 +1296,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/report/batch/get',
+            resource_path='/report/batch/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1375,7 +1315,6 @@ class ReportingApi:
     @validate_call
     def run_report(
         self,
-        version: Union[StrictFloat, StrictInt],
         desc: Annotated[StrictBool, Field(description="If true then descending order, false is ascending")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user for passing account related params")] = None,
         query: Annotated[Optional[StrictStr], Field(description="The named identifier of the query")] = None,
@@ -1401,8 +1340,6 @@ class ReportingApi:
 
          This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 
-        :param version: (required)
-        :type version: float
         :param desc: If true then descending order, false is ascending (required)
         :type desc: bool
         :param account_id: The account id of the user for passing account related params
@@ -1442,7 +1379,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._run_report_serialize(
-            version=version,
             desc=desc,
             account_id=account_id,
             query=query,
@@ -1474,7 +1410,6 @@ class ReportingApi:
     @validate_call
     def run_report_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         desc: Annotated[StrictBool, Field(description="If true then descending order, false is ascending")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user for passing account related params")] = None,
         query: Annotated[Optional[StrictStr], Field(description="The named identifier of the query")] = None,
@@ -1500,8 +1435,6 @@ class ReportingApi:
 
          This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 
-        :param version: (required)
-        :type version: float
         :param desc: If true then descending order, false is ascending (required)
         :type desc: bool
         :param account_id: The account id of the user for passing account related params
@@ -1541,7 +1474,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._run_report_serialize(
-            version=version,
             desc=desc,
             account_id=account_id,
             query=query,
@@ -1573,7 +1505,6 @@ class ReportingApi:
     @validate_call
     def run_report_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         desc: Annotated[StrictBool, Field(description="If true then descending order, false is ascending")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user for passing account related params")] = None,
         query: Annotated[Optional[StrictStr], Field(description="The named identifier of the query")] = None,
@@ -1599,8 +1530,6 @@ class ReportingApi:
 
          This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
 
-        :param version: (required)
-        :type version: float
         :param desc: If true then descending order, false is ascending (required)
         :type desc: bool
         :param account_id: The account id of the user for passing account related params
@@ -1640,7 +1569,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._run_report_serialize(
-            version=version,
             desc=desc,
             account_id=account_id,
             query=query,
@@ -1667,7 +1595,6 @@ class ReportingApi:
 
     def _run_report_serialize(
         self,
-        version,
         desc,
         account_id,
         query,
@@ -1697,8 +1624,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1752,7 +1677,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/report/run',
+            resource_path='/report/run',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1771,7 +1696,6 @@ class ReportingApi:
     @validate_call
     def search_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         start: Annotated[StrictInt, Field(description="the start of the index and/or pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the index and/or pagination")],
@@ -1798,8 +1722,6 @@ class ReportingApi:
 
         Retrieves batches for a user..
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param start: the start of the index and/or pagination (required)
@@ -1841,7 +1763,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._search_batch_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -1874,7 +1795,6 @@ class ReportingApi:
     @validate_call
     def search_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         start: Annotated[StrictInt, Field(description="the start of the index and/or pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the index and/or pagination")],
@@ -1901,8 +1821,6 @@ class ReportingApi:
 
         Retrieves batches for a user..
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param start: the start of the index and/or pagination (required)
@@ -1944,7 +1862,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._search_batch_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -1977,7 +1894,6 @@ class ReportingApi:
     @validate_call
     def search_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         start: Annotated[StrictInt, Field(description="the start of the index and/or pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the index and/or pagination")],
@@ -2004,8 +1920,6 @@ class ReportingApi:
 
         Retrieves batches for a user..
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param start: the start of the index and/or pagination (required)
@@ -2047,7 +1961,6 @@ class ReportingApi:
         """ # noqa: E501
 
         _param = self._search_batch_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -2075,7 +1988,6 @@ class ReportingApi:
 
     def _search_batch_serialize(
         self,
-        version,
         account_id,
         start,
         limit,
@@ -2106,8 +2018,6 @@ class ReportingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2165,7 +2075,7 @@ class ReportingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/report/batch/search',
+            resource_path='/report/batch/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

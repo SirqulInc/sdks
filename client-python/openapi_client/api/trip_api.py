@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.trip import Trip
 
@@ -43,7 +43,6 @@ class TripApi:
     @validate_call
     def create_trip(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Trip] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class TripApi:
 
         Create a new trip
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Trip
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._create_trip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class TripApi:
     @validate_call
     def create_trip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Trip] = None,
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class TripApi:
 
         Create a new trip
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Trip
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._create_trip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class TripApi:
     @validate_call
     def create_trip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Trip] = None,
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class TripApi:
 
         Create a new trip
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Trip
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._create_trip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class TripApi:
 
     def _create_trip_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -299,7 +284,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip',
+            resource_path='/trip',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -318,7 +303,6 @@ class TripApi:
     @validate_call
     def delete(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to delete")],
         _request_timeout: Union[
             None,
@@ -337,8 +321,6 @@ class TripApi:
 
         Delete an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -364,7 +346,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._delete_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -388,7 +369,6 @@ class TripApi:
     @validate_call
     def delete_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to delete")],
         _request_timeout: Union[
             None,
@@ -407,8 +387,6 @@ class TripApi:
 
         Delete an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -434,7 +412,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._delete_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -458,7 +435,6 @@ class TripApi:
     @validate_call
     def delete_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to delete")],
         _request_timeout: Union[
             None,
@@ -477,8 +453,6 @@ class TripApi:
 
         Delete an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -504,7 +478,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._delete_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -523,7 +496,6 @@ class TripApi:
 
     def _delete_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -546,8 +518,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -564,7 +534,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/trip/{id}',
+            resource_path='/trip/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -583,7 +553,6 @@ class TripApi:
     @validate_call
     def drive_trip(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -603,8 +572,6 @@ class TripApi:
 
         Update trip preference to drive, also create a route and assign the trip to the route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -632,7 +599,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._drive_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -658,7 +624,6 @@ class TripApi:
     @validate_call
     def drive_trip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -678,8 +643,6 @@ class TripApi:
 
         Update trip preference to drive, also create a route and assign the trip to the route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -707,7 +670,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._drive_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -733,7 +695,6 @@ class TripApi:
     @validate_call
     def drive_trip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -753,8 +714,6 @@ class TripApi:
 
         Update trip preference to drive, also create a route and assign the trip to the route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -782,7 +741,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._drive_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -803,7 +761,6 @@ class TripApi:
 
     def _drive_trip_serialize(
         self,
-        version,
         id,
         recurrence,
         _request_auth,
@@ -827,8 +784,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -856,7 +811,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/drive',
+            resource_path='/trip/{id}/drive',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -875,7 +830,6 @@ class TripApi:
     @validate_call
     def flexible_trip(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -895,8 +849,6 @@ class TripApi:
 
         Update trip preference to flexible.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -924,7 +876,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._flexible_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -950,7 +901,6 @@ class TripApi:
     @validate_call
     def flexible_trip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -970,8 +920,6 @@ class TripApi:
 
         Update trip preference to flexible.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -999,7 +947,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._flexible_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -1025,7 +972,6 @@ class TripApi:
     @validate_call
     def flexible_trip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -1045,8 +991,6 @@ class TripApi:
 
         Update trip preference to flexible.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -1074,7 +1018,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._flexible_trip_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -1095,7 +1038,6 @@ class TripApi:
 
     def _flexible_trip_serialize(
         self,
-        version,
         id,
         recurrence,
         _request_auth,
@@ -1119,8 +1061,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1148,7 +1088,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/flexible',
+            resource_path='/trip/{id}/flexible',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1167,7 +1107,6 @@ class TripApi:
     @validate_call
     def get_trip(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to get")],
         _request_timeout: Union[
             None,
@@ -1186,8 +1125,6 @@ class TripApi:
 
         Get an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1213,7 +1150,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1238,7 +1174,6 @@ class TripApi:
     @validate_call
     def get_trip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to get")],
         _request_timeout: Union[
             None,
@@ -1257,8 +1192,6 @@ class TripApi:
 
         Get an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1284,7 +1217,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1309,7 +1241,6 @@ class TripApi:
     @validate_call
     def get_trip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to get")],
         _request_timeout: Union[
             None,
@@ -1328,8 +1259,6 @@ class TripApi:
 
         Get an existing trip
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1355,7 +1284,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1375,7 +1303,6 @@ class TripApi:
 
     def _get_trip_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -1398,8 +1325,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1423,7 +1348,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trip/{id}',
+            resource_path='/trip/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1442,7 +1367,6 @@ class TripApi:
     @validate_call
     def get_trip_matches(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id The id of the trip to search for matches for")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1468,8 +1392,6 @@ class TripApi:
 
         Get matching trips of specific trip
 
-        :param version: (required)
-        :type version: float
         :param id: The id The id of the trip to search for matches for (required)
         :type id: int
         :param sort_field: The field to sort by (required)
@@ -1509,7 +1431,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_matches_serialize(
-            version=version,
             id=id,
             sort_field=sort_field,
             descending=descending,
@@ -1541,7 +1462,6 @@ class TripApi:
     @validate_call
     def get_trip_matches_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id The id of the trip to search for matches for")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1567,8 +1487,6 @@ class TripApi:
 
         Get matching trips of specific trip
 
-        :param version: (required)
-        :type version: float
         :param id: The id The id of the trip to search for matches for (required)
         :type id: int
         :param sort_field: The field to sort by (required)
@@ -1608,7 +1526,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_matches_serialize(
-            version=version,
             id=id,
             sort_field=sort_field,
             descending=descending,
@@ -1640,7 +1557,6 @@ class TripApi:
     @validate_call
     def get_trip_matches_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id The id of the trip to search for matches for")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1666,8 +1582,6 @@ class TripApi:
 
         Get matching trips of specific trip
 
-        :param version: (required)
-        :type version: float
         :param id: The id The id of the trip to search for matches for (required)
         :type id: int
         :param sort_field: The field to sort by (required)
@@ -1707,7 +1621,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._get_trip_matches_serialize(
-            version=version,
             id=id,
             sort_field=sort_field,
             descending=descending,
@@ -1734,7 +1647,6 @@ class TripApi:
 
     def _get_trip_matches_serialize(
         self,
-        version,
         id,
         sort_field,
         descending,
@@ -1764,8 +1676,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1817,7 +1727,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trip/{id}/match',
+            resource_path='/trip/{id}/match',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1836,7 +1746,6 @@ class TripApi:
     @validate_call
     def process_trip_matches(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_date: Annotated[Optional[StrictInt], Field(description="The lower bound date to process matchings")] = None,
         end_date: Annotated[Optional[StrictInt], Field(description="The upper bound date to process matchings")] = None,
         trip_id: Annotated[Optional[StrictInt], Field(description="the id of the trip to process")] = None,
@@ -1857,8 +1766,6 @@ class TripApi:
 
         Process trip matching, assign trips with no route to matched trips with route.
 
-        :param version: (required)
-        :type version: float
         :param start_date: The lower bound date to process matchings
         :type start_date: int
         :param end_date: The upper bound date to process matchings
@@ -1888,7 +1795,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._process_trip_matches_serialize(
-            version=version,
             start_date=start_date,
             end_date=end_date,
             trip_id=trip_id,
@@ -1915,7 +1821,6 @@ class TripApi:
     @validate_call
     def process_trip_matches_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_date: Annotated[Optional[StrictInt], Field(description="The lower bound date to process matchings")] = None,
         end_date: Annotated[Optional[StrictInt], Field(description="The upper bound date to process matchings")] = None,
         trip_id: Annotated[Optional[StrictInt], Field(description="the id of the trip to process")] = None,
@@ -1936,8 +1841,6 @@ class TripApi:
 
         Process trip matching, assign trips with no route to matched trips with route.
 
-        :param version: (required)
-        :type version: float
         :param start_date: The lower bound date to process matchings
         :type start_date: int
         :param end_date: The upper bound date to process matchings
@@ -1967,7 +1870,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._process_trip_matches_serialize(
-            version=version,
             start_date=start_date,
             end_date=end_date,
             trip_id=trip_id,
@@ -1994,7 +1896,6 @@ class TripApi:
     @validate_call
     def process_trip_matches_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_date: Annotated[Optional[StrictInt], Field(description="The lower bound date to process matchings")] = None,
         end_date: Annotated[Optional[StrictInt], Field(description="The upper bound date to process matchings")] = None,
         trip_id: Annotated[Optional[StrictInt], Field(description="the id of the trip to process")] = None,
@@ -2015,8 +1916,6 @@ class TripApi:
 
         Process trip matching, assign trips with no route to matched trips with route.
 
-        :param version: (required)
-        :type version: float
         :param start_date: The lower bound date to process matchings
         :type start_date: int
         :param end_date: The upper bound date to process matchings
@@ -2046,7 +1945,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._process_trip_matches_serialize(
-            version=version,
             start_date=start_date,
             end_date=end_date,
             trip_id=trip_id,
@@ -2068,7 +1966,6 @@ class TripApi:
 
     def _process_trip_matches_serialize(
         self,
-        version,
         start_date,
         end_date,
         trip_id,
@@ -2093,8 +1990,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if start_date is not None:
             
@@ -2128,7 +2023,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/match/process',
+            resource_path='/trip/match/process',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2147,7 +2042,6 @@ class TripApi:
     @validate_call
     def ride(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -2167,8 +2061,6 @@ class TripApi:
 
         Update trip preference to ride.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -2196,7 +2088,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._ride_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -2222,7 +2113,6 @@ class TripApi:
     @validate_call
     def ride_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -2242,8 +2132,6 @@ class TripApi:
 
         Update trip preference to ride.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -2271,7 +2159,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._ride_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -2297,7 +2184,6 @@ class TripApi:
     @validate_call
     def ride_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         recurrence: Annotated[StrictBool, Field(description="the frequency of the trip (e.g. weekly, until 2018-08-09)")],
         _request_timeout: Union[
@@ -2317,8 +2203,6 @@ class TripApi:
 
         Update trip preference to ride.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param recurrence: the frequency of the trip (e.g. weekly, until 2018-08-09) (required)
@@ -2346,7 +2230,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._ride_serialize(
-            version=version,
             id=id,
             recurrence=recurrence,
             _request_auth=_request_auth,
@@ -2367,7 +2250,6 @@ class TripApi:
 
     def _ride_serialize(
         self,
-        version,
         id,
         recurrence,
         _request_auth,
@@ -2391,8 +2273,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -2420,7 +2300,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/ride',
+            resource_path='/trip/{id}/ride',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2439,7 +2319,6 @@ class TripApi:
     @validate_call
     def search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -2466,8 +2345,6 @@ class TripApi:
 
         Search for trips
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -2509,7 +2386,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2542,7 +2418,6 @@ class TripApi:
     @validate_call
     def search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -2569,8 +2444,6 @@ class TripApi:
 
         Search for trips
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -2612,7 +2485,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2645,7 +2517,6 @@ class TripApi:
     @validate_call
     def search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -2672,8 +2543,6 @@ class TripApi:
 
         Search for trips
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -2715,7 +2584,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2743,7 +2611,6 @@ class TripApi:
 
     def _search_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -2774,8 +2641,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2833,7 +2698,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trip',
+            resource_path='/trip',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2852,7 +2717,6 @@ class TripApi:
     @validate_call
     def search_trips(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -2880,8 +2744,6 @@ class TripApi:
 
         Search for trips with matching information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -2925,7 +2787,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_trips_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2959,7 +2820,6 @@ class TripApi:
     @validate_call
     def search_trips_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -2987,8 +2847,6 @@ class TripApi:
 
         Search for trips with matching information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -3032,7 +2890,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_trips_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3066,7 +2923,6 @@ class TripApi:
     @validate_call
     def search_trips_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The owner of the trips")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -3094,8 +2950,6 @@ class TripApi:
 
         Search for trips with matching information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The owner of the trips (required)
         :type account_id: int
         :param sort_field: The field to sort by (required)
@@ -3139,7 +2993,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._search_trips_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3168,7 +3021,6 @@ class TripApi:
 
     def _search_trips_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -3200,8 +3052,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3263,7 +3113,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trip/match',
+            resource_path='/trip/match',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3282,7 +3132,6 @@ class TripApi:
     @validate_call
     def update_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update locations for")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3301,8 +3150,6 @@ class TripApi:
         """Update Trip Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update locations for (required)
         :type id: int
         :param body:
@@ -3330,7 +3177,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3356,7 +3202,6 @@ class TripApi:
     @validate_call
     def update_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update locations for")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3375,8 +3220,6 @@ class TripApi:
         """Update Trip Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update locations for (required)
         :type id: int
         :param body:
@@ -3404,7 +3247,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3430,7 +3272,6 @@ class TripApi:
     @validate_call
     def update_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update locations for")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3449,8 +3290,6 @@ class TripApi:
         """Update Trip Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update locations for (required)
         :type id: int
         :param body:
@@ -3478,7 +3317,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3499,7 +3337,6 @@ class TripApi:
 
     def _update_locations_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -3523,8 +3360,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -3550,7 +3385,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/locations',
+            resource_path='/trip/{id}/locations',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3569,7 +3404,6 @@ class TripApi:
     @validate_call
     def update_recurrence_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3588,8 +3422,6 @@ class TripApi:
         """Update Recurrence Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -3617,7 +3449,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3643,7 +3474,6 @@ class TripApi:
     @validate_call
     def update_recurrence_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3662,8 +3492,6 @@ class TripApi:
         """Update Recurrence Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -3691,7 +3519,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3717,7 +3544,6 @@ class TripApi:
     @validate_call
     def update_recurrence_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3736,8 +3562,6 @@ class TripApi:
         """Update Recurrence Locations
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -3765,7 +3589,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_locations_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3786,7 +3609,6 @@ class TripApi:
 
     def _update_recurrence_locations_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -3810,8 +3632,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -3837,7 +3657,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/locations/recurrence',
+            resource_path='/trip/{id}/locations/recurrence',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3856,7 +3676,6 @@ class TripApi:
     @validate_call
     def update_recurrence_shipments(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3875,8 +3694,6 @@ class TripApi:
         """Update Recurrence Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -3904,7 +3721,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -3930,7 +3746,6 @@ class TripApi:
     @validate_call
     def update_recurrence_shipments_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -3949,8 +3764,6 @@ class TripApi:
         """Update Recurrence Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -3978,7 +3791,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4004,7 +3816,6 @@ class TripApi:
     @validate_call
     def update_recurrence_shipments_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4023,8 +3834,6 @@ class TripApi:
         """Update Recurrence Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param body:
@@ -4052,7 +3861,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_recurrence_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4073,7 +3881,6 @@ class TripApi:
 
     def _update_recurrence_shipments_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -4097,8 +3904,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -4124,7 +3929,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/shipments/recurrence',
+            resource_path='/trip/{id}/shipments/recurrence',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4143,7 +3948,6 @@ class TripApi:
     @validate_call
     def update_shipments(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip shipments to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4162,8 +3966,6 @@ class TripApi:
         """Update Trip Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip shipments to update (required)
         :type id: int
         :param body:
@@ -4191,7 +3993,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4217,7 +4018,6 @@ class TripApi:
     @validate_call
     def update_shipments_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip shipments to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4236,8 +4036,6 @@ class TripApi:
         """Update Trip Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip shipments to update (required)
         :type id: int
         :param body:
@@ -4265,7 +4063,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4291,7 +4088,6 @@ class TripApi:
     @validate_call
     def update_shipments_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip shipments to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4310,8 +4106,6 @@ class TripApi:
         """Update Trip Shipments
 
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip shipments to update (required)
         :type id: int
         :param body:
@@ -4339,7 +4133,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_shipments_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4360,7 +4153,6 @@ class TripApi:
 
     def _update_shipments_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -4384,8 +4176,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -4411,7 +4201,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/{id}/shipments',
+            resource_path='/trip/{id}/shipments',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4430,7 +4220,6 @@ class TripApi:
     @validate_call
     def update_trip(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4450,8 +4239,6 @@ class TripApi:
 
         Update an existing trip. Does not support recurring trip update.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update (required)
         :type id: int
         :param body:
@@ -4479,7 +4266,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4505,7 +4291,6 @@ class TripApi:
     @validate_call
     def update_trip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4525,8 +4310,6 @@ class TripApi:
 
         Update an existing trip. Does not support recurring trip update.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update (required)
         :type id: int
         :param body:
@@ -4554,7 +4337,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4580,7 +4362,6 @@ class TripApi:
     @validate_call
     def update_trip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip to update")],
         body: Optional[Trip] = None,
         _request_timeout: Union[
@@ -4600,8 +4381,6 @@ class TripApi:
 
         Update an existing trip. Does not support recurring trip update.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip to update (required)
         :type id: int
         :param body:
@@ -4629,7 +4408,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -4650,7 +4428,6 @@ class TripApi:
 
     def _update_trip_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -4674,8 +4451,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -4701,7 +4476,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/trip/{id}',
+            resource_path='/trip/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4720,7 +4495,6 @@ class TripApi:
     @validate_call
     def update_trip_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         notifications: Annotated[Optional[StrictStr], Field(description="the notifications to update on the trip")] = None,
         _request_timeout: Union[
@@ -4740,8 +4514,6 @@ class TripApi:
 
         Update the trip notifications
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param notifications: the notifications to update on the trip
@@ -4769,7 +4541,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_notifications_serialize(
-            version=version,
             id=id,
             notifications=notifications,
             _request_auth=_request_auth,
@@ -4795,7 +4566,6 @@ class TripApi:
     @validate_call
     def update_trip_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         notifications: Annotated[Optional[StrictStr], Field(description="the notifications to update on the trip")] = None,
         _request_timeout: Union[
@@ -4815,8 +4585,6 @@ class TripApi:
 
         Update the trip notifications
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param notifications: the notifications to update on the trip
@@ -4844,7 +4612,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_notifications_serialize(
-            version=version,
             id=id,
             notifications=notifications,
             _request_auth=_request_auth,
@@ -4870,7 +4637,6 @@ class TripApi:
     @validate_call
     def update_trip_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the trip")],
         notifications: Annotated[Optional[StrictStr], Field(description="the notifications to update on the trip")] = None,
         _request_timeout: Union[
@@ -4890,8 +4656,6 @@ class TripApi:
 
         Update the trip notifications
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the trip (required)
         :type id: int
         :param notifications: the notifications to update on the trip
@@ -4919,7 +4683,6 @@ class TripApi:
         """ # noqa: E501
 
         _param = self._update_trip_notifications_serialize(
-            version=version,
             id=id,
             notifications=notifications,
             _request_auth=_request_auth,
@@ -4940,7 +4703,6 @@ class TripApi:
 
     def _update_trip_notifications_serialize(
         self,
-        version,
         id,
         notifications,
         _request_auth,
@@ -4964,8 +4726,6 @@ class TripApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if id is not None:
             
@@ -4995,7 +4755,7 @@ class TripApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trip/notifications',
+            resource_path='/trip/notifications',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

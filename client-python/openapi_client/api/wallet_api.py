@@ -44,7 +44,6 @@ class WalletApi:
     @validate_call
     def create_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -73,8 +72,6 @@ class WalletApi:
 
         Adds offers to the wallet
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -120,7 +117,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -155,7 +151,6 @@ class WalletApi:
     @validate_call
     def create_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -184,8 +179,6 @@ class WalletApi:
 
         Adds offers to the wallet
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -231,7 +224,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -266,7 +258,6 @@ class WalletApi:
     @validate_call
     def create_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -295,8 +286,6 @@ class WalletApi:
 
         Adds offers to the wallet
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -342,7 +331,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -372,7 +360,6 @@ class WalletApi:
 
     def _create_offer_transaction_serialize(
         self,
-        version,
         device_id,
         account_id,
         offer_id,
@@ -405,8 +392,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -472,7 +457,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/wallet/create',
+            resource_path='/wallet/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -491,7 +476,6 @@ class WalletApi:
     @validate_call
     def delete_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -512,8 +496,6 @@ class WalletApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -543,7 +525,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -570,7 +551,6 @@ class WalletApi:
     @validate_call
     def delete_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -591,8 +571,6 @@ class WalletApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -622,7 +600,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -649,7 +626,6 @@ class WalletApi:
     @validate_call
     def delete_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -670,8 +646,6 @@ class WalletApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -701,7 +675,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -723,7 +696,6 @@ class WalletApi:
 
     def _delete_offer_transaction_serialize(
         self,
-        version,
         transaction_id,
         device_id,
         account_id,
@@ -748,8 +720,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -783,7 +753,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/wallet/delete',
+            resource_path='/wallet/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -802,7 +772,6 @@ class WalletApi:
     @validate_call
     def get_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to get details of")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -826,8 +795,6 @@ class WalletApi:
         """Get Wallet Offer
 
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to get details of (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -865,7 +832,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -896,7 +862,6 @@ class WalletApi:
     @validate_call
     def get_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to get details of")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -920,8 +885,6 @@ class WalletApi:
         """Get Wallet Offer
 
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to get details of (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -959,7 +922,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -990,7 +952,6 @@ class WalletApi:
     @validate_call
     def get_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to get details of")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1014,8 +975,6 @@ class WalletApi:
         """Get Wallet Offer
 
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to get details of (required)
         :type transaction_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1053,7 +1012,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             device_id=device_id,
             account_id=account_id,
@@ -1079,7 +1037,6 @@ class WalletApi:
 
     def _get_offer_transaction_serialize(
         self,
-        version,
         transaction_id,
         device_id,
         account_id,
@@ -1108,8 +1065,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1159,7 +1114,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/wallet/get',
+            resource_path='/wallet/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1178,7 +1133,6 @@ class WalletApi:
     @validate_call
     def preview_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -1206,8 +1160,6 @@ class WalletApi:
 
         Preview the final cost of a transaction without charging the user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1251,7 +1203,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._preview_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -1285,7 +1236,6 @@ class WalletApi:
     @validate_call
     def preview_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -1313,8 +1263,6 @@ class WalletApi:
 
         Preview the final cost of a transaction without charging the user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1358,7 +1306,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._preview_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -1392,7 +1339,6 @@ class WalletApi:
     @validate_call
     def preview_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The id of the offer being added (offerId or offeLocationId required)")] = None,
@@ -1420,8 +1366,6 @@ class WalletApi:
 
         Preview the final cost of a transaction without charging the user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1465,7 +1409,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._preview_offer_transaction_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -1494,7 +1437,6 @@ class WalletApi:
 
     def _preview_offer_transaction_serialize(
         self,
-        version,
         device_id,
         account_id,
         offer_id,
@@ -1526,8 +1468,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1589,7 +1529,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/wallet/preview',
+            resource_path='/wallet/preview',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1608,7 +1548,6 @@ class WalletApi:
     @validate_call
     def search_offer_transactions(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search for")] = None,
@@ -1667,8 +1606,6 @@ class WalletApi:
 
         Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1774,7 +1711,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             keyword=keyword,
@@ -1839,7 +1775,6 @@ class WalletApi:
     @validate_call
     def search_offer_transactions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search for")] = None,
@@ -1898,8 +1833,6 @@ class WalletApi:
 
         Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2005,7 +1938,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             keyword=keyword,
@@ -2070,7 +2002,6 @@ class WalletApi:
     @validate_call
     def search_offer_transactions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search for")] = None,
@@ -2129,8 +2060,6 @@ class WalletApi:
 
         Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2236,7 +2165,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             keyword=keyword,
@@ -2296,7 +2224,6 @@ class WalletApi:
 
     def _search_offer_transactions_serialize(
         self,
-        version,
         device_id,
         account_id,
         keyword,
@@ -2359,8 +2286,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2546,7 +2471,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/wallet/search',
+            resource_path='/wallet/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2565,7 +2490,6 @@ class WalletApi:
     @validate_call
     def update_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         status: Annotated[StrictInt, Field(description="The status value to change to (0 or 1)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2596,8 +2520,6 @@ class WalletApi:
 
         Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param status: The status value to change to (0 or 1) (required)
@@ -2647,7 +2569,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             status=status,
             device_id=device_id,
@@ -2684,7 +2605,6 @@ class WalletApi:
     @validate_call
     def update_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         status: Annotated[StrictInt, Field(description="The status value to change to (0 or 1)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2715,8 +2635,6 @@ class WalletApi:
 
         Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param status: The status value to change to (0 or 1) (required)
@@ -2766,7 +2684,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             status=status,
             device_id=device_id,
@@ -2803,7 +2720,6 @@ class WalletApi:
     @validate_call
     def update_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         transaction_id: Annotated[StrictInt, Field(description="The offer transaction id to remove")],
         status: Annotated[StrictInt, Field(description="The status value to change to (0 or 1)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2834,8 +2750,6 @@ class WalletApi:
 
         Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
 
-        :param version: (required)
-        :type version: float
         :param transaction_id: The offer transaction id to remove (required)
         :type transaction_id: int
         :param status: The status value to change to (0 or 1) (required)
@@ -2885,7 +2799,6 @@ class WalletApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_serialize(
-            version=version,
             transaction_id=transaction_id,
             status=status,
             device_id=device_id,
@@ -2917,7 +2830,6 @@ class WalletApi:
 
     def _update_offer_transaction_serialize(
         self,
-        version,
         transaction_id,
         status,
         device_id,
@@ -2952,8 +2864,6 @@ class WalletApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3027,7 +2937,7 @@ class WalletApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/wallet/update',
+            resource_path='/wallet/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

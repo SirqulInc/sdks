@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.game_response import GameResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class GameApi:
     @validate_call
     def create_game(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Title of the game.")] = None,
@@ -69,8 +68,6 @@ class GameApi:
 
         Create a Game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param app_key: The game application key to save the level for.
@@ -108,7 +105,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._create_game_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -139,7 +135,6 @@ class GameApi:
     @validate_call
     def create_game_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Title of the game.")] = None,
@@ -164,8 +159,6 @@ class GameApi:
 
         Create a Game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param app_key: The game application key to save the level for.
@@ -203,7 +196,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._create_game_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -234,7 +226,6 @@ class GameApi:
     @validate_call
     def create_game_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
         title: Annotated[Optional[StrictStr], Field(description="Title of the game.")] = None,
@@ -259,8 +250,6 @@ class GameApi:
 
         Create a Game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param app_key: The game application key to save the level for.
@@ -298,7 +287,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._create_game_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -324,7 +312,6 @@ class GameApi:
 
     def _create_game_serialize(
         self,
-        version,
         account_id,
         app_key,
         title,
@@ -353,8 +340,6 @@ class GameApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -404,7 +389,7 @@ class GameApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/create',
+            resource_path='/game/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -423,7 +408,6 @@ class GameApi:
     @validate_call
     def delete_game(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         _request_timeout: Union[
@@ -443,8 +427,6 @@ class GameApi:
 
         Delete a game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -472,7 +454,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._delete_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             _request_auth=_request_auth,
@@ -498,7 +479,6 @@ class GameApi:
     @validate_call
     def delete_game_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         _request_timeout: Union[
@@ -518,8 +498,6 @@ class GameApi:
 
         Delete a game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -547,7 +525,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._delete_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             _request_auth=_request_auth,
@@ -573,7 +550,6 @@ class GameApi:
     @validate_call
     def delete_game_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         _request_timeout: Union[
@@ -593,8 +569,6 @@ class GameApi:
 
         Delete a game.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -622,7 +596,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._delete_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             _request_auth=_request_auth,
@@ -643,7 +616,6 @@ class GameApi:
 
     def _delete_game_serialize(
         self,
-        version,
         account_id,
         game_id,
         _request_auth,
@@ -667,8 +639,6 @@ class GameApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -698,7 +668,7 @@ class GameApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/delete',
+            resource_path='/game/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -717,7 +687,6 @@ class GameApi:
     @validate_call
     def get_game(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -738,8 +707,6 @@ class GameApi:
 
         Get a Game by id.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -769,7 +736,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._get_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             include_game_data=include_game_data,
@@ -796,7 +762,6 @@ class GameApi:
     @validate_call
     def get_game_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -817,8 +782,6 @@ class GameApi:
 
         Get a Game by id.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -848,7 +811,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._get_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             include_game_data=include_game_data,
@@ -875,7 +837,6 @@ class GameApi:
     @validate_call
     def get_game_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         game_id: Annotated[StrictInt, Field(description="the updating game's id.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -896,8 +857,6 @@ class GameApi:
 
         Get a Game by id.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param game_id: the updating game's id. (required)
@@ -927,7 +886,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._get_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             include_game_data=include_game_data,
@@ -949,7 +907,6 @@ class GameApi:
 
     def _get_game_serialize(
         self,
-        version,
         account_id,
         game_id,
         include_game_data,
@@ -974,8 +931,6 @@ class GameApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1009,7 +964,7 @@ class GameApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/get',
+            resource_path='/game/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1028,7 +983,6 @@ class GameApi:
     @validate_call
     def search_games(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -1054,8 +1008,6 @@ class GameApi:
 
         Get a list of games for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1095,7 +1047,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._search_games_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -1127,7 +1078,6 @@ class GameApi:
     @validate_call
     def search_games_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -1153,8 +1103,6 @@ class GameApi:
 
         Get a list of games for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1194,7 +1142,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._search_games_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -1226,7 +1173,6 @@ class GameApi:
     @validate_call
     def search_games_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -1252,8 +1198,6 @@ class GameApi:
 
         Get a list of games for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1293,7 +1237,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._search_games_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -1320,7 +1263,6 @@ class GameApi:
 
     def _search_games_serialize(
         self,
-        version,
         account_id,
         app_key,
         start,
@@ -1350,8 +1292,6 @@ class GameApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1405,7 +1345,7 @@ class GameApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/search',
+            resource_path='/game/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1424,7 +1364,6 @@ class GameApi:
     @validate_call
     def update_game(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         game_id: Annotated[Optional[StrictInt], Field(description="the updating game's id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -1450,8 +1389,6 @@ class GameApi:
 
         Update a Game
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param game_id: the updating game's id
@@ -1491,7 +1428,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._update_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             app_key=app_key,
@@ -1523,7 +1459,6 @@ class GameApi:
     @validate_call
     def update_game_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         game_id: Annotated[Optional[StrictInt], Field(description="the updating game's id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -1549,8 +1484,6 @@ class GameApi:
 
         Update a Game
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param game_id: the updating game's id
@@ -1590,7 +1523,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._update_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             app_key=app_key,
@@ -1622,7 +1554,6 @@ class GameApi:
     @validate_call
     def update_game_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         game_id: Annotated[Optional[StrictInt], Field(description="the updating game's id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -1648,8 +1579,6 @@ class GameApi:
 
         Update a Game
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param game_id: the updating game's id
@@ -1689,7 +1618,6 @@ class GameApi:
         """ # noqa: E501
 
         _param = self._update_game_serialize(
-            version=version,
             account_id=account_id,
             game_id=game_id,
             app_key=app_key,
@@ -1716,7 +1644,6 @@ class GameApi:
 
     def _update_game_serialize(
         self,
-        version,
         account_id,
         game_id,
         app_key,
@@ -1746,8 +1673,6 @@ class GameApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1801,7 +1726,7 @@ class GameApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/update',
+            resource_path='/game/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

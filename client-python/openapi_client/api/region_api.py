@@ -43,7 +43,6 @@ class RegionApi:
     @validate_call
     def create_region(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_class: Annotated[StrictStr, Field(description="RegionClass of this region")],
         short_name: Annotated[StrictStr, Field(description="Short name of the region. This is optimized for search")],
@@ -82,8 +81,6 @@ class RegionApi:
 
         Create a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_class: RegionClass of this region (required)
@@ -149,7 +146,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._create_region_serialize(
-            version=version,
             account_id=account_id,
             region_class=region_class,
             short_name=short_name,
@@ -194,7 +190,6 @@ class RegionApi:
     @validate_call
     def create_region_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_class: Annotated[StrictStr, Field(description="RegionClass of this region")],
         short_name: Annotated[StrictStr, Field(description="Short name of the region. This is optimized for search")],
@@ -233,8 +228,6 @@ class RegionApi:
 
         Create a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_class: RegionClass of this region (required)
@@ -300,7 +293,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._create_region_serialize(
-            version=version,
             account_id=account_id,
             region_class=region_class,
             short_name=short_name,
@@ -345,7 +337,6 @@ class RegionApi:
     @validate_call
     def create_region_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_class: Annotated[StrictStr, Field(description="RegionClass of this region")],
         short_name: Annotated[StrictStr, Field(description="Short name of the region. This is optimized for search")],
@@ -384,8 +375,6 @@ class RegionApi:
 
         Create a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_class: RegionClass of this region (required)
@@ -451,7 +440,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._create_region_serialize(
-            version=version,
             account_id=account_id,
             region_class=region_class,
             short_name=short_name,
@@ -491,7 +479,6 @@ class RegionApi:
 
     def _create_region_serialize(
         self,
-        version,
         account_id,
         region_class,
         short_name,
@@ -534,8 +521,6 @@ class RegionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -641,7 +626,7 @@ class RegionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/region/create',
+            resource_path='/region/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -660,7 +645,6 @@ class RegionApi:
     @validate_call
     def delete_region(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         region_id: Annotated[StrictInt, Field(description="the id of the region")],
         _request_timeout: Union[
@@ -680,8 +664,6 @@ class RegionApi:
 
         Delete a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param region_id: the id of the region (required)
@@ -709,7 +691,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._delete_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             _request_auth=_request_auth,
@@ -735,7 +716,6 @@ class RegionApi:
     @validate_call
     def delete_region_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         region_id: Annotated[StrictInt, Field(description="the id of the region")],
         _request_timeout: Union[
@@ -755,8 +735,6 @@ class RegionApi:
 
         Delete a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param region_id: the id of the region (required)
@@ -784,7 +762,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._delete_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             _request_auth=_request_auth,
@@ -810,7 +787,6 @@ class RegionApi:
     @validate_call
     def delete_region_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         region_id: Annotated[StrictInt, Field(description="the id of the region")],
         _request_timeout: Union[
@@ -830,8 +806,6 @@ class RegionApi:
 
         Delete a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param region_id: the id of the region (required)
@@ -859,7 +833,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._delete_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             _request_auth=_request_auth,
@@ -880,7 +853,6 @@ class RegionApi:
 
     def _delete_region_serialize(
         self,
-        version,
         account_id,
         region_id,
         _request_auth,
@@ -904,8 +876,6 @@ class RegionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -935,7 +905,7 @@ class RegionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/region/delete',
+            resource_path='/region/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -954,7 +924,6 @@ class RegionApi:
     @validate_call
     def get_region(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[StrictInt, Field(description="the id of the region to get")],
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         _request_timeout: Union[
@@ -974,8 +943,6 @@ class RegionApi:
 
         Get a region.
 
-        :param version: (required)
-        :type version: float
         :param region_id: the id of the region to get (required)
         :type region_id: int
         :param account_id: the id of the logged in user
@@ -1003,7 +970,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._get_region_serialize(
-            version=version,
             region_id=region_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1029,7 +995,6 @@ class RegionApi:
     @validate_call
     def get_region_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[StrictInt, Field(description="the id of the region to get")],
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         _request_timeout: Union[
@@ -1049,8 +1014,6 @@ class RegionApi:
 
         Get a region.
 
-        :param version: (required)
-        :type version: float
         :param region_id: the id of the region to get (required)
         :type region_id: int
         :param account_id: the id of the logged in user
@@ -1078,7 +1041,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._get_region_serialize(
-            version=version,
             region_id=region_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1104,7 +1066,6 @@ class RegionApi:
     @validate_call
     def get_region_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         region_id: Annotated[StrictInt, Field(description="the id of the region to get")],
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         _request_timeout: Union[
@@ -1124,8 +1085,6 @@ class RegionApi:
 
         Get a region.
 
-        :param version: (required)
-        :type version: float
         :param region_id: the id of the region to get (required)
         :type region_id: int
         :param account_id: the id of the logged in user
@@ -1153,7 +1112,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._get_region_serialize(
-            version=version,
             region_id=region_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1174,7 +1132,6 @@ class RegionApi:
 
     def _get_region_serialize(
         self,
-        version,
         region_id,
         account_id,
         _request_auth,
@@ -1198,8 +1155,6 @@ class RegionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1229,7 +1184,7 @@ class RegionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/region/get',
+            resource_path='/region/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1248,7 +1203,6 @@ class RegionApi:
     @validate_call
     def search_regions(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the owner account id of the region to be created")] = None,
         query: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated. deprecated - use \"keyword\"")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to filter results on")] = None,
@@ -1288,8 +1242,6 @@ class RegionApi:
 
         Get the list of regions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the owner account id of the region to be created
         :type account_id: int
         :param query: This parameter is deprecated. deprecated - use \"keyword\"
@@ -1357,7 +1309,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._search_regions_serialize(
-            version=version,
             account_id=account_id,
             query=query,
             keyword=keyword,
@@ -1403,7 +1354,6 @@ class RegionApi:
     @validate_call
     def search_regions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the owner account id of the region to be created")] = None,
         query: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated. deprecated - use \"keyword\"")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to filter results on")] = None,
@@ -1443,8 +1393,6 @@ class RegionApi:
 
         Get the list of regions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the owner account id of the region to be created
         :type account_id: int
         :param query: This parameter is deprecated. deprecated - use \"keyword\"
@@ -1512,7 +1460,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._search_regions_serialize(
-            version=version,
             account_id=account_id,
             query=query,
             keyword=keyword,
@@ -1558,7 +1505,6 @@ class RegionApi:
     @validate_call
     def search_regions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the owner account id of the region to be created")] = None,
         query: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated. deprecated - use \"keyword\"")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to filter results on")] = None,
@@ -1598,8 +1544,6 @@ class RegionApi:
 
         Get the list of regions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the owner account id of the region to be created
         :type account_id: int
         :param query: This parameter is deprecated. deprecated - use \"keyword\"
@@ -1667,7 +1611,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._search_regions_serialize(
-            version=version,
             account_id=account_id,
             query=query,
             keyword=keyword,
@@ -1708,7 +1651,6 @@ class RegionApi:
 
     def _search_regions_serialize(
         self,
-        version,
         account_id,
         query,
         keyword,
@@ -1752,8 +1694,6 @@ class RegionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1863,7 +1803,7 @@ class RegionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/region/search',
+            resource_path='/region/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1882,7 +1822,6 @@ class RegionApi:
     @validate_call
     def update_region(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_id: Annotated[StrictInt, Field(description="The id of the region to be updated")],
         region_class: Annotated[Optional[StrictStr], Field(description="RegionClass of this region")] = None,
@@ -1923,8 +1862,6 @@ class RegionApi:
 
         Update a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_id: The id of the region to be updated (required)
@@ -1994,7 +1931,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._update_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             region_class=region_class,
@@ -2041,7 +1977,6 @@ class RegionApi:
     @validate_call
     def update_region_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_id: Annotated[StrictInt, Field(description="The id of the region to be updated")],
         region_class: Annotated[Optional[StrictStr], Field(description="RegionClass of this region")] = None,
@@ -2082,8 +2017,6 @@ class RegionApi:
 
         Update a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_id: The id of the region to be updated (required)
@@ -2153,7 +2086,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._update_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             region_class=region_class,
@@ -2200,7 +2132,6 @@ class RegionApi:
     @validate_call
     def update_region_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account sending the request")],
         region_id: Annotated[StrictInt, Field(description="The id of the region to be updated")],
         region_class: Annotated[Optional[StrictStr], Field(description="RegionClass of this region")] = None,
@@ -2241,8 +2172,6 @@ class RegionApi:
 
         Update a region.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account sending the request (required)
         :type account_id: int
         :param region_id: The id of the region to be updated (required)
@@ -2312,7 +2241,6 @@ class RegionApi:
         """ # noqa: E501
 
         _param = self._update_region_serialize(
-            version=version,
             account_id=account_id,
             region_id=region_id,
             region_class=region_class,
@@ -2354,7 +2282,6 @@ class RegionApi:
 
     def _update_region_serialize(
         self,
-        version,
         account_id,
         region_id,
         region_class,
@@ -2399,8 +2326,6 @@ class RegionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2514,7 +2439,7 @@ class RegionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/region/update',
+            resource_path='/region/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

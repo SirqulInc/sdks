@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 
@@ -43,7 +43,6 @@ class WorkflowApi:
     @validate_call
     def run_workflow(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         workflow_id: Annotated[StrictInt, Field(description="the workflow to run")],
         sku_id: Annotated[Optional[StrictInt], Field(description="this runs a particular sku on the workflow")] = None,
@@ -66,8 +65,6 @@ class WorkflowApi:
 
         Runs a published executable workflow
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param workflow_id: the workflow to run (required)
@@ -101,7 +98,6 @@ class WorkflowApi:
         """ # noqa: E501
 
         _param = self._run_workflow_serialize(
-            version=version,
             account_id=account_id,
             workflow_id=workflow_id,
             sku_id=sku_id,
@@ -130,7 +126,6 @@ class WorkflowApi:
     @validate_call
     def run_workflow_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         workflow_id: Annotated[StrictInt, Field(description="the workflow to run")],
         sku_id: Annotated[Optional[StrictInt], Field(description="this runs a particular sku on the workflow")] = None,
@@ -153,8 +148,6 @@ class WorkflowApi:
 
         Runs a published executable workflow
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param workflow_id: the workflow to run (required)
@@ -188,7 +181,6 @@ class WorkflowApi:
         """ # noqa: E501
 
         _param = self._run_workflow_serialize(
-            version=version,
             account_id=account_id,
             workflow_id=workflow_id,
             sku_id=sku_id,
@@ -217,7 +209,6 @@ class WorkflowApi:
     @validate_call
     def run_workflow_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         workflow_id: Annotated[StrictInt, Field(description="the workflow to run")],
         sku_id: Annotated[Optional[StrictInt], Field(description="this runs a particular sku on the workflow")] = None,
@@ -240,8 +231,6 @@ class WorkflowApi:
 
         Runs a published executable workflow
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param workflow_id: the workflow to run (required)
@@ -275,7 +264,6 @@ class WorkflowApi:
         """ # noqa: E501
 
         _param = self._run_workflow_serialize(
-            version=version,
             account_id=account_id,
             workflow_id=workflow_id,
             sku_id=sku_id,
@@ -299,7 +287,6 @@ class WorkflowApi:
 
     def _run_workflow_serialize(
         self,
-        version,
         account_id,
         workflow_id,
         sku_id,
@@ -326,8 +313,6 @@ class WorkflowApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -369,7 +354,7 @@ class WorkflowApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/workflow/run',
+            resource_path='/workflow/run',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

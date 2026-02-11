@@ -44,7 +44,6 @@ class OfferStatusApi:
     @validate_call
     def create_offer_transaction_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the status")],
         code: Annotated[StrictInt, Field(description="The status code, must be unique ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -72,8 +71,6 @@ class OfferStatusApi:
 
         Create an offer status record
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the status (required)
         :type name: str
         :param code: The status code, must be unique  (required)
@@ -117,7 +114,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_status_serialize(
-            version=version,
             name=name,
             code=code,
             device_id=device_id,
@@ -151,7 +147,6 @@ class OfferStatusApi:
     @validate_call
     def create_offer_transaction_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the status")],
         code: Annotated[StrictInt, Field(description="The status code, must be unique ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -179,8 +174,6 @@ class OfferStatusApi:
 
         Create an offer status record
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the status (required)
         :type name: str
         :param code: The status code, must be unique  (required)
@@ -224,7 +217,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_status_serialize(
-            version=version,
             name=name,
             code=code,
             device_id=device_id,
@@ -258,7 +250,6 @@ class OfferStatusApi:
     @validate_call
     def create_offer_transaction_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the status")],
         code: Annotated[StrictInt, Field(description="The status code, must be unique ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -286,8 +277,6 @@ class OfferStatusApi:
 
         Create an offer status record
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the status (required)
         :type name: str
         :param code: The status code, must be unique  (required)
@@ -331,7 +320,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._create_offer_transaction_status_serialize(
-            version=version,
             name=name,
             code=code,
             device_id=device_id,
@@ -360,7 +348,6 @@ class OfferStatusApi:
 
     def _create_offer_transaction_status_serialize(
         self,
-        version,
         name,
         code,
         device_id,
@@ -392,8 +379,6 @@ class OfferStatusApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -455,7 +440,7 @@ class OfferStatusApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/offer/status/create',
+            resource_path='/offer/status/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -474,7 +459,6 @@ class OfferStatusApi:
     @validate_call
     def delete_offer_transaction_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -497,8 +481,6 @@ class OfferStatusApi:
 
         Mark an offer status record as deleted
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to delete (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -532,7 +514,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -561,7 +542,6 @@ class OfferStatusApi:
     @validate_call
     def delete_offer_transaction_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -584,8 +564,6 @@ class OfferStatusApi:
 
         Mark an offer status record as deleted
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to delete (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -619,7 +597,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -648,7 +625,6 @@ class OfferStatusApi:
     @validate_call
     def delete_offer_transaction_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -671,8 +647,6 @@ class OfferStatusApi:
 
         Mark an offer status record as deleted
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to delete (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -706,7 +680,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._delete_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -730,7 +703,6 @@ class OfferStatusApi:
 
     def _delete_offer_transaction_status_serialize(
         self,
-        version,
         status_id,
         device_id,
         account_id,
@@ -757,8 +729,6 @@ class OfferStatusApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -800,7 +770,7 @@ class OfferStatusApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/offer/status/delete',
+            resource_path='/offer/status/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -819,7 +789,6 @@ class OfferStatusApi:
     @validate_call
     def get_offer_transaction_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to get ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -842,8 +811,6 @@ class OfferStatusApi:
 
         Get an offer status record
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to get  (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -877,7 +844,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -906,7 +872,6 @@ class OfferStatusApi:
     @validate_call
     def get_offer_transaction_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to get ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -929,8 +894,6 @@ class OfferStatusApi:
 
         Get an offer status record
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to get  (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -964,7 +927,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -993,7 +955,6 @@ class OfferStatusApi:
     @validate_call
     def get_offer_transaction_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         status_id: Annotated[StrictInt, Field(description="The id of the record to get ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1016,8 +977,6 @@ class OfferStatusApi:
 
         Get an offer status record
 
-        :param version: (required)
-        :type version: float
         :param status_id: The id of the record to get  (required)
         :type status_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1051,7 +1010,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._get_offer_transaction_status_serialize(
-            version=version,
             status_id=status_id,
             device_id=device_id,
             account_id=account_id,
@@ -1075,7 +1033,6 @@ class OfferStatusApi:
 
     def _get_offer_transaction_status_serialize(
         self,
-        version,
         status_id,
         device_id,
         account_id,
@@ -1102,8 +1059,6 @@ class OfferStatusApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1145,7 +1100,7 @@ class OfferStatusApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/status/get',
+            resource_path='/offer/status/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1164,7 +1119,6 @@ class OfferStatusApi:
     @validate_call
     def search_offer_transaction_statuses(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1194,8 +1148,6 @@ class OfferStatusApi:
 
         Search for the available offer statuses
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1243,7 +1195,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._search_offer_transaction_statuses_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1279,7 +1230,6 @@ class OfferStatusApi:
     @validate_call
     def search_offer_transaction_statuses_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1309,8 +1259,6 @@ class OfferStatusApi:
 
         Search for the available offer statuses
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1358,7 +1306,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._search_offer_transaction_statuses_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1394,7 +1341,6 @@ class OfferStatusApi:
     @validate_call
     def search_offer_transaction_statuses_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1424,8 +1370,6 @@ class OfferStatusApi:
 
         Search for the available offer statuses
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1473,7 +1417,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._search_offer_transaction_statuses_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1504,7 +1447,6 @@ class OfferStatusApi:
 
     def _search_offer_transaction_statuses_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -1538,8 +1480,6 @@ class OfferStatusApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1609,7 +1549,7 @@ class OfferStatusApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/status/search',
+            resource_path='/offer/status/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1628,7 +1568,6 @@ class OfferStatusApi:
     @validate_call
     def update_offer_transaction_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1657,8 +1596,6 @@ class OfferStatusApi:
 
         Update an offer status record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1704,7 +1641,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_status_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1739,7 +1675,6 @@ class OfferStatusApi:
     @validate_call
     def update_offer_transaction_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1768,8 +1703,6 @@ class OfferStatusApi:
 
         Update an offer status record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1815,7 +1748,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_status_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1850,7 +1782,6 @@ class OfferStatusApi:
     @validate_call
     def update_offer_transaction_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="Used to update the user's current location")] = None,
@@ -1879,8 +1810,6 @@ class OfferStatusApi:
 
         Update an offer status record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1926,7 +1855,6 @@ class OfferStatusApi:
         """ # noqa: E501
 
         _param = self._update_offer_transaction_status_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -1956,7 +1884,6 @@ class OfferStatusApi:
 
     def _update_offer_transaction_status_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -1989,8 +1916,6 @@ class OfferStatusApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2056,7 +1981,7 @@ class OfferStatusApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/offer/status/update',
+            resource_path='/offer/status/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

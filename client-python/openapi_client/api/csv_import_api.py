@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBytes, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import Field, StrictBytes, StrictInt, StrictStr, field_validator
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from openapi_client.models.csv_import_response import CsvImportResponse
@@ -44,7 +44,6 @@ class CSVImportApi:
     @validate_call
     def get_status_csv(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch")],
         response_group: Annotated[StrictStr, Field(description="The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL")],
@@ -66,8 +65,6 @@ class CSVImportApi:
         """Detail Status
 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: the id of the batch (required)
@@ -101,7 +98,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._get_status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             response_group=response_group,
@@ -130,7 +126,6 @@ class CSVImportApi:
     @validate_call
     def get_status_csv_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch")],
         response_group: Annotated[StrictStr, Field(description="The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL")],
@@ -152,8 +147,6 @@ class CSVImportApi:
         """Detail Status
 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: the id of the batch (required)
@@ -187,7 +180,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._get_status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             response_group=response_group,
@@ -216,7 +208,6 @@ class CSVImportApi:
     @validate_call
     def get_status_csv_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch")],
         response_group: Annotated[StrictStr, Field(description="The group of categories to return: SUMMARY, DETAILS, ERRORS, OR ALL")],
@@ -238,8 +229,6 @@ class CSVImportApi:
         """Detail Status
 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param batch_id: the id of the batch (required)
@@ -273,7 +262,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._get_status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             response_group=response_group,
@@ -297,7 +285,6 @@ class CSVImportApi:
 
     def _get_status_csv_serialize(
         self,
-        version,
         account_id,
         batch_id,
         response_group,
@@ -324,8 +311,6 @@ class CSVImportApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -367,7 +352,7 @@ class CSVImportApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/csvimport/batch/status/details',
+            resource_path='/csvimport/batch/status/details',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -386,7 +371,6 @@ class CSVImportApi:
     @validate_call
     def list_status_csv(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         start: Annotated[StrictInt, Field(description="the start of the pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the pagination")],
@@ -407,8 +391,6 @@ class CSVImportApi:
 
         Retrieves batches for a user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param start: the start of the pagination (required)
@@ -438,7 +420,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._list_status_csv_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -465,7 +446,6 @@ class CSVImportApi:
     @validate_call
     def list_status_csv_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         start: Annotated[StrictInt, Field(description="the start of the pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the pagination")],
@@ -486,8 +466,6 @@ class CSVImportApi:
 
         Retrieves batches for a user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param start: the start of the pagination (required)
@@ -517,7 +495,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._list_status_csv_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -544,7 +521,6 @@ class CSVImportApi:
     @validate_call
     def list_status_csv_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         start: Annotated[StrictInt, Field(description="the start of the pagination")],
         limit: Annotated[StrictInt, Field(description="the limit of the pagination")],
@@ -565,8 +541,6 @@ class CSVImportApi:
 
         Retrieves batches for a user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param start: the start of the pagination (required)
@@ -596,7 +570,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._list_status_csv_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -618,7 +591,6 @@ class CSVImportApi:
 
     def _list_status_csv_serialize(
         self,
-        version,
         account_id,
         start,
         limit,
@@ -643,8 +615,6 @@ class CSVImportApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -678,7 +648,7 @@ class CSVImportApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/csvimport/batch/list',
+            resource_path='/csvimport/batch/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -697,7 +667,6 @@ class CSVImportApi:
     @validate_call
     def status_csv(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to get its status")],
         _request_timeout: Union[
@@ -717,8 +686,6 @@ class CSVImportApi:
 
         Checks status of batch upload.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to get its status (required)
@@ -746,7 +713,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -772,7 +738,6 @@ class CSVImportApi:
     @validate_call
     def status_csv_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to get its status")],
         _request_timeout: Union[
@@ -792,8 +757,6 @@ class CSVImportApi:
 
         Checks status of batch upload.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to get its status (required)
@@ -821,7 +784,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -847,7 +809,6 @@ class CSVImportApi:
     @validate_call
     def status_csv_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         batch_id: Annotated[StrictInt, Field(description="the id of the batch to get its status")],
         _request_timeout: Union[
@@ -867,8 +828,6 @@ class CSVImportApi:
 
         Checks status of batch upload.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param batch_id: the id of the batch to get its status (required)
@@ -896,7 +855,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._status_csv_serialize(
-            version=version,
             account_id=account_id,
             batch_id=batch_id,
             _request_auth=_request_auth,
@@ -917,7 +875,6 @@ class CSVImportApi:
 
     def _status_csv_serialize(
         self,
-        version,
         account_id,
         batch_id,
         _request_auth,
@@ -941,8 +898,6 @@ class CSVImportApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -972,7 +927,7 @@ class CSVImportApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/csvimport/batch/status',
+            resource_path='/csvimport/batch/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -991,7 +946,6 @@ class CSVImportApi:
     @validate_call
     def upload_csv(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         upload_type: Annotated[StrictStr, Field(description="the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS")],
         import_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the import file to reference")],
@@ -1014,8 +968,6 @@ class CSVImportApi:
 
         Uploads a CSV import file.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param upload_type: the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
@@ -1049,7 +1001,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._upload_csv_serialize(
-            version=version,
             account_id=account_id,
             upload_type=upload_type,
             import_file=import_file,
@@ -1078,7 +1029,6 @@ class CSVImportApi:
     @validate_call
     def upload_csv_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         upload_type: Annotated[StrictStr, Field(description="the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS")],
         import_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the import file to reference")],
@@ -1101,8 +1051,6 @@ class CSVImportApi:
 
         Uploads a CSV import file.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param upload_type: the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
@@ -1136,7 +1084,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._upload_csv_serialize(
-            version=version,
             account_id=account_id,
             upload_type=upload_type,
             import_file=import_file,
@@ -1165,7 +1112,6 @@ class CSVImportApi:
     @validate_call
     def upload_csv_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         upload_type: Annotated[StrictStr, Field(description="the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS")],
         import_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the import file to reference")],
@@ -1188,8 +1134,6 @@ class CSVImportApi:
 
         Uploads a CSV import file.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param upload_type: the upload type: OFFERS, RETAILERS, RETAILERLOCATIONS, CATEGORIES, OR FILTERS (required)
@@ -1223,7 +1167,6 @@ class CSVImportApi:
         """ # noqa: E501
 
         _param = self._upload_csv_serialize(
-            version=version,
             account_id=account_id,
             upload_type=upload_type,
             import_file=import_file,
@@ -1247,7 +1190,6 @@ class CSVImportApi:
 
     def _upload_csv_serialize(
         self,
-        version,
         account_id,
         upload_type,
         import_file,
@@ -1274,8 +1216,6 @@ class CSVImportApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1317,7 +1257,7 @@ class CSVImportApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/csvimport/upload',
+            resource_path='/csvimport/upload',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

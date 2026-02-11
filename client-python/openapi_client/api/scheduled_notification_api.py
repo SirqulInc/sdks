@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.scheduled_notification_full_response import ScheduledNotificationFullResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class ScheduledNotificationApi:
     @validate_call
     def create_scheduled_notification(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the scheduled notification")],
         type: Annotated[StrictStr, Field(description="The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages")],
@@ -96,8 +95,6 @@ class ScheduledNotificationApi:
 
         This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the scheduled notification (required)
@@ -189,7 +186,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._create_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             type=type,
@@ -247,7 +243,6 @@ class ScheduledNotificationApi:
     @validate_call
     def create_scheduled_notification_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the scheduled notification")],
         type: Annotated[StrictStr, Field(description="The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages")],
@@ -299,8 +294,6 @@ class ScheduledNotificationApi:
 
         This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the scheduled notification (required)
@@ -392,7 +385,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._create_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             type=type,
@@ -450,7 +442,6 @@ class ScheduledNotificationApi:
     @validate_call
     def create_scheduled_notification_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the scheduled notification")],
         type: Annotated[StrictStr, Field(description="The type of scheduled notification. Supported values include: MOBILE_NOTIFICATION - sends push notifications via APNS and GCM EMAIL - sends email messages SMS - sends text messages")],
@@ -502,8 +493,6 @@ class ScheduledNotificationApi:
 
         This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the scheduled notification (required)
@@ -595,7 +584,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._create_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             type=type,
@@ -648,7 +636,6 @@ class ScheduledNotificationApi:
 
     def _create_scheduled_notification_serialize(
         self,
-        version,
         account_id,
         name,
         type,
@@ -704,8 +691,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -863,7 +848,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/schedule/create',
+            resource_path='/notification/schedule/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -882,7 +867,6 @@ class ScheduledNotificationApi:
     @validate_call
     def delete_scheduled_notification(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to delete")],
         delete_by_grouping_id: Annotated[Optional[StrictBool], Field(description="If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.")] = None,
@@ -903,8 +887,6 @@ class ScheduledNotificationApi:
 
         This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to delete (required)
@@ -934,7 +916,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._delete_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             delete_by_grouping_id=delete_by_grouping_id,
@@ -961,7 +942,6 @@ class ScheduledNotificationApi:
     @validate_call
     def delete_scheduled_notification_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to delete")],
         delete_by_grouping_id: Annotated[Optional[StrictBool], Field(description="If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.")] = None,
@@ -982,8 +962,6 @@ class ScheduledNotificationApi:
 
         This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to delete (required)
@@ -1013,7 +991,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._delete_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             delete_by_grouping_id=delete_by_grouping_id,
@@ -1040,7 +1017,6 @@ class ScheduledNotificationApi:
     @validate_call
     def delete_scheduled_notification_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to delete")],
         delete_by_grouping_id: Annotated[Optional[StrictBool], Field(description="If set to true, also deletes Scheduled Notifications under the same account with the same groupingId.")] = None,
@@ -1061,8 +1037,6 @@ class ScheduledNotificationApi:
 
         This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to delete (required)
@@ -1092,7 +1066,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._delete_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             delete_by_grouping_id=delete_by_grouping_id,
@@ -1114,7 +1087,6 @@ class ScheduledNotificationApi:
 
     def _delete_scheduled_notification_serialize(
         self,
-        version,
         account_id,
         scheduled_notification_id,
         delete_by_grouping_id,
@@ -1139,8 +1111,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1174,7 +1144,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/schedule/delete',
+            resource_path='/notification/schedule/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1193,7 +1163,6 @@ class ScheduledNotificationApi:
     @validate_call
     def get_scheduled_notification(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to get")],
         _request_timeout: Union[
@@ -1213,8 +1182,6 @@ class ScheduledNotificationApi:
 
         Get a ScheduledNotification
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to get (required)
@@ -1242,7 +1209,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._get_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             _request_auth=_request_auth,
@@ -1268,7 +1234,6 @@ class ScheduledNotificationApi:
     @validate_call
     def get_scheduled_notification_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to get")],
         _request_timeout: Union[
@@ -1288,8 +1253,6 @@ class ScheduledNotificationApi:
 
         Get a ScheduledNotification
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to get (required)
@@ -1317,7 +1280,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._get_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             _request_auth=_request_auth,
@@ -1343,7 +1305,6 @@ class ScheduledNotificationApi:
     @validate_call
     def get_scheduled_notification_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account logged in")],
         scheduled_notification_id: Annotated[StrictInt, Field(description="the id of the scheduled notification to get")],
         _request_timeout: Union[
@@ -1363,8 +1324,6 @@ class ScheduledNotificationApi:
 
         Get a ScheduledNotification
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account logged in (required)
         :type account_id: int
         :param scheduled_notification_id: the id of the scheduled notification to get (required)
@@ -1392,7 +1351,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._get_scheduled_notification_serialize(
-            version=version,
             account_id=account_id,
             scheduled_notification_id=scheduled_notification_id,
             _request_auth=_request_auth,
@@ -1413,7 +1371,6 @@ class ScheduledNotificationApi:
 
     def _get_scheduled_notification_serialize(
         self,
-        version,
         account_id,
         scheduled_notification_id,
         _request_auth,
@@ -1437,8 +1394,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1468,7 +1423,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/schedule/get',
+            resource_path='/notification/schedule/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1487,7 +1442,6 @@ class ScheduledNotificationApi:
     @validate_call
     def schedule_notification_listings(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         report_name: Annotated[StrictStr, Field(description="The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail")],
@@ -1513,8 +1467,6 @@ class ScheduledNotificationApi:
 
         Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -1554,7 +1506,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._schedule_notification_listings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             report_name=report_name,
@@ -1586,7 +1537,6 @@ class ScheduledNotificationApi:
     @validate_call
     def schedule_notification_listings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         report_name: Annotated[StrictStr, Field(description="The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail")],
@@ -1612,8 +1562,6 @@ class ScheduledNotificationApi:
 
         Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -1653,7 +1601,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._schedule_notification_listings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             report_name=report_name,
@@ -1685,7 +1632,6 @@ class ScheduledNotificationApi:
     @validate_call
     def schedule_notification_listings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         report_name: Annotated[StrictStr, Field(description="The name of the report used to identify events. The report must return columns named: id, name, date, params, and type otherwise it will fail")],
@@ -1711,8 +1657,6 @@ class ScheduledNotificationApi:
 
         Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -1752,7 +1696,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._schedule_notification_listings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             report_name=report_name,
@@ -1779,7 +1722,6 @@ class ScheduledNotificationApi:
 
     def _schedule_notification_listings_serialize(
         self,
-        version,
         account_id,
         app_key,
         report_name,
@@ -1809,8 +1751,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1864,7 +1804,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/schedule/generate',
+            resource_path='/notification/schedule/generate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1883,7 +1823,6 @@ class ScheduledNotificationApi:
     @validate_call
     def search_scheduled_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         audience_id: Annotated[Optional[StrictInt], Field(description="Filter results by audience")] = None,
@@ -1921,8 +1860,6 @@ class ScheduledNotificationApi:
 
         This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1986,7 +1923,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._search_scheduled_notifications_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             audience_id=audience_id,
@@ -2030,7 +1966,6 @@ class ScheduledNotificationApi:
     @validate_call
     def search_scheduled_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         audience_id: Annotated[Optional[StrictInt], Field(description="Filter results by audience")] = None,
@@ -2068,8 +2003,6 @@ class ScheduledNotificationApi:
 
         This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -2133,7 +2066,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._search_scheduled_notifications_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             audience_id=audience_id,
@@ -2177,7 +2109,6 @@ class ScheduledNotificationApi:
     @validate_call
     def search_scheduled_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         audience_id: Annotated[Optional[StrictInt], Field(description="Filter results by audience")] = None,
@@ -2215,8 +2146,6 @@ class ScheduledNotificationApi:
 
         This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -2280,7 +2209,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._search_scheduled_notifications_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             audience_id=audience_id,
@@ -2319,7 +2247,6 @@ class ScheduledNotificationApi:
 
     def _search_scheduled_notifications_serialize(
         self,
-        version,
         account_id,
         grouping_id,
         audience_id,
@@ -2361,8 +2288,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2464,7 +2389,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/schedule/search',
+            resource_path='/notification/schedule/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2483,7 +2408,6 @@ class ScheduledNotificationApi:
     @validate_call
     def update_scheduled_notification(
         self,
-        version: Union[StrictFloat, StrictInt],
         scheduled_notification_id: Annotated[StrictInt, Field(description="The id of scheduled notification to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the scheduled notification")] = None,
@@ -2539,8 +2463,6 @@ class ScheduledNotificationApi:
 
         This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param scheduled_notification_id: The id of scheduled notification to update (required)
         :type scheduled_notification_id: int
         :param account_id: The logged in user. (required)
@@ -2640,7 +2562,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._update_scheduled_notification_serialize(
-            version=version,
             scheduled_notification_id=scheduled_notification_id,
             account_id=account_id,
             name=name,
@@ -2702,7 +2623,6 @@ class ScheduledNotificationApi:
     @validate_call
     def update_scheduled_notification_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         scheduled_notification_id: Annotated[StrictInt, Field(description="The id of scheduled notification to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the scheduled notification")] = None,
@@ -2758,8 +2678,6 @@ class ScheduledNotificationApi:
 
         This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param scheduled_notification_id: The id of scheduled notification to update (required)
         :type scheduled_notification_id: int
         :param account_id: The logged in user. (required)
@@ -2859,7 +2777,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._update_scheduled_notification_serialize(
-            version=version,
             scheduled_notification_id=scheduled_notification_id,
             account_id=account_id,
             name=name,
@@ -2921,7 +2838,6 @@ class ScheduledNotificationApi:
     @validate_call
     def update_scheduled_notification_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         scheduled_notification_id: Annotated[StrictInt, Field(description="The id of scheduled notification to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the scheduled notification")] = None,
@@ -2977,8 +2893,6 @@ class ScheduledNotificationApi:
 
         This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
 
-        :param version: (required)
-        :type version: float
         :param scheduled_notification_id: The id of scheduled notification to update (required)
         :type scheduled_notification_id: int
         :param account_id: The logged in user. (required)
@@ -3078,7 +2992,6 @@ class ScheduledNotificationApi:
         """ # noqa: E501
 
         _param = self._update_scheduled_notification_serialize(
-            version=version,
             scheduled_notification_id=scheduled_notification_id,
             account_id=account_id,
             name=name,
@@ -3135,7 +3048,6 @@ class ScheduledNotificationApi:
 
     def _update_scheduled_notification_serialize(
         self,
-        version,
         scheduled_notification_id,
         account_id,
         name,
@@ -3195,8 +3107,6 @@ class ScheduledNotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if scheduled_notification_id is not None:
             
@@ -3370,7 +3280,7 @@ class ScheduledNotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/schedule/update',
+            resource_path='/notification/schedule/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

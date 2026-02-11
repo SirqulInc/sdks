@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -43,7 +43,6 @@ class ParticipantsApi:
     @validate_call
     def process_all_participants(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
         use_short_name_as_id: Annotated[Optional[StrictBool], Field(description="Whether to use short name as the participant ID")] = None,
@@ -64,8 +63,6 @@ class ParticipantsApi:
 
         Processes all supported participant feeds.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: The application key used to identify the application
@@ -95,7 +92,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_all_participants_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             use_short_name_as_id=use_short_name_as_id,
@@ -122,7 +118,6 @@ class ParticipantsApi:
     @validate_call
     def process_all_participants_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
         use_short_name_as_id: Annotated[Optional[StrictBool], Field(description="Whether to use short name as the participant ID")] = None,
@@ -143,8 +138,6 @@ class ParticipantsApi:
 
         Processes all supported participant feeds.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: The application key used to identify the application
@@ -174,7 +167,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_all_participants_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             use_short_name_as_id=use_short_name_as_id,
@@ -201,7 +193,6 @@ class ParticipantsApi:
     @validate_call
     def process_all_participants_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
         use_short_name_as_id: Annotated[Optional[StrictBool], Field(description="Whether to use short name as the participant ID")] = None,
@@ -222,8 +213,6 @@ class ParticipantsApi:
 
         Processes all supported participant feeds.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: The application key used to identify the application
@@ -253,7 +242,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_all_participants_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             use_short_name_as_id=use_short_name_as_id,
@@ -275,7 +263,6 @@ class ParticipantsApi:
 
     def _process_all_participants_serialize(
         self,
-        version,
         account_id,
         app_key,
         use_short_name_as_id,
@@ -300,8 +287,6 @@ class ParticipantsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -335,7 +320,7 @@ class ParticipantsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/participant/process/all',
+            resource_path='/participant/process/all',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -354,7 +339,6 @@ class ParticipantsApi:
     @validate_call
     def process_participants(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         league: Annotated[StrictStr, Field(description="The league identifier to process")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
@@ -377,8 +361,6 @@ class ParticipantsApi:
 
         Processes a participant feed or uploaded file for a specific league.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param league: The league identifier to process (required)
@@ -412,7 +394,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_participants_serialize(
-            version=version,
             account_id=account_id,
             league=league,
             app_key=app_key,
@@ -441,7 +422,6 @@ class ParticipantsApi:
     @validate_call
     def process_participants_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         league: Annotated[StrictStr, Field(description="The league identifier to process")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
@@ -464,8 +444,6 @@ class ParticipantsApi:
 
         Processes a participant feed or uploaded file for a specific league.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param league: The league identifier to process (required)
@@ -499,7 +477,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_participants_serialize(
-            version=version,
             account_id=account_id,
             league=league,
             app_key=app_key,
@@ -528,7 +505,6 @@ class ParticipantsApi:
     @validate_call
     def process_participants_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         league: Annotated[StrictStr, Field(description="The league identifier to process")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key used to identify the application")] = None,
@@ -551,8 +527,6 @@ class ParticipantsApi:
 
         Processes a participant feed or uploaded file for a specific league.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param league: The league identifier to process (required)
@@ -586,7 +560,6 @@ class ParticipantsApi:
         """ # noqa: E501
 
         _param = self._process_participants_serialize(
-            version=version,
             account_id=account_id,
             league=league,
             app_key=app_key,
@@ -610,7 +583,6 @@ class ParticipantsApi:
 
     def _process_participants_serialize(
         self,
-        version,
         account_id,
         league,
         app_key,
@@ -637,8 +609,6 @@ class ParticipantsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -680,7 +650,7 @@ class ParticipantsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/participant/process',
+            resource_path='/participant/process',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

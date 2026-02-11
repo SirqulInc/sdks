@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.wrapped_proxy_item_response import WrappedProxyItemResponse
 
@@ -43,7 +43,6 @@ class OpenAIApi:
     @validate_call
     def image_generation(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         post_body: Annotated[StrictStr, Field(description="Post Body Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -64,8 +63,6 @@ class OpenAIApi:
 
         Generate images with OpenAI.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param post_body: Post Body Parameters (required)
@@ -95,7 +92,6 @@ class OpenAIApi:
         """ # noqa: E501
 
         _param = self._image_generation_serialize(
-            version=version,
             account_id=account_id,
             post_body=post_body,
             return_raw_response=return_raw_response,
@@ -122,7 +118,6 @@ class OpenAIApi:
     @validate_call
     def image_generation_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         post_body: Annotated[StrictStr, Field(description="Post Body Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -143,8 +138,6 @@ class OpenAIApi:
 
         Generate images with OpenAI.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param post_body: Post Body Parameters (required)
@@ -174,7 +167,6 @@ class OpenAIApi:
         """ # noqa: E501
 
         _param = self._image_generation_serialize(
-            version=version,
             account_id=account_id,
             post_body=post_body,
             return_raw_response=return_raw_response,
@@ -201,7 +193,6 @@ class OpenAIApi:
     @validate_call
     def image_generation_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         post_body: Annotated[StrictStr, Field(description="Post Body Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -222,8 +213,6 @@ class OpenAIApi:
 
         Generate images with OpenAI.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param post_body: Post Body Parameters (required)
@@ -253,7 +242,6 @@ class OpenAIApi:
         """ # noqa: E501
 
         _param = self._image_generation_serialize(
-            version=version,
             account_id=account_id,
             post_body=post_body,
             return_raw_response=return_raw_response,
@@ -275,7 +263,6 @@ class OpenAIApi:
 
     def _image_generation_serialize(
         self,
-        version,
         account_id,
         post_body,
         return_raw_response,
@@ -300,8 +287,6 @@ class OpenAIApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -335,7 +320,7 @@ class OpenAIApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/openai/v1/images/generations',
+            resource_path='/openai/v1/images/generations',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

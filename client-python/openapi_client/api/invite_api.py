@@ -45,7 +45,6 @@ class InviteApi:
     @validate_call
     def accept_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="the invite token")],
         account_id: Annotated[StrictInt, Field(description="the accountId of the user who is accepting the invite")],
         album_id: Annotated[Optional[StrictInt], Field(description="the album id associated with this invite (if applicable)")] = None,
@@ -77,8 +76,6 @@ class InviteApi:
 
         Allows a user to accept an invite. The user could also become the inviter's friend.
 
-        :param version: (required)
-        :type version: float
         :param token: the invite token (required)
         :type token: str
         :param account_id: the accountId of the user who is accepting the invite (required)
@@ -130,7 +127,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._accept_invite_serialize(
-            version=version,
             token=token,
             account_id=account_id,
             album_id=album_id,
@@ -168,7 +164,6 @@ class InviteApi:
     @validate_call
     def accept_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="the invite token")],
         account_id: Annotated[StrictInt, Field(description="the accountId of the user who is accepting the invite")],
         album_id: Annotated[Optional[StrictInt], Field(description="the album id associated with this invite (if applicable)")] = None,
@@ -200,8 +195,6 @@ class InviteApi:
 
         Allows a user to accept an invite. The user could also become the inviter's friend.
 
-        :param version: (required)
-        :type version: float
         :param token: the invite token (required)
         :type token: str
         :param account_id: the accountId of the user who is accepting the invite (required)
@@ -253,7 +246,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._accept_invite_serialize(
-            version=version,
             token=token,
             account_id=account_id,
             album_id=album_id,
@@ -291,7 +283,6 @@ class InviteApi:
     @validate_call
     def accept_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="the invite token")],
         account_id: Annotated[StrictInt, Field(description="the accountId of the user who is accepting the invite")],
         album_id: Annotated[Optional[StrictInt], Field(description="the album id associated with this invite (if applicable)")] = None,
@@ -323,8 +314,6 @@ class InviteApi:
 
         Allows a user to accept an invite. The user could also become the inviter's friend.
 
-        :param version: (required)
-        :type version: float
         :param token: the invite token (required)
         :type token: str
         :param account_id: the accountId of the user who is accepting the invite (required)
@@ -376,7 +365,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._accept_invite_serialize(
-            version=version,
             token=token,
             account_id=account_id,
             album_id=album_id,
@@ -409,7 +397,6 @@ class InviteApi:
 
     def _accept_invite_serialize(
         self,
-        version,
         token,
         account_id,
         album_id,
@@ -445,8 +432,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if token is not None:
             
@@ -524,7 +509,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/accept',
+            resource_path='/invite/accept',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -543,7 +528,6 @@ class InviteApi:
     @validate_call
     def album_contest_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -568,8 +552,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -607,7 +589,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_contest_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -638,7 +619,6 @@ class InviteApi:
     @validate_call
     def album_contest_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -663,8 +643,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -702,7 +680,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_contest_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -733,7 +710,6 @@ class InviteApi:
     @validate_call
     def album_contest_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -758,8 +734,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -797,7 +771,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_contest_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -823,7 +796,6 @@ class InviteApi:
 
     def _album_contest_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_id,
@@ -852,8 +824,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -903,7 +873,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/albumContest',
+            resource_path='/invite/albumContest',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -922,7 +892,6 @@ class InviteApi:
     @validate_call
     def album_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -947,8 +916,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -986,7 +953,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1017,7 +983,6 @@ class InviteApi:
     @validate_call
     def album_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1042,8 +1007,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -1081,7 +1044,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1112,7 +1074,6 @@ class InviteApi:
     @validate_call
     def album_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1137,8 +1098,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -1176,7 +1135,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._album_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1202,7 +1160,6 @@ class InviteApi:
 
     def _album_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_id,
@@ -1231,8 +1188,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1282,7 +1237,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/album',
+            resource_path='/invite/album',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1301,7 +1256,6 @@ class InviteApi:
     @validate_call
     def event_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         listing_id: Annotated[StrictInt, Field(description="The ID of the event listing")],
@@ -1324,8 +1278,6 @@ class InviteApi:
 
         Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1359,7 +1311,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._event_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             listing_id=listing_id,
@@ -1388,7 +1339,6 @@ class InviteApi:
     @validate_call
     def event_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         listing_id: Annotated[StrictInt, Field(description="The ID of the event listing")],
@@ -1411,8 +1361,6 @@ class InviteApi:
 
         Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1446,7 +1394,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._event_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             listing_id=listing_id,
@@ -1475,7 +1422,6 @@ class InviteApi:
     @validate_call
     def event_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         listing_id: Annotated[StrictInt, Field(description="The ID of the event listing")],
@@ -1498,8 +1444,6 @@ class InviteApi:
 
         Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1533,7 +1477,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._event_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             listing_id=listing_id,
@@ -1557,7 +1500,6 @@ class InviteApi:
 
     def _event_invite_serialize(
         self,
-        version,
         account_id,
         app_key,
         listing_id,
@@ -1584,8 +1526,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1627,7 +1567,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/event',
+            resource_path='/invite/event',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1646,7 +1586,6 @@ class InviteApi:
     @validate_call
     def game_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1671,8 +1610,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -1710,7 +1647,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._game_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1741,7 +1677,6 @@ class InviteApi:
     @validate_call
     def game_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1766,8 +1701,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -1805,7 +1738,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._game_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1836,7 +1768,6 @@ class InviteApi:
     @validate_call
     def game_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1861,8 +1792,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -1900,7 +1829,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._game_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -1926,7 +1854,6 @@ class InviteApi:
 
     def _game_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_id,
@@ -1955,8 +1882,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2006,7 +1931,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/gameLevel',
+            resource_path='/invite/gameLevel',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2025,7 +1950,6 @@ class InviteApi:
     @validate_call
     def get_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="Account ID of the user if they are logged in")] = None,
         token: Annotated[Optional[StrictStr], Field(description="the invite token")] = None,
         album_id: Annotated[Optional[StrictInt], Field(description="album id to match the invite against (if applicable)")] = None,
@@ -2052,8 +1976,6 @@ class InviteApi:
 
         This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account ID of the user if they are logged in
         :type account_id: int
         :param token: the invite token
@@ -2095,7 +2017,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._get_invite_serialize(
-            version=version,
             account_id=account_id,
             token=token,
             album_id=album_id,
@@ -2128,7 +2049,6 @@ class InviteApi:
     @validate_call
     def get_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="Account ID of the user if they are logged in")] = None,
         token: Annotated[Optional[StrictStr], Field(description="the invite token")] = None,
         album_id: Annotated[Optional[StrictInt], Field(description="album id to match the invite against (if applicable)")] = None,
@@ -2155,8 +2075,6 @@ class InviteApi:
 
         This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account ID of the user if they are logged in
         :type account_id: int
         :param token: the invite token
@@ -2198,7 +2116,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._get_invite_serialize(
-            version=version,
             account_id=account_id,
             token=token,
             album_id=album_id,
@@ -2231,7 +2148,6 @@ class InviteApi:
     @validate_call
     def get_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="Account ID of the user if they are logged in")] = None,
         token: Annotated[Optional[StrictStr], Field(description="the invite token")] = None,
         album_id: Annotated[Optional[StrictInt], Field(description="album id to match the invite against (if applicable)")] = None,
@@ -2258,8 +2174,6 @@ class InviteApi:
 
         This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account ID of the user if they are logged in
         :type account_id: int
         :param token: the invite token
@@ -2301,7 +2215,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._get_invite_serialize(
-            version=version,
             account_id=account_id,
             token=token,
             album_id=album_id,
@@ -2329,7 +2242,6 @@ class InviteApi:
 
     def _get_invite_serialize(
         self,
-        version,
         account_id,
         token,
         album_id,
@@ -2360,8 +2272,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2419,7 +2329,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/invite/get',
+            resource_path='/invite/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2438,7 +2348,6 @@ class InviteApi:
     @validate_call
     def mission_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -2463,8 +2372,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -2502,7 +2409,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -2533,7 +2439,6 @@ class InviteApi:
     @validate_call
     def mission_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -2558,8 +2463,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -2597,7 +2500,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -2628,7 +2530,6 @@ class InviteApi:
     @validate_call
     def mission_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         app_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -2653,8 +2554,6 @@ class InviteApi:
 
         Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -2692,7 +2591,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_id=app_id,
@@ -2718,7 +2616,6 @@ class InviteApi:
 
     def _mission_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_id,
@@ -2747,8 +2644,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2798,7 +2693,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/mission',
+            resource_path='/invite/mission',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2817,7 +2712,6 @@ class InviteApi:
     @validate_call
     def offer_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_id: Annotated[StrictInt, Field(description="the ID of the offer used to invite to favorite")],
@@ -2838,8 +2732,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2869,7 +2761,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_id=offer_id,
@@ -2896,7 +2787,6 @@ class InviteApi:
     @validate_call
     def offer_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_id: Annotated[StrictInt, Field(description="the ID of the offer used to invite to favorite")],
@@ -2917,8 +2807,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2948,7 +2836,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_id=offer_id,
@@ -2975,7 +2862,6 @@ class InviteApi:
     @validate_call
     def offer_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_id: Annotated[StrictInt, Field(description="the ID of the offer used to invite to favorite")],
@@ -2996,8 +2882,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3027,7 +2911,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_id=offer_id,
@@ -3049,7 +2932,6 @@ class InviteApi:
 
     def _offer_invite_serialize(
         self,
-        version,
         account_id,
         app_key,
         offer_id,
@@ -3074,8 +2956,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3109,7 +2989,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/offer',
+            resource_path='/invite/offer',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3128,7 +3008,6 @@ class InviteApi:
     @validate_call
     def offer_location_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_location_id: Annotated[StrictInt, Field(description="the id of the offer location to share")],
@@ -3149,8 +3028,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3180,7 +3057,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_location_id=offer_location_id,
@@ -3207,7 +3083,6 @@ class InviteApi:
     @validate_call
     def offer_location_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_location_id: Annotated[StrictInt, Field(description="the id of the offer location to share")],
@@ -3228,8 +3103,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3259,7 +3132,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_location_id=offer_location_id,
@@ -3286,7 +3158,6 @@ class InviteApi:
     @validate_call
     def offer_location_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         offer_location_id: Annotated[StrictInt, Field(description="the id of the offer location to share")],
@@ -3307,8 +3178,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3338,7 +3207,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._offer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             offer_location_id=offer_location_id,
@@ -3360,7 +3228,6 @@ class InviteApi:
 
     def _offer_location_invite_serialize(
         self,
-        version,
         account_id,
         app_key,
         offer_location_id,
@@ -3385,8 +3252,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3420,7 +3285,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/offerLocation',
+            resource_path='/invite/offerLocation',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3439,7 +3304,6 @@ class InviteApi:
     @validate_call
     def retailer_location_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id of where the event will take place")],
@@ -3461,8 +3325,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3494,7 +3356,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._retailer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_location_id=retailer_location_id,
@@ -3522,7 +3383,6 @@ class InviteApi:
     @validate_call
     def retailer_location_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id of where the event will take place")],
@@ -3544,8 +3404,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3577,7 +3435,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._retailer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_location_id=retailer_location_id,
@@ -3605,7 +3462,6 @@ class InviteApi:
     @validate_call
     def retailer_location_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user making the share")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id of where the event will take place")],
@@ -3627,8 +3483,6 @@ class InviteApi:
 
         Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user making the share (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -3660,7 +3514,6 @@ class InviteApi:
         """ # noqa: E501
 
         _param = self._retailer_location_invite_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_location_id=retailer_location_id,
@@ -3683,7 +3536,6 @@ class InviteApi:
 
     def _retailer_location_invite_serialize(
         self,
-        version,
         account_id,
         app_key,
         retailer_location_id,
@@ -3709,8 +3561,6 @@ class InviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3748,7 +3598,7 @@ class InviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/invite/retailerLocation',
+            resource_path='/invite/retailerLocation',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

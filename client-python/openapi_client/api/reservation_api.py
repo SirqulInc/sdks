@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.availability_response import AvailabilityResponse
 from openapi_client.models.reservation_response import ReservationResponse
@@ -45,7 +45,6 @@ class ReservationApi:
     @validate_call
     def create_reservation(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="The start date")] = None,
@@ -71,8 +70,6 @@ class ReservationApi:
 
         Creates a reservation on an offer object
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -112,7 +109,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._create_reservation_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             start_date=start_date,
@@ -144,7 +140,6 @@ class ReservationApi:
     @validate_call
     def create_reservation_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="The start date")] = None,
@@ -170,8 +165,6 @@ class ReservationApi:
 
         Creates a reservation on an offer object
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -211,7 +204,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._create_reservation_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             start_date=start_date,
@@ -243,7 +235,6 @@ class ReservationApi:
     @validate_call
     def create_reservation_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="The start date")] = None,
@@ -269,8 +260,6 @@ class ReservationApi:
 
         Creates a reservation on an offer object
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -310,7 +299,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._create_reservation_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             start_date=start_date,
@@ -337,7 +325,6 @@ class ReservationApi:
 
     def _create_reservation_serialize(
         self,
-        version,
         device_id,
         account_id,
         start_date,
@@ -367,8 +354,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -415,7 +400,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/reservation/create',
+            resource_path='/reservation/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -434,7 +419,6 @@ class ReservationApi:
     @validate_call
     def delete_reservation(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservation_id: Annotated[StrictInt, Field(description="The reservation id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -455,8 +439,6 @@ class ReservationApi:
 
         Deleted a reservation on a reservation object
 
-        :param version: (required)
-        :type version: float
         :param reservation_id: The reservation id (required)
         :type reservation_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -486,7 +468,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._delete_reservation_serialize(
-            version=version,
             reservation_id=reservation_id,
             device_id=device_id,
             account_id=account_id,
@@ -513,7 +494,6 @@ class ReservationApi:
     @validate_call
     def delete_reservation_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservation_id: Annotated[StrictInt, Field(description="The reservation id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -534,8 +514,6 @@ class ReservationApi:
 
         Deleted a reservation on a reservation object
 
-        :param version: (required)
-        :type version: float
         :param reservation_id: The reservation id (required)
         :type reservation_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -565,7 +543,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._delete_reservation_serialize(
-            version=version,
             reservation_id=reservation_id,
             device_id=device_id,
             account_id=account_id,
@@ -592,7 +569,6 @@ class ReservationApi:
     @validate_call
     def delete_reservation_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservation_id: Annotated[StrictInt, Field(description="The reservation id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -613,8 +589,6 @@ class ReservationApi:
 
         Deleted a reservation on a reservation object
 
-        :param version: (required)
-        :type version: float
         :param reservation_id: The reservation id (required)
         :type reservation_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -644,7 +618,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._delete_reservation_serialize(
-            version=version,
             reservation_id=reservation_id,
             device_id=device_id,
             account_id=account_id,
@@ -666,7 +639,6 @@ class ReservationApi:
 
     def _delete_reservation_serialize(
         self,
-        version,
         reservation_id,
         device_id,
         account_id,
@@ -691,8 +663,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -719,7 +689,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/reservation/delete',
+            resource_path='/reservation/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -738,7 +708,6 @@ class ReservationApi:
     @validate_call
     def reservable_availability(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the type of reservation")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id of the reservation")] = None,
@@ -761,8 +730,6 @@ class ReservationApi:
         """Update Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the type of reservation (required)
@@ -798,7 +765,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._reservable_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -828,7 +794,6 @@ class ReservationApi:
     @validate_call
     def reservable_availability_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the type of reservation")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id of the reservation")] = None,
@@ -851,8 +816,6 @@ class ReservationApi:
         """Update Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the type of reservation (required)
@@ -888,7 +851,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._reservable_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -918,7 +880,6 @@ class ReservationApi:
     @validate_call
     def reservable_availability_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the type of reservation")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id of the reservation")] = None,
@@ -941,8 +902,6 @@ class ReservationApi:
         """Update Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the type of reservation (required)
@@ -978,7 +937,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._reservable_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -1003,7 +961,6 @@ class ReservationApi:
 
     def _reservable_availability_serialize(
         self,
-        version,
         reservable_id,
         reservable_type,
         device_id,
@@ -1031,8 +988,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1078,7 +1033,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/reservable/availability/update',
+            resource_path='/reservable/availability/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1097,7 +1052,6 @@ class ReservationApi:
     @validate_call
     def search_availability(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservable type")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device ID that the reservation is on")] = None,
@@ -1122,8 +1076,6 @@ class ReservationApi:
         """Search Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservable type (required)
@@ -1163,7 +1115,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -1195,7 +1146,6 @@ class ReservationApi:
     @validate_call
     def search_availability_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservable type")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device ID that the reservation is on")] = None,
@@ -1220,8 +1170,6 @@ class ReservationApi:
         """Search Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservable type (required)
@@ -1261,7 +1209,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -1293,7 +1240,6 @@ class ReservationApi:
     @validate_call
     def search_availability_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservable type")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device ID that the reservation is on")] = None,
@@ -1318,8 +1264,6 @@ class ReservationApi:
         """Search Availability
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservable type (required)
@@ -1359,7 +1303,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_availability_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             device_id=device_id,
@@ -1386,7 +1329,6 @@ class ReservationApi:
 
     def _search_availability_serialize(
         self,
-        version,
         reservable_id,
         reservable_type,
         device_id,
@@ -1416,8 +1358,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1471,7 +1411,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/reservable/availability/search',
+            resource_path='/reservable/availability/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1490,7 +1430,6 @@ class ReservationApi:
     @validate_call
     def search_reservations(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="Appilcation Key")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
@@ -1518,8 +1457,6 @@ class ReservationApi:
         """Search Reservations
 
 
-        :param version: (required)
-        :type version: float
         :param device_id: Device Id
         :type device_id: str
         :param app_key: Appilcation Key
@@ -1565,7 +1502,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_reservations_serialize(
-            version=version,
             device_id=device_id,
             app_key=app_key,
             account_id=account_id,
@@ -1600,7 +1536,6 @@ class ReservationApi:
     @validate_call
     def search_reservations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="Appilcation Key")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
@@ -1628,8 +1563,6 @@ class ReservationApi:
         """Search Reservations
 
 
-        :param version: (required)
-        :type version: float
         :param device_id: Device Id
         :type device_id: str
         :param app_key: Appilcation Key
@@ -1675,7 +1608,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_reservations_serialize(
-            version=version,
             device_id=device_id,
             app_key=app_key,
             account_id=account_id,
@@ -1710,7 +1642,6 @@ class ReservationApi:
     @validate_call
     def search_reservations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="Appilcation Key")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
@@ -1738,8 +1669,6 @@ class ReservationApi:
         """Search Reservations
 
 
-        :param version: (required)
-        :type version: float
         :param device_id: Device Id
         :type device_id: str
         :param app_key: Appilcation Key
@@ -1785,7 +1714,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_reservations_serialize(
-            version=version,
             device_id=device_id,
             app_key=app_key,
             account_id=account_id,
@@ -1815,7 +1743,6 @@ class ReservationApi:
 
     def _search_reservations_serialize(
         self,
-        version,
         device_id,
         app_key,
         account_id,
@@ -1848,8 +1775,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1915,7 +1840,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/reservation/search',
+            resource_path='/reservation/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1934,7 +1859,6 @@ class ReservationApi:
     @validate_call
     def search_schedule(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservation type")],
         start_date: Annotated[StrictInt, Field(description="the start date of the reservation")],
@@ -1958,8 +1882,6 @@ class ReservationApi:
         """Search Schedule
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservation type (required)
@@ -1997,7 +1919,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_schedule_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             start_date=start_date,
@@ -2028,7 +1949,6 @@ class ReservationApi:
     @validate_call
     def search_schedule_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservation type")],
         start_date: Annotated[StrictInt, Field(description="the start date of the reservation")],
@@ -2052,8 +1972,6 @@ class ReservationApi:
         """Search Schedule
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservation type (required)
@@ -2091,7 +2009,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_schedule_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             start_date=start_date,
@@ -2122,7 +2039,6 @@ class ReservationApi:
     @validate_call
     def search_schedule_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         reservable_id: Annotated[StrictInt, Field(description="the id of the reservation")],
         reservable_type: Annotated[StrictStr, Field(description="the reservation type")],
         start_date: Annotated[StrictInt, Field(description="the start date of the reservation")],
@@ -2146,8 +2062,6 @@ class ReservationApi:
         """Search Schedule
 
 
-        :param version: (required)
-        :type version: float
         :param reservable_id: the id of the reservation (required)
         :type reservable_id: int
         :param reservable_type: the reservation type (required)
@@ -2185,7 +2099,6 @@ class ReservationApi:
         """ # noqa: E501
 
         _param = self._search_schedule_serialize(
-            version=version,
             reservable_id=reservable_id,
             reservable_type=reservable_type,
             start_date=start_date,
@@ -2211,7 +2124,6 @@ class ReservationApi:
 
     def _search_schedule_serialize(
         self,
-        version,
         reservable_id,
         reservable_type,
         start_date,
@@ -2240,8 +2152,6 @@ class ReservationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2291,7 +2201,7 @@ class ReservationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/reservable/schedule/search',
+            resource_path='/reservable/schedule/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

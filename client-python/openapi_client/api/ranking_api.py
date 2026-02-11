@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, Dict, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Any, Dict, Optional
 from typing_extensions import Annotated
 from openapi_client.models.rank_full_response import RankFullResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class RankingApi:
     @validate_call
     def get_historical_rankings(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="the rank type to return")],
         start_date: Annotated[StrictInt, Field(description="timestamp in milliseconds to filter results with")],
@@ -72,8 +71,6 @@ class RankingApi:
 
         Get historical leaderboard rankings by time-frame.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key for filtering results by application (required)
         :type app_key: str
         :param rank_type: the rank type to return (required)
@@ -117,7 +114,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_historical_rankings_serialize(
-            version=version,
             app_key=app_key,
             rank_type=rank_type,
             start_date=start_date,
@@ -151,7 +147,6 @@ class RankingApi:
     @validate_call
     def get_historical_rankings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="the rank type to return")],
         start_date: Annotated[StrictInt, Field(description="timestamp in milliseconds to filter results with")],
@@ -179,8 +174,6 @@ class RankingApi:
 
         Get historical leaderboard rankings by time-frame.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key for filtering results by application (required)
         :type app_key: str
         :param rank_type: the rank type to return (required)
@@ -224,7 +217,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_historical_rankings_serialize(
-            version=version,
             app_key=app_key,
             rank_type=rank_type,
             start_date=start_date,
@@ -258,7 +250,6 @@ class RankingApi:
     @validate_call
     def get_historical_rankings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="the rank type to return")],
         start_date: Annotated[StrictInt, Field(description="timestamp in milliseconds to filter results with")],
@@ -286,8 +277,6 @@ class RankingApi:
 
         Get historical leaderboard rankings by time-frame.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key for filtering results by application (required)
         :type app_key: str
         :param rank_type: the rank type to return (required)
@@ -331,7 +320,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_historical_rankings_serialize(
-            version=version,
             app_key=app_key,
             rank_type=rank_type,
             start_date=start_date,
@@ -360,7 +348,6 @@ class RankingApi:
 
     def _get_historical_rankings_serialize(
         self,
-        version,
         app_key,
         rank_type,
         start_date,
@@ -392,8 +379,6 @@ class RankingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -455,7 +440,7 @@ class RankingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ranking/historical/search',
+            resource_path='/ranking/historical/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -474,7 +459,6 @@ class RankingApi:
     @validate_call
     def get_rankings(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -510,8 +494,6 @@ class RankingApi:
 
         Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -571,7 +553,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_rankings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -613,7 +594,6 @@ class RankingApi:
     @validate_call
     def get_rankings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -649,8 +629,6 @@ class RankingApi:
 
         Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -710,7 +688,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_rankings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -752,7 +729,6 @@ class RankingApi:
     @validate_call
     def get_rankings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -788,8 +764,6 @@ class RankingApi:
 
         Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -849,7 +823,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_rankings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -886,7 +859,6 @@ class RankingApi:
 
     def _get_rankings_serialize(
         self,
-        version,
         device_id,
         account_id,
         game_type,
@@ -926,8 +898,6 @@ class RankingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1021,7 +991,7 @@ class RankingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ranking/search',
+            resource_path='/ranking/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1040,7 +1010,6 @@ class RankingApi:
     @validate_call
     def get_user_rank(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key for filtering results by application (required)")] = None,
@@ -1069,8 +1038,6 @@ class RankingApi:
 
         Returns the user's ranks for one or more rank types and modes.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user
@@ -1116,7 +1083,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_user_rank_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1151,7 +1117,6 @@ class RankingApi:
     @validate_call
     def get_user_rank_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key for filtering results by application (required)")] = None,
@@ -1180,8 +1145,6 @@ class RankingApi:
 
         Returns the user's ranks for one or more rank types and modes.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user
@@ -1227,7 +1190,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_user_rank_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1262,7 +1224,6 @@ class RankingApi:
     @validate_call
     def get_user_rank_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key for filtering results by application (required)")] = None,
@@ -1291,8 +1252,6 @@ class RankingApi:
 
         Returns the user's ranks for one or more rank types and modes.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user
@@ -1338,7 +1297,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._get_user_rank_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1368,7 +1326,6 @@ class RankingApi:
 
     def _get_user_rank_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -1401,8 +1358,6 @@ class RankingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1468,7 +1423,7 @@ class RankingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/ranking/personal/ranks',
+            resource_path='/ranking/personal/ranks',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1487,7 +1442,6 @@ class RankingApi:
     @validate_call
     def override_user_rank(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the logged in user's account id (must have permissions to manage data for the application)")],
         owner_account_id: Annotated[StrictInt, Field(description="the end user's account id to override")],
         app_key: Annotated[StrictStr, Field(description="the application key the leaderboard is for")],
@@ -1527,8 +1481,6 @@ class RankingApi:
 
         Allows an admin of an application to override a user's scores for a leaderboard.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the logged in user's account id (must have permissions to manage data for the application) (required)
         :type account_id: int
         :param owner_account_id: the end user's account id to override (required)
@@ -1596,7 +1548,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._override_user_rank_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             app_key=app_key,
@@ -1642,7 +1593,6 @@ class RankingApi:
     @validate_call
     def override_user_rank_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the logged in user's account id (must have permissions to manage data for the application)")],
         owner_account_id: Annotated[StrictInt, Field(description="the end user's account id to override")],
         app_key: Annotated[StrictStr, Field(description="the application key the leaderboard is for")],
@@ -1682,8 +1632,6 @@ class RankingApi:
 
         Allows an admin of an application to override a user's scores for a leaderboard.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the logged in user's account id (must have permissions to manage data for the application) (required)
         :type account_id: int
         :param owner_account_id: the end user's account id to override (required)
@@ -1751,7 +1699,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._override_user_rank_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             app_key=app_key,
@@ -1797,7 +1744,6 @@ class RankingApi:
     @validate_call
     def override_user_rank_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the logged in user's account id (must have permissions to manage data for the application)")],
         owner_account_id: Annotated[StrictInt, Field(description="the end user's account id to override")],
         app_key: Annotated[StrictStr, Field(description="the application key the leaderboard is for")],
@@ -1837,8 +1783,6 @@ class RankingApi:
 
         Allows an admin of an application to override a user's scores for a leaderboard.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the logged in user's account id (must have permissions to manage data for the application) (required)
         :type account_id: int
         :param owner_account_id: the end user's account id to override (required)
@@ -1906,7 +1850,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._override_user_rank_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             app_key=app_key,
@@ -1947,7 +1890,6 @@ class RankingApi:
 
     def _override_user_rank_serialize(
         self,
-        version,
         account_id,
         owner_account_id,
         app_key,
@@ -1991,8 +1933,6 @@ class RankingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2102,7 +2042,7 @@ class RankingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/ranking/override',
+            resource_path='/ranking/override',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2121,7 +2061,6 @@ class RankingApi:
     @validate_call
     def update_rankings(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")],
@@ -2149,8 +2088,6 @@ class RankingApi:
 
         Update the rank value 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param app_key: the application key for filtering results by application (required)
@@ -2194,7 +2131,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._update_rankings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -2228,7 +2164,6 @@ class RankingApi:
     @validate_call
     def update_rankings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")],
@@ -2256,8 +2191,6 @@ class RankingApi:
 
         Update the rank value 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param app_key: the application key for filtering results by application (required)
@@ -2301,7 +2234,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._update_rankings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -2335,7 +2267,6 @@ class RankingApi:
     @validate_call
     def update_rankings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         rank_type: Annotated[StrictStr, Field(description="a unique label for identifying the ranking. This can be any alphanumeric string (no spaces or special characters) with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")],
@@ -2363,8 +2294,6 @@ class RankingApi:
 
         Update the rank value 
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param app_key: the application key for filtering results by application (required)
@@ -2408,7 +2337,6 @@ class RankingApi:
         """ # noqa: E501
 
         _param = self._update_rankings_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -2437,7 +2365,6 @@ class RankingApi:
 
     def _update_rankings_serialize(
         self,
-        version,
         account_id,
         app_key,
         rank_type,
@@ -2469,8 +2396,6 @@ class RankingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2532,7 +2457,7 @@ class RankingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/ranking/update',
+            resource_path='/ranking/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

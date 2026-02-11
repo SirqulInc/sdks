@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.app_response import AppResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class AppDataApi:
     @validate_call
     def get_app_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
@@ -87,8 +86,6 @@ class AppDataApi:
 
         Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
 
-        :param version: (required)
-        :type version: float
         :param start: start the search results at a record. (required)
         :type start: int
         :param limit: limit the search results to some number. (required)
@@ -162,7 +159,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._get_app_data_serialize(
-            version=version,
             start=start,
             limit=limit,
             device_id=device_id,
@@ -211,7 +207,6 @@ class AppDataApi:
     @validate_call
     def get_app_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
@@ -254,8 +249,6 @@ class AppDataApi:
 
         Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
 
-        :param version: (required)
-        :type version: float
         :param start: start the search results at a record. (required)
         :type start: int
         :param limit: limit the search results to some number. (required)
@@ -329,7 +322,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._get_app_data_serialize(
-            version=version,
             start=start,
             limit=limit,
             device_id=device_id,
@@ -378,7 +370,6 @@ class AppDataApi:
     @validate_call
     def get_app_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
@@ -421,8 +412,6 @@ class AppDataApi:
 
         Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
 
-        :param version: (required)
-        :type version: float
         :param start: start the search results at a record. (required)
         :type start: int
         :param limit: limit the search results to some number. (required)
@@ -496,7 +485,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._get_app_data_serialize(
-            version=version,
             start=start,
             limit=limit,
             device_id=device_id,
@@ -540,7 +528,6 @@ class AppDataApi:
 
     def _get_app_data_serialize(
         self,
-        version,
         start,
         limit,
         device_id,
@@ -587,8 +574,6 @@ class AppDataApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -710,7 +695,7 @@ class AppDataApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/app/get',
+            resource_path='/app/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -729,7 +714,6 @@ class AppDataApi:
     @validate_call
     def post_app_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         game_type: Annotated[StrictStr, Field(description="the game to retrieve the data for, use your application key.")],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
@@ -773,8 +757,6 @@ class AppDataApi:
 
         Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
 
-        :param version: (required)
-        :type version: float
         :param game_type: the game to retrieve the data for, use your application key. (required)
         :type game_type: str
         :param start: start the search results at a record. (required)
@@ -850,7 +832,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._post_app_data_serialize(
-            version=version,
             game_type=game_type,
             start=start,
             limit=limit,
@@ -900,7 +881,6 @@ class AppDataApi:
     @validate_call
     def post_app_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         game_type: Annotated[StrictStr, Field(description="the game to retrieve the data for, use your application key.")],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
@@ -944,8 +924,6 @@ class AppDataApi:
 
         Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
 
-        :param version: (required)
-        :type version: float
         :param game_type: the game to retrieve the data for, use your application key. (required)
         :type game_type: str
         :param start: start the search results at a record. (required)
@@ -1021,7 +999,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._post_app_data_serialize(
-            version=version,
             game_type=game_type,
             start=start,
             limit=limit,
@@ -1071,7 +1048,6 @@ class AppDataApi:
     @validate_call
     def post_app_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         game_type: Annotated[StrictStr, Field(description="the game to retrieve the data for, use your application key.")],
         start: Annotated[StrictInt, Field(description="start the search results at a record.")],
         limit: Annotated[StrictInt, Field(description="limit the search results to some number.")],
@@ -1115,8 +1091,6 @@ class AppDataApi:
 
         Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
 
-        :param version: (required)
-        :type version: float
         :param game_type: the game to retrieve the data for, use your application key. (required)
         :type game_type: str
         :param start: start the search results at a record. (required)
@@ -1192,7 +1166,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._post_app_data_serialize(
-            version=version,
             game_type=game_type,
             start=start,
             limit=limit,
@@ -1237,7 +1210,6 @@ class AppDataApi:
 
     def _post_app_data_serialize(
         self,
-        version,
         game_type,
         start,
         limit,
@@ -1285,8 +1257,6 @@ class AppDataApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1412,7 +1382,7 @@ class AppDataApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/app/post',
+            resource_path='/app/post',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1431,7 +1401,6 @@ class AppDataApi:
     @validate_call
     def regen_app_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="process a specific application, if null process all apps with caches")] = None,
         build_version: Annotated[Optional[StrictStr], Field(description="create a specific version, if null use current version. Be careful if processing all")] = None,
@@ -1453,8 +1422,6 @@ class AppDataApi:
 
         Regenerate the app data cache for apps
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param app_key: process a specific application, if null process all apps with caches
@@ -1486,7 +1453,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._regen_app_data_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             build_version=build_version,
@@ -1514,7 +1480,6 @@ class AppDataApi:
     @validate_call
     def regen_app_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="process a specific application, if null process all apps with caches")] = None,
         build_version: Annotated[Optional[StrictStr], Field(description="create a specific version, if null use current version. Be careful if processing all")] = None,
@@ -1536,8 +1501,6 @@ class AppDataApi:
 
         Regenerate the app data cache for apps
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param app_key: process a specific application, if null process all apps with caches
@@ -1569,7 +1532,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._regen_app_data_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             build_version=build_version,
@@ -1597,7 +1559,6 @@ class AppDataApi:
     @validate_call
     def regen_app_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="process a specific application, if null process all apps with caches")] = None,
         build_version: Annotated[Optional[StrictStr], Field(description="create a specific version, if null use current version. Be careful if processing all")] = None,
@@ -1619,8 +1580,6 @@ class AppDataApi:
 
         Regenerate the app data cache for apps
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param app_key: process a specific application, if null process all apps with caches
@@ -1652,7 +1611,6 @@ class AppDataApi:
         """ # noqa: E501
 
         _param = self._regen_app_data_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             build_version=build_version,
@@ -1675,7 +1633,6 @@ class AppDataApi:
 
     def _regen_app_data_serialize(
         self,
-        version,
         account_id,
         app_key,
         build_version,
@@ -1701,8 +1658,6 @@ class AppDataApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1740,7 +1695,7 @@ class AppDataApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/app/regen',
+            resource_path='/app/regen',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

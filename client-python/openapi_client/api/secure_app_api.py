@@ -45,7 +45,6 @@ class SecureAppApi:
     @validate_call
     def create_secure_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         key_cert: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
@@ -73,8 +72,6 @@ class SecureAppApi:
 
         Create a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -118,7 +115,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._create_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             key_cert=key_cert,
@@ -152,7 +148,6 @@ class SecureAppApi:
     @validate_call
     def create_secure_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         key_cert: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
@@ -180,8 +175,6 @@ class SecureAppApi:
 
         Create a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -225,7 +218,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._create_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             key_cert=key_cert,
@@ -259,7 +251,6 @@ class SecureAppApi:
     @validate_call
     def create_secure_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         key_cert: Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]],
@@ -287,8 +278,6 @@ class SecureAppApi:
 
         Create a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -332,7 +321,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._create_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             key_cert=key_cert,
@@ -361,7 +349,6 @@ class SecureAppApi:
 
     def _create_secure_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         key_cert,
@@ -393,8 +380,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -456,7 +441,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/application/create',
+            resource_path='/secure/application/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -475,7 +460,6 @@ class SecureAppApi:
     @validate_call
     def delete_secure_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -495,8 +479,6 @@ class SecureAppApi:
 
         Delete a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -524,7 +506,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._delete_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -550,7 +531,6 @@ class SecureAppApi:
     @validate_call
     def delete_secure_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -570,8 +550,6 @@ class SecureAppApi:
 
         Delete a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -599,7 +577,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._delete_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -625,7 +602,6 @@ class SecureAppApi:
     @validate_call
     def delete_secure_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -645,8 +621,6 @@ class SecureAppApi:
 
         Delete a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -674,7 +648,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._delete_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -695,7 +668,6 @@ class SecureAppApi:
 
     def _delete_secure_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         _request_auth,
@@ -719,8 +691,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -750,7 +720,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/application/delete',
+            resource_path='/secure/application/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -769,7 +739,6 @@ class SecureAppApi:
     @validate_call
     def login_secure(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application making the request, defines what type and position is required to make a secure login the request.")],
         biometric_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="The data file used to perform authentication")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request")] = None,
@@ -796,8 +765,6 @@ class SecureAppApi:
 
         Login via Clear.me. Creates a new account if logging in for the first time.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application making the request, defines what type and position is required to make a secure login the request. (required)
         :type app_key: str
         :param biometric_file: The data file used to perform authentication (required)
@@ -839,7 +806,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._login_secure_serialize(
-            version=version,
             app_key=app_key,
             biometric_file=biometric_file,
             device_id=device_id,
@@ -872,7 +838,6 @@ class SecureAppApi:
     @validate_call
     def login_secure_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application making the request, defines what type and position is required to make a secure login the request.")],
         biometric_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="The data file used to perform authentication")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request")] = None,
@@ -899,8 +864,6 @@ class SecureAppApi:
 
         Login via Clear.me. Creates a new account if logging in for the first time.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application making the request, defines what type and position is required to make a secure login the request. (required)
         :type app_key: str
         :param biometric_file: The data file used to perform authentication (required)
@@ -942,7 +905,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._login_secure_serialize(
-            version=version,
             app_key=app_key,
             biometric_file=biometric_file,
             device_id=device_id,
@@ -975,7 +937,6 @@ class SecureAppApi:
     @validate_call
     def login_secure_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application making the request, defines what type and position is required to make a secure login the request.")],
         biometric_file: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="The data file used to perform authentication")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request")] = None,
@@ -1002,8 +963,6 @@ class SecureAppApi:
 
         Login via Clear.me. Creates a new account if logging in for the first time.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application making the request, defines what type and position is required to make a secure login the request. (required)
         :type app_key: str
         :param biometric_file: The data file used to perform authentication (required)
@@ -1045,7 +1004,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._login_secure_serialize(
-            version=version,
             app_key=app_key,
             biometric_file=biometric_file,
             device_id=device_id,
@@ -1073,7 +1031,6 @@ class SecureAppApi:
 
     def _login_secure_serialize(
         self,
-        version,
         app_key,
         biometric_file,
         device_id,
@@ -1104,8 +1061,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1163,7 +1118,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/login',
+            resource_path='/secure/login',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1182,7 +1137,6 @@ class SecureAppApi:
     @validate_call
     def purchase_secure(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[PaymentRequest, Field(description="The payment request object")],
         _request_timeout: Union[
             None,
@@ -1201,8 +1155,6 @@ class SecureAppApi:
 
         Purchase via Clear.me. Creates a new account if purchasing for the first time.
 
-        :param version: (required)
-        :type version: float
         :param body: The payment request object (required)
         :type body: PaymentRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1228,7 +1180,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._purchase_secure_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1253,7 +1204,6 @@ class SecureAppApi:
     @validate_call
     def purchase_secure_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[PaymentRequest, Field(description="The payment request object")],
         _request_timeout: Union[
             None,
@@ -1272,8 +1222,6 @@ class SecureAppApi:
 
         Purchase via Clear.me. Creates a new account if purchasing for the first time.
 
-        :param version: (required)
-        :type version: float
         :param body: The payment request object (required)
         :type body: PaymentRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1299,7 +1247,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._purchase_secure_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1324,7 +1271,6 @@ class SecureAppApi:
     @validate_call
     def purchase_secure_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[PaymentRequest, Field(description="The payment request object")],
         _request_timeout: Union[
             None,
@@ -1343,8 +1289,6 @@ class SecureAppApi:
 
         Purchase via Clear.me. Creates a new account if purchasing for the first time.
 
-        :param version: (required)
-        :type version: float
         :param body: The payment request object (required)
         :type body: PaymentRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -1370,7 +1314,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._purchase_secure_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1390,7 +1333,6 @@ class SecureAppApi:
 
     def _purchase_secure_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -1413,8 +1355,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1451,7 +1391,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/purchase',
+            resource_path='/secure/purchase',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1470,7 +1410,6 @@ class SecureAppApi:
     @validate_call
     def reset_secure(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -1490,8 +1429,6 @@ class SecureAppApi:
 
         Reset a secure application client.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -1519,7 +1456,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._reset_secure_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1545,7 +1481,6 @@ class SecureAppApi:
     @validate_call
     def reset_secure_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -1565,8 +1500,6 @@ class SecureAppApi:
 
         Reset a secure application client.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -1594,7 +1527,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._reset_secure_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1620,7 +1552,6 @@ class SecureAppApi:
     @validate_call
     def reset_secure_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         _request_timeout: Union[
@@ -1640,8 +1571,6 @@ class SecureAppApi:
 
         Reset a secure application client.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -1669,7 +1598,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._reset_secure_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1690,7 +1618,6 @@ class SecureAppApi:
 
     def _reset_secure_serialize(
         self,
-        version,
         account_id,
         app_key,
         _request_auth,
@@ -1714,8 +1641,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1745,7 +1670,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/application/reset',
+            resource_path='/secure/application/reset',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1764,7 +1689,6 @@ class SecureAppApi:
     @validate_call
     def update_secure_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         active: Optional[StrictBool] = None,
@@ -1792,8 +1716,6 @@ class SecureAppApi:
 
         Update a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -1837,7 +1759,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._update_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -1871,7 +1792,6 @@ class SecureAppApi:
     @validate_call
     def update_secure_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         active: Optional[StrictBool] = None,
@@ -1899,8 +1819,6 @@ class SecureAppApi:
 
         Update a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -1944,7 +1862,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._update_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -1978,7 +1895,6 @@ class SecureAppApi:
     @validate_call
     def update_secure_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The unique id of the user making the request")],
         app_key: Annotated[StrictStr, Field(description="The application to secure")],
         active: Optional[StrictBool] = None,
@@ -2006,8 +1922,6 @@ class SecureAppApi:
 
         Update a secure application record.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The unique id of the user making the request (required)
         :type account_id: int
         :param app_key: The application to secure (required)
@@ -2051,7 +1965,6 @@ class SecureAppApi:
         """ # noqa: E501
 
         _param = self._update_secure_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -2080,7 +1993,6 @@ class SecureAppApi:
 
     def _update_secure_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         active,
@@ -2112,8 +2024,6 @@ class SecureAppApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2175,7 +2085,7 @@ class SecureAppApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/secure/application/update',
+            resource_path='/secure/application/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

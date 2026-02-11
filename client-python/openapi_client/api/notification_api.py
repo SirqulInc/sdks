@@ -48,7 +48,6 @@ class NotificationApi:
     @validate_call
     def create_notification_template(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         conduit: Annotated[StrictStr, Field(description="Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.")],
         title: Annotated[StrictStr, Field(description="title of the notification template")],
@@ -73,8 +72,6 @@ class NotificationApi:
 
         Create a notification template. Developers will only be able to create notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param conduit: Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
@@ -112,7 +109,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_notification_template_serialize(
-            version=version,
             account_id=account_id,
             conduit=conduit,
             title=title,
@@ -143,7 +139,6 @@ class NotificationApi:
     @validate_call
     def create_notification_template_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         conduit: Annotated[StrictStr, Field(description="Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.")],
         title: Annotated[StrictStr, Field(description="title of the notification template")],
@@ -168,8 +163,6 @@ class NotificationApi:
 
         Create a notification template. Developers will only be able to create notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param conduit: Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
@@ -207,7 +200,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_notification_template_serialize(
-            version=version,
             account_id=account_id,
             conduit=conduit,
             title=title,
@@ -238,7 +230,6 @@ class NotificationApi:
     @validate_call
     def create_notification_template_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         conduit: Annotated[StrictStr, Field(description="Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION.")],
         title: Annotated[StrictStr, Field(description="title of the notification template")],
@@ -263,8 +254,6 @@ class NotificationApi:
 
         Create a notification template. Developers will only be able to create notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param conduit: Filter results by notification type: EMAIL, SMS, PUSH, MOBILE_NOTIFICATION. (required)
@@ -302,7 +291,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_notification_template_serialize(
-            version=version,
             account_id=account_id,
             conduit=conduit,
             title=title,
@@ -328,7 +316,6 @@ class NotificationApi:
 
     def _create_notification_template_serialize(
         self,
-        version,
         account_id,
         conduit,
         title,
@@ -357,8 +344,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -408,7 +393,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/template/create',
+            resource_path='/notification/template/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -427,7 +412,6 @@ class NotificationApi:
     @validate_call
     def create_or_update_blocked_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         data: Annotated[StrictStr, Field(description="batch data payload (application specific)")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
@@ -448,8 +432,6 @@ class NotificationApi:
 
         Create or update blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param data: batch data payload (application specific) (required)
@@ -479,7 +461,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_or_update_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             data=data,
             account_id=account_id,
@@ -506,7 +487,6 @@ class NotificationApi:
     @validate_call
     def create_or_update_blocked_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         data: Annotated[StrictStr, Field(description="batch data payload (application specific)")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
@@ -527,8 +507,6 @@ class NotificationApi:
 
         Create or update blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param data: batch data payload (application specific) (required)
@@ -558,7 +536,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_or_update_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             data=data,
             account_id=account_id,
@@ -585,7 +562,6 @@ class NotificationApi:
     @validate_call
     def create_or_update_blocked_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         data: Annotated[StrictStr, Field(description="batch data payload (application specific)")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
@@ -606,8 +582,6 @@ class NotificationApi:
 
         Create or update blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param data: batch data payload (application specific) (required)
@@ -637,7 +611,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._create_or_update_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             data=data,
             account_id=account_id,
@@ -659,7 +632,6 @@ class NotificationApi:
 
     def _create_or_update_blocked_notifications_serialize(
         self,
-        version,
         app_key,
         data,
         account_id,
@@ -684,8 +656,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -719,7 +689,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/blocked/batch',
+            resource_path='/notification/blocked/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -738,7 +708,6 @@ class NotificationApi:
     @validate_call
     def delete_notification_template(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to delete")],
         _request_timeout: Union[
@@ -758,8 +727,6 @@ class NotificationApi:
 
         Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to delete (required)
@@ -787,7 +754,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._delete_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -813,7 +779,6 @@ class NotificationApi:
     @validate_call
     def delete_notification_template_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to delete")],
         _request_timeout: Union[
@@ -833,8 +798,6 @@ class NotificationApi:
 
         Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to delete (required)
@@ -862,7 +825,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._delete_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -888,7 +850,6 @@ class NotificationApi:
     @validate_call
     def delete_notification_template_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to delete")],
         _request_timeout: Union[
@@ -908,8 +869,6 @@ class NotificationApi:
 
         Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to delete (required)
@@ -937,7 +896,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._delete_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -958,7 +916,6 @@ class NotificationApi:
 
     def _delete_notification_template_serialize(
         self,
-        version,
         account_id,
         notification_template_id,
         _request_auth,
@@ -982,8 +939,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1013,7 +968,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/template/delete',
+            resource_path='/notification/template/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1032,7 +987,6 @@ class NotificationApi:
     @validate_call
     def get_notification_template(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to get")],
         _request_timeout: Union[
@@ -1052,8 +1006,6 @@ class NotificationApi:
 
         Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to get (required)
@@ -1081,7 +1033,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -1107,7 +1058,6 @@ class NotificationApi:
     @validate_call
     def get_notification_template_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to get")],
         _request_timeout: Union[
@@ -1127,8 +1077,6 @@ class NotificationApi:
 
         Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to get (required)
@@ -1156,7 +1104,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -1182,7 +1129,6 @@ class NotificationApi:
     @validate_call
     def get_notification_template_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         notification_template_id: Annotated[StrictInt, Field(description="the id of the notification template to get")],
         _request_timeout: Union[
@@ -1202,8 +1148,6 @@ class NotificationApi:
 
         Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param notification_template_id: the id of the notification template to get (required)
@@ -1231,7 +1175,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             _request_auth=_request_auth,
@@ -1252,7 +1195,6 @@ class NotificationApi:
 
     def _get_notification_template_serialize(
         self,
-        version,
         account_id,
         notification_template_id,
         _request_auth,
@@ -1276,8 +1218,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1307,7 +1247,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/template/get',
+            resource_path='/notification/template/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1326,7 +1266,6 @@ class NotificationApi:
     @validate_call
     def get_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="the account id used to view another person's notifications")] = None,
@@ -1365,8 +1304,6 @@ class NotificationApi:
 
         Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1432,7 +1369,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -1477,7 +1413,6 @@ class NotificationApi:
     @validate_call
     def get_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="the account id used to view another person's notifications")] = None,
@@ -1516,8 +1451,6 @@ class NotificationApi:
 
         Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1583,7 +1516,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -1628,7 +1560,6 @@ class NotificationApi:
     @validate_call
     def get_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="the account id used to view another person's notifications")] = None,
@@ -1667,8 +1598,6 @@ class NotificationApi:
 
         Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1734,7 +1663,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._get_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -1774,7 +1702,6 @@ class NotificationApi:
 
     def _get_notifications_serialize(
         self,
-        version,
         device_id,
         account_id,
         connection_account_id,
@@ -1817,8 +1744,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1924,7 +1849,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/search',
+            resource_path='/notification/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1943,7 +1868,6 @@ class NotificationApi:
     @validate_call
     def register_notification_token(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="A token that is generated by the device to sign requests for the notification service providers")],
         push_type: Annotated[StrictStr, Field(description="The type of push notification. Possible values include: APNS, GCM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -1971,8 +1895,6 @@ class NotificationApi:
 
         Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 
-        :param version: (required)
-        :type version: float
         :param token: A token that is generated by the device to sign requests for the notification service providers (required)
         :type token: str
         :param push_type: The type of push notification. Possible values include: APNS, GCM (required)
@@ -2016,7 +1938,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._register_notification_token_serialize(
-            version=version,
             token=token,
             push_type=push_type,
             device_id=device_id,
@@ -2050,7 +1971,6 @@ class NotificationApi:
     @validate_call
     def register_notification_token_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="A token that is generated by the device to sign requests for the notification service providers")],
         push_type: Annotated[StrictStr, Field(description="The type of push notification. Possible values include: APNS, GCM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -2078,8 +1998,6 @@ class NotificationApi:
 
         Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 
-        :param version: (required)
-        :type version: float
         :param token: A token that is generated by the device to sign requests for the notification service providers (required)
         :type token: str
         :param push_type: The type of push notification. Possible values include: APNS, GCM (required)
@@ -2123,7 +2041,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._register_notification_token_serialize(
-            version=version,
             token=token,
             push_type=push_type,
             device_id=device_id,
@@ -2157,7 +2074,6 @@ class NotificationApi:
     @validate_call
     def register_notification_token_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="A token that is generated by the device to sign requests for the notification service providers")],
         push_type: Annotated[StrictStr, Field(description="The type of push notification. Possible values include: APNS, GCM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -2185,8 +2101,6 @@ class NotificationApi:
 
         Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
 
-        :param version: (required)
-        :type version: float
         :param token: A token that is generated by the device to sign requests for the notification service providers (required)
         :type token: str
         :param push_type: The type of push notification. Possible values include: APNS, GCM (required)
@@ -2230,7 +2144,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._register_notification_token_serialize(
-            version=version,
             token=token,
             push_type=push_type,
             device_id=device_id,
@@ -2259,7 +2172,6 @@ class NotificationApi:
 
     def _register_notification_token_serialize(
         self,
-        version,
         token,
         push_type,
         device_id,
@@ -2291,8 +2203,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2354,7 +2264,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/token',
+            resource_path='/notification/token',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2373,7 +2283,6 @@ class NotificationApi:
     @validate_call
     def search_blocked_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         search_tags: Annotated[Optional[StrictStr], Field(description="search tags to filter results")] = None,
@@ -2403,8 +2312,6 @@ class NotificationApi:
 
         Search on the user's blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param account_id: the account id of the user
@@ -2452,7 +2359,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             account_id=account_id,
             search_tags=search_tags,
@@ -2488,7 +2394,6 @@ class NotificationApi:
     @validate_call
     def search_blocked_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         search_tags: Annotated[Optional[StrictStr], Field(description="search tags to filter results")] = None,
@@ -2518,8 +2423,6 @@ class NotificationApi:
 
         Search on the user's blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param account_id: the account id of the user
@@ -2567,7 +2470,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             account_id=account_id,
             search_tags=search_tags,
@@ -2603,7 +2505,6 @@ class NotificationApi:
     @validate_call
     def search_blocked_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         search_tags: Annotated[Optional[StrictStr], Field(description="search tags to filter results")] = None,
@@ -2633,8 +2534,6 @@ class NotificationApi:
 
         Search on the user's blocked notification settings
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param account_id: the account id of the user
@@ -2682,7 +2581,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_blocked_notifications_serialize(
-            version=version,
             app_key=app_key,
             account_id=account_id,
             search_tags=search_tags,
@@ -2713,7 +2611,6 @@ class NotificationApi:
 
     def _search_blocked_notifications_serialize(
         self,
-        version,
         app_key,
         account_id,
         search_tags,
@@ -2747,8 +2644,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2818,7 +2713,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/blocked/search',
+            resource_path='/notification/blocked/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2837,7 +2732,6 @@ class NotificationApi:
     @validate_call
     def search_notification_template(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         sort_field: Annotated[StrictStr, Field(description="Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.")],
         descending: Annotated[StrictBool, Field(description="Specified whether the results are returned in descending or ascending order.")],
@@ -2866,8 +2760,6 @@ class NotificationApi:
 
         Search for notification templates on owned applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param sort_field: Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false. (required)
@@ -2913,7 +2805,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_notification_template_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2948,7 +2839,6 @@ class NotificationApi:
     @validate_call
     def search_notification_template_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         sort_field: Annotated[StrictStr, Field(description="Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.")],
         descending: Annotated[StrictBool, Field(description="Specified whether the results are returned in descending or ascending order.")],
@@ -2977,8 +2867,6 @@ class NotificationApi:
 
         Search for notification templates on owned applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param sort_field: Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false. (required)
@@ -3024,7 +2912,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_notification_template_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3059,7 +2946,6 @@ class NotificationApi:
     @validate_call
     def search_notification_template_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         sort_field: Annotated[StrictStr, Field(description="Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false.")],
         descending: Annotated[StrictBool, Field(description="Specified whether the results are returned in descending or ascending order.")],
@@ -3088,8 +2974,6 @@ class NotificationApi:
 
         Search for notification templates on owned applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param sort_field: Specifies how results are ordered.ID - order results by the notificationTemplateId CREATED - order results by the created date UPDATED - order results by the updated date TITLE - order results by title EVENT - order results by event CONDUIT - order results by conduit APP_NAME - order results by the application name ('global' templates will not have an application and will be returned last if 'descending' is set to false. (required)
@@ -3135,7 +3019,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_notification_template_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3165,7 +3048,6 @@ class NotificationApi:
 
     def _search_notification_template_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -3198,8 +3080,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3265,7 +3145,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/template/search',
+            resource_path='/notification/template/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3284,7 +3164,6 @@ class NotificationApi:
     @validate_call
     def search_recipients(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}")],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -3315,8 +3194,6 @@ class NotificationApi:
 
         Search for application users to send notifications.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
         :type sort_field: str
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
@@ -3366,7 +3243,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_serialize(
-            version=version,
             sort_field=sort_field,
             device_id=device_id,
             account_id=account_id,
@@ -3403,7 +3279,6 @@ class NotificationApi:
     @validate_call
     def search_recipients_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}")],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -3434,8 +3309,6 @@ class NotificationApi:
 
         Search for application users to send notifications.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
         :type sort_field: str
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
@@ -3485,7 +3358,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_serialize(
-            version=version,
             sort_field=sort_field,
             device_id=device_id,
             account_id=account_id,
@@ -3522,7 +3394,6 @@ class NotificationApi:
     @validate_call
     def search_recipients_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME}")],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -3553,8 +3424,6 @@ class NotificationApi:
 
         Search for application users to send notifications.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by. Possible values include: {ACCOUNT_DISPLAY, CREATED, UPDATED, ACTIVE, DELETED, LAST_LOGGED_IN, CONTACT_EMAIL, RETAILER_LOCATION_NAME, RETAILER_NAME, APPLICATION_NAME} (required)
         :type sort_field: str
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
@@ -3604,7 +3473,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_serialize(
-            version=version,
             sort_field=sort_field,
             device_id=device_id,
             account_id=account_id,
@@ -3636,7 +3504,6 @@ class NotificationApi:
 
     def _search_recipients_serialize(
         self,
-        version,
         sort_field,
         device_id,
         account_id,
@@ -3671,8 +3538,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3746,7 +3611,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/recipient/search',
+            resource_path='/notification/recipient/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3765,7 +3630,6 @@ class NotificationApi:
     @validate_call
     def search_recipients_count(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="filters results by application. If this is empty, will return all recipients for all applications that the user has access to.")] = None,
@@ -3795,8 +3659,6 @@ class NotificationApi:
 
         Search for application users to send notifications (count/grouped variant).
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -3844,7 +3706,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -3880,7 +3741,6 @@ class NotificationApi:
     @validate_call
     def search_recipients_count_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="filters results by application. If this is empty, will return all recipients for all applications that the user has access to.")] = None,
@@ -3910,8 +3770,6 @@ class NotificationApi:
 
         Search for application users to send notifications (count/grouped variant).
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -3959,7 +3817,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -3995,7 +3852,6 @@ class NotificationApi:
     @validate_call
     def search_recipients_count_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="filters results by application. If this is empty, will return all recipients for all applications that the user has access to.")] = None,
@@ -4025,8 +3881,6 @@ class NotificationApi:
 
         Search for application users to send notifications (count/grouped variant).
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4074,7 +3928,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._search_recipients_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -4105,7 +3958,6 @@ class NotificationApi:
 
     def _search_recipients_count_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -4139,8 +3991,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4210,7 +4060,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/notification/recipient/search/count',
+            resource_path='/notification/recipient/search/count',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4229,7 +4079,6 @@ class NotificationApi:
     @validate_call
     def send_batch_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the application owner/manager")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         custom_message: Annotated[StrictStr, Field(description="Message string that will be displayed in on the notification")],
@@ -4256,8 +4105,6 @@ class NotificationApi:
 
         Send notifications to all users of an application. Only someone with permissions to the application can do this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -4299,7 +4146,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_batch_notifications_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             custom_message=custom_message,
@@ -4332,7 +4178,6 @@ class NotificationApi:
     @validate_call
     def send_batch_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the application owner/manager")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         custom_message: Annotated[StrictStr, Field(description="Message string that will be displayed in on the notification")],
@@ -4359,8 +4204,6 @@ class NotificationApi:
 
         Send notifications to all users of an application. Only someone with permissions to the application can do this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -4402,7 +4245,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_batch_notifications_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             custom_message=custom_message,
@@ -4435,7 +4277,6 @@ class NotificationApi:
     @validate_call
     def send_batch_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the application owner/manager")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         custom_message: Annotated[StrictStr, Field(description="Message string that will be displayed in on the notification")],
@@ -4462,8 +4303,6 @@ class NotificationApi:
 
         Send notifications to all users of an application. Only someone with permissions to the application can do this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -4505,7 +4344,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_batch_notifications_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             custom_message=custom_message,
@@ -4533,7 +4371,6 @@ class NotificationApi:
 
     def _send_batch_notifications_serialize(
         self,
-        version,
         account_id,
         app_key,
         custom_message,
@@ -4564,8 +4401,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4623,7 +4458,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/batch',
+            resource_path='/notification/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4642,7 +4477,6 @@ class NotificationApi:
     @validate_call
     def send_custom_notifications(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         receiver_account_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of account IDs that will receive the notification")] = None,
@@ -4678,8 +4512,6 @@ class NotificationApi:
 
         Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4739,7 +4571,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_custom_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             receiver_account_ids=receiver_account_ids,
@@ -4781,7 +4612,6 @@ class NotificationApi:
     @validate_call
     def send_custom_notifications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         receiver_account_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of account IDs that will receive the notification")] = None,
@@ -4817,8 +4647,6 @@ class NotificationApi:
 
         Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4878,7 +4706,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_custom_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             receiver_account_ids=receiver_account_ids,
@@ -4920,7 +4747,6 @@ class NotificationApi:
     @validate_call
     def send_custom_notifications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         receiver_account_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of account IDs that will receive the notification")] = None,
@@ -4956,8 +4782,6 @@ class NotificationApi:
 
         Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -5017,7 +4841,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._send_custom_notifications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             receiver_account_ids=receiver_account_ids,
@@ -5054,7 +4877,6 @@ class NotificationApi:
 
     def _send_custom_notifications_serialize(
         self,
-        version,
         device_id,
         account_id,
         receiver_account_ids,
@@ -5094,8 +4916,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5189,7 +5009,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/custom',
+            resource_path='/notification/custom',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5208,7 +5028,6 @@ class NotificationApi:
     @validate_call
     def update_notification_template(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         notification_template_id: Annotated[StrictInt, Field(description="The notification template ID to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the message (this would become the subject title for emails). There is a 191 character limit.")] = None,
@@ -5231,8 +5050,6 @@ class NotificationApi:
 
         Update a notification template. Developers will only be able to update notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param notification_template_id: The notification template ID to update. (required)
@@ -5266,7 +5083,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._update_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             title=title,
@@ -5295,7 +5111,6 @@ class NotificationApi:
     @validate_call
     def update_notification_template_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         notification_template_id: Annotated[StrictInt, Field(description="The notification template ID to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the message (this would become the subject title for emails). There is a 191 character limit.")] = None,
@@ -5318,8 +5133,6 @@ class NotificationApi:
 
         Update a notification template. Developers will only be able to update notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param notification_template_id: The notification template ID to update. (required)
@@ -5353,7 +5166,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._update_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             title=title,
@@ -5382,7 +5194,6 @@ class NotificationApi:
     @validate_call
     def update_notification_template_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user.")],
         notification_template_id: Annotated[StrictInt, Field(description="The notification template ID to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the message (this would become the subject title for emails). There is a 191 character limit.")] = None,
@@ -5405,8 +5216,6 @@ class NotificationApi:
 
         Update a notification template. Developers will only be able to update notification templates for their own applications.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user. (required)
         :type account_id: int
         :param notification_template_id: The notification template ID to update. (required)
@@ -5440,7 +5249,6 @@ class NotificationApi:
         """ # noqa: E501
 
         _param = self._update_notification_template_serialize(
-            version=version,
             account_id=account_id,
             notification_template_id=notification_template_id,
             title=title,
@@ -5464,7 +5272,6 @@ class NotificationApi:
 
     def _update_notification_template_serialize(
         self,
-        version,
         account_id,
         notification_template_id,
         title,
@@ -5491,8 +5298,6 @@ class NotificationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5534,7 +5339,7 @@ class NotificationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/notification/template/update',
+            resource_path='/notification/template/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

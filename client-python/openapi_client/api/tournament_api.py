@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.mission_short_response import MissionShortResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -45,7 +45,6 @@ class TournamentApi:
     @validate_call
     def create_tournament(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The appKey the tournament is created for.")],
         title: Annotated[StrictStr, Field(description="The title of the tournament")],
@@ -98,8 +97,6 @@ class TournamentApi:
 
         Create a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The appKey the tournament is created for. (required)
@@ -193,7 +190,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._create_tournament_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -252,7 +248,6 @@ class TournamentApi:
     @validate_call
     def create_tournament_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The appKey the tournament is created for.")],
         title: Annotated[StrictStr, Field(description="The title of the tournament")],
@@ -305,8 +300,6 @@ class TournamentApi:
 
         Create a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The appKey the tournament is created for. (required)
@@ -400,7 +393,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._create_tournament_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -459,7 +451,6 @@ class TournamentApi:
     @validate_call
     def create_tournament_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The appKey the tournament is created for.")],
         title: Annotated[StrictStr, Field(description="The title of the tournament")],
@@ -512,8 +503,6 @@ class TournamentApi:
 
         Create a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The appKey the tournament is created for. (required)
@@ -607,7 +596,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._create_tournament_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             title=title,
@@ -661,7 +649,6 @@ class TournamentApi:
 
     def _create_tournament_serialize(
         self,
-        version,
         account_id,
         app_key,
         title,
@@ -718,8 +705,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -881,7 +866,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/create',
+            resource_path='/tournament/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -900,7 +885,6 @@ class TournamentApi:
     @validate_call
     def delete_tournament(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -920,8 +904,6 @@ class TournamentApi:
 
         Delete a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -949,7 +931,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._delete_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -975,7 +956,6 @@ class TournamentApi:
     @validate_call
     def delete_tournament_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -995,8 +975,6 @@ class TournamentApi:
 
         Delete a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -1024,7 +1002,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._delete_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -1050,7 +1027,6 @@ class TournamentApi:
     @validate_call
     def delete_tournament_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -1070,8 +1046,6 @@ class TournamentApi:
 
         Delete a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -1099,7 +1073,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._delete_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -1120,7 +1093,6 @@ class TournamentApi:
 
     def _delete_tournament_serialize(
         self,
-        version,
         account_id,
         mission_id,
         _request_auth,
@@ -1144,8 +1116,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1175,7 +1145,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/delete',
+            resource_path='/tournament/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1194,7 +1164,6 @@ class TournamentApi:
     @validate_call
     def get_tournament(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the logged in user")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The id of the mission to return (either missionId or joinCode is required)")] = None,
         join_code: Annotated[Optional[StrictStr], Field(description="Optional identifier for getting the tournament (either missionId or joinCode is required)")] = None,
@@ -1217,8 +1186,6 @@ class TournamentApi:
 
         Get a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the logged in user (required)
         :type account_id: int
         :param mission_id: The id of the mission to return (either missionId or joinCode is required)
@@ -1252,7 +1219,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._get_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             join_code=join_code,
@@ -1281,7 +1247,6 @@ class TournamentApi:
     @validate_call
     def get_tournament_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the logged in user")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The id of the mission to return (either missionId or joinCode is required)")] = None,
         join_code: Annotated[Optional[StrictStr], Field(description="Optional identifier for getting the tournament (either missionId or joinCode is required)")] = None,
@@ -1304,8 +1269,6 @@ class TournamentApi:
 
         Get a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the logged in user (required)
         :type account_id: int
         :param mission_id: The id of the mission to return (either missionId or joinCode is required)
@@ -1339,7 +1302,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._get_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             join_code=join_code,
@@ -1368,7 +1330,6 @@ class TournamentApi:
     @validate_call
     def get_tournament_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the logged in user")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The id of the mission to return (either missionId or joinCode is required)")] = None,
         join_code: Annotated[Optional[StrictStr], Field(description="Optional identifier for getting the tournament (either missionId or joinCode is required)")] = None,
@@ -1391,8 +1352,6 @@ class TournamentApi:
 
         Get a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the logged in user (required)
         :type account_id: int
         :param mission_id: The id of the mission to return (either missionId or joinCode is required)
@@ -1426,7 +1385,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._get_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             join_code=join_code,
@@ -1450,7 +1408,6 @@ class TournamentApi:
 
     def _get_tournament_serialize(
         self,
-        version,
         account_id,
         mission_id,
         join_code,
@@ -1477,8 +1434,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1520,7 +1475,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tournament/get',
+            resource_path='/tournament/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1539,7 +1494,6 @@ class TournamentApi:
     @validate_call
     def search_objects(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         game_level_id: Annotated[StrictInt, Field(description="the game level id to filter results by")],
         sort_field: Annotated[Optional[StrictStr], Field(description="the field to sort by")] = None,
@@ -1563,8 +1517,6 @@ class TournamentApi:
 
         Search on game objects of tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param game_level_id: the game level id to filter results by (required)
@@ -1600,7 +1552,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_objects_serialize(
-            version=version,
             account_id=account_id,
             game_level_id=game_level_id,
             sort_field=sort_field,
@@ -1630,7 +1581,6 @@ class TournamentApi:
     @validate_call
     def search_objects_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         game_level_id: Annotated[StrictInt, Field(description="the game level id to filter results by")],
         sort_field: Annotated[Optional[StrictStr], Field(description="the field to sort by")] = None,
@@ -1654,8 +1604,6 @@ class TournamentApi:
 
         Search on game objects of tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param game_level_id: the game level id to filter results by (required)
@@ -1691,7 +1639,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_objects_serialize(
-            version=version,
             account_id=account_id,
             game_level_id=game_level_id,
             sort_field=sort_field,
@@ -1721,7 +1668,6 @@ class TournamentApi:
     @validate_call
     def search_objects_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         game_level_id: Annotated[StrictInt, Field(description="the game level id to filter results by")],
         sort_field: Annotated[Optional[StrictStr], Field(description="the field to sort by")] = None,
@@ -1745,8 +1691,6 @@ class TournamentApi:
 
         Search on game objects of tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param game_level_id: the game level id to filter results by (required)
@@ -1782,7 +1726,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_objects_serialize(
-            version=version,
             account_id=account_id,
             game_level_id=game_level_id,
             sort_field=sort_field,
@@ -1807,7 +1750,6 @@ class TournamentApi:
 
     def _search_objects_serialize(
         self,
-        version,
         account_id,
         game_level_id,
         sort_field,
@@ -1835,8 +1777,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1882,7 +1822,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tournament/object/search',
+            resource_path='/tournament/object/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1901,7 +1841,6 @@ class TournamentApi:
     @validate_call
     def search_rounds(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         status: Annotated[Optional[StrictStr], Field(description="comma separated list of statuses to filter results by")] = None,
@@ -1927,8 +1866,6 @@ class TournamentApi:
 
         Search for the user's tournament games.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1968,7 +1905,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_rounds_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             status=status,
@@ -2000,7 +1936,6 @@ class TournamentApi:
     @validate_call
     def search_rounds_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         status: Annotated[Optional[StrictStr], Field(description="comma separated list of statuses to filter results by")] = None,
@@ -2026,8 +1961,6 @@ class TournamentApi:
 
         Search for the user's tournament games.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2067,7 +2000,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_rounds_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             status=status,
@@ -2099,7 +2031,6 @@ class TournamentApi:
     @validate_call
     def search_rounds_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         status: Annotated[Optional[StrictStr], Field(description="comma separated list of statuses to filter results by")] = None,
@@ -2125,8 +2056,6 @@ class TournamentApi:
 
         Search for the user's tournament games.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2166,7 +2095,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_rounds_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             status=status,
@@ -2193,7 +2121,6 @@ class TournamentApi:
 
     def _search_rounds_serialize(
         self,
-        version,
         account_id,
         app_key,
         status,
@@ -2223,8 +2150,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2278,7 +2203,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tournament/round/search',
+            resource_path='/tournament/round/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2297,7 +2222,6 @@ class TournamentApi:
     @validate_call
     def search_tournaments(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search tournament on")] = None,
@@ -2327,8 +2251,6 @@ class TournamentApi:
 
         Search for tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -2376,7 +2298,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_tournaments_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -2412,7 +2333,6 @@ class TournamentApi:
     @validate_call
     def search_tournaments_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search tournament on")] = None,
@@ -2442,8 +2362,6 @@ class TournamentApi:
 
         Search for tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -2491,7 +2409,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_tournaments_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -2527,7 +2444,6 @@ class TournamentApi:
     @validate_call
     def search_tournaments_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search tournament on")] = None,
@@ -2557,8 +2473,6 @@ class TournamentApi:
 
         Search for tournaments
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -2606,7 +2520,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._search_tournaments_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -2637,7 +2550,6 @@ class TournamentApi:
 
     def _search_tournaments_serialize(
         self,
-        version,
         account_id,
         app_key,
         keyword,
@@ -2671,8 +2583,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2742,7 +2652,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tournament/search',
+            resource_path='/tournament/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2761,7 +2671,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_score(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user account ID.")],
         app_key: Annotated[StrictStr, Field(description="The application key.")],
         mission_id: Annotated[StrictInt, Field(description="The missionId to score for")],
@@ -2786,8 +2695,6 @@ class TournamentApi:
 
         Submit an array of scores for a tournament match. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user account ID. (required)
         :type account_id: int
         :param app_key: The application key. (required)
@@ -2825,7 +2732,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -2856,7 +2762,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_score_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user account ID.")],
         app_key: Annotated[StrictStr, Field(description="The application key.")],
         mission_id: Annotated[StrictInt, Field(description="The missionId to score for")],
@@ -2881,8 +2786,6 @@ class TournamentApi:
 
         Submit an array of scores for a tournament match. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user account ID. (required)
         :type account_id: int
         :param app_key: The application key. (required)
@@ -2920,7 +2823,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -2951,7 +2853,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_score_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user account ID.")],
         app_key: Annotated[StrictStr, Field(description="The application key.")],
         mission_id: Annotated[StrictInt, Field(description="The missionId to score for")],
@@ -2976,8 +2877,6 @@ class TournamentApi:
 
         Submit an array of scores for a tournament match. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user account ID. (required)
         :type account_id: int
         :param app_key: The application key. (required)
@@ -3015,7 +2914,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -3041,7 +2939,6 @@ class TournamentApi:
 
     def _submit_tournament_score_serialize(
         self,
-        version,
         account_id,
         app_key,
         mission_id,
@@ -3070,8 +2967,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3121,7 +3016,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/score',
+            resource_path='/tournament/score',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3140,7 +3035,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_vote(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         mission_id: Annotated[StrictInt, Field(description="The tournament's primary id")],
@@ -3164,8 +3058,6 @@ class TournamentApi:
 
         Submit a vote for a multi-stage album tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -3201,7 +3093,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_vote_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -3231,7 +3122,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_vote_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         mission_id: Annotated[StrictInt, Field(description="The tournament's primary id")],
@@ -3255,8 +3145,6 @@ class TournamentApi:
 
         Submit a vote for a multi-stage album tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -3292,7 +3180,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_vote_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -3322,7 +3209,6 @@ class TournamentApi:
     @validate_call
     def submit_tournament_vote_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The application to target")],
         mission_id: Annotated[StrictInt, Field(description="The tournament's primary id")],
@@ -3346,8 +3232,6 @@ class TournamentApi:
 
         Submit a vote for a multi-stage album tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The application to target (required)
@@ -3383,7 +3267,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._submit_tournament_vote_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -3408,7 +3291,6 @@ class TournamentApi:
 
     def _submit_tournament_vote_serialize(
         self,
-        version,
         account_id,
         app_key,
         mission_id,
@@ -3436,8 +3318,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3483,7 +3363,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/vote',
+            resource_path='/tournament/vote',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3502,7 +3382,6 @@ class TournamentApi:
     @validate_call
     def substitute_tournament_player(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack")],
@@ -3524,8 +3403,6 @@ class TournamentApi:
 
         Service to replace the user's opponent in the current level - pack - mission with an AI account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission (required)
@@ -3557,7 +3434,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._substitute_tournament_player_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             pack_id=pack_id,
@@ -3585,7 +3461,6 @@ class TournamentApi:
     @validate_call
     def substitute_tournament_player_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack")],
@@ -3607,8 +3482,6 @@ class TournamentApi:
 
         Service to replace the user's opponent in the current level - pack - mission with an AI account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission (required)
@@ -3640,7 +3513,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._substitute_tournament_player_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             pack_id=pack_id,
@@ -3668,7 +3540,6 @@ class TournamentApi:
     @validate_call
     def substitute_tournament_player_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack")],
@@ -3690,8 +3561,6 @@ class TournamentApi:
 
         Service to replace the user's opponent in the current level - pack - mission with an AI account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission (required)
@@ -3723,7 +3592,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._substitute_tournament_player_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             pack_id=pack_id,
@@ -3746,7 +3614,6 @@ class TournamentApi:
 
     def _substitute_tournament_player_serialize(
         self,
-        version,
         account_id,
         mission_id,
         pack_id,
@@ -3772,8 +3639,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3811,7 +3676,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/substitute',
+            resource_path='/tournament/substitute',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3830,7 +3695,6 @@ class TournamentApi:
     @validate_call
     def update_tournament(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The mission/tournament to update")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the tournament")] = None,
@@ -3882,8 +3746,6 @@ class TournamentApi:
 
         Update a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The mission/tournament to update (required)
@@ -3975,7 +3837,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._update_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -4033,7 +3894,6 @@ class TournamentApi:
     @validate_call
     def update_tournament_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The mission/tournament to update")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the tournament")] = None,
@@ -4085,8 +3945,6 @@ class TournamentApi:
 
         Update a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The mission/tournament to update (required)
@@ -4178,7 +4036,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._update_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -4236,7 +4093,6 @@ class TournamentApi:
     @validate_call
     def update_tournament_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The mission/tournament to update")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the tournament")] = None,
@@ -4288,8 +4144,6 @@ class TournamentApi:
 
         Update a tournament.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The mission/tournament to update (required)
@@ -4381,7 +4235,6 @@ class TournamentApi:
         """ # noqa: E501
 
         _param = self._update_tournament_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -4434,7 +4287,6 @@ class TournamentApi:
 
     def _update_tournament_serialize(
         self,
-        version,
         account_id,
         mission_id,
         title,
@@ -4490,8 +4342,6 @@ class TournamentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4649,7 +4499,7 @@ class TournamentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tournament/update',
+            resource_path='/tournament/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

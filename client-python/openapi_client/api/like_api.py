@@ -44,7 +44,6 @@ class LikeApi:
     @validate_call
     def register_like(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -74,8 +73,6 @@ class LikeApi:
 
         Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -123,7 +120,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._register_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -159,7 +155,6 @@ class LikeApi:
     @validate_call
     def register_like_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -189,8 +184,6 @@ class LikeApi:
 
         Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -238,7 +231,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._register_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -274,7 +266,6 @@ class LikeApi:
     @validate_call
     def register_like_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -304,8 +295,6 @@ class LikeApi:
 
         Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -353,7 +342,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._register_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -384,7 +372,6 @@ class LikeApi:
 
     def _register_like_serialize(
         self,
-        version,
         likable_type,
         likable_id,
         device_id,
@@ -418,8 +405,6 @@ class LikeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -489,7 +474,7 @@ class LikeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/like',
+            resource_path='/like',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -508,7 +493,6 @@ class LikeApi:
     @validate_call
     def remove_like(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -532,8 +516,6 @@ class LikeApi:
 
         Removes a like. This will make the user \"neutral\".
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -569,7 +551,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._remove_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -599,7 +580,6 @@ class LikeApi:
     @validate_call
     def remove_like_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -623,8 +603,6 @@ class LikeApi:
 
         Removes a like. This will make the user \"neutral\".
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -660,7 +638,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._remove_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -690,7 +667,6 @@ class LikeApi:
     @validate_call
     def remove_like_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -714,8 +690,6 @@ class LikeApi:
 
         Removes a like. This will make the user \"neutral\".
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -751,7 +725,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._remove_like_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -776,7 +749,6 @@ class LikeApi:
 
     def _remove_like_serialize(
         self,
-        version,
         likable_type,
         likable_id,
         device_id,
@@ -804,8 +776,6 @@ class LikeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -851,7 +821,7 @@ class LikeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/like/delete',
+            resource_path='/like/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -870,7 +840,6 @@ class LikeApi:
     @validate_call
     def search_likes(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -899,8 +868,6 @@ class LikeApi:
 
         Search for likes on a likable object.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -946,7 +913,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._search_likes_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -981,7 +947,6 @@ class LikeApi:
     @validate_call
     def search_likes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -1010,8 +975,6 @@ class LikeApi:
 
         Search for likes on a likable object.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -1057,7 +1020,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._search_likes_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -1092,7 +1054,6 @@ class LikeApi:
     @validate_call
     def search_likes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         likable_type: Annotated[StrictStr, Field(description="The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR}")],
         likable_id: Annotated[StrictInt, Field(description="The id of the likable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -1121,8 +1082,6 @@ class LikeApi:
 
         Search for likes on a likable object.
 
-        :param version: (required)
-        :type version: float
         :param likable_type: The type of the likable object {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, NOTE, THEME_DESCRIPTOR} (required)
         :type likable_type: str
         :param likable_id: The id of the likable object (required)
@@ -1168,7 +1127,6 @@ class LikeApi:
         """ # noqa: E501
 
         _param = self._search_likes_serialize(
-            version=version,
             likable_type=likable_type,
             likable_id=likable_id,
             device_id=device_id,
@@ -1198,7 +1156,6 @@ class LikeApi:
 
     def _search_likes_serialize(
         self,
-        version,
         likable_type,
         likable_id,
         device_id,
@@ -1231,8 +1188,6 @@ class LikeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1298,7 +1253,7 @@ class LikeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/like/search',
+            resource_path='/like/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

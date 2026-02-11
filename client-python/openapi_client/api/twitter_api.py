@@ -44,7 +44,6 @@ class TwitterApi:
     @validate_call
     def authorize_twitter(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         _request_timeout: Union[
             None,
@@ -63,8 +62,6 @@ class TwitterApi:
 
         Makes an authorization call to twitter for a user to login and allow any app permissions.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -90,7 +87,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._authorize_twitter_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +111,6 @@ class TwitterApi:
     @validate_call
     def authorize_twitter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         _request_timeout: Union[
             None,
@@ -134,8 +129,6 @@ class TwitterApi:
 
         Makes an authorization call to twitter for a user to login and allow any app permissions.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -161,7 +154,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._authorize_twitter_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -186,7 +178,6 @@ class TwitterApi:
     @validate_call
     def authorize_twitter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         _request_timeout: Union[
             None,
@@ -205,8 +196,6 @@ class TwitterApi:
 
         Makes an authorization call to twitter for a user to login and allow any app permissions.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -232,7 +221,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._authorize_twitter_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -252,7 +240,6 @@ class TwitterApi:
 
     def _authorize_twitter_serialize(
         self,
-        version,
         app_key,
         _request_auth,
         _content_type,
@@ -275,8 +262,6 @@ class TwitterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -302,7 +287,7 @@ class TwitterApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/twitter/authorize',
+            resource_path='/twitter/authorize',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -321,7 +306,6 @@ class TwitterApi:
     @validate_call
     def login_twitter(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token")],
         access_token_secret: Annotated[StrictStr, Field(description="The secret access token")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -346,8 +330,6 @@ class TwitterApi:
 
         Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token (required)
         :type access_token: str
         :param access_token_secret: The secret access token (required)
@@ -385,7 +367,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._login_twitter_serialize(
-            version=version,
             access_token=access_token,
             access_token_secret=access_token_secret,
             app_key=app_key,
@@ -416,7 +397,6 @@ class TwitterApi:
     @validate_call
     def login_twitter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token")],
         access_token_secret: Annotated[StrictStr, Field(description="The secret access token")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -441,8 +421,6 @@ class TwitterApi:
 
         Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token (required)
         :type access_token: str
         :param access_token_secret: The secret access token (required)
@@ -480,7 +458,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._login_twitter_serialize(
-            version=version,
             access_token=access_token,
             access_token_secret=access_token_secret,
             app_key=app_key,
@@ -511,7 +488,6 @@ class TwitterApi:
     @validate_call
     def login_twitter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token")],
         access_token_secret: Annotated[StrictStr, Field(description="The secret access token")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -536,8 +512,6 @@ class TwitterApi:
 
         Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token (required)
         :type access_token: str
         :param access_token_secret: The secret access token (required)
@@ -575,7 +549,6 @@ class TwitterApi:
         """ # noqa: E501
 
         _param = self._login_twitter_serialize(
-            version=version,
             access_token=access_token,
             access_token_secret=access_token_secret,
             app_key=app_key,
@@ -601,7 +574,6 @@ class TwitterApi:
 
     def _login_twitter_serialize(
         self,
-        version,
         access_token,
         access_token_secret,
         app_key,
@@ -630,8 +602,6 @@ class TwitterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -681,7 +651,7 @@ class TwitterApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/twitter/login',
+            resource_path='/twitter/login',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

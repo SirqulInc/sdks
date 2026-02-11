@@ -45,9 +45,8 @@ class AchievementApi:
 
 
     @validate_call
-    def api_version_achievement_tier_search_post(
+    def achievement_tier_search_post(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -76,8 +75,6 @@ class AchievementApi:
 
         Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -122,8 +119,7 @@ class AchievementApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_version_achievement_tier_search_post_serialize(
-            version=version,
+        _param = self._achievement_tier_search_post_serialize(
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -156,9 +152,8 @@ class AchievementApi:
 
 
     @validate_call
-    def api_version_achievement_tier_search_post_with_http_info(
+    def achievement_tier_search_post_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -187,8 +182,6 @@ class AchievementApi:
 
         Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -233,8 +226,7 @@ class AchievementApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_version_achievement_tier_search_post_serialize(
-            version=version,
+        _param = self._achievement_tier_search_post_serialize(
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -267,9 +259,8 @@ class AchievementApi:
 
 
     @validate_call
-    def api_version_achievement_tier_search_post_without_preload_content(
+    def achievement_tier_search_post_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -298,8 +289,6 @@ class AchievementApi:
 
         Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -344,8 +333,7 @@ class AchievementApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._api_version_achievement_tier_search_post_serialize(
-            version=version,
+        _param = self._achievement_tier_search_post_serialize(
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -373,9 +361,8 @@ class AchievementApi:
         return response_data.response
 
 
-    def _api_version_achievement_tier_search_post_serialize(
+    def _achievement_tier_search_post_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -408,8 +395,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -475,7 +460,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/tier/search',
+            resource_path='/achievement/tier/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -494,7 +479,6 @@ class AchievementApi:
     @validate_call
     def create_achievement(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key the achievement is for")],
         title: Annotated[StrictStr, Field(description="the title of the achievement (255 character limit)")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -525,8 +509,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key the achievement is for (required)
         :type app_key: str
         :param title: the title of the achievement (255 character limit) (required)
@@ -576,7 +558,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_serialize(
-            version=version,
             app_key=app_key,
             title=title,
             device_id=device_id,
@@ -613,7 +594,6 @@ class AchievementApi:
     @validate_call
     def create_achievement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key the achievement is for")],
         title: Annotated[StrictStr, Field(description="the title of the achievement (255 character limit)")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -644,8 +624,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key the achievement is for (required)
         :type app_key: str
         :param title: the title of the achievement (255 character limit) (required)
@@ -695,7 +673,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_serialize(
-            version=version,
             app_key=app_key,
             title=title,
             device_id=device_id,
@@ -732,7 +709,6 @@ class AchievementApi:
     @validate_call
     def create_achievement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key the achievement is for")],
         title: Annotated[StrictStr, Field(description="the title of the achievement (255 character limit)")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -763,8 +739,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key the achievement is for (required)
         :type app_key: str
         :param title: the title of the achievement (255 character limit) (required)
@@ -814,7 +788,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_serialize(
-            version=version,
             app_key=app_key,
             title=title,
             device_id=device_id,
@@ -846,7 +819,6 @@ class AchievementApi:
 
     def _create_achievement_serialize(
         self,
-        version,
         app_key,
         title,
         device_id,
@@ -881,8 +853,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -956,7 +926,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/create',
+            resource_path='/achievement/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -975,7 +945,6 @@ class AchievementApi:
     @validate_call
     def create_achievement_tier(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="the achievement id for adding a new tier")],
         score_all_instances: Annotated[StrictBool, Field(description="score all instances")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -1007,8 +976,6 @@ class AchievementApi:
 
         Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: the achievement id for adding a new tier (required)
         :type achievement_id: int
         :param score_all_instances: score all instances (required)
@@ -1060,7 +1027,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_tier_serialize(
-            version=version,
             achievement_id=achievement_id,
             score_all_instances=score_all_instances,
             device_id=device_id,
@@ -1098,7 +1064,6 @@ class AchievementApi:
     @validate_call
     def create_achievement_tier_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="the achievement id for adding a new tier")],
         score_all_instances: Annotated[StrictBool, Field(description="score all instances")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -1130,8 +1095,6 @@ class AchievementApi:
 
         Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: the achievement id for adding a new tier (required)
         :type achievement_id: int
         :param score_all_instances: score all instances (required)
@@ -1183,7 +1146,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_tier_serialize(
-            version=version,
             achievement_id=achievement_id,
             score_all_instances=score_all_instances,
             device_id=device_id,
@@ -1221,7 +1183,6 @@ class AchievementApi:
     @validate_call
     def create_achievement_tier_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="the achievement id for adding a new tier")],
         score_all_instances: Annotated[StrictBool, Field(description="score all instances")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
@@ -1253,8 +1214,6 @@ class AchievementApi:
 
         Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: the achievement id for adding a new tier (required)
         :type achievement_id: int
         :param score_all_instances: score all instances (required)
@@ -1306,7 +1265,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._create_achievement_tier_serialize(
-            version=version,
             achievement_id=achievement_id,
             score_all_instances=score_all_instances,
             device_id=device_id,
@@ -1339,7 +1297,6 @@ class AchievementApi:
 
     def _create_achievement_tier_serialize(
         self,
-        version,
         achievement_id,
         score_all_instances,
         device_id,
@@ -1375,8 +1332,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1454,7 +1409,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/tier/create',
+            resource_path='/achievement/tier/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1473,7 +1428,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         _request_timeout: Union[
@@ -1493,8 +1447,6 @@ class AchievementApi:
 
         Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1522,7 +1474,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1548,7 +1499,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         _request_timeout: Union[
@@ -1568,8 +1518,6 @@ class AchievementApi:
 
         Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1597,7 +1545,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1623,7 +1570,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         _request_timeout: Union[
@@ -1643,8 +1589,6 @@ class AchievementApi:
 
         Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1672,7 +1616,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1693,7 +1636,6 @@ class AchievementApi:
 
     def _delete_achievement_serialize(
         self,
-        version,
         achievement_id,
         account_id,
         _request_auth,
@@ -1717,8 +1659,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1748,7 +1688,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/delete',
+            resource_path='/achievement/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1767,7 +1707,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement_tier(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement id for deletion")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         _request_timeout: Union[
@@ -1787,8 +1726,6 @@ class AchievementApi:
 
         Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement id for deletion (required)
         :type achievement_tier_id: int
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1816,7 +1753,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1842,7 +1778,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement_tier_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement id for deletion")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         _request_timeout: Union[
@@ -1862,8 +1797,6 @@ class AchievementApi:
 
         Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement id for deletion (required)
         :type achievement_tier_id: int
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1891,7 +1824,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1917,7 +1849,6 @@ class AchievementApi:
     @validate_call
     def delete_achievement_tier_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement id for deletion")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         _request_timeout: Union[
@@ -1937,8 +1868,6 @@ class AchievementApi:
 
         Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement id for deletion (required)
         :type achievement_tier_id: int
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1966,7 +1895,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._delete_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1987,7 +1915,6 @@ class AchievementApi:
 
     def _delete_achievement_tier_serialize(
         self,
-        version,
         achievement_tier_id,
         account_id,
         _request_auth,
@@ -2011,8 +1938,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2042,7 +1967,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/tier/delete',
+            resource_path='/achievement/tier/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2061,7 +1986,6 @@ class AchievementApi:
     @validate_call
     def get_achievement(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2083,8 +2007,6 @@ class AchievementApi:
 
         Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -2116,7 +2038,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2144,7 +2065,6 @@ class AchievementApi:
     @validate_call
     def get_achievement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2166,8 +2086,6 @@ class AchievementApi:
 
         Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -2199,7 +2117,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2227,7 +2144,6 @@ class AchievementApi:
     @validate_call
     def get_achievement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_id: Annotated[StrictInt, Field(description="The ID of the achievement")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2249,8 +2165,6 @@ class AchievementApi:
 
         Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_id: The ID of the achievement (required)
         :type achievement_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -2282,7 +2196,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_serialize(
-            version=version,
             achievement_id=achievement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2305,7 +2218,6 @@ class AchievementApi:
 
     def _get_achievement_serialize(
         self,
-        version,
         achievement_id,
         device_id,
         account_id,
@@ -2331,8 +2243,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2370,7 +2280,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/achievement/get',
+            resource_path='/achievement/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2389,7 +2299,6 @@ class AchievementApi:
     @validate_call
     def get_achievement_tier(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id that is being retrieved")],
         _request_timeout: Union[
@@ -2409,8 +2318,6 @@ class AchievementApi:
 
         Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param achievement_tier_id: the achievement tier id that is being retrieved (required)
@@ -2438,7 +2345,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_tier_serialize(
-            version=version,
             account_id=account_id,
             achievement_tier_id=achievement_tier_id,
             _request_auth=_request_auth,
@@ -2464,7 +2370,6 @@ class AchievementApi:
     @validate_call
     def get_achievement_tier_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id that is being retrieved")],
         _request_timeout: Union[
@@ -2484,8 +2389,6 @@ class AchievementApi:
 
         Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param achievement_tier_id: the achievement tier id that is being retrieved (required)
@@ -2513,7 +2416,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_tier_serialize(
-            version=version,
             account_id=account_id,
             achievement_tier_id=achievement_tier_id,
             _request_auth=_request_auth,
@@ -2539,7 +2441,6 @@ class AchievementApi:
     @validate_call
     def get_achievement_tier_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id that is being retrieved")],
         _request_timeout: Union[
@@ -2559,8 +2460,6 @@ class AchievementApi:
 
         Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param achievement_tier_id: the achievement tier id that is being retrieved (required)
@@ -2588,7 +2487,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_achievement_tier_serialize(
-            version=version,
             account_id=account_id,
             achievement_tier_id=achievement_tier_id,
             _request_auth=_request_auth,
@@ -2609,7 +2507,6 @@ class AchievementApi:
 
     def _get_achievement_tier_serialize(
         self,
-        version,
         account_id,
         achievement_tier_id,
         _request_auth,
@@ -2633,8 +2530,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2664,7 +2559,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/tier/get',
+            resource_path='/achievement/tier/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2683,7 +2578,6 @@ class AchievementApi:
     @validate_call
     def get_user_achievements(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="determines whether to return null fields in the response")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         include_undiscovered: Annotated[StrictBool, Field(description="determines whether to return achievements that the user has not discovered yet")],
@@ -2712,8 +2606,6 @@ class AchievementApi:
 
         Gets a list of user achievements.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: determines whether to return null fields in the response (required)
         :type return_nulls: bool
         :param app_key: the application key for filtering results by application (required)
@@ -2759,7 +2651,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_user_achievements_serialize(
-            version=version,
             return_nulls=return_nulls,
             app_key=app_key,
             include_undiscovered=include_undiscovered,
@@ -2794,7 +2685,6 @@ class AchievementApi:
     @validate_call
     def get_user_achievements_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="determines whether to return null fields in the response")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         include_undiscovered: Annotated[StrictBool, Field(description="determines whether to return achievements that the user has not discovered yet")],
@@ -2823,8 +2713,6 @@ class AchievementApi:
 
         Gets a list of user achievements.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: determines whether to return null fields in the response (required)
         :type return_nulls: bool
         :param app_key: the application key for filtering results by application (required)
@@ -2870,7 +2758,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_user_achievements_serialize(
-            version=version,
             return_nulls=return_nulls,
             app_key=app_key,
             include_undiscovered=include_undiscovered,
@@ -2905,7 +2792,6 @@ class AchievementApi:
     @validate_call
     def get_user_achievements_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="determines whether to return null fields in the response")],
         app_key: Annotated[StrictStr, Field(description="the application key for filtering results by application")],
         include_undiscovered: Annotated[StrictBool, Field(description="determines whether to return achievements that the user has not discovered yet")],
@@ -2934,8 +2820,6 @@ class AchievementApi:
 
         Gets a list of user achievements.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: determines whether to return null fields in the response (required)
         :type return_nulls: bool
         :param app_key: the application key for filtering results by application (required)
@@ -2981,7 +2865,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._get_user_achievements_serialize(
-            version=version,
             return_nulls=return_nulls,
             app_key=app_key,
             include_undiscovered=include_undiscovered,
@@ -3011,7 +2894,6 @@ class AchievementApi:
 
     def _get_user_achievements_serialize(
         self,
-        version,
         return_nulls,
         app_key,
         include_undiscovered,
@@ -3044,8 +2926,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -3111,7 +2991,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/achievement/progress/get',
+            resource_path='/achievement/progress/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3130,7 +3010,6 @@ class AchievementApi:
     @validate_call
     def list_achievement_tags(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="filter results by application key")] = None,
         _request_timeout: Union[
             None,
@@ -3149,8 +3028,6 @@ class AchievementApi:
 
         List achievement tags by application
 
-        :param version: (required)
-        :type version: float
         :param app_key: filter results by application key
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3176,7 +3053,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievement_tags_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3201,7 +3077,6 @@ class AchievementApi:
     @validate_call
     def list_achievement_tags_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="filter results by application key")] = None,
         _request_timeout: Union[
             None,
@@ -3220,8 +3095,6 @@ class AchievementApi:
 
         List achievement tags by application
 
-        :param version: (required)
-        :type version: float
         :param app_key: filter results by application key
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3247,7 +3120,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievement_tags_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3272,7 +3144,6 @@ class AchievementApi:
     @validate_call
     def list_achievement_tags_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="filter results by application key")] = None,
         _request_timeout: Union[
             None,
@@ -3291,8 +3162,6 @@ class AchievementApi:
 
         List achievement tags by application
 
-        :param version: (required)
-        :type version: float
         :param app_key: filter results by application key
         :type app_key: str
         :param _request_timeout: timeout setting for this request. If one
@@ -3318,7 +3187,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievement_tags_serialize(
-            version=version,
             app_key=app_key,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3338,7 +3206,6 @@ class AchievementApi:
 
     def _list_achievement_tags_serialize(
         self,
-        version,
         app_key,
         _request_auth,
         _content_type,
@@ -3361,8 +3228,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -3388,7 +3253,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/achievement/tag/list',
+            resource_path='/achievement/tag/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3407,7 +3272,6 @@ class AchievementApi:
     @validate_call
     def list_achievements(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
@@ -3436,8 +3300,6 @@ class AchievementApi:
 
         List achievements by billable.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. See AchievementApiMap (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -3483,7 +3345,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievements_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -3518,7 +3379,6 @@ class AchievementApi:
     @validate_call
     def list_achievements_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
@@ -3547,8 +3407,6 @@ class AchievementApi:
 
         List achievements by billable.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. See AchievementApiMap (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -3594,7 +3452,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievements_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -3629,7 +3486,6 @@ class AchievementApi:
     @validate_call
     def list_achievements_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
@@ -3658,8 +3514,6 @@ class AchievementApi:
 
         List achievements by billable.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by. See AchievementApiMap (required)
         :type sort_field: str
         :param descending: determines whether the sorted list is in descending or ascending order (required)
@@ -3705,7 +3559,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._list_achievements_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -3735,7 +3588,6 @@ class AchievementApi:
 
     def _list_achievements_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -3768,8 +3620,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3835,7 +3685,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/achievement/list',
+            resource_path='/achievement/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3854,7 +3704,6 @@ class AchievementApi:
     @validate_call
     def search_achievements(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -3884,8 +3733,6 @@ class AchievementApi:
 
         Searches achievements by application for consumers.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param sort_field: the field to sort by. See AchievementApiMap (required)
@@ -3933,7 +3780,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._search_achievements_serialize(
-            version=version,
             app_key=app_key,
             sort_field=sort_field,
             descending=descending,
@@ -3969,7 +3815,6 @@ class AchievementApi:
     @validate_call
     def search_achievements_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -3999,8 +3844,6 @@ class AchievementApi:
 
         Searches achievements by application for consumers.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param sort_field: the field to sort by. See AchievementApiMap (required)
@@ -4048,7 +3891,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._search_achievements_serialize(
-            version=version,
             app_key=app_key,
             sort_field=sort_field,
             descending=descending,
@@ -4084,7 +3926,6 @@ class AchievementApi:
     @validate_call
     def search_achievements_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AchievementApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -4114,8 +3955,6 @@ class AchievementApi:
 
         Searches achievements by application for consumers.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param sort_field: the field to sort by. See AchievementApiMap (required)
@@ -4163,7 +4002,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._search_achievements_serialize(
-            version=version,
             app_key=app_key,
             sort_field=sort_field,
             descending=descending,
@@ -4194,7 +4032,6 @@ class AchievementApi:
 
     def _search_achievements_serialize(
         self,
-        version,
         app_key,
         sort_field,
         descending,
@@ -4228,8 +4065,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4299,7 +4134,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/achievement/search',
+            resource_path='/achievement/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4318,7 +4153,6 @@ class AchievementApi:
     @validate_call
     def update_achievement(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement ID for updating an existing achievement")] = None,
@@ -4351,8 +4185,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4406,7 +4238,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             achievement_id=achievement_id,
@@ -4445,7 +4276,6 @@ class AchievementApi:
     @validate_call
     def update_achievement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement ID for updating an existing achievement")] = None,
@@ -4478,8 +4308,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4533,7 +4361,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             achievement_id=achievement_id,
@@ -4572,7 +4399,6 @@ class AchievementApi:
     @validate_call
     def update_achievement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement ID for updating an existing achievement")] = None,
@@ -4605,8 +4431,6 @@ class AchievementApi:
 
         Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -4660,7 +4484,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             achievement_id=achievement_id,
@@ -4694,7 +4517,6 @@ class AchievementApi:
 
     def _update_achievement_serialize(
         self,
-        version,
         device_id,
         account_id,
         achievement_id,
@@ -4731,8 +4553,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4814,7 +4634,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/update',
+            resource_path='/achievement/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4833,7 +4653,6 @@ class AchievementApi:
     @validate_call
     def update_achievement_tier(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id for updating")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4865,8 +4684,6 @@ class AchievementApi:
 
         Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement tier id for updating (required)
         :type achievement_tier_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -4918,7 +4735,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             device_id=device_id,
             account_id=account_id,
@@ -4956,7 +4772,6 @@ class AchievementApi:
     @validate_call
     def update_achievement_tier_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id for updating")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4988,8 +4803,6 @@ class AchievementApi:
 
         Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement tier id for updating (required)
         :type achievement_tier_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -5041,7 +4854,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             device_id=device_id,
             account_id=account_id,
@@ -5079,7 +4891,6 @@ class AchievementApi:
     @validate_call
     def update_achievement_tier_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         achievement_tier_id: Annotated[StrictInt, Field(description="the achievement tier id for updating")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -5111,8 +4922,6 @@ class AchievementApi:
 
         Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
 
-        :param version: (required)
-        :type version: float
         :param achievement_tier_id: the achievement tier id for updating (required)
         :type achievement_tier_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -5164,7 +4973,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_achievement_tier_serialize(
-            version=version,
             achievement_tier_id=achievement_tier_id,
             device_id=device_id,
             account_id=account_id,
@@ -5197,7 +5005,6 @@ class AchievementApi:
 
     def _update_achievement_tier_serialize(
         self,
-        version,
         achievement_tier_id,
         device_id,
         account_id,
@@ -5233,8 +5040,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5312,7 +5117,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/tier/update',
+            resource_path='/achievement/tier/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5331,7 +5136,6 @@ class AchievementApi:
     @validate_call
     def update_user_achievement(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement id (achievementId or tag required)")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="the analytic tag to identify an achievement (achievementId or tag required)")] = None,
@@ -5357,8 +5161,6 @@ class AchievementApi:
 
         Update user achievement progress.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param achievement_id: the achievement id (achievementId or tag required)
@@ -5398,7 +5200,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_user_achievement_serialize(
-            version=version,
             account_id=account_id,
             achievement_id=achievement_id,
             tag=tag,
@@ -5430,7 +5231,6 @@ class AchievementApi:
     @validate_call
     def update_user_achievement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement id (achievementId or tag required)")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="the analytic tag to identify an achievement (achievementId or tag required)")] = None,
@@ -5456,8 +5256,6 @@ class AchievementApi:
 
         Update user achievement progress.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param achievement_id: the achievement id (achievementId or tag required)
@@ -5497,7 +5295,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_user_achievement_serialize(
-            version=version,
             account_id=account_id,
             achievement_id=achievement_id,
             tag=tag,
@@ -5529,7 +5326,6 @@ class AchievementApi:
     @validate_call
     def update_user_achievement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         achievement_id: Annotated[Optional[StrictInt], Field(description="the achievement id (achievementId or tag required)")] = None,
         tag: Annotated[Optional[StrictStr], Field(description="the analytic tag to identify an achievement (achievementId or tag required)")] = None,
@@ -5555,8 +5351,6 @@ class AchievementApi:
 
         Update user achievement progress.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param achievement_id: the achievement id (achievementId or tag required)
@@ -5596,7 +5390,6 @@ class AchievementApi:
         """ # noqa: E501
 
         _param = self._update_user_achievement_serialize(
-            version=version,
             account_id=account_id,
             achievement_id=achievement_id,
             tag=tag,
@@ -5623,7 +5416,6 @@ class AchievementApi:
 
     def _update_user_achievement_serialize(
         self,
-        version,
         account_id,
         achievement_id,
         tag,
@@ -5653,8 +5445,6 @@ class AchievementApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5708,7 +5498,7 @@ class AchievementApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/achievement/progress/update',
+            resource_path='/achievement/progress/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

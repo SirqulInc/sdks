@@ -45,7 +45,6 @@ class PurchaseItemApi:
     @validate_call
     def create_purchase_item(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key that the purchase can be used in")],
         name: Annotated[StrictStr, Field(description="The name of the purchase item")],
         purchase_type: Annotated[StrictStr, Field(description="The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>")],
@@ -83,8 +82,6 @@ class PurchaseItemApi:
 
         Creates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key that the purchase can be used in (required)
         :type app_key: str
         :param name: The name of the purchase item (required)
@@ -148,7 +145,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._create_purchase_item_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             purchase_type=purchase_type,
@@ -192,7 +188,6 @@ class PurchaseItemApi:
     @validate_call
     def create_purchase_item_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key that the purchase can be used in")],
         name: Annotated[StrictStr, Field(description="The name of the purchase item")],
         purchase_type: Annotated[StrictStr, Field(description="The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>")],
@@ -230,8 +225,6 @@ class PurchaseItemApi:
 
         Creates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key that the purchase can be used in (required)
         :type app_key: str
         :param name: The name of the purchase item (required)
@@ -295,7 +288,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._create_purchase_item_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             purchase_type=purchase_type,
@@ -339,7 +331,6 @@ class PurchaseItemApi:
     @validate_call
     def create_purchase_item_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key that the purchase can be used in")],
         name: Annotated[StrictStr, Field(description="The name of the purchase item")],
         purchase_type: Annotated[StrictStr, Field(description="The purchase provider <ul> <li>SIRQUL - the Sirqul store to make purchases using tickets</li> <li>IOS - the iTunes store for iPhone, iPod, iPod Touch</li> <li>GOOGLE - the Google Play store</li> <li>AMAZON - the Amazon Android store</li> <li>MAC - the iTunes store for OSX</li> <li>WP8 - the Windows Phone 8 store</li> <li>FREE - used for purchase items that are free (can be used for development/testing purposes)</li> </ul>")],
@@ -377,8 +368,6 @@ class PurchaseItemApi:
 
         Creates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key that the purchase can be used in (required)
         :type app_key: str
         :param name: The name of the purchase item (required)
@@ -442,7 +431,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._create_purchase_item_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             purchase_type=purchase_type,
@@ -481,7 +469,6 @@ class PurchaseItemApi:
 
     def _create_purchase_item_serialize(
         self,
-        version,
         app_key,
         name,
         purchase_type,
@@ -523,8 +510,6 @@ class PurchaseItemApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -626,7 +611,7 @@ class PurchaseItemApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/purchase/create',
+            resource_path='/purchase/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -645,7 +630,6 @@ class PurchaseItemApi:
     @validate_call
     def delete_purchase_item(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -666,8 +650,6 @@ class PurchaseItemApi:
 
         Marks the purchase item as deleted
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -697,7 +679,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._delete_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -724,7 +705,6 @@ class PurchaseItemApi:
     @validate_call
     def delete_purchase_item_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -745,8 +725,6 @@ class PurchaseItemApi:
 
         Marks the purchase item as deleted
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -776,7 +754,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._delete_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -803,7 +780,6 @@ class PurchaseItemApi:
     @validate_call
     def delete_purchase_item_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -824,8 +800,6 @@ class PurchaseItemApi:
 
         Marks the purchase item as deleted
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -855,7 +829,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._delete_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -877,7 +850,6 @@ class PurchaseItemApi:
 
     def _delete_purchase_item_serialize(
         self,
-        version,
         purchase_item_id,
         device_id,
         account_id,
@@ -902,8 +874,6 @@ class PurchaseItemApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -937,7 +907,7 @@ class PurchaseItemApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/purchase/delete',
+            resource_path='/purchase/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -956,7 +926,6 @@ class PurchaseItemApi:
     @validate_call
     def get_purchase_item(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -977,8 +946,6 @@ class PurchaseItemApi:
 
         Get detailed information about a purchase item
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1008,7 +975,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._get_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -1035,7 +1001,6 @@ class PurchaseItemApi:
     @validate_call
     def get_purchase_item_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1056,8 +1021,6 @@ class PurchaseItemApi:
 
         Get detailed information about a purchase item
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1087,7 +1050,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._get_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -1114,7 +1076,6 @@ class PurchaseItemApi:
     @validate_call
     def get_purchase_item_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1135,8 +1096,6 @@ class PurchaseItemApi:
 
         Get detailed information about a purchase item
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1166,7 +1125,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._get_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -1188,7 +1146,6 @@ class PurchaseItemApi:
 
     def _get_purchase_item_serialize(
         self,
-        version,
         purchase_item_id,
         device_id,
         account_id,
@@ -1213,8 +1170,6 @@ class PurchaseItemApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1248,7 +1203,7 @@ class PurchaseItemApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/purchase/get',
+            resource_path='/purchase/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1267,7 +1222,6 @@ class PurchaseItemApi:
     @validate_call
     def search_purchase_items(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application")] = None,
@@ -1297,8 +1251,6 @@ class PurchaseItemApi:
 
         Search for purchasable items from the system
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1346,7 +1298,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._search_purchase_items_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1382,7 +1333,6 @@ class PurchaseItemApi:
     @validate_call
     def search_purchase_items_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application")] = None,
@@ -1412,8 +1362,6 @@ class PurchaseItemApi:
 
         Search for purchasable items from the system
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1461,7 +1409,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._search_purchase_items_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1497,7 +1444,6 @@ class PurchaseItemApi:
     @validate_call
     def search_purchase_items_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application")] = None,
@@ -1527,8 +1473,6 @@ class PurchaseItemApi:
 
         Search for purchasable items from the system
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1576,7 +1520,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._search_purchase_items_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1607,7 +1550,6 @@ class PurchaseItemApi:
 
     def _search_purchase_items_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -1641,8 +1583,6 @@ class PurchaseItemApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1712,7 +1652,7 @@ class PurchaseItemApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/purchase/search',
+            resource_path='/purchase/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1731,7 +1671,6 @@ class PurchaseItemApi:
     @validate_call
     def update_purchase_item(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1770,8 +1709,6 @@ class PurchaseItemApi:
 
         Updates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1837,7 +1774,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._update_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -1882,7 +1818,6 @@ class PurchaseItemApi:
     @validate_call
     def update_purchase_item_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1921,8 +1856,6 @@ class PurchaseItemApi:
 
         Updates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1988,7 +1921,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._update_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -2033,7 +1965,6 @@ class PurchaseItemApi:
     @validate_call
     def update_purchase_item_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         purchase_item_id: Annotated[StrictInt, Field(description="The purchase item id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2072,8 +2003,6 @@ class PurchaseItemApi:
 
         Updates a purchase item for in app purchases
 
-        :param version: (required)
-        :type version: float
         :param purchase_item_id: The purchase item id (required)
         :type purchase_item_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2139,7 +2068,6 @@ class PurchaseItemApi:
         """ # noqa: E501
 
         _param = self._update_purchase_item_serialize(
-            version=version,
             purchase_item_id=purchase_item_id,
             device_id=device_id,
             account_id=account_id,
@@ -2179,7 +2107,6 @@ class PurchaseItemApi:
 
     def _update_purchase_item_serialize(
         self,
-        version,
         purchase_item_id,
         device_id,
         account_id,
@@ -2222,8 +2149,6 @@ class PurchaseItemApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2329,7 +2254,7 @@ class PurchaseItemApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/purchase/update',
+            resource_path='/purchase/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

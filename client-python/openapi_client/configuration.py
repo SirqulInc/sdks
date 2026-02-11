@@ -215,7 +215,7 @@ conf = openapi_client.Configuration(
     ) -> None:
         """Constructor
         """
-        self._base_path = "http://localhost" if host is None else host
+        self._base_path = "https://dev.sirqul.com/api/3.18" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -557,8 +557,14 @@ conf = openapi_client.Configuration(
         """
         return [
             {
-                'url': "",
+                'url': "https://dev.sirqul.com/api/{version}",
                 'description': "No description provided",
+                'variables': {
+                    'version': {
+                        'description': "No description provided",
+                        'default_value': "3.18",
+                        }
+                    }
             }
         ]
 

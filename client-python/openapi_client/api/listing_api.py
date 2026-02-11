@@ -46,7 +46,6 @@ class ListingApi:
     @validate_call
     def create_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         name: Annotated[StrictStr, Field(description="the name of the listing")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -78,8 +77,6 @@ class ListingApi:
 
         Creates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param name: the name of the listing (required)
@@ -131,7 +128,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._create_listing_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             filter_ids=filter_ids,
@@ -169,7 +165,6 @@ class ListingApi:
     @validate_call
     def create_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         name: Annotated[StrictStr, Field(description="the name of the listing")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -201,8 +196,6 @@ class ListingApi:
 
         Creates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param name: the name of the listing (required)
@@ -254,7 +247,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._create_listing_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             filter_ids=filter_ids,
@@ -292,7 +284,6 @@ class ListingApi:
     @validate_call
     def create_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         name: Annotated[StrictStr, Field(description="the name of the listing")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -324,8 +315,6 @@ class ListingApi:
 
         Creates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param name: the name of the listing (required)
@@ -377,7 +366,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._create_listing_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             filter_ids=filter_ids,
@@ -410,7 +398,6 @@ class ListingApi:
 
     def _create_listing_serialize(
         self,
-        version,
         account_id,
         name,
         filter_ids,
@@ -446,8 +433,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -525,7 +510,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/listing/create',
+            resource_path='/listing/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -544,7 +529,6 @@ class ListingApi:
     @validate_call
     def delete_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to delete")],
         _request_timeout: Union[
@@ -564,8 +548,6 @@ class ListingApi:
 
         Delete a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param listing_id: the id of the listing to delete (required)
@@ -593,7 +575,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._delete_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             _request_auth=_request_auth,
@@ -619,7 +600,6 @@ class ListingApi:
     @validate_call
     def delete_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to delete")],
         _request_timeout: Union[
@@ -639,8 +619,6 @@ class ListingApi:
 
         Delete a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param listing_id: the id of the listing to delete (required)
@@ -668,7 +646,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._delete_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             _request_auth=_request_auth,
@@ -694,7 +671,6 @@ class ListingApi:
     @validate_call
     def delete_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to delete")],
         _request_timeout: Union[
@@ -714,8 +690,6 @@ class ListingApi:
 
         Delete a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param listing_id: the id of the listing to delete (required)
@@ -743,7 +717,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._delete_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             _request_auth=_request_auth,
@@ -764,7 +737,6 @@ class ListingApi:
 
     def _delete_listing_serialize(
         self,
-        version,
         account_id,
         listing_id,
         _request_auth,
@@ -788,8 +760,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -819,7 +789,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/listing/delete',
+            resource_path='/listing/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -838,7 +808,6 @@ class ListingApi:
     @validate_call
     def get_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to get")],
         _request_timeout: Union[
             None,
@@ -857,8 +826,6 @@ class ListingApi:
 
         Get a listing by id.
 
-        :param version: (required)
-        :type version: float
         :param listing_id: the id of the listing to get (required)
         :type listing_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -884,7 +851,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._get_listing_serialize(
-            version=version,
             listing_id=listing_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -909,7 +875,6 @@ class ListingApi:
     @validate_call
     def get_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to get")],
         _request_timeout: Union[
             None,
@@ -928,8 +893,6 @@ class ListingApi:
 
         Get a listing by id.
 
-        :param version: (required)
-        :type version: float
         :param listing_id: the id of the listing to get (required)
         :type listing_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -955,7 +918,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._get_listing_serialize(
-            version=version,
             listing_id=listing_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -980,7 +942,6 @@ class ListingApi:
     @validate_call
     def get_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         listing_id: Annotated[StrictInt, Field(description="the id of the listing to get")],
         _request_timeout: Union[
             None,
@@ -999,8 +960,6 @@ class ListingApi:
 
         Get a listing by id.
 
-        :param version: (required)
-        :type version: float
         :param listing_id: the id of the listing to get (required)
         :type listing_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1026,7 +985,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._get_listing_serialize(
-            version=version,
             listing_id=listing_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1046,7 +1004,6 @@ class ListingApi:
 
     def _get_listing_serialize(
         self,
-        version,
         listing_id,
         _request_auth,
         _content_type,
@@ -1069,8 +1026,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if listing_id is not None:
             
@@ -1096,7 +1051,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/listing/get',
+            resource_path='/listing/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1115,7 +1070,6 @@ class ListingApi:
     @validate_call
     def search_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="search the event name and description for this keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="the record to begin the return set on")] = None,
@@ -1148,8 +1102,6 @@ class ListingApi:
 
         Search for event listings from the start time to end time
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param keyword: search the event name and description for this keyword
@@ -1203,7 +1155,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._search_listing_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -1242,7 +1193,6 @@ class ListingApi:
     @validate_call
     def search_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="search the event name and description for this keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="the record to begin the return set on")] = None,
@@ -1275,8 +1225,6 @@ class ListingApi:
 
         Search for event listings from the start time to end time
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param keyword: search the event name and description for this keyword
@@ -1330,7 +1278,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._search_listing_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -1369,7 +1316,6 @@ class ListingApi:
     @validate_call
     def search_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="search the event name and description for this keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="the record to begin the return set on")] = None,
@@ -1402,8 +1348,6 @@ class ListingApi:
 
         Search for event listings from the start time to end time
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param keyword: search the event name and description for this keyword
@@ -1457,7 +1401,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._search_listing_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -1491,7 +1434,6 @@ class ListingApi:
 
     def _search_listing_serialize(
         self,
-        version,
         account_id,
         keyword,
         start,
@@ -1528,8 +1470,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1611,7 +1551,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/listing/search',
+            resource_path='/listing/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1630,7 +1570,6 @@ class ListingApi:
     @validate_call
     def summary_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="the start date to search from")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="the list of categories to search on")] = None,
@@ -1653,8 +1592,6 @@ class ListingApi:
 
         Search for a list of summary listings from the start time up to 8 days out.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param start_date: the start date to search from
@@ -1688,7 +1625,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._summary_listing_serialize(
-            version=version,
             account_id=account_id,
             start_date=start_date,
             category_ids=category_ids,
@@ -1717,7 +1653,6 @@ class ListingApi:
     @validate_call
     def summary_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="the start date to search from")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="the list of categories to search on")] = None,
@@ -1740,8 +1675,6 @@ class ListingApi:
 
         Search for a list of summary listings from the start time up to 8 days out.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param start_date: the start date to search from
@@ -1775,7 +1708,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._summary_listing_serialize(
-            version=version,
             account_id=account_id,
             start_date=start_date,
             category_ids=category_ids,
@@ -1804,7 +1736,6 @@ class ListingApi:
     @validate_call
     def summary_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="the start date to search from")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="the list of categories to search on")] = None,
@@ -1827,8 +1758,6 @@ class ListingApi:
 
         Search for a list of summary listings from the start time up to 8 days out.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user
         :type account_id: int
         :param start_date: the start date to search from
@@ -1862,7 +1791,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._summary_listing_serialize(
-            version=version,
             account_id=account_id,
             start_date=start_date,
             category_ids=category_ids,
@@ -1886,7 +1814,6 @@ class ListingApi:
 
     def _summary_listing_serialize(
         self,
-        version,
         account_id,
         start_date,
         category_ids,
@@ -1913,8 +1840,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1956,7 +1881,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/listing/summary',
+            resource_path='/listing/summary',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1975,7 +1900,6 @@ class ListingApi:
     @validate_call
     def update_listing(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         listing_id: Annotated[StrictInt, Field(description="the listing to update")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -2008,8 +1932,6 @@ class ListingApi:
 
         Updates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param listing_id: the listing to update (required)
@@ -2063,7 +1985,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._update_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             filter_ids=filter_ids,
@@ -2102,7 +2023,6 @@ class ListingApi:
     @validate_call
     def update_listing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         listing_id: Annotated[StrictInt, Field(description="the listing to update")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -2135,8 +2055,6 @@ class ListingApi:
 
         Updates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param listing_id: the listing to update (required)
@@ -2190,7 +2108,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._update_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             filter_ids=filter_ids,
@@ -2229,7 +2146,6 @@ class ListingApi:
     @validate_call
     def update_listing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user's account ID")],
         listing_id: Annotated[StrictInt, Field(description="the listing to update")],
         filter_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of filter IDs")] = None,
@@ -2262,8 +2178,6 @@ class ListingApi:
 
         Updates a listing.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user's account ID (required)
         :type account_id: int
         :param listing_id: the listing to update (required)
@@ -2317,7 +2231,6 @@ class ListingApi:
         """ # noqa: E501
 
         _param = self._update_listing_serialize(
-            version=version,
             account_id=account_id,
             listing_id=listing_id,
             filter_ids=filter_ids,
@@ -2351,7 +2264,6 @@ class ListingApi:
 
     def _update_listing_serialize(
         self,
-        version,
         account_id,
         listing_id,
         filter_ids,
@@ -2388,8 +2300,6 @@ class ListingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2471,7 +2381,7 @@ class ListingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/listing/update',
+            resource_path='/listing/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

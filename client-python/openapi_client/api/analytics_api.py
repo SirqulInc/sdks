@@ -45,7 +45,6 @@ class AnalyticsApi:
     @validate_call
     def activities(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
         limit: Annotated[StrictInt, Field(description="The limit of the pagination")],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
@@ -66,8 +65,6 @@ class AnalyticsApi:
 
         Get an activity feed by user.
 
-        :param version: (required)
-        :type version: float
         :param start: The start of the pagination (required)
         :type start: int
         :param limit: The limit of the pagination (required)
@@ -97,7 +94,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._activities_serialize(
-            version=version,
             start=start,
             limit=limit,
             account_id=account_id,
@@ -124,7 +120,6 @@ class AnalyticsApi:
     @validate_call
     def activities_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
         limit: Annotated[StrictInt, Field(description="The limit of the pagination")],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
@@ -145,8 +140,6 @@ class AnalyticsApi:
 
         Get an activity feed by user.
 
-        :param version: (required)
-        :type version: float
         :param start: The start of the pagination (required)
         :type start: int
         :param limit: The limit of the pagination (required)
@@ -176,7 +169,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._activities_serialize(
-            version=version,
             start=start,
             limit=limit,
             account_id=account_id,
@@ -203,7 +195,6 @@ class AnalyticsApi:
     @validate_call
     def activities_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
         limit: Annotated[StrictInt, Field(description="The limit of the pagination")],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
@@ -224,8 +215,6 @@ class AnalyticsApi:
 
         Get an activity feed by user.
 
-        :param version: (required)
-        :type version: float
         :param start: The start of the pagination (required)
         :type start: int
         :param limit: The limit of the pagination (required)
@@ -255,7 +244,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._activities_serialize(
-            version=version,
             start=start,
             limit=limit,
             account_id=account_id,
@@ -277,7 +265,6 @@ class AnalyticsApi:
 
     def _activities_serialize(
         self,
-        version,
         start,
         limit,
         account_id,
@@ -302,8 +289,6 @@ class AnalyticsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if start is not None:
             
@@ -337,7 +322,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/analytics/useractivity',
+            resource_path='/analytics/useractivity',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -356,7 +341,6 @@ class AnalyticsApi:
     @validate_call
     def aggregated_filtered_usage(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -405,8 +389,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for nested graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -492,7 +474,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._aggregated_filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -547,7 +528,6 @@ class AnalyticsApi:
     @validate_call
     def aggregated_filtered_usage_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -596,8 +576,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for nested graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -683,7 +661,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._aggregated_filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -738,7 +715,6 @@ class AnalyticsApi:
     @validate_call
     def aggregated_filtered_usage_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -787,8 +763,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for nested graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -874,7 +848,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._aggregated_filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -924,7 +897,6 @@ class AnalyticsApi:
 
     def _aggregated_filtered_usage_serialize(
         self,
-        version,
         device_id,
         account_id,
         application_id,
@@ -977,8 +949,6 @@ class AnalyticsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1124,7 +1094,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/analytics/aggregatedFilteredUsage',
+            resource_path='/analytics/aggregatedFilteredUsage',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1143,7 +1113,6 @@ class AnalyticsApi:
     @validate_call
     def filtered_usage(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1200,8 +1169,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1303,7 +1270,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -1366,7 +1332,6 @@ class AnalyticsApi:
     @validate_call
     def filtered_usage_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1423,8 +1388,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1526,7 +1489,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -1589,7 +1551,6 @@ class AnalyticsApi:
     @validate_call
     def filtered_usage_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="This parameter is deprecated.")] = None,
@@ -1646,8 +1607,6 @@ class AnalyticsApi:
 
         Query analytics to get data used for graphs and charts
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1749,7 +1708,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._filtered_usage_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             application_id=application_id,
@@ -1807,7 +1765,6 @@ class AnalyticsApi:
 
     def _filtered_usage_serialize(
         self,
-        version,
         device_id,
         account_id,
         application_id,
@@ -1868,8 +1825,6 @@ class AnalyticsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2047,7 +2002,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/analytics/filteredUsage',
+            resource_path='/analytics/filteredUsage',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2066,7 +2021,6 @@ class AnalyticsApi:
     @validate_call
     def usage(
         self,
-        version: Union[StrictFloat, StrictInt],
         tag: Annotated[StrictStr, Field(description="The tag to apply: the name of the action or thing being logged.")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2115,8 +2069,6 @@ class AnalyticsApi:
 
         Record an analytic record for a known state within the application.
 
-        :param version: (required)
-        :type version: float
         :param tag: The tag to apply: the name of the action or thing being logged. (required)
         :type tag: str
         :param device_id: The client deviceID
@@ -2202,7 +2154,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_serialize(
-            version=version,
             tag=tag,
             device_id=device_id,
             account_id=account_id,
@@ -2257,7 +2208,6 @@ class AnalyticsApi:
     @validate_call
     def usage_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         tag: Annotated[StrictStr, Field(description="The tag to apply: the name of the action or thing being logged.")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2306,8 +2256,6 @@ class AnalyticsApi:
 
         Record an analytic record for a known state within the application.
 
-        :param version: (required)
-        :type version: float
         :param tag: The tag to apply: the name of the action or thing being logged. (required)
         :type tag: str
         :param device_id: The client deviceID
@@ -2393,7 +2341,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_serialize(
-            version=version,
             tag=tag,
             device_id=device_id,
             account_id=account_id,
@@ -2448,7 +2395,6 @@ class AnalyticsApi:
     @validate_call
     def usage_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         tag: Annotated[StrictStr, Field(description="The tag to apply: the name of the action or thing being logged.")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2497,8 +2443,6 @@ class AnalyticsApi:
 
         Record an analytic record for a known state within the application.
 
-        :param version: (required)
-        :type version: float
         :param tag: The tag to apply: the name of the action or thing being logged. (required)
         :type tag: str
         :param device_id: The client deviceID
@@ -2584,7 +2528,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_serialize(
-            version=version,
             tag=tag,
             device_id=device_id,
             account_id=account_id,
@@ -2634,7 +2577,6 @@ class AnalyticsApi:
 
     def _usage_serialize(
         self,
-        version,
         tag,
         device_id,
         account_id,
@@ -2687,8 +2629,6 @@ class AnalyticsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if tag is not None:
             
@@ -2834,7 +2774,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/analytics/usage',
+            resource_path='/analytics/usage',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2853,7 +2793,6 @@ class AnalyticsApi:
     @validate_call
     def usage_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         device: Annotated[StrictStr, Field(description="The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)")],
         data: Annotated[StrictStr, Field(description="The analytic data AnalyticListResponse")],
@@ -2882,8 +2821,6 @@ class AnalyticsApi:
 
         Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param device: The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
@@ -2929,7 +2866,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_batch_serialize(
-            version=version,
             app_key=app_key,
             device=device,
             data=data,
@@ -2964,7 +2900,6 @@ class AnalyticsApi:
     @validate_call
     def usage_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         device: Annotated[StrictStr, Field(description="The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)")],
         data: Annotated[StrictStr, Field(description="The analytic data AnalyticListResponse")],
@@ -2993,8 +2928,6 @@ class AnalyticsApi:
 
         Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param device: The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
@@ -3040,7 +2973,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_batch_serialize(
-            version=version,
             app_key=app_key,
             device=device,
             data=data,
@@ -3075,7 +3007,6 @@ class AnalyticsApi:
     @validate_call
     def usage_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         device: Annotated[StrictStr, Field(description="The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.)")],
         data: Annotated[StrictStr, Field(description="The analytic data AnalyticListResponse")],
@@ -3104,8 +3035,6 @@ class AnalyticsApi:
 
         Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param device: The name of the device being used (iPhone5,1 , HTC Nexus One, x86_64, etc.) (required)
@@ -3151,7 +3080,6 @@ class AnalyticsApi:
         """ # noqa: E501
 
         _param = self._usage_batch_serialize(
-            version=version,
             app_key=app_key,
             device=device,
             data=data,
@@ -3181,7 +3109,6 @@ class AnalyticsApi:
 
     def _usage_batch_serialize(
         self,
-        version,
         app_key,
         device,
         data,
@@ -3214,8 +3141,6 @@ class AnalyticsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3281,7 +3206,7 @@ class AnalyticsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/analytics/usage/batch',
+            resource_path='/analytics/usage/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

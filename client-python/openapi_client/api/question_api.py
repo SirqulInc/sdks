@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.question_response import QuestionResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class QuestionApi:
     @validate_call
     def create_question(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question: Annotated[StrictStr, Field(description="the text of the question")],
         answers: Annotated[StrictStr, Field(description="```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` ")],
@@ -73,8 +72,6 @@ class QuestionApi:
 
         Create a question and related answers by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param question: the text of the question (required)
@@ -120,7 +117,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._create_question_serialize(
-            version=version,
             account_id=account_id,
             question=question,
             answers=answers,
@@ -155,7 +151,6 @@ class QuestionApi:
     @validate_call
     def create_question_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question: Annotated[StrictStr, Field(description="the text of the question")],
         answers: Annotated[StrictStr, Field(description="```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` ")],
@@ -184,8 +179,6 @@ class QuestionApi:
 
         Create a question and related answers by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param question: the text of the question (required)
@@ -231,7 +224,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._create_question_serialize(
-            version=version,
             account_id=account_id,
             question=question,
             answers=answers,
@@ -266,7 +258,6 @@ class QuestionApi:
     @validate_call
     def create_question_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question: Annotated[StrictStr, Field(description="the text of the question")],
         answers: Annotated[StrictStr, Field(description="```json [   {     \"text\": \"1942\",     \"image\": 123,     \"videoURL\": \"http://www.here.com\",     \"correct\": true   },   {     \"text\": \"1943\",     \"image\": 124,     \"videoURL\": \"http://www.there.com\",     \"correct\": false   } ] ``` ")],
@@ -295,8 +286,6 @@ class QuestionApi:
 
         Create a question and related answers by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param question: the text of the question (required)
@@ -342,7 +331,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._create_question_serialize(
-            version=version,
             account_id=account_id,
             question=question,
             answers=answers,
@@ -372,7 +360,6 @@ class QuestionApi:
 
     def _create_question_serialize(
         self,
-        version,
         account_id,
         question,
         answers,
@@ -405,8 +392,6 @@ class QuestionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -472,7 +457,7 @@ class QuestionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/question/create',
+            resource_path='/game/question/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -491,7 +476,6 @@ class QuestionApi:
     @validate_call
     def delete_question(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to delete")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can execute this request")],
         _request_timeout: Union[
@@ -511,8 +495,6 @@ class QuestionApi:
 
         Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to delete (required)
         :type question_id: int
         :param account_id: the id of the account that can execute this request (required)
@@ -540,7 +522,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._delete_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -566,7 +547,6 @@ class QuestionApi:
     @validate_call
     def delete_question_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to delete")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can execute this request")],
         _request_timeout: Union[
@@ -586,8 +566,6 @@ class QuestionApi:
 
         Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to delete (required)
         :type question_id: int
         :param account_id: the id of the account that can execute this request (required)
@@ -615,7 +593,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._delete_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -641,7 +618,6 @@ class QuestionApi:
     @validate_call
     def delete_question_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to delete")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can execute this request")],
         _request_timeout: Union[
@@ -661,8 +637,6 @@ class QuestionApi:
 
         Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to delete (required)
         :type question_id: int
         :param account_id: the id of the account that can execute this request (required)
@@ -690,7 +664,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._delete_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -711,7 +684,6 @@ class QuestionApi:
 
     def _delete_question_serialize(
         self,
-        version,
         question_id,
         account_id,
         _request_auth,
@@ -735,8 +707,6 @@ class QuestionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if question_id is not None:
             
@@ -766,7 +736,7 @@ class QuestionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/question/delete',
+            resource_path='/game/question/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -785,7 +755,6 @@ class QuestionApi:
     @validate_call
     def get_question(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to get")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can make this request")],
         _request_timeout: Union[
@@ -805,8 +774,6 @@ class QuestionApi:
 
         Get a question by the given id.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to get (required)
         :type question_id: int
         :param account_id: the id of the account that can make this request (required)
@@ -834,7 +801,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._get_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -860,7 +826,6 @@ class QuestionApi:
     @validate_call
     def get_question_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to get")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can make this request")],
         _request_timeout: Union[
@@ -880,8 +845,6 @@ class QuestionApi:
 
         Get a question by the given id.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to get (required)
         :type question_id: int
         :param account_id: the id of the account that can make this request (required)
@@ -909,7 +872,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._get_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -935,7 +897,6 @@ class QuestionApi:
     @validate_call
     def get_question_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="the id of the question to get")],
         account_id: Annotated[StrictInt, Field(description="the id of the account that can make this request")],
         _request_timeout: Union[
@@ -955,8 +916,6 @@ class QuestionApi:
 
         Get a question by the given id.
 
-        :param version: (required)
-        :type version: float
         :param question_id: the id of the question to get (required)
         :type question_id: int
         :param account_id: the id of the account that can make this request (required)
@@ -984,7 +943,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._get_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -1005,7 +963,6 @@ class QuestionApi:
 
     def _get_question_serialize(
         self,
-        version,
         question_id,
         account_id,
         _request_auth,
@@ -1029,8 +986,6 @@ class QuestionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if question_id is not None:
             
@@ -1060,7 +1015,7 @@ class QuestionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/question/get',
+            resource_path='/game/question/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1079,7 +1034,6 @@ class QuestionApi:
     @validate_call
     def search_questions(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1104,8 +1058,6 @@ class QuestionApi:
 
         Search for questions by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1143,7 +1095,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._search_questions_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1174,7 +1125,6 @@ class QuestionApi:
     @validate_call
     def search_questions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1199,8 +1149,6 @@ class QuestionApi:
 
         Search for questions by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1238,7 +1186,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._search_questions_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1269,7 +1216,6 @@ class QuestionApi:
     @validate_call
     def search_questions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1294,8 +1240,6 @@ class QuestionApi:
 
         Search for questions by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1333,7 +1277,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._search_questions_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1359,7 +1302,6 @@ class QuestionApi:
 
     def _search_questions_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -1388,8 +1330,6 @@ class QuestionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1439,7 +1379,7 @@ class QuestionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/question/search',
+            resource_path='/game/question/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1458,7 +1398,6 @@ class QuestionApi:
     @validate_call
     def update_question(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="The id of the question to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1488,8 +1427,6 @@ class QuestionApi:
 
         Update a question and related answers.
 
-        :param version: (required)
-        :type version: float
         :param question_id: The id of the question to update. (required)
         :type question_id: int
         :param account_id: The logged in user. (required)
@@ -1537,7 +1474,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._update_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1573,7 +1509,6 @@ class QuestionApi:
     @validate_call
     def update_question_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="The id of the question to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1603,8 +1538,6 @@ class QuestionApi:
 
         Update a question and related answers.
 
-        :param version: (required)
-        :type version: float
         :param question_id: The id of the question to update. (required)
         :type question_id: int
         :param account_id: The logged in user. (required)
@@ -1652,7 +1585,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._update_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1688,7 +1620,6 @@ class QuestionApi:
     @validate_call
     def update_question_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         question_id: Annotated[StrictInt, Field(description="The id of the question to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1718,8 +1649,6 @@ class QuestionApi:
 
         Update a question and related answers.
 
-        :param version: (required)
-        :type version: float
         :param question_id: The id of the question to update. (required)
         :type question_id: int
         :param account_id: The logged in user. (required)
@@ -1767,7 +1696,6 @@ class QuestionApi:
         """ # noqa: E501
 
         _param = self._update_question_serialize(
-            version=version,
             question_id=question_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1798,7 +1726,6 @@ class QuestionApi:
 
     def _update_question_serialize(
         self,
-        version,
         question_id,
         account_id,
         ticket_count,
@@ -1832,8 +1759,6 @@ class QuestionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if question_id is not None:
             
@@ -1903,7 +1828,7 @@ class QuestionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/question/update',
+            resource_path='/game/question/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

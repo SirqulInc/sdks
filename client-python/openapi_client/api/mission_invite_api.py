@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.mission_response import MissionResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class MissionInviteApi:
     @validate_call
     def create_mission_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for.")] = None,
@@ -67,8 +66,6 @@ class MissionInviteApi:
 
         Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -102,7 +99,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._create_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -131,7 +127,6 @@ class MissionInviteApi:
     @validate_call
     def create_mission_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for.")] = None,
@@ -154,8 +149,6 @@ class MissionInviteApi:
 
         Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -189,7 +182,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._create_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -218,7 +210,6 @@ class MissionInviteApi:
     @validate_call
     def create_mission_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for.")] = None,
@@ -241,8 +232,6 @@ class MissionInviteApi:
 
         Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -276,7 +265,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._create_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -300,7 +288,6 @@ class MissionInviteApi:
 
     def _create_mission_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         mission_id,
@@ -327,8 +314,6 @@ class MissionInviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -370,7 +355,7 @@ class MissionInviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/invite/create',
+            resource_path='/mission/invite/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -389,7 +374,6 @@ class MissionInviteApi:
     @validate_call
     def delete_mission_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -412,8 +396,6 @@ class MissionInviteApi:
 
         Update the mission invite status to quit.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -447,7 +429,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._delete_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -476,7 +457,6 @@ class MissionInviteApi:
     @validate_call
     def delete_mission_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -499,8 +479,6 @@ class MissionInviteApi:
 
         Update the mission invite status to quit.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -534,7 +512,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._delete_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -563,7 +540,6 @@ class MissionInviteApi:
     @validate_call
     def delete_mission_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -586,8 +562,6 @@ class MissionInviteApi:
 
         Update the mission invite status to quit.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -621,7 +595,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._delete_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -645,7 +618,6 @@ class MissionInviteApi:
 
     def _delete_mission_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         mission_id,
@@ -672,8 +644,6 @@ class MissionInviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -715,7 +685,7 @@ class MissionInviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/invite/delete',
+            resource_path='/mission/invite/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -734,7 +704,6 @@ class MissionInviteApi:
     @validate_call
     def get_mission_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -758,8 +727,6 @@ class MissionInviteApi:
 
         Get the mission invite. An account can only be invited to a mission one time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -795,7 +762,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._get_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -825,7 +791,6 @@ class MissionInviteApi:
     @validate_call
     def get_mission_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -849,8 +814,6 @@ class MissionInviteApi:
 
         Get the mission invite. An account can only be invited to a mission one time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -886,7 +849,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._get_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -916,7 +878,6 @@ class MissionInviteApi:
     @validate_call
     def get_mission_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         mission_id: Annotated[Optional[StrictInt], Field(description="The mission to find the invite for (missionId or missionInviteId requried).")] = None,
@@ -940,8 +901,6 @@ class MissionInviteApi:
 
         Get the mission invite. An account can only be invited to a mission one time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -977,7 +936,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._get_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             mission_id=mission_id,
@@ -1002,7 +960,6 @@ class MissionInviteApi:
 
     def _get_mission_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         mission_id,
@@ -1030,8 +987,6 @@ class MissionInviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1077,7 +1032,7 @@ class MissionInviteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/invite/get',
+            resource_path='/mission/invite/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1096,7 +1051,6 @@ class MissionInviteApi:
     @validate_call
     def search_mission_invites(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the app to retrieve the data for, use your application key.")] = None,
@@ -1127,8 +1081,6 @@ class MissionInviteApi:
 
         Get a list of mission invites that the account has.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1178,7 +1130,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._search_mission_invites_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1215,7 +1166,6 @@ class MissionInviteApi:
     @validate_call
     def search_mission_invites_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the app to retrieve the data for, use your application key.")] = None,
@@ -1246,8 +1196,6 @@ class MissionInviteApi:
 
         Get a list of mission invites that the account has.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1297,7 +1245,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._search_mission_invites_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1334,7 +1281,6 @@ class MissionInviteApi:
     @validate_call
     def search_mission_invites_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the app to retrieve the data for, use your application key.")] = None,
@@ -1365,8 +1311,6 @@ class MissionInviteApi:
 
         Get a list of mission invites that the account has.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1416,7 +1360,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._search_mission_invites_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1448,7 +1391,6 @@ class MissionInviteApi:
 
     def _search_mission_invites_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -1483,8 +1425,6 @@ class MissionInviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1558,7 +1498,7 @@ class MissionInviteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/invite/search',
+            resource_path='/mission/invite/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1577,7 +1517,6 @@ class MissionInviteApi:
     @validate_call
     def update_mission_invite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -1606,8 +1545,6 @@ class MissionInviteApi:
 
         Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1653,7 +1590,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._update_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1688,7 +1624,6 @@ class MissionInviteApi:
     @validate_call
     def update_mission_invite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -1717,8 +1652,6 @@ class MissionInviteApi:
 
         Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1764,7 +1697,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._update_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1799,7 +1731,6 @@ class MissionInviteApi:
     @validate_call
     def update_mission_invite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required).")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required).")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
@@ -1828,8 +1759,6 @@ class MissionInviteApi:
 
         Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required).
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required).
@@ -1875,7 +1804,6 @@ class MissionInviteApi:
         """ # noqa: E501
 
         _param = self._update_mission_invite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1905,7 +1833,6 @@ class MissionInviteApi:
 
     def _update_mission_invite_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -1938,8 +1865,6 @@ class MissionInviteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2005,7 +1930,7 @@ class MissionInviteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/invite/update',
+            resource_path='/mission/invite/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

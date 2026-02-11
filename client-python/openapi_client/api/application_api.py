@@ -48,7 +48,6 @@ class ApplicationApi:
     @validate_call
     def create_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -145,8 +144,6 @@ class ApplicationApi:
 
         Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 
-        :param version: (required)
-        :type version: float
         :param app_name: The name of the application (required)
         :type app_name: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -328,7 +325,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_serialize(
-            version=version,
             app_name=app_name,
             device_id=device_id,
             account_id=account_id,
@@ -431,7 +427,6 @@ class ApplicationApi:
     @validate_call
     def create_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -528,8 +523,6 @@ class ApplicationApi:
 
         Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 
-        :param version: (required)
-        :type version: float
         :param app_name: The name of the application (required)
         :type app_name: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -711,7 +704,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_serialize(
-            version=version,
             app_name=app_name,
             device_id=device_id,
             account_id=account_id,
@@ -814,7 +806,6 @@ class ApplicationApi:
     @validate_call
     def create_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -911,8 +902,6 @@ class ApplicationApi:
 
         Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
 
-        :param version: (required)
-        :type version: float
         :param app_name: The name of the application (required)
         :type app_name: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -1094,7 +1083,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_serialize(
-            version=version,
             app_name=app_name,
             device_id=device_id,
             account_id=account_id,
@@ -1192,7 +1180,6 @@ class ApplicationApi:
 
     def _create_application_serialize(
         self,
-        version,
         app_name,
         device_id,
         account_id,
@@ -1293,8 +1280,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1632,7 +1617,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/create',
+            resource_path='/application/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1651,7 +1636,6 @@ class ApplicationApi:
     @validate_call
     def create_application_placement(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The appKey of the application the ad placement is for")],
         size: Annotated[StrictStr, Field(description="The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -1680,8 +1664,6 @@ class ApplicationApi:
 
         Creates a new ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The appKey of the application the ad placement is for (required)
         :type app_key: str
         :param size: The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
@@ -1727,7 +1709,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_placement_serialize(
-            version=version,
             app_key=app_key,
             size=size,
             device_id=device_id,
@@ -1762,7 +1743,6 @@ class ApplicationApi:
     @validate_call
     def create_application_placement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The appKey of the application the ad placement is for")],
         size: Annotated[StrictStr, Field(description="The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -1791,8 +1771,6 @@ class ApplicationApi:
 
         Creates a new ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The appKey of the application the ad placement is for (required)
         :type app_key: str
         :param size: The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
@@ -1838,7 +1816,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_placement_serialize(
-            version=version,
             app_key=app_key,
             size=size,
             device_id=device_id,
@@ -1873,7 +1850,6 @@ class ApplicationApi:
     @validate_call
     def create_application_placement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The appKey of the application the ad placement is for")],
         size: Annotated[StrictStr, Field(description="The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -1902,8 +1878,6 @@ class ApplicationApi:
 
         Creates a new ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The appKey of the application the ad placement is for (required)
         :type app_key: str
         :param size: The ad placement size {BANNER, LEADERBOARD, SKYSCRAPER, INTERSTITIAL, CUSTOM (required)
@@ -1949,7 +1923,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._create_application_placement_serialize(
-            version=version,
             app_key=app_key,
             size=size,
             device_id=device_id,
@@ -1979,7 +1952,6 @@ class ApplicationApi:
 
     def _create_application_placement_serialize(
         self,
-        version,
         app_key,
         size,
         device_id,
@@ -2012,8 +1984,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2079,7 +2049,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/placement/create',
+            resource_path='/application/placement/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2098,7 +2068,6 @@ class ApplicationApi:
     @validate_call
     def delete_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application to be deleted")] = None,
         _request_timeout: Union[
@@ -2118,8 +2087,6 @@ class ApplicationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application.
         :type account_id: int
         :param app_key: The key of the application to be deleted
@@ -2147,7 +2114,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -2173,7 +2139,6 @@ class ApplicationApi:
     @validate_call
     def delete_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application to be deleted")] = None,
         _request_timeout: Union[
@@ -2193,8 +2158,6 @@ class ApplicationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application.
         :type account_id: int
         :param app_key: The key of the application to be deleted
@@ -2222,7 +2185,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -2248,7 +2210,6 @@ class ApplicationApi:
     @validate_call
     def delete_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application to be deleted")] = None,
         _request_timeout: Union[
@@ -2268,8 +2229,6 @@ class ApplicationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application.
         :type account_id: int
         :param app_key: The key of the application to be deleted
@@ -2297,7 +2256,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -2318,7 +2276,6 @@ class ApplicationApi:
 
     def _delete_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         _request_auth,
@@ -2342,8 +2299,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2373,7 +2328,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/delete',
+            resource_path='/application/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2392,7 +2347,6 @@ class ApplicationApi:
     @validate_call
     def delete_application_placement(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to delete, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2413,8 +2367,6 @@ class ApplicationApi:
 
         Deletes an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -2444,7 +2396,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2471,7 +2422,6 @@ class ApplicationApi:
     @validate_call
     def delete_application_placement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to delete, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2492,8 +2442,6 @@ class ApplicationApi:
 
         Deletes an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -2523,7 +2471,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2550,7 +2497,6 @@ class ApplicationApi:
     @validate_call
     def delete_application_placement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to delete, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2571,8 +2517,6 @@ class ApplicationApi:
 
         Deletes an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to delete, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -2602,7 +2546,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._delete_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -2624,7 +2567,6 @@ class ApplicationApi:
 
     def _delete_application_placement_serialize(
         self,
-        version,
         placement_id,
         device_id,
         account_id,
@@ -2649,8 +2591,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2684,7 +2624,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/placement/delete',
+            resource_path='/application/placement/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2703,7 +2643,6 @@ class ApplicationApi:
     @validate_call
     def get_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="Application Id")] = None,
         _request_timeout: Union[
@@ -2723,8 +2662,6 @@ class ApplicationApi:
 
         Get a specific application by appKey
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application
         :type app_key: str
         :param application_id: Application Id
@@ -2752,7 +2689,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_serialize(
-            version=version,
             app_key=app_key,
             application_id=application_id,
             _request_auth=_request_auth,
@@ -2778,7 +2714,6 @@ class ApplicationApi:
     @validate_call
     def get_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="Application Id")] = None,
         _request_timeout: Union[
@@ -2798,8 +2733,6 @@ class ApplicationApi:
 
         Get a specific application by appKey
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application
         :type app_key: str
         :param application_id: Application Id
@@ -2827,7 +2760,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_serialize(
-            version=version,
             app_key=app_key,
             application_id=application_id,
             _request_auth=_request_auth,
@@ -2853,7 +2785,6 @@ class ApplicationApi:
     @validate_call
     def get_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[Optional[StrictStr], Field(description="The key of the application")] = None,
         application_id: Annotated[Optional[StrictInt], Field(description="Application Id")] = None,
         _request_timeout: Union[
@@ -2873,8 +2804,6 @@ class ApplicationApi:
 
         Get a specific application by appKey
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application
         :type app_key: str
         :param application_id: Application Id
@@ -2902,7 +2831,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_serialize(
-            version=version,
             app_key=app_key,
             application_id=application_id,
             _request_auth=_request_auth,
@@ -2923,7 +2851,6 @@ class ApplicationApi:
 
     def _get_application_serialize(
         self,
-        version,
         app_key,
         application_id,
         _request_auth,
@@ -2947,8 +2874,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -2978,7 +2903,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/get',
+            resource_path='/application/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2997,7 +2922,6 @@ class ApplicationApi:
     @validate_call
     def get_application_placement(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -3018,8 +2942,6 @@ class ApplicationApi:
 
         Get details of an ad placement
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -3049,7 +2971,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -3076,7 +2997,6 @@ class ApplicationApi:
     @validate_call
     def get_application_placement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -3097,8 +3017,6 @@ class ApplicationApi:
 
         Get details of an ad placement
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -3128,7 +3046,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -3155,7 +3072,6 @@ class ApplicationApi:
     @validate_call
     def get_application_placement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -3176,8 +3092,6 @@ class ApplicationApi:
 
         Get details of an ad placement
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -3207,7 +3121,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -3229,7 +3142,6 @@ class ApplicationApi:
 
     def _get_application_placement_serialize(
         self,
-        version,
         placement_id,
         device_id,
         account_id,
@@ -3254,8 +3166,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3289,7 +3199,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/placement/get',
+            resource_path='/application/placement/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3308,7 +3218,6 @@ class ApplicationApi:
     @validate_call
     def get_application_versions(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3326,8 +3235,6 @@ class ApplicationApi:
 
         Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3351,7 +3258,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_versions_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3375,7 +3281,6 @@ class ApplicationApi:
     @validate_call
     def get_application_versions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3393,8 +3298,6 @@ class ApplicationApi:
 
         Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3418,7 +3321,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_versions_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3442,7 +3344,6 @@ class ApplicationApi:
     @validate_call
     def get_application_versions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3460,8 +3361,6 @@ class ApplicationApi:
 
         Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3485,7 +3384,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_application_versions_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3504,7 +3402,6 @@ class ApplicationApi:
 
     def _get_application_versions_serialize(
         self,
-        version,
         _request_auth,
         _content_type,
         _headers,
@@ -3526,8 +3423,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -3549,7 +3444,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/versions',
+            resource_path='/application/versions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3568,7 +3463,6 @@ class ApplicationApi:
     @validate_call
     def get_unique_users_by_app(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -3594,8 +3488,6 @@ class ApplicationApi:
 
         Get a list of users per application
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param q: Q
@@ -3635,7 +3527,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_unique_users_by_app_serialize(
-            version=version,
             app_key=app_key,
             q=q,
             keyword=keyword,
@@ -3667,7 +3558,6 @@ class ApplicationApi:
     @validate_call
     def get_unique_users_by_app_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -3693,8 +3583,6 @@ class ApplicationApi:
 
         Get a list of users per application
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param q: Q
@@ -3734,7 +3622,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_unique_users_by_app_serialize(
-            version=version,
             app_key=app_key,
             q=q,
             keyword=keyword,
@@ -3766,7 +3653,6 @@ class ApplicationApi:
     @validate_call
     def get_unique_users_by_app_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -3792,8 +3678,6 @@ class ApplicationApi:
 
         Get a list of users per application
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param q: Q
@@ -3833,7 +3717,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._get_unique_users_by_app_serialize(
-            version=version,
             app_key=app_key,
             q=q,
             keyword=keyword,
@@ -3860,7 +3743,6 @@ class ApplicationApi:
 
     def _get_unique_users_by_app_serialize(
         self,
-        version,
         app_key,
         q,
         keyword,
@@ -3890,8 +3772,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -3945,7 +3825,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/users',
+            resource_path='/application/users',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3964,7 +3844,6 @@ class ApplicationApi:
     @validate_call
     def list_applications(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the application owner/manager")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search for title, about, and description fields")] = None,
@@ -4002,8 +3881,6 @@ class ApplicationApi:
 
         List active applications matching the criteria (as a consumer)
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager
         :type account_id: int
         :param q: Q
@@ -4067,7 +3944,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._list_applications_serialize(
-            version=version,
             account_id=account_id,
             q=q,
             keyword=keyword,
@@ -4111,7 +3987,6 @@ class ApplicationApi:
     @validate_call
     def list_applications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the application owner/manager")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search for title, about, and description fields")] = None,
@@ -4149,8 +4024,6 @@ class ApplicationApi:
 
         List active applications matching the criteria (as a consumer)
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager
         :type account_id: int
         :param q: Q
@@ -4214,7 +4087,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._list_applications_serialize(
-            version=version,
             account_id=account_id,
             q=q,
             keyword=keyword,
@@ -4258,7 +4130,6 @@ class ApplicationApi:
     @validate_call
     def list_applications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the application owner/manager")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Q")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search for title, about, and description fields")] = None,
@@ -4296,8 +4167,6 @@ class ApplicationApi:
 
         List active applications matching the criteria (as a consumer)
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the application owner/manager
         :type account_id: int
         :param q: Q
@@ -4361,7 +4230,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._list_applications_serialize(
-            version=version,
             account_id=account_id,
             q=q,
             keyword=keyword,
@@ -4400,7 +4268,6 @@ class ApplicationApi:
 
     def _list_applications_serialize(
         self,
-        version,
         account_id,
         q,
         keyword,
@@ -4442,8 +4309,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4545,7 +4410,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/list',
+            resource_path='/application/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4564,7 +4429,6 @@ class ApplicationApi:
     @validate_call
     def search_application_placement(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4587,8 +4451,6 @@ class ApplicationApi:
 
         Searches placements for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -4622,7 +4484,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_placement_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -4651,7 +4512,6 @@ class ApplicationApi:
     @validate_call
     def search_application_placement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4674,8 +4534,6 @@ class ApplicationApi:
 
         Searches placements for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -4709,7 +4567,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_placement_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -4738,7 +4595,6 @@ class ApplicationApi:
     @validate_call
     def search_application_placement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4761,8 +4617,6 @@ class ApplicationApi:
 
         Searches placements for an application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -4796,7 +4650,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_placement_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -4820,7 +4673,6 @@ class ApplicationApi:
 
     def _search_application_placement_serialize(
         self,
-        version,
         app_key,
         device_id,
         account_id,
@@ -4847,8 +4699,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4890,7 +4740,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/placement/search',
+            resource_path='/application/placement/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4909,7 +4759,6 @@ class ApplicationApi:
     @validate_call
     def search_application_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to view another person's account")] = None,
@@ -4935,8 +4784,6 @@ class ApplicationApi:
 
         Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4976,7 +4823,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -5008,7 +4854,6 @@ class ApplicationApi:
     @validate_call
     def search_application_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to view another person's account")] = None,
@@ -5034,8 +4879,6 @@ class ApplicationApi:
 
         Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -5075,7 +4918,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -5107,7 +4949,6 @@ class ApplicationApi:
     @validate_call
     def search_application_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to view another person's account")] = None,
@@ -5133,8 +4974,6 @@ class ApplicationApi:
 
         Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -5174,7 +5013,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_application_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -5201,7 +5039,6 @@ class ApplicationApi:
 
     def _search_application_settings_serialize(
         self,
-        version,
         device_id,
         account_id,
         connection_account_id,
@@ -5231,8 +5068,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5286,7 +5121,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/settings/search',
+            resource_path='/application/settings/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5305,7 +5140,6 @@ class ApplicationApi:
     @validate_call
     def search_applications(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The location of the device")] = None,
@@ -5339,8 +5173,6 @@ class ApplicationApi:
 
         Search for applications matching the criteria that the logged in user has access to
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -5396,7 +5228,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_applications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -5436,7 +5267,6 @@ class ApplicationApi:
     @validate_call
     def search_applications_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The location of the device")] = None,
@@ -5470,8 +5300,6 @@ class ApplicationApi:
 
         Search for applications matching the criteria that the logged in user has access to
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -5527,7 +5355,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_applications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -5567,7 +5394,6 @@ class ApplicationApi:
     @validate_call
     def search_applications_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The location of the device")] = None,
@@ -5601,8 +5427,6 @@ class ApplicationApi:
 
         Search for applications matching the criteria that the logged in user has access to
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -5658,7 +5482,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._search_applications_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -5693,7 +5516,6 @@ class ApplicationApi:
 
     def _search_applications_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -5731,8 +5553,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5818,7 +5638,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/application/search',
+            resource_path='/application/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5837,7 +5657,6 @@ class ApplicationApi:
     @validate_call
     def update_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -5935,8 +5754,6 @@ class ApplicationApi:
 
         Update an application record
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key for updating an existing application (required)
         :type app_key: str
         :param app_name: The name of the application (required)
@@ -6120,7 +5937,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_serialize(
-            version=version,
             app_key=app_key,
             app_name=app_name,
             device_id=device_id,
@@ -6224,7 +6040,6 @@ class ApplicationApi:
     @validate_call
     def update_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -6322,8 +6137,6 @@ class ApplicationApi:
 
         Update an application record
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key for updating an existing application (required)
         :type app_key: str
         :param app_name: The name of the application (required)
@@ -6507,7 +6320,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_serialize(
-            version=version,
             app_key=app_key,
             app_name=app_name,
             device_id=device_id,
@@ -6611,7 +6423,6 @@ class ApplicationApi:
     @validate_call
     def update_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         app_name: Annotated[StrictStr, Field(description="The name of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
@@ -6709,8 +6520,6 @@ class ApplicationApi:
 
         Update an application record
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key for updating an existing application (required)
         :type app_key: str
         :param app_name: The name of the application (required)
@@ -6894,7 +6703,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_serialize(
-            version=version,
             app_key=app_key,
             app_name=app_name,
             device_id=device_id,
@@ -6993,7 +6801,6 @@ class ApplicationApi:
 
     def _update_application_serialize(
         self,
-        version,
         app_key,
         app_name,
         device_id,
@@ -7095,8 +6902,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -7438,7 +7243,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/update',
+            resource_path='/application/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7457,7 +7262,6 @@ class ApplicationApi:
     @validate_call
     def update_application_active(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must have rights to edit the application.")],
         app_key: Annotated[StrictStr, Field(description="The key of the application to be deleted")],
         active: Annotated[StrictBool, Field(description="If true then set to active, false otherwise")],
@@ -7478,8 +7282,6 @@ class ApplicationApi:
 
         Set the application's active flag to true/false. This effectively activates or deactivates the application.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application. (required)
         :type account_id: int
         :param app_key: The key of the application to be deleted (required)
@@ -7509,7 +7311,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_active_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -7536,7 +7337,6 @@ class ApplicationApi:
     @validate_call
     def update_application_active_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must have rights to edit the application.")],
         app_key: Annotated[StrictStr, Field(description="The key of the application to be deleted")],
         active: Annotated[StrictBool, Field(description="If true then set to active, false otherwise")],
@@ -7557,8 +7357,6 @@ class ApplicationApi:
 
         Set the application's active flag to true/false. This effectively activates or deactivates the application.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application. (required)
         :type account_id: int
         :param app_key: The key of the application to be deleted (required)
@@ -7588,7 +7386,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_active_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -7615,7 +7412,6 @@ class ApplicationApi:
     @validate_call
     def update_application_active_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must have rights to edit the application.")],
         app_key: Annotated[StrictStr, Field(description="The key of the application to be deleted")],
         active: Annotated[StrictBool, Field(description="If true then set to active, false otherwise")],
@@ -7636,8 +7432,6 @@ class ApplicationApi:
 
         Set the application's active flag to true/false. This effectively activates or deactivates the application.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must have rights to edit the application. (required)
         :type account_id: int
         :param app_key: The key of the application to be deleted (required)
@@ -7667,7 +7461,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_active_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             active=active,
@@ -7689,7 +7482,6 @@ class ApplicationApi:
 
     def _update_application_active_serialize(
         self,
-        version,
         account_id,
         app_key,
         active,
@@ -7714,8 +7506,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7749,7 +7539,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/active',
+            resource_path='/application/active',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7768,7 +7558,6 @@ class ApplicationApi:
     @validate_call
     def update_application_placement(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to update, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -7797,8 +7586,6 @@ class ApplicationApi:
 
         Updates an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to update, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -7844,7 +7631,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -7879,7 +7665,6 @@ class ApplicationApi:
     @validate_call
     def update_application_placement_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to update, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -7908,8 +7693,6 @@ class ApplicationApi:
 
         Updates an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to update, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -7955,7 +7738,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -7990,7 +7772,6 @@ class ApplicationApi:
     @validate_call
     def update_application_placement_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         placement_id: Annotated[StrictInt, Field(description="The id of the placement to update, the user must have rights to the application the ad placement is for")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique id of the device making the request (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -8019,8 +7800,6 @@ class ApplicationApi:
 
         Updates an ad placement for an application.
 
-        :param version: (required)
-        :type version: float
         :param placement_id: The id of the placement to update, the user must have rights to the application the ad placement is for (required)
         :type placement_id: int
         :param device_id: The unique id of the device making the request (deviceId or accountId required)
@@ -8066,7 +7845,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._update_application_placement_serialize(
-            version=version,
             placement_id=placement_id,
             device_id=device_id,
             account_id=account_id,
@@ -8096,7 +7874,6 @@ class ApplicationApi:
 
     def _update_application_placement_serialize(
         self,
-        version,
         placement_id,
         device_id,
         account_id,
@@ -8129,8 +7906,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -8196,7 +7971,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/placement/update',
+            resource_path='/application/placement/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8215,7 +7990,6 @@ class ApplicationApi:
     @validate_call
     def upload_application_certificate(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
@@ -8237,8 +8011,6 @@ class ApplicationApi:
 
         Uploads a certificate for an application that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: Device Id
@@ -8270,7 +8042,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._upload_application_certificate_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -8298,7 +8069,6 @@ class ApplicationApi:
     @validate_call
     def upload_application_certificate_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
@@ -8320,8 +8090,6 @@ class ApplicationApi:
 
         Uploads a certificate for an application that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: Device Id
@@ -8353,7 +8121,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._upload_application_certificate_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -8381,7 +8148,6 @@ class ApplicationApi:
     @validate_call
     def upload_application_certificate_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The key of the application")],
         device_id: Annotated[Optional[StrictStr], Field(description="Device Id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the application.")] = None,
@@ -8403,8 +8169,6 @@ class ApplicationApi:
 
         Uploads a certificate for an application that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The key of the application (required)
         :type app_key: str
         :param device_id: Device Id
@@ -8436,7 +8200,6 @@ class ApplicationApi:
         """ # noqa: E501
 
         _param = self._upload_application_certificate_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -8459,7 +8222,6 @@ class ApplicationApi:
 
     def _upload_application_certificate_serialize(
         self,
-        version,
         app_key,
         device_id,
         account_id,
@@ -8485,8 +8247,6 @@ class ApplicationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -8524,7 +8284,7 @@ class ApplicationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/application/certificate/create',
+            resource_path='/application/certificate/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.account_mini_response import AccountMiniResponse
 from openapi_client.models.assignment_response import AssignmentResponse
@@ -46,7 +46,6 @@ class AssignmentApi:
     @validate_call
     def assigment_assignee_account_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id sending the request")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to filter the returned results")] = None,
         _request_timeout: Union[
@@ -66,8 +65,6 @@ class AssignmentApi:
 
         Search for avaiable users for creating or updating assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id sending the request (required)
         :type account_id: int
         :param keyword: The keyword to filter the returned results
@@ -95,7 +92,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assigment_assignee_account_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             _request_auth=_request_auth,
@@ -121,7 +117,6 @@ class AssignmentApi:
     @validate_call
     def assigment_assignee_account_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id sending the request")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to filter the returned results")] = None,
         _request_timeout: Union[
@@ -141,8 +136,6 @@ class AssignmentApi:
 
         Search for avaiable users for creating or updating assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id sending the request (required)
         :type account_id: int
         :param keyword: The keyword to filter the returned results
@@ -170,7 +163,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assigment_assignee_account_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             _request_auth=_request_auth,
@@ -196,7 +188,6 @@ class AssignmentApi:
     @validate_call
     def assigment_assignee_account_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id sending the request")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to filter the returned results")] = None,
         _request_timeout: Union[
@@ -216,8 +207,6 @@ class AssignmentApi:
 
         Search for avaiable users for creating or updating assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id sending the request (required)
         :type account_id: int
         :param keyword: The keyword to filter the returned results
@@ -245,7 +234,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assigment_assignee_account_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             _request_auth=_request_auth,
@@ -266,7 +254,6 @@ class AssignmentApi:
 
     def _assigment_assignee_account_search_serialize(
         self,
-        version,
         account_id,
         keyword,
         _request_auth,
@@ -290,8 +277,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -321,7 +306,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/assignment/assignee/search',
+            resource_path='/assignment/assignee/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -340,7 +325,6 @@ class AssignmentApi:
     @validate_call
     def assignment_create(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         name: Annotated[StrictStr, Field(description="the name for the assignment")],
         assignee_account_id: Annotated[StrictInt, Field(description="the account id to assign to")],
@@ -365,8 +349,6 @@ class AssignmentApi:
 
         Create an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param name: the name for the assignment (required)
@@ -404,7 +386,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_create_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             assignee_account_id=assignee_account_id,
@@ -435,7 +416,6 @@ class AssignmentApi:
     @validate_call
     def assignment_create_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         name: Annotated[StrictStr, Field(description="the name for the assignment")],
         assignee_account_id: Annotated[StrictInt, Field(description="the account id to assign to")],
@@ -460,8 +440,6 @@ class AssignmentApi:
 
         Create an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param name: the name for the assignment (required)
@@ -499,7 +477,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_create_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             assignee_account_id=assignee_account_id,
@@ -530,7 +507,6 @@ class AssignmentApi:
     @validate_call
     def assignment_create_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         name: Annotated[StrictStr, Field(description="the name for the assignment")],
         assignee_account_id: Annotated[StrictInt, Field(description="the account id to assign to")],
@@ -555,8 +531,6 @@ class AssignmentApi:
 
         Create an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param name: the name for the assignment (required)
@@ -594,7 +568,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_create_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             assignee_account_id=assignee_account_id,
@@ -620,7 +593,6 @@ class AssignmentApi:
 
     def _assignment_create_serialize(
         self,
-        version,
         account_id,
         name,
         assignee_account_id,
@@ -649,8 +621,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -700,7 +670,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/create',
+            resource_path='/assignment/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -719,7 +689,6 @@ class AssignmentApi:
     @validate_call
     def assignment_delete(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -739,8 +708,6 @@ class AssignmentApi:
 
         Delete an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -768,7 +735,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -794,7 +760,6 @@ class AssignmentApi:
     @validate_call
     def assignment_delete_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -814,8 +779,6 @@ class AssignmentApi:
 
         Delete an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -843,7 +806,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -869,7 +831,6 @@ class AssignmentApi:
     @validate_call
     def assignment_delete_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -889,8 +850,6 @@ class AssignmentApi:
 
         Delete an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -918,7 +877,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -939,7 +897,6 @@ class AssignmentApi:
 
     def _assignment_delete_serialize(
         self,
-        version,
         account_id,
         assignment_id,
         _request_auth,
@@ -963,8 +920,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -994,7 +949,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/delete',
+            resource_path='/assignment/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1013,7 +968,6 @@ class AssignmentApi:
     @validate_call
     def assignment_get(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -1033,8 +987,6 @@ class AssignmentApi:
 
         Get the details of an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -1062,7 +1014,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -1088,7 +1039,6 @@ class AssignmentApi:
     @validate_call
     def assignment_get_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -1108,8 +1058,6 @@ class AssignmentApi:
 
         Get the details of an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -1137,7 +1085,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -1163,7 +1110,6 @@ class AssignmentApi:
     @validate_call
     def assignment_get_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         _request_timeout: Union[
@@ -1183,8 +1129,6 @@ class AssignmentApi:
 
         Get the details of an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -1212,7 +1156,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             _request_auth=_request_auth,
@@ -1233,7 +1176,6 @@ class AssignmentApi:
 
     def _assignment_get_serialize(
         self,
-        version,
         account_id,
         assignment_id,
         _request_auth,
@@ -1257,8 +1199,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1288,7 +1228,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/assignment/get',
+            resource_path='/assignment/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1307,7 +1247,6 @@ class AssignmentApi:
     @validate_call
     def assignment_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account sending the request")],
         sort_field: Annotated[StrictStr, Field(description="sort by table field")],
         descending: Annotated[StrictBool, Field(description="return results in descending order or not")],
@@ -1336,8 +1275,6 @@ class AssignmentApi:
 
         Search for assignments by the given parameters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account sending the request (required)
         :type account_id: int
         :param sort_field: sort by table field (required)
@@ -1383,7 +1320,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1418,7 +1354,6 @@ class AssignmentApi:
     @validate_call
     def assignment_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account sending the request")],
         sort_field: Annotated[StrictStr, Field(description="sort by table field")],
         descending: Annotated[StrictBool, Field(description="return results in descending order or not")],
@@ -1447,8 +1382,6 @@ class AssignmentApi:
 
         Search for assignments by the given parameters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account sending the request (required)
         :type account_id: int
         :param sort_field: sort by table field (required)
@@ -1494,7 +1427,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1529,7 +1461,6 @@ class AssignmentApi:
     @validate_call
     def assignment_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account sending the request")],
         sort_field: Annotated[StrictStr, Field(description="sort by table field")],
         descending: Annotated[StrictBool, Field(description="return results in descending order or not")],
@@ -1558,8 +1489,6 @@ class AssignmentApi:
 
         Search for assignments by the given parameters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account sending the request (required)
         :type account_id: int
         :param sort_field: sort by table field (required)
@@ -1605,7 +1534,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1635,7 +1563,6 @@ class AssignmentApi:
 
     def _assignment_search_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -1668,8 +1595,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1735,7 +1660,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/assignment/search',
+            resource_path='/assignment/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1754,7 +1679,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_create(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -1783,8 +1707,6 @@ class AssignmentApi:
 
         Create an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -1830,7 +1752,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_create_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -1865,7 +1786,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_create_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -1894,8 +1814,6 @@ class AssignmentApi:
 
         Create an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -1941,7 +1859,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_create_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -1976,7 +1893,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_create_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -2005,8 +1921,6 @@ class AssignmentApi:
 
         Create an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -2052,7 +1966,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_create_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -2082,7 +1995,6 @@ class AssignmentApi:
 
     def _assignment_status_create_serialize(
         self,
-        version,
         account_id,
         assignment_id,
         scheduled_notification_id,
@@ -2115,8 +2027,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2182,7 +2092,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/status/create',
+            resource_path='/assignment/status/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2201,7 +2111,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_delete(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2221,8 +2130,6 @@ class AssignmentApi:
 
         Deletes an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2250,7 +2157,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2276,7 +2182,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_delete_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2296,8 +2201,6 @@ class AssignmentApi:
 
         Deletes an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2325,7 +2228,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2351,7 +2253,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_delete_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2371,8 +2272,6 @@ class AssignmentApi:
 
         Deletes an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2400,7 +2299,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_delete_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2421,7 +2319,6 @@ class AssignmentApi:
 
     def _assignment_status_delete_serialize(
         self,
-        version,
         account_id,
         assignment_status_id,
         _request_auth,
@@ -2445,8 +2342,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2476,7 +2371,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/status/delete',
+            resource_path='/assignment/status/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2495,7 +2390,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_get(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2515,8 +2409,6 @@ class AssignmentApi:
 
         Get an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2544,7 +2436,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2570,7 +2461,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_get_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2590,8 +2480,6 @@ class AssignmentApi:
 
         Get an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2619,7 +2507,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2645,7 +2532,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_get_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         _request_timeout: Union[
@@ -2665,8 +2551,6 @@ class AssignmentApi:
 
         Get an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -2694,7 +2578,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_get_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             _request_auth=_request_auth,
@@ -2715,7 +2598,6 @@ class AssignmentApi:
 
     def _assignment_status_get_serialize(
         self,
-        version,
         account_id,
         assignment_status_id,
         _request_auth,
@@ -2739,8 +2621,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2770,7 +2650,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/assignment/status/get',
+            resource_path='/assignment/status/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2789,7 +2669,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -2819,8 +2698,6 @@ class AssignmentApi:
 
         Search on assignment statuses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param sort_field: the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
@@ -2868,7 +2745,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -2904,7 +2780,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -2934,8 +2809,6 @@ class AssignmentApi:
 
         Search on assignment statuses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param sort_field: the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
@@ -2983,7 +2856,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3019,7 +2891,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -3049,8 +2920,6 @@ class AssignmentApi:
 
         Search on assignment statuses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param sort_field: the field to sort by. Possible values include: ID, CREATED, UPDATED, DELETED, SEARCH_TAGS, ACTIVE, CURRENT_STATUS, TODO, CONNECTION, METHOD, STATUS, CLOSURE, MESSAGE, FOLLOW_UP (required)
@@ -3098,7 +2967,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_search_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3129,7 +2997,6 @@ class AssignmentApi:
 
     def _assignment_status_search_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -3163,8 +3030,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3234,7 +3099,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/assignment/status/search',
+            resource_path='/assignment/status/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3253,7 +3118,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_update(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -3282,8 +3146,6 @@ class AssignmentApi:
 
         Updates an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -3329,7 +3191,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -3364,7 +3225,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_update_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -3393,8 +3253,6 @@ class AssignmentApi:
 
         Updates an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -3440,7 +3298,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -3475,7 +3332,6 @@ class AssignmentApi:
     @validate_call
     def assignment_status_update_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_status_id: Annotated[StrictInt, Field(description="the assignment status id")],
         scheduled_notification_id: Annotated[Optional[StrictInt], Field(description="the scheduled notification id for reminders")] = None,
@@ -3504,8 +3360,6 @@ class AssignmentApi:
 
         Updates an assignment status.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_status_id: the assignment status id (required)
@@ -3551,7 +3405,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_status_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_status_id=assignment_status_id,
             scheduled_notification_id=scheduled_notification_id,
@@ -3581,7 +3434,6 @@ class AssignmentApi:
 
     def _assignment_status_update_serialize(
         self,
-        version,
         account_id,
         assignment_status_id,
         scheduled_notification_id,
@@ -3614,8 +3466,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3681,7 +3531,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/status/update',
+            resource_path='/assignment/status/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3700,7 +3550,6 @@ class AssignmentApi:
     @validate_call
     def assignment_update(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         name: Annotated[Optional[StrictStr], Field(description="the name of the assignment")] = None,
@@ -3726,8 +3575,6 @@ class AssignmentApi:
 
         Updates an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -3767,7 +3614,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             name=name,
@@ -3799,7 +3645,6 @@ class AssignmentApi:
     @validate_call
     def assignment_update_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         name: Annotated[Optional[StrictStr], Field(description="the name of the assignment")] = None,
@@ -3825,8 +3670,6 @@ class AssignmentApi:
 
         Updates an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -3866,7 +3709,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             name=name,
@@ -3898,7 +3740,6 @@ class AssignmentApi:
     @validate_call
     def assignment_update_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the user account id")],
         assignment_id: Annotated[StrictInt, Field(description="the assignment id")],
         name: Annotated[Optional[StrictStr], Field(description="the name of the assignment")] = None,
@@ -3924,8 +3765,6 @@ class AssignmentApi:
 
         Updates an assignment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the user account id (required)
         :type account_id: int
         :param assignment_id: the assignment id (required)
@@ -3965,7 +3804,6 @@ class AssignmentApi:
         """ # noqa: E501
 
         _param = self._assignment_update_serialize(
-            version=version,
             account_id=account_id,
             assignment_id=assignment_id,
             name=name,
@@ -3992,7 +3830,6 @@ class AssignmentApi:
 
     def _assignment_update_serialize(
         self,
-        version,
         account_id,
         assignment_id,
         name,
@@ -4022,8 +3859,6 @@ class AssignmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4077,7 +3912,7 @@ class AssignmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/assignment/update',
+            resource_path='/assignment/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

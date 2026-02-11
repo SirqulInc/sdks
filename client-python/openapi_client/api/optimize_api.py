@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Dict, Optional, Union
+from pydantic import Field, StrictInt, StrictStr
+from typing import Dict, Optional
 from typing_extensions import Annotated
 from openapi_client.models.import_statuses import ImportStatuses
 from openapi_client.models.orders import Orders
@@ -45,7 +45,6 @@ class OptimizeApi:
     @validate_call
     def get_optimization_result(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictStr, Field(description="The batchID for getting the import status of.")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
         limit: Annotated[StrictInt, Field(description="The limit for pagination")],
@@ -66,8 +65,6 @@ class OptimizeApi:
 
         Get the results of the import batch.
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The batchID for getting the import status of. (required)
         :type batch_id: str
         :param start: The start index for pagination (required)
@@ -97,7 +94,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._get_optimization_result_serialize(
-            version=version,
             batch_id=batch_id,
             start=start,
             limit=limit,
@@ -124,7 +120,6 @@ class OptimizeApi:
     @validate_call
     def get_optimization_result_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictStr, Field(description="The batchID for getting the import status of.")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
         limit: Annotated[StrictInt, Field(description="The limit for pagination")],
@@ -145,8 +140,6 @@ class OptimizeApi:
 
         Get the results of the import batch.
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The batchID for getting the import status of. (required)
         :type batch_id: str
         :param start: The start index for pagination (required)
@@ -176,7 +169,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._get_optimization_result_serialize(
-            version=version,
             batch_id=batch_id,
             start=start,
             limit=limit,
@@ -203,7 +195,6 @@ class OptimizeApi:
     @validate_call
     def get_optimization_result_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         batch_id: Annotated[StrictStr, Field(description="The batchID for getting the import status of.")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
         limit: Annotated[StrictInt, Field(description="The limit for pagination")],
@@ -224,8 +215,6 @@ class OptimizeApi:
 
         Get the results of the import batch.
 
-        :param version: (required)
-        :type version: float
         :param batch_id: The batchID for getting the import status of. (required)
         :type batch_id: str
         :param start: The start index for pagination (required)
@@ -255,7 +244,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._get_optimization_result_serialize(
-            version=version,
             batch_id=batch_id,
             start=start,
             limit=limit,
@@ -277,7 +265,6 @@ class OptimizeApi:
 
     def _get_optimization_result_serialize(
         self,
-        version,
         batch_id,
         start,
         limit,
@@ -302,8 +289,6 @@ class OptimizeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if batch_id is not None:
             _path_params['batchID'] = batch_id
         # process the query parameters
@@ -335,7 +320,7 @@ class OptimizeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/optimize/result/{batchID}',
+            resource_path='/optimize/result/{batchID}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -354,7 +339,6 @@ class OptimizeApi:
     @validate_call
     def request_optimization(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Orders] = None,
         _request_timeout: Union[
             None,
@@ -373,8 +357,6 @@ class OptimizeApi:
 
         Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Orders
         :param _request_timeout: timeout setting for this request. If one
@@ -400,7 +382,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._request_optimization_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -425,7 +406,6 @@ class OptimizeApi:
     @validate_call
     def request_optimization_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Orders] = None,
         _request_timeout: Union[
             None,
@@ -444,8 +424,6 @@ class OptimizeApi:
 
         Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Orders
         :param _request_timeout: timeout setting for this request. If one
@@ -471,7 +449,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._request_optimization_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -496,7 +473,6 @@ class OptimizeApi:
     @validate_call
     def request_optimization_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Orders] = None,
         _request_timeout: Union[
             None,
@@ -515,8 +491,6 @@ class OptimizeApi:
 
         Request and upload of shipment orders and create ShipmentImportBatch for optimization.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Orders
         :param _request_timeout: timeout setting for this request. If one
@@ -542,7 +516,6 @@ class OptimizeApi:
         """ # noqa: E501
 
         _param = self._request_optimization_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -562,7 +535,6 @@ class OptimizeApi:
 
     def _request_optimization_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -585,8 +557,6 @@ class OptimizeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -610,7 +580,7 @@ class OptimizeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/optimize/request',
+            resource_path='/optimize/request',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

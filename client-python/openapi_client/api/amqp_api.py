@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.queue_response import QueueResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class AMQPApi:
     @validate_call
     def consumer_create(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to connect to")],
         hostname: Annotated[StrictStr, Field(description="The hostname of the server the queue is hosted on")],
@@ -76,8 +75,6 @@ class AMQPApi:
 
         Create a connection to an existing amqp queue and register as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param name: The name of the queue to connect to (required)
@@ -129,7 +126,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             hostname=hostname,
@@ -167,7 +163,6 @@ class AMQPApi:
     @validate_call
     def consumer_create_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to connect to")],
         hostname: Annotated[StrictStr, Field(description="The hostname of the server the queue is hosted on")],
@@ -199,8 +194,6 @@ class AMQPApi:
 
         Create a connection to an existing amqp queue and register as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param name: The name of the queue to connect to (required)
@@ -252,7 +245,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             hostname=hostname,
@@ -290,7 +282,6 @@ class AMQPApi:
     @validate_call
     def consumer_create_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to connect to")],
         hostname: Annotated[StrictStr, Field(description="The hostname of the server the queue is hosted on")],
@@ -322,8 +313,6 @@ class AMQPApi:
 
         Create a connection to an existing amqp queue and register as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param name: The name of the queue to connect to (required)
@@ -375,7 +364,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             hostname=hostname,
@@ -408,7 +396,6 @@ class AMQPApi:
 
     def _consumer_create_serialize(
         self,
-        version,
         app_key,
         name,
         hostname,
@@ -444,8 +431,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -523,7 +508,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/consumer/create',
+            resource_path='/queue/consumer/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -542,7 +527,6 @@ class AMQPApi:
     @validate_call
     def consumer_update(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         queue_id: Annotated[StrictInt, Field(description="The queue to update")],
         data_mapping: Annotated[StrictStr, Field(description="The data mapping information in the format of AMQPRequest")],
@@ -566,8 +550,6 @@ class AMQPApi:
 
         Update an existing amqp queue's data mapping.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param queue_id: The queue to update (required)
@@ -603,7 +585,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_update_serialize(
-            version=version,
             app_key=app_key,
             queue_id=queue_id,
             data_mapping=data_mapping,
@@ -633,7 +614,6 @@ class AMQPApi:
     @validate_call
     def consumer_update_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         queue_id: Annotated[StrictInt, Field(description="The queue to update")],
         data_mapping: Annotated[StrictStr, Field(description="The data mapping information in the format of AMQPRequest")],
@@ -657,8 +637,6 @@ class AMQPApi:
 
         Update an existing amqp queue's data mapping.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param queue_id: The queue to update (required)
@@ -694,7 +672,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_update_serialize(
-            version=version,
             app_key=app_key,
             queue_id=queue_id,
             data_mapping=data_mapping,
@@ -724,7 +701,6 @@ class AMQPApi:
     @validate_call
     def consumer_update_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied.")],
         queue_id: Annotated[StrictInt, Field(description="The queue to update")],
         data_mapping: Annotated[StrictStr, Field(description="The data mapping information in the format of AMQPRequest")],
@@ -748,8 +724,6 @@ class AMQPApi:
 
         Update an existing amqp queue's data mapping.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key to use when creating an analytic or service request. The account needs to have permissions to the applicaton or it will be denied. (required)
         :type app_key: str
         :param queue_id: The queue to update (required)
@@ -785,7 +759,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._consumer_update_serialize(
-            version=version,
             app_key=app_key,
             queue_id=queue_id,
             data_mapping=data_mapping,
@@ -810,7 +783,6 @@ class AMQPApi:
 
     def _consumer_update_serialize(
         self,
-        version,
         app_key,
         queue_id,
         data_mapping,
@@ -838,8 +810,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -885,7 +855,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/consumer/update',
+            resource_path='/queue/consumer/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -904,7 +874,6 @@ class AMQPApi:
     @validate_call
     def queue_create(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to create")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
@@ -934,8 +903,6 @@ class AMQPApi:
 
         Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param name: The name of the queue to create (required)
@@ -983,7 +950,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -1019,7 +985,6 @@ class AMQPApi:
     @validate_call
     def queue_create_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to create")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
@@ -1049,8 +1014,6 @@ class AMQPApi:
 
         Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param name: The name of the queue to create (required)
@@ -1098,7 +1061,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -1134,7 +1096,6 @@ class AMQPApi:
     @validate_call
     def queue_create_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key unique to each application.")],
         name: Annotated[StrictStr, Field(description="The name of the queue to create")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
@@ -1164,8 +1125,6 @@ class AMQPApi:
 
         Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key unique to each application. (required)
         :type app_key: str
         :param name: The name of the queue to create (required)
@@ -1213,7 +1172,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_create_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -1244,7 +1202,6 @@ class AMQPApi:
 
     def _queue_create_serialize(
         self,
-        version,
         app_key,
         name,
         device_id,
@@ -1278,8 +1235,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1349,7 +1304,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/create',
+            resource_path='/queue/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1368,7 +1323,6 @@ class AMQPApi:
     @validate_call
     def queue_delete(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to find")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -1389,8 +1343,6 @@ class AMQPApi:
 
         Delete the stored queue record and close any active connections to the AMQP servers.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find (required)
         :type queue_id: int
         :param device_id: The client device ID
@@ -1420,7 +1372,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_delete_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -1447,7 +1398,6 @@ class AMQPApi:
     @validate_call
     def queue_delete_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to find")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -1468,8 +1418,6 @@ class AMQPApi:
 
         Delete the stored queue record and close any active connections to the AMQP servers.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find (required)
         :type queue_id: int
         :param device_id: The client device ID
@@ -1499,7 +1447,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_delete_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -1526,7 +1473,6 @@ class AMQPApi:
     @validate_call
     def queue_delete_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to find")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -1547,8 +1493,6 @@ class AMQPApi:
 
         Delete the stored queue record and close any active connections to the AMQP servers.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find (required)
         :type queue_id: int
         :param device_id: The client device ID
@@ -1578,7 +1522,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_delete_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -1600,7 +1543,6 @@ class AMQPApi:
 
     def _queue_delete_serialize(
         self,
-        version,
         queue_id,
         device_id,
         account_id,
@@ -1625,8 +1567,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1660,7 +1600,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/delete',
+            resource_path='/queue/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1679,7 +1619,6 @@ class AMQPApi:
     @validate_call
     def queue_get(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
@@ -1704,8 +1643,6 @@ class AMQPApi:
 
         Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The client device ID
         :type device_id: str
         :param account_id: The logged in user ID
@@ -1743,7 +1680,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_get_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             queue_id=queue_id,
@@ -1774,7 +1710,6 @@ class AMQPApi:
     @validate_call
     def queue_get_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
@@ -1799,8 +1734,6 @@ class AMQPApi:
 
         Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The client device ID
         :type device_id: str
         :param account_id: The logged in user ID
@@ -1838,7 +1771,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_get_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             queue_id=queue_id,
@@ -1869,7 +1801,6 @@ class AMQPApi:
     @validate_call
     def queue_get_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
@@ -1894,8 +1825,6 @@ class AMQPApi:
 
         Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The client device ID
         :type device_id: str
         :param account_id: The logged in user ID
@@ -1933,7 +1862,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_get_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             queue_id=queue_id,
@@ -1959,7 +1887,6 @@ class AMQPApi:
 
     def _queue_get_serialize(
         self,
-        version,
         device_id,
         account_id,
         queue_id,
@@ -1988,8 +1915,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2039,7 +1964,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/queue/get',
+            resource_path='/queue/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2058,7 +1983,6 @@ class AMQPApi:
     @validate_call
     def queue_publish(
         self,
-        version: Union[StrictFloat, StrictInt],
         message: Annotated[StrictStr, Field(description="The payload to send to the queue")],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to publish to")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key the queue was assigned to")] = None,
@@ -2082,8 +2006,6 @@ class AMQPApi:
 
         Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param message: The payload to send to the queue (required)
         :type message: str
         :param queue_id: The id of the queue to publish to
@@ -2119,7 +2041,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_publish_serialize(
-            version=version,
             message=message,
             queue_id=queue_id,
             app_key=app_key,
@@ -2149,7 +2070,6 @@ class AMQPApi:
     @validate_call
     def queue_publish_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         message: Annotated[StrictStr, Field(description="The payload to send to the queue")],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to publish to")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key the queue was assigned to")] = None,
@@ -2173,8 +2093,6 @@ class AMQPApi:
 
         Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param message: The payload to send to the queue (required)
         :type message: str
         :param queue_id: The id of the queue to publish to
@@ -2210,7 +2128,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_publish_serialize(
-            version=version,
             message=message,
             queue_id=queue_id,
             app_key=app_key,
@@ -2240,7 +2157,6 @@ class AMQPApi:
     @validate_call
     def queue_publish_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         message: Annotated[StrictStr, Field(description="The payload to send to the queue")],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to publish to")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key the queue was assigned to")] = None,
@@ -2264,8 +2180,6 @@ class AMQPApi:
 
         Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
 
-        :param version: (required)
-        :type version: float
         :param message: The payload to send to the queue (required)
         :type message: str
         :param queue_id: The id of the queue to publish to
@@ -2301,7 +2215,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_publish_serialize(
-            version=version,
             message=message,
             queue_id=queue_id,
             app_key=app_key,
@@ -2326,7 +2239,6 @@ class AMQPApi:
 
     def _queue_publish_serialize(
         self,
-        version,
         message,
         queue_id,
         app_key,
@@ -2354,8 +2266,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if queue_id is not None:
             
@@ -2401,7 +2311,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/publish',
+            resource_path='/queue/publish',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2420,7 +2330,6 @@ class AMQPApi:
     @validate_call
     def queue_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2444,8 +2353,6 @@ class AMQPApi:
 
         Get the queues setup for the BillableEntity's applications.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find
         :type queue_id: int
         :param device_id: The client device ID
@@ -2481,7 +2388,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_search_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -2511,7 +2417,6 @@ class AMQPApi:
     @validate_call
     def queue_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2535,8 +2440,6 @@ class AMQPApi:
 
         Get the queues setup for the BillableEntity's applications.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find
         :type queue_id: int
         :param device_id: The client device ID
@@ -2572,7 +2475,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_search_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -2602,7 +2504,6 @@ class AMQPApi:
     @validate_call
     def queue_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[Optional[StrictInt], Field(description="The id of the queue to find")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The client device ID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2626,8 +2527,6 @@ class AMQPApi:
 
         Get the queues setup for the BillableEntity's applications.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to find
         :type queue_id: int
         :param device_id: The client device ID
@@ -2663,7 +2562,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_search_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -2688,7 +2586,6 @@ class AMQPApi:
 
     def _queue_search_serialize(
         self,
-        version,
         queue_id,
         device_id,
         account_id,
@@ -2716,8 +2613,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if queue_id is not None:
             
@@ -2763,7 +2658,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/queue/search',
+            resource_path='/queue/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2782,7 +2677,6 @@ class AMQPApi:
     @validate_call
     def queue_update(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2812,8 +2706,6 @@ class AMQPApi:
 
         Update the basic AMQP queue.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to update (required)
         :type queue_id: int
         :param device_id: The client deviceID
@@ -2861,7 +2753,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_update_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -2897,7 +2788,6 @@ class AMQPApi:
     @validate_call
     def queue_update_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -2927,8 +2817,6 @@ class AMQPApi:
 
         Update the basic AMQP queue.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to update (required)
         :type queue_id: int
         :param device_id: The client deviceID
@@ -2976,7 +2864,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_update_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -3012,7 +2899,6 @@ class AMQPApi:
     @validate_call
     def queue_update_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         queue_id: Annotated[StrictInt, Field(description="The id of the queue to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The client deviceID")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user ID")] = None,
@@ -3042,8 +2928,6 @@ class AMQPApi:
 
         Update the basic AMQP queue.
 
-        :param version: (required)
-        :type version: float
         :param queue_id: The id of the queue to update (required)
         :type queue_id: int
         :param device_id: The client deviceID
@@ -3091,7 +2975,6 @@ class AMQPApi:
         """ # noqa: E501
 
         _param = self._queue_update_serialize(
-            version=version,
             queue_id=queue_id,
             device_id=device_id,
             account_id=account_id,
@@ -3122,7 +3005,6 @@ class AMQPApi:
 
     def _queue_update_serialize(
         self,
-        version,
         queue_id,
         device_id,
         account_id,
@@ -3156,8 +3038,6 @@ class AMQPApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3227,7 +3107,7 @@ class AMQPApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/queue/update',
+            resource_path='/queue/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

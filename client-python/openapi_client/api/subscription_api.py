@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.application_usage_response import ApplicationUsageResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -46,7 +46,6 @@ class SubscriptionApi:
     @validate_call
     def create_subscription(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the create, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to, if null use default plan")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -67,8 +66,6 @@ class SubscriptionApi:
 
         Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the create, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to, if null use default plan
@@ -98,7 +95,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._create_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -125,7 +121,6 @@ class SubscriptionApi:
     @validate_call
     def create_subscription_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the create, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to, if null use default plan")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -146,8 +141,6 @@ class SubscriptionApi:
 
         Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the create, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to, if null use default plan
@@ -177,7 +170,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._create_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -204,7 +196,6 @@ class SubscriptionApi:
     @validate_call
     def create_subscription_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the create, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to, if null use default plan")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -225,8 +216,6 @@ class SubscriptionApi:
 
         Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the create, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to, if null use default plan
@@ -256,7 +245,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._create_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -278,7 +266,6 @@ class SubscriptionApi:
 
     def _create_subscription_serialize(
         self,
-        version,
         account_id,
         plan_id,
         promo_code,
@@ -303,8 +290,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -338,7 +323,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/subscription/create',
+            resource_path='/subscription/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -357,7 +342,6 @@ class SubscriptionApi:
     @validate_call
     def delete_subscription(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must be the responsible manager")],
         _request_timeout: Union[
             None,
@@ -376,8 +360,6 @@ class SubscriptionApi:
 
         Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must be the responsible manager (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -403,7 +385,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._delete_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -428,7 +409,6 @@ class SubscriptionApi:
     @validate_call
     def delete_subscription_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must be the responsible manager")],
         _request_timeout: Union[
             None,
@@ -447,8 +427,6 @@ class SubscriptionApi:
 
         Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must be the responsible manager (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -474,7 +452,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._delete_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -499,7 +476,6 @@ class SubscriptionApi:
     @validate_call
     def delete_subscription_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the delete, must be the responsible manager")],
         _request_timeout: Union[
             None,
@@ -518,8 +494,6 @@ class SubscriptionApi:
 
         Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the delete, must be the responsible manager (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -545,7 +519,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._delete_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -565,7 +538,6 @@ class SubscriptionApi:
 
     def _delete_subscription_serialize(
         self,
-        version,
         account_id,
         _request_auth,
         _content_type,
@@ -588,8 +560,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -615,7 +585,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/subscription/delete',
+            resource_path='/subscription/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -634,7 +604,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         _request_timeout: Union[
             None,
@@ -653,8 +622,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -680,7 +647,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -705,7 +671,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         _request_timeout: Union[
             None,
@@ -724,8 +689,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -751,7 +714,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -776,7 +738,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         _request_timeout: Union[
             None,
@@ -795,8 +756,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the subscription.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -822,7 +781,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -842,7 +800,6 @@ class SubscriptionApi:
 
     def _get_subscription_serialize(
         self,
-        version,
         account_id,
         _request_auth,
         _content_type,
@@ -865,8 +822,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -892,7 +847,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/subscription/get',
+            resource_path='/subscription/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -911,7 +866,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plan(
         self,
-        version: Union[StrictFloat, StrictInt],
         plan_id: Annotated[StrictInt, Field(description="The ID of the plan to get")],
         _request_timeout: Union[
             None,
@@ -930,8 +884,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param plan_id: The ID of the plan to get (required)
         :type plan_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -957,7 +909,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plan_serialize(
-            version=version,
             plan_id=plan_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -982,7 +933,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plan_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         plan_id: Annotated[StrictInt, Field(description="The ID of the plan to get")],
         _request_timeout: Union[
             None,
@@ -1001,8 +951,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param plan_id: The ID of the plan to get (required)
         :type plan_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1028,7 +976,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plan_serialize(
-            version=version,
             plan_id=plan_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1053,7 +1000,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plan_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         plan_id: Annotated[StrictInt, Field(description="The ID of the plan to get")],
         _request_timeout: Union[
             None,
@@ -1072,8 +1018,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param plan_id: The ID of the plan to get (required)
         :type plan_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1099,7 +1043,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plan_serialize(
-            version=version,
             plan_id=plan_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1119,7 +1062,6 @@ class SubscriptionApi:
 
     def _get_subscription_plan_serialize(
         self,
-        version,
         plan_id,
         _request_auth,
         _content_type,
@@ -1142,8 +1084,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if plan_id is not None:
             
@@ -1169,7 +1109,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/subscription/plan/get',
+            resource_path='/subscription/plan/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1188,7 +1128,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plans(
         self,
-        version: Union[StrictFloat, StrictInt],
         visible: Annotated[Optional[StrictBool], Field(description="Include visible only (true), hidden only (false), or all (null)")] = None,
         role: Annotated[Optional[StrictStr], Field(description="The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER")] = None,
         _request_timeout: Union[
@@ -1208,8 +1147,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param visible: Include visible only (true), hidden only (false), or all (null)
         :type visible: bool
         :param role: The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
@@ -1237,7 +1174,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plans_serialize(
-            version=version,
             visible=visible,
             role=role,
             _request_auth=_request_auth,
@@ -1263,7 +1199,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plans_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         visible: Annotated[Optional[StrictBool], Field(description="Include visible only (true), hidden only (false), or all (null)")] = None,
         role: Annotated[Optional[StrictStr], Field(description="The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER")] = None,
         _request_timeout: Union[
@@ -1283,8 +1218,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param visible: Include visible only (true), hidden only (false), or all (null)
         :type visible: bool
         :param role: The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
@@ -1312,7 +1245,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plans_serialize(
-            version=version,
             visible=visible,
             role=role,
             _request_auth=_request_auth,
@@ -1338,7 +1270,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_plans_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         visible: Annotated[Optional[StrictBool], Field(description="Include visible only (true), hidden only (false), or all (null)")] = None,
         role: Annotated[Optional[StrictStr], Field(description="The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER")] = None,
         _request_timeout: Union[
@@ -1358,8 +1289,6 @@ class SubscriptionApi:
 
         Get the matched subscription plan
 
-        :param version: (required)
-        :type version: float
         :param visible: Include visible only (true), hidden only (false), or all (null)
         :type visible: bool
         :param role: The role the plan is targeted for, values are: DEVELOPER, RETAILER, ADVERTISER
@@ -1387,7 +1316,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_plans_serialize(
-            version=version,
             visible=visible,
             role=role,
             _request_auth=_request_auth,
@@ -1408,7 +1336,6 @@ class SubscriptionApi:
 
     def _get_subscription_plans_serialize(
         self,
-        version,
         visible,
         role,
         _request_auth,
@@ -1432,8 +1359,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if visible is not None:
             
@@ -1463,7 +1388,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/subscription/plan/list',
+            resource_path='/subscription/plan/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1482,7 +1407,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_usage(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         application_id: Annotated[Optional[StrictInt], Field(description="Get for just 1 application instead of the BillableEntity")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start time frame")] = None,
@@ -1504,8 +1428,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param application_id: Get for just 1 application instead of the BillableEntity
@@ -1537,7 +1459,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_usage_serialize(
-            version=version,
             account_id=account_id,
             application_id=application_id,
             start=start,
@@ -1565,7 +1486,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_usage_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         application_id: Annotated[Optional[StrictInt], Field(description="Get for just 1 application instead of the BillableEntity")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start time frame")] = None,
@@ -1587,8 +1507,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param application_id: Get for just 1 application instead of the BillableEntity
@@ -1620,7 +1538,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_usage_serialize(
-            version=version,
             account_id=account_id,
             application_id=application_id,
             start=start,
@@ -1648,7 +1565,6 @@ class SubscriptionApi:
     @validate_call
     def get_subscription_usage_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the lookup")],
         application_id: Annotated[Optional[StrictInt], Field(description="Get for just 1 application instead of the BillableEntity")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start time frame")] = None,
@@ -1670,8 +1586,6 @@ class SubscriptionApi:
 
         Use the accountId to determine the associated BillableEntity.  Then get the application usage.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the lookup (required)
         :type account_id: int
         :param application_id: Get for just 1 application instead of the BillableEntity
@@ -1703,7 +1617,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._get_subscription_usage_serialize(
-            version=version,
             account_id=account_id,
             application_id=application_id,
             start=start,
@@ -1726,7 +1639,6 @@ class SubscriptionApi:
 
     def _get_subscription_usage_serialize(
         self,
-        version,
         account_id,
         application_id,
         start,
@@ -1752,8 +1664,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1791,7 +1701,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/subscription/usage/get',
+            resource_path='/subscription/usage/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1810,7 +1720,6 @@ class SubscriptionApi:
     @validate_call
     def update_subscription(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -1832,8 +1741,6 @@ class SubscriptionApi:
 
         Updates the subscription for the billable entity for an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to
@@ -1865,7 +1772,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._update_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -1893,7 +1799,6 @@ class SubscriptionApi:
     @validate_call
     def update_subscription_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -1915,8 +1820,6 @@ class SubscriptionApi:
 
         Updates the subscription for the billable entity for an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to
@@ -1948,7 +1851,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._update_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -1976,7 +1878,6 @@ class SubscriptionApi:
     @validate_call
     def update_subscription_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must be the responsible manager")],
         plan_id: Annotated[Optional[StrictInt], Field(description="The plan to subscribe to")] = None,
         promo_code: Annotated[Optional[StrictStr], Field(description="Set a promo code for a discount.")] = None,
@@ -1998,8 +1899,6 @@ class SubscriptionApi:
 
         Updates the subscription for the billable entity for an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must be the responsible manager (required)
         :type account_id: int
         :param plan_id: The plan to subscribe to
@@ -2031,7 +1930,6 @@ class SubscriptionApi:
         """ # noqa: E501
 
         _param = self._update_subscription_serialize(
-            version=version,
             account_id=account_id,
             plan_id=plan_id,
             promo_code=promo_code,
@@ -2054,7 +1952,6 @@ class SubscriptionApi:
 
     def _update_subscription_serialize(
         self,
-        version,
         account_id,
         plan_id,
         promo_code,
@@ -2080,8 +1977,6 @@ class SubscriptionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2119,7 +2014,7 @@ class SubscriptionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/subscription/update',
+            resource_path='/subscription/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

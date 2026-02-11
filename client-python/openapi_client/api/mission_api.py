@@ -45,7 +45,6 @@ class MissionApi:
     @validate_call
     def create_mission(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the mission")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the mission")] = None,
@@ -89,8 +88,6 @@ class MissionApi:
 
         Create a user defined mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the mission (required)
@@ -166,7 +163,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._create_mission_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             description=description,
@@ -216,7 +212,6 @@ class MissionApi:
     @validate_call
     def create_mission_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the mission")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the mission")] = None,
@@ -260,8 +255,6 @@ class MissionApi:
 
         Create a user defined mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the mission (required)
@@ -337,7 +330,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._create_mission_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             description=description,
@@ -387,7 +379,6 @@ class MissionApi:
     @validate_call
     def create_mission_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the mission")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the mission")] = None,
@@ -431,8 +422,6 @@ class MissionApi:
 
         Create a user defined mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the mission (required)
@@ -508,7 +497,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._create_mission_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             description=description,
@@ -553,7 +541,6 @@ class MissionApi:
 
     def _create_mission_serialize(
         self,
-        version,
         account_id,
         title,
         description,
@@ -601,8 +588,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -728,7 +713,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/create',
+            resource_path='/mission/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -747,7 +732,6 @@ class MissionApi:
     @validate_call
     def delete_mission(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -767,8 +751,6 @@ class MissionApi:
 
         Delete a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -796,7 +778,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._delete_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -822,7 +803,6 @@ class MissionApi:
     @validate_call
     def delete_mission_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -842,8 +822,6 @@ class MissionApi:
 
         Delete a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -871,7 +849,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._delete_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -897,7 +874,6 @@ class MissionApi:
     @validate_call
     def delete_mission_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         mission_id: Annotated[StrictInt, Field(description="the id of the mission to delete")],
         _request_timeout: Union[
@@ -917,8 +893,6 @@ class MissionApi:
 
         Delete a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param mission_id: the id of the mission to delete (required)
@@ -946,7 +920,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._delete_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             _request_auth=_request_auth,
@@ -967,7 +940,6 @@ class MissionApi:
 
     def _delete_mission_serialize(
         self,
-        version,
         account_id,
         mission_id,
         _request_auth,
@@ -991,8 +963,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1022,7 +992,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/delete',
+            resource_path='/mission/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1041,7 +1011,6 @@ class MissionApi:
     @validate_call
     def find_missions(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         suffix: Annotated[Optional[StrictStr], Field(description="The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip")] = None,
         type: Annotated[Optional[StrictStr], Field(description="The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.")] = None,
@@ -1078,8 +1047,6 @@ class MissionApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param suffix: The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -1141,7 +1108,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._find_missions_serialize(
-            version=version,
             app_key=app_key,
             suffix=suffix,
             type=type,
@@ -1184,7 +1150,6 @@ class MissionApi:
     @validate_call
     def find_missions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         suffix: Annotated[Optional[StrictStr], Field(description="The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip")] = None,
         type: Annotated[Optional[StrictStr], Field(description="The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.")] = None,
@@ -1221,8 +1186,6 @@ class MissionApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param suffix: The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -1284,7 +1247,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._find_missions_serialize(
-            version=version,
             app_key=app_key,
             suffix=suffix,
             type=type,
@@ -1327,7 +1289,6 @@ class MissionApi:
     @validate_call
     def find_missions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         suffix: Annotated[Optional[StrictStr], Field(description="The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip")] = None,
         type: Annotated[Optional[StrictStr], Field(description="The type of ads to get, possible values are: BANNER, LEADERBOARD, SKYSCRAPER, FULL, VIDEO, ZIP, CONFIG. Use this instead of suffix.")] = None,
@@ -1364,8 +1325,6 @@ class MissionApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param suffix: The type of mission to get, possible values are: click_banner, click_leaderboard, click_skyscraper, click_full, click_video, or click_zip
@@ -1427,7 +1386,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._find_missions_serialize(
-            version=version,
             app_key=app_key,
             suffix=suffix,
             type=type,
@@ -1465,7 +1423,6 @@ class MissionApi:
 
     def _find_missions_serialize(
         self,
-        version,
         app_key,
         suffix,
         type,
@@ -1506,8 +1463,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -1605,7 +1560,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/find',
+            resource_path='/mission/find',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1624,7 +1579,6 @@ class MissionApi:
     @validate_call
     def get_mission(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to return.")],
         return_creative: Annotated[Optional[StrictBool], Field(description="Return creatives associated with the mission when true")] = None,
@@ -1645,8 +1599,6 @@ class MissionApi:
 
         Get a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to return. (required)
@@ -1676,7 +1628,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._get_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             return_creative=return_creative,
@@ -1703,7 +1654,6 @@ class MissionApi:
     @validate_call
     def get_mission_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to return.")],
         return_creative: Annotated[Optional[StrictBool], Field(description="Return creatives associated with the mission when true")] = None,
@@ -1724,8 +1674,6 @@ class MissionApi:
 
         Get a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to return. (required)
@@ -1755,7 +1703,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._get_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             return_creative=return_creative,
@@ -1782,7 +1729,6 @@ class MissionApi:
     @validate_call
     def get_mission_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to return.")],
         return_creative: Annotated[Optional[StrictBool], Field(description="Return creatives associated with the mission when true")] = None,
@@ -1803,8 +1749,6 @@ class MissionApi:
 
         Get a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to return. (required)
@@ -1834,7 +1778,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._get_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             return_creative=return_creative,
@@ -1856,7 +1799,6 @@ class MissionApi:
 
     def _get_mission_serialize(
         self,
-        version,
         account_id,
         mission_id,
         return_creative,
@@ -1881,8 +1823,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1916,7 +1856,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/get',
+            resource_path='/mission/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1935,7 +1875,6 @@ class MissionApi:
     @validate_call
     def import_mission(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
@@ -1961,8 +1900,6 @@ class MissionApi:
 
         Create a mission using a source item such as an offer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param latitude: The current location of the requesting device (required)
@@ -2002,7 +1939,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._import_mission_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -2034,7 +1970,6 @@ class MissionApi:
     @validate_call
     def import_mission_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
@@ -2060,8 +1995,6 @@ class MissionApi:
 
         Create a mission using a source item such as an offer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param latitude: The current location of the requesting device (required)
@@ -2101,7 +2034,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._import_mission_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -2133,7 +2065,6 @@ class MissionApi:
     @validate_call
     def import_mission_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The current location of the requesting device")],
@@ -2159,8 +2090,6 @@ class MissionApi:
 
         Create a mission using a source item such as an offer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param latitude: The current location of the requesting device (required)
@@ -2200,7 +2129,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._import_mission_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -2227,7 +2155,6 @@ class MissionApi:
 
     def _import_mission_serialize(
         self,
-        version,
         account_id,
         latitude,
         longitude,
@@ -2257,8 +2184,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2312,7 +2237,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/import',
+            resource_path='/mission/import',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2331,7 +2256,6 @@ class MissionApi:
     @validate_call
     def search_mission_formats(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The starting index in the result set to return. Default is 0.")],
         limit: Annotated[StrictInt, Field(description="The total number of records to return. Default is 20.")],
         active_only: Annotated[StrictBool, Field(description="Determines whether to return only active results. Default is false.")],
@@ -2352,8 +2276,6 @@ class MissionApi:
 
         Searches on pre-defined mission formats
 
-        :param version: (required)
-        :type version: float
         :param start: The starting index in the result set to return. Default is 0. (required)
         :type start: int
         :param limit: The total number of records to return. Default is 20. (required)
@@ -2383,7 +2305,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_mission_formats_serialize(
-            version=version,
             start=start,
             limit=limit,
             active_only=active_only,
@@ -2410,7 +2331,6 @@ class MissionApi:
     @validate_call
     def search_mission_formats_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The starting index in the result set to return. Default is 0.")],
         limit: Annotated[StrictInt, Field(description="The total number of records to return. Default is 20.")],
         active_only: Annotated[StrictBool, Field(description="Determines whether to return only active results. Default is false.")],
@@ -2431,8 +2351,6 @@ class MissionApi:
 
         Searches on pre-defined mission formats
 
-        :param version: (required)
-        :type version: float
         :param start: The starting index in the result set to return. Default is 0. (required)
         :type start: int
         :param limit: The total number of records to return. Default is 20. (required)
@@ -2462,7 +2380,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_mission_formats_serialize(
-            version=version,
             start=start,
             limit=limit,
             active_only=active_only,
@@ -2489,7 +2406,6 @@ class MissionApi:
     @validate_call
     def search_mission_formats_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[StrictInt, Field(description="The starting index in the result set to return. Default is 0.")],
         limit: Annotated[StrictInt, Field(description="The total number of records to return. Default is 20.")],
         active_only: Annotated[StrictBool, Field(description="Determines whether to return only active results. Default is false.")],
@@ -2510,8 +2426,6 @@ class MissionApi:
 
         Searches on pre-defined mission formats
 
-        :param version: (required)
-        :type version: float
         :param start: The starting index in the result set to return. Default is 0. (required)
         :type start: int
         :param limit: The total number of records to return. Default is 20. (required)
@@ -2541,7 +2455,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_mission_formats_serialize(
-            version=version,
             start=start,
             limit=limit,
             active_only=active_only,
@@ -2563,7 +2476,6 @@ class MissionApi:
 
     def _search_mission_formats_serialize(
         self,
-        version,
         start,
         limit,
         active_only,
@@ -2588,8 +2500,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if start is not None:
             
@@ -2623,7 +2533,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/format/search',
+            resource_path='/mission/format/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2642,7 +2552,6 @@ class MissionApi:
     @validate_call
     def search_missions(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         sub_type: Annotated[Optional[StrictStr], Field(description="Custom string client apps can use for searching/filtering missions")] = None,
@@ -2671,8 +2580,6 @@ class MissionApi:
 
         Get the list missions available to the account.  
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -2718,7 +2625,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             sub_type=sub_type,
@@ -2753,7 +2659,6 @@ class MissionApi:
     @validate_call
     def search_missions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         sub_type: Annotated[Optional[StrictStr], Field(description="Custom string client apps can use for searching/filtering missions")] = None,
@@ -2782,8 +2687,6 @@ class MissionApi:
 
         Get the list missions available to the account.  
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -2829,7 +2732,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             sub_type=sub_type,
@@ -2864,7 +2766,6 @@ class MissionApi:
     @validate_call
     def search_missions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         sub_type: Annotated[Optional[StrictStr], Field(description="Custom string client apps can use for searching/filtering missions")] = None,
@@ -2893,8 +2794,6 @@ class MissionApi:
 
         Get the list missions available to the account.  
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -2940,7 +2839,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             sub_type=sub_type,
@@ -2970,7 +2868,6 @@ class MissionApi:
 
     def _search_missions_serialize(
         self,
-        version,
         account_id,
         keyword,
         sub_type,
@@ -3003,8 +2900,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3070,7 +2965,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/search',
+            resource_path='/mission/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3089,7 +2984,6 @@ class MissionApi:
     @validate_call
     def search_missions_by_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
@@ -3117,8 +3011,6 @@ class MissionApi:
 
         Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -3162,7 +3054,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -3196,7 +3087,6 @@ class MissionApi:
     @validate_call
     def search_missions_by_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
@@ -3224,8 +3114,6 @@ class MissionApi:
 
         Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -3269,7 +3157,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -3303,7 +3190,6 @@ class MissionApi:
     @validate_call
     def search_missions_by_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="Filter by keyword")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
@@ -3331,8 +3217,6 @@ class MissionApi:
 
         Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: Filter by keyword
@@ -3376,7 +3260,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._search_missions_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start=start,
@@ -3405,7 +3288,6 @@ class MissionApi:
 
     def _search_missions_by_billable_entity_serialize(
         self,
-        version,
         account_id,
         keyword,
         start,
@@ -3437,8 +3319,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3500,7 +3380,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/mission/searchByBillableEntity',
+            resource_path='/mission/searchByBillableEntity',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3519,7 +3399,6 @@ class MissionApi:
     @validate_call
     def update_mission(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the mission")] = None,
@@ -3562,8 +3441,6 @@ class MissionApi:
 
         Update a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to update. (required)
@@ -3637,7 +3514,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._update_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -3686,7 +3562,6 @@ class MissionApi:
     @validate_call
     def update_mission_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the mission")] = None,
@@ -3729,8 +3604,6 @@ class MissionApi:
 
         Update a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to update. (required)
@@ -3804,7 +3677,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._update_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -3853,7 +3725,6 @@ class MissionApi:
     @validate_call
     def update_mission_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         mission_id: Annotated[StrictInt, Field(description="The id of the mission to update.")],
         title: Annotated[Optional[StrictStr], Field(description="The title of the mission")] = None,
@@ -3896,8 +3767,6 @@ class MissionApi:
 
         Update a mission.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param mission_id: The id of the mission to update. (required)
@@ -3971,7 +3840,6 @@ class MissionApi:
         """ # noqa: E501
 
         _param = self._update_mission_serialize(
-            version=version,
             account_id=account_id,
             mission_id=mission_id,
             title=title,
@@ -4015,7 +3883,6 @@ class MissionApi:
 
     def _update_mission_serialize(
         self,
-        version,
         account_id,
         mission_id,
         title,
@@ -4062,8 +3929,6 @@ class MissionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4185,7 +4050,7 @@ class MissionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/mission/update',
+            resource_path='/mission/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

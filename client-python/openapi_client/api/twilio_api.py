@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Union
+from pydantic import Field, StrictStr
 from typing_extensions import Annotated
 from openapi_client.models.twi_ml_response import TwiMLResponse
 
@@ -43,7 +42,6 @@ class TwilioApi:
     @validate_call
     def sms_buy_offer(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         body: Annotated[StrictStr, Field(description="the message of the text")],
         var_from: Annotated[StrictStr, Field(description="the sender of the sms")],
@@ -65,8 +63,6 @@ class TwilioApi:
 
         Recieve an SMS payload from Twillio to purchase an offer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param body: the message of the text (required)
@@ -98,7 +94,6 @@ class TwilioApi:
         """ # noqa: E501
 
         _param = self._sms_buy_offer_serialize(
-            version=version,
             app_key=app_key,
             body=body,
             var_from=var_from,
@@ -126,7 +121,6 @@ class TwilioApi:
     @validate_call
     def sms_buy_offer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         body: Annotated[StrictStr, Field(description="the message of the text")],
         var_from: Annotated[StrictStr, Field(description="the sender of the sms")],
@@ -148,8 +142,6 @@ class TwilioApi:
 
         Recieve an SMS payload from Twillio to purchase an offer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param body: the message of the text (required)
@@ -181,7 +173,6 @@ class TwilioApi:
         """ # noqa: E501
 
         _param = self._sms_buy_offer_serialize(
-            version=version,
             app_key=app_key,
             body=body,
             var_from=var_from,
@@ -209,7 +200,6 @@ class TwilioApi:
     @validate_call
     def sms_buy_offer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         body: Annotated[StrictStr, Field(description="the message of the text")],
         var_from: Annotated[StrictStr, Field(description="the sender of the sms")],
@@ -231,8 +221,6 @@ class TwilioApi:
 
         Recieve an SMS payload from Twillio to purchase an offer.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param body: the message of the text (required)
@@ -264,7 +252,6 @@ class TwilioApi:
         """ # noqa: E501
 
         _param = self._sms_buy_offer_serialize(
-            version=version,
             app_key=app_key,
             body=body,
             var_from=var_from,
@@ -287,7 +274,6 @@ class TwilioApi:
 
     def _sms_buy_offer_serialize(
         self,
-        version,
         app_key,
         body,
         var_from,
@@ -313,8 +299,6 @@ class TwilioApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if app_key is not None:
             _path_params['appKey'] = app_key
         # process the query parameters
@@ -350,7 +334,7 @@ class TwilioApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/sms/buyoffer/{appKey}',
+            resource_path='/sms/buyoffer/{appKey}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -44,7 +44,6 @@ class UserPermissionsApi:
     @validate_call
     def add_users_to_permissionable(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -79,8 +78,6 @@ class UserPermissionsApi:
 
         Adds a user to a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -138,7 +135,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._add_users_to_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -179,7 +175,6 @@ class UserPermissionsApi:
     @validate_call
     def add_users_to_permissionable_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -214,8 +209,6 @@ class UserPermissionsApi:
 
         Adds a user to a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -273,7 +266,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._add_users_to_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -314,7 +306,6 @@ class UserPermissionsApi:
     @validate_call
     def add_users_to_permissionable_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -349,8 +340,6 @@ class UserPermissionsApi:
 
         Adds a user to a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -408,7 +397,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._add_users_to_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -444,7 +432,6 @@ class UserPermissionsApi:
 
     def _add_users_to_permissionable_serialize(
         self,
-        version,
         permissionable_type,
         permissionable_id,
         device_id,
@@ -483,8 +470,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -574,7 +559,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/permissions/add',
+            resource_path='/consumer/permissions/add',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -593,7 +578,6 @@ class UserPermissionsApi:
     @validate_call
     def approve_permissionable(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="The permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="The id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -616,8 +600,6 @@ class UserPermissionsApi:
 
         Sets the approval status of a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: The permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: The id of the permissionable object (required)
@@ -651,7 +633,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._approve_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -680,7 +661,6 @@ class UserPermissionsApi:
     @validate_call
     def approve_permissionable_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="The permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="The id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -703,8 +683,6 @@ class UserPermissionsApi:
 
         Sets the approval status of a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: The permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: The id of the permissionable object (required)
@@ -738,7 +716,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._approve_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -767,7 +744,6 @@ class UserPermissionsApi:
     @validate_call
     def approve_permissionable_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="The permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="The id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -790,8 +766,6 @@ class UserPermissionsApi:
 
         Sets the approval status of a permissionable object.
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: The permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: The id of the permissionable object (required)
@@ -825,7 +799,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._approve_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -849,7 +822,6 @@ class UserPermissionsApi:
 
     def _approve_permissionable_serialize(
         self,
-        version,
         permissionable_type,
         permissionable_id,
         device_id,
@@ -876,8 +848,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -919,7 +889,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/permissionable/approve',
+            resource_path='/permissionable/approve',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -938,7 +908,6 @@ class UserPermissionsApi:
     @validate_call
     def leave_from_permissionable(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type PermissionableType")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -962,8 +931,6 @@ class UserPermissionsApi:
 
         Used when the user wants to leave from someone else's permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type PermissionableType (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -999,7 +966,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._leave_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1029,7 +995,6 @@ class UserPermissionsApi:
     @validate_call
     def leave_from_permissionable_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type PermissionableType")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -1053,8 +1018,6 @@ class UserPermissionsApi:
 
         Used when the user wants to leave from someone else's permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type PermissionableType (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -1090,7 +1053,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._leave_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1120,7 +1082,6 @@ class UserPermissionsApi:
     @validate_call
     def leave_from_permissionable_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type PermissionableType")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -1144,8 +1105,6 @@ class UserPermissionsApi:
 
         Used when the user wants to leave from someone else's permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type PermissionableType (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -1181,7 +1140,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._leave_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1206,7 +1164,6 @@ class UserPermissionsApi:
 
     def _leave_from_permissionable_serialize(
         self,
-        version,
         permissionable_type,
         permissionable_id,
         device_id,
@@ -1234,8 +1191,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1281,7 +1236,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/permissions/leave',
+            resource_path='/consumer/permissions/leave',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1300,7 +1255,6 @@ class UserPermissionsApi:
     @validate_call
     def remove_users_from_permissionable(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -1329,8 +1283,6 @@ class UserPermissionsApi:
 
         Used to remove someone (assuming they have permission) from a permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -1376,7 +1328,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._remove_users_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1411,7 +1362,6 @@ class UserPermissionsApi:
     @validate_call
     def remove_users_from_permissionable_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -1440,8 +1390,6 @@ class UserPermissionsApi:
 
         Used to remove someone (assuming they have permission) from a permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -1487,7 +1435,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._remove_users_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1522,7 +1469,6 @@ class UserPermissionsApi:
     @validate_call
     def remove_users_from_permissionable_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         permissionable_type: Annotated[StrictStr, Field(description="the permissionable type of the object")],
         permissionable_id: Annotated[StrictInt, Field(description="the id of the permissionable object")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -1551,8 +1497,6 @@ class UserPermissionsApi:
 
         Used to remove someone (assuming they have permission) from a permissionable object
 
-        :param version: (required)
-        :type version: float
         :param permissionable_type: the permissionable type of the object (required)
         :type permissionable_type: str
         :param permissionable_id: the id of the permissionable object (required)
@@ -1598,7 +1542,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._remove_users_from_permissionable_serialize(
-            version=version,
             permissionable_type=permissionable_type,
             permissionable_id=permissionable_id,
             device_id=device_id,
@@ -1628,7 +1571,6 @@ class UserPermissionsApi:
 
     def _remove_users_from_permissionable_serialize(
         self,
-        version,
         permissionable_type,
         permissionable_id,
         device_id,
@@ -1661,8 +1603,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1728,7 +1668,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/permissions/remove',
+            resource_path='/consumer/permissions/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1747,7 +1687,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a specific user account")] = None,
@@ -1778,8 +1717,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions
 
-        :param version: (required)
-        :type version: float
         :param device_id: A unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -1829,7 +1766,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -1866,7 +1802,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a specific user account")] = None,
@@ -1897,8 +1832,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions
 
-        :param version: (required)
-        :type version: float
         :param device_id: A unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -1948,7 +1881,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -1985,7 +1917,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a specific user account")] = None,
@@ -2016,8 +1947,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions
 
-        :param version: (required)
-        :type version: float
         :param device_id: A unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -2067,7 +1996,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -2099,7 +2027,6 @@ class UserPermissionsApi:
 
     def _search_permissionables_serialize(
         self,
-        version,
         device_id,
         account_id,
         connection_account_id,
@@ -2134,8 +2061,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2209,7 +2134,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/permissions/search',
+            resource_path='/permissions/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2228,7 +2153,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables_following_distance(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of the current account")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of the current account")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2260,8 +2184,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions by distance
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of the current account (required)
         :type latitude: float
         :param longitude: The longitude of the current account (required)
@@ -2313,7 +2235,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_following_distance_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             device_id=device_id,
@@ -2351,7 +2272,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables_following_distance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of the current account")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of the current account")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2383,8 +2303,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions by distance
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of the current account (required)
         :type latitude: float
         :param longitude: The longitude of the current account (required)
@@ -2436,7 +2354,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_following_distance_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             device_id=device_id,
@@ -2474,7 +2391,6 @@ class UserPermissionsApi:
     @validate_call
     def search_permissionables_following_distance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of the current account")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of the current account")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2506,8 +2422,6 @@ class UserPermissionsApi:
 
         Search on UserPermissions by distance
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of the current account (required)
         :type latitude: float
         :param longitude: The longitude of the current account (required)
@@ -2559,7 +2473,6 @@ class UserPermissionsApi:
         """ # noqa: E501
 
         _param = self._search_permissionables_following_distance_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             device_id=device_id,
@@ -2592,7 +2505,6 @@ class UserPermissionsApi:
 
     def _search_permissionables_following_distance_serialize(
         self,
-        version,
         latitude,
         longitude,
         device_id,
@@ -2628,8 +2540,6 @@ class UserPermissionsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2707,7 +2617,7 @@ class UserPermissionsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/permissions/distancesearch',
+            resource_path='/permissions/distancesearch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -49,7 +49,6 @@ class OfferApi:
     @validate_call
     def batch_update_offer_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -70,8 +69,6 @@ class OfferApi:
 
         Batch update offer locations.
 
-        :param version: (required)
-        :type version: float
         :param data: JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ```  (required)
         :type data: str
         :param device_id: The device id (deviceId or accountId required)
@@ -101,7 +98,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._batch_update_offer_locations_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -128,7 +124,6 @@ class OfferApi:
     @validate_call
     def batch_update_offer_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -149,8 +144,6 @@ class OfferApi:
 
         Batch update offer locations.
 
-        :param version: (required)
-        :type version: float
         :param data: JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ```  (required)
         :type data: str
         :param device_id: The device id (deviceId or accountId required)
@@ -180,7 +173,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._batch_update_offer_locations_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -207,7 +199,6 @@ class OfferApi:
     @validate_call
     def batch_update_offer_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -228,8 +219,6 @@ class OfferApi:
 
         Batch update offer locations.
 
-        :param version: (required)
-        :type version: float
         :param data: JSON string in the following format: ```json [{   \"offerLocationId\": 1705,   \"latitude\": 54.0,   \"longitude\": -122.0,   \"altitude\": 1.0,   \"locationDetail\": \"floor 1\",   \"locationDescription\": \"behind the Coke sign\" }, {   \"offerLocationId\": 1704,   \"latitude\": 54.1,   \"longitude\": -122.1 }] ```  (required)
         :type data: str
         :param device_id: The device id (deviceId or accountId required)
@@ -259,7 +248,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._batch_update_offer_locations_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -281,7 +269,6 @@ class OfferApi:
 
     def _batch_update_offer_locations_serialize(
         self,
-        version,
         data,
         device_id,
         account_id,
@@ -306,8 +293,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -341,7 +326,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/location/batchUpdate',
+            resource_path='/retailer/offer/location/batchUpdate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -360,7 +345,6 @@ class OfferApi:
     @validate_call
     def create_offer(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -464,8 +448,6 @@ class OfferApi:
 
         Create an offer and assign it to the provided retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
         :type include_offer_locations: bool
         :param title: The title (255 char limit) (required)
@@ -661,7 +643,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._create_offer_serialize(
-            version=version,
             include_offer_locations=include_offer_locations,
             title=title,
             barcode_type=barcode_type,
@@ -771,7 +752,6 @@ class OfferApi:
     @validate_call
     def create_offer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -875,8 +855,6 @@ class OfferApi:
 
         Create an offer and assign it to the provided retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
         :type include_offer_locations: bool
         :param title: The title (255 char limit) (required)
@@ -1072,7 +1050,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._create_offer_serialize(
-            version=version,
             include_offer_locations=include_offer_locations,
             title=title,
             barcode_type=barcode_type,
@@ -1182,7 +1159,6 @@ class OfferApi:
     @validate_call
     def create_offer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -1286,8 +1262,6 @@ class OfferApi:
 
         Create an offer and assign it to the provided retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
         :type include_offer_locations: bool
         :param title: The title (255 char limit) (required)
@@ -1483,7 +1457,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._create_offer_serialize(
-            version=version,
             include_offer_locations=include_offer_locations,
             title=title,
             barcode_type=barcode_type,
@@ -1588,7 +1561,6 @@ class OfferApi:
 
     def _create_offer_serialize(
         self,
-        version,
         include_offer_locations,
         title,
         barcode_type,
@@ -1696,8 +1668,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2063,7 +2033,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/create',
+            resource_path='/retailer/offer/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2082,7 +2052,6 @@ class OfferApi:
     @validate_call
     def delete_offer(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The ID of the offer to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer.")] = None,
@@ -2103,8 +2072,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The ID of the offer to be deleted (required)
         :type offer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2134,7 +2101,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_serialize(
-            version=version,
             offer_id=offer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2161,7 +2127,6 @@ class OfferApi:
     @validate_call
     def delete_offer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The ID of the offer to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer.")] = None,
@@ -2182,8 +2147,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The ID of the offer to be deleted (required)
         :type offer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2213,7 +2176,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_serialize(
-            version=version,
             offer_id=offer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2240,7 +2202,6 @@ class OfferApi:
     @validate_call
     def delete_offer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The ID of the offer to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer.")] = None,
@@ -2261,8 +2222,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The ID of the offer to be deleted (required)
         :type offer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2292,7 +2251,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_serialize(
-            version=version,
             offer_id=offer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2314,7 +2272,6 @@ class OfferApi:
 
     def _delete_offer_serialize(
         self,
-        version,
         offer_id,
         device_id,
         account_id,
@@ -2339,8 +2296,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2374,7 +2329,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/delete',
+            resource_path='/retailer/offer/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2393,7 +2348,6 @@ class OfferApi:
     @validate_call
     def delete_offer_location(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[StrictInt, Field(description="The ID of the offer location to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer location.")] = None,
@@ -2414,8 +2368,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: The ID of the offer location to be deleted (required)
         :type offer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2445,7 +2397,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2472,7 +2423,6 @@ class OfferApi:
     @validate_call
     def delete_offer_location_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[StrictInt, Field(description="The ID of the offer location to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer location.")] = None,
@@ -2493,8 +2443,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: The ID of the offer location to be deleted (required)
         :type offer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2524,7 +2472,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2551,7 +2498,6 @@ class OfferApi:
     @validate_call
     def delete_offer_location_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[StrictInt, Field(description="The ID of the offer location to be deleted")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the offer location.")] = None,
@@ -2572,8 +2518,6 @@ class OfferApi:
 
         Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: The ID of the offer location to be deleted (required)
         :type offer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2603,7 +2547,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._delete_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2625,7 +2568,6 @@ class OfferApi:
 
     def _delete_offer_location_serialize(
         self,
-        version,
         offer_location_id,
         device_id,
         account_id,
@@ -2650,8 +2592,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2685,7 +2625,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/location/delete',
+            resource_path='/retailer/offer/location/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2704,7 +2644,6 @@ class OfferApi:
     @validate_call
     def get_offer(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The id of the offer")],
         include_offer_locations: StrictBool,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2726,8 +2665,6 @@ class OfferApi:
 
         Gets the details of an offer that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The id of the offer (required)
         :type offer_id: int
         :param include_offer_locations:  (required)
@@ -2759,7 +2696,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -2787,7 +2723,6 @@ class OfferApi:
     @validate_call
     def get_offer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The id of the offer")],
         include_offer_locations: StrictBool,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2809,8 +2744,6 @@ class OfferApi:
 
         Gets the details of an offer that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The id of the offer (required)
         :type offer_id: int
         :param include_offer_locations:  (required)
@@ -2842,7 +2775,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -2870,7 +2802,6 @@ class OfferApi:
     @validate_call
     def get_offer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The id of the offer")],
         include_offer_locations: StrictBool,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -2892,8 +2823,6 @@ class OfferApi:
 
         Gets the details of an offer that the user has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The id of the offer (required)
         :type offer_id: int
         :param include_offer_locations:  (required)
@@ -2925,7 +2854,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -2948,7 +2876,6 @@ class OfferApi:
 
     def _get_offer_serialize(
         self,
-        version,
         offer_id,
         include_offer_locations,
         device_id,
@@ -2974,8 +2901,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3013,7 +2938,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/offer/get',
+            resource_path='/retailer/offer/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3032,7 +2957,6 @@ class OfferApi:
     @validate_call
     def get_offer_details(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The offer id (either offeLocationId or offerId must be provided)")] = None,
@@ -3060,8 +2984,6 @@ class OfferApi:
 
         Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id for returning account information (i.e. favorites)
         :type device_id: str
         :param account_id: The account id for returning account information (i.e. favorites)
@@ -3105,7 +3027,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_details_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -3139,7 +3060,6 @@ class OfferApi:
     @validate_call
     def get_offer_details_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The offer id (either offeLocationId or offerId must be provided)")] = None,
@@ -3167,8 +3087,6 @@ class OfferApi:
 
         Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id for returning account information (i.e. favorites)
         :type device_id: str
         :param account_id: The account id for returning account information (i.e. favorites)
@@ -3212,7 +3130,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_details_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -3246,7 +3163,6 @@ class OfferApi:
     @validate_call
     def get_offer_details_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
         offer_id: Annotated[Optional[StrictInt], Field(description="The offer id (either offeLocationId or offerId must be provided)")] = None,
@@ -3274,8 +3190,6 @@ class OfferApi:
 
         Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id for returning account information (i.e. favorites)
         :type device_id: str
         :param account_id: The account id for returning account information (i.e. favorites)
@@ -3319,7 +3233,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_details_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             offer_id=offer_id,
@@ -3348,7 +3261,6 @@ class OfferApi:
 
     def _get_offer_details_serialize(
         self,
-        version,
         device_id,
         account_id,
         offer_id,
@@ -3380,8 +3292,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3443,7 +3353,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/get',
+            resource_path='/offer/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3462,7 +3372,6 @@ class OfferApi:
     @validate_call
     def get_offer_list_counts(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         search_range: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The range of the search")] = None,
@@ -3484,8 +3393,6 @@ class OfferApi:
 
         Gets the offer list counts.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -3517,7 +3424,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_list_counts_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -3545,7 +3451,6 @@ class OfferApi:
     @validate_call
     def get_offer_list_counts_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         search_range: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The range of the search")] = None,
@@ -3567,8 +3472,6 @@ class OfferApi:
 
         Gets the offer list counts.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -3600,7 +3503,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_list_counts_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -3628,7 +3530,6 @@ class OfferApi:
     @validate_call
     def get_offer_list_counts_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         search_range: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The range of the search")] = None,
@@ -3650,8 +3551,6 @@ class OfferApi:
 
         Gets the offer list counts.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -3683,7 +3582,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_list_counts_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -3706,7 +3604,6 @@ class OfferApi:
 
     def _get_offer_list_counts_serialize(
         self,
-        version,
         latitude,
         longitude,
         search_range,
@@ -3732,8 +3629,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if latitude is not None:
             
@@ -3771,7 +3666,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/lists/count',
+            resource_path='/offer/lists/count',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3790,7 +3685,6 @@ class OfferApi:
     @validate_call
     def get_offer_location(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the offer location to get")] = None,
         udid: Annotated[Optional[StrictStr], Field(description="the UDID of the device")] = None,
         _request_timeout: Union[
@@ -3810,8 +3704,6 @@ class OfferApi:
 
         Gets the offer location by offer location id or udid (of a device)
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: the id of the offer location to get
         :type offer_location_id: int
         :param udid: the UDID of the device
@@ -3839,7 +3731,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             udid=udid,
             _request_auth=_request_auth,
@@ -3865,7 +3756,6 @@ class OfferApi:
     @validate_call
     def get_offer_location_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the offer location to get")] = None,
         udid: Annotated[Optional[StrictStr], Field(description="the UDID of the device")] = None,
         _request_timeout: Union[
@@ -3885,8 +3775,6 @@ class OfferApi:
 
         Gets the offer location by offer location id or udid (of a device)
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: the id of the offer location to get
         :type offer_location_id: int
         :param udid: the UDID of the device
@@ -3914,7 +3802,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             udid=udid,
             _request_auth=_request_auth,
@@ -3940,7 +3827,6 @@ class OfferApi:
     @validate_call
     def get_offer_location_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the offer location to get")] = None,
         udid: Annotated[Optional[StrictStr], Field(description="the UDID of the device")] = None,
         _request_timeout: Union[
@@ -3960,8 +3846,6 @@ class OfferApi:
 
         Gets the offer location by offer location id or udid (of a device)
 
-        :param version: (required)
-        :type version: float
         :param offer_location_id: the id of the offer location to get
         :type offer_location_id: int
         :param udid: the UDID of the device
@@ -3989,7 +3873,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_location_serialize(
-            version=version,
             offer_location_id=offer_location_id,
             udid=udid,
             _request_auth=_request_auth,
@@ -4010,7 +3893,6 @@ class OfferApi:
 
     def _get_offer_location_serialize(
         self,
-        version,
         offer_location_id,
         udid,
         _request_auth,
@@ -4034,8 +3916,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if offer_location_id is not None:
             
@@ -4065,7 +3945,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/location/get',
+            resource_path='/offer/location/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4084,7 +3964,6 @@ class OfferApi:
     @validate_call
     def get_offer_locations_for_retailers(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="The order to return the results. Default is false, which will return the results in ascending order.")],
         start: Annotated[StrictInt, Field(description="The index into the record set to start with. Default is 0.")],
@@ -4122,8 +4001,6 @@ class OfferApi:
 
         Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: The order to return the results. Default is false, which will return the results in ascending order. (required)
@@ -4187,7 +4064,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_locations_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -4231,7 +4107,6 @@ class OfferApi:
     @validate_call
     def get_offer_locations_for_retailers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="The order to return the results. Default is false, which will return the results in ascending order.")],
         start: Annotated[StrictInt, Field(description="The index into the record set to start with. Default is 0.")],
@@ -4269,8 +4144,6 @@ class OfferApi:
 
         Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: The order to return the results. Default is false, which will return the results in ascending order. (required)
@@ -4334,7 +4207,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_locations_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -4378,7 +4250,6 @@ class OfferApi:
     @validate_call
     def get_offer_locations_for_retailers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="The order to return the results. Default is false, which will return the results in ascending order.")],
         start: Annotated[StrictInt, Field(description="The index into the record set to start with. Default is 0.")],
@@ -4416,8 +4287,6 @@ class OfferApi:
 
         Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The column to sort the results on. Default is \"TITLE\", which will sort the results by the offer title. Possible input values: {CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, RETAILER_ID,RETAILER_LOCATION_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: The order to return the results. Default is false, which will return the results in ascending order. (required)
@@ -4481,7 +4350,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offer_locations_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -4520,7 +4388,6 @@ class OfferApi:
 
     def _get_offer_locations_for_retailers_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -4562,8 +4429,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4665,7 +4530,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/offer/location/search',
+            resource_path='/retailer/offer/location/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4684,7 +4549,6 @@ class OfferApi:
     @validate_call
     def get_offers_for_retailers(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -4733,8 +4597,6 @@ class OfferApi:
 
         Searches on offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_visibility:  (required)
         :type offer_visibility: str
         :param sort_field: The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
@@ -4820,7 +4682,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offers_for_retailers_serialize(
-            version=version,
             offer_visibility=offer_visibility,
             sort_field=sort_field,
             descending=descending,
@@ -4875,7 +4736,6 @@ class OfferApi:
     @validate_call
     def get_offers_for_retailers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -4924,8 +4784,6 @@ class OfferApi:
 
         Searches on offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_visibility:  (required)
         :type offer_visibility: str
         :param sort_field: The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
@@ -5011,7 +4869,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offers_for_retailers_serialize(
-            version=version,
             offer_visibility=offer_visibility,
             sort_field=sort_field,
             descending=descending,
@@ -5066,7 +4923,6 @@ class OfferApi:
     @validate_call
     def get_offers_for_retailers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -5115,8 +4971,6 @@ class OfferApi:
 
         Searches on offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param offer_visibility:  (required)
         :type offer_visibility: str
         :param sort_field: The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY (required)
@@ -5202,7 +5056,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._get_offers_for_retailers_serialize(
-            version=version,
             offer_visibility=offer_visibility,
             sort_field=sort_field,
             descending=descending,
@@ -5252,7 +5105,6 @@ class OfferApi:
 
     def _get_offers_for_retailers_serialize(
         self,
-        version,
         offer_visibility,
         sort_field,
         descending,
@@ -5305,8 +5157,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5452,7 +5302,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/offer/search',
+            resource_path='/retailer/offer/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5471,7 +5321,6 @@ class OfferApi:
     @validate_call
     def redeem_offer_transaction(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_transaction_id: Annotated[StrictInt, Field(description="the OfferTransaction ID of the transaction being redeemed")],
         status: Annotated[StrictInt, Field(description="the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -5494,8 +5343,6 @@ class OfferApi:
 
         Redeems an offer.
 
-        :param version: (required)
-        :type version: float
         :param offer_transaction_id: the OfferTransaction ID of the transaction being redeemed (required)
         :type offer_transaction_id: int
         :param status: the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
@@ -5529,7 +5376,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._redeem_offer_transaction_serialize(
-            version=version,
             offer_transaction_id=offer_transaction_id,
             status=status,
             device_id=device_id,
@@ -5558,7 +5404,6 @@ class OfferApi:
     @validate_call
     def redeem_offer_transaction_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_transaction_id: Annotated[StrictInt, Field(description="the OfferTransaction ID of the transaction being redeemed")],
         status: Annotated[StrictInt, Field(description="the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -5581,8 +5426,6 @@ class OfferApi:
 
         Redeems an offer.
 
-        :param version: (required)
-        :type version: float
         :param offer_transaction_id: the OfferTransaction ID of the transaction being redeemed (required)
         :type offer_transaction_id: int
         :param status: the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
@@ -5616,7 +5459,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._redeem_offer_transaction_serialize(
-            version=version,
             offer_transaction_id=offer_transaction_id,
             status=status,
             device_id=device_id,
@@ -5645,7 +5487,6 @@ class OfferApi:
     @validate_call
     def redeem_offer_transaction_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_transaction_id: Annotated[StrictInt, Field(description="the OfferTransaction ID of the transaction being redeemed")],
         status: Annotated[StrictInt, Field(description="the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -5668,8 +5509,6 @@ class OfferApi:
 
         Redeems an offer.
 
-        :param version: (required)
-        :type version: float
         :param offer_transaction_id: the OfferTransaction ID of the transaction being redeemed (required)
         :type offer_transaction_id: int
         :param status: the status to set the offer transaction to - 1 sets it to redeemable and 2 sets it to redeemed (required)
@@ -5703,7 +5542,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._redeem_offer_transaction_serialize(
-            version=version,
             offer_transaction_id=offer_transaction_id,
             status=status,
             device_id=device_id,
@@ -5727,7 +5565,6 @@ class OfferApi:
 
     def _redeem_offer_transaction_serialize(
         self,
-        version,
         offer_transaction_id,
         status,
         device_id,
@@ -5754,8 +5591,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5797,7 +5632,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/transaction/update',
+            resource_path='/retailer/offer/transaction/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5816,7 +5651,6 @@ class OfferApi:
     @validate_call
     def search_offer_transactions_for_retailers(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -5858,8 +5692,6 @@ class OfferApi:
 
         Searches on offer transactions for offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: Determines whether the results are in descending order (required)
@@ -5931,7 +5763,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -5979,7 +5810,6 @@ class OfferApi:
     @validate_call
     def search_offer_transactions_for_retailers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -6021,8 +5851,6 @@ class OfferApi:
 
         Searches on offer transactions for offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: Determines whether the results are in descending order (required)
@@ -6094,7 +5922,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -6142,7 +5969,6 @@ class OfferApi:
     @validate_call
     def search_offer_transactions_for_retailers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -6184,8 +6010,6 @@ class OfferApi:
 
         Searches on offer transactions for offers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, SEARCH_TAGS, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, CUSTOMER_ID, CUSTOMER_DISPLAY, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY} (required)
         :type sort_field: str
         :param descending: Determines whether the results are in descending order (required)
@@ -6257,7 +6081,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offer_transactions_for_retailers_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -6300,7 +6123,6 @@ class OfferApi:
 
     def _search_offer_transactions_for_retailers_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -6346,8 +6168,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -6465,7 +6285,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/offer/transaction/search',
+            resource_path='/retailer/offer/transaction/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6484,7 +6304,6 @@ class OfferApi:
     @validate_call
     def search_offers_for_consumer(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         recommendation_type: Annotated[StrictStr, Field(description="The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available")],
@@ -6533,8 +6352,6 @@ class OfferApi:
 
         Searches for offers as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -6620,7 +6437,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offers_for_consumer_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             recommendation_type=recommendation_type,
@@ -6675,7 +6491,6 @@ class OfferApi:
     @validate_call
     def search_offers_for_consumer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         recommendation_type: Annotated[StrictStr, Field(description="The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available")],
@@ -6724,8 +6539,6 @@ class OfferApi:
 
         Searches for offers as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -6811,7 +6624,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offers_for_consumer_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             recommendation_type=recommendation_type,
@@ -6866,7 +6678,6 @@ class OfferApi:
     @validate_call
     def search_offers_for_consumer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude of where the search will center at")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude of where the search will center at")],
         recommendation_type: Annotated[StrictStr, Field(description="The method to use to gather recommendations: WALLET base relevance on items in users wallets CLICKS base relevance on items users have clicked on BLENDED blend using all methods available")],
@@ -6915,8 +6726,6 @@ class OfferApi:
 
         Searches for offers as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude of where the search will center at (required)
         :type latitude: float
         :param longitude: The longitude of where the search will center at (required)
@@ -7002,7 +6811,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._search_offers_for_consumer_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             recommendation_type=recommendation_type,
@@ -7052,7 +6860,6 @@ class OfferApi:
 
     def _search_offers_for_consumer_serialize(
         self,
-        version,
         latitude,
         longitude,
         recommendation_type,
@@ -7105,8 +6912,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -7252,7 +7057,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/lists',
+            resource_path='/offer/lists',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7271,7 +7076,6 @@ class OfferApi:
     @validate_call
     def top_offer_transactions(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The total number of record to return. Default id 20.")] = None,
         _request_timeout: Union[
@@ -7291,8 +7095,6 @@ class OfferApi:
 
         Gets the top active offers.
 
-        :param version: (required)
-        :type version: float
         :param start: The index into the record set to start with. Default is 0.
         :type start: int
         :param limit: The total number of record to return. Default id 20.
@@ -7320,7 +7122,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._top_offer_transactions_serialize(
-            version=version,
             start=start,
             limit=limit,
             _request_auth=_request_auth,
@@ -7346,7 +7147,6 @@ class OfferApi:
     @validate_call
     def top_offer_transactions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The total number of record to return. Default id 20.")] = None,
         _request_timeout: Union[
@@ -7366,8 +7166,6 @@ class OfferApi:
 
         Gets the top active offers.
 
-        :param version: (required)
-        :type version: float
         :param start: The index into the record set to start with. Default is 0.
         :type start: int
         :param limit: The total number of record to return. Default id 20.
@@ -7395,7 +7193,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._top_offer_transactions_serialize(
-            version=version,
             start=start,
             limit=limit,
             _request_auth=_request_auth,
@@ -7421,7 +7218,6 @@ class OfferApi:
     @validate_call
     def top_offer_transactions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start: Annotated[Optional[StrictInt], Field(description="The index into the record set to start with. Default is 0.")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The total number of record to return. Default id 20.")] = None,
         _request_timeout: Union[
@@ -7441,8 +7237,6 @@ class OfferApi:
 
         Gets the top active offers.
 
-        :param version: (required)
-        :type version: float
         :param start: The index into the record set to start with. Default is 0.
         :type start: int
         :param limit: The total number of record to return. Default id 20.
@@ -7470,7 +7264,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._top_offer_transactions_serialize(
-            version=version,
             start=start,
             limit=limit,
             _request_auth=_request_auth,
@@ -7491,7 +7284,6 @@ class OfferApi:
 
     def _top_offer_transactions_serialize(
         self,
-        version,
         start,
         limit,
         _request_auth,
@@ -7515,8 +7307,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if start is not None:
             
@@ -7546,7 +7336,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/offer/top',
+            resource_path='/offer/top',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7565,7 +7355,6 @@ class OfferApi:
     @validate_call
     def update_offer(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The offer to update")],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -7670,8 +7459,6 @@ class OfferApi:
 
         Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The offer to update (required)
         :type offer_id: int
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
@@ -7869,7 +7656,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -7980,7 +7766,6 @@ class OfferApi:
     @validate_call
     def update_offer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The offer to update")],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -8085,8 +7870,6 @@ class OfferApi:
 
         Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The offer to update (required)
         :type offer_id: int
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
@@ -8284,7 +8067,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -8395,7 +8177,6 @@ class OfferApi:
     @validate_call
     def update_offer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="The offer to update")],
         include_offer_locations: Annotated[StrictBool, Field(description="If true return all the offer locations associated with the offer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -8500,8 +8281,6 @@ class OfferApi:
 
         Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: The offer to update (required)
         :type offer_id: int
         :param include_offer_locations: If true return all the offer locations associated with the offer (required)
@@ -8699,7 +8478,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_serialize(
-            version=version,
             offer_id=offer_id,
             include_offer_locations=include_offer_locations,
             device_id=device_id,
@@ -8805,7 +8583,6 @@ class OfferApi:
 
     def _update_offer_serialize(
         self,
-        version,
         offer_id,
         include_offer_locations,
         device_id,
@@ -8914,8 +8691,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -9285,7 +9060,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/update',
+            resource_path='/retailer/offer/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9304,7 +9079,6 @@ class OfferApi:
     @validate_call
     def update_offer_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_ids: Annotated[StrictStr, Field(description="Comma separated list of offer ids")],
         active: Annotated[StrictBool, Field(description="Determines whether to make the offer active as well")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -9326,8 +9100,6 @@ class OfferApi:
 
         Sets the activated date on offers. This will make offers visible for consumers.
 
-        :param version: (required)
-        :type version: float
         :param offer_ids: Comma separated list of offer ids (required)
         :type offer_ids: str
         :param active: Determines whether to make the offer active as well (required)
@@ -9359,7 +9131,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_status_serialize(
-            version=version,
             offer_ids=offer_ids,
             active=active,
             device_id=device_id,
@@ -9387,7 +9158,6 @@ class OfferApi:
     @validate_call
     def update_offer_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_ids: Annotated[StrictStr, Field(description="Comma separated list of offer ids")],
         active: Annotated[StrictBool, Field(description="Determines whether to make the offer active as well")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -9409,8 +9179,6 @@ class OfferApi:
 
         Sets the activated date on offers. This will make offers visible for consumers.
 
-        :param version: (required)
-        :type version: float
         :param offer_ids: Comma separated list of offer ids (required)
         :type offer_ids: str
         :param active: Determines whether to make the offer active as well (required)
@@ -9442,7 +9210,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_status_serialize(
-            version=version,
             offer_ids=offer_ids,
             active=active,
             device_id=device_id,
@@ -9470,7 +9237,6 @@ class OfferApi:
     @validate_call
     def update_offer_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_ids: Annotated[StrictStr, Field(description="Comma separated list of offer ids")],
         active: Annotated[StrictBool, Field(description="Determines whether to make the offer active as well")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -9492,8 +9258,6 @@ class OfferApi:
 
         Sets the activated date on offers. This will make offers visible for consumers.
 
-        :param version: (required)
-        :type version: float
         :param offer_ids: Comma separated list of offer ids (required)
         :type offer_ids: str
         :param active: Determines whether to make the offer active as well (required)
@@ -9525,7 +9289,6 @@ class OfferApi:
         """ # noqa: E501
 
         _param = self._update_offer_status_serialize(
-            version=version,
             offer_ids=offer_ids,
             active=active,
             device_id=device_id,
@@ -9548,7 +9311,6 @@ class OfferApi:
 
     def _update_offer_status_serialize(
         self,
-        version,
         offer_ids,
         active,
         device_id,
@@ -9574,8 +9336,6 @@ class OfferApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -9613,7 +9373,7 @@ class OfferApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/offer/status',
+            resource_path='/retailer/offer/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -49,7 +49,6 @@ class AccountApi:
     @validate_call
     def account_location_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Deprecated - legacy query parameter")] = None,
@@ -101,8 +100,6 @@ class AccountApi:
 
         Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -194,7 +191,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._account_location_search_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -252,7 +248,6 @@ class AccountApi:
     @validate_call
     def account_location_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Deprecated - legacy query parameter")] = None,
@@ -304,8 +299,6 @@ class AccountApi:
 
         Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -397,7 +390,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._account_location_search_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -455,7 +447,6 @@ class AccountApi:
     @validate_call
     def account_location_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="Deprecated - legacy query parameter")] = None,
@@ -507,8 +498,6 @@ class AccountApi:
 
         Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -600,7 +589,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._account_location_search_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -653,7 +641,6 @@ class AccountApi:
 
     def _account_location_search_serialize(
         self,
-        version,
         device_id,
         account_id,
         q,
@@ -709,8 +696,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -868,7 +853,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/search',
+            resource_path='/account/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -887,7 +872,6 @@ class AccountApi:
     @validate_call
     def block_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id_being_blocked: Annotated[StrictInt, Field(description="The id of the account to be blocked/unblocked")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -912,8 +896,6 @@ class AccountApi:
 
         Moves or removes an account into the user's blocked group.
 
-        :param version: (required)
-        :type version: float
         :param account_id_being_blocked: The id of the account to be blocked/unblocked (required)
         :type account_id_being_blocked: int
         :param device_id: The device id (deviceId or accountId required)
@@ -951,7 +933,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._block_account_serialize(
-            version=version,
             account_id_being_blocked=account_id_being_blocked,
             device_id=device_id,
             account_id=account_id,
@@ -982,7 +963,6 @@ class AccountApi:
     @validate_call
     def block_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id_being_blocked: Annotated[StrictInt, Field(description="The id of the account to be blocked/unblocked")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1007,8 +987,6 @@ class AccountApi:
 
         Moves or removes an account into the user's blocked group.
 
-        :param version: (required)
-        :type version: float
         :param account_id_being_blocked: The id of the account to be blocked/unblocked (required)
         :type account_id_being_blocked: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1046,7 +1024,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._block_account_serialize(
-            version=version,
             account_id_being_blocked=account_id_being_blocked,
             device_id=device_id,
             account_id=account_id,
@@ -1077,7 +1054,6 @@ class AccountApi:
     @validate_call
     def block_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id_being_blocked: Annotated[StrictInt, Field(description="The id of the account to be blocked/unblocked")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1102,8 +1078,6 @@ class AccountApi:
 
         Moves or removes an account into the user's blocked group.
 
-        :param version: (required)
-        :type version: float
         :param account_id_being_blocked: The id of the account to be blocked/unblocked (required)
         :type account_id_being_blocked: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1141,7 +1115,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._block_account_serialize(
-            version=version,
             account_id_being_blocked=account_id_being_blocked,
             device_id=device_id,
             account_id=account_id,
@@ -1167,7 +1140,6 @@ class AccountApi:
 
     def _block_account_serialize(
         self,
-        version,
         account_id_being_blocked,
         device_id,
         account_id,
@@ -1196,8 +1168,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1247,7 +1217,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/block',
+            resource_path='/account/block',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1266,7 +1236,6 @@ class AccountApi:
     @validate_call
     def create_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username)")],
         password: Annotated[StrictStr, Field(description="The secret to authenticate with (ex: password)")],
         name: Annotated[Optional[StrictStr], Field(description="The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName")] = None,
@@ -1356,8 +1325,6 @@ class AccountApi:
 
         Create a new account by role.
 
-        :param version: (required)
-        :type version: float
         :param username: The access token to authenticate with (ex: username) (required)
         :type username: str
         :param password: The secret to authenticate with (ex: password) (required)
@@ -1525,7 +1492,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._create_account_serialize(
-            version=version,
             username=username,
             password=password,
             name=name,
@@ -1621,7 +1587,6 @@ class AccountApi:
     @validate_call
     def create_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username)")],
         password: Annotated[StrictStr, Field(description="The secret to authenticate with (ex: password)")],
         name: Annotated[Optional[StrictStr], Field(description="The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName")] = None,
@@ -1711,8 +1676,6 @@ class AccountApi:
 
         Create a new account by role.
 
-        :param version: (required)
-        :type version: float
         :param username: The access token to authenticate with (ex: username) (required)
         :type username: str
         :param password: The secret to authenticate with (ex: password) (required)
@@ -1880,7 +1843,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._create_account_serialize(
-            version=version,
             username=username,
             password=password,
             name=name,
@@ -1976,7 +1938,6 @@ class AccountApi:
     @validate_call
     def create_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username)")],
         password: Annotated[StrictStr, Field(description="The secret to authenticate with (ex: password)")],
         name: Annotated[Optional[StrictStr], Field(description="The full name of the user. If this parameter is NOT empty, the following parameters will be ignored: prefixName, firstName, middleName, lastName, and suffixName")] = None,
@@ -2066,8 +2027,6 @@ class AccountApi:
 
         Create a new account by role.
 
-        :param version: (required)
-        :type version: float
         :param username: The access token to authenticate with (ex: username) (required)
         :type username: str
         :param password: The secret to authenticate with (ex: password) (required)
@@ -2235,7 +2194,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._create_account_serialize(
-            version=version,
             username=username,
             password=password,
             name=name,
@@ -2326,7 +2284,6 @@ class AccountApi:
 
     def _create_account_serialize(
         self,
-        version,
         username,
         password,
         name,
@@ -2420,8 +2377,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if name is not None:
             
@@ -2731,7 +2686,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/create',
+            resource_path='/account/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2750,7 +2705,6 @@ class AccountApi:
     @validate_call
     def edit_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to edit another person's account")] = None,
@@ -2850,8 +2804,6 @@ class AccountApi:
 
         Edit the user's profile information
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -3039,7 +2991,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_account_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -3145,7 +3096,6 @@ class AccountApi:
     @validate_call
     def edit_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to edit another person's account")] = None,
@@ -3245,8 +3195,6 @@ class AccountApi:
 
         Edit the user's profile information
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -3434,7 +3382,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_account_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -3540,7 +3487,6 @@ class AccountApi:
     @validate_call
     def edit_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         connection_account_id: Annotated[Optional[StrictInt], Field(description="The account id used to edit another person's account")] = None,
@@ -3640,8 +3586,6 @@ class AccountApi:
 
         Edit the user's profile information
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -3829,7 +3773,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_account_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_account_id=connection_account_id,
@@ -3930,7 +3873,6 @@ class AccountApi:
 
     def _edit_account_serialize(
         self,
-        version,
         device_id,
         account_id,
         connection_account_id,
@@ -4034,8 +3976,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4385,7 +4325,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/profile/update',
+            resource_path='/account/profile/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4404,7 +4344,6 @@ class AccountApi:
     @validate_call
     def edit_username(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         email_address: Annotated[Optional[StrictStr], Field(description="the user's contact email address (NOT the username) which is also used for email validation")] = None,
@@ -4426,8 +4365,6 @@ class AccountApi:
 
         Update account's own username and/or emailAddress
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4459,7 +4396,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_username_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             email_address=email_address,
@@ -4487,7 +4423,6 @@ class AccountApi:
     @validate_call
     def edit_username_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         email_address: Annotated[Optional[StrictStr], Field(description="the user's contact email address (NOT the username) which is also used for email validation")] = None,
@@ -4509,8 +4444,6 @@ class AccountApi:
 
         Update account's own username and/or emailAddress
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4542,7 +4475,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_username_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             email_address=email_address,
@@ -4570,7 +4502,6 @@ class AccountApi:
     @validate_call
     def edit_username_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         email_address: Annotated[Optional[StrictStr], Field(description="the user's contact email address (NOT the username) which is also used for email validation")] = None,
@@ -4592,8 +4523,6 @@ class AccountApi:
 
         Update account's own username and/or emailAddress
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4625,7 +4554,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._edit_username_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             email_address=email_address,
@@ -4648,7 +4576,6 @@ class AccountApi:
 
     def _edit_username_serialize(
         self,
-        version,
         device_id,
         account_id,
         email_address,
@@ -4674,8 +4601,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4713,7 +4638,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/username/update',
+            resource_path='/account/username/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4732,7 +4657,6 @@ class AccountApi:
     @validate_call
     def get_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Return Nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4762,8 +4686,6 @@ class AccountApi:
 
         Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Return Nulls
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -4811,7 +4733,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_account_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -4847,7 +4768,6 @@ class AccountApi:
     @validate_call
     def get_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Return Nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4877,8 +4797,6 @@ class AccountApi:
 
         Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Return Nulls
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -4926,7 +4844,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_account_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -4962,7 +4879,6 @@ class AccountApi:
     @validate_call
     def get_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Return Nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4992,8 +4908,6 @@ class AccountApi:
 
         Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Return Nulls
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -5041,7 +4955,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_account_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -5072,7 +4985,6 @@ class AccountApi:
 
     def _get_account_serialize(
         self,
-        version,
         return_nulls,
         device_id,
         account_id,
@@ -5106,8 +5018,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -5177,7 +5087,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/profile/get',
+            resource_path='/account/profile/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5196,7 +5106,6 @@ class AccountApi:
     @validate_call
     def get_profile_assets(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Determines whether to return null fields in the response")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -5228,8 +5137,6 @@ class AccountApi:
 
         Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Determines whether to return null fields in the response
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -5281,7 +5188,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_profile_assets_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -5319,7 +5225,6 @@ class AccountApi:
     @validate_call
     def get_profile_assets_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Determines whether to return null fields in the response")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -5351,8 +5256,6 @@ class AccountApi:
 
         Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Determines whether to return null fields in the response
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -5404,7 +5307,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_profile_assets_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -5442,7 +5344,6 @@ class AccountApi:
     @validate_call
     def get_profile_assets_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="Determines whether to return null fields in the response")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -5474,8 +5375,6 @@ class AccountApi:
 
         Get a list of assets a person has ever uploaded. Filters the list based on parameters.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: Determines whether to return null fields in the response
         :type return_nulls: bool
         :param device_id: The device id (deviceId or accountId required)
@@ -5527,7 +5426,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_profile_assets_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -5560,7 +5458,6 @@ class AccountApi:
 
     def _get_profile_assets_serialize(
         self,
-        version,
         return_nulls,
         device_id,
         account_id,
@@ -5596,8 +5493,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -5675,7 +5570,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/profile/assets',
+            resource_path='/account/profile/assets',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5694,7 +5589,6 @@ class AccountApi:
     @validate_call
     def get_referral_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         retrieve_type: Annotated[Optional[StrictStr], Field(description="one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above")] = None,
@@ -5723,8 +5617,6 @@ class AccountApi:
 
         Gets a user's account profile and their referral List.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (deviceId or accountId required)
         :type account_id: int
         :param app_key: The application key
@@ -5770,7 +5662,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_referral_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retrieve_type=retrieve_type,
@@ -5805,7 +5696,6 @@ class AccountApi:
     @validate_call
     def get_referral_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         retrieve_type: Annotated[Optional[StrictStr], Field(description="one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above")] = None,
@@ -5834,8 +5724,6 @@ class AccountApi:
 
         Gets a user's account profile and their referral List.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (deviceId or accountId required)
         :type account_id: int
         :param app_key: The application key
@@ -5881,7 +5769,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_referral_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retrieve_type=retrieve_type,
@@ -5916,7 +5803,6 @@ class AccountApi:
     @validate_call
     def get_referral_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         retrieve_type: Annotated[Optional[StrictStr], Field(description="one of these option - GET_CHILDREN will get all accounts that had signed up using the current account invite link - GET_ANCESTOR will get all accounts that referred the current account and it's parents, recursively - GET_ALL will get all of the above")] = None,
@@ -5945,8 +5831,6 @@ class AccountApi:
 
         Gets a user's account profile and their referral List.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (deviceId or accountId required)
         :type account_id: int
         :param app_key: The application key
@@ -5992,7 +5876,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_referral_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retrieve_type=retrieve_type,
@@ -6022,7 +5905,6 @@ class AccountApi:
 
     def _get_referral_list_serialize(
         self,
-        version,
         account_id,
         app_key,
         retrieve_type,
@@ -6055,8 +5937,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6115,7 +5995,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/referral/list',
+            resource_path='/account/referral/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6134,7 +6014,6 @@ class AccountApi:
     @validate_call
     def get_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -6156,8 +6035,6 @@ class AccountApi:
 
         Get the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -6189,7 +6066,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -6217,7 +6093,6 @@ class AccountApi:
     @validate_call
     def get_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -6239,8 +6114,6 @@ class AccountApi:
 
         Get the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -6272,7 +6145,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -6300,7 +6172,6 @@ class AccountApi:
     @validate_call
     def get_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -6322,8 +6193,6 @@ class AccountApi:
 
         Get the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -6355,7 +6224,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._get_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -6378,7 +6246,6 @@ class AccountApi:
 
     def _get_settings_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -6404,8 +6271,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -6443,7 +6308,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/settings/get',
+            resource_path='/account/settings/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6462,7 +6327,6 @@ class AccountApi:
     @validate_call
     def login_delegate(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: StrictStr,
         app_key: StrictStr,
         device_id: Optional[StrictStr] = None,
@@ -6491,8 +6355,6 @@ class AccountApi:
 
         A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 
-        :param version: (required)
-        :type version: float
         :param access_token: (required)
         :type access_token: str
         :param app_key: (required)
@@ -6538,7 +6400,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_delegate_serialize(
-            version=version,
             access_token=access_token,
             app_key=app_key,
             device_id=device_id,
@@ -6573,7 +6434,6 @@ class AccountApi:
     @validate_call
     def login_delegate_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: StrictStr,
         app_key: StrictStr,
         device_id: Optional[StrictStr] = None,
@@ -6602,8 +6462,6 @@ class AccountApi:
 
         A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 
-        :param version: (required)
-        :type version: float
         :param access_token: (required)
         :type access_token: str
         :param app_key: (required)
@@ -6649,7 +6507,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_delegate_serialize(
-            version=version,
             access_token=access_token,
             app_key=app_key,
             device_id=device_id,
@@ -6684,7 +6541,6 @@ class AccountApi:
     @validate_call
     def login_delegate_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: StrictStr,
         app_key: StrictStr,
         device_id: Optional[StrictStr] = None,
@@ -6713,8 +6569,6 @@ class AccountApi:
 
         A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
 
-        :param version: (required)
-        :type version: float
         :param access_token: (required)
         :type access_token: str
         :param app_key: (required)
@@ -6760,7 +6614,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_delegate_serialize(
-            version=version,
             access_token=access_token,
             app_key=app_key,
             device_id=device_id,
@@ -6790,7 +6643,6 @@ class AccountApi:
 
     def _login_delegate_serialize(
         self,
-        version,
         access_token,
         app_key,
         device_id,
@@ -6823,8 +6675,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -6890,7 +6740,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/login/delegate',
+            resource_path='/account/login/delegate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6909,7 +6759,6 @@ class AccountApi:
     @validate_call
     def login_general(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username or fb token)")],
         network_uid: Annotated[StrictStr, Field(description="The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE ")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -6940,8 +6789,6 @@ class AccountApi:
 
         General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token to authenticate with (ex: username or fb token) (required)
         :type access_token: str
         :param network_uid: The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
@@ -6991,7 +6838,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_general_serialize(
-            version=version,
             access_token=access_token,
             network_uid=network_uid,
             app_key=app_key,
@@ -7028,7 +6874,6 @@ class AccountApi:
     @validate_call
     def login_general_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username or fb token)")],
         network_uid: Annotated[StrictStr, Field(description="The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE ")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -7059,8 +6904,6 @@ class AccountApi:
 
         General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token to authenticate with (ex: username or fb token) (required)
         :type access_token: str
         :param network_uid: The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
@@ -7110,7 +6953,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_general_serialize(
-            version=version,
             access_token=access_token,
             network_uid=network_uid,
             app_key=app_key,
@@ -7147,7 +6989,6 @@ class AccountApi:
     @validate_call
     def login_general_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         access_token: Annotated[StrictStr, Field(description="The access token to authenticate with (ex: username or fb token)")],
         network_uid: Annotated[StrictStr, Field(description="The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE ")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -7178,8 +7019,6 @@ class AccountApi:
 
         General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
 
-        :param version: (required)
-        :type version: float
         :param access_token: The access token to authenticate with (ex: username or fb token) (required)
         :type access_token: str
         :param network_uid: The access provider to authenticate against. This can be custom  networks created using the ThirdPartyApi as well. Supported values by default  include: FACEBOOK, TWITTER, USERNAME, PHONE  (required)
@@ -7229,7 +7068,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_general_serialize(
-            version=version,
             access_token=access_token,
             network_uid=network_uid,
             app_key=app_key,
@@ -7261,7 +7099,6 @@ class AccountApi:
 
     def _login_general_serialize(
         self,
-        version,
         access_token,
         network_uid,
         app_key,
@@ -7296,8 +7133,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -7371,7 +7206,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/login',
+            resource_path='/account/login',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7390,7 +7225,6 @@ class AccountApi:
     @validate_call
     def login_username(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
@@ -7418,8 +7252,6 @@ class AccountApi:
 
         Login to system with an account
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -7463,7 +7295,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_username_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -7497,7 +7328,6 @@ class AccountApi:
     @validate_call
     def login_username_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
@@ -7525,8 +7355,6 @@ class AccountApi:
 
         Login to system with an account
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -7570,7 +7398,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_username_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -7604,7 +7431,6 @@ class AccountApi:
     @validate_call
     def login_username_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
@@ -7632,8 +7458,6 @@ class AccountApi:
 
         Login to system with an account
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -7677,7 +7501,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._login_username_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -7706,7 +7529,6 @@ class AccountApi:
 
     def _login_username_serialize(
         self,
-        version,
         username,
         password,
         device_id,
@@ -7738,8 +7560,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -7801,7 +7621,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/get',
+            resource_path='/account/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7820,7 +7640,6 @@ class AccountApi:
     @validate_call
     def logout(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         device_id_type: Annotated[Optional[StrictStr], Field(description="Device Id Type")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -7843,8 +7662,6 @@ class AccountApi:
 
         Cleans up the users data for logging out.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param device_id_type: Device Id Type
@@ -7878,7 +7695,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._logout_serialize(
-            version=version,
             device_id=device_id,
             device_id_type=device_id_type,
             account_id=account_id,
@@ -7907,7 +7723,6 @@ class AccountApi:
     @validate_call
     def logout_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         device_id_type: Annotated[Optional[StrictStr], Field(description="Device Id Type")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -7930,8 +7745,6 @@ class AccountApi:
 
         Cleans up the users data for logging out.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param device_id_type: Device Id Type
@@ -7965,7 +7778,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._logout_serialize(
-            version=version,
             device_id=device_id,
             device_id_type=device_id_type,
             account_id=account_id,
@@ -7994,7 +7806,6 @@ class AccountApi:
     @validate_call
     def logout_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         device_id_type: Annotated[Optional[StrictStr], Field(description="Device Id Type")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -8017,8 +7828,6 @@ class AccountApi:
 
         Cleans up the users data for logging out.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param device_id_type: Device Id Type
@@ -8052,7 +7861,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._logout_serialize(
-            version=version,
             device_id=device_id,
             device_id_type=device_id_type,
             account_id=account_id,
@@ -8076,7 +7884,6 @@ class AccountApi:
 
     def _logout_serialize(
         self,
-        version,
         device_id,
         device_id_type,
         account_id,
@@ -8103,8 +7910,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -8146,7 +7951,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/logout',
+            resource_path='/account/logout',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8165,7 +7970,6 @@ class AccountApi:
     @validate_call
     def merge_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         merge_account_id: Annotated[StrictInt, Field(description="The id of the account to being merged")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -8187,8 +7991,6 @@ class AccountApi:
 
         Merges the analytics, achievements, leaderboards of two accounts.
 
-        :param version: (required)
-        :type version: float
         :param merge_account_id: The id of the account to being merged (required)
         :type merge_account_id: int
         :param app_key: The application key (required)
@@ -8220,7 +8022,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._merge_account_serialize(
-            version=version,
             merge_account_id=merge_account_id,
             app_key=app_key,
             device_id=device_id,
@@ -8248,7 +8049,6 @@ class AccountApi:
     @validate_call
     def merge_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         merge_account_id: Annotated[StrictInt, Field(description="The id of the account to being merged")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -8270,8 +8070,6 @@ class AccountApi:
 
         Merges the analytics, achievements, leaderboards of two accounts.
 
-        :param version: (required)
-        :type version: float
         :param merge_account_id: The id of the account to being merged (required)
         :type merge_account_id: int
         :param app_key: The application key (required)
@@ -8303,7 +8101,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._merge_account_serialize(
-            version=version,
             merge_account_id=merge_account_id,
             app_key=app_key,
             device_id=device_id,
@@ -8331,7 +8128,6 @@ class AccountApi:
     @validate_call
     def merge_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         merge_account_id: Annotated[StrictInt, Field(description="The id of the account to being merged")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -8353,8 +8149,6 @@ class AccountApi:
 
         Merges the analytics, achievements, leaderboards of two accounts.
 
-        :param version: (required)
-        :type version: float
         :param merge_account_id: The id of the account to being merged (required)
         :type merge_account_id: int
         :param app_key: The application key (required)
@@ -8386,7 +8180,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._merge_account_serialize(
-            version=version,
             merge_account_id=merge_account_id,
             app_key=app_key,
             device_id=device_id,
@@ -8409,7 +8202,6 @@ class AccountApi:
 
     def _merge_account_serialize(
         self,
-        version,
         merge_account_id,
         app_key,
         device_id,
@@ -8435,8 +8227,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -8474,7 +8264,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/merge',
+            resource_path='/account/merge',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8493,7 +8283,6 @@ class AccountApi:
     @validate_call
     def password_change(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to update")],
         old_password: Annotated[StrictStr, Field(description="The current password, used to validate access")],
         new_password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
@@ -8515,8 +8304,6 @@ class AccountApi:
 
         Update the account password.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to update (required)
         :type account_id: int
         :param old_password: The current password, used to validate access (required)
@@ -8548,7 +8335,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_change_serialize(
-            version=version,
             account_id=account_id,
             old_password=old_password,
             new_password=new_password,
@@ -8576,7 +8362,6 @@ class AccountApi:
     @validate_call
     def password_change_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to update")],
         old_password: Annotated[StrictStr, Field(description="The current password, used to validate access")],
         new_password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
@@ -8598,8 +8383,6 @@ class AccountApi:
 
         Update the account password.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to update (required)
         :type account_id: int
         :param old_password: The current password, used to validate access (required)
@@ -8631,7 +8414,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_change_serialize(
-            version=version,
             account_id=account_id,
             old_password=old_password,
             new_password=new_password,
@@ -8659,7 +8441,6 @@ class AccountApi:
     @validate_call
     def password_change_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to update")],
         old_password: Annotated[StrictStr, Field(description="The current password, used to validate access")],
         new_password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
@@ -8681,8 +8462,6 @@ class AccountApi:
 
         Update the account password.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to update (required)
         :type account_id: int
         :param old_password: The current password, used to validate access (required)
@@ -8714,7 +8493,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_change_serialize(
-            version=version,
             account_id=account_id,
             old_password=old_password,
             new_password=new_password,
@@ -8737,7 +8515,6 @@ class AccountApi:
 
     def _password_change_serialize(
         self,
-        version,
         account_id,
         old_password,
         new_password,
@@ -8763,8 +8540,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -8802,7 +8577,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/passwordchange',
+            resource_path='/account/passwordchange',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8821,7 +8596,6 @@ class AccountApi:
     @validate_call
     def password_reset(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
         confirm: Annotated[StrictStr, Field(description="The new password to confirm, must match newPassword")],
@@ -8842,8 +8616,6 @@ class AccountApi:
 
         Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param password: The new password to set, cannot be empty (required)
@@ -8873,7 +8645,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_reset_serialize(
-            version=version,
             token=token,
             password=password,
             confirm=confirm,
@@ -8900,7 +8671,6 @@ class AccountApi:
     @validate_call
     def password_reset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
         confirm: Annotated[StrictStr, Field(description="The new password to confirm, must match newPassword")],
@@ -8921,8 +8691,6 @@ class AccountApi:
 
         Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param password: The new password to set, cannot be empty (required)
@@ -8952,7 +8720,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_reset_serialize(
-            version=version,
             token=token,
             password=password,
             confirm=confirm,
@@ -8979,7 +8746,6 @@ class AccountApi:
     @validate_call
     def password_reset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         password: Annotated[StrictStr, Field(description="The new password to set, cannot be empty")],
         confirm: Annotated[StrictStr, Field(description="The new password to confirm, must match newPassword")],
@@ -9000,8 +8766,6 @@ class AccountApi:
 
         Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param password: The new password to set, cannot be empty (required)
@@ -9031,7 +8795,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._password_reset_serialize(
-            version=version,
             token=token,
             password=password,
             confirm=confirm,
@@ -9053,7 +8816,6 @@ class AccountApi:
 
     def _password_reset_serialize(
         self,
-        version,
         token,
         password,
         confirm,
@@ -9078,8 +8840,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if token is not None:
             
@@ -9113,7 +8873,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/passwordreset',
+            resource_path='/account/passwordreset',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9132,7 +8892,6 @@ class AccountApi:
     @validate_call
     def request_password_reset(
         self,
-        version: Union[StrictFloat, StrictInt],
         email: Annotated[StrictStr, Field(description="The email/username of the account")],
         var_from: Annotated[Optional[StrictStr], Field(description="this is the sender email")] = None,
         domain: Annotated[Optional[StrictStr], Field(description="this is the domain (like dev.sirqul.com) used to generate the password reset link")] = None,
@@ -9155,8 +8914,6 @@ class AccountApi:
 
         Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 
-        :param version: (required)
-        :type version: float
         :param email: The email/username of the account (required)
         :type email: str
         :param var_from: this is the sender email
@@ -9190,7 +8947,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_password_reset_serialize(
-            version=version,
             email=email,
             var_from=var_from,
             domain=domain,
@@ -9219,7 +8975,6 @@ class AccountApi:
     @validate_call
     def request_password_reset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         email: Annotated[StrictStr, Field(description="The email/username of the account")],
         var_from: Annotated[Optional[StrictStr], Field(description="this is the sender email")] = None,
         domain: Annotated[Optional[StrictStr], Field(description="this is the domain (like dev.sirqul.com) used to generate the password reset link")] = None,
@@ -9242,8 +8997,6 @@ class AccountApi:
 
         Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 
-        :param version: (required)
-        :type version: float
         :param email: The email/username of the account (required)
         :type email: str
         :param var_from: this is the sender email
@@ -9277,7 +9030,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_password_reset_serialize(
-            version=version,
             email=email,
             var_from=var_from,
             domain=domain,
@@ -9306,7 +9058,6 @@ class AccountApi:
     @validate_call
     def request_password_reset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         email: Annotated[StrictStr, Field(description="The email/username of the account")],
         var_from: Annotated[Optional[StrictStr], Field(description="this is the sender email")] = None,
         domain: Annotated[Optional[StrictStr], Field(description="this is the domain (like dev.sirqul.com) used to generate the password reset link")] = None,
@@ -9329,8 +9080,6 @@ class AccountApi:
 
         Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
 
-        :param version: (required)
-        :type version: float
         :param email: The email/username of the account (required)
         :type email: str
         :param var_from: this is the sender email
@@ -9364,7 +9113,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_password_reset_serialize(
-            version=version,
             email=email,
             var_from=var_from,
             domain=domain,
@@ -9388,7 +9136,6 @@ class AccountApi:
 
     def _request_password_reset_serialize(
         self,
-        version,
         email,
         var_from,
         domain,
@@ -9415,8 +9162,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if email is not None:
             
@@ -9458,7 +9203,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/requestpasswordreset',
+            resource_path='/account/requestpasswordreset',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9477,7 +9222,6 @@ class AccountApi:
     @validate_call
     def request_validate_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         _request_timeout: Union[
             None,
@@ -9496,8 +9240,6 @@ class AccountApi:
 
         Send an email to validate a user's account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -9523,7 +9265,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_validate_account_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9548,7 +9289,6 @@ class AccountApi:
     @validate_call
     def request_validate_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         _request_timeout: Union[
             None,
@@ -9567,8 +9307,6 @@ class AccountApi:
 
         Send an email to validate a user's account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -9594,7 +9332,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_validate_account_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9619,7 +9356,6 @@ class AccountApi:
     @validate_call
     def request_validate_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         _request_timeout: Union[
             None,
@@ -9638,8 +9374,6 @@ class AccountApi:
 
         Send an email to validate a user's account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -9665,7 +9399,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._request_validate_account_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -9685,7 +9418,6 @@ class AccountApi:
 
     def _request_validate_account_serialize(
         self,
-        version,
         account_id,
         _request_auth,
         _content_type,
@@ -9708,8 +9440,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -9735,7 +9465,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/requestValidateAccount',
+            resource_path='/account/requestValidateAccount',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9754,7 +9484,6 @@ class AccountApi:
     @validate_call
     def search_accounts(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account requesting")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword for for querying the account")] = None,
@@ -9790,8 +9519,6 @@ class AccountApi:
 
         Search for account profiles.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account requesting (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -9851,7 +9578,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._search_accounts_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -9893,7 +9619,6 @@ class AccountApi:
     @validate_call
     def search_accounts_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account requesting")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword for for querying the account")] = None,
@@ -9929,8 +9654,6 @@ class AccountApi:
 
         Search for account profiles.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account requesting (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -9990,7 +9713,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._search_accounts_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -10032,7 +9754,6 @@ class AccountApi:
     @validate_call
     def search_accounts_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The id of the account requesting")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword for for querying the account")] = None,
@@ -10068,8 +9789,6 @@ class AccountApi:
 
         Search for account profiles.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The id of the account requesting (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -10129,7 +9848,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._search_accounts_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -10166,7 +9884,6 @@ class AccountApi:
 
     def _search_accounts_serialize(
         self,
-        version,
         account_id,
         app_key,
         keyword,
@@ -10206,8 +9923,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -10301,7 +10016,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/profile/search',
+            resource_path='/account/profile/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10320,7 +10035,6 @@ class AccountApi:
     @validate_call
     def secure_login(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The user's encrypted email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="The encrypted password")],
         game_type: Annotated[StrictStr, Field(description="The application key")],
@@ -10347,8 +10061,6 @@ class AccountApi:
 
         ogin with encrypted user-name and password.
 
-        :param version: (required)
-        :type version: float
         :param username: The user's encrypted email address they used to sign-up (required)
         :type username: str
         :param password: The encrypted password (required)
@@ -10390,7 +10102,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_login_serialize(
-            version=version,
             username=username,
             password=password,
             game_type=game_type,
@@ -10423,7 +10134,6 @@ class AccountApi:
     @validate_call
     def secure_login_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The user's encrypted email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="The encrypted password")],
         game_type: Annotated[StrictStr, Field(description="The application key")],
@@ -10450,8 +10160,6 @@ class AccountApi:
 
         ogin with encrypted user-name and password.
 
-        :param version: (required)
-        :type version: float
         :param username: The user's encrypted email address they used to sign-up (required)
         :type username: str
         :param password: The encrypted password (required)
@@ -10493,7 +10201,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_login_serialize(
-            version=version,
             username=username,
             password=password,
             game_type=game_type,
@@ -10526,7 +10233,6 @@ class AccountApi:
     @validate_call
     def secure_login_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="The user's encrypted email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="The encrypted password")],
         game_type: Annotated[StrictStr, Field(description="The application key")],
@@ -10553,8 +10259,6 @@ class AccountApi:
 
         ogin with encrypted user-name and password.
 
-        :param version: (required)
-        :type version: float
         :param username: The user's encrypted email address they used to sign-up (required)
         :type username: str
         :param password: The encrypted password (required)
@@ -10596,7 +10300,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_login_serialize(
-            version=version,
             username=username,
             password=password,
             game_type=game_type,
@@ -10624,7 +10327,6 @@ class AccountApi:
 
     def _secure_login_serialize(
         self,
-        version,
         username,
         password,
         game_type,
@@ -10655,8 +10357,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -10714,7 +10414,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/login/validate',
+            resource_path='/account/login/validate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10733,7 +10433,6 @@ class AccountApi:
     @validate_call
     def secure_signup(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[StrictStr, Field(description="The device id")],
         username: Annotated[StrictStr, Field(description="The encrypted email of the user, this is what will be used when they login")],
         password: Annotated[StrictStr, Field(description="The encrypted password of the user")],
@@ -10812,8 +10511,6 @@ class AccountApi:
 
         Create a new account by role (with encrypted user-name and password)
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (required)
         :type device_id: str
         :param username: The encrypted email of the user, this is what will be used when they login (required)
@@ -10959,7 +10656,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_signup_serialize(
-            version=version,
             device_id=device_id,
             username=username,
             password=password,
@@ -11044,7 +10740,6 @@ class AccountApi:
     @validate_call
     def secure_signup_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[StrictStr, Field(description="The device id")],
         username: Annotated[StrictStr, Field(description="The encrypted email of the user, this is what will be used when they login")],
         password: Annotated[StrictStr, Field(description="The encrypted password of the user")],
@@ -11123,8 +10818,6 @@ class AccountApi:
 
         Create a new account by role (with encrypted user-name and password)
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (required)
         :type device_id: str
         :param username: The encrypted email of the user, this is what will be used when they login (required)
@@ -11270,7 +10963,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_signup_serialize(
-            version=version,
             device_id=device_id,
             username=username,
             password=password,
@@ -11355,7 +11047,6 @@ class AccountApi:
     @validate_call
     def secure_signup_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[StrictStr, Field(description="The device id")],
         username: Annotated[StrictStr, Field(description="The encrypted email of the user, this is what will be used when they login")],
         password: Annotated[StrictStr, Field(description="The encrypted password of the user")],
@@ -11434,8 +11125,6 @@ class AccountApi:
 
         Create a new account by role (with encrypted user-name and password)
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (required)
         :type device_id: str
         :param username: The encrypted email of the user, this is what will be used when they login (required)
@@ -11581,7 +11270,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._secure_signup_serialize(
-            version=version,
             device_id=device_id,
             username=username,
             password=password,
@@ -11661,7 +11349,6 @@ class AccountApi:
 
     def _secure_signup_serialize(
         self,
-        version,
         device_id,
         username,
         password,
@@ -11744,8 +11431,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if name is not None:
             
@@ -12011,7 +11696,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/create/validate',
+            resource_path='/account/create/validate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12030,7 +11715,6 @@ class AccountApi:
     @validate_call
     def set_match_token(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         match_token: Annotated[Optional[StrictStr], Field(description="A string of numbers")] = None,
@@ -12055,8 +11739,6 @@ class AccountApi:
 
         Save user's match token to be used for profile match making
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12094,7 +11776,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._set_match_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             match_token=match_token,
@@ -12125,7 +11806,6 @@ class AccountApi:
     @validate_call
     def set_match_token_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         match_token: Annotated[Optional[StrictStr], Field(description="A string of numbers")] = None,
@@ -12150,8 +11830,6 @@ class AccountApi:
 
         Save user's match token to be used for profile match making
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12189,7 +11867,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._set_match_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             match_token=match_token,
@@ -12220,7 +11897,6 @@ class AccountApi:
     @validate_call
     def set_match_token_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         match_token: Annotated[Optional[StrictStr], Field(description="A string of numbers")] = None,
@@ -12245,8 +11921,6 @@ class AccountApi:
 
         Save user's match token to be used for profile match making
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12284,7 +11958,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._set_match_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             match_token=match_token,
@@ -12310,7 +11983,6 @@ class AccountApi:
 
     def _set_match_token_serialize(
         self,
-        version,
         device_id,
         account_id,
         match_token,
@@ -12339,8 +12011,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -12390,7 +12060,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/profile/matchToken',
+            resource_path='/consumer/profile/matchToken',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12409,7 +12079,6 @@ class AccountApi:
     @validate_call
     def update_actve_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         connection_account_id: Annotated[StrictInt, Field(description="The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)")],
         active: Annotated[StrictBool, Field(description="true will activate the user and false will deactivate")],
@@ -12432,8 +12101,6 @@ class AccountApi:
 
         Activate or deactivate an account (requires appropriate permissions).
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param connection_account_id: The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
@@ -12467,7 +12134,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_actve_status_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             active=active,
@@ -12496,7 +12162,6 @@ class AccountApi:
     @validate_call
     def update_actve_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         connection_account_id: Annotated[StrictInt, Field(description="The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)")],
         active: Annotated[StrictBool, Field(description="true will activate the user and false will deactivate")],
@@ -12519,8 +12184,6 @@ class AccountApi:
 
         Activate or deactivate an account (requires appropriate permissions).
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param connection_account_id: The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
@@ -12554,7 +12217,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_actve_status_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             active=active,
@@ -12583,7 +12245,6 @@ class AccountApi:
     @validate_call
     def update_actve_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user (deviceId or accountId required)")],
         connection_account_id: Annotated[StrictInt, Field(description="The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead)")],
         active: Annotated[StrictBool, Field(description="true will activate the user and false will deactivate")],
@@ -12606,8 +12267,6 @@ class AccountApi:
 
         Activate or deactivate an account (requires appropriate permissions).
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (deviceId or accountId required) (required)
         :type account_id: int
         :param connection_account_id: The account id of the user you want to modify (if this is not set, then the accountId parameter will be used instead) (required)
@@ -12641,7 +12300,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_actve_status_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             active=active,
@@ -12665,7 +12323,6 @@ class AccountApi:
 
     def _update_actve_status_serialize(
         self,
-        version,
         account_id,
         connection_account_id,
         active,
@@ -12692,8 +12349,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -12735,7 +12390,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/active/update',
+            resource_path='/account/active/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12754,7 +12409,6 @@ class AccountApi:
     @validate_call
     def update_location(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -12777,8 +12431,6 @@ class AccountApi:
 
         Update the account location
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12812,7 +12464,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -12841,7 +12492,6 @@ class AccountApi:
     @validate_call
     def update_location_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -12864,8 +12514,6 @@ class AccountApi:
 
         Update the account location
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12899,7 +12547,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -12928,7 +12575,6 @@ class AccountApi:
     @validate_call
     def update_location_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The current latitude of the user")] = None,
@@ -12951,8 +12597,6 @@ class AccountApi:
 
         Update the account location
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -12986,7 +12630,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -13010,7 +12653,6 @@ class AccountApi:
 
     def _update_location_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -13037,8 +12679,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -13080,7 +12720,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/location/update',
+            resource_path='/account/location/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13099,7 +12739,6 @@ class AccountApi:
     @validate_call
     def update_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         blocked_notifications: Annotated[Optional[StrictStr], Field(description="The notifications to be blocked")] = None,
@@ -13129,8 +12768,6 @@ class AccountApi:
 
         Update the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -13178,7 +12815,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             blocked_notifications=blocked_notifications,
@@ -13214,7 +12850,6 @@ class AccountApi:
     @validate_call
     def update_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         blocked_notifications: Annotated[Optional[StrictStr], Field(description="The notifications to be blocked")] = None,
@@ -13244,8 +12879,6 @@ class AccountApi:
 
         Update the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -13293,7 +12926,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             blocked_notifications=blocked_notifications,
@@ -13329,7 +12961,6 @@ class AccountApi:
     @validate_call
     def update_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         blocked_notifications: Annotated[Optional[StrictStr], Field(description="The notifications to be blocked")] = None,
@@ -13359,8 +12990,6 @@ class AccountApi:
 
         Update the account settings for a user
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -13408,7 +13037,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._update_settings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             blocked_notifications=blocked_notifications,
@@ -13439,7 +13067,6 @@ class AccountApi:
 
     def _update_settings_serialize(
         self,
-        version,
         device_id,
         account_id,
         blocked_notifications,
@@ -13473,8 +13100,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -13544,7 +13169,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/settings/update',
+            resource_path='/account/settings/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13563,7 +13188,6 @@ class AccountApi:
     @validate_call
     def validate_account_signup(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -13582,8 +13206,6 @@ class AccountApi:
 
         Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -13609,7 +13231,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_account_signup_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -13634,7 +13255,6 @@ class AccountApi:
     @validate_call
     def validate_account_signup_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -13653,8 +13273,6 @@ class AccountApi:
 
         Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -13680,7 +13298,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_account_signup_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -13705,7 +13322,6 @@ class AccountApi:
     @validate_call
     def validate_account_signup_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -13724,8 +13340,6 @@ class AccountApi:
 
         Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -13751,7 +13365,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_account_signup_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -13771,7 +13384,6 @@ class AccountApi:
 
     def _validate_account_signup_serialize(
         self,
-        version,
         token,
         _request_auth,
         _content_type,
@@ -13794,8 +13406,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if token is not None:
             
@@ -13821,7 +13431,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/validateAccountSignup',
+            resource_path='/account/validateAccountSignup',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13840,7 +13450,6 @@ class AccountApi:
     @validate_call
     def validate_password_reset(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -13859,8 +13468,6 @@ class AccountApi:
 
         Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -13886,7 +13493,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_password_reset_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -13911,7 +13517,6 @@ class AccountApi:
     @validate_call
     def validate_password_reset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -13930,8 +13535,6 @@ class AccountApi:
 
         Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -13957,7 +13560,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_password_reset_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -13982,7 +13584,6 @@ class AccountApi:
     @validate_call
     def validate_password_reset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         token: Annotated[StrictStr, Field(description="The token associated with the account to update, good for 24 hours")],
         _request_timeout: Union[
             None,
@@ -14001,8 +13602,6 @@ class AccountApi:
 
         Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
 
-        :param version: (required)
-        :type version: float
         :param token: The token associated with the account to update, good for 24 hours (required)
         :type token: str
         :param _request_timeout: timeout setting for this request. If one
@@ -14028,7 +13627,6 @@ class AccountApi:
         """ # noqa: E501
 
         _param = self._validate_password_reset_serialize(
-            version=version,
             token=token,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -14048,7 +13646,6 @@ class AccountApi:
 
     def _validate_password_reset_serialize(
         self,
-        version,
         token,
         _request_auth,
         _content_type,
@@ -14071,8 +13668,6 @@ class AccountApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if token is not None:
             
@@ -14098,7 +13693,7 @@ class AccountApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/account/validatepasswordreset',
+            resource_path='/account/validatepasswordreset',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

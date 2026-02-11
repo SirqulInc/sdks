@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt
-from typing import Optional, Union
+from pydantic import Field, StrictInt
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.stop import Stop
 
@@ -43,7 +43,6 @@ class StopApi:
     @validate_call
     def get_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to get")],
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class StopApi:
 
         Get an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._get_stop_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class StopApi:
     @validate_call
     def get_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to get")],
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class StopApi:
 
         Get an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._get_stop_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class StopApi:
     @validate_call
     def get_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to get")],
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class StopApi:
 
         Get an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._get_stop_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class StopApi:
 
     def _get_stop_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class StopApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -299,7 +284,7 @@ class StopApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/stop/{id}',
+            resource_path='/stop/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -318,7 +303,6 @@ class StopApi:
     @validate_call
     def update_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to update")],
         body: Optional[Stop] = None,
         _request_timeout: Union[
@@ -338,8 +322,6 @@ class StopApi:
 
         Update an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to update (required)
         :type id: int
         :param body:
@@ -367,7 +349,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._update_stop_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -393,7 +374,6 @@ class StopApi:
     @validate_call
     def update_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to update")],
         body: Optional[Stop] = None,
         _request_timeout: Union[
@@ -413,8 +393,6 @@ class StopApi:
 
         Update an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to update (required)
         :type id: int
         :param body:
@@ -442,7 +420,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._update_stop_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -468,7 +445,6 @@ class StopApi:
     @validate_call
     def update_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the stop to update")],
         body: Optional[Stop] = None,
         _request_timeout: Union[
@@ -488,8 +464,6 @@ class StopApi:
 
         Update an existing stop
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the stop to update (required)
         :type id: int
         :param body:
@@ -517,7 +491,6 @@ class StopApi:
         """ # noqa: E501
 
         _param = self._update_stop_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -538,7 +511,6 @@ class StopApi:
 
     def _update_stop_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -562,8 +534,6 @@ class StopApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -589,7 +559,7 @@ class StopApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/stop/{id}',
+            resource_path='/stop/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

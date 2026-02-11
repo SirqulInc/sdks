@@ -48,7 +48,6 @@ class AudienceApi:
     @validate_call
     def create_audience(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the audience")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the audience")] = None,
@@ -95,8 +94,6 @@ class AudienceApi:
 
         Create a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the audience (required)
@@ -178,7 +175,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._create_audience_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             description=description,
@@ -231,7 +227,6 @@ class AudienceApi:
     @validate_call
     def create_audience_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the audience")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the audience")] = None,
@@ -278,8 +273,6 @@ class AudienceApi:
 
         Create a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the audience (required)
@@ -361,7 +354,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._create_audience_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             description=description,
@@ -414,7 +406,6 @@ class AudienceApi:
     @validate_call
     def create_audience_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the audience")],
         description: Annotated[Optional[StrictStr], Field(description="The description of the audience")] = None,
@@ -461,8 +452,6 @@ class AudienceApi:
 
         Create a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the audience (required)
@@ -544,7 +533,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._create_audience_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             description=description,
@@ -592,7 +580,6 @@ class AudienceApi:
 
     def _create_audience_serialize(
         self,
-        version,
         account_id,
         name,
         description,
@@ -643,8 +630,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -782,7 +767,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/audience/create',
+            resource_path='/audience/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -801,7 +786,6 @@ class AudienceApi:
     @validate_call
     def delete_audience(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to delete.")],
         _request_timeout: Union[
@@ -821,8 +805,6 @@ class AudienceApi:
 
         Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to delete. (required)
@@ -850,7 +832,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._delete_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -876,7 +857,6 @@ class AudienceApi:
     @validate_call
     def delete_audience_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to delete.")],
         _request_timeout: Union[
@@ -896,8 +876,6 @@ class AudienceApi:
 
         Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to delete. (required)
@@ -925,7 +903,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._delete_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -951,7 +928,6 @@ class AudienceApi:
     @validate_call
     def delete_audience_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to delete.")],
         _request_timeout: Union[
@@ -971,8 +947,6 @@ class AudienceApi:
 
         Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to delete. (required)
@@ -1000,7 +974,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._delete_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             _request_auth=_request_auth,
@@ -1021,7 +994,6 @@ class AudienceApi:
 
     def _delete_audience_serialize(
         self,
-        version,
         account_id,
         audience_id,
         _request_auth,
@@ -1045,8 +1017,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1076,7 +1046,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/audience/delete',
+            resource_path='/audience/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1095,7 +1065,6 @@ class AudienceApi:
     @validate_call
     def get_age_groups(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1113,8 +1082,6 @@ class AudienceApi:
 
         Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1138,7 +1105,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_age_groups_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1162,7 +1128,6 @@ class AudienceApi:
     @validate_call
     def get_age_groups_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1180,8 +1145,6 @@ class AudienceApi:
 
         Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1205,7 +1168,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_age_groups_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1229,7 +1191,6 @@ class AudienceApi:
     @validate_call
     def get_age_groups_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1247,8 +1208,6 @@ class AudienceApi:
 
         Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1272,7 +1231,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_age_groups_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1291,7 +1249,6 @@ class AudienceApi:
 
     def _get_age_groups_serialize(
         self,
-        version,
         _request_auth,
         _content_type,
         _headers,
@@ -1313,8 +1270,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -1336,7 +1291,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/ageGroups',
+            resource_path='/audience/ageGroups',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1355,7 +1310,6 @@ class AudienceApi:
     @validate_call
     def get_audience(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to return.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key (optional). If provided, results may be scoped to this application.")] = None,
@@ -1379,8 +1333,6 @@ class AudienceApi:
 
         Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to return. (required)
@@ -1416,7 +1368,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             app_key=app_key,
@@ -1446,7 +1397,6 @@ class AudienceApi:
     @validate_call
     def get_audience_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to return.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key (optional). If provided, results may be scoped to this application.")] = None,
@@ -1470,8 +1420,6 @@ class AudienceApi:
 
         Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to return. (required)
@@ -1507,7 +1455,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             app_key=app_key,
@@ -1537,7 +1484,6 @@ class AudienceApi:
     @validate_call
     def get_audience_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to return.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key (optional). If provided, results may be scoped to this application.")] = None,
@@ -1561,8 +1507,6 @@ class AudienceApi:
 
         Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to return. (required)
@@ -1598,7 +1542,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             app_key=app_key,
@@ -1623,7 +1566,6 @@ class AudienceApi:
 
     def _get_audience_serialize(
         self,
-        version,
         account_id,
         audience_id,
         app_key,
@@ -1651,8 +1593,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1698,7 +1638,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/get',
+            resource_path='/audience/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1717,7 +1657,6 @@ class AudienceApi:
     @validate_call
     def get_audience_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of album IDs to filter results with")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -1754,8 +1693,6 @@ class AudienceApi:
 
         Get the list audiences owned by the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param album_ids: Comma separated list of album IDs to filter results with
@@ -1817,7 +1754,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_list_serialize(
-            version=version,
             account_id=account_id,
             album_ids=album_ids,
             keyword=keyword,
@@ -1860,7 +1796,6 @@ class AudienceApi:
     @validate_call
     def get_audience_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of album IDs to filter results with")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -1897,8 +1832,6 @@ class AudienceApi:
 
         Get the list audiences owned by the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param album_ids: Comma separated list of album IDs to filter results with
@@ -1960,7 +1893,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_list_serialize(
-            version=version,
             account_id=account_id,
             album_ids=album_ids,
             keyword=keyword,
@@ -2003,7 +1935,6 @@ class AudienceApi:
     @validate_call
     def get_audience_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The logged in user.")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of album IDs to filter results with")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -2040,8 +1971,6 @@ class AudienceApi:
 
         Get the list audiences owned by the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user.
         :type account_id: int
         :param album_ids: Comma separated list of album IDs to filter results with
@@ -2103,7 +2032,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_audience_list_serialize(
-            version=version,
             account_id=account_id,
             album_ids=album_ids,
             keyword=keyword,
@@ -2141,7 +2069,6 @@ class AudienceApi:
 
     def _get_audience_list_serialize(
         self,
-        version,
         account_id,
         album_ids,
         keyword,
@@ -2182,8 +2109,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2281,7 +2206,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/search',
+            resource_path='/audience/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2300,7 +2225,6 @@ class AudienceApi:
     @validate_call
     def get_devices(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_inactive: Annotated[StrictBool, Field(description="If true return inactive record as well. default is false.")],
         _request_timeout: Union[
             None,
@@ -2319,8 +2243,6 @@ class AudienceApi:
 
         Gets the list of available devices that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param include_inactive: If true return inactive record as well. default is false. (required)
         :type include_inactive: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -2346,7 +2268,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_devices_serialize(
-            version=version,
             include_inactive=include_inactive,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2371,7 +2292,6 @@ class AudienceApi:
     @validate_call
     def get_devices_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_inactive: Annotated[StrictBool, Field(description="If true return inactive record as well. default is false.")],
         _request_timeout: Union[
             None,
@@ -2390,8 +2310,6 @@ class AudienceApi:
 
         Gets the list of available devices that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param include_inactive: If true return inactive record as well. default is false. (required)
         :type include_inactive: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -2417,7 +2335,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_devices_serialize(
-            version=version,
             include_inactive=include_inactive,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2442,7 +2359,6 @@ class AudienceApi:
     @validate_call
     def get_devices_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         include_inactive: Annotated[StrictBool, Field(description="If true return inactive record as well. default is false.")],
         _request_timeout: Union[
             None,
@@ -2461,8 +2377,6 @@ class AudienceApi:
 
         Gets the list of available devices that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param include_inactive: If true return inactive record as well. default is false. (required)
         :type include_inactive: bool
         :param _request_timeout: timeout setting for this request. If one
@@ -2488,7 +2402,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_devices_serialize(
-            version=version,
             include_inactive=include_inactive,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2508,7 +2421,6 @@ class AudienceApi:
 
     def _get_devices_serialize(
         self,
-        version,
         include_inactive,
         _request_auth,
         _content_type,
@@ -2531,8 +2443,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if include_inactive is not None:
             
@@ -2558,7 +2468,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/devices',
+            resource_path='/audience/devices',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2577,7 +2487,6 @@ class AudienceApi:
     @validate_call
     def get_experiences(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2595,8 +2504,6 @@ class AudienceApi:
 
         Gets the list of available experiences that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2620,7 +2527,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_experiences_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2644,7 +2550,6 @@ class AudienceApi:
     @validate_call
     def get_experiences_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2662,8 +2567,6 @@ class AudienceApi:
 
         Gets the list of available experiences that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2687,7 +2590,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_experiences_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2711,7 +2613,6 @@ class AudienceApi:
     @validate_call
     def get_experiences_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2729,8 +2630,6 @@ class AudienceApi:
 
         Gets the list of available experiences that can be selected by consumers and retailers.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2754,7 +2653,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_experiences_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2773,7 +2671,6 @@ class AudienceApi:
 
     def _get_experiences_serialize(
         self,
-        version,
         _request_auth,
         _content_type,
         _headers,
@@ -2795,8 +2692,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2818,7 +2713,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/experiences',
+            resource_path='/audience/experiences',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2837,7 +2732,6 @@ class AudienceApi:
     @validate_call
     def get_grouped_audiences(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_grouping_id: Annotated[StrictStr, Field(description="The audience grouping id to return.")],
         _request_timeout: Union[
@@ -2857,8 +2751,6 @@ class AudienceApi:
 
         Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_grouping_id: The audience grouping id to return. (required)
@@ -2886,7 +2778,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_grouped_audiences_serialize(
-            version=version,
             account_id=account_id,
             audience_grouping_id=audience_grouping_id,
             _request_auth=_request_auth,
@@ -2912,7 +2803,6 @@ class AudienceApi:
     @validate_call
     def get_grouped_audiences_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_grouping_id: Annotated[StrictStr, Field(description="The audience grouping id to return.")],
         _request_timeout: Union[
@@ -2932,8 +2822,6 @@ class AudienceApi:
 
         Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_grouping_id: The audience grouping id to return. (required)
@@ -2961,7 +2849,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_grouped_audiences_serialize(
-            version=version,
             account_id=account_id,
             audience_grouping_id=audience_grouping_id,
             _request_auth=_request_auth,
@@ -2987,7 +2874,6 @@ class AudienceApi:
     @validate_call
     def get_grouped_audiences_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_grouping_id: Annotated[StrictStr, Field(description="The audience grouping id to return.")],
         _request_timeout: Union[
@@ -3007,8 +2893,6 @@ class AudienceApi:
 
         Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_grouping_id: The audience grouping id to return. (required)
@@ -3036,7 +2920,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._get_grouped_audiences_serialize(
-            version=version,
             account_id=account_id,
             audience_grouping_id=audience_grouping_id,
             _request_auth=_request_auth,
@@ -3057,7 +2940,6 @@ class AudienceApi:
 
     def _get_grouped_audiences_serialize(
         self,
-        version,
         account_id,
         audience_grouping_id,
         _request_auth,
@@ -3081,8 +2963,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3112,7 +2992,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/grouped/get',
+            resource_path='/audience/grouped/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3131,7 +3011,6 @@ class AudienceApi:
     @validate_call
     def list_by_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         limit: Annotated[StrictInt, Field(description="the limit of the index")],
         suggestion_type: Annotated[StrictStr, Field(description="the type of suggestion")],
@@ -3152,8 +3031,6 @@ class AudienceApi:
 
         List either Missions or Offers that the user matches the assigned audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param limit: the limit of the index (required)
@@ -3183,7 +3060,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_account_serialize(
-            version=version,
             account_id=account_id,
             limit=limit,
             suggestion_type=suggestion_type,
@@ -3210,7 +3086,6 @@ class AudienceApi:
     @validate_call
     def list_by_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         limit: Annotated[StrictInt, Field(description="the limit of the index")],
         suggestion_type: Annotated[StrictStr, Field(description="the type of suggestion")],
@@ -3231,8 +3106,6 @@ class AudienceApi:
 
         List either Missions or Offers that the user matches the assigned audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param limit: the limit of the index (required)
@@ -3262,7 +3135,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_account_serialize(
-            version=version,
             account_id=account_id,
             limit=limit,
             suggestion_type=suggestion_type,
@@ -3289,7 +3161,6 @@ class AudienceApi:
     @validate_call
     def list_by_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         limit: Annotated[StrictInt, Field(description="the limit of the index")],
         suggestion_type: Annotated[StrictStr, Field(description="the type of suggestion")],
@@ -3310,8 +3181,6 @@ class AudienceApi:
 
         List either Missions or Offers that the user matches the assigned audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param limit: the limit of the index (required)
@@ -3341,7 +3210,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_account_serialize(
-            version=version,
             account_id=account_id,
             limit=limit,
             suggestion_type=suggestion_type,
@@ -3363,7 +3231,6 @@ class AudienceApi:
 
     def _list_by_account_serialize(
         self,
-        version,
         account_id,
         limit,
         suggestion_type,
@@ -3388,8 +3255,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3423,7 +3288,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/audience/suggestion/list',
+            resource_path='/audience/suggestion/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3442,7 +3307,6 @@ class AudienceApi:
     @validate_call
     def list_by_audience(
         self,
-        version: Union[StrictFloat, StrictInt],
         limit: Annotated[StrictInt, Field(description="this is the limit of the index")],
         gender: Annotated[Optional[StrictStr], Field(description="this is the gender to list offers by")] = None,
         age: Annotated[Optional[StrictInt], Field(description="this is the age to list offers by")] = None,
@@ -3466,8 +3330,6 @@ class AudienceApi:
 
         Get a list of offer locations based on audience information provided.
 
-        :param version: (required)
-        :type version: float
         :param limit: this is the limit of the index (required)
         :type limit: int
         :param gender: this is the gender to list offers by
@@ -3503,7 +3365,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_audience_serialize(
-            version=version,
             limit=limit,
             gender=gender,
             age=age,
@@ -3533,7 +3394,6 @@ class AudienceApi:
     @validate_call
     def list_by_audience_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         limit: Annotated[StrictInt, Field(description="this is the limit of the index")],
         gender: Annotated[Optional[StrictStr], Field(description="this is the gender to list offers by")] = None,
         age: Annotated[Optional[StrictInt], Field(description="this is the age to list offers by")] = None,
@@ -3557,8 +3417,6 @@ class AudienceApi:
 
         Get a list of offer locations based on audience information provided.
 
-        :param version: (required)
-        :type version: float
         :param limit: this is the limit of the index (required)
         :type limit: int
         :param gender: this is the gender to list offers by
@@ -3594,7 +3452,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_audience_serialize(
-            version=version,
             limit=limit,
             gender=gender,
             age=age,
@@ -3624,7 +3481,6 @@ class AudienceApi:
     @validate_call
     def list_by_audience_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         limit: Annotated[StrictInt, Field(description="this is the limit of the index")],
         gender: Annotated[Optional[StrictStr], Field(description="this is the gender to list offers by")] = None,
         age: Annotated[Optional[StrictInt], Field(description="this is the age to list offers by")] = None,
@@ -3648,8 +3504,6 @@ class AudienceApi:
 
         Get a list of offer locations based on audience information provided.
 
-        :param version: (required)
-        :type version: float
         :param limit: this is the limit of the index (required)
         :type limit: int
         :param gender: this is the gender to list offers by
@@ -3685,7 +3539,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_by_audience_serialize(
-            version=version,
             limit=limit,
             gender=gender,
             age=age,
@@ -3710,7 +3563,6 @@ class AudienceApi:
 
     def _list_by_audience_serialize(
         self,
-        version,
         limit,
         gender,
         age,
@@ -3738,8 +3590,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if gender is not None:
             
@@ -3785,7 +3635,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/suggestion/offersByAudience',
+            resource_path='/audience/suggestion/offersByAudience',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3804,7 +3654,6 @@ class AudienceApi:
     @validate_call
     def list_lastest_by_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         timeframe: Annotated[StrictInt, Field(description="The timeframe in seconds of the latest suggestions")],
         suggestion_type: Annotated[StrictStr, Field(description="The type of trigger suggestions to return")],
@@ -3825,8 +3674,6 @@ class AudienceApi:
 
         Return list of recent trigger suggestions that have been sent to the user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param timeframe: The timeframe in seconds of the latest suggestions (required)
@@ -3856,7 +3703,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_lastest_by_account_serialize(
-            version=version,
             account_id=account_id,
             timeframe=timeframe,
             suggestion_type=suggestion_type,
@@ -3883,7 +3729,6 @@ class AudienceApi:
     @validate_call
     def list_lastest_by_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         timeframe: Annotated[StrictInt, Field(description="The timeframe in seconds of the latest suggestions")],
         suggestion_type: Annotated[StrictStr, Field(description="The type of trigger suggestions to return")],
@@ -3904,8 +3749,6 @@ class AudienceApi:
 
         Return list of recent trigger suggestions that have been sent to the user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param timeframe: The timeframe in seconds of the latest suggestions (required)
@@ -3935,7 +3778,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_lastest_by_account_serialize(
-            version=version,
             account_id=account_id,
             timeframe=timeframe,
             suggestion_type=suggestion_type,
@@ -3962,7 +3804,6 @@ class AudienceApi:
     @validate_call
     def list_lastest_by_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         timeframe: Annotated[StrictInt, Field(description="The timeframe in seconds of the latest suggestions")],
         suggestion_type: Annotated[StrictStr, Field(description="The type of trigger suggestions to return")],
@@ -3983,8 +3824,6 @@ class AudienceApi:
 
         Return list of recent trigger suggestions that have been sent to the user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param timeframe: The timeframe in seconds of the latest suggestions (required)
@@ -4014,7 +3853,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._list_lastest_by_account_serialize(
-            version=version,
             account_id=account_id,
             timeframe=timeframe,
             suggestion_type=suggestion_type,
@@ -4036,7 +3874,6 @@ class AudienceApi:
 
     def _list_lastest_by_account_serialize(
         self,
-        version,
         account_id,
         timeframe,
         suggestion_type,
@@ -4061,8 +3898,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4096,7 +3931,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/audience/suggestion/latest',
+            resource_path='/audience/suggestion/latest',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4115,7 +3950,6 @@ class AudienceApi:
     @validate_call
     def send_by_account(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude")],
@@ -4136,8 +3970,6 @@ class AudienceApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param latitude: the latitude (required)
@@ -4167,7 +3999,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._send_by_account_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -4194,7 +4025,6 @@ class AudienceApi:
     @validate_call
     def send_by_account_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude")],
@@ -4215,8 +4045,6 @@ class AudienceApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param latitude: the latitude (required)
@@ -4246,7 +4074,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._send_by_account_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -4273,7 +4100,6 @@ class AudienceApi:
     @validate_call
     def send_by_account_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account to match offers for.")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude")],
@@ -4294,8 +4120,6 @@ class AudienceApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account to match offers for. (required)
         :type account_id: int
         :param latitude: the latitude (required)
@@ -4325,7 +4149,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._send_by_account_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -4347,7 +4170,6 @@ class AudienceApi:
 
     def _send_by_account_serialize(
         self,
-        version,
         account_id,
         latitude,
         longitude,
@@ -4372,8 +4194,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4407,7 +4227,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/audience/suggestion/send',
+            resource_path='/audience/suggestion/send',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4426,7 +4246,6 @@ class AudienceApi:
     @validate_call
     def update_audience(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to update.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the audience")] = None,
@@ -4475,8 +4294,6 @@ class AudienceApi:
 
         Update a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to update. (required)
@@ -4562,7 +4379,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._update_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             name=name,
@@ -4617,7 +4433,6 @@ class AudienceApi:
     @validate_call
     def update_audience_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to update.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the audience")] = None,
@@ -4666,8 +4481,6 @@ class AudienceApi:
 
         Update a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to update. (required)
@@ -4753,7 +4566,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._update_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             name=name,
@@ -4808,7 +4620,6 @@ class AudienceApi:
     @validate_call
     def update_audience_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         audience_id: Annotated[StrictInt, Field(description="The id of the audience to update.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the audience")] = None,
@@ -4857,8 +4668,6 @@ class AudienceApi:
 
         Update a user defined audience.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param audience_id: The id of the audience to update. (required)
@@ -4944,7 +4753,6 @@ class AudienceApi:
         """ # noqa: E501
 
         _param = self._update_audience_serialize(
-            version=version,
             account_id=account_id,
             audience_id=audience_id,
             name=name,
@@ -4994,7 +4802,6 @@ class AudienceApi:
 
     def _update_audience_serialize(
         self,
-        version,
         account_id,
         audience_id,
         name,
@@ -5047,8 +4854,6 @@ class AudienceApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5194,7 +4999,7 @@ class AudienceApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/audience/update',
+            resource_path='/audience/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

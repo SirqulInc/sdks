@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from openapi_client.models.orson_ai_add_movie_response import OrsonAiAddMovieResponse
@@ -53,7 +53,6 @@ class OrsonApi:
     @validate_call
     def add_movie(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         movie_name: Annotated[StrictStr, Field(description="Movie Name")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -78,8 +77,6 @@ class OrsonApi:
 
         Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param movie_name: Movie Name (required)
@@ -117,7 +114,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._add_movie_serialize(
-            version=version,
             account_id=account_id,
             movie_name=movie_name,
             third_party_account_id=third_party_account_id,
@@ -148,7 +144,6 @@ class OrsonApi:
     @validate_call
     def add_movie_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         movie_name: Annotated[StrictStr, Field(description="Movie Name")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -173,8 +168,6 @@ class OrsonApi:
 
         Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param movie_name: Movie Name (required)
@@ -212,7 +205,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._add_movie_serialize(
-            version=version,
             account_id=account_id,
             movie_name=movie_name,
             third_party_account_id=third_party_account_id,
@@ -243,7 +235,6 @@ class OrsonApi:
     @validate_call
     def add_movie_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         movie_name: Annotated[StrictStr, Field(description="Movie Name")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -268,8 +259,6 @@ class OrsonApi:
 
         Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param movie_name: Movie Name (required)
@@ -307,7 +296,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._add_movie_serialize(
-            version=version,
             account_id=account_id,
             movie_name=movie_name,
             third_party_account_id=third_party_account_id,
@@ -333,7 +321,6 @@ class OrsonApi:
 
     def _add_movie_serialize(
         self,
-        version,
         account_id,
         movie_name,
         third_party_account_id,
@@ -362,8 +349,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -413,7 +398,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/addMovie',
+            resource_path='/orson/ai/addMovie',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -432,7 +417,6 @@ class OrsonApi:
     @validate_call
     def ai_docs(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         doc: Annotated[StrictStr, Field(description="Doc")],
         return_topics: Annotated[Optional[StrictBool], Field(description="Return Topics")] = None,
@@ -455,8 +439,6 @@ class OrsonApi:
 
         Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param doc: Doc (required)
@@ -490,7 +472,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_docs_serialize(
-            version=version,
             account_id=account_id,
             doc=doc,
             return_topics=return_topics,
@@ -519,7 +500,6 @@ class OrsonApi:
     @validate_call
     def ai_docs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         doc: Annotated[StrictStr, Field(description="Doc")],
         return_topics: Annotated[Optional[StrictBool], Field(description="Return Topics")] = None,
@@ -542,8 +522,6 @@ class OrsonApi:
 
         Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param doc: Doc (required)
@@ -577,7 +555,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_docs_serialize(
-            version=version,
             account_id=account_id,
             doc=doc,
             return_topics=return_topics,
@@ -606,7 +583,6 @@ class OrsonApi:
     @validate_call
     def ai_docs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         doc: Annotated[StrictStr, Field(description="Doc")],
         return_topics: Annotated[Optional[StrictBool], Field(description="Return Topics")] = None,
@@ -629,8 +605,6 @@ class OrsonApi:
 
         Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param doc: Doc (required)
@@ -664,7 +638,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_docs_serialize(
-            version=version,
             account_id=account_id,
             doc=doc,
             return_topics=return_topics,
@@ -688,7 +661,6 @@ class OrsonApi:
 
     def _ai_docs_serialize(
         self,
-        version,
         account_id,
         doc,
         return_topics,
@@ -715,8 +687,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -758,7 +728,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/docs',
+            resource_path='/orson/ai/docs',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -777,7 +747,6 @@ class OrsonApi:
     @validate_call
     def ai_find_images(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         parse_flag: Annotated[Optional[StrictStr], Field(description="Parse Flag")] = None,
@@ -800,8 +769,6 @@ class OrsonApi:
 
         Returns a list of URIs of images that match the text.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -835,7 +802,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_find_images_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             parse_flag=parse_flag,
@@ -864,7 +830,6 @@ class OrsonApi:
     @validate_call
     def ai_find_images_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         parse_flag: Annotated[Optional[StrictStr], Field(description="Parse Flag")] = None,
@@ -887,8 +852,6 @@ class OrsonApi:
 
         Returns a list of URIs of images that match the text.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -922,7 +885,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_find_images_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             parse_flag=parse_flag,
@@ -951,7 +913,6 @@ class OrsonApi:
     @validate_call
     def ai_find_images_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         parse_flag: Annotated[Optional[StrictStr], Field(description="Parse Flag")] = None,
@@ -974,8 +935,6 @@ class OrsonApi:
 
         Returns a list of URIs of images that match the text.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -1009,7 +968,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_find_images_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             parse_flag=parse_flag,
@@ -1033,7 +991,6 @@ class OrsonApi:
 
     def _ai_find_images_serialize(
         self,
-        version,
         account_id,
         text,
         parse_flag,
@@ -1060,8 +1017,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1103,7 +1058,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/img',
+            resource_path='/orson/ai/img',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1122,7 +1077,6 @@ class OrsonApi:
     @validate_call
     def ai_tags(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         tags: Annotated[StrictStr, Field(description="Tags")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1145,8 +1099,6 @@ class OrsonApi:
 
         Search the tags column of user provided tags using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param tags: Tags (required)
@@ -1180,7 +1132,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_tags_serialize(
-            version=version,
             account_id=account_id,
             tags=tags,
             conditional=conditional,
@@ -1209,7 +1160,6 @@ class OrsonApi:
     @validate_call
     def ai_tags_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         tags: Annotated[StrictStr, Field(description="Tags")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1232,8 +1182,6 @@ class OrsonApi:
 
         Search the tags column of user provided tags using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param tags: Tags (required)
@@ -1267,7 +1215,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_tags_serialize(
-            version=version,
             account_id=account_id,
             tags=tags,
             conditional=conditional,
@@ -1296,7 +1243,6 @@ class OrsonApi:
     @validate_call
     def ai_tags_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         tags: Annotated[StrictStr, Field(description="Tags")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1319,8 +1265,6 @@ class OrsonApi:
 
         Search the tags column of user provided tags using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param tags: Tags (required)
@@ -1354,7 +1298,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_tags_serialize(
-            version=version,
             account_id=account_id,
             tags=tags,
             conditional=conditional,
@@ -1378,7 +1321,6 @@ class OrsonApi:
 
     def _ai_tags_serialize(
         self,
-        version,
         account_id,
         tags,
         conditional,
@@ -1405,8 +1347,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1448,7 +1388,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/tags',
+            resource_path='/orson/ai/tags',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1467,7 +1407,6 @@ class OrsonApi:
     @validate_call
     def ai_text(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         terms: Annotated[StrictStr, Field(description="Terms")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1490,8 +1429,6 @@ class OrsonApi:
 
         Search the movie text column of movie text using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param terms: Terms (required)
@@ -1525,7 +1462,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_text_serialize(
-            version=version,
             account_id=account_id,
             terms=terms,
             conditional=conditional,
@@ -1554,7 +1490,6 @@ class OrsonApi:
     @validate_call
     def ai_text_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         terms: Annotated[StrictStr, Field(description="Terms")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1577,8 +1512,6 @@ class OrsonApi:
 
         Search the movie text column of movie text using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param terms: Terms (required)
@@ -1612,7 +1545,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_text_serialize(
-            version=version,
             account_id=account_id,
             terms=terms,
             conditional=conditional,
@@ -1641,7 +1573,6 @@ class OrsonApi:
     @validate_call
     def ai_text_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         terms: Annotated[StrictStr, Field(description="Terms")],
         conditional: Annotated[Optional[StrictStr], Field(description="Conditional")] = None,
@@ -1664,8 +1595,6 @@ class OrsonApi:
 
         Search the movie text column of movie text using this endpoint.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param terms: Terms (required)
@@ -1699,7 +1628,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._ai_text_serialize(
-            version=version,
             account_id=account_id,
             terms=terms,
             conditional=conditional,
@@ -1723,7 +1651,6 @@ class OrsonApi:
 
     def _ai_text_serialize(
         self,
-        version,
         account_id,
         terms,
         conditional,
@@ -1750,8 +1677,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1793,7 +1718,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/text',
+            resource_path='/orson/ai/text',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1812,7 +1737,6 @@ class OrsonApi:
     @validate_call
     def batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The number of topics to return")] = None,
@@ -1837,8 +1761,6 @@ class OrsonApi:
 
         Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -1876,7 +1798,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._batch_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             limit=limit,
@@ -1907,7 +1828,6 @@ class OrsonApi:
     @validate_call
     def batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The number of topics to return")] = None,
@@ -1932,8 +1852,6 @@ class OrsonApi:
 
         Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -1971,7 +1889,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._batch_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             limit=limit,
@@ -2002,7 +1919,6 @@ class OrsonApi:
     @validate_call
     def batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The number of topics to return")] = None,
@@ -2027,8 +1943,6 @@ class OrsonApi:
 
         Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -2066,7 +1980,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._batch_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             limit=limit,
@@ -2092,7 +2005,6 @@ class OrsonApi:
 
     def _batch_serialize(
         self,
-        version,
         account_id,
         third_party_account_id,
         limit,
@@ -2121,8 +2033,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2172,7 +2082,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/batch',
+            resource_path='/orson/ai/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2191,7 +2101,6 @@ class OrsonApi:
     @validate_call
     def create_instant_episode(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -2211,8 +2120,6 @@ class OrsonApi:
 
         Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -2240,7 +2147,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_instant_episode_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -2266,7 +2172,6 @@ class OrsonApi:
     @validate_call
     def create_instant_episode_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -2286,8 +2191,6 @@ class OrsonApi:
 
         Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -2315,7 +2218,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_instant_episode_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -2341,7 +2243,6 @@ class OrsonApi:
     @validate_call
     def create_instant_episode_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -2361,8 +2262,6 @@ class OrsonApi:
 
         Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -2390,7 +2289,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_instant_episode_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -2411,7 +2309,6 @@ class OrsonApi:
 
     def _create_instant_episode_serialize(
         self,
-        version,
         account_id,
         data,
         _request_auth,
@@ -2435,8 +2332,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2466,7 +2361,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/stories/episodes/instant',
+            resource_path='/orson/stories/episodes/instant',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2485,7 +2380,6 @@ class OrsonApi:
     @validate_call
     def create_voice_canvas(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         dimensions: Annotated[StrictStr, Field(description="Enum: \"256x256\" \"512x512\" \"1024x1024\"")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -2512,8 +2406,6 @@ class OrsonApi:
 
         Create VoiceCanvas images for provided text, file upload, or file URL
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param dimensions: Enum: \"256x256\" \"512x512\" \"1024x1024\" (required)
@@ -2555,7 +2447,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_voice_canvas_serialize(
-            version=version,
             account_id=account_id,
             dimensions=dimensions,
             third_party_account_id=third_party_account_id,
@@ -2588,7 +2479,6 @@ class OrsonApi:
     @validate_call
     def create_voice_canvas_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         dimensions: Annotated[StrictStr, Field(description="Enum: \"256x256\" \"512x512\" \"1024x1024\"")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -2615,8 +2505,6 @@ class OrsonApi:
 
         Create VoiceCanvas images for provided text, file upload, or file URL
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param dimensions: Enum: \"256x256\" \"512x512\" \"1024x1024\" (required)
@@ -2658,7 +2546,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_voice_canvas_serialize(
-            version=version,
             account_id=account_id,
             dimensions=dimensions,
             third_party_account_id=third_party_account_id,
@@ -2691,7 +2578,6 @@ class OrsonApi:
     @validate_call
     def create_voice_canvas_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         dimensions: Annotated[StrictStr, Field(description="Enum: \"256x256\" \"512x512\" \"1024x1024\"")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -2718,8 +2604,6 @@ class OrsonApi:
 
         Create VoiceCanvas images for provided text, file upload, or file URL
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param dimensions: Enum: \"256x256\" \"512x512\" \"1024x1024\" (required)
@@ -2761,7 +2645,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._create_voice_canvas_serialize(
-            version=version,
             account_id=account_id,
             dimensions=dimensions,
             third_party_account_id=third_party_account_id,
@@ -2789,7 +2672,6 @@ class OrsonApi:
 
     def _create_voice_canvas_serialize(
         self,
-        version,
         account_id,
         dimensions,
         third_party_account_id,
@@ -2820,8 +2702,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2879,7 +2759,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/voiceCanvas',
+            resource_path='/orson/ai/voiceCanvas',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2898,7 +2778,6 @@ class OrsonApi:
     @validate_call
     def emotion(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         file: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="An uploaded recording to analyze (Currently limited to 10MB)")] = None,
@@ -2921,8 +2800,6 @@ class OrsonApi:
 
         Detects emotions in an audio or video recording.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -2956,7 +2833,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._emotion_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             file=file,
@@ -2985,7 +2861,6 @@ class OrsonApi:
     @validate_call
     def emotion_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         file: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="An uploaded recording to analyze (Currently limited to 10MB)")] = None,
@@ -3008,8 +2883,6 @@ class OrsonApi:
 
         Detects emotions in an audio or video recording.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -3043,7 +2916,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._emotion_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             file=file,
@@ -3072,7 +2944,6 @@ class OrsonApi:
     @validate_call
     def emotion_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         file: Annotated[Optional[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]]], Field(description="An uploaded recording to analyze (Currently limited to 10MB)")] = None,
@@ -3095,8 +2966,6 @@ class OrsonApi:
 
         Detects emotions in an audio or video recording.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -3130,7 +2999,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._emotion_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             file=file,
@@ -3154,7 +3022,6 @@ class OrsonApi:
 
     def _emotion_serialize(
         self,
-        version,
         account_id,
         third_party_account_id,
         file,
@@ -3181,8 +3048,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3224,7 +3089,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/emotion',
+            resource_path='/orson/ai/emotion',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3243,7 +3108,6 @@ class OrsonApi:
     @validate_call
     def get_add_movie_result(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3263,8 +3127,6 @@ class OrsonApi:
 
         Get the result of an in progress Add Movie request from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3292,7 +3154,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_add_movie_result_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3318,7 +3179,6 @@ class OrsonApi:
     @validate_call
     def get_add_movie_result_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3338,8 +3198,6 @@ class OrsonApi:
 
         Get the result of an in progress Add Movie request from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3367,7 +3225,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_add_movie_result_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3393,7 +3250,6 @@ class OrsonApi:
     @validate_call
     def get_add_movie_result_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3413,8 +3269,6 @@ class OrsonApi:
 
         Get the result of an in progress Add Movie request from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3442,7 +3296,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_add_movie_result_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3463,7 +3316,6 @@ class OrsonApi:
 
     def _get_add_movie_result_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -3487,8 +3339,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -3516,7 +3366,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/addMovie/{requestId}',
+            resource_path='/orson/ai/addMovie/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3535,7 +3385,6 @@ class OrsonApi:
     @validate_call
     def get_batch(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3555,8 +3404,6 @@ class OrsonApi:
 
         Gets the completed Video Batch results, if done, or an error or status update if not.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3584,7 +3431,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_batch_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3610,7 +3456,6 @@ class OrsonApi:
     @validate_call
     def get_batch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3630,8 +3475,6 @@ class OrsonApi:
 
         Gets the completed Video Batch results, if done, or an error or status update if not.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3659,7 +3502,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_batch_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3685,7 +3527,6 @@ class OrsonApi:
     @validate_call
     def get_batch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3705,8 +3546,6 @@ class OrsonApi:
 
         Gets the completed Video Batch results, if done, or an error or status update if not.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3734,7 +3573,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_batch_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3755,7 +3593,6 @@ class OrsonApi:
 
     def _get_batch_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -3779,8 +3616,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -3808,7 +3643,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/batch/{requestId}',
+            resource_path='/orson/ai/batch/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3827,7 +3662,6 @@ class OrsonApi:
     @validate_call
     def get_emotion(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3847,8 +3681,6 @@ class OrsonApi:
 
         Checks the Emotion analysis and returns in progress, results, or error.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3876,7 +3708,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_emotion_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3902,7 +3733,6 @@ class OrsonApi:
     @validate_call
     def get_emotion_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3922,8 +3752,6 @@ class OrsonApi:
 
         Checks the Emotion analysis and returns in progress, results, or error.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -3951,7 +3779,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_emotion_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -3977,7 +3804,6 @@ class OrsonApi:
     @validate_call
     def get_emotion_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -3997,8 +3823,6 @@ class OrsonApi:
 
         Checks the Emotion analysis and returns in progress, results, or error.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4026,7 +3850,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_emotion_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4047,7 +3870,6 @@ class OrsonApi:
 
     def _get_emotion_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -4071,8 +3893,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -4100,7 +3920,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/emotion/{requestId}',
+            resource_path='/orson/ai/emotion/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4119,7 +3939,6 @@ class OrsonApi:
     @validate_call
     def get_episode_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         episode_id: Annotated[StrictInt, Field(description="Episode ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4139,8 +3958,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param episode_id: Episode ID (required)
         :type episode_id: int
         :param account_id: Sirqul Account Id (required)
@@ -4168,7 +3985,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_episode_status_serialize(
-            version=version,
             episode_id=episode_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4194,7 +4010,6 @@ class OrsonApi:
     @validate_call
     def get_episode_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         episode_id: Annotated[StrictInt, Field(description="Episode ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4214,8 +4029,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param episode_id: Episode ID (required)
         :type episode_id: int
         :param account_id: Sirqul Account Id (required)
@@ -4243,7 +4056,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_episode_status_serialize(
-            version=version,
             episode_id=episode_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4269,7 +4081,6 @@ class OrsonApi:
     @validate_call
     def get_episode_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         episode_id: Annotated[StrictInt, Field(description="Episode ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4289,8 +4100,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param episode_id: Episode ID (required)
         :type episode_id: int
         :param account_id: Sirqul Account Id (required)
@@ -4318,7 +4127,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_episode_status_serialize(
-            version=version,
             episode_id=episode_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4339,7 +4147,6 @@ class OrsonApi:
 
     def _get_episode_status_serialize(
         self,
-        version,
         episode_id,
         account_id,
         _request_auth,
@@ -4363,8 +4170,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if episode_id is not None:
             _path_params['episodeId'] = episode_id
         # process the query parameters
@@ -4392,7 +4197,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/stories/episodes/{episodeId}/status',
+            resource_path='/orson/stories/episodes/{episodeId}/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4411,7 +4216,6 @@ class OrsonApi:
     @validate_call
     def get_render_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         render_id: Annotated[StrictStr, Field(description="Render ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4431,8 +4235,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param render_id: Render ID (required)
         :type render_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4460,7 +4262,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_render_status_serialize(
-            version=version,
             render_id=render_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4486,7 +4287,6 @@ class OrsonApi:
     @validate_call
     def get_render_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         render_id: Annotated[StrictStr, Field(description="Render ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4506,8 +4306,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param render_id: Render ID (required)
         :type render_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4535,7 +4333,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_render_status_serialize(
-            version=version,
             render_id=render_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4561,7 +4358,6 @@ class OrsonApi:
     @validate_call
     def get_render_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         render_id: Annotated[StrictStr, Field(description="Render ID")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4581,8 +4377,6 @@ class OrsonApi:
 
         Gets a summary of the episode's status, including any renders.
 
-        :param version: (required)
-        :type version: float
         :param render_id: Render ID (required)
         :type render_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4610,7 +4404,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_render_status_serialize(
-            version=version,
             render_id=render_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4631,7 +4424,6 @@ class OrsonApi:
 
     def _get_render_status_serialize(
         self,
-        version,
         render_id,
         account_id,
         _request_auth,
@@ -4655,8 +4447,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if render_id is not None:
             _path_params['renderId'] = render_id
         # process the query parameters
@@ -4684,7 +4474,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/stories/renders/{renderId}/status',
+            resource_path='/orson/stories/renders/{renderId}/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4703,7 +4493,6 @@ class OrsonApi:
     @validate_call
     def get_stt(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4723,8 +4512,6 @@ class OrsonApi:
 
         The results of the video transcription and optional translation.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4752,7 +4539,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_stt_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4778,7 +4564,6 @@ class OrsonApi:
     @validate_call
     def get_stt_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4798,8 +4583,6 @@ class OrsonApi:
 
         The results of the video transcription and optional translation.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4827,7 +4610,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_stt_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4853,7 +4635,6 @@ class OrsonApi:
     @validate_call
     def get_stt_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -4873,8 +4654,6 @@ class OrsonApi:
 
         The results of the video transcription and optional translation.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -4902,7 +4681,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_stt_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -4923,7 +4701,6 @@ class OrsonApi:
 
     def _get_stt_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -4947,8 +4724,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -4976,7 +4751,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/stt/{requestId}',
+            resource_path='/orson/ai/stt/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4995,7 +4770,6 @@ class OrsonApi:
     @validate_call
     def get_tech_tune(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5015,8 +4789,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for TechTune analysis.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5044,7 +4816,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tech_tune_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5070,7 +4841,6 @@ class OrsonApi:
     @validate_call
     def get_tech_tune_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5090,8 +4860,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for TechTune analysis.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5119,7 +4887,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tech_tune_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5145,7 +4912,6 @@ class OrsonApi:
     @validate_call
     def get_tech_tune_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5165,8 +4931,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for TechTune analysis.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5194,7 +4958,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tech_tune_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5215,7 +4978,6 @@ class OrsonApi:
 
     def _get_tech_tune_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -5239,8 +5001,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -5268,7 +5028,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/techTune/{requestId}',
+            resource_path='/orson/ai/techTune/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5287,7 +5047,6 @@ class OrsonApi:
     @validate_call
     def get_topics(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5307,8 +5066,6 @@ class OrsonApi:
 
         Get the result of an in progress Topics Analysis from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5336,7 +5093,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_topics_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5362,7 +5118,6 @@ class OrsonApi:
     @validate_call
     def get_topics_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5382,8 +5137,6 @@ class OrsonApi:
 
         Get the result of an in progress Topics Analysis from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5411,7 +5164,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_topics_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5437,7 +5189,6 @@ class OrsonApi:
     @validate_call
     def get_topics_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5457,8 +5208,6 @@ class OrsonApi:
 
         Get the result of an in progress Topics Analysis from an earlier POST.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5486,7 +5235,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_topics_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5507,7 +5255,6 @@ class OrsonApi:
 
     def _get_topics_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -5531,8 +5278,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -5560,7 +5305,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/topics/{requestId}',
+            resource_path='/orson/ai/topics/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5579,7 +5324,6 @@ class OrsonApi:
     @validate_call
     def get_tts(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5599,8 +5343,6 @@ class OrsonApi:
 
         Check the status of an in progress Text-to-Speech call or download the result.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5628,7 +5370,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tts_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5654,7 +5395,6 @@ class OrsonApi:
     @validate_call
     def get_tts_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5674,8 +5414,6 @@ class OrsonApi:
 
         Check the status of an in progress Text-to-Speech call or download the result.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5703,7 +5441,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tts_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5729,7 +5466,6 @@ class OrsonApi:
     @validate_call
     def get_tts_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5749,8 +5485,6 @@ class OrsonApi:
 
         Check the status of an in progress Text-to-Speech call or download the result.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5778,7 +5512,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_tts_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5799,7 +5532,6 @@ class OrsonApi:
 
     def _get_tts_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -5823,8 +5555,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -5852,7 +5582,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/tts/{requestId}',
+            resource_path='/orson/ai/tts/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5871,7 +5601,6 @@ class OrsonApi:
     @validate_call
     def get_voice_canvas(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5891,8 +5620,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for VoiceCanvas Images.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5920,7 +5647,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_voice_canvas_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5946,7 +5672,6 @@ class OrsonApi:
     @validate_call
     def get_voice_canvas_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -5966,8 +5691,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for VoiceCanvas Images.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -5995,7 +5718,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_voice_canvas_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -6021,7 +5743,6 @@ class OrsonApi:
     @validate_call
     def get_voice_canvas_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         request_id: Annotated[StrictStr, Field(description="Orson Request Id")],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         _request_timeout: Union[
@@ -6041,8 +5762,6 @@ class OrsonApi:
 
         Get a result or continue waiting for a pending request for VoiceCanvas Images.
 
-        :param version: (required)
-        :type version: float
         :param request_id: Orson Request Id (required)
         :type request_id: str
         :param account_id: Sirqul Account Id (required)
@@ -6070,7 +5789,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._get_voice_canvas_serialize(
-            version=version,
             request_id=request_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -6091,7 +5809,6 @@ class OrsonApi:
 
     def _get_voice_canvas_serialize(
         self,
-        version,
         request_id,
         account_id,
         _request_auth,
@@ -6115,8 +5832,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if request_id is not None:
             _path_params['requestId'] = request_id
         # process the query parameters
@@ -6144,7 +5859,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/orson/ai/voiceCanvas/{requestId}',
+            resource_path='/orson/ai/voiceCanvas/{requestId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6163,7 +5878,6 @@ class OrsonApi:
     @validate_call
     def start_video_render(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -6183,8 +5897,6 @@ class OrsonApi:
 
         Starts a StoryStitch video render to produce your final video, returning the status details.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -6212,7 +5924,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._start_video_render_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -6238,7 +5949,6 @@ class OrsonApi:
     @validate_call
     def start_video_render_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -6258,8 +5968,6 @@ class OrsonApi:
 
         Starts a StoryStitch video render to produce your final video, returning the status details.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -6287,7 +5995,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._start_video_render_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -6313,7 +6020,6 @@ class OrsonApi:
     @validate_call
     def start_video_render_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         data: Annotated[StrictStr, Field(description="Request Data String")],
         _request_timeout: Union[
@@ -6333,8 +6039,6 @@ class OrsonApi:
 
         Starts a StoryStitch video render to produce your final video, returning the status details.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param data: Request Data String (required)
@@ -6362,7 +6066,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._start_video_render_serialize(
-            version=version,
             account_id=account_id,
             data=data,
             _request_auth=_request_auth,
@@ -6383,7 +6086,6 @@ class OrsonApi:
 
     def _start_video_render_serialize(
         self,
-        version,
         account_id,
         data,
         _request_auth,
@@ -6407,8 +6109,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6438,7 +6138,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/stories/renders',
+            resource_path='/orson/stories/renders',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6457,7 +6157,6 @@ class OrsonApi:
     @validate_call
     def stt(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         source_language: Annotated[Optional[StrictStr], Field(description="Source Language")] = None,
@@ -6482,8 +6181,6 @@ class OrsonApi:
 
         Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -6521,7 +6218,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._stt_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             source_language=source_language,
@@ -6552,7 +6248,6 @@ class OrsonApi:
     @validate_call
     def stt_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         source_language: Annotated[Optional[StrictStr], Field(description="Source Language")] = None,
@@ -6577,8 +6272,6 @@ class OrsonApi:
 
         Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -6616,7 +6309,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._stt_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             source_language=source_language,
@@ -6647,7 +6339,6 @@ class OrsonApi:
     @validate_call
     def stt_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         source_language: Annotated[Optional[StrictStr], Field(description="Source Language")] = None,
@@ -6672,8 +6363,6 @@ class OrsonApi:
 
         Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -6711,7 +6400,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._stt_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             source_language=source_language,
@@ -6737,7 +6425,6 @@ class OrsonApi:
 
     def _stt_serialize(
         self,
-        version,
         account_id,
         third_party_account_id,
         source_language,
@@ -6766,8 +6453,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6817,7 +6502,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/stt',
+            resource_path='/orson/ai/stt',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6836,7 +6521,6 @@ class OrsonApi:
     @validate_call
     def summarize_topics(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         doc: Annotated[Optional[StrictStr], Field(description="The text to get topics for.")] = None,
@@ -6862,8 +6546,6 @@ class OrsonApi:
 
         Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -6903,7 +6585,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._summarize_topics_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             doc=doc,
@@ -6935,7 +6616,6 @@ class OrsonApi:
     @validate_call
     def summarize_topics_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         doc: Annotated[Optional[StrictStr], Field(description="The text to get topics for.")] = None,
@@ -6961,8 +6641,6 @@ class OrsonApi:
 
         Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -7002,7 +6680,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._summarize_topics_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             doc=doc,
@@ -7034,7 +6711,6 @@ class OrsonApi:
     @validate_call
     def summarize_topics_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
         doc: Annotated[Optional[StrictStr], Field(description="The text to get topics for.")] = None,
@@ -7060,8 +6736,6 @@ class OrsonApi:
 
         Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param third_party_account_id: A third-party account id that is meaningful to your systems
@@ -7101,7 +6775,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._summarize_topics_serialize(
-            version=version,
             account_id=account_id,
             third_party_account_id=third_party_account_id,
             doc=doc,
@@ -7128,7 +6801,6 @@ class OrsonApi:
 
     def _summarize_topics_serialize(
         self,
-        version,
         account_id,
         third_party_account_id,
         doc,
@@ -7158,8 +6830,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7213,7 +6883,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/topics',
+            resource_path='/orson/ai/topics',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7232,7 +6902,6 @@ class OrsonApi:
     @validate_call
     def tech_tune(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         num_faces_expected: Annotated[StrictInt, Field(description="Number of expected faces")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7256,8 +6925,6 @@ class OrsonApi:
 
         Analyses a movie file to detect technical issues, such as too few people in frame.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param num_faces_expected: Number of expected faces (required)
@@ -7293,7 +6960,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tech_tune_serialize(
-            version=version,
             account_id=account_id,
             num_faces_expected=num_faces_expected,
             third_party_account_id=third_party_account_id,
@@ -7323,7 +6989,6 @@ class OrsonApi:
     @validate_call
     def tech_tune_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         num_faces_expected: Annotated[StrictInt, Field(description="Number of expected faces")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7347,8 +7012,6 @@ class OrsonApi:
 
         Analyses a movie file to detect technical issues, such as too few people in frame.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param num_faces_expected: Number of expected faces (required)
@@ -7384,7 +7047,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tech_tune_serialize(
-            version=version,
             account_id=account_id,
             num_faces_expected=num_faces_expected,
             third_party_account_id=third_party_account_id,
@@ -7414,7 +7076,6 @@ class OrsonApi:
     @validate_call
     def tech_tune_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         num_faces_expected: Annotated[StrictInt, Field(description="Number of expected faces")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7438,8 +7099,6 @@ class OrsonApi:
 
         Analyses a movie file to detect technical issues, such as too few people in frame.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param num_faces_expected: Number of expected faces (required)
@@ -7475,7 +7134,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tech_tune_serialize(
-            version=version,
             account_id=account_id,
             num_faces_expected=num_faces_expected,
             third_party_account_id=third_party_account_id,
@@ -7500,7 +7158,6 @@ class OrsonApi:
 
     def _tech_tune_serialize(
         self,
-        version,
         account_id,
         num_faces_expected,
         third_party_account_id,
@@ -7528,8 +7185,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7575,7 +7230,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/techTune',
+            resource_path='/orson/ai/techTune',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7594,7 +7249,6 @@ class OrsonApi:
     @validate_call
     def tts(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7618,8 +7272,6 @@ class OrsonApi:
 
         Creates an audio file for the given text, with the option of language and voice selection.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -7655,7 +7307,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tts_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             third_party_account_id=third_party_account_id,
@@ -7685,7 +7336,6 @@ class OrsonApi:
     @validate_call
     def tts_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7709,8 +7359,6 @@ class OrsonApi:
 
         Creates an audio file for the given text, with the option of language and voice selection.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -7746,7 +7394,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tts_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             third_party_account_id=third_party_account_id,
@@ -7776,7 +7423,6 @@ class OrsonApi:
     @validate_call
     def tts_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         text: Annotated[StrictStr, Field(description="Text")],
         third_party_account_id: Annotated[Optional[StrictStr], Field(description="A third-party account id that is meaningful to your systems")] = None,
@@ -7800,8 +7446,6 @@ class OrsonApi:
 
         Creates an audio file for the given text, with the option of language and voice selection.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param text: Text (required)
@@ -7837,7 +7481,6 @@ class OrsonApi:
         """ # noqa: E501
 
         _param = self._tts_serialize(
-            version=version,
             account_id=account_id,
             text=text,
             third_party_account_id=third_party_account_id,
@@ -7862,7 +7505,6 @@ class OrsonApi:
 
     def _tts_serialize(
         self,
-        version,
         account_id,
         text,
         third_party_account_id,
@@ -7890,8 +7532,6 @@ class OrsonApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7937,7 +7577,7 @@ class OrsonApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/orson/ai/tts',
+            resource_path='/orson/ai/tts',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

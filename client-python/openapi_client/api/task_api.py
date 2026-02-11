@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 from openapi_client.models.task_response import TaskResponse
@@ -44,7 +44,6 @@ class TaskApi:
     @validate_call
     def create_task(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the task")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -74,8 +73,6 @@ class TaskApi:
 
         Create a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the task (required)
@@ -123,7 +120,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._create_task_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -159,7 +155,6 @@ class TaskApi:
     @validate_call
     def create_task_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the task")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -189,8 +184,6 @@ class TaskApi:
 
         Create a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the task (required)
@@ -238,7 +231,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._create_task_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -274,7 +266,6 @@ class TaskApi:
     @validate_call
     def create_task_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the task")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -304,8 +295,6 @@ class TaskApi:
 
         Create a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the task (required)
@@ -353,7 +342,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._create_task_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -384,7 +372,6 @@ class TaskApi:
 
     def _create_task_serialize(
         self,
-        version,
         account_id,
         name,
         app_key,
@@ -418,8 +405,6 @@ class TaskApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -489,7 +474,7 @@ class TaskApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/task/create',
+            resource_path='/task/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -508,7 +493,6 @@ class TaskApi:
     @validate_call
     def delete_task(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to delete.")],
         _request_timeout: Union[
@@ -528,8 +512,6 @@ class TaskApi:
 
         Delete a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to delete. (required)
@@ -557,7 +539,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._delete_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -583,7 +564,6 @@ class TaskApi:
     @validate_call
     def delete_task_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to delete.")],
         _request_timeout: Union[
@@ -603,8 +583,6 @@ class TaskApi:
 
         Delete a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to delete. (required)
@@ -632,7 +610,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._delete_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -658,7 +635,6 @@ class TaskApi:
     @validate_call
     def delete_task_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to delete.")],
         _request_timeout: Union[
@@ -678,8 +654,6 @@ class TaskApi:
 
         Delete a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to delete. (required)
@@ -707,7 +681,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._delete_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -728,7 +701,6 @@ class TaskApi:
 
     def _delete_task_serialize(
         self,
-        version,
         account_id,
         task_id,
         _request_auth,
@@ -752,8 +724,6 @@ class TaskApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -783,7 +753,7 @@ class TaskApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/task/delete',
+            resource_path='/task/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -802,7 +772,6 @@ class TaskApi:
     @validate_call
     def get_task(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to return.")],
         _request_timeout: Union[
@@ -822,8 +791,6 @@ class TaskApi:
 
         Get a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to return. (required)
@@ -851,7 +818,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._get_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -877,7 +843,6 @@ class TaskApi:
     @validate_call
     def get_task_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to return.")],
         _request_timeout: Union[
@@ -897,8 +862,6 @@ class TaskApi:
 
         Get a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to return. (required)
@@ -926,7 +889,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._get_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -952,7 +914,6 @@ class TaskApi:
     @validate_call
     def get_task_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         task_id: Annotated[StrictInt, Field(description="The id of the Task to return.")],
         _request_timeout: Union[
@@ -972,8 +933,6 @@ class TaskApi:
 
         Get a Task
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param task_id: The id of the Task to return. (required)
@@ -1001,7 +960,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._get_task_serialize(
-            version=version,
             account_id=account_id,
             task_id=task_id,
             _request_auth=_request_auth,
@@ -1022,7 +980,6 @@ class TaskApi:
 
     def _get_task_serialize(
         self,
-        version,
         account_id,
         task_id,
         _request_auth,
@@ -1046,8 +1003,6 @@ class TaskApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1077,7 +1032,7 @@ class TaskApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/task/get',
+            resource_path='/task/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1096,7 +1051,6 @@ class TaskApi:
     @validate_call
     def search_tasks(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks ")] = None,
@@ -1126,8 +1080,6 @@ class TaskApi:
 
         Search on Tasks
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1175,7 +1127,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._search_tasks_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1211,7 +1162,6 @@ class TaskApi:
     @validate_call
     def search_tasks_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks ")] = None,
@@ -1241,8 +1191,6 @@ class TaskApi:
 
         Search on Tasks
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1290,7 +1238,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._search_tasks_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1326,7 +1273,6 @@ class TaskApi:
     @validate_call
     def search_tasks_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters:  * MINE - Return tasks that the user has created * SHARED - Return tasks that have been shared to the user * FOLLOWER - Return tasks that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return tasks that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC tasks that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC tasks regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all tasks that the user has liked * FEATURED - Return all tasks that have been featured * PENDING - Return all pending tasks ")] = None,
@@ -1356,8 +1302,6 @@ class TaskApi:
 
         Search on Tasks
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1405,7 +1349,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._search_tasks_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1436,7 +1379,6 @@ class TaskApi:
 
     def _search_tasks_serialize(
         self,
-        version,
         account_id,
         grouping_id,
         filter,
@@ -1470,8 +1412,6 @@ class TaskApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1541,7 +1481,7 @@ class TaskApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/task/search',
+            resource_path='/task/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1560,7 +1500,6 @@ class TaskApi:
     @validate_call
     def update_task(
         self,
-        version: Union[StrictFloat, StrictInt],
         task_id: Annotated[StrictInt, Field(description="Task Id")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the task")] = None,
@@ -1591,8 +1530,6 @@ class TaskApi:
 
         Update a Task
 
-        :param version: (required)
-        :type version: float
         :param task_id: Task Id (required)
         :type task_id: int
         :param account_id: The logged in user. (required)
@@ -1642,7 +1579,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._update_task_serialize(
-            version=version,
             task_id=task_id,
             account_id=account_id,
             name=name,
@@ -1679,7 +1615,6 @@ class TaskApi:
     @validate_call
     def update_task_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         task_id: Annotated[StrictInt, Field(description="Task Id")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the task")] = None,
@@ -1710,8 +1645,6 @@ class TaskApi:
 
         Update a Task
 
-        :param version: (required)
-        :type version: float
         :param task_id: Task Id (required)
         :type task_id: int
         :param account_id: The logged in user. (required)
@@ -1761,7 +1694,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._update_task_serialize(
-            version=version,
             task_id=task_id,
             account_id=account_id,
             name=name,
@@ -1798,7 +1730,6 @@ class TaskApi:
     @validate_call
     def update_task_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         task_id: Annotated[StrictInt, Field(description="Task Id")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the task")] = None,
@@ -1829,8 +1760,6 @@ class TaskApi:
 
         Update a Task
 
-        :param version: (required)
-        :type version: float
         :param task_id: Task Id (required)
         :type task_id: int
         :param account_id: The logged in user. (required)
@@ -1880,7 +1809,6 @@ class TaskApi:
         """ # noqa: E501
 
         _param = self._update_task_serialize(
-            version=version,
             task_id=task_id,
             account_id=account_id,
             name=name,
@@ -1912,7 +1840,6 @@ class TaskApi:
 
     def _update_task_serialize(
         self,
-        version,
         task_id,
         account_id,
         name,
@@ -1947,8 +1874,6 @@ class TaskApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if task_id is not None:
             
@@ -2022,7 +1947,7 @@ class TaskApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/task/update',
+            resource_path='/task/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

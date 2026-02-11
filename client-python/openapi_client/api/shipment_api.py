@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Dict, List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Dict, List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.shipment import Shipment
 
@@ -43,7 +43,6 @@ class ShipmentApi:
     @validate_call
     def cancel_shipment(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to cancel")],
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class ShipmentApi:
 
         Remove shipment from route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to cancel (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._cancel_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -113,7 +109,6 @@ class ShipmentApi:
     @validate_call
     def cancel_shipment_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to cancel")],
         _request_timeout: Union[
             None,
@@ -132,8 +127,6 @@ class ShipmentApi:
 
         Remove shipment from route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to cancel (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -159,7 +152,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._cancel_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -183,7 +175,6 @@ class ShipmentApi:
     @validate_call
     def cancel_shipment_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to cancel")],
         _request_timeout: Union[
             None,
@@ -202,8 +193,6 @@ class ShipmentApi:
 
         Remove shipment from route
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to cancel (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -229,7 +218,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._cancel_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -248,7 +236,6 @@ class ShipmentApi:
 
     def _cancel_shipment_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -271,8 +258,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -289,7 +274,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/shipment/{id}/cancel',
+            resource_path='/shipment/{id}/cancel',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -308,7 +293,6 @@ class ShipmentApi:
     @validate_call
     def create_shipment(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
             None,
@@ -327,8 +311,6 @@ class ShipmentApi:
 
         Create new shipment
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Shipment
         :param _request_timeout: timeout setting for this request. If one
@@ -354,7 +336,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._create_shipment_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -379,7 +360,6 @@ class ShipmentApi:
     @validate_call
     def create_shipment_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
             None,
@@ -398,8 +378,6 @@ class ShipmentApi:
 
         Create new shipment
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Shipment
         :param _request_timeout: timeout setting for this request. If one
@@ -425,7 +403,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._create_shipment_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -450,7 +427,6 @@ class ShipmentApi:
     @validate_call
     def create_shipment_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
             None,
@@ -469,8 +445,6 @@ class ShipmentApi:
 
         Create new shipment
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Shipment
         :param _request_timeout: timeout setting for this request. If one
@@ -496,7 +470,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._create_shipment_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -516,7 +489,6 @@ class ShipmentApi:
 
     def _create_shipment_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -539,8 +511,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -564,7 +534,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/shipment',
+            resource_path='/shipment',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -583,7 +553,6 @@ class ShipmentApi:
     @validate_call
     def delete_shipment(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to delete")],
         _request_timeout: Union[
             None,
@@ -602,8 +571,6 @@ class ShipmentApi:
 
         Delete an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -629,7 +596,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -653,7 +619,6 @@ class ShipmentApi:
     @validate_call
     def delete_shipment_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to delete")],
         _request_timeout: Union[
             None,
@@ -672,8 +637,6 @@ class ShipmentApi:
 
         Delete an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -699,7 +662,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -723,7 +685,6 @@ class ShipmentApi:
     @validate_call
     def delete_shipment_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to delete")],
         _request_timeout: Union[
             None,
@@ -742,8 +703,6 @@ class ShipmentApi:
 
         Delete an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -769,7 +728,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._delete_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -788,7 +746,6 @@ class ShipmentApi:
 
     def _delete_shipment_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -811,8 +768,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -829,7 +784,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/shipment/{id}',
+            resource_path='/shipment/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -848,7 +803,6 @@ class ShipmentApi:
     @validate_call
     def get_shipment(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to get")],
         _request_timeout: Union[
             None,
@@ -867,8 +821,6 @@ class ShipmentApi:
 
         Get an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -894,7 +846,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._get_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -919,7 +870,6 @@ class ShipmentApi:
     @validate_call
     def get_shipment_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to get")],
         _request_timeout: Union[
             None,
@@ -938,8 +888,6 @@ class ShipmentApi:
 
         Get an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -965,7 +913,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._get_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -990,7 +937,6 @@ class ShipmentApi:
     @validate_call
     def get_shipment_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to get")],
         _request_timeout: Union[
             None,
@@ -1009,8 +955,6 @@ class ShipmentApi:
 
         Get an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to get (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1036,7 +980,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._get_shipment_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1056,7 +999,6 @@ class ShipmentApi:
 
     def _get_shipment_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -1079,8 +1021,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1104,7 +1044,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/shipment/{id}',
+            resource_path='/shipment/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1123,7 +1063,6 @@ class ShipmentApi:
     @validate_call
     def search_shipments(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1149,8 +1088,6 @@ class ShipmentApi:
 
         Search for shipments
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1190,7 +1127,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._search_shipments_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1222,7 +1158,6 @@ class ShipmentApi:
     @validate_call
     def search_shipments_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1248,8 +1183,6 @@ class ShipmentApi:
 
         Search for shipments
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1289,7 +1222,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._search_shipments_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1321,7 +1253,6 @@ class ShipmentApi:
     @validate_call
     def search_shipments_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1347,8 +1278,6 @@ class ShipmentApi:
 
         Search for shipments
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1388,7 +1317,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._search_shipments_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1415,7 +1343,6 @@ class ShipmentApi:
 
     def _search_shipments_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -1445,8 +1372,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if owner_id is not None:
             
@@ -1500,7 +1425,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/shipment',
+            resource_path='/shipment',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1519,7 +1444,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update")],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
@@ -1539,8 +1463,6 @@ class ShipmentApi:
 
         Update an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update (required)
         :type id: int
         :param body:
@@ -1568,7 +1490,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1594,7 +1515,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update")],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
@@ -1614,8 +1534,6 @@ class ShipmentApi:
 
         Update an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update (required)
         :type id: int
         :param body:
@@ -1643,7 +1561,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1669,7 +1586,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update")],
         body: Optional[Shipment] = None,
         _request_timeout: Union[
@@ -1689,8 +1605,6 @@ class ShipmentApi:
 
         Update an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update (required)
         :type id: int
         :param body:
@@ -1718,7 +1632,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1739,7 +1652,6 @@ class ShipmentApi:
 
     def _update_shipment_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -1763,8 +1675,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1790,7 +1700,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/shipment/{id}',
+            resource_path='/shipment/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1809,7 +1719,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment_status(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update status")],
         body: Optional[Dict[str, StrictBool]] = None,
         _request_timeout: Union[
@@ -1829,8 +1738,6 @@ class ShipmentApi:
 
         Update status of an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update status (required)
         :type id: int
         :param body:
@@ -1858,7 +1765,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_status_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1883,7 +1789,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment_status_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update status")],
         body: Optional[Dict[str, StrictBool]] = None,
         _request_timeout: Union[
@@ -1903,8 +1808,6 @@ class ShipmentApi:
 
         Update status of an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update status (required)
         :type id: int
         :param body:
@@ -1932,7 +1835,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_status_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1957,7 +1859,6 @@ class ShipmentApi:
     @validate_call
     def update_shipment_status_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the shipment to update status")],
         body: Optional[Dict[str, StrictBool]] = None,
         _request_timeout: Union[
@@ -1977,8 +1878,6 @@ class ShipmentApi:
 
         Update status of an existing shipment
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the shipment to update status (required)
         :type id: int
         :param body:
@@ -2006,7 +1905,6 @@ class ShipmentApi:
         """ # noqa: E501
 
         _param = self._update_shipment_status_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -2026,7 +1924,6 @@ class ShipmentApi:
 
     def _update_shipment_status_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -2050,8 +1947,6 @@ class ShipmentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -2070,7 +1965,7 @@ class ShipmentApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/shipment/{id}/status',
+            resource_path='/shipment/{id}/status',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

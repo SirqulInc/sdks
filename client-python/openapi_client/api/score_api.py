@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.score_response import ScoreResponse
 
@@ -43,7 +43,6 @@ class ScoreApi:
     @validate_call
     def create_score(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to save the score for.")],
         points: Annotated[StrictInt, Field(description="The score")],
@@ -71,8 +70,6 @@ class ScoreApi:
 
         Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to save the score for. (required)
@@ -116,7 +113,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._create_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             points=points,
@@ -150,7 +146,6 @@ class ScoreApi:
     @validate_call
     def create_score_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to save the score for.")],
         points: Annotated[StrictInt, Field(description="The score")],
@@ -178,8 +173,6 @@ class ScoreApi:
 
         Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to save the score for. (required)
@@ -223,7 +216,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._create_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             points=points,
@@ -257,7 +249,6 @@ class ScoreApi:
     @validate_call
     def create_score_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to save the score for.")],
         points: Annotated[StrictInt, Field(description="The score")],
@@ -285,8 +276,6 @@ class ScoreApi:
 
         Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to save the score for. (required)
@@ -330,7 +319,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._create_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             points=points,
@@ -359,7 +347,6 @@ class ScoreApi:
 
     def _create_score_serialize(
         self,
-        version,
         account_id,
         app_key,
         points,
@@ -391,8 +378,6 @@ class ScoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -454,7 +439,7 @@ class ScoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/score/create',
+            resource_path='/score/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -473,7 +458,6 @@ class ScoreApi:
     @validate_call
     def get_score(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -500,8 +484,6 @@ class ScoreApi:
 
         Get the high score for an item.  Pass in the full path IDs for the score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -543,7 +525,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._get_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -576,7 +557,6 @@ class ScoreApi:
     @validate_call
     def get_score_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -603,8 +583,6 @@ class ScoreApi:
 
         Get the high score for an item.  Pass in the full path IDs for the score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -646,7 +624,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._get_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -679,7 +656,6 @@ class ScoreApi:
     @validate_call
     def get_score_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -706,8 +682,6 @@ class ScoreApi:
 
         Get the high score for an item.  Pass in the full path IDs for the score.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -749,7 +723,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._get_score_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -777,7 +750,6 @@ class ScoreApi:
 
     def _get_score_serialize(
         self,
-        version,
         account_id,
         app_key,
         mission_id,
@@ -808,8 +780,6 @@ class ScoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -867,7 +837,7 @@ class ScoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/score/get',
+            resource_path='/score/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -886,7 +856,6 @@ class ScoreApi:
     @validate_call
     def search_scores(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -911,8 +880,6 @@ class ScoreApi:
 
         Search the scores for an item.  Pass in the full path IDs for the scores.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -950,7 +917,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._search_scores_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -981,7 +947,6 @@ class ScoreApi:
     @validate_call
     def search_scores_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -1006,8 +971,6 @@ class ScoreApi:
 
         Search the scores for an item.  Pass in the full path IDs for the scores.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -1045,7 +1008,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._search_scores_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -1076,7 +1038,6 @@ class ScoreApi:
     @validate_call
     def search_scores_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="The game application key to get the level for.")],
         mission_id: Annotated[Optional[StrictInt], Field(description="The missionId to score for, null if not playing mission.")] = None,
@@ -1101,8 +1062,6 @@ class ScoreApi:
 
         Search the scores for an item.  Pass in the full path IDs for the scores.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: The game application key to get the level for. (required)
@@ -1140,7 +1099,6 @@ class ScoreApi:
         """ # noqa: E501
 
         _param = self._search_scores_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             mission_id=mission_id,
@@ -1166,7 +1124,6 @@ class ScoreApi:
 
     def _search_scores_serialize(
         self,
-        version,
         account_id,
         app_key,
         mission_id,
@@ -1195,8 +1152,6 @@ class ScoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1246,7 +1201,7 @@ class ScoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/score/search',
+            resource_path='/score/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

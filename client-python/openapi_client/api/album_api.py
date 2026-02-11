@@ -46,7 +46,6 @@ class AlbumApi:
     @validate_call
     def add_album_collection(
         self,
-        version: Union[StrictFloat, StrictInt],
         title: Annotated[StrictStr, Field(description="the title of the album")],
         cover_asset_nullable: Annotated[StrictBool, Field(description="determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image")],
         include_cover_in_asset_list: Annotated[StrictBool, Field(description="determines whether the cover image should be added to the album asset list")],
@@ -110,8 +109,6 @@ class AlbumApi:
 
         Create an Album.
 
-        :param version: (required)
-        :type version: float
         :param title: the title of the album (required)
         :type title: str
         :param cover_asset_nullable: determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image (required)
@@ -227,7 +224,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_collection_serialize(
-            version=version,
             title=title,
             cover_asset_nullable=cover_asset_nullable,
             include_cover_in_asset_list=include_cover_in_asset_list,
@@ -297,7 +293,6 @@ class AlbumApi:
     @validate_call
     def add_album_collection_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         title: Annotated[StrictStr, Field(description="the title of the album")],
         cover_asset_nullable: Annotated[StrictBool, Field(description="determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image")],
         include_cover_in_asset_list: Annotated[StrictBool, Field(description="determines whether the cover image should be added to the album asset list")],
@@ -361,8 +356,6 @@ class AlbumApi:
 
         Create an Album.
 
-        :param version: (required)
-        :type version: float
         :param title: the title of the album (required)
         :type title: str
         :param cover_asset_nullable: determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image (required)
@@ -478,7 +471,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_collection_serialize(
-            version=version,
             title=title,
             cover_asset_nullable=cover_asset_nullable,
             include_cover_in_asset_list=include_cover_in_asset_list,
@@ -548,7 +540,6 @@ class AlbumApi:
     @validate_call
     def add_album_collection_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         title: Annotated[StrictStr, Field(description="the title of the album")],
         cover_asset_nullable: Annotated[StrictBool, Field(description="determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image")],
         include_cover_in_asset_list: Annotated[StrictBool, Field(description="determines whether the cover image should be added to the album asset list")],
@@ -612,8 +603,6 @@ class AlbumApi:
 
         Create an Album.
 
-        :param version: (required)
-        :type version: float
         :param title: the title of the album (required)
         :type title: str
         :param cover_asset_nullable: determines whether the cover image of the album can be empty, else will use the user's profile picture as the cover image (required)
@@ -729,7 +718,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_collection_serialize(
-            version=version,
             title=title,
             cover_asset_nullable=cover_asset_nullable,
             include_cover_in_asset_list=include_cover_in_asset_list,
@@ -794,7 +782,6 @@ class AlbumApi:
 
     def _add_album_collection_serialize(
         self,
-        version,
         title,
         cover_asset_nullable,
         include_cover_in_asset_list,
@@ -862,8 +849,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1069,7 +1054,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/create',
+            resource_path='/album/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1088,7 +1073,6 @@ class AlbumApi:
     @validate_call
     def add_album_users(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         include_friend_group: Annotated[StrictBool, Field(description="determines whether to include all friends as participants")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -1116,8 +1100,6 @@ class AlbumApi:
 
         Add users to an album as participants.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param include_friend_group: determines whether to include all friends as participants (required)
@@ -1161,7 +1143,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_users_serialize(
-            version=version,
             album_id=album_id,
             include_friend_group=include_friend_group,
             device_id=device_id,
@@ -1195,7 +1176,6 @@ class AlbumApi:
     @validate_call
     def add_album_users_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         include_friend_group: Annotated[StrictBool, Field(description="determines whether to include all friends as participants")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -1223,8 +1203,6 @@ class AlbumApi:
 
         Add users to an album as participants.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param include_friend_group: determines whether to include all friends as participants (required)
@@ -1268,7 +1246,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_users_serialize(
-            version=version,
             album_id=album_id,
             include_friend_group=include_friend_group,
             device_id=device_id,
@@ -1302,7 +1279,6 @@ class AlbumApi:
     @validate_call
     def add_album_users_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         include_friend_group: Annotated[StrictBool, Field(description="determines whether to include all friends as participants")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -1330,8 +1306,6 @@ class AlbumApi:
 
         Add users to an album as participants.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param include_friend_group: determines whether to include all friends as participants (required)
@@ -1375,7 +1349,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._add_album_users_serialize(
-            version=version,
             album_id=album_id,
             include_friend_group=include_friend_group,
             device_id=device_id,
@@ -1404,7 +1377,6 @@ class AlbumApi:
 
     def _add_album_users_serialize(
         self,
-        version,
         album_id,
         include_friend_group,
         device_id,
@@ -1436,8 +1408,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1499,7 +1469,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/user/add',
+            resource_path='/album/user/add',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1518,7 +1488,6 @@ class AlbumApi:
     @validate_call
     def approve_album(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="The ID of the album")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -1541,8 +1510,6 @@ class AlbumApi:
 
         Sets the approval status of an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: The ID of the album (required)
         :type album_id: int
         :param device_id: A unique ID given by the device (deviceId or accountId required)
@@ -1576,7 +1543,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._approve_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -1605,7 +1571,6 @@ class AlbumApi:
     @validate_call
     def approve_album_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="The ID of the album")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -1628,8 +1593,6 @@ class AlbumApi:
 
         Sets the approval status of an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: The ID of the album (required)
         :type album_id: int
         :param device_id: A unique ID given by the device (deviceId or accountId required)
@@ -1663,7 +1626,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._approve_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -1692,7 +1654,6 @@ class AlbumApi:
     @validate_call
     def approve_album_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="The ID of the album")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -1715,8 +1676,6 @@ class AlbumApi:
 
         Sets the approval status of an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: The ID of the album (required)
         :type album_id: int
         :param device_id: A unique ID given by the device (deviceId or accountId required)
@@ -1750,7 +1709,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._approve_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -1774,7 +1732,6 @@ class AlbumApi:
 
     def _approve_album_serialize(
         self,
-        version,
         album_id,
         device_id,
         account_id,
@@ -1801,8 +1758,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1844,7 +1799,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/approve',
+            resource_path='/album/approve',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1863,7 +1818,6 @@ class AlbumApi:
     @validate_call
     def get_album_collection(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="This parameter is deprecated.")],
         album_id: Annotated[StrictInt, Field(description="the album to look up")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -1890,8 +1844,6 @@ class AlbumApi:
 
         Get an Album.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: This parameter is deprecated. (required)
         :type return_nulls: bool
         :param album_id: the album to look up (required)
@@ -1933,7 +1885,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._get_album_collection_serialize(
-            version=version,
             return_nulls=return_nulls,
             album_id=album_id,
             device_id=device_id,
@@ -1966,7 +1917,6 @@ class AlbumApi:
     @validate_call
     def get_album_collection_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="This parameter is deprecated.")],
         album_id: Annotated[StrictInt, Field(description="the album to look up")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -1993,8 +1943,6 @@ class AlbumApi:
 
         Get an Album.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: This parameter is deprecated. (required)
         :type return_nulls: bool
         :param album_id: the album to look up (required)
@@ -2036,7 +1984,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._get_album_collection_serialize(
-            version=version,
             return_nulls=return_nulls,
             album_id=album_id,
             device_id=device_id,
@@ -2069,7 +2016,6 @@ class AlbumApi:
     @validate_call
     def get_album_collection_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="This parameter is deprecated.")],
         album_id: Annotated[StrictInt, Field(description="the album to look up")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2096,8 +2042,6 @@ class AlbumApi:
 
         Get an Album.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: This parameter is deprecated. (required)
         :type return_nulls: bool
         :param album_id: the album to look up (required)
@@ -2139,7 +2083,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._get_album_collection_serialize(
-            version=version,
             return_nulls=return_nulls,
             album_id=album_id,
             device_id=device_id,
@@ -2167,7 +2110,6 @@ class AlbumApi:
 
     def _get_album_collection_serialize(
         self,
-        version,
         return_nulls,
         album_id,
         device_id,
@@ -2198,8 +2140,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -2257,7 +2197,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/album/get',
+            resource_path='/album/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2276,7 +2216,6 @@ class AlbumApi:
     @validate_call
     def leave_album(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2297,8 +2236,6 @@ class AlbumApi:
 
          Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2328,7 +2265,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._leave_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2355,7 +2291,6 @@ class AlbumApi:
     @validate_call
     def leave_album_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2376,8 +2311,6 @@ class AlbumApi:
 
          Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2407,7 +2340,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._leave_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2434,7 +2366,6 @@ class AlbumApi:
     @validate_call
     def leave_album_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2455,8 +2386,6 @@ class AlbumApi:
 
          Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2486,7 +2415,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._leave_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2508,7 +2436,6 @@ class AlbumApi:
 
     def _leave_album_serialize(
         self,
-        version,
         album_id,
         device_id,
         account_id,
@@ -2533,8 +2460,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2568,7 +2493,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/user/leave',
+            resource_path='/album/user/leave',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2587,7 +2512,6 @@ class AlbumApi:
     @validate_call
     def remove_album(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2608,8 +2532,6 @@ class AlbumApi:
 
         Deletes an Album
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID to delete (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2639,7 +2561,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2666,7 +2587,6 @@ class AlbumApi:
     @validate_call
     def remove_album_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2687,8 +2607,6 @@ class AlbumApi:
 
         Deletes an Album
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID to delete (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2718,7 +2636,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2745,7 +2662,6 @@ class AlbumApi:
     @validate_call
     def remove_album_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2766,8 +2682,6 @@ class AlbumApi:
 
         Deletes an Album
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID to delete (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2797,7 +2711,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -2819,7 +2732,6 @@ class AlbumApi:
 
     def _remove_album_serialize(
         self,
-        version,
         album_id,
         device_id,
         account_id,
@@ -2844,8 +2756,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2879,7 +2789,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/delete',
+            resource_path='/album/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2898,7 +2808,6 @@ class AlbumApi:
     @validate_call
     def remove_album_users(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         remove_friend_group: Annotated[StrictBool, Field(description="remove friend group")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2922,8 +2831,6 @@ class AlbumApi:
 
         Remove participants of an album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param remove_friend_group: remove friend group (required)
@@ -2959,7 +2866,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_users_serialize(
-            version=version,
             album_id=album_id,
             remove_friend_group=remove_friend_group,
             device_id=device_id,
@@ -2989,7 +2895,6 @@ class AlbumApi:
     @validate_call
     def remove_album_users_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         remove_friend_group: Annotated[StrictBool, Field(description="remove friend group")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -3013,8 +2918,6 @@ class AlbumApi:
 
         Remove participants of an album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param remove_friend_group: remove friend group (required)
@@ -3050,7 +2953,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_users_serialize(
-            version=version,
             album_id=album_id,
             remove_friend_group=remove_friend_group,
             device_id=device_id,
@@ -3080,7 +2982,6 @@ class AlbumApi:
     @validate_call
     def remove_album_users_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the album ID")],
         remove_friend_group: Annotated[StrictBool, Field(description="remove friend group")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -3104,8 +3005,6 @@ class AlbumApi:
 
         Remove participants of an album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the album ID (required)
         :type album_id: int
         :param remove_friend_group: remove friend group (required)
@@ -3141,7 +3040,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._remove_album_users_serialize(
-            version=version,
             album_id=album_id,
             remove_friend_group=remove_friend_group,
             device_id=device_id,
@@ -3166,7 +3064,6 @@ class AlbumApi:
 
     def _remove_album_users_serialize(
         self,
-        version,
         album_id,
         remove_friend_group,
         device_id,
@@ -3194,8 +3091,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3241,7 +3136,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/user/delete',
+            resource_path='/album/user/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3260,7 +3155,6 @@ class AlbumApi:
     @validate_call
     def search_albums(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. ")],
         album_type_id: Annotated[StrictInt, Field(description="id of custom albumType")],
         sub_type: Annotated[StrictStr, Field(description="filter albums with this album sub type")],
@@ -3338,8 +3232,6 @@ class AlbumApi:
 
         Searches on Albums.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
         :type filter: str
         :param album_type_id: id of custom albumType (required)
@@ -3483,7 +3375,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._search_albums_serialize(
-            version=version,
             filter=filter,
             album_type_id=album_type_id,
             sub_type=sub_type,
@@ -3567,7 +3458,6 @@ class AlbumApi:
     @validate_call
     def search_albums_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. ")],
         album_type_id: Annotated[StrictInt, Field(description="id of custom albumType")],
         sub_type: Annotated[StrictStr, Field(description="filter albums with this album sub type")],
@@ -3645,8 +3535,6 @@ class AlbumApi:
 
         Searches on Albums.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
         :type filter: str
         :param album_type_id: id of custom albumType (required)
@@ -3790,7 +3678,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._search_albums_serialize(
-            version=version,
             filter=filter,
             album_type_id=album_type_id,
             sub_type=sub_type,
@@ -3874,7 +3761,6 @@ class AlbumApi:
     @validate_call
     def search_albums_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums. ")],
         album_type_id: Annotated[StrictInt, Field(description="id of custom albumType")],
         sub_type: Annotated[StrictStr, Field(description="filter albums with this album sub type")],
@@ -3952,8 +3838,6 @@ class AlbumApi:
 
         Searches on Albums.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of filters: * MINE - Return albums that the user has created. * SHARED - Return albums that have been shared to the user via addAlbumUsers, or addUsersToPermissionable . * FOLLOWER - Return albums that have been created by the user's followers (the content needs to have been APPROVED or FEATURED). * FOLLOWING - Return albums that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED). * PUBLIC - Return all PUBLIC albums that have been APPROVED or FEATURED. * ALL_PUBLIC - Return all PUBLIC albums regardless of whether they are approved or not (ignores the approval status). * LIKED - Return all albums that the user has liked. * FEATURED - Return all albums that have been featured. * PENDING - Return all pending albums.  (required)
         :type filter: str
         :param album_type_id: id of custom albumType (required)
@@ -4097,7 +3981,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._search_albums_serialize(
-            version=version,
             filter=filter,
             album_type_id=album_type_id,
             sub_type=sub_type,
@@ -4176,7 +4059,6 @@ class AlbumApi:
 
     def _search_albums_serialize(
         self,
-        version,
         filter,
         album_type_id,
         sub_type,
@@ -4258,8 +4140,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4521,7 +4401,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/album/search',
+            resource_path='/album/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4540,7 +4420,6 @@ class AlbumApi:
     @validate_call
     def update_album_collection(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -4603,8 +4482,6 @@ class AlbumApi:
 
         Update an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the ID of the album to update (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -4718,7 +4595,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._update_album_collection_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -4787,7 +4663,6 @@ class AlbumApi:
     @validate_call
     def update_album_collection_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -4850,8 +4725,6 @@ class AlbumApi:
 
         Update an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the ID of the album to update (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -4965,7 +4838,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._update_album_collection_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -5034,7 +4906,6 @@ class AlbumApi:
     @validate_call
     def update_album_collection_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -5097,8 +4968,6 @@ class AlbumApi:
 
         Update an Album.
 
-        :param version: (required)
-        :type version: float
         :param album_id: the ID of the album to update (required)
         :type album_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -5212,7 +5081,6 @@ class AlbumApi:
         """ # noqa: E501
 
         _param = self._update_album_collection_serialize(
-            version=version,
             album_id=album_id,
             device_id=device_id,
             account_id=account_id,
@@ -5276,7 +5144,6 @@ class AlbumApi:
 
     def _update_album_collection_serialize(
         self,
-        version,
         album_id,
         device_id,
         account_id,
@@ -5343,8 +5210,6 @@ class AlbumApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5546,7 +5411,7 @@ class AlbumApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/album/update',
+            resource_path='/album/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

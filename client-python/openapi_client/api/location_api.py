@@ -47,7 +47,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         udid: Annotated[StrictStr, Field(description="The unique identifier of the source device")],
         source_time: Annotated[Optional[StrictInt], Field(description="The current timestamp of the source device")] = None,
         minimum_sample_size: Annotated[Optional[StrictInt], Field(description="the minimum number of Edysen devices that must be used to be able to trilaterate a device")] = None,
@@ -70,8 +69,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param udid: The unique identifier of the source device (required)
         :type udid: str
         :param source_time: The current timestamp of the source device
@@ -105,7 +102,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_serialize(
-            version=version,
             udid=udid,
             source_time=source_time,
             minimum_sample_size=minimum_sample_size,
@@ -134,7 +130,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         udid: Annotated[StrictStr, Field(description="The unique identifier of the source device")],
         source_time: Annotated[Optional[StrictInt], Field(description="The current timestamp of the source device")] = None,
         minimum_sample_size: Annotated[Optional[StrictInt], Field(description="the minimum number of Edysen devices that must be used to be able to trilaterate a device")] = None,
@@ -157,8 +152,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param udid: The unique identifier of the source device (required)
         :type udid: str
         :param source_time: The current timestamp of the source device
@@ -192,7 +185,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_serialize(
-            version=version,
             udid=udid,
             source_time=source_time,
             minimum_sample_size=minimum_sample_size,
@@ -221,7 +213,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         udid: Annotated[StrictStr, Field(description="The unique identifier of the source device")],
         source_time: Annotated[Optional[StrictInt], Field(description="The current timestamp of the source device")] = None,
         minimum_sample_size: Annotated[Optional[StrictInt], Field(description="the minimum number of Edysen devices that must be used to be able to trilaterate a device")] = None,
@@ -244,8 +235,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param udid: The unique identifier of the source device (required)
         :type udid: str
         :param source_time: The current timestamp of the source device
@@ -279,7 +268,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_serialize(
-            version=version,
             udid=udid,
             source_time=source_time,
             minimum_sample_size=minimum_sample_size,
@@ -303,7 +291,6 @@ class LocationApi:
 
     def _cache_trilateration_data_serialize(
         self,
-        version,
         udid,
         source_time,
         minimum_sample_size,
@@ -330,8 +317,6 @@ class LocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if udid is not None:
             
@@ -373,7 +358,7 @@ class LocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/location/trilaterate/cache',
+            resource_path='/location/trilaterate/cache',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -392,7 +377,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data_gzip(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[TrilatCacheRequest] = None,
         _request_timeout: Union[
             None,
@@ -411,8 +395,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: TrilatCacheRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -438,7 +420,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_gzip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -463,7 +444,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data_gzip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[TrilatCacheRequest] = None,
         _request_timeout: Union[
             None,
@@ -482,8 +462,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: TrilatCacheRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -509,7 +487,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_gzip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -534,7 +511,6 @@ class LocationApi:
     @validate_call
     def cache_trilateration_data_gzip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[TrilatCacheRequest] = None,
         _request_timeout: Union[
             None,
@@ -553,8 +529,6 @@ class LocationApi:
 
         Creates trilateration samples for a source device (i.e. a router).
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: TrilatCacheRequest
         :param _request_timeout: timeout setting for this request. If one
@@ -580,7 +554,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._cache_trilateration_data_gzip_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -600,7 +573,6 @@ class LocationApi:
 
     def _cache_trilateration_data_gzip_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -623,8 +595,6 @@ class LocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -648,7 +618,7 @@ class LocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/location/trilaterate/cache/submit',
+            resource_path='/location/trilaterate/cache/submit',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -667,7 +637,6 @@ class LocationApi:
     @validate_call
     def get_location_by_ip(
         self,
-        version: Union[StrictFloat, StrictInt],
         ip: Annotated[Optional[StrictStr], Field(description="the ip address of the client device")] = None,
         _request_timeout: Union[
             None,
@@ -686,8 +655,6 @@ class LocationApi:
 
         Get location information based on an IP address.
 
-        :param version: (required)
-        :type version: float
         :param ip: the ip address of the client device
         :type ip: str
         :param _request_timeout: timeout setting for this request. If one
@@ -713,7 +680,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_ip_serialize(
-            version=version,
             ip=ip,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -738,7 +704,6 @@ class LocationApi:
     @validate_call
     def get_location_by_ip_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         ip: Annotated[Optional[StrictStr], Field(description="the ip address of the client device")] = None,
         _request_timeout: Union[
             None,
@@ -757,8 +722,6 @@ class LocationApi:
 
         Get location information based on an IP address.
 
-        :param version: (required)
-        :type version: float
         :param ip: the ip address of the client device
         :type ip: str
         :param _request_timeout: timeout setting for this request. If one
@@ -784,7 +747,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_ip_serialize(
-            version=version,
             ip=ip,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -809,7 +771,6 @@ class LocationApi:
     @validate_call
     def get_location_by_ip_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         ip: Annotated[Optional[StrictStr], Field(description="the ip address of the client device")] = None,
         _request_timeout: Union[
             None,
@@ -828,8 +789,6 @@ class LocationApi:
 
         Get location information based on an IP address.
 
-        :param version: (required)
-        :type version: float
         :param ip: the ip address of the client device
         :type ip: str
         :param _request_timeout: timeout setting for this request. If one
@@ -855,7 +814,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_ip_serialize(
-            version=version,
             ip=ip,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -875,7 +833,6 @@ class LocationApi:
 
     def _get_location_by_ip_serialize(
         self,
-        version,
         ip,
         _request_auth,
         _content_type,
@@ -898,8 +855,6 @@ class LocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if ip is not None:
             
@@ -925,7 +880,7 @@ class LocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/location/ip',
+            resource_path='/location/ip',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -944,7 +899,6 @@ class LocationApi:
     @validate_call
     def get_location_by_trilateration(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account making the request, if provided the last know location will be updated")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS latitude to compare to the calculated version")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS longitude to compare to the calculated version")] = None,
@@ -967,8 +921,6 @@ class LocationApi:
 
         Send in device data and calculate a position based on signal strengths.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account making the request, if provided the last know location will be updated
         :type account_id: int
         :param latitude: The known GPS latitude to compare to the calculated version
@@ -1002,7 +954,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_trilateration_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1031,7 +982,6 @@ class LocationApi:
     @validate_call
     def get_location_by_trilateration_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account making the request, if provided the last know location will be updated")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS latitude to compare to the calculated version")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS longitude to compare to the calculated version")] = None,
@@ -1054,8 +1004,6 @@ class LocationApi:
 
         Send in device data and calculate a position based on signal strengths.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account making the request, if provided the last know location will be updated
         :type account_id: int
         :param latitude: The known GPS latitude to compare to the calculated version
@@ -1089,7 +1037,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_trilateration_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1118,7 +1065,6 @@ class LocationApi:
     @validate_call
     def get_location_by_trilateration_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account making the request, if provided the last know location will be updated")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS latitude to compare to the calculated version")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="The known GPS longitude to compare to the calculated version")] = None,
@@ -1141,8 +1087,6 @@ class LocationApi:
 
         Send in device data and calculate a position based on signal strengths.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account making the request, if provided the last know location will be updated
         :type account_id: int
         :param latitude: The known GPS latitude to compare to the calculated version
@@ -1176,7 +1120,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_location_by_trilateration_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1200,7 +1143,6 @@ class LocationApi:
 
     def _get_location_by_trilateration_serialize(
         self,
-        version,
         account_id,
         latitude,
         longitude,
@@ -1227,8 +1169,6 @@ class LocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1270,7 +1210,7 @@ class LocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/account/location/trilaterate',
+            resource_path='/account/location/trilaterate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1289,7 +1229,6 @@ class LocationApi:
     @validate_call
     def get_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         currentlatitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="This parameter is deprecated.")] = None,
@@ -1326,8 +1265,6 @@ class LocationApi:
 
         Searches geographic locations by proximity via address or keyword.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the account id
@@ -1389,7 +1326,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             currentlatitude=currentlatitude,
@@ -1432,7 +1368,6 @@ class LocationApi:
     @validate_call
     def get_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         currentlatitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="This parameter is deprecated.")] = None,
@@ -1469,8 +1404,6 @@ class LocationApi:
 
         Searches geographic locations by proximity via address or keyword.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the account id
@@ -1532,7 +1465,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             currentlatitude=currentlatitude,
@@ -1575,7 +1507,6 @@ class LocationApi:
     @validate_call
     def get_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         currentlatitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="This parameter is deprecated.")] = None,
@@ -1612,8 +1543,6 @@ class LocationApi:
 
         Searches geographic locations by proximity via address or keyword.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the account id
@@ -1675,7 +1604,6 @@ class LocationApi:
         """ # noqa: E501
 
         _param = self._get_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             currentlatitude=currentlatitude,
@@ -1713,7 +1641,6 @@ class LocationApi:
 
     def _get_locations_serialize(
         self,
-        version,
         device_id,
         account_id,
         currentlatitude,
@@ -1754,8 +1681,6 @@ class LocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1853,7 +1778,7 @@ class LocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/location/search',
+            resource_path='/location/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

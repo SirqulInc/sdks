@@ -47,7 +47,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_credential(
         self,
-        version: Union[StrictFloat, StrictInt],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         third_party_token: Annotated[StrictStr, Field(description="the access token to authenticate with (ex: username or fb token or phone number)")],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
@@ -82,8 +81,6 @@ class ThirdPartyCredentialsApi:
 
         This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 
-        :param version: (required)
-        :type version: float
         :param third_party_id: the third party user account id (required)
         :type third_party_id: str
         :param third_party_token: the access token to authenticate with (ex: username or fb token or phone number) (required)
@@ -141,7 +138,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_credential_serialize(
-            version=version,
             third_party_id=third_party_id,
             third_party_token=third_party_token,
             network_uid=network_uid,
@@ -182,7 +178,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_credential_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         third_party_token: Annotated[StrictStr, Field(description="the access token to authenticate with (ex: username or fb token or phone number)")],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
@@ -217,8 +212,6 @@ class ThirdPartyCredentialsApi:
 
         This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 
-        :param version: (required)
-        :type version: float
         :param third_party_id: the third party user account id (required)
         :type third_party_id: str
         :param third_party_token: the access token to authenticate with (ex: username or fb token or phone number) (required)
@@ -276,7 +269,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_credential_serialize(
-            version=version,
             third_party_id=third_party_id,
             third_party_token=third_party_token,
             network_uid=network_uid,
@@ -317,7 +309,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_credential_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         third_party_token: Annotated[StrictStr, Field(description="the access token to authenticate with (ex: username or fb token or phone number)")],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
@@ -352,8 +343,6 @@ class ThirdPartyCredentialsApi:
 
         This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
 
-        :param version: (required)
-        :type version: float
         :param third_party_id: the third party user account id (required)
         :type third_party_id: str
         :param third_party_token: the access token to authenticate with (ex: username or fb token or phone number) (required)
@@ -411,7 +400,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_credential_serialize(
-            version=version,
             third_party_id=third_party_id,
             third_party_token=third_party_token,
             network_uid=network_uid,
@@ -447,7 +435,6 @@ class ThirdPartyCredentialsApi:
 
     def _create_credential_serialize(
         self,
-        version,
         third_party_id,
         third_party_token,
         network_uid,
@@ -486,8 +473,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -577,7 +562,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/credential/create',
+            resource_path='/thirdparty/credential/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -596,7 +581,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_network(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         name: Annotated[StrictStr, Field(description="The name of the network")],
         enable_introspection: Annotated[StrictBool, Field(description="Whether the network uses introspection calls")],
@@ -631,8 +615,6 @@ class ThirdPartyCredentialsApi:
 
         Creates a custom third party network.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param name: The name of the network (required)
@@ -690,7 +672,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_network_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             enable_introspection=enable_introspection,
@@ -731,7 +712,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_network_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         name: Annotated[StrictStr, Field(description="The name of the network")],
         enable_introspection: Annotated[StrictBool, Field(description="Whether the network uses introspection calls")],
@@ -766,8 +746,6 @@ class ThirdPartyCredentialsApi:
 
         Creates a custom third party network.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param name: The name of the network (required)
@@ -825,7 +803,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_network_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             enable_introspection=enable_introspection,
@@ -866,7 +843,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def create_network_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         name: Annotated[StrictStr, Field(description="The name of the network")],
         enable_introspection: Annotated[StrictBool, Field(description="Whether the network uses introspection calls")],
@@ -901,8 +877,6 @@ class ThirdPartyCredentialsApi:
 
         Creates a custom third party network.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param name: The name of the network (required)
@@ -960,7 +934,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._create_network_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             enable_introspection=enable_introspection,
@@ -996,7 +969,6 @@ class ThirdPartyCredentialsApi:
 
     def _create_network_serialize(
         self,
-        version,
         account_id,
         name,
         enable_introspection,
@@ -1035,8 +1007,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1124,7 +1094,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/network/create',
+            resource_path='/thirdparty/network/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1143,7 +1113,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_credential(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         network_uid: Annotated[StrictStr, Field(description="The third party network identifier")],
         third_party_id: Annotated[StrictStr, Field(description="The third party user id")],
@@ -1165,8 +1134,6 @@ class ThirdPartyCredentialsApi:
 
         Delete a third party network on a Sirqul account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param network_uid: The third party network identifier (required)
@@ -1198,7 +1165,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_credential_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             third_party_id=third_party_id,
@@ -1226,7 +1192,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_credential_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         network_uid: Annotated[StrictStr, Field(description="The third party network identifier")],
         third_party_id: Annotated[StrictStr, Field(description="The third party user id")],
@@ -1248,8 +1213,6 @@ class ThirdPartyCredentialsApi:
 
         Delete a third party network on a Sirqul account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param network_uid: The third party network identifier (required)
@@ -1281,7 +1244,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_credential_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             third_party_id=third_party_id,
@@ -1309,7 +1271,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_credential_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         network_uid: Annotated[StrictStr, Field(description="The third party network identifier")],
         third_party_id: Annotated[StrictStr, Field(description="The third party user id")],
@@ -1331,8 +1292,6 @@ class ThirdPartyCredentialsApi:
 
         Delete a third party network on a Sirqul account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param network_uid: The third party network identifier (required)
@@ -1364,7 +1323,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_credential_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             third_party_id=third_party_id,
@@ -1387,7 +1345,6 @@ class ThirdPartyCredentialsApi:
 
     def _delete_credential_serialize(
         self,
-        version,
         account_id,
         network_uid,
         third_party_id,
@@ -1413,8 +1370,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1452,7 +1407,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/credential/delete',
+            resource_path='/thirdparty/credential/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1471,7 +1426,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_network(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -1491,8 +1445,6 @@ class ThirdPartyCredentialsApi:
 
         Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -1520,7 +1472,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -1546,7 +1497,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_network_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -1566,8 +1516,6 @@ class ThirdPartyCredentialsApi:
 
         Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -1595,7 +1543,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -1621,7 +1568,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def delete_network_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -1641,8 +1587,6 @@ class ThirdPartyCredentialsApi:
 
         Marks a custom third party network as deleted. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -1670,7 +1614,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._delete_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -1691,7 +1634,6 @@ class ThirdPartyCredentialsApi:
 
     def _delete_network_serialize(
         self,
-        version,
         account_id,
         network_uid,
         _request_auth,
@@ -1715,8 +1657,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1746,7 +1686,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/network/delete',
+            resource_path='/thirdparty/network/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1765,7 +1705,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_credential(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the unique account id of a specific account that will be bound to the third-party credentials")] = None,
@@ -1798,8 +1737,6 @@ class ThirdPartyCredentialsApi:
 
         Gets the account information given a third party token.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -1853,7 +1790,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_credential_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             account_id=account_id,
@@ -1892,7 +1828,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_credential_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the unique account id of a specific account that will be bound to the third-party credentials")] = None,
@@ -1925,8 +1860,6 @@ class ThirdPartyCredentialsApi:
 
         Gets the account information given a third party token.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -1980,7 +1913,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_credential_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             account_id=account_id,
@@ -2019,7 +1951,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_credential_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         account_id: Annotated[Optional[StrictInt], Field(description="the unique account id of a specific account that will be bound to the third-party credentials")] = None,
@@ -2052,8 +1983,6 @@ class ThirdPartyCredentialsApi:
 
         Gets the account information given a third party token.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -2107,7 +2036,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_credential_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             account_id=account_id,
@@ -2141,7 +2069,6 @@ class ThirdPartyCredentialsApi:
 
     def _get_credential_serialize(
         self,
-        version,
         network_uid,
         app_key,
         account_id,
@@ -2178,8 +2105,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2261,7 +2186,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/credential/get',
+            resource_path='/thirdparty/credential/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2280,7 +2205,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_network(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -2300,8 +2224,6 @@ class ThirdPartyCredentialsApi:
 
         Get the details of a third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -2329,7 +2251,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -2355,7 +2276,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_network_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -2375,8 +2295,6 @@ class ThirdPartyCredentialsApi:
 
         Get the details of a third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -2404,7 +2322,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -2430,7 +2347,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def get_network_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         _request_timeout: Union[
@@ -2450,8 +2366,6 @@ class ThirdPartyCredentialsApi:
 
         Get the details of a third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -2479,7 +2393,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._get_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             _request_auth=_request_auth,
@@ -2500,7 +2413,6 @@ class ThirdPartyCredentialsApi:
 
     def _get_network_serialize(
         self,
-        version,
         account_id,
         network_uid,
         _request_auth,
@@ -2524,8 +2436,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2555,7 +2465,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/thirdparty/network/get',
+            resource_path='/thirdparty/network/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2574,7 +2484,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_credentials(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search on the third party name and network string")] = None,
         network_uid: Annotated[Optional[StrictStr], Field(description="The network UID to filter results with")] = None,
@@ -2598,8 +2507,6 @@ class ThirdPartyCredentialsApi:
 
         Search on a user's linked third party networks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: The keyword used to search on the third party name and network string
@@ -2635,7 +2542,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_credentials_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             network_uid=network_uid,
@@ -2665,7 +2571,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_credentials_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search on the third party name and network string")] = None,
         network_uid: Annotated[Optional[StrictStr], Field(description="The network UID to filter results with")] = None,
@@ -2689,8 +2594,6 @@ class ThirdPartyCredentialsApi:
 
         Search on a user's linked third party networks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: The keyword used to search on the third party name and network string
@@ -2726,7 +2629,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_credentials_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             network_uid=network_uid,
@@ -2756,7 +2658,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_credentials_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search on the third party name and network string")] = None,
         network_uid: Annotated[Optional[StrictStr], Field(description="The network UID to filter results with")] = None,
@@ -2780,8 +2681,6 @@ class ThirdPartyCredentialsApi:
 
         Search on a user's linked third party networks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: The keyword used to search on the third party name and network string
@@ -2817,7 +2716,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_credentials_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             network_uid=network_uid,
@@ -2842,7 +2740,6 @@ class ThirdPartyCredentialsApi:
 
     def _search_credentials_serialize(
         self,
-        version,
         account_id,
         keyword,
         network_uid,
@@ -2870,8 +2767,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2917,7 +2812,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/thirdparty/credential/search',
+            resource_path='/thirdparty/credential/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2936,7 +2831,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_networks(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -2962,8 +2856,6 @@ class ThirdPartyCredentialsApi:
 
         Search on supported third party networks and custom networks from external users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param sort_field: The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
@@ -3003,7 +2895,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_networks_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3035,7 +2926,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_networks_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -3061,8 +2951,6 @@ class ThirdPartyCredentialsApi:
 
         Search on supported third party networks and custom networks from external users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param sort_field: The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
@@ -3102,7 +2990,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_networks_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3134,7 +3021,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def search_networks_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -3160,8 +3046,6 @@ class ThirdPartyCredentialsApi:
 
         Search on supported third party networks and custom networks from external users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param sort_field: The column to sort the search on, possible values include: UPDATED (default), CREATED, NAME (required)
@@ -3201,7 +3085,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._search_networks_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -3228,7 +3111,6 @@ class ThirdPartyCredentialsApi:
 
     def _search_networks_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -3258,8 +3140,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3313,7 +3193,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/thirdparty/network/search',
+            resource_path='/thirdparty/network/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3332,7 +3212,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def send_mfa_challenge(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the third party network provider that has MFA enabled")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         third_party_token: Annotated[Optional[StrictStr], Field(description="the access token to authenticate with")] = None,
@@ -3355,8 +3234,6 @@ class ThirdPartyCredentialsApi:
 
         Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the third party network provider that has MFA enabled (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -3390,7 +3267,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._send_mfa_challenge_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             third_party_token=third_party_token,
@@ -3419,7 +3295,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def send_mfa_challenge_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the third party network provider that has MFA enabled")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         third_party_token: Annotated[Optional[StrictStr], Field(description="the access token to authenticate with")] = None,
@@ -3442,8 +3317,6 @@ class ThirdPartyCredentialsApi:
 
         Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the third party network provider that has MFA enabled (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -3477,7 +3350,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._send_mfa_challenge_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             third_party_token=third_party_token,
@@ -3506,7 +3378,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def send_mfa_challenge_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the third party network provider that has MFA enabled")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         third_party_token: Annotated[Optional[StrictStr], Field(description="the access token to authenticate with")] = None,
@@ -3529,8 +3400,6 @@ class ThirdPartyCredentialsApi:
 
         Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the third party network provider that has MFA enabled (required)
         :type network_uid: str
         :param app_key: the application key (required)
@@ -3564,7 +3433,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._send_mfa_challenge_serialize(
-            version=version,
             network_uid=network_uid,
             app_key=app_key,
             third_party_token=third_party_token,
@@ -3588,7 +3456,6 @@ class ThirdPartyCredentialsApi:
 
     def _send_mfa_challenge_serialize(
         self,
-        version,
         network_uid,
         app_key,
         third_party_token,
@@ -3615,8 +3482,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if third_party_token is not None:
             
@@ -3658,7 +3523,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/credential/mfa/send',
+            resource_path='/thirdparty/credential/mfa/send',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3677,7 +3542,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_credential(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
@@ -3704,8 +3568,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a third-party login for an account.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param third_party_id: the third party user account id (required)
@@ -3747,7 +3609,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_credential_serialize(
-            version=version,
             network_uid=network_uid,
             third_party_id=third_party_id,
             app_key=app_key,
@@ -3780,7 +3641,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_credential_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
@@ -3807,8 +3667,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a third-party login for an account.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param third_party_id: the third party user account id (required)
@@ -3850,7 +3708,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_credential_serialize(
-            version=version,
             network_uid=network_uid,
             third_party_id=third_party_id,
             app_key=app_key,
@@ -3883,7 +3740,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_credential_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         network_uid: Annotated[StrictStr, Field(description="the access provider to authenticate against")],
         third_party_id: Annotated[StrictStr, Field(description="the third party user account id")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
@@ -3910,8 +3766,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a third-party login for an account.
 
-        :param version: (required)
-        :type version: float
         :param network_uid: the access provider to authenticate against (required)
         :type network_uid: str
         :param third_party_id: the third party user account id (required)
@@ -3953,7 +3807,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_credential_serialize(
-            version=version,
             network_uid=network_uid,
             third_party_id=third_party_id,
             app_key=app_key,
@@ -3981,7 +3834,6 @@ class ThirdPartyCredentialsApi:
 
     def _update_credential_serialize(
         self,
-        version,
         network_uid,
         third_party_id,
         app_key,
@@ -4012,8 +3864,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4071,7 +3921,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/credential/update',
+            resource_path='/thirdparty/credential/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4090,7 +3940,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_network(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the network")] = None,
@@ -4126,8 +3975,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a custom third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -4187,7 +4034,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             name=name,
@@ -4229,7 +4075,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_network_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the network")] = None,
@@ -4265,8 +4110,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a custom third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -4326,7 +4169,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             name=name,
@@ -4368,7 +4210,6 @@ class ThirdPartyCredentialsApi:
     @validate_call
     def update_network_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id making the request")],
         network_uid: Annotated[StrictStr, Field(description="The unique identifier for the third party network defined by Sirqul")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the network")] = None,
@@ -4404,8 +4245,6 @@ class ThirdPartyCredentialsApi:
 
         Updates a custom third party network. Only the network owners and managers have access to this.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id making the request (required)
         :type account_id: int
         :param network_uid: The unique identifier for the third party network defined by Sirqul (required)
@@ -4465,7 +4304,6 @@ class ThirdPartyCredentialsApi:
         """ # noqa: E501
 
         _param = self._update_network_serialize(
-            version=version,
             account_id=account_id,
             network_uid=network_uid,
             name=name,
@@ -4502,7 +4340,6 @@ class ThirdPartyCredentialsApi:
 
     def _update_network_serialize(
         self,
-        version,
         account_id,
         network_uid,
         name,
@@ -4542,8 +4379,6 @@ class ThirdPartyCredentialsApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4635,7 +4470,7 @@ class ThirdPartyCredentialsApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/thirdparty/network/update',
+            resource_path='/thirdparty/network/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

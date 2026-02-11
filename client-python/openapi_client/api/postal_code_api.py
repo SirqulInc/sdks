@@ -44,7 +44,6 @@ class PostalCodeApi:
     @validate_call
     def create_postal_code(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         code: Annotated[StrictStr, Field(description="the postal code")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the postal code")],
@@ -69,8 +68,6 @@ class PostalCodeApi:
 
         Create a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param code: the postal code (required)
@@ -108,7 +105,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._create_postal_code_serialize(
-            version=version,
             account_id=account_id,
             code=code,
             latitude=latitude,
@@ -139,7 +135,6 @@ class PostalCodeApi:
     @validate_call
     def create_postal_code_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         code: Annotated[StrictStr, Field(description="the postal code")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the postal code")],
@@ -164,8 +159,6 @@ class PostalCodeApi:
 
         Create a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param code: the postal code (required)
@@ -203,7 +196,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._create_postal_code_serialize(
-            version=version,
             account_id=account_id,
             code=code,
             latitude=latitude,
@@ -234,7 +226,6 @@ class PostalCodeApi:
     @validate_call
     def create_postal_code_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         code: Annotated[StrictStr, Field(description="the postal code")],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the postal code")],
@@ -259,8 +250,6 @@ class PostalCodeApi:
 
         Create a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param code: the postal code (required)
@@ -298,7 +287,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._create_postal_code_serialize(
-            version=version,
             account_id=account_id,
             code=code,
             latitude=latitude,
@@ -324,7 +312,6 @@ class PostalCodeApi:
 
     def _create_postal_code_serialize(
         self,
-        version,
         account_id,
         code,
         latitude,
@@ -353,8 +340,6 @@ class PostalCodeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -404,7 +389,7 @@ class PostalCodeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/postalCode/create',
+            resource_path='/postalCode/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -423,7 +408,6 @@ class PostalCodeApi:
     @validate_call
     def delete_postal_code(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to delete")],
         _request_timeout: Union[
@@ -443,8 +427,6 @@ class PostalCodeApi:
 
         Delete a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to delete (required)
@@ -472,7 +454,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._delete_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
@@ -498,7 +479,6 @@ class PostalCodeApi:
     @validate_call
     def delete_postal_code_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to delete")],
         _request_timeout: Union[
@@ -518,8 +498,6 @@ class PostalCodeApi:
 
         Delete a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to delete (required)
@@ -547,7 +525,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._delete_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
@@ -573,7 +550,6 @@ class PostalCodeApi:
     @validate_call
     def delete_postal_code_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to delete")],
         _request_timeout: Union[
@@ -593,8 +569,6 @@ class PostalCodeApi:
 
         Delete a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to delete (required)
@@ -622,7 +596,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._delete_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
@@ -643,7 +616,6 @@ class PostalCodeApi:
 
     def _delete_postal_code_serialize(
         self,
-        version,
         account_id,
         postal_code_id,
         _request_auth,
@@ -667,8 +639,6 @@ class PostalCodeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -698,7 +668,7 @@ class PostalCodeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/postalCode/delete',
+            resource_path='/postalCode/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -717,7 +687,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_code(
         self,
-        version: Union[StrictFloat, StrictInt],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to get")],
         _request_timeout: Union[
             None,
@@ -736,8 +705,6 @@ class PostalCodeApi:
 
         Get a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param postal_code_id: the id of the postal code to get (required)
         :type postal_code_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -763,7 +730,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_code_serialize(
-            version=version,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -788,7 +754,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_code_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to get")],
         _request_timeout: Union[
             None,
@@ -807,8 +772,6 @@ class PostalCodeApi:
 
         Get a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param postal_code_id: the id of the postal code to get (required)
         :type postal_code_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -834,7 +797,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_code_serialize(
-            version=version,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -859,7 +821,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_code_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to get")],
         _request_timeout: Union[
             None,
@@ -878,8 +839,6 @@ class PostalCodeApi:
 
         Get a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param postal_code_id: the id of the postal code to get (required)
         :type postal_code_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -905,7 +864,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_code_serialize(
-            version=version,
             postal_code_id=postal_code_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -925,7 +883,6 @@ class PostalCodeApi:
 
     def _get_postal_code_serialize(
         self,
-        version,
         postal_code_id,
         _request_auth,
         _content_type,
@@ -948,8 +905,6 @@ class PostalCodeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if postal_code_id is not None:
             
@@ -975,7 +930,7 @@ class PostalCodeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/postalCode/get',
+            resource_path='/postalCode/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -994,7 +949,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_codes(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort the results on")],
         descending: Annotated[StrictBool, Field(description="whether to order results in ascending or descending order")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the latitude of the postal code to search on")] = None,
@@ -1020,8 +974,6 @@ class PostalCodeApi:
 
         Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort the results on (required)
         :type sort_field: str
         :param descending: whether to order results in ascending or descending order (required)
@@ -1061,7 +1013,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_codes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             latitude=latitude,
@@ -1093,7 +1044,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_codes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort the results on")],
         descending: Annotated[StrictBool, Field(description="whether to order results in ascending or descending order")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the latitude of the postal code to search on")] = None,
@@ -1119,8 +1069,6 @@ class PostalCodeApi:
 
         Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort the results on (required)
         :type sort_field: str
         :param descending: whether to order results in ascending or descending order (required)
@@ -1160,7 +1108,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_codes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             latitude=latitude,
@@ -1192,7 +1139,6 @@ class PostalCodeApi:
     @validate_call
     def get_postal_codes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort the results on")],
         descending: Annotated[StrictBool, Field(description="whether to order results in ascending or descending order")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="the latitude of the postal code to search on")] = None,
@@ -1218,8 +1164,6 @@ class PostalCodeApi:
 
         Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort the results on (required)
         :type sort_field: str
         :param descending: whether to order results in ascending or descending order (required)
@@ -1259,7 +1203,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._get_postal_codes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             latitude=latitude,
@@ -1286,7 +1229,6 @@ class PostalCodeApi:
 
     def _get_postal_codes_serialize(
         self,
-        version,
         sort_field,
         descending,
         latitude,
@@ -1316,8 +1258,6 @@ class PostalCodeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if latitude is not None:
             
@@ -1371,7 +1311,7 @@ class PostalCodeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/postalCode/search',
+            resource_path='/postalCode/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1390,7 +1330,6 @@ class PostalCodeApi:
     @validate_call
     def update_postal_code(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to update")],
         code: Annotated[Optional[StrictStr], Field(description="the postal code to update")] = None,
@@ -1416,8 +1355,6 @@ class PostalCodeApi:
 
         Update a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to update (required)
@@ -1457,7 +1394,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._update_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             code=code,
@@ -1489,7 +1425,6 @@ class PostalCodeApi:
     @validate_call
     def update_postal_code_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to update")],
         code: Annotated[Optional[StrictStr], Field(description="the postal code to update")] = None,
@@ -1515,8 +1450,6 @@ class PostalCodeApi:
 
         Update a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to update (required)
@@ -1556,7 +1489,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._update_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             code=code,
@@ -1588,7 +1520,6 @@ class PostalCodeApi:
     @validate_call
     def update_postal_code_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         postal_code_id: Annotated[StrictInt, Field(description="the id of the postal code to update")],
         code: Annotated[Optional[StrictStr], Field(description="the postal code to update")] = None,
@@ -1614,8 +1545,6 @@ class PostalCodeApi:
 
         Update a Postal Code
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param postal_code_id: the id of the postal code to update (required)
@@ -1655,7 +1584,6 @@ class PostalCodeApi:
         """ # noqa: E501
 
         _param = self._update_postal_code_serialize(
-            version=version,
             account_id=account_id,
             postal_code_id=postal_code_id,
             code=code,
@@ -1682,7 +1610,6 @@ class PostalCodeApi:
 
     def _update_postal_code_serialize(
         self,
-        version,
         account_id,
         postal_code_id,
         code,
@@ -1712,8 +1639,6 @@ class PostalCodeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1767,7 +1692,7 @@ class PostalCodeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/postalCode/update',
+            resource_path='/postalCode/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

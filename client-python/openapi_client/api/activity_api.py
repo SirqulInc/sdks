@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt
-from typing import Union
+from pydantic import Field
 from typing_extensions import Annotated
 from openapi_client.models.activity_response import ActivityResponse
 from openapi_client.models.entity_reference import EntityReference
@@ -44,7 +43,6 @@ class ActivityApi:
     @validate_call
     def create_entity_reference(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[EntityReference, Field(description="The entity reference object")],
         _request_timeout: Union[
             None,
@@ -63,8 +61,6 @@ class ActivityApi:
 
         Creates a reference for an entity for syncing data between servers.
 
-        :param version: (required)
-        :type version: float
         :param body: The entity reference object (required)
         :type body: EntityReference
         :param _request_timeout: timeout setting for this request. If one
@@ -90,7 +86,6 @@ class ActivityApi:
         """ # noqa: E501
 
         _param = self._create_entity_reference_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +110,6 @@ class ActivityApi:
     @validate_call
     def create_entity_reference_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[EntityReference, Field(description="The entity reference object")],
         _request_timeout: Union[
             None,
@@ -134,8 +128,6 @@ class ActivityApi:
 
         Creates a reference for an entity for syncing data between servers.
 
-        :param version: (required)
-        :type version: float
         :param body: The entity reference object (required)
         :type body: EntityReference
         :param _request_timeout: timeout setting for this request. If one
@@ -161,7 +153,6 @@ class ActivityApi:
         """ # noqa: E501
 
         _param = self._create_entity_reference_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -186,7 +177,6 @@ class ActivityApi:
     @validate_call
     def create_entity_reference_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Annotated[EntityReference, Field(description="The entity reference object")],
         _request_timeout: Union[
             None,
@@ -205,8 +195,6 @@ class ActivityApi:
 
         Creates a reference for an entity for syncing data between servers.
 
-        :param version: (required)
-        :type version: float
         :param body: The entity reference object (required)
         :type body: EntityReference
         :param _request_timeout: timeout setting for this request. If one
@@ -232,7 +220,6 @@ class ActivityApi:
         """ # noqa: E501
 
         _param = self._create_entity_reference_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -252,7 +239,6 @@ class ActivityApi:
 
     def _create_entity_reference_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -275,8 +261,6 @@ class ActivityApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -313,7 +297,7 @@ class ActivityApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/entity/reference',
+            resource_path='/entity/reference',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

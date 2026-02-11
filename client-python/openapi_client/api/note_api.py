@@ -44,7 +44,6 @@ class NoteApi:
     @validate_call
     def batch_operation(
         self,
-        version: Union[StrictFloat, StrictInt],
         notable_id: Annotated[StrictInt, Field(description="The id of the notable object the batch operation will affect")],
         notable_type: Annotated[StrictStr, Field(description="The notable object type (for example ALBUM, ASSET, OFFER, etc.)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -67,8 +66,6 @@ class NoteApi:
 
         Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 
-        :param version: (required)
-        :type version: float
         :param notable_id: The id of the notable object the batch operation will affect (required)
         :type notable_id: int
         :param notable_type: The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
@@ -102,7 +99,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._batch_operation_serialize(
-            version=version,
             notable_id=notable_id,
             notable_type=notable_type,
             device_id=device_id,
@@ -131,7 +127,6 @@ class NoteApi:
     @validate_call
     def batch_operation_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         notable_id: Annotated[StrictInt, Field(description="The id of the notable object the batch operation will affect")],
         notable_type: Annotated[StrictStr, Field(description="The notable object type (for example ALBUM, ASSET, OFFER, etc.)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -154,8 +149,6 @@ class NoteApi:
 
         Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 
-        :param version: (required)
-        :type version: float
         :param notable_id: The id of the notable object the batch operation will affect (required)
         :type notable_id: int
         :param notable_type: The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
@@ -189,7 +182,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._batch_operation_serialize(
-            version=version,
             notable_id=notable_id,
             notable_type=notable_type,
             device_id=device_id,
@@ -218,7 +210,6 @@ class NoteApi:
     @validate_call
     def batch_operation_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         notable_id: Annotated[StrictInt, Field(description="The id of the notable object the batch operation will affect")],
         notable_type: Annotated[StrictStr, Field(description="The notable object type (for example ALBUM, ASSET, OFFER, etc.)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -241,8 +232,6 @@ class NoteApi:
 
         Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
 
-        :param version: (required)
-        :type version: float
         :param notable_id: The id of the notable object the batch operation will affect (required)
         :type notable_id: int
         :param notable_type: The notable object type (for example ALBUM, ASSET, OFFER, etc.) (required)
@@ -276,7 +265,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._batch_operation_serialize(
-            version=version,
             notable_id=notable_id,
             notable_type=notable_type,
             device_id=device_id,
@@ -300,7 +288,6 @@ class NoteApi:
 
     def _batch_operation_serialize(
         self,
-        version,
         notable_id,
         notable_type,
         device_id,
@@ -327,8 +314,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -370,7 +355,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/batch',
+            resource_path='/note/batch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -389,7 +374,6 @@ class NoteApi:
     @validate_call
     def create_note(
         self,
-        version: Union[StrictFloat, StrictInt],
         comment: Annotated[StrictStr, Field(description="The message the user wishes to leave a comment on")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -449,8 +433,6 @@ class NoteApi:
 
         This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param comment: The message the user wishes to leave a comment on (required)
         :type comment: str
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -558,7 +540,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._create_note_serialize(
-            version=version,
             comment=comment,
             device_id=device_id,
             account_id=account_id,
@@ -624,7 +605,6 @@ class NoteApi:
     @validate_call
     def create_note_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         comment: Annotated[StrictStr, Field(description="The message the user wishes to leave a comment on")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -684,8 +664,6 @@ class NoteApi:
 
         This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param comment: The message the user wishes to leave a comment on (required)
         :type comment: str
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -793,7 +771,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._create_note_serialize(
-            version=version,
             comment=comment,
             device_id=device_id,
             account_id=account_id,
@@ -859,7 +836,6 @@ class NoteApi:
     @validate_call
     def create_note_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         comment: Annotated[StrictStr, Field(description="The message the user wishes to leave a comment on")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -919,8 +895,6 @@ class NoteApi:
 
         This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param comment: The message the user wishes to leave a comment on (required)
         :type comment: str
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1028,7 +1002,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._create_note_serialize(
-            version=version,
             comment=comment,
             device_id=device_id,
             account_id=account_id,
@@ -1089,7 +1062,6 @@ class NoteApi:
 
     def _create_note_serialize(
         self,
-        version,
         comment,
         device_id,
         account_id,
@@ -1153,8 +1125,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1344,7 +1314,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/create',
+            resource_path='/note/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1363,7 +1333,6 @@ class NoteApi:
     @validate_call
     def delete_note(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The ID of the note to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1387,8 +1356,6 @@ class NoteApi:
 
         Sets a comment (note) as deleted.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The ID of the note to delete (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1424,7 +1391,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._delete_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1454,7 +1420,6 @@ class NoteApi:
     @validate_call
     def delete_note_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The ID of the note to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1478,8 +1443,6 @@ class NoteApi:
 
         Sets a comment (note) as deleted.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The ID of the note to delete (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1515,7 +1478,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._delete_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1545,7 +1507,6 @@ class NoteApi:
     @validate_call
     def delete_note_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The ID of the note to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1569,8 +1530,6 @@ class NoteApi:
 
         Sets a comment (note) as deleted.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The ID of the note to delete (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1606,7 +1565,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._delete_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1631,7 +1589,6 @@ class NoteApi:
 
     def _delete_note_serialize(
         self,
-        version,
         note_id,
         device_id,
         account_id,
@@ -1659,8 +1616,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1706,7 +1661,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/delete',
+            resource_path='/note/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1725,7 +1680,6 @@ class NoteApi:
     @validate_call
     def get_note(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="the id of the note to get")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1747,8 +1701,6 @@ class NoteApi:
 
         Get for a note based on its Id.
 
-        :param version: (required)
-        :type version: float
         :param note_id: the id of the note to get (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1780,7 +1732,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._get_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1808,7 +1759,6 @@ class NoteApi:
     @validate_call
     def get_note_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="the id of the note to get")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1830,8 +1780,6 @@ class NoteApi:
 
         Get for a note based on its Id.
 
-        :param version: (required)
-        :type version: float
         :param note_id: the id of the note to get (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1863,7 +1811,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._get_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1891,7 +1838,6 @@ class NoteApi:
     @validate_call
     def get_note_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="the id of the note to get")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -1913,8 +1859,6 @@ class NoteApi:
 
         Get for a note based on its Id.
 
-        :param version: (required)
-        :type version: float
         :param note_id: the id of the note to get (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -1946,7 +1890,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._get_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -1969,7 +1912,6 @@ class NoteApi:
 
     def _get_note_serialize(
         self,
-        version,
         note_id,
         device_id,
         account_id,
@@ -1995,8 +1937,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2034,7 +1974,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/get',
+            resource_path='/note/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2053,7 +1993,6 @@ class NoteApi:
     @validate_call
     def search_notes(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         notable_type: Annotated[Optional[StrictStr], Field(description="The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}")] = None,
@@ -2088,8 +2027,6 @@ class NoteApi:
 
         Search for notes on a notable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2147,7 +2084,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._search_notes_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             notable_type=notable_type,
@@ -2188,7 +2124,6 @@ class NoteApi:
     @validate_call
     def search_notes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         notable_type: Annotated[Optional[StrictStr], Field(description="The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}")] = None,
@@ -2223,8 +2158,6 @@ class NoteApi:
 
         Search for notes on a notable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2282,7 +2215,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._search_notes_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             notable_type=notable_type,
@@ -2323,7 +2255,6 @@ class NoteApi:
     @validate_call
     def search_notes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         notable_type: Annotated[Optional[StrictStr], Field(description="The notable object type {ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, OFFER, OFFER_LOCATION, RETAILER, RETAILER_LOCATION, THEME_DESCRIPTOR}")] = None,
@@ -2358,8 +2289,6 @@ class NoteApi:
 
         Search for notes on a notable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2417,7 +2346,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._search_notes_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             notable_type=notable_type,
@@ -2453,7 +2381,6 @@ class NoteApi:
 
     def _search_notes_serialize(
         self,
-        version,
         device_id,
         account_id,
         notable_type,
@@ -2492,8 +2419,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2583,7 +2508,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/search',
+            resource_path='/note/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2602,7 +2527,6 @@ class NoteApi:
     @validate_call
     def update_note(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The id of the note, used when editing a comment")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -2661,8 +2585,6 @@ class NoteApi:
 
         Update an existing comment (note). Only the creator of the note have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The id of the note, used when editing a comment (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -2768,7 +2690,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._update_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -2833,7 +2754,6 @@ class NoteApi:
     @validate_call
     def update_note_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The id of the note, used when editing a comment")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -2892,8 +2812,6 @@ class NoteApi:
 
         Update an existing comment (note). Only the creator of the note have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The id of the note, used when editing a comment (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -2999,7 +2917,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._update_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -3064,7 +2981,6 @@ class NoteApi:
     @validate_call
     def update_note_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         note_id: Annotated[StrictInt, Field(description="The id of the note, used when editing a comment")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -3123,8 +3039,6 @@ class NoteApi:
 
         Update an existing comment (note). Only the creator of the note have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param note_id: The id of the note, used when editing a comment (required)
         :type note_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -3230,7 +3144,6 @@ class NoteApi:
         """ # noqa: E501
 
         _param = self._update_note_serialize(
-            version=version,
             note_id=note_id,
             device_id=device_id,
             account_id=account_id,
@@ -3290,7 +3203,6 @@ class NoteApi:
 
     def _update_note_serialize(
         self,
-        version,
         note_id,
         device_id,
         account_id,
@@ -3353,8 +3265,6 @@ class NoteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3540,7 +3450,7 @@ class NoteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/note/update',
+            resource_path='/note/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

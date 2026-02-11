@@ -49,7 +49,6 @@ class TrackingApi:
     @validate_call
     def batch_save_tracking(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -74,8 +73,6 @@ class TrackingApi:
 
         Batch create tracking legs
 
-        :param version: (required)
-        :type version: float
         :param data: JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ```  (required)
         :type data: str
         :param device_id: the device id (deviceId or accountId required)
@@ -113,7 +110,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._batch_save_tracking_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -144,7 +140,6 @@ class TrackingApi:
     @validate_call
     def batch_save_tracking_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -169,8 +164,6 @@ class TrackingApi:
 
         Batch create tracking legs
 
-        :param version: (required)
-        :type version: float
         :param data: JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ```  (required)
         :type data: str
         :param device_id: the device id (deviceId or accountId required)
@@ -208,7 +201,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._batch_save_tracking_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -239,7 +231,6 @@ class TrackingApi:
     @validate_call
     def batch_save_tracking_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -264,8 +255,6 @@ class TrackingApi:
 
         Batch create tracking legs
 
-        :param version: (required)
-        :type version: float
         :param data: JSON array of tracking legs ```json [   \"distance\": \"0.08\",   \"duration\": \"10000\",   \"startLatitude\": \"47.614603\",   \"startLongitude\": \"-122.350518\",   \"endLatitude\": \"47.614384\",   \"endLongitude\": \"-122.349161\",   \"startDate\": \"1361924010000\",   \"endDate\": \"1361924020000\",   \"steps\": [     {       \"distance\": \"0.03\",       \"duration\": \"5000\",       \"startLat\": \"47.614603\",       \"startLng\": \"-122.350518\",       \"startDate\": \"1361924010000\",       \"endLat\": \"47.614941\",       \"endLng\": \"-122.350062\",       \"endDate\": \"1361924015000\"     },{       \"distance\": \"0.05\",       \"duration\": \"5000\",       \"startLat\": \"47.614941\",       \"startLng\": \"-122.350062\",       \"startDate\": \"1361924015000\",       \"endLat\": \"47.614384\",       \"endLng\": \"-122.349161\",       \"endDate\": \"1361924020000\"     }   ] ] ```  (required)
         :type data: str
         :param device_id: the device id (deviceId or accountId required)
@@ -303,7 +292,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._batch_save_tracking_serialize(
-            version=version,
             data=data,
             device_id=device_id,
             account_id=account_id,
@@ -329,7 +317,6 @@ class TrackingApi:
 
     def _batch_save_tracking_serialize(
         self,
-        version,
         data,
         device_id,
         account_id,
@@ -358,8 +345,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -409,7 +394,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tracking/batch/create',
+            resource_path='/tracking/batch/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -428,7 +413,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -455,8 +439,6 @@ class TrackingApi:
 
         Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -498,7 +480,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -531,7 +512,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -558,8 +538,6 @@ class TrackingApi:
 
         Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -601,7 +579,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -634,7 +611,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -661,8 +637,6 @@ class TrackingApi:
 
         Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -704,7 +678,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -732,7 +705,6 @@ class TrackingApi:
 
     def _get_predicted_locations_serialize(
         self,
-        version,
         account_id,
         latitude,
         longitude,
@@ -763,8 +735,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -822,7 +792,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/predicted/get',
+            resource_path='/tracking/predicted/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -841,7 +811,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_path(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         start_step_id: Annotated[StrictInt, Field(description="The stepId to begin from")],
         end_step_id: Annotated[StrictInt, Field(description="The stepId to end with")],
@@ -862,8 +831,6 @@ class TrackingApi:
 
         Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param start_step_id: The stepId to begin from (required)
@@ -893,7 +860,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_path_serialize(
-            version=version,
             account_id=account_id,
             start_step_id=start_step_id,
             end_step_id=end_step_id,
@@ -920,7 +886,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_path_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         start_step_id: Annotated[StrictInt, Field(description="The stepId to begin from")],
         end_step_id: Annotated[StrictInt, Field(description="The stepId to end with")],
@@ -941,8 +906,6 @@ class TrackingApi:
 
         Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param start_step_id: The stepId to begin from (required)
@@ -972,7 +935,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_path_serialize(
-            version=version,
             account_id=account_id,
             start_step_id=start_step_id,
             end_step_id=end_step_id,
@@ -999,7 +961,6 @@ class TrackingApi:
     @validate_call
     def get_predicted_path_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         start_step_id: Annotated[StrictInt, Field(description="The stepId to begin from")],
         end_step_id: Annotated[StrictInt, Field(description="The stepId to end with")],
@@ -1020,8 +981,6 @@ class TrackingApi:
 
         Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param start_step_id: The stepId to begin from (required)
@@ -1051,7 +1010,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_predicted_path_serialize(
-            version=version,
             account_id=account_id,
             start_step_id=start_step_id,
             end_step_id=end_step_id,
@@ -1073,7 +1031,6 @@ class TrackingApi:
 
     def _get_predicted_path_serialize(
         self,
-        version,
         account_id,
         start_step_id,
         end_step_id,
@@ -1098,8 +1055,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1133,7 +1088,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/path/get',
+            resource_path='/tracking/path/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1152,7 +1107,6 @@ class TrackingApi:
     @validate_call
     def get_preferred_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -1181,8 +1135,6 @@ class TrackingApi:
 
         Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -1228,7 +1180,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_preferred_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1263,7 +1214,6 @@ class TrackingApi:
     @validate_call
     def get_preferred_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -1292,8 +1242,6 @@ class TrackingApi:
 
         Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -1339,7 +1287,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_preferred_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1374,7 +1321,6 @@ class TrackingApi:
     @validate_call
     def get_preferred_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the customer")],
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="latitude to return a more likely result set based on the user's current location")] = None,
         longitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="longitude to return a more likely result set based on the user's current location")] = None,
@@ -1403,8 +1349,6 @@ class TrackingApi:
 
         Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the customer (required)
         :type account_id: int
         :param latitude: latitude to return a more likely result set based on the user's current location
@@ -1450,7 +1394,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_preferred_locations_serialize(
-            version=version,
             account_id=account_id,
             latitude=latitude,
             longitude=longitude,
@@ -1480,7 +1423,6 @@ class TrackingApi:
 
     def _get_preferred_locations_serialize(
         self,
-        version,
         account_id,
         latitude,
         longitude,
@@ -1513,8 +1455,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1580,7 +1520,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/preferred/search',
+            resource_path='/tracking/preferred/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1599,7 +1539,6 @@ class TrackingApi:
     @validate_call
     def get_tracking_legs(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         owner_id: Annotated[Optional[StrictInt], Field(description="the account id of the person the user wants to tracking data for")] = None,
@@ -1625,8 +1564,6 @@ class TrackingApi:
 
         Retrieve tracking data to be able to show where a user has been.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1666,7 +1603,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_tracking_legs_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             owner_id=owner_id,
@@ -1698,7 +1634,6 @@ class TrackingApi:
     @validate_call
     def get_tracking_legs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         owner_id: Annotated[Optional[StrictInt], Field(description="the account id of the person the user wants to tracking data for")] = None,
@@ -1724,8 +1659,6 @@ class TrackingApi:
 
         Retrieve tracking data to be able to show where a user has been.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1765,7 +1698,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_tracking_legs_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             owner_id=owner_id,
@@ -1797,7 +1729,6 @@ class TrackingApi:
     @validate_call
     def get_tracking_legs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         owner_id: Annotated[Optional[StrictInt], Field(description="the account id of the person the user wants to tracking data for")] = None,
@@ -1823,8 +1754,6 @@ class TrackingApi:
 
         Retrieve tracking data to be able to show where a user has been.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1864,7 +1793,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._get_tracking_legs_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             owner_id=owner_id,
@@ -1891,7 +1819,6 @@ class TrackingApi:
 
     def _get_tracking_legs_serialize(
         self,
-        version,
         device_id,
         account_id,
         owner_id,
@@ -1921,8 +1848,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1976,7 +1901,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/search',
+            resource_path='/tracking/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1995,7 +1920,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_leg(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
         start_date: Annotated[StrictInt, Field(description="the start date (in UTC milliseconds) of the first point")],
@@ -2025,8 +1949,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param start_lat: the latitude of the first point (required)
         :type start_lat: float
         :param start_lng: the longitude of the first point (required)
@@ -2074,7 +1996,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_leg_serialize(
-            version=version,
             start_lat=start_lat,
             start_lng=start_lng,
             start_date=start_date,
@@ -2110,7 +2031,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_leg_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
         start_date: Annotated[StrictInt, Field(description="the start date (in UTC milliseconds) of the first point")],
@@ -2140,8 +2060,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param start_lat: the latitude of the first point (required)
         :type start_lat: float
         :param start_lng: the longitude of the first point (required)
@@ -2189,7 +2107,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_leg_serialize(
-            version=version,
             start_lat=start_lat,
             start_lng=start_lng,
             start_date=start_date,
@@ -2225,7 +2142,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_leg_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
         start_date: Annotated[StrictInt, Field(description="the start date (in UTC milliseconds) of the first point")],
@@ -2255,8 +2171,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param start_lat: the latitude of the first point (required)
         :type start_lat: float
         :param start_lng: the longitude of the first point (required)
@@ -2304,7 +2218,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_leg_serialize(
-            version=version,
             start_lat=start_lat,
             start_lng=start_lng,
             start_date=start_date,
@@ -2335,7 +2248,6 @@ class TrackingApi:
 
     def _save_tracking_leg_serialize(
         self,
-        version,
         start_lat,
         start_lng,
         start_date,
@@ -2369,8 +2281,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2440,7 +2350,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tracking/leg/create',
+            resource_path='/tracking/leg/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2459,7 +2369,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_step(
         self,
-        version: Union[StrictFloat, StrictInt],
         leg_id: Annotated[StrictInt, Field(description="the leg to add the step to")],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
@@ -2488,8 +2397,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param leg_id: the leg to add the step to (required)
         :type leg_id: int
         :param start_lat: the latitude of the first point (required)
@@ -2535,7 +2442,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_step_serialize(
-            version=version,
             leg_id=leg_id,
             start_lat=start_lat,
             start_lng=start_lng,
@@ -2570,7 +2476,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_step_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         leg_id: Annotated[StrictInt, Field(description="the leg to add the step to")],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
@@ -2599,8 +2504,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param leg_id: the leg to add the step to (required)
         :type leg_id: int
         :param start_lat: the latitude of the first point (required)
@@ -2646,7 +2549,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_step_serialize(
-            version=version,
             leg_id=leg_id,
             start_lat=start_lat,
             start_lng=start_lng,
@@ -2681,7 +2583,6 @@ class TrackingApi:
     @validate_call
     def save_tracking_step_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         leg_id: Annotated[StrictInt, Field(description="the leg to add the step to")],
         start_lat: Annotated[Union[StrictFloat, StrictInt], Field(description="the latitude of the first point")],
         start_lng: Annotated[Union[StrictFloat, StrictInt], Field(description="the longitude of the first point")],
@@ -2710,8 +2611,6 @@ class TrackingApi:
 
         Send tracking points to be able to generate pathing data
 
-        :param version: (required)
-        :type version: float
         :param leg_id: the leg to add the step to (required)
         :type leg_id: int
         :param start_lat: the latitude of the first point (required)
@@ -2757,7 +2656,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._save_tracking_step_serialize(
-            version=version,
             leg_id=leg_id,
             start_lat=start_lat,
             start_lng=start_lng,
@@ -2787,7 +2685,6 @@ class TrackingApi:
 
     def _save_tracking_step_serialize(
         self,
-        version,
         leg_id,
         start_lat,
         start_lng,
@@ -2820,8 +2717,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2887,7 +2782,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/tracking/step/create',
+            resource_path='/tracking/step/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2906,7 +2801,6 @@ class TrackingApi:
     @validate_call
     def search_accounts_with_tracking_legs(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="Used for LIKE search of first or last name on the acocunt")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="Range to begin in UTC milliseconds")] = None,
@@ -2938,8 +2832,6 @@ class TrackingApi:
 
         Search for all accounts that have tracking legs data by the given constraints.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: Used for LIKE search of first or last name on the acocunt
@@ -2991,7 +2883,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_accounts_with_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start_date=start_date,
@@ -3029,7 +2920,6 @@ class TrackingApi:
     @validate_call
     def search_accounts_with_tracking_legs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="Used for LIKE search of first or last name on the acocunt")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="Range to begin in UTC milliseconds")] = None,
@@ -3061,8 +2951,6 @@ class TrackingApi:
 
         Search for all accounts that have tracking legs data by the given constraints.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: Used for LIKE search of first or last name on the acocunt
@@ -3114,7 +3002,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_accounts_with_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start_date=start_date,
@@ -3152,7 +3039,6 @@ class TrackingApi:
     @validate_call
     def search_accounts_with_tracking_legs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         keyword: Annotated[Optional[StrictStr], Field(description="Used for LIKE search of first or last name on the acocunt")] = None,
         start_date: Annotated[Optional[StrictInt], Field(description="Range to begin in UTC milliseconds")] = None,
@@ -3184,8 +3070,6 @@ class TrackingApi:
 
         Search for all accounts that have tracking legs data by the given constraints.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param keyword: Used for LIKE search of first or last name on the acocunt
@@ -3237,7 +3121,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_accounts_with_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             start_date=start_date,
@@ -3270,7 +3153,6 @@ class TrackingApi:
 
     def _search_accounts_with_tracking_legs_serialize(
         self,
-        version,
         account_id,
         keyword,
         start_date,
@@ -3306,8 +3188,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3385,7 +3265,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/list',
+            resource_path='/tracking/list',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3404,7 +3284,6 @@ class TrackingApi:
     @validate_call
     def search_tracking_legs(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id to search tracking for")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         tracking_device_id: Annotated[Optional[StrictStr], Field(description="The id of the tracking device")] = None,
@@ -3430,8 +3309,6 @@ class TrackingApi:
 
         Retrieve tracking data for billable/account scoped queries.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id to search tracking for (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -3471,7 +3348,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             tracking_device_id=tracking_device_id,
@@ -3503,7 +3379,6 @@ class TrackingApi:
     @validate_call
     def search_tracking_legs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id to search tracking for")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         tracking_device_id: Annotated[Optional[StrictStr], Field(description="The id of the tracking device")] = None,
@@ -3529,8 +3404,6 @@ class TrackingApi:
 
         Retrieve tracking data for billable/account scoped queries.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id to search tracking for (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -3570,7 +3443,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             tracking_device_id=tracking_device_id,
@@ -3602,7 +3474,6 @@ class TrackingApi:
     @validate_call
     def search_tracking_legs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id to search tracking for")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         tracking_device_id: Annotated[Optional[StrictStr], Field(description="The id of the tracking device")] = None,
@@ -3628,8 +3499,6 @@ class TrackingApi:
 
         Retrieve tracking data for billable/account scoped queries.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id to search tracking for (required)
         :type account_id: int
         :param app_key: The application key (required)
@@ -3669,7 +3538,6 @@ class TrackingApi:
         """ # noqa: E501
 
         _param = self._search_tracking_legs_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             tracking_device_id=tracking_device_id,
@@ -3696,7 +3564,6 @@ class TrackingApi:
 
     def _search_tracking_legs_serialize(
         self,
-        version,
         account_id,
         app_key,
         tracking_device_id,
@@ -3726,8 +3593,6 @@ class TrackingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3781,7 +3646,7 @@ class TrackingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/tracking/searchByBillable',
+            resource_path='/tracking/searchByBillable',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

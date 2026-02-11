@@ -44,7 +44,6 @@ class MediaApi:
     @validate_call
     def create_media(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -119,8 +118,6 @@ class MediaApi:
 
         Create a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param title: The title (255 char limit) (required)
@@ -258,7 +255,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._create_media_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             barcode_type=barcode_type,
@@ -339,7 +335,6 @@ class MediaApi:
     @validate_call
     def create_media_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -414,8 +409,6 @@ class MediaApi:
 
         Create a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param title: The title (255 char limit) (required)
@@ -553,7 +546,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._create_media_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             barcode_type=barcode_type,
@@ -634,7 +626,6 @@ class MediaApi:
     @validate_call
     def create_media_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         title: Annotated[StrictStr, Field(description="The title (255 char limit)")],
         barcode_type: Annotated[StrictStr, Field(description="The bar code type {NONE, UPC, CODE_128, QR, CUSTOM_MEDIA}")],
@@ -709,8 +700,6 @@ class MediaApi:
 
         Create a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param title: The title (255 char limit) (required)
@@ -848,7 +837,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._create_media_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             barcode_type=barcode_type,
@@ -924,7 +912,6 @@ class MediaApi:
 
     def _create_media_serialize(
         self,
-        version,
         account_id,
         title,
         barcode_type,
@@ -1003,8 +990,6 @@ class MediaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1254,7 +1239,7 @@ class MediaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/media/create',
+            resource_path='/media/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1273,7 +1258,6 @@ class MediaApi:
     @validate_call
     def delete_media(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the ID of the media to delete")],
         _request_timeout: Union[
@@ -1293,8 +1277,6 @@ class MediaApi:
 
         Delete a media offering that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the ID of the media to delete (required)
@@ -1322,7 +1304,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._delete_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1348,7 +1329,6 @@ class MediaApi:
     @validate_call
     def delete_media_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the ID of the media to delete")],
         _request_timeout: Union[
@@ -1368,8 +1348,6 @@ class MediaApi:
 
         Delete a media offering that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the ID of the media to delete (required)
@@ -1397,7 +1375,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._delete_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1423,7 +1400,6 @@ class MediaApi:
     @validate_call
     def delete_media_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the ID of the media to delete")],
         _request_timeout: Union[
@@ -1443,8 +1419,6 @@ class MediaApi:
 
         Delete a media offering that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the ID of the media to delete (required)
@@ -1472,7 +1446,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._delete_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1493,7 +1466,6 @@ class MediaApi:
 
     def _delete_media_serialize(
         self,
-        version,
         account_id,
         media_id,
         _request_auth,
@@ -1517,8 +1489,6 @@ class MediaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1548,7 +1518,7 @@ class MediaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/media/delete',
+            resource_path='/media/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1567,7 +1537,6 @@ class MediaApi:
     @validate_call
     def get_media(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the id of the media to get")],
         _request_timeout: Union[
@@ -1587,8 +1556,6 @@ class MediaApi:
 
         Get a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the id of the media to get (required)
@@ -1616,7 +1583,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._get_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1642,7 +1608,6 @@ class MediaApi:
     @validate_call
     def get_media_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the id of the media to get")],
         _request_timeout: Union[
@@ -1662,8 +1627,6 @@ class MediaApi:
 
         Get a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the id of the media to get (required)
@@ -1691,7 +1654,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._get_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1717,7 +1679,6 @@ class MediaApi:
     @validate_call
     def get_media_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         media_id: Annotated[StrictInt, Field(description="the id of the media to get")],
         _request_timeout: Union[
@@ -1737,8 +1698,6 @@ class MediaApi:
 
         Get a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param media_id: the id of the media to get (required)
@@ -1766,7 +1725,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._get_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             _request_auth=_request_auth,
@@ -1787,7 +1745,6 @@ class MediaApi:
 
     def _get_media_serialize(
         self,
-        version,
         account_id,
         media_id,
         _request_auth,
@@ -1811,8 +1768,6 @@ class MediaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1842,7 +1797,7 @@ class MediaApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/media/get',
+            resource_path='/media/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1861,7 +1816,6 @@ class MediaApi:
     @validate_call
     def search_media(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         active_only: Annotated[StrictBool, Field(description="Return only active results")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE")],
@@ -1888,8 +1842,6 @@ class MediaApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param active_only: Return only active results (required)
@@ -1931,7 +1883,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._search_media_serialize(
-            version=version,
             account_id=account_id,
             active_only=active_only,
             sort_field=sort_field,
@@ -1964,7 +1915,6 @@ class MediaApi:
     @validate_call
     def search_media_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         active_only: Annotated[StrictBool, Field(description="Return only active results")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE")],
@@ -1991,8 +1941,6 @@ class MediaApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param active_only: Return only active results (required)
@@ -2034,7 +1982,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._search_media_serialize(
-            version=version,
             account_id=account_id,
             active_only=active_only,
             sort_field=sort_field,
@@ -2067,7 +2014,6 @@ class MediaApi:
     @validate_call
     def search_media_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         active_only: Annotated[StrictBool, Field(description="Return only active results")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on. Possible values include: ID, CREATED, UPDATED, ACTIVE, ACTIVATED, EXPIRES, TITLE, SUBTITLE, DETAILS, OFFER_TYPE, SPECIAL_OFFER_TYPE, OFFER_VISIBILITY, ESTIMATED_VALUE, VOUCHER_PRICE, RETAILER_ID, RETAILER_NAME, RETAILER_LOCATION_ID, RETAILER_LOCATION_NAME, BILLABLE_ENTITY_ID, BILLABLE_ENTITY_NAME, RESPONSIBLE_DISPLAY, AVAILABILITY_DATE, RELEASE_DATE")],
@@ -2094,8 +2040,6 @@ class MediaApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param active_only: Return only active results (required)
@@ -2137,7 +2081,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._search_media_serialize(
-            version=version,
             account_id=account_id,
             active_only=active_only,
             sort_field=sort_field,
@@ -2165,7 +2108,6 @@ class MediaApi:
 
     def _search_media_serialize(
         self,
-        version,
         account_id,
         active_only,
         sort_field,
@@ -2196,8 +2138,6 @@ class MediaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2255,7 +2195,7 @@ class MediaApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/media/search',
+            resource_path='/media/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2274,7 +2214,6 @@ class MediaApi:
     @validate_call
     def update_media(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)")],
         media_id: StrictInt,
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of retailer location ids. This will assign the offer to these retailer locations.")] = None,
@@ -2351,8 +2290,6 @@ class MediaApi:
 
         Update a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
         :type account_id: int
         :param media_id:  (required)
@@ -2494,7 +2431,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._update_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             retailer_location_ids=retailer_location_ids,
@@ -2577,7 +2513,6 @@ class MediaApi:
     @validate_call
     def update_media_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)")],
         media_id: StrictInt,
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of retailer location ids. This will assign the offer to these retailer locations.")] = None,
@@ -2654,8 +2589,6 @@ class MediaApi:
 
         Update a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
         :type account_id: int
         :param media_id:  (required)
@@ -2797,7 +2730,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._update_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             retailer_location_ids=retailer_location_ids,
@@ -2880,7 +2812,6 @@ class MediaApi:
     @validate_call
     def update_media_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the update, must have rights to edit the offer (deviceId or accountId required)")],
         media_id: StrictInt,
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of retailer location ids. This will assign the offer to these retailer locations.")] = None,
@@ -2957,8 +2888,6 @@ class MediaApi:
 
         Update a media offering.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the update, must have rights to edit the offer (deviceId or accountId required) (required)
         :type account_id: int
         :param media_id:  (required)
@@ -3100,7 +3029,6 @@ class MediaApi:
         """ # noqa: E501
 
         _param = self._update_media_serialize(
-            version=version,
             account_id=account_id,
             media_id=media_id,
             retailer_location_ids=retailer_location_ids,
@@ -3178,7 +3106,6 @@ class MediaApi:
 
     def _update_media_serialize(
         self,
-        version,
         account_id,
         media_id,
         retailer_location_ids,
@@ -3259,8 +3186,6 @@ class MediaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3518,7 +3443,7 @@ class MediaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/media/update',
+            resource_path='/media/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

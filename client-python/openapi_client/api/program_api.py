@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.program import Program
 
@@ -43,7 +43,6 @@ class ProgramApi:
     @validate_call
     def create_program(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Program] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class ProgramApi:
 
         Create a new program
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Program
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._create_program_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class ProgramApi:
     @validate_call
     def create_program_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Program] = None,
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class ProgramApi:
 
         Create a new program
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Program
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._create_program_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class ProgramApi:
     @validate_call
     def create_program_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Program] = None,
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class ProgramApi:
 
         Create a new program
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Program
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._create_program_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class ProgramApi:
 
     def _create_program_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -299,7 +284,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/program',
+            resource_path='/program',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -318,7 +303,6 @@ class ProgramApi:
     @validate_call
     def delete_program(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -337,8 +321,6 @@ class ProgramApi:
 
         Delete an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -364,7 +346,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._delete_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -388,7 +369,6 @@ class ProgramApi:
     @validate_call
     def delete_program_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -407,8 +387,6 @@ class ProgramApi:
 
         Delete an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -434,7 +412,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._delete_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -458,7 +435,6 @@ class ProgramApi:
     @validate_call
     def delete_program_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -477,8 +453,6 @@ class ProgramApi:
 
         Delete an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -504,7 +478,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._delete_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -523,7 +496,6 @@ class ProgramApi:
 
     def _delete_program_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -546,8 +518,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -564,7 +534,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/program/{id}',
+            resource_path='/program/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -583,7 +553,6 @@ class ProgramApi:
     @validate_call
     def get_program(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -602,8 +571,6 @@ class ProgramApi:
 
         Get an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -629,7 +596,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._get_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -654,7 +620,6 @@ class ProgramApi:
     @validate_call
     def get_program_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -673,8 +638,6 @@ class ProgramApi:
 
         Get an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -700,7 +663,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._get_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -725,7 +687,6 @@ class ProgramApi:
     @validate_call
     def get_program_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         _request_timeout: Union[
             None,
@@ -744,8 +705,6 @@ class ProgramApi:
 
         Get an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -771,7 +730,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._get_program_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -791,7 +749,6 @@ class ProgramApi:
 
     def _get_program_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -814,8 +771,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -839,7 +794,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/program/{id}',
+            resource_path='/program/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -858,7 +813,6 @@ class ProgramApi:
     @validate_call
     def post_program(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -878,8 +832,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -907,7 +859,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._post_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -933,7 +884,6 @@ class ProgramApi:
     @validate_call
     def post_program_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -953,8 +903,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -982,7 +930,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._post_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1008,7 +955,6 @@ class ProgramApi:
     @validate_call
     def post_program_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -1028,8 +974,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -1057,7 +1001,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._post_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1078,7 +1021,6 @@ class ProgramApi:
 
     def _post_program_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -1102,8 +1044,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1129,7 +1069,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/program/{id}',
+            resource_path='/program/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1148,7 +1088,6 @@ class ProgramApi:
     @validate_call
     def put_program(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -1168,8 +1107,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -1197,7 +1134,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._put_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1223,7 +1159,6 @@ class ProgramApi:
     @validate_call
     def put_program_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -1243,8 +1178,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -1272,7 +1205,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._put_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1298,7 +1230,6 @@ class ProgramApi:
     @validate_call
     def put_program_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the program")],
         body: Optional[Program] = None,
         _request_timeout: Union[
@@ -1318,8 +1249,6 @@ class ProgramApi:
 
         Update an existing program
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the program (required)
         :type id: int
         :param body:
@@ -1347,7 +1276,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._put_program_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -1368,7 +1296,6 @@ class ProgramApi:
 
     def _put_program_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -1392,8 +1319,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1419,7 +1344,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/program/{id}',
+            resource_path='/program/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1438,7 +1363,6 @@ class ProgramApi:
     @validate_call
     def search_programs(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1462,8 +1386,6 @@ class ProgramApi:
 
         Search for programs
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1499,7 +1421,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._search_programs_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1529,7 +1450,6 @@ class ProgramApi:
     @validate_call
     def search_programs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1553,8 +1473,6 @@ class ProgramApi:
 
         Search for programs
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1590,7 +1508,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._search_programs_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1620,7 +1537,6 @@ class ProgramApi:
     @validate_call
     def search_programs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1644,8 +1560,6 @@ class ProgramApi:
 
         Search for programs
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1681,7 +1595,6 @@ class ProgramApi:
         """ # noqa: E501
 
         _param = self._search_programs_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1706,7 +1619,6 @@ class ProgramApi:
 
     def _search_programs_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -1734,8 +1646,6 @@ class ProgramApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if keyword is not None:
             
@@ -1781,7 +1691,7 @@ class ProgramApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/program',
+            resource_path='/program',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

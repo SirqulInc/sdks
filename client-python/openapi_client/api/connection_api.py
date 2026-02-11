@@ -47,7 +47,6 @@ class ConnectionApi:
     @validate_call
     def add_connection_to_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -74,8 +73,6 @@ class ConnectionApi:
 
         Adds a connection to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -117,7 +114,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connection_to_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -150,7 +146,6 @@ class ConnectionApi:
     @validate_call
     def add_connection_to_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -177,8 +172,6 @@ class ConnectionApi:
 
         Adds a connection to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -220,7 +213,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connection_to_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -253,7 +245,6 @@ class ConnectionApi:
     @validate_call
     def add_connection_to_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -280,8 +271,6 @@ class ConnectionApi:
 
         Adds a connection to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -323,7 +312,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connection_to_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -351,7 +339,6 @@ class ConnectionApi:
 
     def _add_connection_to_group_serialize(
         self,
-        version,
         return_nulls,
         group_id,
         device_id,
@@ -382,8 +369,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -441,7 +426,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group/addConnection',
+            resource_path='/consumer/connection/group/addConnection',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -460,7 +445,6 @@ class ConnectionApi:
     @validate_call
     def add_connections_to_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="the connection group ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -485,8 +469,6 @@ class ConnectionApi:
 
         Adds a list of connections to a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: the connection group ID (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -524,7 +506,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connections_to_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -555,7 +536,6 @@ class ConnectionApi:
     @validate_call
     def add_connections_to_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="the connection group ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -580,8 +560,6 @@ class ConnectionApi:
 
         Adds a list of connections to a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: the connection group ID (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -619,7 +597,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connections_to_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -650,7 +627,6 @@ class ConnectionApi:
     @validate_call
     def add_connections_to_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="the connection group ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -675,8 +651,6 @@ class ConnectionApi:
 
         Adds a list of connections to a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: the connection group ID (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -714,7 +688,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_connections_to_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -740,7 +713,6 @@ class ConnectionApi:
 
     def _add_connections_to_group_serialize(
         self,
-        version,
         connection_group_id,
         device_id,
         account_id,
@@ -769,8 +741,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -820,7 +790,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/connection/group/addConnections',
+            resource_path='/connection/group/addConnections',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -839,7 +809,6 @@ class ConnectionApi:
     @validate_call
     def add_sub_groups(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to add to the parent group")],
@@ -864,8 +833,6 @@ class ConnectionApi:
 
         Add sub groups to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -903,7 +870,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -934,7 +900,6 @@ class ConnectionApi:
     @validate_call
     def add_sub_groups_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to add to the parent group")],
@@ -959,8 +924,6 @@ class ConnectionApi:
 
         Add sub groups to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -998,7 +961,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -1029,7 +991,6 @@ class ConnectionApi:
     @validate_call
     def add_sub_groups_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to add to the parent group")],
@@ -1054,8 +1015,6 @@ class ConnectionApi:
 
         Add sub groups to a group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -1093,7 +1052,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._add_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -1119,7 +1077,6 @@ class ConnectionApi:
 
     def _add_sub_groups_serialize(
         self,
-        version,
         return_nulls,
         group_id,
         sub_group_ids,
@@ -1148,8 +1105,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -1199,7 +1154,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group/addSubGroup',
+            resource_path='/consumer/connection/group/addSubGroup',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1218,7 +1173,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_connection(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_id: Annotated[Optional[StrictInt], Field(description="the connection id for editing")] = None,
@@ -1250,8 +1204,6 @@ class ConnectionApi:
 
         Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1303,7 +1255,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_connection_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_id=connection_id,
@@ -1341,7 +1292,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_connection_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_id: Annotated[Optional[StrictInt], Field(description="the connection id for editing")] = None,
@@ -1373,8 +1323,6 @@ class ConnectionApi:
 
         Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1426,7 +1374,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_connection_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_id=connection_id,
@@ -1464,7 +1411,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_connection_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         connection_id: Annotated[Optional[StrictInt], Field(description="the connection id for editing")] = None,
@@ -1496,8 +1442,6 @@ class ConnectionApi:
 
         Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -1549,7 +1493,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_connection_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             connection_id=connection_id,
@@ -1582,7 +1525,6 @@ class ConnectionApi:
 
     def _create_or_update_connection_serialize(
         self,
-        version,
         device_id,
         account_id,
         connection_id,
@@ -1618,8 +1560,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1697,7 +1637,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/add',
+            resource_path='/consumer/connection/add',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1716,7 +1656,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1748,8 +1687,6 @@ class ConnectionApi:
 
         Creates a new private group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -1801,7 +1738,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -1839,7 +1775,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1871,8 +1806,6 @@ class ConnectionApi:
 
         Creates a new private group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -1924,7 +1857,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -1962,7 +1894,6 @@ class ConnectionApi:
     @validate_call
     def create_or_update_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1994,8 +1925,6 @@ class ConnectionApi:
 
         Creates a new private group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -2047,7 +1976,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._create_or_update_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -2080,7 +2008,6 @@ class ConnectionApi:
 
     def _create_or_update_group_serialize(
         self,
-        version,
         return_nulls,
         device_id,
         account_id,
@@ -2116,8 +2043,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -2195,7 +2120,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group',
+            resource_path='/consumer/connection/group',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2214,7 +2139,6 @@ class ConnectionApi:
     @validate_call
     def follow_accept(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2235,8 +2159,6 @@ class ConnectionApi:
 
         Accept someone's follow request.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2266,7 +2188,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_accept_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2293,7 +2214,6 @@ class ConnectionApi:
     @validate_call
     def follow_accept_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2314,8 +2234,6 @@ class ConnectionApi:
 
         Accept someone's follow request.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2345,7 +2263,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_accept_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2372,7 +2289,6 @@ class ConnectionApi:
     @validate_call
     def follow_accept_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2393,8 +2309,6 @@ class ConnectionApi:
 
         Accept someone's follow request.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2424,7 +2338,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_accept_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2446,7 +2359,6 @@ class ConnectionApi:
 
     def _follow_accept_serialize(
         self,
-        version,
         account_id,
         connection_account_id,
         app_key,
@@ -2471,8 +2383,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2506,7 +2416,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/follow/accept',
+            resource_path='/consumer/follow/accept',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2525,7 +2435,6 @@ class ConnectionApi:
     @validate_call
     def follow_reject(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2546,8 +2455,6 @@ class ConnectionApi:
 
         Reject someone's follow request or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2577,7 +2484,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_reject_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2604,7 +2510,6 @@ class ConnectionApi:
     @validate_call
     def follow_reject_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2625,8 +2530,6 @@ class ConnectionApi:
 
         Reject someone's follow request or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2656,7 +2559,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_reject_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2683,7 +2585,6 @@ class ConnectionApi:
     @validate_call
     def follow_reject_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who initiated the follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2704,8 +2605,6 @@ class ConnectionApi:
 
         Reject someone's follow request or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who initiated the follow (required)
@@ -2735,7 +2634,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_reject_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2757,7 +2655,6 @@ class ConnectionApi:
 
     def _follow_reject_serialize(
         self,
-        version,
         account_id,
         connection_account_id,
         app_key,
@@ -2782,8 +2679,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2817,7 +2712,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/follow/reject',
+            resource_path='/consumer/follow/reject',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2836,7 +2731,6 @@ class ConnectionApi:
     @validate_call
     def follow_remove(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to unfollow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2857,8 +2751,6 @@ class ConnectionApi:
 
         Unfollow someone you are following or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to unfollow (required)
@@ -2888,7 +2780,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_remove_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2915,7 +2806,6 @@ class ConnectionApi:
     @validate_call
     def follow_remove_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to unfollow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -2936,8 +2826,6 @@ class ConnectionApi:
 
         Unfollow someone you are following or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to unfollow (required)
@@ -2967,7 +2855,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_remove_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -2994,7 +2881,6 @@ class ConnectionApi:
     @validate_call
     def follow_remove_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to unfollow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -3015,8 +2901,6 @@ class ConnectionApi:
 
         Unfollow someone you are following or remove them as a follower.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to unfollow (required)
@@ -3046,7 +2930,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_remove_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -3068,7 +2951,6 @@ class ConnectionApi:
 
     def _follow_remove_serialize(
         self,
-        version,
         account_id,
         connection_account_id,
         app_key,
@@ -3093,8 +2975,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3128,7 +3008,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/follow/remove',
+            resource_path='/consumer/follow/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3147,7 +3027,6 @@ class ConnectionApi:
     @validate_call
     def follow_request(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -3169,8 +3048,6 @@ class ConnectionApi:
 
         Send a request to follow someone.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to follow (required)
@@ -3202,7 +3079,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_request_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -3230,7 +3106,6 @@ class ConnectionApi:
     @validate_call
     def follow_request_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -3252,8 +3127,6 @@ class ConnectionApi:
 
         Send a request to follow someone.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to follow (required)
@@ -3285,7 +3158,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_request_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -3313,7 +3185,6 @@ class ConnectionApi:
     @validate_call
     def follow_request_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         connection_account_id: Annotated[StrictInt, Field(description="the account ID of the user who you want to follow")],
         app_key: Annotated[StrictStr, Field(description="the application key for sending notifications")],
@@ -3335,8 +3206,6 @@ class ConnectionApi:
 
         Send a request to follow someone.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param connection_account_id: the account ID of the user who you want to follow (required)
@@ -3368,7 +3237,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._follow_request_serialize(
-            version=version,
             account_id=account_id,
             connection_account_id=connection_account_id,
             app_key=app_key,
@@ -3391,7 +3259,6 @@ class ConnectionApi:
 
     def _follow_request_serialize(
         self,
-        version,
         account_id,
         connection_account_id,
         app_key,
@@ -3417,8 +3284,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3456,7 +3321,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/follow/request',
+            resource_path='/consumer/follow/request',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3475,7 +3340,6 @@ class ConnectionApi:
     @validate_call
     def friend_accept(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         notify_friend: Annotated[StrictBool, Field(description="determines whether to send a notification to the afflicting party")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -3500,8 +3364,6 @@ class ConnectionApi:
 
         Accept a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param notify_friend: determines whether to send a notification to the afflicting party (required)
@@ -3539,7 +3401,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_accept_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             notify_friend=notify_friend,
             device_id=device_id,
@@ -3570,7 +3431,6 @@ class ConnectionApi:
     @validate_call
     def friend_accept_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         notify_friend: Annotated[StrictBool, Field(description="determines whether to send a notification to the afflicting party")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -3595,8 +3455,6 @@ class ConnectionApi:
 
         Accept a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param notify_friend: determines whether to send a notification to the afflicting party (required)
@@ -3634,7 +3492,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_accept_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             notify_friend=notify_friend,
             device_id=device_id,
@@ -3665,7 +3522,6 @@ class ConnectionApi:
     @validate_call
     def friend_accept_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         notify_friend: Annotated[StrictBool, Field(description="determines whether to send a notification to the afflicting party")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -3690,8 +3546,6 @@ class ConnectionApi:
 
         Accept a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param notify_friend: determines whether to send a notification to the afflicting party (required)
@@ -3729,7 +3583,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_accept_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             notify_friend=notify_friend,
             device_id=device_id,
@@ -3755,7 +3608,6 @@ class ConnectionApi:
 
     def _friend_accept_serialize(
         self,
-        version,
         friend_account_id,
         notify_friend,
         device_id,
@@ -3784,8 +3636,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3835,7 +3685,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/friend/accept',
+            resource_path='/consumer/friend/accept',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3854,7 +3704,6 @@ class ConnectionApi:
     @validate_call
     def friend_reject(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -3879,8 +3728,6 @@ class ConnectionApi:
 
         Request a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -3918,7 +3765,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_reject_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -3949,7 +3795,6 @@ class ConnectionApi:
     @validate_call
     def friend_reject_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -3974,8 +3819,6 @@ class ConnectionApi:
 
         Request a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4013,7 +3856,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_reject_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4044,7 +3886,6 @@ class ConnectionApi:
     @validate_call
     def friend_reject_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4069,8 +3910,6 @@ class ConnectionApi:
 
         Request a friend request and optionally sends a notification.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4108,7 +3947,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_reject_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4134,7 +3972,6 @@ class ConnectionApi:
 
     def _friend_reject_serialize(
         self,
-        version,
         friend_account_id,
         device_id,
         account_id,
@@ -4163,8 +4000,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4214,7 +4049,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/friend/reject',
+            resource_path='/consumer/friend/reject',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4233,7 +4068,6 @@ class ConnectionApi:
     @validate_call
     def friend_remove(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the account ID of the friend to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4256,8 +4090,6 @@ class ConnectionApi:
 
         Removes a friend from the user's friends list.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the account ID of the friend to remove (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4291,7 +4123,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_remove_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4320,7 +4151,6 @@ class ConnectionApi:
     @validate_call
     def friend_remove_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the account ID of the friend to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4343,8 +4173,6 @@ class ConnectionApi:
 
         Removes a friend from the user's friends list.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the account ID of the friend to remove (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4378,7 +4206,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_remove_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4407,7 +4234,6 @@ class ConnectionApi:
     @validate_call
     def friend_remove_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the account ID of the friend to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4430,8 +4256,6 @@ class ConnectionApi:
 
         Removes a friend from the user's friends list.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the account ID of the friend to remove (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4465,7 +4289,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_remove_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4489,7 +4312,6 @@ class ConnectionApi:
 
     def _friend_remove_serialize(
         self,
-        version,
         friend_account_id,
         device_id,
         account_id,
@@ -4516,8 +4338,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4559,7 +4379,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/friend/remove',
+            resource_path='/consumer/friend/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4578,7 +4398,6 @@ class ConnectionApi:
     @validate_call
     def friend_request(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4602,8 +4421,6 @@ class ConnectionApi:
 
         Sends a friend request notification to another user.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4639,7 +4456,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_request_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4669,7 +4485,6 @@ class ConnectionApi:
     @validate_call
     def friend_request_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4693,8 +4508,6 @@ class ConnectionApi:
 
         Sends a friend request notification to another user.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4730,7 +4543,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_request_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4760,7 +4572,6 @@ class ConnectionApi:
     @validate_call
     def friend_request_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         friend_account_id: Annotated[StrictInt, Field(description="the friend's account id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -4784,8 +4595,6 @@ class ConnectionApi:
 
         Sends a friend request notification to another user.
 
-        :param version: (required)
-        :type version: float
         :param friend_account_id: the friend's account id (required)
         :type friend_account_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -4821,7 +4630,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._friend_request_serialize(
-            version=version,
             friend_account_id=friend_account_id,
             device_id=device_id,
             account_id=account_id,
@@ -4846,7 +4654,6 @@ class ConnectionApi:
 
     def _friend_request_serialize(
         self,
-        version,
         friend_account_id,
         device_id,
         account_id,
@@ -4874,8 +4681,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4921,7 +4726,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/friend/request',
+            resource_path='/consumer/friend/request',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4940,7 +4745,6 @@ class ConnectionApi:
     @validate_call
     def get_connection_sent_friend_requests(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the ID of the device")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account")] = None,
         _request_timeout: Union[
@@ -4960,8 +4764,6 @@ class ConnectionApi:
 
         Gets the connection sent friend requests.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the ID of the device
         :type device_id: str
         :param account_id: the id of the account
@@ -4989,7 +4791,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connection_sent_friend_requests_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5015,7 +4816,6 @@ class ConnectionApi:
     @validate_call
     def get_connection_sent_friend_requests_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the ID of the device")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account")] = None,
         _request_timeout: Union[
@@ -5035,8 +4835,6 @@ class ConnectionApi:
 
         Gets the connection sent friend requests.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the ID of the device
         :type device_id: str
         :param account_id: the id of the account
@@ -5064,7 +4862,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connection_sent_friend_requests_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5090,7 +4887,6 @@ class ConnectionApi:
     @validate_call
     def get_connection_sent_friend_requests_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the ID of the device")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account")] = None,
         _request_timeout: Union[
@@ -5110,8 +4906,6 @@ class ConnectionApi:
 
         Gets the connection sent friend requests.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the ID of the device
         :type device_id: str
         :param account_id: the id of the account
@@ -5139,7 +4933,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connection_sent_friend_requests_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -5160,7 +4953,6 @@ class ConnectionApi:
 
     def _get_connection_sent_friend_requests_serialize(
         self,
-        version,
         device_id,
         account_id,
         _request_auth,
@@ -5184,8 +4976,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5215,7 +5005,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/connection/getRequested',
+            resource_path='/consumer/connection/getRequested',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5234,7 +5024,6 @@ class ConnectionApi:
     @validate_call
     def get_connections(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         filter: Annotated[StrictStr, Field(description="a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)")],
         sort_field: Annotated[StrictStr, Field(description="sorts the response list by ConnectionApiMap")],
@@ -5267,8 +5056,6 @@ class ConnectionApi:
 
         Gets the connections.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param filter: a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
@@ -5322,7 +5109,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             filter=filter,
             sort_field=sort_field,
@@ -5361,7 +5147,6 @@ class ConnectionApi:
     @validate_call
     def get_connections_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         filter: Annotated[StrictStr, Field(description="a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)")],
         sort_field: Annotated[StrictStr, Field(description="sorts the response list by ConnectionApiMap")],
@@ -5394,8 +5179,6 @@ class ConnectionApi:
 
         Gets the connections.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param filter: a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
@@ -5449,7 +5232,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             filter=filter,
             sort_field=sort_field,
@@ -5488,7 +5270,6 @@ class ConnectionApi:
     @validate_call
     def get_connections_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         filter: Annotated[StrictStr, Field(description="a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following)")],
         sort_field: Annotated[StrictStr, Field(description="sorts the response list by ConnectionApiMap")],
@@ -5521,8 +5302,6 @@ class ConnectionApi:
 
         Gets the connections.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param filter: a comma separated list of ConnectionApiMap. (NOTE on FOLLOWER vs FOLLOWING: FOLLOWER will get me a list of followers, FOLLOWING will get me a list of people I am following) (required)
@@ -5576,7 +5355,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             filter=filter,
             sort_field=sort_field,
@@ -5610,7 +5388,6 @@ class ConnectionApi:
 
     def _get_connections_serialize(
         self,
-        version,
         return_nulls,
         filter,
         sort_field,
@@ -5647,8 +5424,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -5730,7 +5505,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/connection/get',
+            resource_path='/consumer/connection/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5749,7 +5524,6 @@ class ConnectionApi:
     @validate_call
     def get_group_details(
         self,
-        version: Union[StrictFloat, StrictInt],
         combine_connections: Annotated[StrictBool, Field(description="whether to combine connections or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -5772,8 +5546,6 @@ class ConnectionApi:
         """Get Connection Group
 
 
-        :param version: (required)
-        :type version: float
         :param combine_connections: whether to combine connections or not (required)
         :type combine_connections: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -5809,7 +5581,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_group_details_serialize(
-            version=version,
             combine_connections=combine_connections,
             device_id=device_id,
             account_id=account_id,
@@ -5839,7 +5610,6 @@ class ConnectionApi:
     @validate_call
     def get_group_details_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         combine_connections: Annotated[StrictBool, Field(description="whether to combine connections or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -5862,8 +5632,6 @@ class ConnectionApi:
         """Get Connection Group
 
 
-        :param version: (required)
-        :type version: float
         :param combine_connections: whether to combine connections or not (required)
         :type combine_connections: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -5899,7 +5667,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_group_details_serialize(
-            version=version,
             combine_connections=combine_connections,
             device_id=device_id,
             account_id=account_id,
@@ -5929,7 +5696,6 @@ class ConnectionApi:
     @validate_call
     def get_group_details_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         combine_connections: Annotated[StrictBool, Field(description="whether to combine connections or not")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -5952,8 +5718,6 @@ class ConnectionApi:
         """Get Connection Group
 
 
-        :param version: (required)
-        :type version: float
         :param combine_connections: whether to combine connections or not (required)
         :type combine_connections: bool
         :param device_id: the device id (deviceId or accountId required)
@@ -5989,7 +5753,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._get_group_details_serialize(
-            version=version,
             combine_connections=combine_connections,
             device_id=device_id,
             account_id=account_id,
@@ -6014,7 +5777,6 @@ class ConnectionApi:
 
     def _get_group_details_serialize(
         self,
-        version,
         combine_connections,
         device_id,
         account_id,
@@ -6042,8 +5804,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -6089,7 +5849,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/connection/group/details/get',
+            resource_path='/consumer/connection/group/details/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6108,7 +5868,6 @@ class ConnectionApi:
     @validate_call
     def group_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by")],
         descending: Annotated[StrictBool, Field(description="whether to return results in descending or ascending order")],
         active_only: Annotated[StrictBool, Field(description="to search on active only or not")],
@@ -6136,8 +5895,6 @@ class ConnectionApi:
 
         Gets a user's private groups and default groups.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by (required)
         :type sort_field: str
         :param descending: whether to return results in descending or ascending order (required)
@@ -6181,7 +5938,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._group_search_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             active_only=active_only,
@@ -6215,7 +5971,6 @@ class ConnectionApi:
     @validate_call
     def group_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by")],
         descending: Annotated[StrictBool, Field(description="whether to return results in descending or ascending order")],
         active_only: Annotated[StrictBool, Field(description="to search on active only or not")],
@@ -6243,8 +5998,6 @@ class ConnectionApi:
 
         Gets a user's private groups and default groups.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by (required)
         :type sort_field: str
         :param descending: whether to return results in descending or ascending order (required)
@@ -6288,7 +6041,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._group_search_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             active_only=active_only,
@@ -6322,7 +6074,6 @@ class ConnectionApi:
     @validate_call
     def group_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by")],
         descending: Annotated[StrictBool, Field(description="whether to return results in descending or ascending order")],
         active_only: Annotated[StrictBool, Field(description="to search on active only or not")],
@@ -6350,8 +6101,6 @@ class ConnectionApi:
 
         Gets a user's private groups and default groups.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the field to sort by (required)
         :type sort_field: str
         :param descending: whether to return results in descending or ascending order (required)
@@ -6395,7 +6144,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._group_search_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             active_only=active_only,
@@ -6424,7 +6172,6 @@ class ConnectionApi:
 
     def _group_search_serialize(
         self,
-        version,
         sort_field,
         descending,
         active_only,
@@ -6456,8 +6203,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -6519,7 +6264,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/connection/group/search',
+            resource_path='/connection/group/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6538,7 +6283,6 @@ class ConnectionApi:
     @validate_call
     def remove_connection_from_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -6565,8 +6309,6 @@ class ConnectionApi:
 
         Removes the connection from group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -6608,7 +6350,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connection_from_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -6641,7 +6382,6 @@ class ConnectionApi:
     @validate_call
     def remove_connection_from_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -6668,8 +6408,6 @@ class ConnectionApi:
 
         Removes the connection from group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -6711,7 +6449,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connection_from_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -6744,7 +6481,6 @@ class ConnectionApi:
     @validate_call
     def remove_connection_from_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -6771,8 +6507,6 @@ class ConnectionApi:
 
         Removes the connection from group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -6814,7 +6548,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connection_from_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -6842,7 +6575,6 @@ class ConnectionApi:
 
     def _remove_connection_from_group_serialize(
         self,
-        version,
         return_nulls,
         group_id,
         device_id,
@@ -6873,8 +6605,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -6932,7 +6662,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group/removeConnection',
+            resource_path='/consumer/connection/group/removeConnection',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6951,7 +6681,6 @@ class ConnectionApi:
     @validate_call
     def remove_connections_from_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="connection group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -6976,8 +6705,6 @@ class ConnectionApi:
 
         Remove a list of connections from a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: connection group id (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -7015,7 +6742,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connections_from_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -7046,7 +6772,6 @@ class ConnectionApi:
     @validate_call
     def remove_connections_from_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="connection group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -7071,8 +6796,6 @@ class ConnectionApi:
 
         Remove a list of connections from a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: connection group id (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -7110,7 +6833,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connections_from_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -7141,7 +6863,6 @@ class ConnectionApi:
     @validate_call
     def remove_connections_from_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         connection_group_id: Annotated[StrictInt, Field(description="connection group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -7166,8 +6887,6 @@ class ConnectionApi:
 
         Remove a list of connections from a group.
 
-        :param version: (required)
-        :type version: float
         :param connection_group_id: connection group id (required)
         :type connection_group_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -7205,7 +6924,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_connections_from_group_serialize(
-            version=version,
             connection_group_id=connection_group_id,
             device_id=device_id,
             account_id=account_id,
@@ -7231,7 +6949,6 @@ class ConnectionApi:
 
     def _remove_connections_from_group_serialize(
         self,
-        version,
         connection_group_id,
         device_id,
         account_id,
@@ -7260,8 +6977,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -7311,7 +7026,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/connection/group/removeConnections',
+            resource_path='/connection/group/removeConnections',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7330,7 +7045,6 @@ class ConnectionApi:
     @validate_call
     def remove_group(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -7354,8 +7068,6 @@ class ConnectionApi:
 
         Remove a user's group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -7391,7 +7103,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -7421,7 +7132,6 @@ class ConnectionApi:
     @validate_call
     def remove_group_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -7445,8 +7155,6 @@ class ConnectionApi:
 
         Remove a user's group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -7482,7 +7190,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -7512,7 +7219,6 @@ class ConnectionApi:
     @validate_call
     def remove_group_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the group id")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
@@ -7536,8 +7242,6 @@ class ConnectionApi:
 
         Remove a user's group.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the group id (required)
@@ -7573,7 +7277,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_group_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             device_id=device_id,
@@ -7598,7 +7301,6 @@ class ConnectionApi:
 
     def _remove_group_serialize(
         self,
-        version,
         return_nulls,
         group_id,
         device_id,
@@ -7626,8 +7328,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -7673,7 +7373,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group/remove',
+            resource_path='/consumer/connection/group/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7692,7 +7392,6 @@ class ConnectionApi:
     @validate_call
     def remove_sub_groups(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to remove from the parent group")],
@@ -7717,8 +7416,6 @@ class ConnectionApi:
 
         Remove sub groups from a group
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -7756,7 +7453,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -7787,7 +7483,6 @@ class ConnectionApi:
     @validate_call
     def remove_sub_groups_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to remove from the parent group")],
@@ -7812,8 +7507,6 @@ class ConnectionApi:
 
         Remove sub groups from a group
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -7851,7 +7544,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -7882,7 +7574,6 @@ class ConnectionApi:
     @validate_call
     def remove_sub_groups_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="whether to return nulls or not")],
         group_id: Annotated[StrictInt, Field(description="the parent group id")],
         sub_group_ids: Annotated[StrictStr, Field(description="comma separated list of group IDs to remove from the parent group")],
@@ -7907,8 +7598,6 @@ class ConnectionApi:
 
         Remove sub groups from a group
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: whether to return nulls or not (required)
         :type return_nulls: bool
         :param group_id: the parent group id (required)
@@ -7946,7 +7635,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._remove_sub_groups_serialize(
-            version=version,
             return_nulls=return_nulls,
             group_id=group_id,
             sub_group_ids=sub_group_ids,
@@ -7972,7 +7660,6 @@ class ConnectionApi:
 
     def _remove_sub_groups_serialize(
         self,
-        version,
         return_nulls,
         group_id,
         sub_group_ids,
@@ -8001,8 +7688,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -8052,7 +7737,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/connection/group/removeSubGroup',
+            resource_path='/consumer/connection/group/removeSubGroup',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8071,7 +7756,6 @@ class ConnectionApi:
     @validate_call
     def search_connections(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="return all json attributes if true. defualt is true.")],
         start: Annotated[StrictInt, Field(description="start index of the pagination")],
         limit: Annotated[StrictInt, Field(description="limit of the pagination")],
@@ -8104,8 +7788,6 @@ class ConnectionApi:
 
         Search for accounts that the user may not have a connection with.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: return all json attributes if true. defualt is true. (required)
         :type return_nulls: bool
         :param start: start index of the pagination (required)
@@ -8159,7 +7841,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._search_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             start=start,
             limit=limit,
@@ -8198,7 +7879,6 @@ class ConnectionApi:
     @validate_call
     def search_connections_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="return all json attributes if true. defualt is true.")],
         start: Annotated[StrictInt, Field(description="start index of the pagination")],
         limit: Annotated[StrictInt, Field(description="limit of the pagination")],
@@ -8231,8 +7911,6 @@ class ConnectionApi:
 
         Search for accounts that the user may not have a connection with.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: return all json attributes if true. defualt is true. (required)
         :type return_nulls: bool
         :param start: start index of the pagination (required)
@@ -8286,7 +7964,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._search_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             start=start,
             limit=limit,
@@ -8325,7 +8002,6 @@ class ConnectionApi:
     @validate_call
     def search_connections_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[StrictBool, Field(description="return all json attributes if true. defualt is true.")],
         start: Annotated[StrictInt, Field(description="start index of the pagination")],
         limit: Annotated[StrictInt, Field(description="limit of the pagination")],
@@ -8358,8 +8034,6 @@ class ConnectionApi:
 
         Search for accounts that the user may not have a connection with.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: return all json attributes if true. defualt is true. (required)
         :type return_nulls: bool
         :param start: start index of the pagination (required)
@@ -8413,7 +8087,6 @@ class ConnectionApi:
         """ # noqa: E501
 
         _param = self._search_connections_serialize(
-            version=version,
             return_nulls=return_nulls,
             start=start,
             limit=limit,
@@ -8447,7 +8120,6 @@ class ConnectionApi:
 
     def _search_connections_serialize(
         self,
-        version,
         return_nulls,
         start,
         limit,
@@ -8484,8 +8156,6 @@ class ConnectionApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -8567,7 +8237,7 @@ class ConnectionApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/connection/search',
+            resource_path='/connection/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import Union
+from pydantic import Field, StrictBool, StrictStr, field_validator
 from typing_extensions import Annotated
 from openapi_client.models.pathing_response import PathingResponse
 
@@ -43,7 +42,6 @@ class PathingApi:
     @validate_call
     def compute_path(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="the data to with start, end point and exclusion points")],
         units: Annotated[StrictStr, Field(description="the system of measurement for directions: {METRIC, IMPERIAL}")],
         reduce_path: Annotated[StrictBool, Field(description="determines whether to reduce the path to go in diagonal lines")],
@@ -65,8 +63,6 @@ class PathingApi:
 
         Calculates the shortest path from point to point on a grid
 
-        :param version: (required)
-        :type version: float
         :param data: the data to with start, end point and exclusion points (required)
         :type data: str
         :param units: the system of measurement for directions: {METRIC, IMPERIAL} (required)
@@ -98,7 +94,6 @@ class PathingApi:
         """ # noqa: E501
 
         _param = self._compute_path_serialize(
-            version=version,
             data=data,
             units=units,
             reduce_path=reduce_path,
@@ -126,7 +121,6 @@ class PathingApi:
     @validate_call
     def compute_path_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="the data to with start, end point and exclusion points")],
         units: Annotated[StrictStr, Field(description="the system of measurement for directions: {METRIC, IMPERIAL}")],
         reduce_path: Annotated[StrictBool, Field(description="determines whether to reduce the path to go in diagonal lines")],
@@ -148,8 +142,6 @@ class PathingApi:
 
         Calculates the shortest path from point to point on a grid
 
-        :param version: (required)
-        :type version: float
         :param data: the data to with start, end point and exclusion points (required)
         :type data: str
         :param units: the system of measurement for directions: {METRIC, IMPERIAL} (required)
@@ -181,7 +173,6 @@ class PathingApi:
         """ # noqa: E501
 
         _param = self._compute_path_serialize(
-            version=version,
             data=data,
             units=units,
             reduce_path=reduce_path,
@@ -209,7 +200,6 @@ class PathingApi:
     @validate_call
     def compute_path_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="the data to with start, end point and exclusion points")],
         units: Annotated[StrictStr, Field(description="the system of measurement for directions: {METRIC, IMPERIAL}")],
         reduce_path: Annotated[StrictBool, Field(description="determines whether to reduce the path to go in diagonal lines")],
@@ -231,8 +221,6 @@ class PathingApi:
 
         Calculates the shortest path from point to point on a grid
 
-        :param version: (required)
-        :type version: float
         :param data: the data to with start, end point and exclusion points (required)
         :type data: str
         :param units: the system of measurement for directions: {METRIC, IMPERIAL} (required)
@@ -264,7 +252,6 @@ class PathingApi:
         """ # noqa: E501
 
         _param = self._compute_path_serialize(
-            version=version,
             data=data,
             units=units,
             reduce_path=reduce_path,
@@ -287,7 +274,6 @@ class PathingApi:
 
     def _compute_path_serialize(
         self,
-        version,
         data,
         units,
         reduce_path,
@@ -313,8 +299,6 @@ class PathingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if data is not None:
             
@@ -352,7 +336,7 @@ class PathingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/pathing/compute',
+            resource_path='/pathing/compute',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

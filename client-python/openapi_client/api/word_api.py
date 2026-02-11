@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 from openapi_client.models.wordz_word_response import WordzWordResponse
@@ -44,7 +44,6 @@ class WordApi:
     @validate_call
     def create_word(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         word: Annotated[StrictStr, Field(description="The text of the word.")],
         definition: Annotated[StrictStr, Field(description="The definition of the word.")],
@@ -71,8 +70,6 @@ class WordApi:
 
         Create a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param word: The text of the word. (required)
@@ -114,7 +111,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._create_word_serialize(
-            version=version,
             account_id=account_id,
             word=word,
             definition=definition,
@@ -147,7 +143,6 @@ class WordApi:
     @validate_call
     def create_word_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         word: Annotated[StrictStr, Field(description="The text of the word.")],
         definition: Annotated[StrictStr, Field(description="The definition of the word.")],
@@ -174,8 +169,6 @@ class WordApi:
 
         Create a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param word: The text of the word. (required)
@@ -217,7 +210,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._create_word_serialize(
-            version=version,
             account_id=account_id,
             word=word,
             definition=definition,
@@ -250,7 +242,6 @@ class WordApi:
     @validate_call
     def create_word_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         word: Annotated[StrictStr, Field(description="The text of the word.")],
         definition: Annotated[StrictStr, Field(description="The definition of the word.")],
@@ -277,8 +268,6 @@ class WordApi:
 
         Create a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param word: The text of the word. (required)
@@ -320,7 +309,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._create_word_serialize(
-            version=version,
             account_id=account_id,
             word=word,
             definition=definition,
@@ -348,7 +336,6 @@ class WordApi:
 
     def _create_word_serialize(
         self,
-        version,
         account_id,
         word,
         definition,
@@ -379,8 +366,6 @@ class WordApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -438,7 +423,7 @@ class WordApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/word/create',
+            resource_path='/game/word/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -457,7 +442,6 @@ class WordApi:
     @validate_call
     def delete_word(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to delete.")],
         account_id: Annotated[StrictInt, Field(description="The account vor validating permission")],
         _request_timeout: Union[
@@ -477,8 +461,6 @@ class WordApi:
 
         Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to delete. (required)
         :type word_id: int
         :param account_id: The account vor validating permission (required)
@@ -506,7 +488,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._delete_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -532,7 +513,6 @@ class WordApi:
     @validate_call
     def delete_word_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to delete.")],
         account_id: Annotated[StrictInt, Field(description="The account vor validating permission")],
         _request_timeout: Union[
@@ -552,8 +532,6 @@ class WordApi:
 
         Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to delete. (required)
         :type word_id: int
         :param account_id: The account vor validating permission (required)
@@ -581,7 +559,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._delete_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -607,7 +584,6 @@ class WordApi:
     @validate_call
     def delete_word_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to delete.")],
         account_id: Annotated[StrictInt, Field(description="The account vor validating permission")],
         _request_timeout: Union[
@@ -627,8 +603,6 @@ class WordApi:
 
         Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to delete. (required)
         :type word_id: int
         :param account_id: The account vor validating permission (required)
@@ -656,7 +630,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._delete_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -677,7 +650,6 @@ class WordApi:
 
     def _delete_word_serialize(
         self,
-        version,
         word_id,
         account_id,
         _request_auth,
@@ -701,8 +673,6 @@ class WordApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if word_id is not None:
             
@@ -732,7 +702,7 @@ class WordApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/game/word/delete',
+            resource_path='/game/word/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -751,7 +721,6 @@ class WordApi:
     @validate_call
     def get_word(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to get.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         _request_timeout: Union[
@@ -771,8 +740,6 @@ class WordApi:
 
         Get a word by the given id.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to get. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -800,7 +767,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -826,7 +792,6 @@ class WordApi:
     @validate_call
     def get_word_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to get.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         _request_timeout: Union[
@@ -846,8 +811,6 @@ class WordApi:
 
         Get a word by the given id.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to get. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -875,7 +838,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -901,7 +863,6 @@ class WordApi:
     @validate_call
     def get_word_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to get.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         _request_timeout: Union[
@@ -921,8 +882,6 @@ class WordApi:
 
         Get a word by the given id.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to get. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -950,7 +909,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -971,7 +929,6 @@ class WordApi:
 
     def _get_word_serialize(
         self,
-        version,
         word_id,
         account_id,
         _request_auth,
@@ -995,8 +952,6 @@ class WordApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if word_id is not None:
             
@@ -1026,7 +981,7 @@ class WordApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/word/get',
+            resource_path='/game/word/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1045,7 +1000,6 @@ class WordApi:
     @validate_call
     def get_words(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1070,8 +1024,6 @@ class WordApi:
 
         Search for words by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1109,7 +1061,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_words_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1140,7 +1091,6 @@ class WordApi:
     @validate_call
     def get_words_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1165,8 +1115,6 @@ class WordApi:
 
         Search for words by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1204,7 +1152,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_words_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1235,7 +1182,6 @@ class WordApi:
     @validate_call
     def get_words_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1260,8 +1206,6 @@ class WordApi:
 
         Search for words by the given params.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The column to sort the search on (required)
@@ -1299,7 +1243,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._get_words_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1325,7 +1268,6 @@ class WordApi:
 
     def _get_words_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -1354,8 +1296,6 @@ class WordApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1405,7 +1345,7 @@ class WordApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/game/word/search',
+            resource_path='/game/word/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1424,7 +1364,6 @@ class WordApi:
     @validate_call
     def update_word(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1452,8 +1391,6 @@ class WordApi:
 
         Update a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to update. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -1497,7 +1434,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._update_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1531,7 +1467,6 @@ class WordApi:
     @validate_call
     def update_word_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1559,8 +1494,6 @@ class WordApi:
 
         Update a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to update. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -1604,7 +1537,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._update_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1638,7 +1570,6 @@ class WordApi:
     @validate_call
     def update_word_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         word_id: Annotated[StrictInt, Field(description="The id of the word to update.")],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         ticket_count: Annotated[StrictInt, Field(description="The number of tickets to reward")],
@@ -1666,8 +1597,6 @@ class WordApi:
 
         Update a word by the given params.
 
-        :param version: (required)
-        :type version: float
         :param word_id: The id of the word to update. (required)
         :type word_id: int
         :param account_id: The logged in user. (required)
@@ -1711,7 +1640,6 @@ class WordApi:
         """ # noqa: E501
 
         _param = self._update_word_serialize(
-            version=version,
             word_id=word_id,
             account_id=account_id,
             ticket_count=ticket_count,
@@ -1740,7 +1668,6 @@ class WordApi:
 
     def _update_word_serialize(
         self,
-        version,
         word_id,
         account_id,
         ticket_count,
@@ -1772,8 +1699,6 @@ class WordApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if word_id is not None:
             
@@ -1835,7 +1760,7 @@ class WordApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/game/word/update',
+            resource_path='/game/word/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

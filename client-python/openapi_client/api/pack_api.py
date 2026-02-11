@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.pack_response import PackResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class PackApi:
     @validate_call
     def create_pack(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the pack")],
         pack_order: Annotated[StrictInt, Field(description="The order of the pack")],
@@ -86,8 +85,6 @@ class PackApi:
 
         Create a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the pack (required)
@@ -159,7 +156,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._create_pack_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             pack_order=pack_order,
@@ -207,7 +203,6 @@ class PackApi:
     @validate_call
     def create_pack_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the pack")],
         pack_order: Annotated[StrictInt, Field(description="The order of the pack")],
@@ -249,8 +244,6 @@ class PackApi:
 
         Create a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the pack (required)
@@ -322,7 +315,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._create_pack_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             pack_order=pack_order,
@@ -370,7 +362,6 @@ class PackApi:
     @validate_call
     def create_pack_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The title of the pack")],
         pack_order: Annotated[StrictInt, Field(description="The order of the pack")],
@@ -412,8 +403,6 @@ class PackApi:
 
         Create a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The title of the pack (required)
@@ -485,7 +474,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._create_pack_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             pack_order=pack_order,
@@ -528,7 +516,6 @@ class PackApi:
 
     def _create_pack_serialize(
         self,
-        version,
         account_id,
         title,
         pack_order,
@@ -574,8 +561,6 @@ class PackApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -693,7 +678,7 @@ class PackApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/pack/create',
+            resource_path='/pack/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -712,7 +697,6 @@ class PackApi:
     @validate_call
     def delete_pack(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack to delete")],
         _request_timeout: Union[
@@ -732,8 +716,6 @@ class PackApi:
 
         Delete a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param pack_id: the id of the pack to delete (required)
@@ -761,7 +743,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._delete_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             _request_auth=_request_auth,
@@ -787,7 +768,6 @@ class PackApi:
     @validate_call
     def delete_pack_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack to delete")],
         _request_timeout: Union[
@@ -807,8 +787,6 @@ class PackApi:
 
         Delete a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param pack_id: the id of the pack to delete (required)
@@ -836,7 +814,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._delete_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             _request_auth=_request_auth,
@@ -862,7 +839,6 @@ class PackApi:
     @validate_call
     def delete_pack_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         pack_id: Annotated[StrictInt, Field(description="the id of the pack to delete")],
         _request_timeout: Union[
@@ -882,8 +858,6 @@ class PackApi:
 
         Delete a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param pack_id: the id of the pack to delete (required)
@@ -911,7 +885,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._delete_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             _request_auth=_request_auth,
@@ -932,7 +905,6 @@ class PackApi:
 
     def _delete_pack_serialize(
         self,
-        version,
         account_id,
         pack_id,
         _request_auth,
@@ -956,8 +928,6 @@ class PackApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -987,7 +957,7 @@ class PackApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/pack/delete',
+            resource_path='/pack/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1006,7 +976,6 @@ class PackApi:
     @validate_call
     def get_pack(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to return.")],
         include_game_data: Annotated[StrictBool, Field(description="If true include the game level data, otherwise don't. default is false.")],
@@ -1027,8 +996,6 @@ class PackApi:
 
         Get a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to return. (required)
@@ -1058,7 +1025,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._get_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             include_game_data=include_game_data,
@@ -1085,7 +1051,6 @@ class PackApi:
     @validate_call
     def get_pack_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to return.")],
         include_game_data: Annotated[StrictBool, Field(description="If true include the game level data, otherwise don't. default is false.")],
@@ -1106,8 +1071,6 @@ class PackApi:
 
         Get a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to return. (required)
@@ -1137,7 +1100,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._get_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             include_game_data=include_game_data,
@@ -1164,7 +1126,6 @@ class PackApi:
     @validate_call
     def get_pack_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to return.")],
         include_game_data: Annotated[StrictBool, Field(description="If true include the game level data, otherwise don't. default is false.")],
@@ -1185,8 +1146,6 @@ class PackApi:
 
         Get a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to return. (required)
@@ -1216,7 +1175,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._get_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             include_game_data=include_game_data,
@@ -1238,7 +1196,6 @@ class PackApi:
 
     def _get_pack_serialize(
         self,
-        version,
         account_id,
         pack_id,
         include_game_data,
@@ -1263,8 +1220,6 @@ class PackApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1298,7 +1253,7 @@ class PackApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/pack/get',
+            resource_path='/pack/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1317,7 +1272,6 @@ class PackApi:
     @validate_call
     def search_packs(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1345,8 +1299,6 @@ class PackApi:
 
         Search on packs.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
@@ -1390,7 +1342,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._search_packs_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1424,7 +1375,6 @@ class PackApi:
     @validate_call
     def search_packs_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1452,8 +1402,6 @@ class PackApi:
 
         Search on packs.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
@@ -1497,7 +1445,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._search_packs_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1531,7 +1478,6 @@ class PackApi:
     @validate_call
     def search_packs_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1559,8 +1505,6 @@ class PackApi:
 
         Search on packs.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param sort_field: The field to sort by. Possible values include: TITLE, DESCRIPTION, CREATED, UPDATED (required)
@@ -1604,7 +1548,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._search_packs_serialize(
-            version=version,
             account_id=account_id,
             sort_field=sort_field,
             descending=descending,
@@ -1633,7 +1576,6 @@ class PackApi:
 
     def _search_packs_serialize(
         self,
-        version,
         account_id,
         sort_field,
         descending,
@@ -1665,8 +1607,6 @@ class PackApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1728,7 +1668,7 @@ class PackApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/pack/search',
+            resource_path='/pack/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1747,7 +1687,6 @@ class PackApi:
     @validate_call
     def update_pack(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to update.")],
         allocate_tickets: Annotated[StrictBool, Field(description="Flag to indicate owner should receive tickets for completed packs")],
@@ -1790,8 +1729,6 @@ class PackApi:
 
         Update a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to update. (required)
@@ -1865,7 +1802,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._update_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             allocate_tickets=allocate_tickets,
@@ -1914,7 +1850,6 @@ class PackApi:
     @validate_call
     def update_pack_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to update.")],
         allocate_tickets: Annotated[StrictBool, Field(description="Flag to indicate owner should receive tickets for completed packs")],
@@ -1957,8 +1892,6 @@ class PackApi:
 
         Update a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to update. (required)
@@ -2032,7 +1965,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._update_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             allocate_tickets=allocate_tickets,
@@ -2081,7 +2013,6 @@ class PackApi:
     @validate_call
     def update_pack_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         pack_id: Annotated[StrictInt, Field(description="The id of the pack to update.")],
         allocate_tickets: Annotated[StrictBool, Field(description="Flag to indicate owner should receive tickets for completed packs")],
@@ -2124,8 +2055,6 @@ class PackApi:
 
         Update a pack.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param pack_id: The id of the pack to update. (required)
@@ -2199,7 +2128,6 @@ class PackApi:
         """ # noqa: E501
 
         _param = self._update_pack_serialize(
-            version=version,
             account_id=account_id,
             pack_id=pack_id,
             allocate_tickets=allocate_tickets,
@@ -2243,7 +2171,6 @@ class PackApi:
 
     def _update_pack_serialize(
         self,
-        version,
         account_id,
         pack_id,
         allocate_tickets,
@@ -2290,8 +2217,6 @@ class PackApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2413,7 +2338,7 @@ class PackApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/pack/update',
+            resource_path='/pack/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

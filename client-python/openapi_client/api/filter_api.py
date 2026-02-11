@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.filter_response import FilterResponse
 from openapi_client.models.filter_tree_response import FilterTreeResponse
@@ -45,7 +45,6 @@ class FilterApi:
     @validate_call
     def create_filter(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the filter")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)")] = None,
@@ -72,8 +71,6 @@ class FilterApi:
 
         Create a filter
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the filter (required)
@@ -115,7 +112,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._create_filter_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -148,7 +144,6 @@ class FilterApi:
     @validate_call
     def create_filter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the filter")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)")] = None,
@@ -175,8 +170,6 @@ class FilterApi:
 
         Create a filter
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the filter (required)
@@ -218,7 +211,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._create_filter_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -251,7 +243,6 @@ class FilterApi:
     @validate_call
     def create_filter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the filter")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the filter to, if not provided then the filter will be applied to the global application (if the account has permissions)")] = None,
@@ -278,8 +269,6 @@ class FilterApi:
 
         Create a filter
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the filter (required)
@@ -321,7 +310,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._create_filter_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -349,7 +337,6 @@ class FilterApi:
 
     def _create_filter_serialize(
         self,
-        version,
         account_id,
         name,
         app_key,
@@ -380,8 +367,6 @@ class FilterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -439,7 +424,7 @@ class FilterApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/filter/create',
+            resource_path='/filter/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -458,7 +443,6 @@ class FilterApi:
     @validate_call
     def delete_filter(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the filter's assigned application)")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to delete")],
         _request_timeout: Union[
@@ -478,8 +462,6 @@ class FilterApi:
 
         Delete a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the filter's assigned application) (required)
         :type account_id: int
         :param filter_id: The ID of the filter to delete (required)
@@ -507,7 +489,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._delete_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             _request_auth=_request_auth,
@@ -533,7 +514,6 @@ class FilterApi:
     @validate_call
     def delete_filter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the filter's assigned application)")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to delete")],
         _request_timeout: Union[
@@ -553,8 +533,6 @@ class FilterApi:
 
         Delete a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the filter's assigned application) (required)
         :type account_id: int
         :param filter_id: The ID of the filter to delete (required)
@@ -582,7 +560,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._delete_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             _request_auth=_request_auth,
@@ -608,7 +585,6 @@ class FilterApi:
     @validate_call
     def delete_filter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the filter's assigned application)")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to delete")],
         _request_timeout: Union[
@@ -628,8 +604,6 @@ class FilterApi:
 
         Delete a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the filter's assigned application) (required)
         :type account_id: int
         :param filter_id: The ID of the filter to delete (required)
@@ -657,7 +631,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._delete_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             _request_auth=_request_auth,
@@ -678,7 +651,6 @@ class FilterApi:
 
     def _delete_filter_serialize(
         self,
-        version,
         account_id,
         filter_id,
         _request_auth,
@@ -702,8 +674,6 @@ class FilterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -733,7 +703,7 @@ class FilterApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/filter/delete',
+            resource_path='/filter/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -752,7 +722,6 @@ class FilterApi:
     @validate_call
     def get_filter(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter_id: Annotated[StrictInt, Field(description="the id of the filter to get")],
         _request_timeout: Union[
             None,
@@ -771,8 +740,6 @@ class FilterApi:
 
         Get the details of a specific filter. Recursively include all child filters and their children.
 
-        :param version: (required)
-        :type version: float
         :param filter_id: the id of the filter to get (required)
         :type filter_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -798,7 +765,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._get_filter_serialize(
-            version=version,
             filter_id=filter_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -823,7 +789,6 @@ class FilterApi:
     @validate_call
     def get_filter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter_id: Annotated[StrictInt, Field(description="the id of the filter to get")],
         _request_timeout: Union[
             None,
@@ -842,8 +807,6 @@ class FilterApi:
 
         Get the details of a specific filter. Recursively include all child filters and their children.
 
-        :param version: (required)
-        :type version: float
         :param filter_id: the id of the filter to get (required)
         :type filter_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -869,7 +832,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._get_filter_serialize(
-            version=version,
             filter_id=filter_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -894,7 +856,6 @@ class FilterApi:
     @validate_call
     def get_filter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter_id: Annotated[StrictInt, Field(description="the id of the filter to get")],
         _request_timeout: Union[
             None,
@@ -913,8 +874,6 @@ class FilterApi:
 
         Get the details of a specific filter. Recursively include all child filters and their children.
 
-        :param version: (required)
-        :type version: float
         :param filter_id: the id of the filter to get (required)
         :type filter_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -940,7 +899,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._get_filter_serialize(
-            version=version,
             filter_id=filter_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -960,7 +918,6 @@ class FilterApi:
 
     def _get_filter_serialize(
         self,
-        version,
         filter_id,
         _request_auth,
         _content_type,
@@ -983,8 +940,6 @@ class FilterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if filter_id is not None:
             
@@ -1010,7 +965,7 @@ class FilterApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/filter/get',
+            resource_path='/filter/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1029,7 +984,6 @@ class FilterApi:
     @validate_call
     def search_filters(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve filters for")] = None,
@@ -1057,8 +1011,6 @@ class FilterApi:
 
         Search for filters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -1102,7 +1054,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._search_filters_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -1136,7 +1087,6 @@ class FilterApi:
     @validate_call
     def search_filters_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve filters for")] = None,
@@ -1164,8 +1114,6 @@ class FilterApi:
 
         Search for filters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -1209,7 +1157,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._search_filters_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -1243,7 +1190,6 @@ class FilterApi:
     @validate_call
     def search_filters_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve filters for")] = None,
@@ -1271,8 +1217,6 @@ class FilterApi:
 
         Search for filters.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -1316,7 +1260,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._search_filters_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -1345,7 +1288,6 @@ class FilterApi:
 
     def _search_filters_serialize(
         self,
-        version,
         account_id,
         keyword,
         app_key,
@@ -1377,8 +1319,6 @@ class FilterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1440,7 +1380,7 @@ class FilterApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/filter/search',
+            resource_path='/filter/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1459,7 +1399,6 @@ class FilterApi:
     @validate_call
     def update_filter(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to edit")],
         parent_filter_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent filter, if not provided then the parent filter will be null")] = None,
@@ -1486,8 +1425,6 @@ class FilterApi:
 
         Update a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param filter_id: The ID of the filter to edit (required)
@@ -1529,7 +1466,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._update_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             parent_filter_id=parent_filter_id,
@@ -1562,7 +1498,6 @@ class FilterApi:
     @validate_call
     def update_filter_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to edit")],
         parent_filter_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent filter, if not provided then the parent filter will be null")] = None,
@@ -1589,8 +1524,6 @@ class FilterApi:
 
         Update a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param filter_id: The ID of the filter to edit (required)
@@ -1632,7 +1565,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._update_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             parent_filter_id=parent_filter_id,
@@ -1665,7 +1597,6 @@ class FilterApi:
     @validate_call
     def update_filter_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         filter_id: Annotated[StrictInt, Field(description="The ID of the filter to edit")],
         parent_filter_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent filter, if not provided then the parent filter will be null")] = None,
@@ -1692,8 +1623,6 @@ class FilterApi:
 
         Update a filter.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param filter_id: The ID of the filter to edit (required)
@@ -1735,7 +1664,6 @@ class FilterApi:
         """ # noqa: E501
 
         _param = self._update_filter_serialize(
-            version=version,
             account_id=account_id,
             filter_id=filter_id,
             parent_filter_id=parent_filter_id,
@@ -1763,7 +1691,6 @@ class FilterApi:
 
     def _update_filter_serialize(
         self,
-        version,
         account_id,
         filter_id,
         parent_filter_id,
@@ -1794,8 +1721,6 @@ class FilterApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1853,7 +1778,7 @@ class FilterApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/filter/update',
+            resource_path='/filter/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

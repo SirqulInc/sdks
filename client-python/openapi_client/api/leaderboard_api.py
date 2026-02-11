@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from openapi_client.models.leaderboard_response import LeaderboardResponse
@@ -44,7 +44,6 @@ class LeaderboardApi:
     @validate_call
     def create_leaderboard(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user creating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         rank_type: Annotated[Optional[StrictStr], Field(description="a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")] = None,
@@ -75,8 +74,6 @@ class LeaderboardApi:
 
         Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user creating the leaderboard.
         :type account_id: int
         :param app_key: The application key
@@ -126,7 +123,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._create_leaderboard_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -163,7 +159,6 @@ class LeaderboardApi:
     @validate_call
     def create_leaderboard_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user creating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         rank_type: Annotated[Optional[StrictStr], Field(description="a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")] = None,
@@ -194,8 +189,6 @@ class LeaderboardApi:
 
         Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user creating the leaderboard.
         :type account_id: int
         :param app_key: The application key
@@ -245,7 +238,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._create_leaderboard_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -282,7 +274,6 @@ class LeaderboardApi:
     @validate_call
     def create_leaderboard_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user creating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
         rank_type: Annotated[Optional[StrictStr], Field(description="a unique label for identifying the ranking. This can be any alphanumeric string with a maximum length of 64 characters. There are also default rank types to use which include: POINTS, DOWNLOADS, INVITATIONS, CREATIONS, VOTES, REDEEMED, ACTIONS")] = None,
@@ -313,8 +304,6 @@ class LeaderboardApi:
 
         Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user creating the leaderboard.
         :type account_id: int
         :param app_key: The application key
@@ -364,7 +353,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._create_leaderboard_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             rank_type=rank_type,
@@ -396,7 +384,6 @@ class LeaderboardApi:
 
     def _create_leaderboard_serialize(
         self,
-        version,
         account_id,
         app_key,
         rank_type,
@@ -431,8 +418,6 @@ class LeaderboardApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -506,7 +491,7 @@ class LeaderboardApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/leaderboard/create',
+            resource_path='/leaderboard/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -525,7 +510,6 @@ class LeaderboardApi:
     @validate_call
     def delete_leaderboard(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to delete.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user making the request.")] = None,
         _request_timeout: Union[
@@ -545,8 +529,6 @@ class LeaderboardApi:
 
         Removes a leader board id.
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to delete. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user making the request.
@@ -574,7 +556,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._delete_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -600,7 +581,6 @@ class LeaderboardApi:
     @validate_call
     def delete_leaderboard_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to delete.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user making the request.")] = None,
         _request_timeout: Union[
@@ -620,8 +600,6 @@ class LeaderboardApi:
 
         Removes a leader board id.
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to delete. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user making the request.
@@ -649,7 +627,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._delete_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -675,7 +652,6 @@ class LeaderboardApi:
     @validate_call
     def delete_leaderboard_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to delete.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user making the request.")] = None,
         _request_timeout: Union[
@@ -695,8 +671,6 @@ class LeaderboardApi:
 
         Removes a leader board id.
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to delete. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user making the request.
@@ -724,7 +698,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._delete_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -745,7 +718,6 @@ class LeaderboardApi:
 
     def _delete_leaderboard_serialize(
         self,
-        version,
         leaderboard_id,
         account_id,
         _request_auth,
@@ -769,8 +741,6 @@ class LeaderboardApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -800,7 +770,7 @@ class LeaderboardApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/leaderboard/delete',
+            resource_path='/leaderboard/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -819,7 +789,6 @@ class LeaderboardApi:
     @validate_call
     def get_leaderboard(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id.")],
         account_id: Annotated[Optional[StrictInt], Field(description="A valid account.")] = None,
         include_full_ranking_list: Annotated[Optional[StrictBool], Field(description="set to true if need to return the leaderboard's full ranking list")] = None,
@@ -840,8 +809,6 @@ class LeaderboardApi:
 
         Read a leaderboard by id and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id. (required)
         :type leaderboard_id: int
         :param account_id: A valid account.
@@ -871,7 +838,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._get_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             include_full_ranking_list=include_full_ranking_list,
@@ -898,7 +864,6 @@ class LeaderboardApi:
     @validate_call
     def get_leaderboard_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id.")],
         account_id: Annotated[Optional[StrictInt], Field(description="A valid account.")] = None,
         include_full_ranking_list: Annotated[Optional[StrictBool], Field(description="set to true if need to return the leaderboard's full ranking list")] = None,
@@ -919,8 +884,6 @@ class LeaderboardApi:
 
         Read a leaderboard by id and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id. (required)
         :type leaderboard_id: int
         :param account_id: A valid account.
@@ -950,7 +913,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._get_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             include_full_ranking_list=include_full_ranking_list,
@@ -977,7 +939,6 @@ class LeaderboardApi:
     @validate_call
     def get_leaderboard_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id.")],
         account_id: Annotated[Optional[StrictInt], Field(description="A valid account.")] = None,
         include_full_ranking_list: Annotated[Optional[StrictBool], Field(description="set to true if need to return the leaderboard's full ranking list")] = None,
@@ -998,8 +959,6 @@ class LeaderboardApi:
 
         Read a leaderboard by id and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id. (required)
         :type leaderboard_id: int
         :param account_id: A valid account.
@@ -1029,7 +988,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._get_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             include_full_ranking_list=include_full_ranking_list,
@@ -1051,7 +1009,6 @@ class LeaderboardApi:
 
     def _get_leaderboard_serialize(
         self,
-        version,
         leaderboard_id,
         account_id,
         include_full_ranking_list,
@@ -1076,8 +1033,6 @@ class LeaderboardApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1111,7 +1066,7 @@ class LeaderboardApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/leaderboard/get',
+            resource_path='/leaderboard/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1130,7 +1085,6 @@ class LeaderboardApi:
     @validate_call
     def search_leaderboards(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user requesting the search.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key.")] = None,
         global_only: Annotated[Optional[StrictBool], Field(description="only include global leaderboards (this overrides the appKey filter)")] = None,
@@ -1160,8 +1114,6 @@ class LeaderboardApi:
 
         Search leaderboard and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user requesting the search.
         :type account_id: int
         :param app_key: The application key.
@@ -1209,7 +1161,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._search_leaderboards_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             global_only=global_only,
@@ -1245,7 +1196,6 @@ class LeaderboardApi:
     @validate_call
     def search_leaderboards_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user requesting the search.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key.")] = None,
         global_only: Annotated[Optional[StrictBool], Field(description="only include global leaderboards (this overrides the appKey filter)")] = None,
@@ -1275,8 +1225,6 @@ class LeaderboardApi:
 
         Search leaderboard and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user requesting the search.
         :type account_id: int
         :param app_key: The application key.
@@ -1324,7 +1272,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._search_leaderboards_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             global_only=global_only,
@@ -1360,7 +1307,6 @@ class LeaderboardApi:
     @validate_call
     def search_leaderboards_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user requesting the search.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key.")] = None,
         global_only: Annotated[Optional[StrictBool], Field(description="only include global leaderboards (this overrides the appKey filter)")] = None,
@@ -1390,8 +1336,6 @@ class LeaderboardApi:
 
         Search leaderboard and retrieve the matching ranking list
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user requesting the search.
         :type account_id: int
         :param app_key: The application key.
@@ -1439,7 +1383,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._search_leaderboards_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             global_only=global_only,
@@ -1470,7 +1413,6 @@ class LeaderboardApi:
 
     def _search_leaderboards_serialize(
         self,
-        version,
         account_id,
         app_key,
         global_only,
@@ -1504,8 +1446,6 @@ class LeaderboardApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1575,7 +1515,7 @@ class LeaderboardApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/leaderboard/search',
+            resource_path='/leaderboard/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1594,7 +1534,6 @@ class LeaderboardApi:
     @validate_call
     def update_leaderboard(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to update.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user updating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1627,8 +1566,6 @@ class LeaderboardApi:
 
         Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to update. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user updating the leaderboard.
@@ -1682,7 +1619,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._update_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             app_key=app_key,
@@ -1721,7 +1657,6 @@ class LeaderboardApi:
     @validate_call
     def update_leaderboard_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to update.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user updating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1754,8 +1689,6 @@ class LeaderboardApi:
 
         Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to update. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user updating the leaderboard.
@@ -1809,7 +1742,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._update_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             app_key=app_key,
@@ -1848,7 +1780,6 @@ class LeaderboardApi:
     @validate_call
     def update_leaderboard_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         leaderboard_id: Annotated[StrictInt, Field(description="The leaderboard id to update.")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user updating the leaderboard.")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1881,8 +1812,6 @@ class LeaderboardApi:
 
         Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
 
-        :param version: (required)
-        :type version: float
         :param leaderboard_id: The leaderboard id to update. (required)
         :type leaderboard_id: int
         :param account_id: The account id of the user updating the leaderboard.
@@ -1936,7 +1865,6 @@ class LeaderboardApi:
         """ # noqa: E501
 
         _param = self._update_leaderboard_serialize(
-            version=version,
             leaderboard_id=leaderboard_id,
             account_id=account_id,
             app_key=app_key,
@@ -1970,7 +1898,6 @@ class LeaderboardApi:
 
     def _update_leaderboard_serialize(
         self,
-        version,
         leaderboard_id,
         account_id,
         app_key,
@@ -2007,8 +1934,6 @@ class LeaderboardApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2090,7 +2015,7 @@ class LeaderboardApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/leaderboard/update',
+            resource_path='/leaderboard/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.order_response import OrderResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class PurchaseOrderApi:
     @validate_call
     def create_order(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -74,8 +73,6 @@ class PurchaseOrderApi:
 
         Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ```  (required)
@@ -123,7 +120,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._create_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -159,7 +155,6 @@ class PurchaseOrderApi:
     @validate_call
     def create_order_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -189,8 +184,6 @@ class PurchaseOrderApi:
 
         Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ```  (required)
@@ -238,7 +231,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._create_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -274,7 +266,6 @@ class PurchaseOrderApi:
     @validate_call
     def create_order_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -304,8 +295,6 @@ class PurchaseOrderApi:
 
         Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: ```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ```  (required)
@@ -353,7 +342,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._create_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -384,7 +372,6 @@ class PurchaseOrderApi:
 
     def _create_order_serialize(
         self,
-        version,
         app_key,
         cart,
         device_id,
@@ -418,8 +405,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -489,7 +474,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/order/create',
+            resource_path='/order/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -508,7 +493,6 @@ class PurchaseOrderApi:
     @validate_call
     def delete_order(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="Order Id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -529,8 +513,6 @@ class PurchaseOrderApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param order_id: Order Id (required)
         :type order_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -560,7 +542,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._delete_order_serialize(
-            version=version,
             order_id=order_id,
             device_id=device_id,
             account_id=account_id,
@@ -587,7 +568,6 @@ class PurchaseOrderApi:
     @validate_call
     def delete_order_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="Order Id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -608,8 +588,6 @@ class PurchaseOrderApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param order_id: Order Id (required)
         :type order_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -639,7 +617,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._delete_order_serialize(
-            version=version,
             order_id=order_id,
             device_id=device_id,
             account_id=account_id,
@@ -666,7 +643,6 @@ class PurchaseOrderApi:
     @validate_call
     def delete_order_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="Order Id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -687,8 +663,6 @@ class PurchaseOrderApi:
 
         Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
 
-        :param version: (required)
-        :type version: float
         :param order_id: Order Id (required)
         :type order_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -718,7 +692,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._delete_order_serialize(
-            version=version,
             order_id=order_id,
             device_id=device_id,
             account_id=account_id,
@@ -740,7 +713,6 @@ class PurchaseOrderApi:
 
     def _delete_order_serialize(
         self,
-        version,
         order_id,
         device_id,
         account_id,
@@ -765,8 +737,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -800,7 +770,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/order/delete',
+            resource_path='/order/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -819,7 +789,6 @@ class PurchaseOrderApi:
     @validate_call
     def get_order(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         order_id: Annotated[Optional[StrictInt], Field(description="The order id to get details of, either orderId or externalOrderId must be provided")] = None,
@@ -841,8 +810,6 @@ class PurchaseOrderApi:
 
         Get an order record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -874,7 +841,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._get_order_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             order_id=order_id,
@@ -902,7 +868,6 @@ class PurchaseOrderApi:
     @validate_call
     def get_order_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         order_id: Annotated[Optional[StrictInt], Field(description="The order id to get details of, either orderId or externalOrderId must be provided")] = None,
@@ -924,8 +889,6 @@ class PurchaseOrderApi:
 
         Get an order record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -957,7 +920,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._get_order_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             order_id=order_id,
@@ -985,7 +947,6 @@ class PurchaseOrderApi:
     @validate_call
     def get_order_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         order_id: Annotated[Optional[StrictInt], Field(description="The order id to get details of, either orderId or externalOrderId must be provided")] = None,
@@ -1007,8 +968,6 @@ class PurchaseOrderApi:
 
         Get an order record
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1040,7 +999,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._get_order_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             order_id=order_id,
@@ -1063,7 +1021,6 @@ class PurchaseOrderApi:
 
     def _get_order_serialize(
         self,
-        version,
         device_id,
         account_id,
         order_id,
@@ -1089,8 +1046,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1128,7 +1083,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/order/get',
+            resource_path='/order/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1147,7 +1102,6 @@ class PurchaseOrderApi:
     @validate_call
     def preview_order(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="A JSON list of items to purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -1177,8 +1131,6 @@ class PurchaseOrderApi:
 
         Previews a purchase to see the total cost before making it.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: A JSON list of items to purchase (required)
@@ -1226,7 +1178,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._preview_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -1262,7 +1213,6 @@ class PurchaseOrderApi:
     @validate_call
     def preview_order_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="A JSON list of items to purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -1292,8 +1242,6 @@ class PurchaseOrderApi:
 
         Previews a purchase to see the total cost before making it.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: A JSON list of items to purchase (required)
@@ -1341,7 +1289,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._preview_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -1377,7 +1324,6 @@ class PurchaseOrderApi:
     @validate_call
     def preview_order_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="A JSON list of items to purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -1407,8 +1353,6 @@ class PurchaseOrderApi:
 
         Previews a purchase to see the total cost before making it.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param cart: A JSON list of items to purchase (required)
@@ -1456,7 +1400,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._preview_order_serialize(
-            version=version,
             app_key=app_key,
             cart=cart,
             device_id=device_id,
@@ -1487,7 +1430,6 @@ class PurchaseOrderApi:
 
     def _preview_order_serialize(
         self,
-        version,
         app_key,
         cart,
         device_id,
@@ -1521,8 +1463,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1592,7 +1532,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/order/preview',
+            resource_path='/order/preview',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1611,7 +1551,6 @@ class PurchaseOrderApi:
     @validate_call
     def search_orders(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1660,8 +1599,6 @@ class PurchaseOrderApi:
 
         Search on active orders by customer
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param device_id: The device id (deviceId or accountId required)
@@ -1747,7 +1684,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._search_orders_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -1802,7 +1738,6 @@ class PurchaseOrderApi:
     @validate_call
     def search_orders_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1851,8 +1786,6 @@ class PurchaseOrderApi:
 
         Search on active orders by customer
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param device_id: The device id (deviceId or accountId required)
@@ -1938,7 +1871,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._search_orders_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -1993,7 +1925,6 @@ class PurchaseOrderApi:
     @validate_call
     def search_orders_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2042,8 +1973,6 @@ class PurchaseOrderApi:
 
         Search on active orders by customer
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application requesting the purchase (required)
         :type app_key: str
         :param device_id: The device id (deviceId or accountId required)
@@ -2129,7 +2058,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._search_orders_serialize(
-            version=version,
             app_key=app_key,
             device_id=device_id,
             account_id=account_id,
@@ -2179,7 +2107,6 @@ class PurchaseOrderApi:
 
     def _search_orders_serialize(
         self,
-        version,
         app_key,
         device_id,
         account_id,
@@ -2232,8 +2159,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2379,7 +2304,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/order/search',
+            resource_path='/order/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2398,7 +2323,6 @@ class PurchaseOrderApi:
     @validate_call
     def update_order(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="The order to add the purchase to, leave null for new order.")],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
@@ -2427,8 +2351,6 @@ class PurchaseOrderApi:
 
         Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 
-        :param version: (required)
-        :type version: float
         :param order_id: The order to add the purchase to, leave null for new order. (required)
         :type order_id: int
         :param app_key: The application requesting the purchase (required)
@@ -2474,7 +2396,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._update_order_serialize(
-            version=version,
             order_id=order_id,
             app_key=app_key,
             cart=cart,
@@ -2509,7 +2430,6 @@ class PurchaseOrderApi:
     @validate_call
     def update_order_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="The order to add the purchase to, leave null for new order.")],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
@@ -2538,8 +2458,6 @@ class PurchaseOrderApi:
 
         Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 
-        :param version: (required)
-        :type version: float
         :param order_id: The order to add the purchase to, leave null for new order. (required)
         :type order_id: int
         :param app_key: The application requesting the purchase (required)
@@ -2585,7 +2503,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._update_order_serialize(
-            version=version,
             order_id=order_id,
             app_key=app_key,
             cart=cart,
@@ -2620,7 +2537,6 @@ class PurchaseOrderApi:
     @validate_call
     def update_order_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         order_id: Annotated[StrictInt, Field(description="The order to add the purchase to, leave null for new order.")],
         app_key: Annotated[StrictStr, Field(description="The application requesting the purchase")],
         cart: Annotated[StrictStr, Field(description="```json [   { \"orderItemType\": \"OFFER\", \"orderItemId\": 234, \"orderCustomType\": \"OfferLocation\", \"orderCustomId\": 123, \"retailerLocationId\": 1234, \"quantity\": 2 },   { \"orderItemType\": \"OFFER\", \"orderItemId\": 235, \"quantity\": 2 },   { \"orderItemType\": \"CUSTOM\", \"amount\": 10.50, \"orderCustomType\": \"ServiceFee\" },   { \"orderItemType\": \"CUSTOM\", \"amount\": 25.10, \"quantity\": 2, \"orderCustomType\": \"Hat\", \"orderCustomId\": 123 } ] ``` ")],
@@ -2649,8 +2565,6 @@ class PurchaseOrderApi:
 
         Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
 
-        :param version: (required)
-        :type version: float
         :param order_id: The order to add the purchase to, leave null for new order. (required)
         :type order_id: int
         :param app_key: The application requesting the purchase (required)
@@ -2696,7 +2610,6 @@ class PurchaseOrderApi:
         """ # noqa: E501
 
         _param = self._update_order_serialize(
-            version=version,
             order_id=order_id,
             app_key=app_key,
             cart=cart,
@@ -2726,7 +2639,6 @@ class PurchaseOrderApi:
 
     def _update_order_serialize(
         self,
-        version,
         order_id,
         app_key,
         cart,
@@ -2759,8 +2671,6 @@ class PurchaseOrderApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2826,7 +2736,7 @@ class PurchaseOrderApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/order/update',
+            resource_path='/order/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

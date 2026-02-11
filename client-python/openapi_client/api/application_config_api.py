@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.application_config_response import ApplicationConfigResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class ApplicationConfigApi:
     @validate_call
     def create_application_config(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[StrictStr, Field(description="The application key that the newly created applicationConfig will be associated to")],
         config_version: Annotated[StrictStr, Field(description="The application configuration, has to be unique within the application")],
@@ -69,8 +68,6 @@ class ApplicationConfigApi:
 
         Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key that the newly created applicationConfig will be associated to (required)
@@ -108,7 +105,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._create_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             config_version=config_version,
@@ -139,7 +135,6 @@ class ApplicationConfigApi:
     @validate_call
     def create_application_config_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[StrictStr, Field(description="The application key that the newly created applicationConfig will be associated to")],
         config_version: Annotated[StrictStr, Field(description="The application configuration, has to be unique within the application")],
@@ -164,8 +159,6 @@ class ApplicationConfigApi:
 
         Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key that the newly created applicationConfig will be associated to (required)
@@ -203,7 +196,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._create_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             config_version=config_version,
@@ -234,7 +226,6 @@ class ApplicationConfigApi:
     @validate_call
     def create_application_config_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[StrictStr, Field(description="The application key that the newly created applicationConfig will be associated to")],
         config_version: Annotated[StrictStr, Field(description="The application configuration, has to be unique within the application")],
@@ -259,8 +250,6 @@ class ApplicationConfigApi:
 
         Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key that the newly created applicationConfig will be associated to (required)
@@ -298,7 +287,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._create_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             config_version=config_version,
@@ -324,7 +312,6 @@ class ApplicationConfigApi:
 
     def _create_application_config_serialize(
         self,
-        version,
         account_id,
         app_key,
         config_version,
@@ -353,8 +340,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -404,7 +389,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/appconfig/create',
+            resource_path='/appconfig/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -423,7 +408,6 @@ class ApplicationConfigApi:
     @validate_call
     def delete_application_config(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to delete")],
         _request_timeout: Union[
@@ -443,8 +427,6 @@ class ApplicationConfigApi:
 
         Mark the application configuration for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to delete (required)
@@ -472,7 +454,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._delete_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -498,7 +479,6 @@ class ApplicationConfigApi:
     @validate_call
     def delete_application_config_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to delete")],
         _request_timeout: Union[
@@ -518,8 +498,6 @@ class ApplicationConfigApi:
 
         Mark the application configuration for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to delete (required)
@@ -547,7 +525,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._delete_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -573,7 +550,6 @@ class ApplicationConfigApi:
     @validate_call
     def delete_application_config_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to delete")],
         _request_timeout: Union[
@@ -593,8 +569,6 @@ class ApplicationConfigApi:
 
         Mark the application configuration for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to delete (required)
@@ -622,7 +596,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._delete_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -643,7 +616,6 @@ class ApplicationConfigApi:
 
     def _delete_application_config_serialize(
         self,
-        version,
         account_id,
         config_id,
         _request_auth,
@@ -667,8 +639,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -698,7 +668,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/appconfig/delete',
+            resource_path='/appconfig/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -717,7 +687,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration")],
         _request_timeout: Union[
@@ -737,8 +706,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration (required)
@@ -766,7 +733,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -792,7 +758,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration")],
         _request_timeout: Union[
@@ -812,8 +777,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration (required)
@@ -841,7 +804,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -867,7 +829,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration")],
         _request_timeout: Union[
@@ -887,8 +848,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration (required)
@@ -916,7 +875,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             _request_auth=_request_auth,
@@ -937,7 +895,6 @@ class ApplicationConfigApi:
 
     def _get_application_config_serialize(
         self,
-        version,
         account_id,
         config_id,
         _request_auth,
@@ -961,8 +918,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -992,7 +947,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/appconfig/get',
+            resource_path='/appconfig/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1011,7 +966,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config_by_config_version(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         config_version: Annotated[StrictStr, Field(description="The version of the application configuration")],
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the config that matches the given retailer")] = None,
@@ -1035,8 +989,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param config_version: The version of the application configuration (required)
@@ -1072,7 +1024,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_by_config_version_serialize(
-            version=version,
             app_key=app_key,
             config_version=config_version,
             retailer_id=retailer_id,
@@ -1102,7 +1053,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config_by_config_version_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         config_version: Annotated[StrictStr, Field(description="The version of the application configuration")],
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the config that matches the given retailer")] = None,
@@ -1126,8 +1076,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param config_version: The version of the application configuration (required)
@@ -1163,7 +1111,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_by_config_version_serialize(
-            version=version,
             app_key=app_key,
             config_version=config_version,
             retailer_id=retailer_id,
@@ -1193,7 +1140,6 @@ class ApplicationConfigApi:
     @validate_call
     def get_application_config_by_config_version_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         config_version: Annotated[StrictStr, Field(description="The version of the application configuration")],
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the config that matches the given retailer")] = None,
@@ -1217,8 +1163,6 @@ class ApplicationConfigApi:
 
         Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key (required)
         :type app_key: str
         :param config_version: The version of the application configuration (required)
@@ -1254,7 +1198,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._get_application_config_by_config_version_serialize(
-            version=version,
             app_key=app_key,
             config_version=config_version,
             retailer_id=retailer_id,
@@ -1279,7 +1222,6 @@ class ApplicationConfigApi:
 
     def _get_application_config_by_config_version_serialize(
         self,
-        version,
         app_key,
         config_version,
         retailer_id,
@@ -1307,8 +1249,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -1354,7 +1294,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/appconfig/getbyversion',
+            resource_path='/appconfig/getbyversion',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1373,7 +1313,6 @@ class ApplicationConfigApi:
     @validate_call
     def search_application_config(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the configs that matches the given retailer")] = None,
@@ -1401,8 +1340,6 @@ class ApplicationConfigApi:
 
         Gets all versions of application configurations in a particular app by the given appKey.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -1446,7 +1383,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._search_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_id=retailer_id,
@@ -1480,7 +1416,6 @@ class ApplicationConfigApi:
     @validate_call
     def search_application_config_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the configs that matches the given retailer")] = None,
@@ -1508,8 +1443,6 @@ class ApplicationConfigApi:
 
         Gets all versions of application configurations in a particular app by the given appKey.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -1553,7 +1486,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._search_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_id=retailer_id,
@@ -1587,7 +1519,6 @@ class ApplicationConfigApi:
     @validate_call
     def search_application_config_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Only returns the configs that matches the given retailer")] = None,
@@ -1615,8 +1546,6 @@ class ApplicationConfigApi:
 
         Gets all versions of application configurations in a particular app by the given appKey.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param app_key: The application key to filter results by application Leaving this empty will return all application configurations for all applications (executive user only)
@@ -1660,7 +1589,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._search_application_config_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             retailer_id=retailer_id,
@@ -1689,7 +1617,6 @@ class ApplicationConfigApi:
 
     def _search_application_config_serialize(
         self,
-        version,
         account_id,
         app_key,
         retailer_id,
@@ -1721,8 +1648,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1784,7 +1709,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/appconfig/search',
+            resource_path='/appconfig/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1803,7 +1728,6 @@ class ApplicationConfigApi:
     @validate_call
     def update_application_config(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to update")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key that the updated applicationConfig will be associated to")] = None,
@@ -1829,8 +1753,6 @@ class ApplicationConfigApi:
 
         pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to update (required)
@@ -1870,7 +1792,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._update_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             app_key=app_key,
@@ -1902,7 +1823,6 @@ class ApplicationConfigApi:
     @validate_call
     def update_application_config_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to update")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key that the updated applicationConfig will be associated to")] = None,
@@ -1928,8 +1848,6 @@ class ApplicationConfigApi:
 
         pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to update (required)
@@ -1969,7 +1887,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._update_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             app_key=app_key,
@@ -2001,7 +1918,6 @@ class ApplicationConfigApi:
     @validate_call
     def update_application_config_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account ID of the user")],
         config_id: Annotated[StrictInt, Field(description="The config ID of the application configuration to update")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application key that the updated applicationConfig will be associated to")] = None,
@@ -2027,8 +1943,6 @@ class ApplicationConfigApi:
 
         pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account ID of the user (required)
         :type account_id: int
         :param config_id: The config ID of the application configuration to update (required)
@@ -2068,7 +1982,6 @@ class ApplicationConfigApi:
         """ # noqa: E501
 
         _param = self._update_application_config_serialize(
-            version=version,
             account_id=account_id,
             config_id=config_id,
             app_key=app_key,
@@ -2095,7 +2008,6 @@ class ApplicationConfigApi:
 
     def _update_application_config_serialize(
         self,
-        version,
         account_id,
         config_id,
         app_key,
@@ -2125,8 +2037,6 @@ class ApplicationConfigApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2180,7 +2090,7 @@ class ApplicationConfigApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/appconfig/update',
+            resource_path='/appconfig/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

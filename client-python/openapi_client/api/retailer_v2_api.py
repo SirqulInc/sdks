@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 
@@ -43,7 +43,6 @@ class RetailerV2Api:
     @validate_call
     def get_retaokiler(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the id of the retailer")],
         active_only: Annotated[StrictBool, Field(description="whether to return results that are active only or all")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search on to get retailer")] = None,
@@ -67,8 +66,6 @@ class RetailerV2Api:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the id of the retailer (required)
         :type retailer_id: int
         :param active_only: whether to return results that are active only or all (required)
@@ -104,7 +101,6 @@ class RetailerV2Api:
         """ # noqa: E501
 
         _param = self._get_retaokiler_serialize(
-            version=version,
             retailer_id=retailer_id,
             active_only=active_only,
             keyword=keyword,
@@ -134,7 +130,6 @@ class RetailerV2Api:
     @validate_call
     def get_retaokiler_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the id of the retailer")],
         active_only: Annotated[StrictBool, Field(description="whether to return results that are active only or all")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search on to get retailer")] = None,
@@ -158,8 +153,6 @@ class RetailerV2Api:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the id of the retailer (required)
         :type retailer_id: int
         :param active_only: whether to return results that are active only or all (required)
@@ -195,7 +188,6 @@ class RetailerV2Api:
         """ # noqa: E501
 
         _param = self._get_retaokiler_serialize(
-            version=version,
             retailer_id=retailer_id,
             active_only=active_only,
             keyword=keyword,
@@ -225,7 +217,6 @@ class RetailerV2Api:
     @validate_call
     def get_retaokiler_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the id of the retailer")],
         active_only: Annotated[StrictBool, Field(description="whether to return results that are active only or all")],
         keyword: Annotated[Optional[StrictStr], Field(description="the keyword to search on to get retailer")] = None,
@@ -249,8 +240,6 @@ class RetailerV2Api:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the id of the retailer (required)
         :type retailer_id: int
         :param active_only: whether to return results that are active only or all (required)
@@ -286,7 +275,6 @@ class RetailerV2Api:
         """ # noqa: E501
 
         _param = self._get_retaokiler_serialize(
-            version=version,
             retailer_id=retailer_id,
             active_only=active_only,
             keyword=keyword,
@@ -311,7 +299,6 @@ class RetailerV2Api:
 
     def _get_retaokiler_serialize(
         self,
-        version,
         retailer_id,
         active_only,
         keyword,
@@ -339,8 +326,6 @@ class RetailerV2Api:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if keyword is not None:
             
@@ -386,7 +371,7 @@ class RetailerV2Api:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer',
+            resource_path='/retailer',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -45,7 +45,6 @@ class RatingApi:
     @validate_call
     def create_rating(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="The ratable object type {RETAILER_LOCATION}")],
         ratable_id: Annotated[StrictInt, Field(description="The id of the ratable object")],
         rating_value: Annotated[StrictInt, Field(description="The integer value of 0-100")],
@@ -74,8 +73,6 @@ class RatingApi:
 
         This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: The ratable object type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_id: The id of the ratable object (required)
@@ -121,7 +118,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._create_rating_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_id=ratable_id,
             rating_value=rating_value,
@@ -156,7 +152,6 @@ class RatingApi:
     @validate_call
     def create_rating_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="The ratable object type {RETAILER_LOCATION}")],
         ratable_id: Annotated[StrictInt, Field(description="The id of the ratable object")],
         rating_value: Annotated[StrictInt, Field(description="The integer value of 0-100")],
@@ -185,8 +180,6 @@ class RatingApi:
 
         This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: The ratable object type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_id: The id of the ratable object (required)
@@ -232,7 +225,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._create_rating_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_id=ratable_id,
             rating_value=rating_value,
@@ -267,7 +259,6 @@ class RatingApi:
     @validate_call
     def create_rating_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="The ratable object type {RETAILER_LOCATION}")],
         ratable_id: Annotated[StrictInt, Field(description="The id of the ratable object")],
         rating_value: Annotated[StrictInt, Field(description="The integer value of 0-100")],
@@ -296,8 +287,6 @@ class RatingApi:
 
         This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: The ratable object type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_id: The id of the ratable object (required)
@@ -343,7 +332,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._create_rating_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_id=ratable_id,
             rating_value=rating_value,
@@ -373,7 +361,6 @@ class RatingApi:
 
     def _create_rating_serialize(
         self,
-        version,
         ratable_type,
         ratable_id,
         rating_value,
@@ -406,8 +393,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -473,7 +458,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/rating/create',
+            resource_path='/rating/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -492,7 +477,6 @@ class RatingApi:
     @validate_call
     def delete_rating(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The ID of the rating to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -513,8 +497,6 @@ class RatingApi:
 
         Sets a rating as deleted.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The ID of the rating to delete (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -544,7 +526,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._delete_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -571,7 +552,6 @@ class RatingApi:
     @validate_call
     def delete_rating_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The ID of the rating to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -592,8 +572,6 @@ class RatingApi:
 
         Sets a rating as deleted.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The ID of the rating to delete (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -623,7 +601,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._delete_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -650,7 +627,6 @@ class RatingApi:
     @validate_call
     def delete_rating_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The ID of the rating to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -671,8 +647,6 @@ class RatingApi:
 
         Sets a rating as deleted.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The ID of the rating to delete (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -702,7 +676,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._delete_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -724,7 +697,6 @@ class RatingApi:
 
     def _delete_rating_serialize(
         self,
-        version,
         rating_id,
         device_id,
         account_id,
@@ -749,8 +721,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -784,7 +754,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/rating/delete',
+            resource_path='/rating/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -803,7 +773,6 @@ class RatingApi:
     @validate_call
     def search_location_rating_indexes(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         location_type: Annotated[Optional[StrictStr], Field(description="The type of location to filter the results by")] = None,
@@ -838,8 +807,6 @@ class RatingApi:
 
         Search for retailer locations by averages near you.
 
-        :param version: (required)
-        :type version: float
         :param category_ids: Comma separated list of category ids to filter the results by
         :type category_ids: str
         :param keyword: The keyword used to search
@@ -897,7 +864,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_location_rating_indexes_serialize(
-            version=version,
             category_ids=category_ids,
             keyword=keyword,
             location_type=location_type,
@@ -938,7 +904,6 @@ class RatingApi:
     @validate_call
     def search_location_rating_indexes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         location_type: Annotated[Optional[StrictStr], Field(description="The type of location to filter the results by")] = None,
@@ -973,8 +938,6 @@ class RatingApi:
 
         Search for retailer locations by averages near you.
 
-        :param version: (required)
-        :type version: float
         :param category_ids: Comma separated list of category ids to filter the results by
         :type category_ids: str
         :param keyword: The keyword used to search
@@ -1032,7 +995,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_location_rating_indexes_serialize(
-            version=version,
             category_ids=category_ids,
             keyword=keyword,
             location_type=location_type,
@@ -1073,7 +1035,6 @@ class RatingApi:
     @validate_call
     def search_location_rating_indexes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         location_type: Annotated[Optional[StrictStr], Field(description="The type of location to filter the results by")] = None,
@@ -1108,8 +1069,6 @@ class RatingApi:
 
         Search for retailer locations by averages near you.
 
-        :param version: (required)
-        :type version: float
         :param category_ids: Comma separated list of category ids to filter the results by
         :type category_ids: str
         :param keyword: The keyword used to search
@@ -1167,7 +1126,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_location_rating_indexes_serialize(
-            version=version,
             category_ids=category_ids,
             keyword=keyword,
             location_type=location_type,
@@ -1203,7 +1161,6 @@ class RatingApi:
 
     def _search_location_rating_indexes_serialize(
         self,
-        version,
         category_ids,
         keyword,
         location_type,
@@ -1242,8 +1199,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if category_ids is not None:
             
@@ -1333,7 +1288,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/location/rating/index/search',
+            resource_path='/location/rating/index/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1352,7 +1307,6 @@ class RatingApi:
     @validate_call
     def search_rating_indexes(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="Filter results by a ratable type {RETAILER_LOCATION}")],
         ratable_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of ratable ids to filter the resuts by")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
@@ -1383,8 +1337,6 @@ class RatingApi:
 
         Search for ratable items by averages.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: Filter results by a ratable type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_ids: Comma separated list of ratable ids to filter the resuts by
@@ -1434,7 +1386,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_rating_indexes_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_ids=ratable_ids,
             category_ids=category_ids,
@@ -1471,7 +1422,6 @@ class RatingApi:
     @validate_call
     def search_rating_indexes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="Filter results by a ratable type {RETAILER_LOCATION}")],
         ratable_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of ratable ids to filter the resuts by")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
@@ -1502,8 +1452,6 @@ class RatingApi:
 
         Search for ratable items by averages.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: Filter results by a ratable type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_ids: Comma separated list of ratable ids to filter the resuts by
@@ -1553,7 +1501,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_rating_indexes_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_ids=ratable_ids,
             category_ids=category_ids,
@@ -1590,7 +1537,6 @@ class RatingApi:
     @validate_call
     def search_rating_indexes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         ratable_type: Annotated[StrictStr, Field(description="Filter results by a ratable type {RETAILER_LOCATION}")],
         ratable_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of ratable ids to filter the resuts by")] = None,
         category_ids: Annotated[Optional[StrictStr], Field(description="Comma separated list of category ids to filter the results by")] = None,
@@ -1621,8 +1567,6 @@ class RatingApi:
 
         Search for ratable items by averages.
 
-        :param version: (required)
-        :type version: float
         :param ratable_type: Filter results by a ratable type {RETAILER_LOCATION} (required)
         :type ratable_type: str
         :param ratable_ids: Comma separated list of ratable ids to filter the resuts by
@@ -1672,7 +1616,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_rating_indexes_serialize(
-            version=version,
             ratable_type=ratable_type,
             ratable_ids=ratable_ids,
             category_ids=category_ids,
@@ -1704,7 +1647,6 @@ class RatingApi:
 
     def _search_rating_indexes_serialize(
         self,
-        version,
         ratable_type,
         ratable_ids,
         category_ids,
@@ -1739,8 +1681,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if ratable_type is not None:
             
@@ -1814,7 +1754,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/rating/index/search',
+            resource_path='/rating/index/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1833,7 +1773,6 @@ class RatingApi:
     @validate_call
     def search_ratings(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         filter_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a particular account")] = None,
@@ -1862,8 +1801,6 @@ class RatingApi:
 
         Search for ratings on a ratable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1909,7 +1846,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_ratings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             filter_account_id=filter_account_id,
@@ -1944,7 +1880,6 @@ class RatingApi:
     @validate_call
     def search_ratings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         filter_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a particular account")] = None,
@@ -1973,8 +1908,6 @@ class RatingApi:
 
         Search for ratings on a ratable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2020,7 +1953,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_ratings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             filter_account_id=filter_account_id,
@@ -2055,7 +1987,6 @@ class RatingApi:
     @validate_call
     def search_ratings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         filter_account_id: Annotated[Optional[StrictInt], Field(description="Filter results for a particular account")] = None,
@@ -2084,8 +2015,6 @@ class RatingApi:
 
         Search for ratings on a ratable object.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -2131,7 +2060,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._search_ratings_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             filter_account_id=filter_account_id,
@@ -2161,7 +2089,6 @@ class RatingApi:
 
     def _search_ratings_serialize(
         self,
-        version,
         device_id,
         account_id,
         filter_account_id,
@@ -2194,8 +2121,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2261,7 +2186,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/rating/search',
+            resource_path='/rating/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2280,7 +2205,6 @@ class RatingApi:
     @validate_call
     def update_rating(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The id of the rating (Note: this is not the ratable object id)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -2308,8 +2232,6 @@ class RatingApi:
 
         Update an existing rating. Only the creator of the rating have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The id of the rating (Note: this is not the ratable object id) (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -2353,7 +2275,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._update_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -2387,7 +2308,6 @@ class RatingApi:
     @validate_call
     def update_rating_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The id of the rating (Note: this is not the ratable object id)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -2415,8 +2335,6 @@ class RatingApi:
 
         Update an existing rating. Only the creator of the rating have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The id of the rating (Note: this is not the ratable object id) (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -2460,7 +2378,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._update_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -2494,7 +2411,6 @@ class RatingApi:
     @validate_call
     def update_rating_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         rating_id: Annotated[StrictInt, Field(description="The id of the rating (Note: this is not the ratable object id)")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
@@ -2522,8 +2438,6 @@ class RatingApi:
 
         Update an existing rating. Only the creator of the rating have permission to update.
 
-        :param version: (required)
-        :type version: float
         :param rating_id: The id of the rating (Note: this is not the ratable object id) (required)
         :type rating_id: int
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
@@ -2567,7 +2481,6 @@ class RatingApi:
         """ # noqa: E501
 
         _param = self._update_rating_serialize(
-            version=version,
             rating_id=rating_id,
             device_id=device_id,
             account_id=account_id,
@@ -2596,7 +2509,6 @@ class RatingApi:
 
     def _update_rating_serialize(
         self,
-        version,
         rating_id,
         device_id,
         account_id,
@@ -2628,8 +2540,6 @@ class RatingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2691,7 +2601,7 @@ class RatingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/rating/update',
+            resource_path='/rating/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

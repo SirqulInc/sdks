@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.vehicle import Vehicle
 
@@ -43,7 +43,6 @@ class VehicleApi:
     @validate_call
     def create_vehicle(
         self,
-        version: Union[StrictFloat, StrictInt],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
         _request_timeout: Union[
@@ -63,8 +62,6 @@ class VehicleApi:
 
         Create new vehicle
 
-        :param version: (required)
-        :type version: float
         :param vehicle: A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
         :type vehicle: str
         :param body:
@@ -92,7 +89,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._create_vehicle_serialize(
-            version=version,
             vehicle=vehicle,
             body=body,
             _request_auth=_request_auth,
@@ -118,7 +114,6 @@ class VehicleApi:
     @validate_call
     def create_vehicle_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
         _request_timeout: Union[
@@ -138,8 +133,6 @@ class VehicleApi:
 
         Create new vehicle
 
-        :param version: (required)
-        :type version: float
         :param vehicle: A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
         :type vehicle: str
         :param body:
@@ -167,7 +160,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._create_vehicle_serialize(
-            version=version,
             vehicle=vehicle,
             body=body,
             _request_auth=_request_auth,
@@ -193,7 +185,6 @@ class VehicleApi:
     @validate_call
     def create_vehicle_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
         _request_timeout: Union[
@@ -213,8 +204,6 @@ class VehicleApi:
 
         Create new vehicle
 
-        :param version: (required)
-        :type version: float
         :param vehicle: A JSON representation of cargo type. ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
         :type vehicle: str
         :param body:
@@ -242,7 +231,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._create_vehicle_serialize(
-            version=version,
             vehicle=vehicle,
             body=body,
             _request_auth=_request_auth,
@@ -263,7 +251,6 @@ class VehicleApi:
 
     def _create_vehicle_serialize(
         self,
-        version,
         vehicle,
         body,
         _request_auth,
@@ -287,8 +274,6 @@ class VehicleApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if vehicle is not None:
             
@@ -316,7 +301,7 @@ class VehicleApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vehicle',
+            resource_path='/vehicle',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -335,7 +320,6 @@ class VehicleApi:
     @validate_call
     def delete_vehicle(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to delete")],
         _request_timeout: Union[
             None,
@@ -354,8 +338,6 @@ class VehicleApi:
 
         Delete an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -381,7 +363,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._delete_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -405,7 +386,6 @@ class VehicleApi:
     @validate_call
     def delete_vehicle_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to delete")],
         _request_timeout: Union[
             None,
@@ -424,8 +404,6 @@ class VehicleApi:
 
         Delete an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -451,7 +429,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._delete_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -475,7 +452,6 @@ class VehicleApi:
     @validate_call
     def delete_vehicle_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to delete")],
         _request_timeout: Union[
             None,
@@ -494,8 +470,6 @@ class VehicleApi:
 
         Delete an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to delete (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -521,7 +495,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._delete_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -540,7 +513,6 @@ class VehicleApi:
 
     def _delete_vehicle_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -563,8 +535,6 @@ class VehicleApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -581,7 +551,7 @@ class VehicleApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/vehicle/{id}',
+            resource_path='/vehicle/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -600,7 +570,6 @@ class VehicleApi:
     @validate_call
     def get_vehicle(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle requested")],
         _request_timeout: Union[
             None,
@@ -619,8 +588,6 @@ class VehicleApi:
 
         Get an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle requested (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -646,7 +613,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._get_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -671,7 +637,6 @@ class VehicleApi:
     @validate_call
     def get_vehicle_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle requested")],
         _request_timeout: Union[
             None,
@@ -690,8 +655,6 @@ class VehicleApi:
 
         Get an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle requested (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -717,7 +680,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._get_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -742,7 +704,6 @@ class VehicleApi:
     @validate_call
     def get_vehicle_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle requested")],
         _request_timeout: Union[
             None,
@@ -761,8 +722,6 @@ class VehicleApi:
 
         Get an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle requested (required)
         :type id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -788,7 +747,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._get_vehicle_serialize(
-            version=version,
             id=id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -808,7 +766,6 @@ class VehicleApi:
 
     def _get_vehicle_serialize(
         self,
-        version,
         id,
         _request_auth,
         _content_type,
@@ -831,8 +788,6 @@ class VehicleApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -856,7 +811,7 @@ class VehicleApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vehicle/{id}',
+            resource_path='/vehicle/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -875,7 +830,6 @@ class VehicleApi:
     @validate_call
     def search_vehicle(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="Filter by service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -900,8 +854,6 @@ class VehicleApi:
 
         Search for vehicles
 
-        :param version: (required)
-        :type version: float
         :param hub_id: Filter by service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -939,7 +891,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._search_vehicle_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -970,7 +921,6 @@ class VehicleApi:
     @validate_call
     def search_vehicle_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="Filter by service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -995,8 +945,6 @@ class VehicleApi:
 
         Search for vehicles
 
-        :param version: (required)
-        :type version: float
         :param hub_id: Filter by service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -1034,7 +982,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._search_vehicle_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -1065,7 +1012,6 @@ class VehicleApi:
     @validate_call
     def search_vehicle_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         hub_id: Annotated[StrictInt, Field(description="Filter by service hub")],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
@@ -1090,8 +1036,6 @@ class VehicleApi:
 
         Search for vehicles
 
-        :param version: (required)
-        :type version: float
         :param hub_id: Filter by service hub (required)
         :type hub_id: int
         :param sort_field: The field to sort by (required)
@@ -1129,7 +1073,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._search_vehicle_serialize(
-            version=version,
             hub_id=hub_id,
             sort_field=sort_field,
             descending=descending,
@@ -1155,7 +1098,6 @@ class VehicleApi:
 
     def _search_vehicle_serialize(
         self,
-        version,
         hub_id,
         sort_field,
         descending,
@@ -1184,8 +1126,6 @@ class VehicleApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if hub_id is not None:
             
@@ -1235,7 +1175,7 @@ class VehicleApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vehicle',
+            resource_path='/vehicle',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1254,7 +1194,6 @@ class VehicleApi:
     @validate_call
     def update_vehicle(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to update")],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
@@ -1275,8 +1214,6 @@ class VehicleApi:
 
         Update an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to update (required)
         :type id: int
         :param vehicle: A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
@@ -1306,7 +1243,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._update_vehicle_serialize(
-            version=version,
             id=id,
             vehicle=vehicle,
             body=body,
@@ -1333,7 +1269,6 @@ class VehicleApi:
     @validate_call
     def update_vehicle_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to update")],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
@@ -1354,8 +1289,6 @@ class VehicleApi:
 
         Update an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to update (required)
         :type id: int
         :param vehicle: A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
@@ -1385,7 +1318,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._update_vehicle_serialize(
-            version=version,
             id=id,
             vehicle=vehicle,
             body=body,
@@ -1412,7 +1344,6 @@ class VehicleApi:
     @validate_call
     def update_vehicle_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="The id of the vehicle to update")],
         vehicle: Annotated[StrictStr, Field(description="A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ``` ")],
         body: Optional[Vehicle] = None,
@@ -1433,8 +1364,6 @@ class VehicleApi:
 
         Update an existing vehicle
 
-        :param version: (required)
-        :type version: float
         :param id: The id of the vehicle to update (required)
         :type id: int
         :param vehicle: A JSON representation of cargo type, for example: ```json {   \"name\": \"Truck\",   \"vehicleType\": { \"id\": 1 },   \"hub\": { \"id\": 1 } } ```  (required)
@@ -1464,7 +1393,6 @@ class VehicleApi:
         """ # noqa: E501
 
         _param = self._update_vehicle_serialize(
-            version=version,
             id=id,
             vehicle=vehicle,
             body=body,
@@ -1486,7 +1414,6 @@ class VehicleApi:
 
     def _update_vehicle_serialize(
         self,
-        version,
         id,
         vehicle,
         body,
@@ -1511,8 +1438,6 @@ class VehicleApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -1542,7 +1467,7 @@ class VehicleApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/vehicle/{id}',
+            resource_path='/vehicle/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

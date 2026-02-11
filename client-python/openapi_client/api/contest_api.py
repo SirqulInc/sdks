@@ -45,7 +45,6 @@ class ContestApi:
     @validate_call
     def add_or_update_album_contest(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the contest's participants has read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the contest's participants has write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the contest's participants has delete permissions")],
@@ -88,8 +87,6 @@ class ContestApi:
 
         Creates or updates a contest.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the contest's participants has read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the contest's participants has write permissions (required)
@@ -163,7 +160,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._add_or_update_album_contest_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -212,7 +208,6 @@ class ContestApi:
     @validate_call
     def add_or_update_album_contest_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the contest's participants has read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the contest's participants has write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the contest's participants has delete permissions")],
@@ -255,8 +250,6 @@ class ContestApi:
 
         Creates or updates a contest.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the contest's participants has read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the contest's participants has write permissions (required)
@@ -330,7 +323,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._add_or_update_album_contest_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -379,7 +371,6 @@ class ContestApi:
     @validate_call
     def add_or_update_album_contest_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the contest's participants has read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the contest's participants has write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the contest's participants has delete permissions")],
@@ -422,8 +413,6 @@ class ContestApi:
 
         Creates or updates a contest.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the contest's participants has read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the contest's participants has write permissions (required)
@@ -497,7 +486,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._add_or_update_album_contest_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -541,7 +529,6 @@ class ContestApi:
 
     def _add_or_update_album_contest_serialize(
         self,
-        version,
         public_read,
         public_write,
         public_delete,
@@ -588,8 +575,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -711,7 +696,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/album/contest',
+            resource_path='/consumer/album/contest',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -730,7 +715,6 @@ class ContestApi:
     @validate_call
     def approve_album_contest(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="The ID of the album contest")],
         approval_status: Annotated[StrictStr, Field(description="The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -752,8 +736,6 @@ class ContestApi:
 
         Sets the approval status of a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: The ID of the album contest (required)
         :type album_contest_id: int
         :param approval_status: The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
@@ -785,7 +767,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._approve_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             approval_status=approval_status,
             device_id=device_id,
@@ -813,7 +794,6 @@ class ContestApi:
     @validate_call
     def approve_album_contest_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="The ID of the album contest")],
         approval_status: Annotated[StrictStr, Field(description="The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -835,8 +815,6 @@ class ContestApi:
 
         Sets the approval status of a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: The ID of the album contest (required)
         :type album_contest_id: int
         :param approval_status: The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
@@ -868,7 +846,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._approve_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             approval_status=approval_status,
             device_id=device_id,
@@ -896,7 +873,6 @@ class ContestApi:
     @validate_call
     def approve_album_contest_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="The ID of the album contest")],
         approval_status: Annotated[StrictStr, Field(description="The approval status to set {PENDING, REJECTED, APPROVED, FEATURED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="A unique ID given by the device (deviceId or accountId required)")] = None,
@@ -918,8 +894,6 @@ class ContestApi:
 
         Sets the approval status of a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: The ID of the album contest (required)
         :type album_contest_id: int
         :param approval_status: The approval status to set {PENDING, REJECTED, APPROVED, FEATURED} (required)
@@ -951,7 +925,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._approve_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             approval_status=approval_status,
             device_id=device_id,
@@ -974,7 +947,6 @@ class ContestApi:
 
     def _approve_album_contest_serialize(
         self,
-        version,
         album_contest_id,
         approval_status,
         device_id,
@@ -1000,8 +972,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1039,7 +1009,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/album/contest/approve',
+            resource_path='/consumer/album/contest/approve',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1058,7 +1028,6 @@ class ContestApi:
     @validate_call
     def delete_contest(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1081,8 +1050,6 @@ class ContestApi:
 
         Deletes a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1116,7 +1083,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._delete_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1145,7 +1111,6 @@ class ContestApi:
     @validate_call
     def delete_contest_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1168,8 +1133,6 @@ class ContestApi:
 
         Deletes a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1203,7 +1166,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._delete_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1232,7 +1194,6 @@ class ContestApi:
     @validate_call
     def delete_contest_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1255,8 +1216,6 @@ class ContestApi:
 
         Deletes a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1290,7 +1249,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._delete_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1314,7 +1272,6 @@ class ContestApi:
 
     def _delete_contest_serialize(
         self,
-        version,
         album_contest_id,
         device_id,
         account_id,
@@ -1341,8 +1298,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1384,7 +1339,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/album/contest/remove',
+            resource_path='/consumer/album/contest/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1403,7 +1358,6 @@ class ContestApi:
     @validate_call
     def get_album_contest(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1426,8 +1380,6 @@ class ContestApi:
 
         Gets the contest object including the likes and notes
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1461,7 +1413,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1490,7 +1441,6 @@ class ContestApi:
     @validate_call
     def get_album_contest_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1513,8 +1463,6 @@ class ContestApi:
 
         Gets the contest object including the likes and notes
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1548,7 +1496,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1577,7 +1524,6 @@ class ContestApi:
     @validate_call
     def get_album_contest_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1600,8 +1546,6 @@ class ContestApi:
 
         Gets the contest object including the likes and notes
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1635,7 +1579,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             device_id=device_id,
             account_id=account_id,
@@ -1659,7 +1602,6 @@ class ContestApi:
 
     def _get_album_contest_serialize(
         self,
-        version,
         album_contest_id,
         device_id,
         account_id,
@@ -1686,8 +1628,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1729,7 +1669,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/album/contest/get',
+            resource_path='/consumer/album/contest/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1748,7 +1688,6 @@ class ContestApi:
     @validate_call
     def get_album_contests(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AlbumContestApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -1785,8 +1724,6 @@ class ContestApi:
 
         Searches on contests.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See AlbumContestApiMap (required)
@@ -1848,7 +1785,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contests_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -1891,7 +1827,6 @@ class ContestApi:
     @validate_call
     def get_album_contests_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AlbumContestApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -1928,8 +1863,6 @@ class ContestApi:
 
         Searches on contests.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See AlbumContestApiMap (required)
@@ -1991,7 +1924,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contests_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -2034,7 +1966,6 @@ class ContestApi:
     @validate_call
     def get_album_contests_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See AlbumContestApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -2071,8 +2002,6 @@ class ContestApi:
 
         Searches on contests.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See AlbumContestApiMap (required)
@@ -2134,7 +2063,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._get_album_contests_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -2172,7 +2100,6 @@ class ContestApi:
 
     def _get_album_contests_serialize(
         self,
-        version,
         filter,
         sort_field,
         descending,
@@ -2213,8 +2140,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2312,7 +2237,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/album/contest/search',
+            resource_path='/consumer/album/contest/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2331,7 +2256,6 @@ class ContestApi:
     @validate_call
     def vote_on_album_contest(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to vote on")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2356,8 +2280,6 @@ class ContestApi:
 
         Vote on a collection in a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param album_id: the ID of the album to vote on (required)
@@ -2395,7 +2317,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._vote_on_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             album_id=album_id,
             device_id=device_id,
@@ -2426,7 +2347,6 @@ class ContestApi:
     @validate_call
     def vote_on_album_contest_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to vote on")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2451,8 +2371,6 @@ class ContestApi:
 
         Vote on a collection in a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param album_id: the ID of the album to vote on (required)
@@ -2490,7 +2408,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._vote_on_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             album_id=album_id,
             device_id=device_id,
@@ -2521,7 +2438,6 @@ class ContestApi:
     @validate_call
     def vote_on_album_contest_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         album_contest_id: Annotated[StrictInt, Field(description="the album contest ID")],
         album_id: Annotated[StrictInt, Field(description="the ID of the album to vote on")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
@@ -2546,8 +2462,6 @@ class ContestApi:
 
         Vote on a collection in a contest.
 
-        :param version: (required)
-        :type version: float
         :param album_contest_id: the album contest ID (required)
         :type album_contest_id: int
         :param album_id: the ID of the album to vote on (required)
@@ -2585,7 +2499,6 @@ class ContestApi:
         """ # noqa: E501
 
         _param = self._vote_on_album_contest_serialize(
-            version=version,
             album_contest_id=album_contest_id,
             album_id=album_id,
             device_id=device_id,
@@ -2611,7 +2524,6 @@ class ContestApi:
 
     def _vote_on_album_contest_serialize(
         self,
-        version,
         album_contest_id,
         album_id,
         device_id,
@@ -2640,8 +2552,6 @@ class ContestApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2691,7 +2601,7 @@ class ContestApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/album/contest/vote',
+            resource_path='/consumer/album/contest/vote',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

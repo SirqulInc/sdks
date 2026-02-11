@@ -46,7 +46,6 @@ class AssetApi:
     @validate_call
     def asset_download(
         self,
-        version: Union[StrictFloat, StrictInt],
         filename: Annotated[str, Field(strict=True, description="the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}")],
         _request_timeout: Union[
             None,
@@ -65,8 +64,6 @@ class AssetApi:
 
         Downloads an asset from the server for assets that have been uploaded to the server.
 
-        :param version: (required)
-        :type version: float
         :param filename: the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
         :type filename: str
         :param _request_timeout: timeout setting for this request. If one
@@ -92,7 +89,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_download_serialize(
-            version=version,
             filename=filename,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -117,7 +113,6 @@ class AssetApi:
     @validate_call
     def asset_download_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         filename: Annotated[str, Field(strict=True, description="the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}")],
         _request_timeout: Union[
             None,
@@ -136,8 +131,6 @@ class AssetApi:
 
         Downloads an asset from the server for assets that have been uploaded to the server.
 
-        :param version: (required)
-        :type version: float
         :param filename: the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
         :type filename: str
         :param _request_timeout: timeout setting for this request. If one
@@ -163,7 +156,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_download_serialize(
-            version=version,
             filename=filename,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -188,7 +180,6 @@ class AssetApi:
     @validate_call
     def asset_download_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         filename: Annotated[str, Field(strict=True, description="the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId}")],
         _request_timeout: Union[
             None,
@@ -207,8 +198,6 @@ class AssetApi:
 
         Downloads an asset from the server for assets that have been uploaded to the server.
 
-        :param version: (required)
-        :type version: float
         :param filename: the filename in the following formats: {assetId}-{suffix}.{extension} | {assetId}.{extension} | {assetId} (required)
         :type filename: str
         :param _request_timeout: timeout setting for this request. If one
@@ -234,7 +223,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_download_serialize(
-            version=version,
             filename=filename,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -254,7 +242,6 @@ class AssetApi:
 
     def _asset_download_serialize(
         self,
-        version,
         filename,
         _request_auth,
         _content_type,
@@ -277,8 +264,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if filename is not None:
             _path_params['filename'] = filename
         # process the query parameters
@@ -302,7 +287,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/asset/download/{filename}',
+            resource_path='/asset/download/{filename}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -321,7 +306,6 @@ class AssetApi:
     @validate_call
     def asset_morph(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="offer id used for inserting offer text/flavor")],
         ad_size: Annotated[StrictStr, Field(description="the ad size used for selecting a format for the creative image")],
         creative_id: Annotated[Optional[StrictInt], Field(description="used for inserting the newly created image into")] = None,
@@ -346,8 +330,6 @@ class AssetApi:
 
         Converts an offer image + text into a creative image.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: offer id used for inserting offer text/flavor (required)
         :type offer_id: int
         :param ad_size: the ad size used for selecting a format for the creative image (required)
@@ -385,7 +367,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_morph_serialize(
-            version=version,
             offer_id=offer_id,
             ad_size=ad_size,
             creative_id=creative_id,
@@ -416,7 +397,6 @@ class AssetApi:
     @validate_call
     def asset_morph_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="offer id used for inserting offer text/flavor")],
         ad_size: Annotated[StrictStr, Field(description="the ad size used for selecting a format for the creative image")],
         creative_id: Annotated[Optional[StrictInt], Field(description="used for inserting the newly created image into")] = None,
@@ -441,8 +421,6 @@ class AssetApi:
 
         Converts an offer image + text into a creative image.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: offer id used for inserting offer text/flavor (required)
         :type offer_id: int
         :param ad_size: the ad size used for selecting a format for the creative image (required)
@@ -480,7 +458,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_morph_serialize(
-            version=version,
             offer_id=offer_id,
             ad_size=ad_size,
             creative_id=creative_id,
@@ -511,7 +488,6 @@ class AssetApi:
     @validate_call
     def asset_morph_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         offer_id: Annotated[StrictInt, Field(description="offer id used for inserting offer text/flavor")],
         ad_size: Annotated[StrictStr, Field(description="the ad size used for selecting a format for the creative image")],
         creative_id: Annotated[Optional[StrictInt], Field(description="used for inserting the newly created image into")] = None,
@@ -536,8 +512,6 @@ class AssetApi:
 
         Converts an offer image + text into a creative image.
 
-        :param version: (required)
-        :type version: float
         :param offer_id: offer id used for inserting offer text/flavor (required)
         :type offer_id: int
         :param ad_size: the ad size used for selecting a format for the creative image (required)
@@ -575,7 +549,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._asset_morph_serialize(
-            version=version,
             offer_id=offer_id,
             ad_size=ad_size,
             creative_id=creative_id,
@@ -601,7 +574,6 @@ class AssetApi:
 
     def _asset_morph_serialize(
         self,
-        version,
         offer_id,
         ad_size,
         creative_id,
@@ -630,8 +602,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if offer_id is not None:
             
@@ -681,7 +651,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/asset/morph',
+            resource_path='/asset/morph',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -700,7 +670,6 @@ class AssetApi:
     @validate_call
     def create_asset(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="to return nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -752,8 +721,6 @@ class AssetApi:
 
         Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: to return nulls
         :type return_nulls: bool
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -845,7 +812,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._create_asset_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -903,7 +869,6 @@ class AssetApi:
     @validate_call
     def create_asset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="to return nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -955,8 +920,6 @@ class AssetApi:
 
         Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: to return nulls
         :type return_nulls: bool
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1048,7 +1011,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._create_asset_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -1106,7 +1068,6 @@ class AssetApi:
     @validate_call
     def create_asset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         return_nulls: Annotated[Optional[StrictBool], Field(description="to return nulls")] = None,
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1158,8 +1119,6 @@ class AssetApi:
 
         Uploads an asset to server and returns an asset id which can be used to assign to various objects.
 
-        :param version: (required)
-        :type version: float
         :param return_nulls: to return nulls
         :type return_nulls: bool
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1251,7 +1210,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._create_asset_serialize(
-            version=version,
             return_nulls=return_nulls,
             device_id=device_id,
             account_id=account_id,
@@ -1304,7 +1262,6 @@ class AssetApi:
 
     def _create_asset_serialize(
         self,
-        version,
         return_nulls,
         device_id,
         account_id,
@@ -1360,8 +1317,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -1519,7 +1474,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/asset/create',
+            resource_path='/asset/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1538,7 +1493,6 @@ class AssetApi:
     @validate_call
     def delete_asset(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1561,8 +1515,6 @@ class AssetApi:
 
         Delete an asset.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to delete (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -1596,7 +1548,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._delete_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -1625,7 +1576,6 @@ class AssetApi:
     @validate_call
     def delete_asset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1648,8 +1598,6 @@ class AssetApi:
 
         Delete an asset.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to delete (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -1683,7 +1631,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._delete_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -1712,7 +1659,6 @@ class AssetApi:
     @validate_call
     def delete_asset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to delete")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1735,8 +1681,6 @@ class AssetApi:
 
         Delete an asset.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to delete (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -1770,7 +1714,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._delete_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -1794,7 +1737,6 @@ class AssetApi:
 
     def _delete_asset_serialize(
         self,
-        version,
         asset_id,
         device_id,
         account_id,
@@ -1821,8 +1763,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1864,7 +1804,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/asset/delete',
+            resource_path='/asset/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1883,7 +1823,6 @@ class AssetApi:
     @validate_call
     def get_asset(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the asset ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1905,8 +1844,6 @@ class AssetApi:
 
         Gets the full asset response including attached likes and notes.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the asset ID (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1938,7 +1875,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._get_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -1966,7 +1902,6 @@ class AssetApi:
     @validate_call
     def get_asset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the asset ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -1988,8 +1923,6 @@ class AssetApi:
 
         Gets the full asset response including attached likes and notes.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the asset ID (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2021,7 +1954,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._get_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -2049,7 +1981,6 @@ class AssetApi:
     @validate_call
     def get_asset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the asset ID")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -2071,8 +2002,6 @@ class AssetApi:
 
         Gets the full asset response including attached likes and notes.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the asset ID (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -2104,7 +2033,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._get_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -2127,7 +2055,6 @@ class AssetApi:
 
     def _get_asset_serialize(
         self,
-        version,
         asset_id,
         device_id,
         account_id,
@@ -2153,8 +2080,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2192,7 +2117,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/asset/get',
+            resource_path='/asset/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2211,7 +2136,6 @@ class AssetApi:
     @validate_call
     def remove_asset(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2237,8 +2161,6 @@ class AssetApi:
 
         Remove assets from collections
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to remove (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -2278,7 +2200,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._remove_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -2310,7 +2231,6 @@ class AssetApi:
     @validate_call
     def remove_asset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2336,8 +2256,6 @@ class AssetApi:
 
         Remove assets from collections
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to remove (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -2377,7 +2295,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._remove_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -2409,7 +2326,6 @@ class AssetApi:
     @validate_call
     def remove_asset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictStr, Field(description="the id of the asset to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -2435,8 +2351,6 @@ class AssetApi:
 
         Remove assets from collections
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the id of the asset to remove (required)
         :type asset_id: str
         :param device_id: the device id (deviceId or accountId required)
@@ -2476,7 +2390,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._remove_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -2503,7 +2416,6 @@ class AssetApi:
 
     def _remove_asset_serialize(
         self,
-        version,
         asset_id,
         device_id,
         account_id,
@@ -2533,8 +2445,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2588,7 +2498,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/asset/remove',
+            resource_path='/asset/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2607,7 +2517,6 @@ class AssetApi:
     @validate_call
     def search_assets(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of album ids to search on")] = None,
@@ -2649,8 +2558,6 @@ class AssetApi:
 
         Searches for assets
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -2722,7 +2629,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._search_assets_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             album_ids=album_ids,
@@ -2770,7 +2676,6 @@ class AssetApi:
     @validate_call
     def search_assets_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of album ids to search on")] = None,
@@ -2812,8 +2717,6 @@ class AssetApi:
 
         Searches for assets
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -2885,7 +2788,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._search_assets_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             album_ids=album_ids,
@@ -2933,7 +2835,6 @@ class AssetApi:
     @validate_call
     def search_assets_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
         album_ids: Annotated[Optional[StrictStr], Field(description="comma separated list of album ids to search on")] = None,
@@ -2975,8 +2876,6 @@ class AssetApi:
 
         Searches for assets
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account ID of the user (deviceId or accountId required)
@@ -3048,7 +2947,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._search_assets_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             album_ids=album_ids,
@@ -3091,7 +2989,6 @@ class AssetApi:
 
     def _search_assets_serialize(
         self,
-        version,
         device_id,
         account_id,
         album_ids,
@@ -3137,8 +3034,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3256,7 +3151,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/asset/search',
+            resource_path='/asset/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3275,7 +3170,6 @@ class AssetApi:
     @validate_call
     def update_asset(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the ID of the asset to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -3324,8 +3218,6 @@ class AssetApi:
 
         Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the ID of the asset to update (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -3411,7 +3303,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._update_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -3466,7 +3357,6 @@ class AssetApi:
     @validate_call
     def update_asset_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the ID of the asset to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -3515,8 +3405,6 @@ class AssetApi:
 
         Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the ID of the asset to update (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -3602,7 +3490,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._update_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -3657,7 +3544,6 @@ class AssetApi:
     @validate_call
     def update_asset_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         asset_id: Annotated[StrictInt, Field(description="the ID of the asset to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -3706,8 +3592,6 @@ class AssetApi:
 
         Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
 
-        :param version: (required)
-        :type version: float
         :param asset_id: the ID of the asset to update (required)
         :type asset_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -3793,7 +3677,6 @@ class AssetApi:
         """ # noqa: E501
 
         _param = self._update_asset_serialize(
-            version=version,
             asset_id=asset_id,
             device_id=device_id,
             account_id=account_id,
@@ -3843,7 +3726,6 @@ class AssetApi:
 
     def _update_asset_serialize(
         self,
-        version,
         asset_id,
         device_id,
         account_id,
@@ -3896,8 +3778,6 @@ class AssetApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4043,7 +3923,7 @@ class AssetApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/asset/update',
+            resource_path='/asset/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

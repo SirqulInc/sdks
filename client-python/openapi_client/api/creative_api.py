@@ -45,7 +45,6 @@ class CreativeApi:
     @validate_call
     def add_preview(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         creative_id: Annotated[StrictInt, Field(description="The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.")],
         _request_timeout: Union[
@@ -65,8 +64,6 @@ class CreativeApi:
 
         Enable this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param creative_id: The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
@@ -94,7 +91,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._add_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -120,7 +116,6 @@ class CreativeApi:
     @validate_call
     def add_preview_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         creative_id: Annotated[StrictInt, Field(description="The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.")],
         _request_timeout: Union[
@@ -140,8 +135,6 @@ class CreativeApi:
 
         Enable this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param creative_id: The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
@@ -169,7 +162,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._add_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -195,7 +187,6 @@ class CreativeApi:
     @validate_call
     def add_preview_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the account")],
         creative_id: Annotated[StrictInt, Field(description="The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied.")],
         _request_timeout: Union[
@@ -215,8 +206,6 @@ class CreativeApi:
 
         Enable this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the account (required)
         :type account_id: int
         :param creative_id: The id of the creative that want to enable preview. The type of the creative should be CONFIG, otherwise no action will be applied. (required)
@@ -244,7 +233,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._add_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -265,7 +253,6 @@ class CreativeApi:
 
     def _add_preview_serialize(
         self,
-        version,
         account_id,
         creative_id,
         _request_auth,
@@ -289,8 +276,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -320,7 +305,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/creative/addpreview',
+            resource_path='/creative/addpreview',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -339,7 +324,6 @@ class CreativeApi:
     @validate_call
     def ads_find(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         randomize: Annotated[StrictBool, Field(description="return a random set of results, default is true. If false returns in nature order.")],
         targeted_ads_only: Annotated[StrictBool, Field(description="return only ads targets to the specific app, no global ads.")],
@@ -373,8 +357,6 @@ class CreativeApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param randomize: return a random set of results, default is true. If false returns in nature order. (required)
@@ -430,7 +412,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._ads_find_serialize(
-            version=version,
             app_key=app_key,
             randomize=randomize,
             targeted_ads_only=targeted_ads_only,
@@ -470,7 +451,6 @@ class CreativeApi:
     @validate_call
     def ads_find_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         randomize: Annotated[StrictBool, Field(description="return a random set of results, default is true. If false returns in nature order.")],
         targeted_ads_only: Annotated[StrictBool, Field(description="return only ads targets to the specific app, no global ads.")],
@@ -504,8 +484,6 @@ class CreativeApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param randomize: return a random set of results, default is true. If false returns in nature order. (required)
@@ -561,7 +539,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._ads_find_serialize(
-            version=version,
             app_key=app_key,
             randomize=randomize,
             targeted_ads_only=targeted_ads_only,
@@ -601,7 +578,6 @@ class CreativeApi:
     @validate_call
     def ads_find_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic.")],
         randomize: Annotated[StrictBool, Field(description="return a random set of results, default is true. If false returns in nature order.")],
         targeted_ads_only: Annotated[StrictBool, Field(description="return only ads targets to the specific app, no global ads.")],
@@ -635,8 +611,6 @@ class CreativeApi:
 
         Get a set of ad filtered by the parameters provided.
 
-        :param version: (required)
-        :type version: float
         :param app_key: The application key, if provided return missions specific for the app. Will always return mission levels that are app agnostic. (required)
         :type app_key: str
         :param randomize: return a random set of results, default is true. If false returns in nature order. (required)
@@ -692,7 +666,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._ads_find_serialize(
-            version=version,
             app_key=app_key,
             randomize=randomize,
             targeted_ads_only=targeted_ads_only,
@@ -727,7 +700,6 @@ class CreativeApi:
 
     def _ads_find_serialize(
         self,
-        version,
         app_key,
         randomize,
         targeted_ads_only,
@@ -765,8 +737,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -852,7 +822,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ads/find',
+            resource_path='/ads/find',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -871,7 +841,6 @@ class CreativeApi:
     @validate_call
     def create_creative(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         active: Annotated[StrictBool, Field(description="If true set the game level as active. Default is false.")],
@@ -904,8 +873,6 @@ class CreativeApi:
 
         Create a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -959,7 +926,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._create_creative_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -998,7 +964,6 @@ class CreativeApi:
     @validate_call
     def create_creative_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         active: Annotated[StrictBool, Field(description="If true set the game level as active. Default is false.")],
@@ -1031,8 +996,6 @@ class CreativeApi:
 
         Create a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -1086,7 +1049,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._create_creative_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -1125,7 +1087,6 @@ class CreativeApi:
     @validate_call
     def create_creative_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         active: Annotated[StrictBool, Field(description="If true set the game level as active. Default is false.")],
@@ -1158,8 +1119,6 @@ class CreativeApi:
 
         Create a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -1213,7 +1172,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._create_creative_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             active=active,
@@ -1247,7 +1205,6 @@ class CreativeApi:
 
     def _create_creative_serialize(
         self,
-        version,
         account_id,
         name,
         active,
@@ -1284,8 +1241,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1367,7 +1322,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/creative/create',
+            resource_path='/creative/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1386,7 +1341,6 @@ class CreativeApi:
     @validate_call
     def delete_creative(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the id of the creative to delete")],
         _request_timeout: Union[
@@ -1406,8 +1360,6 @@ class CreativeApi:
 
         Delete a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the id of the creative to delete (required)
@@ -1435,7 +1387,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._delete_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1461,7 +1412,6 @@ class CreativeApi:
     @validate_call
     def delete_creative_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the id of the creative to delete")],
         _request_timeout: Union[
@@ -1481,8 +1431,6 @@ class CreativeApi:
 
         Delete a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the id of the creative to delete (required)
@@ -1510,7 +1458,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._delete_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1536,7 +1483,6 @@ class CreativeApi:
     @validate_call
     def delete_creative_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the id of the creative to delete")],
         _request_timeout: Union[
@@ -1556,8 +1502,6 @@ class CreativeApi:
 
         Delete a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the id of the creative to delete (required)
@@ -1585,7 +1529,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._delete_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1606,7 +1549,6 @@ class CreativeApi:
 
     def _delete_creative_serialize(
         self,
-        version,
         account_id,
         creative_id,
         _request_auth,
@@ -1630,8 +1572,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1661,7 +1601,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/creative/delete',
+            resource_path='/creative/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1680,7 +1620,6 @@ class CreativeApi:
     @validate_call
     def get_creative(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to get")],
         _request_timeout: Union[
@@ -1700,8 +1639,6 @@ class CreativeApi:
 
         Get a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to get (required)
@@ -1729,7 +1666,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1755,7 +1691,6 @@ class CreativeApi:
     @validate_call
     def get_creative_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to get")],
         _request_timeout: Union[
@@ -1775,8 +1710,6 @@ class CreativeApi:
 
         Get a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to get (required)
@@ -1804,7 +1737,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1830,7 +1762,6 @@ class CreativeApi:
     @validate_call
     def get_creative_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to get")],
         _request_timeout: Union[
@@ -1850,8 +1781,6 @@ class CreativeApi:
 
         Get a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to get (required)
@@ -1879,7 +1808,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -1900,7 +1828,6 @@ class CreativeApi:
 
     def _get_creative_serialize(
         self,
-        version,
         account_id,
         creative_id,
         _request_auth,
@@ -1924,8 +1851,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1955,7 +1880,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/creative/get',
+            resource_path='/creative/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1974,7 +1899,6 @@ class CreativeApi:
     @validate_call
     def get_creatives_by_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -1998,8 +1922,6 @@ class CreativeApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2035,7 +1957,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creatives_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -2065,7 +1986,6 @@ class CreativeApi:
     @validate_call
     def get_creatives_by_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -2089,8 +2009,6 @@ class CreativeApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2126,7 +2044,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creatives_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -2156,7 +2073,6 @@ class CreativeApi:
     @validate_call
     def get_creatives_by_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         start: Annotated[StrictInt, Field(description="Start the result set at some index.")],
@@ -2180,8 +2096,6 @@ class CreativeApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -2217,7 +2131,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._get_creatives_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -2242,7 +2155,6 @@ class CreativeApi:
 
     def _get_creatives_by_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         start,
@@ -2270,8 +2182,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2317,7 +2227,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/creative/search',
+            resource_path='/creative/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2336,7 +2246,6 @@ class CreativeApi:
     @validate_call
     def remove_preview(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to remove preview")],
         _request_timeout: Union[
@@ -2356,8 +2265,6 @@ class CreativeApi:
 
         Remove this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to remove preview (required)
@@ -2385,7 +2292,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._remove_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -2411,7 +2317,6 @@ class CreativeApi:
     @validate_call
     def remove_preview_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to remove preview")],
         _request_timeout: Union[
@@ -2431,8 +2336,6 @@ class CreativeApi:
 
         Remove this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to remove preview (required)
@@ -2460,7 +2363,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._remove_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -2486,7 +2388,6 @@ class CreativeApi:
     @validate_call
     def remove_preview_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the logged in user")],
         creative_id: Annotated[StrictInt, Field(description="the ID of the creative to remove preview")],
         _request_timeout: Union[
@@ -2506,8 +2407,6 @@ class CreativeApi:
 
         Remove this ad for preview for this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the logged in user (required)
         :type account_id: int
         :param creative_id: the ID of the creative to remove preview (required)
@@ -2535,7 +2434,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._remove_preview_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             _request_auth=_request_auth,
@@ -2556,7 +2454,6 @@ class CreativeApi:
 
     def _remove_preview_serialize(
         self,
-        version,
         account_id,
         creative_id,
         _request_auth,
@@ -2580,8 +2477,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2611,7 +2506,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/creative/removepreview',
+            resource_path='/creative/removepreview',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2630,7 +2525,6 @@ class CreativeApi:
     @validate_call
     def update_creative(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         creative_id: Annotated[StrictInt, Field(description="the creative Id to upate.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the level.")] = None,
@@ -2662,8 +2556,6 @@ class CreativeApi:
 
         Update a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param creative_id: the creative Id to upate. (required)
@@ -2715,7 +2607,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._update_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             name=name,
@@ -2753,7 +2644,6 @@ class CreativeApi:
     @validate_call
     def update_creative_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         creative_id: Annotated[StrictInt, Field(description="the creative Id to upate.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the level.")] = None,
@@ -2785,8 +2675,6 @@ class CreativeApi:
 
         Update a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param creative_id: the creative Id to upate. (required)
@@ -2838,7 +2726,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._update_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             name=name,
@@ -2876,7 +2763,6 @@ class CreativeApi:
     @validate_call
     def update_creative_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         creative_id: Annotated[StrictInt, Field(description="the creative Id to upate.")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the level.")] = None,
@@ -2908,8 +2794,6 @@ class CreativeApi:
 
         Update a creative
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param creative_id: the creative Id to upate. (required)
@@ -2961,7 +2845,6 @@ class CreativeApi:
         """ # noqa: E501
 
         _param = self._update_creative_serialize(
-            version=version,
             account_id=account_id,
             creative_id=creative_id,
             name=name,
@@ -2994,7 +2877,6 @@ class CreativeApi:
 
     def _update_creative_serialize(
         self,
-        version,
         account_id,
         creative_id,
         name,
@@ -3030,8 +2912,6 @@ class CreativeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3109,7 +2989,7 @@ class CreativeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/creative/update',
+            resource_path='/creative/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

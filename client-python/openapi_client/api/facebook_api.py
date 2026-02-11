@@ -44,7 +44,6 @@ class FacebookApi:
     @validate_call
     def get_token(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="used to update the user's current location")] = None,
@@ -66,8 +65,6 @@ class FacebookApi:
 
         Gets a user's Facebook token.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -99,7 +96,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._get_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -127,7 +123,6 @@ class FacebookApi:
     @validate_call
     def get_token_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="used to update the user's current location")] = None,
@@ -149,8 +144,6 @@ class FacebookApi:
 
         Gets a user's Facebook token.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -182,7 +175,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._get_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -210,7 +202,6 @@ class FacebookApi:
     @validate_call
     def get_token_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
         latitude: Annotated[Optional[Union[StrictFloat, StrictInt]], Field(description="used to update the user's current location")] = None,
@@ -232,8 +223,6 @@ class FacebookApi:
 
         Gets a user's Facebook token.
 
-        :param version: (required)
-        :type version: float
         :param device_id: a unique id given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: the account id of the user (deviceId or accountId required)
@@ -265,7 +254,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._get_token_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             latitude=latitude,
@@ -288,7 +276,6 @@ class FacebookApi:
 
     def _get_token_serialize(
         self,
-        version,
         device_id,
         account_id,
         latitude,
@@ -314,8 +301,6 @@ class FacebookApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -353,7 +338,7 @@ class FacebookApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/facebook/getfbtoken',
+            resource_path='/facebook/getfbtoken',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -372,7 +357,6 @@ class FacebookApi:
     @validate_call
     def graph_interface(
         self,
-        version: Union[StrictFloat, StrictInt],
         event: Annotated[StrictStr, Field(description="the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -400,8 +384,6 @@ class FacebookApi:
 
         Make Facebook posts on behalf of the user.
 
-        :param version: (required)
-        :type version: float
         :param event: the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
         :type event: str
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -445,7 +427,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._graph_interface_serialize(
-            version=version,
             event=event,
             device_id=device_id,
             account_id=account_id,
@@ -479,7 +460,6 @@ class FacebookApi:
     @validate_call
     def graph_interface_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         event: Annotated[StrictStr, Field(description="the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -507,8 +487,6 @@ class FacebookApi:
 
         Make Facebook posts on behalf of the user.
 
-        :param version: (required)
-        :type version: float
         :param event: the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
         :type event: str
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -552,7 +530,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._graph_interface_serialize(
-            version=version,
             event=event,
             device_id=device_id,
             account_id=account_id,
@@ -586,7 +563,6 @@ class FacebookApi:
     @validate_call
     def graph_interface_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         event: Annotated[StrictStr, Field(description="the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED}")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -614,8 +590,6 @@ class FacebookApi:
 
         Make Facebook posts on behalf of the user.
 
-        :param version: (required)
-        :type version: float
         :param event: the type of Sirqul event {DOWNLOADED_APP, CHALLENGE, LEVEL_COMPLETED, LEVEL_CREATED} (required)
         :type event: str
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -659,7 +633,6 @@ class FacebookApi:
         """ # noqa: E501
 
         _param = self._graph_interface_serialize(
-            version=version,
             event=event,
             device_id=device_id,
             account_id=account_id,
@@ -688,7 +661,6 @@ class FacebookApi:
 
     def _graph_interface_serialize(
         self,
-        version,
         event,
         device_id,
         account_id,
@@ -720,8 +692,6 @@ class FacebookApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -783,7 +753,7 @@ class FacebookApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/facebook/graph',
+            resource_path='/facebook/graph',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

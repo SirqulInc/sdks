@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictBytes, StrictFloat, StrictInt, StrictStr
+from pydantic import Field, StrictBool, StrictBytes, StrictInt, StrictStr
 from typing import Optional, Tuple, Union
 from typing_extensions import Annotated
 from openapi_client.models.count_response import CountResponse
@@ -47,7 +47,6 @@ class TicketApi:
     @validate_call
     def get_ticket_count(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="this is deprecated.")] = None,
@@ -70,8 +69,6 @@ class TicketApi:
 
         Gets the ticket count.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -105,7 +102,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -134,7 +130,6 @@ class TicketApi:
     @validate_call
     def get_ticket_count_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="this is deprecated.")] = None,
@@ -157,8 +152,6 @@ class TicketApi:
 
         Gets the ticket count.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -192,7 +185,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -221,7 +213,6 @@ class TicketApi:
     @validate_call
     def get_ticket_count_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         game_type: Annotated[Optional[StrictStr], Field(description="this is deprecated.")] = None,
@@ -244,8 +235,6 @@ class TicketApi:
 
         Gets the ticket count.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -279,7 +268,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_count_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             game_type=game_type,
@@ -303,7 +291,6 @@ class TicketApi:
 
     def _get_ticket_count_serialize(
         self,
-        version,
         device_id,
         account_id,
         game_type,
@@ -330,8 +317,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -373,7 +358,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ticket/count',
+            resource_path='/ticket/count',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -392,7 +377,6 @@ class TicketApi:
     @validate_call
     def get_ticket_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         ticket_object_type: Annotated[Optional[StrictStr], Field(description="comma separated list of TicketObjectType")] = None,
@@ -419,8 +403,6 @@ class TicketApi:
 
         Gets the list of tickets.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -462,7 +444,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_list_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             ticket_object_type=ticket_object_type,
@@ -495,7 +476,6 @@ class TicketApi:
     @validate_call
     def get_ticket_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         ticket_object_type: Annotated[Optional[StrictStr], Field(description="comma separated list of TicketObjectType")] = None,
@@ -522,8 +502,6 @@ class TicketApi:
 
         Gets the list of tickets.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -565,7 +543,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_list_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             ticket_object_type=ticket_object_type,
@@ -598,7 +575,6 @@ class TicketApi:
     @validate_call
     def get_ticket_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device that owns the tickets")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the account that owns the tickets")] = None,
         ticket_object_type: Annotated[Optional[StrictStr], Field(description="comma separated list of TicketObjectType")] = None,
@@ -625,8 +601,6 @@ class TicketApi:
 
         Gets the list of tickets.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the id of the device that owns the tickets
         :type device_id: str
         :param account_id: the id of the account that owns the tickets
@@ -668,7 +642,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._get_ticket_list_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             ticket_object_type=ticket_object_type,
@@ -696,7 +669,6 @@ class TicketApi:
 
     def _get_ticket_list_serialize(
         self,
-        version,
         device_id,
         account_id,
         ticket_object_type,
@@ -727,8 +699,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -786,7 +756,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ticket/getList',
+            resource_path='/ticket/getList',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -805,7 +775,6 @@ class TicketApi:
     @validate_call
     def gift_purchase(
         self,
-        version: Union[StrictFloat, StrictInt],
         receiver_account_id: Annotated[StrictInt, Field(description="the id of the account receiving the tickets")],
         ticket_id: Annotated[StrictInt, Field(description="the id of the tickets")],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device")] = None,
@@ -831,8 +800,6 @@ class TicketApi:
 
         Gift tickets to another user.
 
-        :param version: (required)
-        :type version: float
         :param receiver_account_id: the id of the account receiving the tickets (required)
         :type receiver_account_id: int
         :param ticket_id: the id of the tickets (required)
@@ -872,7 +839,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._gift_purchase_serialize(
-            version=version,
             receiver_account_id=receiver_account_id,
             ticket_id=ticket_id,
             device_id=device_id,
@@ -904,7 +870,6 @@ class TicketApi:
     @validate_call
     def gift_purchase_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         receiver_account_id: Annotated[StrictInt, Field(description="the id of the account receiving the tickets")],
         ticket_id: Annotated[StrictInt, Field(description="the id of the tickets")],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device")] = None,
@@ -930,8 +895,6 @@ class TicketApi:
 
         Gift tickets to another user.
 
-        :param version: (required)
-        :type version: float
         :param receiver_account_id: the id of the account receiving the tickets (required)
         :type receiver_account_id: int
         :param ticket_id: the id of the tickets (required)
@@ -971,7 +934,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._gift_purchase_serialize(
-            version=version,
             receiver_account_id=receiver_account_id,
             ticket_id=ticket_id,
             device_id=device_id,
@@ -1003,7 +965,6 @@ class TicketApi:
     @validate_call
     def gift_purchase_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         receiver_account_id: Annotated[StrictInt, Field(description="the id of the account receiving the tickets")],
         ticket_id: Annotated[StrictInt, Field(description="the id of the tickets")],
         device_id: Annotated[Optional[StrictStr], Field(description="the id of the device")] = None,
@@ -1029,8 +990,6 @@ class TicketApi:
 
         Gift tickets to another user.
 
-        :param version: (required)
-        :type version: float
         :param receiver_account_id: the id of the account receiving the tickets (required)
         :type receiver_account_id: int
         :param ticket_id: the id of the tickets (required)
@@ -1070,7 +1029,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._gift_purchase_serialize(
-            version=version,
             receiver_account_id=receiver_account_id,
             ticket_id=ticket_id,
             device_id=device_id,
@@ -1097,7 +1055,6 @@ class TicketApi:
 
     def _gift_purchase_serialize(
         self,
-        version,
         receiver_account_id,
         ticket_id,
         device_id,
@@ -1127,8 +1084,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1182,7 +1137,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/purchase/gift',
+            resource_path='/purchase/gift',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1201,7 +1156,6 @@ class TicketApi:
     @validate_call
     def save_ticket(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM")],
         return_nulls: Annotated[Optional[StrictBool], Field(description="whether to return nulls or not")] = None,
@@ -1237,8 +1191,6 @@ class TicketApi:
 
         Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
@@ -1298,7 +1250,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             return_nulls=return_nulls,
@@ -1340,7 +1291,6 @@ class TicketApi:
     @validate_call
     def save_ticket_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM")],
         return_nulls: Annotated[Optional[StrictBool], Field(description="whether to return nulls or not")] = None,
@@ -1376,8 +1326,6 @@ class TicketApi:
 
         Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
@@ -1437,7 +1385,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             return_nulls=return_nulls,
@@ -1479,7 +1426,6 @@ class TicketApi:
     @validate_call
     def save_ticket_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM")],
         return_nulls: Annotated[Optional[StrictBool], Field(description="whether to return nulls or not")] = None,
@@ -1515,8 +1461,6 @@ class TicketApi:
 
         Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed, values: COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased, values: GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM (required)
@@ -1576,7 +1520,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             return_nulls=return_nulls,
@@ -1613,7 +1556,6 @@ class TicketApi:
 
     def _save_ticket_serialize(
         self,
-        version,
         action_type,
         ticket_object_type,
         return_nulls,
@@ -1653,8 +1595,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -1748,7 +1688,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/ticket/save',
+            resource_path='/ticket/save',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1767,7 +1707,6 @@ class TicketApi:
     @validate_call
     def save_ticket_via_file_upload(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}")],
         receipt_data: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.")],
@@ -1803,8 +1742,6 @@ class TicketApi:
 
         Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
@@ -1864,7 +1801,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_via_file_upload_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             receipt_data=receipt_data,
@@ -1906,7 +1842,6 @@ class TicketApi:
     @validate_call
     def save_ticket_via_file_upload_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}")],
         receipt_data: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.")],
@@ -1942,8 +1877,6 @@ class TicketApi:
 
         Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
@@ -2003,7 +1936,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_via_file_upload_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             receipt_data=receipt_data,
@@ -2045,7 +1977,6 @@ class TicketApi:
     @validate_call
     def save_ticket_via_file_upload_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         action_type: Annotated[StrictStr, Field(description="the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER }")],
         ticket_object_type: Annotated[StrictStr, Field(description="the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM}")],
         receipt_data: Annotated[Union[StrictBytes, StrictStr, Tuple[StrictStr, StrictBytes]], Field(description="the receipt/transaction data for validating a purchase via iTunes/Gooogle/etc. This should be in binary format.")],
@@ -2081,8 +2012,6 @@ class TicketApi:
 
         Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
 
-        :param version: (required)
-        :type version: float
         :param action_type: the action being performed { COMPLETED, // ADD TICKETS FOR COMPLETING A MISSION, CHALLENGE, GAME, PACK, LEVEL, LEVEL OBJECT REDEEMED, // REMOVE TICKETS FOR BUYING PACKS, HINTS, AND PEN TOOLS OPTIONS, ETC USERS_PLAYED, // ADD TICKETS FOR LEVELS PLAYED BY OTHER USERS TOURNAMENT_OWNER, // ADD TICKETS FOR TOURNAMENTS BY OTHER USERS PURCHASED, // ADD TICKET VIA IN APP PURCHASING SUMATION, // SUMATION OF TICKETS EARNED FROM CHILDREN GIFTED, // TRANSFERING OF PURCHASE ITEMS TO OTHER PEOPLE REFUNDED // FOR REFUNDING TICKETS BACK TO THE USER } (required)
         :type action_type: str
         :param ticket_object_type: the type of object being purchased {GAME_OBJECT, GAME_LEVEL, PACK, GAME, MISSION, PROFILE, APPLICATION, TICKETS, ASSET, CUSTOM} (required)
@@ -2142,7 +2071,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._save_ticket_via_file_upload_serialize(
-            version=version,
             action_type=action_type,
             ticket_object_type=ticket_object_type,
             receipt_data=receipt_data,
@@ -2179,7 +2107,6 @@ class TicketApi:
 
     def _save_ticket_via_file_upload_serialize(
         self,
-        version,
         action_type,
         ticket_object_type,
         receipt_data,
@@ -2219,8 +2146,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if return_nulls is not None:
             
@@ -2314,7 +2239,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/ticket/save/fileUpload',
+            resource_path='/ticket/save/fileUpload',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2333,7 +2258,6 @@ class TicketApi:
     @validate_call
     def ticket_offers(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2351,8 +2275,6 @@ class TicketApi:
 
         Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2376,7 +2298,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._ticket_offers_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2400,7 +2321,6 @@ class TicketApi:
     @validate_call
     def ticket_offers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2418,8 +2338,6 @@ class TicketApi:
 
         Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2443,7 +2361,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._ticket_offers_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2467,7 +2384,6 @@ class TicketApi:
     @validate_call
     def ticket_offers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2485,8 +2401,6 @@ class TicketApi:
 
         Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
 
-        :param version: (required)
-        :type version: float
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2510,7 +2424,6 @@ class TicketApi:
         """ # noqa: E501
 
         _param = self._ticket_offers_serialize(
-            version=version,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2529,7 +2442,6 @@ class TicketApi:
 
     def _ticket_offers_serialize(
         self,
-        version,
         _request_auth,
         _content_type,
         _headers,
@@ -2551,8 +2463,6 @@ class TicketApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -2574,7 +2484,7 @@ class TicketApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/ticket/ticketoffers',
+            resource_path='/ticket/ticketoffers',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

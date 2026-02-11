@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.billable_entity_response import BillableEntityResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class BillableEntityApi:
     @validate_call
     def create_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -74,8 +73,6 @@ class BillableEntityApi:
 
         reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -123,7 +120,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._create_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -159,7 +155,6 @@ class BillableEntityApi:
     @validate_call
     def create_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -189,8 +184,6 @@ class BillableEntityApi:
 
         reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -238,7 +231,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._create_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -274,7 +266,6 @@ class BillableEntityApi:
     @validate_call
     def create_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -304,8 +295,6 @@ class BillableEntityApi:
 
         reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -353,7 +342,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._create_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -384,7 +372,6 @@ class BillableEntityApi:
 
     def _create_billable_entity_serialize(
         self,
-        version,
         device_id,
         account_id,
         name,
@@ -418,8 +405,6 @@ class BillableEntityApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -489,7 +474,7 @@ class BillableEntityApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billable/create',
+            resource_path='/billable/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -508,7 +493,6 @@ class BillableEntityApi:
     @validate_call
     def delete_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the billable entity.")] = None,
         _request_timeout: Union[
@@ -528,8 +512,6 @@ class BillableEntityApi:
 
         Mark the billable as deleted
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the billable entity.
@@ -557,7 +539,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._delete_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -583,7 +564,6 @@ class BillableEntityApi:
     @validate_call
     def delete_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the billable entity.")] = None,
         _request_timeout: Union[
@@ -603,8 +583,6 @@ class BillableEntityApi:
 
         Mark the billable as deleted
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the billable entity.
@@ -632,7 +610,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._delete_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -658,7 +635,6 @@ class BillableEntityApi:
     @validate_call
     def delete_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the billable entity.")] = None,
         _request_timeout: Union[
@@ -678,8 +654,6 @@ class BillableEntityApi:
 
         Mark the billable as deleted
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the billable entity.
@@ -707,7 +681,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._delete_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -728,7 +701,6 @@ class BillableEntityApi:
 
     def _delete_billable_entity_serialize(
         self,
-        version,
         device_id,
         account_id,
         _request_auth,
@@ -752,8 +724,6 @@ class BillableEntityApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -783,7 +753,7 @@ class BillableEntityApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billable/delete',
+            resource_path='/billable/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -802,7 +772,6 @@ class BillableEntityApi:
     @validate_call
     def get_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         include_counts: Annotated[Optional[StrictBool], Field(description="Determines whether to include the retailer dash board counts into the response")] = None,
@@ -824,8 +793,6 @@ class BillableEntityApi:
 
         Used to determine the associated BillableEntity of an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -857,7 +824,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._get_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             include_counts=include_counts,
@@ -885,7 +851,6 @@ class BillableEntityApi:
     @validate_call
     def get_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         include_counts: Annotated[Optional[StrictBool], Field(description="Determines whether to include the retailer dash board counts into the response")] = None,
@@ -907,8 +872,6 @@ class BillableEntityApi:
 
         Used to determine the associated BillableEntity of an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -940,7 +903,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._get_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             include_counts=include_counts,
@@ -968,7 +930,6 @@ class BillableEntityApi:
     @validate_call
     def get_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         include_counts: Annotated[Optional[StrictBool], Field(description="Determines whether to include the retailer dash board counts into the response")] = None,
@@ -990,8 +951,6 @@ class BillableEntityApi:
 
         Used to determine the associated BillableEntity of an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -1023,7 +982,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._get_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             include_counts=include_counts,
@@ -1046,7 +1004,6 @@ class BillableEntityApi:
 
     def _get_billable_entity_serialize(
         self,
-        version,
         device_id,
         account_id,
         include_counts,
@@ -1072,8 +1029,6 @@ class BillableEntityApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1111,7 +1066,7 @@ class BillableEntityApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/billable/get',
+            resource_path='/billable/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1130,7 +1085,6 @@ class BillableEntityApi:
     @validate_call
     def update_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -1160,8 +1114,6 @@ class BillableEntityApi:
 
         Updates the billable record for an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -1209,7 +1161,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._update_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -1245,7 +1196,6 @@ class BillableEntityApi:
     @validate_call
     def update_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -1275,8 +1225,6 @@ class BillableEntityApi:
 
         Updates the billable record for an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -1324,7 +1272,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._update_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -1360,7 +1307,6 @@ class BillableEntityApi:
     @validate_call
     def update_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.")] = None,
         name: Annotated[Optional[StrictStr], Field(description="The name of the entity responsible for billing ")] = None,
@@ -1390,8 +1336,6 @@ class BillableEntityApi:
 
         Updates the billable record for an account
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used). The account must have rights to edit the billable entity.
@@ -1439,7 +1383,6 @@ class BillableEntityApi:
         """ # noqa: E501
 
         _param = self._update_billable_entity_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             name=name,
@@ -1470,7 +1413,6 @@ class BillableEntityApi:
 
     def _update_billable_entity_serialize(
         self,
-        version,
         device_id,
         account_id,
         name,
@@ -1504,8 +1446,6 @@ class BillableEntityApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1575,7 +1515,7 @@ class BillableEntityApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billable/update',
+            resource_path='/billable/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

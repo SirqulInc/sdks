@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt
-from typing import Optional, Union
+from pydantic import Field, StrictInt
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.account import Account
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class DependentApi:
     @validate_call
     def create(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to create a dependent for")],
         body: Optional[Account] = None,
         _request_timeout: Union[
@@ -64,8 +63,6 @@ class DependentApi:
 
         Create dependent of the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to create a dependent for (required)
         :type account_id: int
         :param body:
@@ -93,7 +90,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            version=version,
             account_id=account_id,
             body=body,
             _request_auth=_request_auth,
@@ -119,7 +115,6 @@ class DependentApi:
     @validate_call
     def create_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to create a dependent for")],
         body: Optional[Account] = None,
         _request_timeout: Union[
@@ -139,8 +134,6 @@ class DependentApi:
 
         Create dependent of the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to create a dependent for (required)
         :type account_id: int
         :param body:
@@ -168,7 +161,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            version=version,
             account_id=account_id,
             body=body,
             _request_auth=_request_auth,
@@ -194,7 +186,6 @@ class DependentApi:
     @validate_call
     def create_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to create a dependent for")],
         body: Optional[Account] = None,
         _request_timeout: Union[
@@ -214,8 +205,6 @@ class DependentApi:
 
         Create dependent of the account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to create a dependent for (required)
         :type account_id: int
         :param body:
@@ -243,7 +232,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._create_serialize(
-            version=version,
             account_id=account_id,
             body=body,
             _request_auth=_request_auth,
@@ -264,7 +252,6 @@ class DependentApi:
 
     def _create_serialize(
         self,
-        version,
         account_id,
         body,
         _request_auth,
@@ -288,8 +275,6 @@ class DependentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if account_id is not None:
             _path_params['accountId'] = account_id
         # process the query parameters
@@ -315,7 +300,7 @@ class DependentApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/cargo/dependent/{accountId}',
+            resource_path='/cargo/dependent/{accountId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -334,7 +319,6 @@ class DependentApi:
     @validate_call
     def get_dependents(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to get a list of dependents")],
         _request_timeout: Union[
             None,
@@ -353,8 +337,6 @@ class DependentApi:
 
         Get the dependent list of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to get a list of dependents (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -380,7 +362,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._get_dependents_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -405,7 +386,6 @@ class DependentApi:
     @validate_call
     def get_dependents_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to get a list of dependents")],
         _request_timeout: Union[
             None,
@@ -424,8 +404,6 @@ class DependentApi:
 
         Get the dependent list of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to get a list of dependents (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -451,7 +429,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._get_dependents_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -476,7 +453,6 @@ class DependentApi:
     @validate_call
     def get_dependents_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account to get a list of dependents")],
         _request_timeout: Union[
             None,
@@ -495,8 +471,6 @@ class DependentApi:
 
         Get the dependent list of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account to get a list of dependents (required)
         :type account_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -522,7 +496,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._get_dependents_serialize(
-            version=version,
             account_id=account_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -542,7 +515,6 @@ class DependentApi:
 
     def _get_dependents_serialize(
         self,
-        version,
         account_id,
         _request_auth,
         _content_type,
@@ -565,8 +537,6 @@ class DependentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if account_id is not None:
             _path_params['accountId'] = account_id
         # process the query parameters
@@ -590,7 +560,7 @@ class DependentApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/cargo/dependent/{accountId}',
+            resource_path='/cargo/dependent/{accountId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -609,7 +579,6 @@ class DependentApi:
     @validate_call
     def remove_dependent(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account tied to the dependent")],
         dependent_id: Annotated[StrictInt, Field(description="the id of the dependent to delete")],
         _request_timeout: Union[
@@ -629,8 +598,6 @@ class DependentApi:
 
         Delete the Dependent
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account tied to the dependent (required)
         :type account_id: int
         :param dependent_id: the id of the dependent to delete (required)
@@ -658,7 +625,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._remove_dependent_serialize(
-            version=version,
             account_id=account_id,
             dependent_id=dependent_id,
             _request_auth=_request_auth,
@@ -683,7 +649,6 @@ class DependentApi:
     @validate_call
     def remove_dependent_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account tied to the dependent")],
         dependent_id: Annotated[StrictInt, Field(description="the id of the dependent to delete")],
         _request_timeout: Union[
@@ -703,8 +668,6 @@ class DependentApi:
 
         Delete the Dependent
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account tied to the dependent (required)
         :type account_id: int
         :param dependent_id: the id of the dependent to delete (required)
@@ -732,7 +695,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._remove_dependent_serialize(
-            version=version,
             account_id=account_id,
             dependent_id=dependent_id,
             _request_auth=_request_auth,
@@ -757,7 +719,6 @@ class DependentApi:
     @validate_call
     def remove_dependent_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the parent account tied to the dependent")],
         dependent_id: Annotated[StrictInt, Field(description="the id of the dependent to delete")],
         _request_timeout: Union[
@@ -777,8 +738,6 @@ class DependentApi:
 
         Delete the Dependent
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the parent account tied to the dependent (required)
         :type account_id: int
         :param dependent_id: the id of the dependent to delete (required)
@@ -806,7 +765,6 @@ class DependentApi:
         """ # noqa: E501
 
         _param = self._remove_dependent_serialize(
-            version=version,
             account_id=account_id,
             dependent_id=dependent_id,
             _request_auth=_request_auth,
@@ -826,7 +784,6 @@ class DependentApi:
 
     def _remove_dependent_serialize(
         self,
-        version,
         account_id,
         dependent_id,
         _request_auth,
@@ -850,8 +807,6 @@ class DependentApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if account_id is not None:
             _path_params['accountId'] = account_id
         if dependent_id is not None:
@@ -870,7 +825,7 @@ class DependentApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/cargo/dependent/{accountId}',
+            resource_path='/cargo/dependent/{accountId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

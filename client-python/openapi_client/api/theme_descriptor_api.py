@@ -45,7 +45,6 @@ class ThemeDescriptorApi:
     @validate_call
     def add_or_update_theme_descriptor(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the theme's participants have read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the theme's participants have write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the theme's participants have delete permissions")],
@@ -90,8 +89,6 @@ class ThemeDescriptorApi:
 
         Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the theme's participants have read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the theme's participants have write permissions (required)
@@ -169,7 +166,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._add_or_update_theme_descriptor_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -220,7 +216,6 @@ class ThemeDescriptorApi:
     @validate_call
     def add_or_update_theme_descriptor_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the theme's participants have read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the theme's participants have write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the theme's participants have delete permissions")],
@@ -265,8 +260,6 @@ class ThemeDescriptorApi:
 
         Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the theme's participants have read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the theme's participants have write permissions (required)
@@ -344,7 +337,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._add_or_update_theme_descriptor_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -395,7 +387,6 @@ class ThemeDescriptorApi:
     @validate_call
     def add_or_update_theme_descriptor_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         public_read: Annotated[StrictBool, Field(description="determines whether the theme's participants have read permissions")],
         public_write: Annotated[StrictBool, Field(description="determines whether the theme's participants have write permissions")],
         public_delete: Annotated[StrictBool, Field(description="determines whether the theme's participants have delete permissions")],
@@ -440,8 +431,6 @@ class ThemeDescriptorApi:
 
         Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
 
-        :param version: (required)
-        :type version: float
         :param public_read: determines whether the theme's participants have read permissions (required)
         :type public_read: bool
         :param public_write: determines whether the theme's participants have write permissions (required)
@@ -519,7 +508,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._add_or_update_theme_descriptor_serialize(
-            version=version,
             public_read=public_read,
             public_write=public_write,
             public_delete=public_delete,
@@ -565,7 +553,6 @@ class ThemeDescriptorApi:
 
     def _add_or_update_theme_descriptor_serialize(
         self,
-        version,
         public_read,
         public_write,
         public_delete,
@@ -614,8 +601,6 @@ class ThemeDescriptorApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -745,7 +730,7 @@ class ThemeDescriptorApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/theme',
+            resource_path='/consumer/theme',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -764,7 +749,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptor(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -788,8 +772,6 @@ class ThemeDescriptorApi:
 
         Gets a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id (required)
         :type theme_descriptor_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -825,7 +807,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -855,7 +836,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptor_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -879,8 +859,6 @@ class ThemeDescriptorApi:
 
         Gets a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id (required)
         :type theme_descriptor_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -916,7 +894,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -946,7 +923,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptor_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account ID of the user (deviceId or accountId required)")] = None,
@@ -970,8 +946,6 @@ class ThemeDescriptorApi:
 
         Gets a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id (required)
         :type theme_descriptor_id: int
         :param device_id: a unique ID given by the device (deviceId or accountId required)
@@ -1007,7 +981,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -1032,7 +1005,6 @@ class ThemeDescriptorApi:
 
     def _get_theme_descriptor_serialize(
         self,
-        version,
         theme_descriptor_id,
         device_id,
         account_id,
@@ -1060,8 +1032,6 @@ class ThemeDescriptorApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1107,7 +1077,7 @@ class ThemeDescriptorApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/theme/get',
+            resource_path='/consumer/theme/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1126,7 +1096,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptors(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See ThemeDescriptorApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -1162,8 +1131,6 @@ class ThemeDescriptorApi:
 
         Searches for themes.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See ThemeDescriptorApiMap (required)
@@ -1223,7 +1190,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptors_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -1265,7 +1231,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptors_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See ThemeDescriptorApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -1301,8 +1266,6 @@ class ThemeDescriptorApi:
 
         Searches for themes.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See ThemeDescriptorApiMap (required)
@@ -1362,7 +1325,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptors_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -1404,7 +1366,6 @@ class ThemeDescriptorApi:
     @validate_call
     def get_theme_descriptors_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         filter: Annotated[StrictStr, Field(description="a comma separated list of Ownership")],
         sort_field: Annotated[StrictStr, Field(description="the field to sort by. See ThemeDescriptorApiMap")],
         descending: Annotated[StrictBool, Field(description="determines whether the sorted list is in descending or ascending order")],
@@ -1440,8 +1401,6 @@ class ThemeDescriptorApi:
 
         Searches for themes.
 
-        :param version: (required)
-        :type version: float
         :param filter: a comma separated list of Ownership (required)
         :type filter: str
         :param sort_field: the field to sort by. See ThemeDescriptorApiMap (required)
@@ -1501,7 +1460,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._get_theme_descriptors_serialize(
-            version=version,
             filter=filter,
             sort_field=sort_field,
             descending=descending,
@@ -1538,7 +1496,6 @@ class ThemeDescriptorApi:
 
     def _get_theme_descriptors_serialize(
         self,
-        version,
         filter,
         sort_field,
         descending,
@@ -1578,8 +1535,6 @@ class ThemeDescriptorApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1673,7 +1628,7 @@ class ThemeDescriptorApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/consumer/theme/search',
+            resource_path='/consumer/theme/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1692,7 +1647,6 @@ class ThemeDescriptorApi:
     @validate_call
     def remove_theme_descriptor(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1716,8 +1670,6 @@ class ThemeDescriptorApi:
 
         Removes a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id to remove (required)
         :type theme_descriptor_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -1753,7 +1705,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._remove_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -1783,7 +1734,6 @@ class ThemeDescriptorApi:
     @validate_call
     def remove_theme_descriptor_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1807,8 +1757,6 @@ class ThemeDescriptorApi:
 
         Removes a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id to remove (required)
         :type theme_descriptor_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -1844,7 +1792,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._remove_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -1874,7 +1821,6 @@ class ThemeDescriptorApi:
     @validate_call
     def remove_theme_descriptor_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         theme_descriptor_id: Annotated[StrictInt, Field(description="the theme id to remove")],
         device_id: Annotated[Optional[StrictStr], Field(description="a unique id given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1898,8 +1844,6 @@ class ThemeDescriptorApi:
 
         Removes a theme.
 
-        :param version: (required)
-        :type version: float
         :param theme_descriptor_id: the theme id to remove (required)
         :type theme_descriptor_id: int
         :param device_id: a unique id given by the device (deviceId or accountId required)
@@ -1935,7 +1879,6 @@ class ThemeDescriptorApi:
         """ # noqa: E501
 
         _param = self._remove_theme_descriptor_serialize(
-            version=version,
             theme_descriptor_id=theme_descriptor_id,
             device_id=device_id,
             account_id=account_id,
@@ -1960,7 +1903,6 @@ class ThemeDescriptorApi:
 
     def _remove_theme_descriptor_serialize(
         self,
-        version,
         theme_descriptor_id,
         device_id,
         account_id,
@@ -1988,8 +1930,6 @@ class ThemeDescriptorApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2035,7 +1975,7 @@ class ThemeDescriptorApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/consumer/theme/remove',
+            resource_path='/consumer/theme/remove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

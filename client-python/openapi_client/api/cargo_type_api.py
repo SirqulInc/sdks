@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.cargo_type import CargoType
 
@@ -43,7 +43,6 @@ class CargoTypeApi:
     @validate_call
     def create_cargo_type(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class CargoTypeApi:
 
         Create new cargo type
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: CargoType
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._create_cargo_type_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class CargoTypeApi:
     @validate_call
     def create_cargo_type_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class CargoTypeApi:
 
         Create new cargo type
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: CargoType
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._create_cargo_type_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class CargoTypeApi:
     @validate_call
     def create_cargo_type_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class CargoTypeApi:
 
         Create new cargo type
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: CargoType
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._create_cargo_type_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class CargoTypeApi:
 
     def _create_cargo_type_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class CargoTypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -299,7 +284,7 @@ class CargoTypeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/cargo/type',
+            resource_path='/cargo/type',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -318,7 +303,6 @@ class CargoTypeApi:
     @validate_call
     def delete_cargo_type(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         _request_timeout: Union[
             None,
@@ -337,8 +321,6 @@ class CargoTypeApi:
 
         Delete a type of cargo
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -364,7 +346,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._delete_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -388,7 +369,6 @@ class CargoTypeApi:
     @validate_call
     def delete_cargo_type_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         _request_timeout: Union[
             None,
@@ -407,8 +387,6 @@ class CargoTypeApi:
 
         Delete a type of cargo
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -434,7 +412,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._delete_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -458,7 +435,6 @@ class CargoTypeApi:
     @validate_call
     def delete_cargo_type_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         _request_timeout: Union[
             None,
@@ -477,8 +453,6 @@ class CargoTypeApi:
 
         Delete a type of cargo
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -504,7 +478,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._delete_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -523,7 +496,6 @@ class CargoTypeApi:
 
     def _delete_cargo_type_serialize(
         self,
-        version,
         cargo_type_id,
         _request_auth,
         _content_type,
@@ -546,8 +518,6 @@ class CargoTypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if cargo_type_id is not None:
             _path_params['cargoTypeId'] = cargo_type_id
         # process the query parameters
@@ -564,7 +534,7 @@ class CargoTypeApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/cargo/type/{cargoTypeId}',
+            resource_path='/cargo/type/{cargoTypeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -583,7 +553,6 @@ class CargoTypeApi:
     @validate_call
     def get_cargo_type(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the cargo type ID")],
         _request_timeout: Union[
             None,
@@ -602,8 +571,6 @@ class CargoTypeApi:
 
         Get an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the cargo type ID (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -629,7 +596,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._get_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -654,7 +620,6 @@ class CargoTypeApi:
     @validate_call
     def get_cargo_type_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the cargo type ID")],
         _request_timeout: Union[
             None,
@@ -673,8 +638,6 @@ class CargoTypeApi:
 
         Get an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the cargo type ID (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -700,7 +663,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._get_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -725,7 +687,6 @@ class CargoTypeApi:
     @validate_call
     def get_cargo_type_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the cargo type ID")],
         _request_timeout: Union[
             None,
@@ -744,8 +705,6 @@ class CargoTypeApi:
 
         Get an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the cargo type ID (required)
         :type cargo_type_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -771,7 +730,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._get_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -791,7 +749,6 @@ class CargoTypeApi:
 
     def _get_cargo_type_serialize(
         self,
-        version,
         cargo_type_id,
         _request_auth,
         _content_type,
@@ -814,8 +771,6 @@ class CargoTypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if cargo_type_id is not None:
             _path_params['cargoTypeId'] = cargo_type_id
         # process the query parameters
@@ -839,7 +794,7 @@ class CargoTypeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/cargo/type/{cargoTypeId}',
+            resource_path='/cargo/type/{cargoTypeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -858,7 +813,6 @@ class CargoTypeApi:
     @validate_call
     def search_cargo_types(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the sort field to use for the cargo type")],
         descending: Annotated[StrictBool, Field(description="if the cargo type should be should be in descending order")],
         start: Annotated[StrictInt, Field(description="the start of the search")],
@@ -883,8 +837,6 @@ class CargoTypeApi:
 
         Search for types of cargo
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the sort field to use for the cargo type (required)
         :type sort_field: str
         :param descending: if the cargo type should be should be in descending order (required)
@@ -922,7 +874,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._search_cargo_types_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -953,7 +904,6 @@ class CargoTypeApi:
     @validate_call
     def search_cargo_types_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the sort field to use for the cargo type")],
         descending: Annotated[StrictBool, Field(description="if the cargo type should be should be in descending order")],
         start: Annotated[StrictInt, Field(description="the start of the search")],
@@ -978,8 +928,6 @@ class CargoTypeApi:
 
         Search for types of cargo
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the sort field to use for the cargo type (required)
         :type sort_field: str
         :param descending: if the cargo type should be should be in descending order (required)
@@ -1017,7 +965,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._search_cargo_types_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1048,7 +995,6 @@ class CargoTypeApi:
     @validate_call
     def search_cargo_types_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="the sort field to use for the cargo type")],
         descending: Annotated[StrictBool, Field(description="if the cargo type should be should be in descending order")],
         start: Annotated[StrictInt, Field(description="the start of the search")],
@@ -1073,8 +1019,6 @@ class CargoTypeApi:
 
         Search for types of cargo
 
-        :param version: (required)
-        :type version: float
         :param sort_field: the sort field to use for the cargo type (required)
         :type sort_field: str
         :param descending: if the cargo type should be should be in descending order (required)
@@ -1112,7 +1056,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._search_cargo_types_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1138,7 +1081,6 @@ class CargoTypeApi:
 
     def _search_cargo_types_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -1167,8 +1109,6 @@ class CargoTypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if retailer_id is not None:
             
@@ -1218,7 +1158,7 @@ class CargoTypeApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/cargo/type',
+            resource_path='/cargo/type',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1237,7 +1177,6 @@ class CargoTypeApi:
     @validate_call
     def update_cargo_type(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
@@ -1257,8 +1196,6 @@ class CargoTypeApi:
 
         Update an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param body:
@@ -1286,7 +1223,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._update_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             body=body,
             _request_auth=_request_auth,
@@ -1312,7 +1248,6 @@ class CargoTypeApi:
     @validate_call
     def update_cargo_type_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
@@ -1332,8 +1267,6 @@ class CargoTypeApi:
 
         Update an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param body:
@@ -1361,7 +1294,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._update_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             body=body,
             _request_auth=_request_auth,
@@ -1387,7 +1319,6 @@ class CargoTypeApi:
     @validate_call
     def update_cargo_type_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         cargo_type_id: Annotated[StrictInt, Field(description="the ID of the cargo type")],
         body: Optional[CargoType] = None,
         _request_timeout: Union[
@@ -1407,8 +1338,6 @@ class CargoTypeApi:
 
         Update an existing cargo type
 
-        :param version: (required)
-        :type version: float
         :param cargo_type_id: the ID of the cargo type (required)
         :type cargo_type_id: int
         :param body:
@@ -1436,7 +1365,6 @@ class CargoTypeApi:
         """ # noqa: E501
 
         _param = self._update_cargo_type_serialize(
-            version=version,
             cargo_type_id=cargo_type_id,
             body=body,
             _request_auth=_request_auth,
@@ -1457,7 +1385,6 @@ class CargoTypeApi:
 
     def _update_cargo_type_serialize(
         self,
-        version,
         cargo_type_id,
         body,
         _request_auth,
@@ -1481,8 +1408,6 @@ class CargoTypeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if cargo_type_id is not None:
             _path_params['cargoTypeId'] = cargo_type_id
         # process the query parameters
@@ -1508,7 +1433,7 @@ class CargoTypeApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/cargo/type/{cargoTypeId}',
+            resource_path='/cargo/type/{cargoTypeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -44,7 +44,6 @@ class BidApi:
     @validate_call
     def create_bid(
         self,
-        version: Union[StrictFloat, StrictInt],
         biddable_type: Annotated[StrictStr, Field(description="A biddable object type. Possible values include: CREATIVE (ads).")],
         biddable_id: Annotated[StrictInt, Field(description="The id of the biddable object")],
         amount_per_view: Annotated[Union[StrictFloat, StrictInt], Field(description="The bid amount for views. For ads, this is the amount that will be taken for each impression.")],
@@ -70,8 +69,6 @@ class BidApi:
 
         Creates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param biddable_type: A biddable object type. Possible values include: CREATIVE (ads). (required)
         :type biddable_type: str
         :param biddable_id: The id of the biddable object (required)
@@ -111,7 +108,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._create_bid_serialize(
-            version=version,
             biddable_type=biddable_type,
             biddable_id=biddable_id,
             amount_per_view=amount_per_view,
@@ -143,7 +139,6 @@ class BidApi:
     @validate_call
     def create_bid_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         biddable_type: Annotated[StrictStr, Field(description="A biddable object type. Possible values include: CREATIVE (ads).")],
         biddable_id: Annotated[StrictInt, Field(description="The id of the biddable object")],
         amount_per_view: Annotated[Union[StrictFloat, StrictInt], Field(description="The bid amount for views. For ads, this is the amount that will be taken for each impression.")],
@@ -169,8 +164,6 @@ class BidApi:
 
         Creates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param biddable_type: A biddable object type. Possible values include: CREATIVE (ads). (required)
         :type biddable_type: str
         :param biddable_id: The id of the biddable object (required)
@@ -210,7 +203,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._create_bid_serialize(
-            version=version,
             biddable_type=biddable_type,
             biddable_id=biddable_id,
             amount_per_view=amount_per_view,
@@ -242,7 +234,6 @@ class BidApi:
     @validate_call
     def create_bid_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         biddable_type: Annotated[StrictStr, Field(description="A biddable object type. Possible values include: CREATIVE (ads).")],
         biddable_id: Annotated[StrictInt, Field(description="The id of the biddable object")],
         amount_per_view: Annotated[Union[StrictFloat, StrictInt], Field(description="The bid amount for views. For ads, this is the amount that will be taken for each impression.")],
@@ -268,8 +259,6 @@ class BidApi:
 
         Creates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param biddable_type: A biddable object type. Possible values include: CREATIVE (ads). (required)
         :type biddable_type: str
         :param biddable_id: The id of the biddable object (required)
@@ -309,7 +298,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._create_bid_serialize(
-            version=version,
             biddable_type=biddable_type,
             biddable_id=biddable_id,
             amount_per_view=amount_per_view,
@@ -336,7 +324,6 @@ class BidApi:
 
     def _create_bid_serialize(
         self,
-        version,
         biddable_type,
         biddable_id,
         amount_per_view,
@@ -366,8 +353,6 @@ class BidApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -421,7 +406,7 @@ class BidApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/bid/create',
+            resource_path='/bid/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -440,7 +425,6 @@ class BidApi:
     @validate_call
     def delete_bid(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -461,8 +445,6 @@ class BidApi:
 
         Deleted a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -492,7 +474,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._delete_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -519,7 +500,6 @@ class BidApi:
     @validate_call
     def delete_bid_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -540,8 +520,6 @@ class BidApi:
 
         Deleted a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -571,7 +549,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._delete_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -598,7 +575,6 @@ class BidApi:
     @validate_call
     def delete_bid_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -619,8 +595,6 @@ class BidApi:
 
         Deleted a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -650,7 +624,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._delete_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -672,7 +645,6 @@ class BidApi:
 
     def _delete_bid_serialize(
         self,
-        version,
         bid_id,
         device_id,
         account_id,
@@ -697,8 +669,6 @@ class BidApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -732,7 +702,7 @@ class BidApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/bid/delete',
+            resource_path='/bid/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -751,7 +721,6 @@ class BidApi:
     @validate_call
     def get_bid(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -772,8 +741,6 @@ class BidApi:
 
         Get the bid details of a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -803,7 +770,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._get_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -830,7 +796,6 @@ class BidApi:
     @validate_call
     def get_bid_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -851,8 +816,6 @@ class BidApi:
 
         Get the bid details of a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -882,7 +845,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._get_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -909,7 +871,6 @@ class BidApi:
     @validate_call
     def get_bid_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -930,8 +891,6 @@ class BidApi:
 
         Get the bid details of a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -961,7 +920,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._get_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -983,7 +941,6 @@ class BidApi:
 
     def _get_bid_serialize(
         self,
-        version,
         bid_id,
         device_id,
         account_id,
@@ -1008,8 +965,6 @@ class BidApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1043,7 +998,7 @@ class BidApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/bid/get',
+            resource_path='/bid/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1062,7 +1017,6 @@ class BidApi:
     @validate_call
     def update_bid(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1087,8 +1041,6 @@ class BidApi:
 
         Updates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1126,7 +1078,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._update_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -1157,7 +1108,6 @@ class BidApi:
     @validate_call
     def update_bid_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1182,8 +1132,6 @@ class BidApi:
 
         Updates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1221,7 +1169,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._update_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -1252,7 +1199,6 @@ class BidApi:
     @validate_call
     def update_bid_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         bid_id: Annotated[StrictInt, Field(description="The bid id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -1277,8 +1223,6 @@ class BidApi:
 
         Updates a bid on a biddable object
 
-        :param version: (required)
-        :type version: float
         :param bid_id: The bid id (required)
         :type bid_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -1316,7 +1260,6 @@ class BidApi:
         """ # noqa: E501
 
         _param = self._update_bid_serialize(
-            version=version,
             bid_id=bid_id,
             device_id=device_id,
             account_id=account_id,
@@ -1342,7 +1285,6 @@ class BidApi:
 
     def _update_bid_serialize(
         self,
-        version,
         bid_id,
         device_id,
         account_id,
@@ -1371,8 +1313,6 @@ class BidApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1422,7 +1362,7 @@ class BidApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/bid/update',
+            resource_path='/bid/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -45,7 +45,6 @@ class FlagApi:
     @validate_call
     def create_flag(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -70,8 +69,6 @@ class FlagApi:
 
         Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -109,7 +106,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._create_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -140,7 +136,6 @@ class FlagApi:
     @validate_call
     def create_flag_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -165,8 +160,6 @@ class FlagApi:
 
         Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -204,7 +197,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._create_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -235,7 +227,6 @@ class FlagApi:
     @validate_call
     def create_flag_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -260,8 +251,6 @@ class FlagApi:
 
         Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -299,7 +288,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._create_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -325,7 +313,6 @@ class FlagApi:
 
     def _create_flag_serialize(
         self,
-        version,
         flagable_type,
         flagable_id,
         device_id,
@@ -354,8 +341,6 @@ class FlagApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -405,7 +390,7 @@ class FlagApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/flag/create',
+            resource_path='/flag/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -424,7 +409,6 @@ class FlagApi:
     @validate_call
     def delete_flag(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         item_being_flagged_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -448,8 +432,6 @@ class FlagApi:
 
         Deletes a flag.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -485,7 +467,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._delete_flag_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             item_being_flagged_type=item_being_flagged_type,
@@ -515,7 +496,6 @@ class FlagApi:
     @validate_call
     def delete_flag_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         item_being_flagged_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -539,8 +519,6 @@ class FlagApi:
 
         Deletes a flag.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -576,7 +554,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._delete_flag_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             item_being_flagged_type=item_being_flagged_type,
@@ -606,7 +583,6 @@ class FlagApi:
     @validate_call
     def delete_flag_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The unique accountId that made the request (either deviceId or accountId must be used)")] = None,
         item_being_flagged_type: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -630,8 +606,6 @@ class FlagApi:
 
         Deletes a flag.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique device identifier that made the request (either deviceId or accountId must be used)
         :type device_id: str
         :param account_id: The unique accountId that made the request (either deviceId or accountId must be used)
@@ -667,7 +641,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._delete_flag_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             item_being_flagged_type=item_being_flagged_type,
@@ -692,7 +665,6 @@ class FlagApi:
 
     def _delete_flag_serialize(
         self,
-        version,
         device_id,
         account_id,
         item_being_flagged_type,
@@ -720,8 +692,6 @@ class FlagApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -767,7 +737,7 @@ class FlagApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/flag/delete',
+            resource_path='/flag/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -786,7 +756,6 @@ class FlagApi:
     @validate_call
     def get_flag(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -810,8 +779,6 @@ class FlagApi:
 
         Gets the details on whether the user has flagged a particular flagable object.
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -847,7 +814,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -877,7 +843,6 @@ class FlagApi:
     @validate_call
     def get_flag_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -901,8 +866,6 @@ class FlagApi:
 
         Gets the details on whether the user has flagged a particular flagable object.
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -938,7 +901,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -968,7 +930,6 @@ class FlagApi:
     @validate_call
     def get_flag_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         flagable_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER}")],
         flagable_id: Annotated[StrictInt, Field(description="The flagable object id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique device identifier that made the request (either deviceId or accountId must be used)")] = None,
@@ -992,8 +953,6 @@ class FlagApi:
 
         Gets the details on whether the user has flagged a particular flagable object.
 
-        :param version: (required)
-        :type version: float
         :param flagable_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, NOTE, OFFER} (required)
         :type flagable_type: str
         :param flagable_id: The flagable object id (required)
@@ -1029,7 +988,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_serialize(
-            version=version,
             flagable_type=flagable_type,
             flagable_id=flagable_id,
             device_id=device_id,
@@ -1054,7 +1012,6 @@ class FlagApi:
 
     def _get_flag_serialize(
         self,
-        version,
         flagable_type,
         flagable_id,
         device_id,
@@ -1082,8 +1039,6 @@ class FlagApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1129,7 +1084,7 @@ class FlagApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/flag/get',
+            resource_path='/flag/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1148,7 +1103,6 @@ class FlagApi:
     @validate_call
     def get_flag_threshold(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         _request_timeout: Union[
@@ -1168,8 +1122,6 @@ class FlagApi:
 
         Get the flag threshold value on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param app_key: The application key (required)
@@ -1197,7 +1149,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1223,7 +1174,6 @@ class FlagApi:
     @validate_call
     def get_flag_threshold_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         _request_timeout: Union[
@@ -1243,8 +1193,6 @@ class FlagApi:
 
         Get the flag threshold value on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param app_key: The application key (required)
@@ -1272,7 +1220,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1298,7 +1245,6 @@ class FlagApi:
     @validate_call
     def get_flag_threshold_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
         _request_timeout: Union[
@@ -1318,8 +1264,6 @@ class FlagApi:
 
         Get the flag threshold value on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param app_key: The application key (required)
@@ -1347,7 +1291,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._get_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             app_key=app_key,
             _request_auth=_request_auth,
@@ -1368,7 +1311,6 @@ class FlagApi:
 
     def _get_flag_threshold_serialize(
         self,
-        version,
         item_being_flagged_type,
         app_key,
         _request_auth,
@@ -1392,8 +1334,6 @@ class FlagApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if item_being_flagged_type is not None:
             
@@ -1423,7 +1363,7 @@ class FlagApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/flag/threshold/get',
+            resource_path='/flag/threshold/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1442,7 +1382,6 @@ class FlagApi:
     @validate_call
     def update_flag_threshold(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         threshold: Annotated[StrictInt, Field(description="The threshold value")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -1465,8 +1404,6 @@ class FlagApi:
 
         Update the flag threshold on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param threshold: The threshold value (required)
@@ -1500,7 +1437,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._update_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             threshold=threshold,
             app_key=app_key,
@@ -1529,7 +1465,6 @@ class FlagApi:
     @validate_call
     def update_flag_threshold_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         threshold: Annotated[StrictInt, Field(description="The threshold value")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -1552,8 +1487,6 @@ class FlagApi:
 
         Update the flag threshold on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param threshold: The threshold value (required)
@@ -1587,7 +1520,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._update_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             threshold=threshold,
             app_key=app_key,
@@ -1616,7 +1548,6 @@ class FlagApi:
     @validate_call
     def update_flag_threshold_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         item_being_flagged_type: Annotated[StrictStr, Field(description="The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE}")],
         threshold: Annotated[StrictInt, Field(description="The threshold value")],
         app_key: Annotated[StrictStr, Field(description="The application key")],
@@ -1639,8 +1570,6 @@ class FlagApi:
 
         Update the flag threshold on an object type for a particular application.
 
-        :param version: (required)
-        :type version: float
         :param item_being_flagged_type: The flagable object type {ACCOUNT, ALBUM, ALBUM_CONTEST, ASSET, GAME_LEVEL, THEME_DESCRIPTOR, OFFER, NOTE} (required)
         :type item_being_flagged_type: str
         :param threshold: The threshold value (required)
@@ -1674,7 +1603,6 @@ class FlagApi:
         """ # noqa: E501
 
         _param = self._update_flag_threshold_serialize(
-            version=version,
             item_being_flagged_type=item_being_flagged_type,
             threshold=threshold,
             app_key=app_key,
@@ -1698,7 +1626,6 @@ class FlagApi:
 
     def _update_flag_threshold_serialize(
         self,
-        version,
         item_being_flagged_type,
         threshold,
         app_key,
@@ -1725,8 +1652,6 @@ class FlagApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1768,7 +1693,7 @@ class FlagApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/flag/threshold/update',
+            resource_path='/flag/threshold/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

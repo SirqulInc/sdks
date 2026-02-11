@@ -45,7 +45,6 @@ class CategoryApi:
     @validate_call
     def category_distance_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -83,8 +82,6 @@ class CategoryApi:
 
         Search for categories by distance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The keyword string to search on
@@ -148,7 +145,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._category_distance_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -192,7 +188,6 @@ class CategoryApi:
     @validate_call
     def category_distance_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -230,8 +225,6 @@ class CategoryApi:
 
         Search for categories by distance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The keyword string to search on
@@ -295,7 +288,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._category_distance_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -339,7 +331,6 @@ class CategoryApi:
     @validate_call
     def category_distance_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -377,8 +368,6 @@ class CategoryApi:
 
         Search for categories by distance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The keyword string to search on
@@ -442,7 +431,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._category_distance_search_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -481,7 +469,6 @@ class CategoryApi:
 
     def _category_distance_search_serialize(
         self,
-        version,
         account_id,
         keyword,
         app_key,
@@ -523,8 +510,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -626,7 +611,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/category/distancesearch',
+            resource_path='/category/distancesearch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -645,7 +630,6 @@ class CategoryApi:
     @validate_call
     def create_category(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the category")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)")] = None,
@@ -677,8 +661,6 @@ class CategoryApi:
 
         Create a new category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the category (required)
@@ -730,7 +712,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._create_category_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -768,7 +749,6 @@ class CategoryApi:
     @validate_call
     def create_category_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the category")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)")] = None,
@@ -800,8 +780,6 @@ class CategoryApi:
 
         Create a new category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the category (required)
@@ -853,7 +831,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._create_category_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -891,7 +868,6 @@ class CategoryApi:
     @validate_call
     def create_category_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         name: Annotated[StrictStr, Field(description="The name of the category")],
         app_key: Annotated[Optional[StrictStr], Field(description="The appKey of the application to assign the category to, if not provided then the category will be applied to the global application (if the account has permissions)")] = None,
@@ -923,8 +899,6 @@ class CategoryApi:
 
         Create a new category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param name: The name of the category (required)
@@ -976,7 +950,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._create_category_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -1009,7 +982,6 @@ class CategoryApi:
 
     def _create_category_serialize(
         self,
-        version,
         account_id,
         name,
         app_key,
@@ -1045,8 +1017,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -1124,7 +1094,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/category/create',
+            resource_path='/category/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1143,7 +1113,6 @@ class CategoryApi:
     @validate_call
     def delete_category(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the account")],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         _request_timeout: Union[
@@ -1163,8 +1132,6 @@ class CategoryApi:
 
         Delete a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the account (required)
         :type account_id: int
         :param category_id: the ID of the category (required)
@@ -1192,7 +1159,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._delete_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             _request_auth=_request_auth,
@@ -1218,7 +1184,6 @@ class CategoryApi:
     @validate_call
     def delete_category_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the account")],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         _request_timeout: Union[
@@ -1238,8 +1203,6 @@ class CategoryApi:
 
         Delete a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the account (required)
         :type account_id: int
         :param category_id: the ID of the category (required)
@@ -1267,7 +1230,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._delete_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             _request_auth=_request_auth,
@@ -1293,7 +1255,6 @@ class CategoryApi:
     @validate_call
     def delete_category_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the ID of the account")],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         _request_timeout: Union[
@@ -1313,8 +1274,6 @@ class CategoryApi:
 
         Delete a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the ID of the account (required)
         :type account_id: int
         :param category_id: the ID of the category (required)
@@ -1342,7 +1301,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._delete_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             _request_auth=_request_auth,
@@ -1363,7 +1321,6 @@ class CategoryApi:
 
     def _delete_category_serialize(
         self,
-        version,
         account_id,
         category_id,
         _request_auth,
@@ -1387,8 +1344,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1418,7 +1373,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/category/delete',
+            resource_path='/category/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1437,7 +1392,6 @@ class CategoryApi:
     @validate_call
     def duplicate_category(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         category_id: Annotated[StrictInt, Field(description="The category ID to duplicate (includes all children)")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to assign the new category to, may be different then the application the source category is assigned to")] = None,
@@ -1459,8 +1413,6 @@ class CategoryApi:
 
         Duplicate a category, including all its children.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param category_id: The category ID to duplicate (includes all children) (required)
@@ -1492,7 +1444,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._duplicate_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             app_key=app_key,
@@ -1520,7 +1471,6 @@ class CategoryApi:
     @validate_call
     def duplicate_category_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         category_id: Annotated[StrictInt, Field(description="The category ID to duplicate (includes all children)")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to assign the new category to, may be different then the application the source category is assigned to")] = None,
@@ -1542,8 +1492,6 @@ class CategoryApi:
 
         Duplicate a category, including all its children.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param category_id: The category ID to duplicate (includes all children) (required)
@@ -1575,7 +1523,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._duplicate_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             app_key=app_key,
@@ -1603,7 +1550,6 @@ class CategoryApi:
     @validate_call
     def duplicate_category_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user (must have permissions to the target application)")],
         category_id: Annotated[StrictInt, Field(description="The category ID to duplicate (includes all children)")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to assign the new category to, may be different then the application the source category is assigned to")] = None,
@@ -1625,8 +1571,6 @@ class CategoryApi:
 
         Duplicate a category, including all its children.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (must have permissions to the target application) (required)
         :type account_id: int
         :param category_id: The category ID to duplicate (includes all children) (required)
@@ -1658,7 +1602,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._duplicate_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             app_key=app_key,
@@ -1681,7 +1624,6 @@ class CategoryApi:
 
     def _duplicate_category_serialize(
         self,
-        version,
         account_id,
         category_id,
         app_key,
@@ -1707,8 +1649,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -1746,7 +1686,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/category/duplicate',
+            resource_path='/category/duplicate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1765,7 +1705,6 @@ class CategoryApi:
     @validate_call
     def get_category(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         return_external: Annotated[Optional[StrictBool], Field(description="Determines whether to return extra info about the category's \"Participant\" reference")] = None,
         _request_timeout: Union[
@@ -1785,8 +1724,6 @@ class CategoryApi:
 
         Get the details of a specific category. Recursively include all child categories and their children.
 
-        :param version: (required)
-        :type version: float
         :param category_id: the ID of the category (required)
         :type category_id: int
         :param return_external: Determines whether to return extra info about the category's \"Participant\" reference
@@ -1814,7 +1751,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._get_category_serialize(
-            version=version,
             category_id=category_id,
             return_external=return_external,
             _request_auth=_request_auth,
@@ -1840,7 +1776,6 @@ class CategoryApi:
     @validate_call
     def get_category_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         return_external: Annotated[Optional[StrictBool], Field(description="Determines whether to return extra info about the category's \"Participant\" reference")] = None,
         _request_timeout: Union[
@@ -1860,8 +1795,6 @@ class CategoryApi:
 
         Get the details of a specific category. Recursively include all child categories and their children.
 
-        :param version: (required)
-        :type version: float
         :param category_id: the ID of the category (required)
         :type category_id: int
         :param return_external: Determines whether to return extra info about the category's \"Participant\" reference
@@ -1889,7 +1822,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._get_category_serialize(
-            version=version,
             category_id=category_id,
             return_external=return_external,
             _request_auth=_request_auth,
@@ -1915,7 +1847,6 @@ class CategoryApi:
     @validate_call
     def get_category_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         category_id: Annotated[StrictInt, Field(description="the ID of the category")],
         return_external: Annotated[Optional[StrictBool], Field(description="Determines whether to return extra info about the category's \"Participant\" reference")] = None,
         _request_timeout: Union[
@@ -1935,8 +1866,6 @@ class CategoryApi:
 
         Get the details of a specific category. Recursively include all child categories and their children.
 
-        :param version: (required)
-        :type version: float
         :param category_id: the ID of the category (required)
         :type category_id: int
         :param return_external: Determines whether to return extra info about the category's \"Participant\" reference
@@ -1964,7 +1893,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._get_category_serialize(
-            version=version,
             category_id=category_id,
             return_external=return_external,
             _request_auth=_request_auth,
@@ -1985,7 +1913,6 @@ class CategoryApi:
 
     def _get_category_serialize(
         self,
-        version,
         category_id,
         return_external,
         _request_auth,
@@ -2009,8 +1936,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if category_id is not None:
             
@@ -2040,7 +1965,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/category/get',
+            resource_path='/category/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2059,7 +1984,6 @@ class CategoryApi:
     @validate_call
     def search_categories(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -2098,8 +2022,6 @@ class CategoryApi:
 
         Search for categories.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -2165,7 +2087,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._search_categories_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -2210,7 +2131,6 @@ class CategoryApi:
     @validate_call
     def search_categories_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -2249,8 +2169,6 @@ class CategoryApi:
 
         Search for categories.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -2316,7 +2234,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._search_categories_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -2361,7 +2278,6 @@ class CategoryApi:
     @validate_call
     def search_categories_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The string to search on")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="the appKey of the application to retrieve categories for, if not specified then search on the global application.")] = None,
@@ -2400,8 +2316,6 @@ class CategoryApi:
 
         Search for categories.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param keyword: The string to search on
@@ -2467,7 +2381,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._search_categories_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             app_key=app_key,
@@ -2507,7 +2420,6 @@ class CategoryApi:
 
     def _search_categories_serialize(
         self,
-        version,
         account_id,
         keyword,
         app_key,
@@ -2550,8 +2462,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2657,7 +2567,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/category/search',
+            resource_path='/category/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2676,7 +2586,6 @@ class CategoryApi:
     @validate_call
     def update_category(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         category_id: Annotated[StrictInt, Field(description="The ID of the category to edit")],
         parent_category_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent category, if not provided then the parent category will be null")] = None,
@@ -2708,8 +2617,6 @@ class CategoryApi:
 
         Update a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param category_id: The ID of the category to edit (required)
@@ -2761,7 +2668,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._update_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             parent_category_id=parent_category_id,
@@ -2799,7 +2705,6 @@ class CategoryApi:
     @validate_call
     def update_category_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         category_id: Annotated[StrictInt, Field(description="The ID of the category to edit")],
         parent_category_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent category, if not provided then the parent category will be null")] = None,
@@ -2831,8 +2736,6 @@ class CategoryApi:
 
         Update a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param category_id: The ID of the category to edit (required)
@@ -2884,7 +2787,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._update_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             parent_category_id=parent_category_id,
@@ -2922,7 +2824,6 @@ class CategoryApi:
     @validate_call
     def update_category_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         category_id: Annotated[StrictInt, Field(description="The ID of the category to edit")],
         parent_category_id: Annotated[Optional[StrictInt], Field(description="The ID of the parent category, if not provided then the parent category will be null")] = None,
@@ -2954,8 +2855,6 @@ class CategoryApi:
 
         Update a category.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param category_id: The ID of the category to edit (required)
@@ -3007,7 +2906,6 @@ class CategoryApi:
         """ # noqa: E501
 
         _param = self._update_category_serialize(
-            version=version,
             account_id=account_id,
             category_id=category_id,
             parent_category_id=parent_category_id,
@@ -3040,7 +2938,6 @@ class CategoryApi:
 
     def _update_category_serialize(
         self,
-        version,
         account_id,
         category_id,
         parent_category_id,
@@ -3076,8 +2973,6 @@ class CategoryApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3155,7 +3050,7 @@ class CategoryApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/category/update',
+            resource_path='/category/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

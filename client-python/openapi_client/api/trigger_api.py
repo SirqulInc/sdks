@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 from openapi_client.models.trigger_response import TriggerResponse
@@ -44,7 +44,6 @@ class TriggerApi:
     @validate_call
     def create_trigger(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[StrictStr, Field(description="The name of the trigger")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -75,8 +74,6 @@ class TriggerApi:
 
         Create a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user (required)
         :type account_id: int
         :param name: The name of the trigger (required)
@@ -126,7 +123,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._create_trigger_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -163,7 +159,6 @@ class TriggerApi:
     @validate_call
     def create_trigger_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[StrictStr, Field(description="The name of the trigger")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -194,8 +189,6 @@ class TriggerApi:
 
         Create a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user (required)
         :type account_id: int
         :param name: The name of the trigger (required)
@@ -245,7 +238,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._create_trigger_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -282,7 +274,6 @@ class TriggerApi:
     @validate_call
     def create_trigger_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[StrictStr, Field(description="The name of the trigger")],
         app_key: Annotated[Optional[StrictStr], Field(description="The application to target")] = None,
@@ -313,8 +304,6 @@ class TriggerApi:
 
         Create a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user (required)
         :type account_id: int
         :param name: The name of the trigger (required)
@@ -364,7 +353,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._create_trigger_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             app_key=app_key,
@@ -396,7 +384,6 @@ class TriggerApi:
 
     def _create_trigger_serialize(
         self,
-        version,
         account_id,
         name,
         app_key,
@@ -431,8 +418,6 @@ class TriggerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -506,7 +491,7 @@ class TriggerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trigger/create',
+            resource_path='/trigger/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -525,7 +510,6 @@ class TriggerApi:
     @validate_call
     def delete_trigger(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the trigger to delete.")],
         _request_timeout: Union[
@@ -545,8 +529,6 @@ class TriggerApi:
 
         Mark a trigger as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the trigger to delete. (required)
@@ -574,7 +556,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._delete_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -600,7 +581,6 @@ class TriggerApi:
     @validate_call
     def delete_trigger_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the trigger to delete.")],
         _request_timeout: Union[
@@ -620,8 +600,6 @@ class TriggerApi:
 
         Mark a trigger as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the trigger to delete. (required)
@@ -649,7 +627,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._delete_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -675,7 +652,6 @@ class TriggerApi:
     @validate_call
     def delete_trigger_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the trigger to delete.")],
         _request_timeout: Union[
@@ -695,8 +671,6 @@ class TriggerApi:
 
         Mark a trigger as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the trigger to delete. (required)
@@ -724,7 +698,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._delete_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -745,7 +718,6 @@ class TriggerApi:
 
     def _delete_trigger_serialize(
         self,
-        version,
         account_id,
         trigger_id,
         _request_auth,
@@ -769,8 +741,6 @@ class TriggerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -800,7 +770,7 @@ class TriggerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trigger/delete',
+            resource_path='/trigger/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -819,7 +789,6 @@ class TriggerApi:
     @validate_call
     def get_trigger(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the Trigger to return.")],
         _request_timeout: Union[
@@ -839,8 +808,6 @@ class TriggerApi:
 
         Get a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the Trigger to return. (required)
@@ -868,7 +835,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._get_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -894,7 +860,6 @@ class TriggerApi:
     @validate_call
     def get_trigger_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the Trigger to return.")],
         _request_timeout: Union[
@@ -914,8 +879,6 @@ class TriggerApi:
 
         Get a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the Trigger to return. (required)
@@ -943,7 +906,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._get_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -969,7 +931,6 @@ class TriggerApi:
     @validate_call
     def get_trigger_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         trigger_id: Annotated[StrictInt, Field(description="The id of the Trigger to return.")],
         _request_timeout: Union[
@@ -989,8 +950,6 @@ class TriggerApi:
 
         Get a trigger
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param trigger_id: The id of the Trigger to return. (required)
@@ -1018,7 +977,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._get_trigger_serialize(
-            version=version,
             account_id=account_id,
             trigger_id=trigger_id,
             _request_auth=_request_auth,
@@ -1039,7 +997,6 @@ class TriggerApi:
 
     def _get_trigger_serialize(
         self,
-        version,
         account_id,
         trigger_id,
         _request_auth,
@@ -1063,8 +1020,6 @@ class TriggerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1094,7 +1049,7 @@ class TriggerApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trigger/get',
+            resource_path='/trigger/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1113,7 +1068,6 @@ class TriggerApi:
     @validate_call
     def search_triggers(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers ")] = None,
@@ -1143,8 +1097,6 @@ class TriggerApi:
 
         Search for triggers
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1192,7 +1144,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._search_triggers_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1228,7 +1179,6 @@ class TriggerApi:
     @validate_call
     def search_triggers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers ")] = None,
@@ -1258,8 +1208,6 @@ class TriggerApi:
 
         Search for triggers
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1307,7 +1255,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._search_triggers_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1343,7 +1290,6 @@ class TriggerApi:
     @validate_call
     def search_triggers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         grouping_id: Annotated[Optional[StrictStr], Field(description="Filter results by a grouping identifier defined by the client")] = None,
         filter: Annotated[Optional[StrictStr], Field(description="A comma separated list of filters. * MINE - Return triggers that the user has created * SHARED - Return triggers that have been shared to the user * FOLLOWER - Return triggers that have been created by the user''s followers (the content needs to have been APPROVED or FEATURED) * FOLLOWING - Return triggers that have been created by people who the user is following (the content needs to have been APPROVED or FEATURED) * PUBLIC - Return all PUBLIC triggers that have been APPROVED or FEATURED * ALL_PUBLIC - Return all PUBLIC triggers regardless of whether they are approved or not (ignores the approval status) * LIKED - Return all triggers that the user has liked * FEATURED - Return all triggers that have been featured * PENDING - Return all pending triggers ")] = None,
@@ -1373,8 +1319,6 @@ class TriggerApi:
 
         Search for triggers
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param grouping_id: Filter results by a grouping identifier defined by the client
@@ -1422,7 +1366,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._search_triggers_serialize(
-            version=version,
             account_id=account_id,
             grouping_id=grouping_id,
             filter=filter,
@@ -1453,7 +1396,6 @@ class TriggerApi:
 
     def _search_triggers_serialize(
         self,
-        version,
         account_id,
         grouping_id,
         filter,
@@ -1487,8 +1429,6 @@ class TriggerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1558,7 +1498,7 @@ class TriggerApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/trigger/search',
+            resource_path='/trigger/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1577,7 +1517,6 @@ class TriggerApi:
     @validate_call
     def update_trigger(
         self,
-        version: Union[StrictFloat, StrictInt],
         trigger_id: Annotated[StrictInt, Field(description="The trigger to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the trigger")] = None,
@@ -1609,8 +1548,6 @@ class TriggerApi:
 
         Update a trigger
 
-        :param version: (required)
-        :type version: float
         :param trigger_id: The trigger to update (required)
         :type trigger_id: int
         :param account_id: The logged in user (required)
@@ -1662,7 +1599,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._update_trigger_serialize(
-            version=version,
             trigger_id=trigger_id,
             account_id=account_id,
             name=name,
@@ -1700,7 +1636,6 @@ class TriggerApi:
     @validate_call
     def update_trigger_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         trigger_id: Annotated[StrictInt, Field(description="The trigger to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the trigger")] = None,
@@ -1732,8 +1667,6 @@ class TriggerApi:
 
         Update a trigger
 
-        :param version: (required)
-        :type version: float
         :param trigger_id: The trigger to update (required)
         :type trigger_id: int
         :param account_id: The logged in user (required)
@@ -1785,7 +1718,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._update_trigger_serialize(
-            version=version,
             trigger_id=trigger_id,
             account_id=account_id,
             name=name,
@@ -1823,7 +1755,6 @@ class TriggerApi:
     @validate_call
     def update_trigger_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         trigger_id: Annotated[StrictInt, Field(description="The trigger to update")],
         account_id: Annotated[StrictInt, Field(description="The logged in user")],
         name: Annotated[Optional[StrictStr], Field(description="The name of the trigger")] = None,
@@ -1855,8 +1786,6 @@ class TriggerApi:
 
         Update a trigger
 
-        :param version: (required)
-        :type version: float
         :param trigger_id: The trigger to update (required)
         :type trigger_id: int
         :param account_id: The logged in user (required)
@@ -1908,7 +1837,6 @@ class TriggerApi:
         """ # noqa: E501
 
         _param = self._update_trigger_serialize(
-            version=version,
             trigger_id=trigger_id,
             account_id=account_id,
             name=name,
@@ -1941,7 +1869,6 @@ class TriggerApi:
 
     def _update_trigger_serialize(
         self,
-        version,
         trigger_id,
         account_id,
         name,
@@ -1977,8 +1904,6 @@ class TriggerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if trigger_id is not None:
             
@@ -2056,7 +1981,7 @@ class TriggerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/trigger/update',
+            resource_path='/trigger/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

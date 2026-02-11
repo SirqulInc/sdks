@@ -46,7 +46,6 @@ class FavoriteApi:
     @validate_call
     def add_favorite(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
@@ -70,8 +69,6 @@ class FavoriteApi:
 
         Adds an offer, offer location, retailer location, or category to your favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
@@ -107,7 +104,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._add_favorite_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             device_id=device_id,
@@ -137,7 +133,6 @@ class FavoriteApi:
     @validate_call
     def add_favorite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
@@ -161,8 +156,6 @@ class FavoriteApi:
 
         Adds an offer, offer location, retailer location, or category to your favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
@@ -198,7 +191,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._add_favorite_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             device_id=device_id,
@@ -228,7 +220,6 @@ class FavoriteApi:
     @validate_call
     def add_favorite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId}")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM}")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
@@ -252,8 +243,6 @@ class FavoriteApi:
 
         Adds an offer, offer location, retailer location, or category to your favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the object to favorite {offerId, offerLocationId, retailerLocationId, categoryId} (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY, ALBUM} (required)
@@ -289,7 +278,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._add_favorite_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             device_id=device_id,
@@ -314,7 +302,6 @@ class FavoriteApi:
 
     def _add_favorite_serialize(
         self,
-        version,
         favoritable_id,
         favoritable_type,
         device_id,
@@ -342,8 +329,6 @@ class FavoriteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -389,7 +374,7 @@ class FavoriteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/favorite/create',
+            resource_path='/favorite/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -408,7 +393,6 @@ class FavoriteApi:
     @validate_call
     def delete_favorite(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         favorite_id: Annotated[Optional[StrictInt], Field(description="The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)")] = None,
@@ -431,8 +415,6 @@ class FavoriteApi:
 
         Removes a favorited item from the user's favorites list.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -466,7 +448,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._delete_favorite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             favorite_id=favorite_id,
@@ -495,7 +476,6 @@ class FavoriteApi:
     @validate_call
     def delete_favorite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         favorite_id: Annotated[Optional[StrictInt], Field(description="The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)")] = None,
@@ -518,8 +498,6 @@ class FavoriteApi:
 
         Removes a favorited item from the user's favorites list.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -553,7 +531,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._delete_favorite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             favorite_id=favorite_id,
@@ -582,7 +559,6 @@ class FavoriteApi:
     @validate_call
     def delete_favorite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
         favorite_id: Annotated[Optional[StrictInt], Field(description="The ID of the favorite reference record (only optional if favoritableId & favoritableType is pass in instead)")] = None,
@@ -605,8 +581,6 @@ class FavoriteApi:
 
         Removes a favorited item from the user's favorites list.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The unique ID given by the device (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account ID of the user (deviceId or accountId required)
@@ -640,7 +614,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._delete_favorite_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             favorite_id=favorite_id,
@@ -664,7 +637,6 @@ class FavoriteApi:
 
     def _delete_favorite_serialize(
         self,
-        version,
         device_id,
         account_id,
         favorite_id,
@@ -691,8 +663,6 @@ class FavoriteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -734,7 +704,7 @@ class FavoriteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/favorite/delete',
+            resource_path='/favorite/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -753,7 +723,6 @@ class FavoriteApi:
     @validate_call
     def get_favorite(
         self,
-        version: Union[StrictFloat, StrictInt],
         favorite_id: Annotated[StrictInt, Field(description="The ID of the favorite reference record")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -776,8 +745,6 @@ class FavoriteApi:
 
         Retrieves a single favorited item.
 
-        :param version: (required)
-        :type version: float
         :param favorite_id: The ID of the favorite reference record (required)
         :type favorite_id: int
         :param device_id: The unique ID given by the device (deviceId or accountId required)
@@ -811,7 +778,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._get_favorite_serialize(
-            version=version,
             favorite_id=favorite_id,
             device_id=device_id,
             account_id=account_id,
@@ -840,7 +806,6 @@ class FavoriteApi:
     @validate_call
     def get_favorite_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         favorite_id: Annotated[StrictInt, Field(description="The ID of the favorite reference record")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -863,8 +828,6 @@ class FavoriteApi:
 
         Retrieves a single favorited item.
 
-        :param version: (required)
-        :type version: float
         :param favorite_id: The ID of the favorite reference record (required)
         :type favorite_id: int
         :param device_id: The unique ID given by the device (deviceId or accountId required)
@@ -898,7 +861,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._get_favorite_serialize(
-            version=version,
             favorite_id=favorite_id,
             device_id=device_id,
             account_id=account_id,
@@ -927,7 +889,6 @@ class FavoriteApi:
     @validate_call
     def get_favorite_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         favorite_id: Annotated[StrictInt, Field(description="The ID of the favorite reference record")],
         device_id: Annotated[Optional[StrictStr], Field(description="The unique ID given by the device (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account ID of the user (deviceId or accountId required)")] = None,
@@ -950,8 +911,6 @@ class FavoriteApi:
 
         Retrieves a single favorited item.
 
-        :param version: (required)
-        :type version: float
         :param favorite_id: The ID of the favorite reference record (required)
         :type favorite_id: int
         :param device_id: The unique ID given by the device (deviceId or accountId required)
@@ -985,7 +944,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._get_favorite_serialize(
-            version=version,
             favorite_id=favorite_id,
             device_id=device_id,
             account_id=account_id,
@@ -1009,7 +967,6 @@ class FavoriteApi:
 
     def _get_favorite_serialize(
         self,
-        version,
         favorite_id,
         device_id,
         account_id,
@@ -1036,8 +993,6 @@ class FavoriteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1079,7 +1034,7 @@ class FavoriteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/favorite/get',
+            resource_path='/favorite/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1098,7 +1053,6 @@ class FavoriteApi:
     @validate_call
     def search_favorites(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
@@ -1130,8 +1084,6 @@ class FavoriteApi:
 
         Searches on the user's favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
         :type favoritable_type: str
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
@@ -1183,7 +1135,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._search_favorites_serialize(
-            version=version,
             favoritable_type=favoritable_type,
             sort_field=sort_field,
             descending=descending,
@@ -1221,7 +1172,6 @@ class FavoriteApi:
     @validate_call
     def search_favorites_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
@@ -1253,8 +1203,6 @@ class FavoriteApi:
 
         Searches on the user's favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
         :type favoritable_type: str
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
@@ -1306,7 +1254,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._search_favorites_serialize(
-            version=version,
             favoritable_type=favoritable_type,
             sort_field=sort_field,
             descending=descending,
@@ -1344,7 +1291,6 @@ class FavoriteApi:
     @validate_call
     def search_favorites_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         sort_field: Annotated[StrictStr, Field(description="Determines what to sort the results by {CREATED, UPDATED, DISPLAY}")],
         descending: Annotated[StrictBool, Field(description="Determines whether the results are in descending order")],
@@ -1376,8 +1322,6 @@ class FavoriteApi:
 
         Searches on the user's favorites.
 
-        :param version: (required)
-        :type version: float
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
         :type favoritable_type: str
         :param sort_field: Determines what to sort the results by {CREATED, UPDATED, DISPLAY} (required)
@@ -1429,7 +1373,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._search_favorites_serialize(
-            version=version,
             favoritable_type=favoritable_type,
             sort_field=sort_field,
             descending=descending,
@@ -1462,7 +1405,6 @@ class FavoriteApi:
 
     def _search_favorites_serialize(
         self,
-        version,
         favoritable_type,
         sort_field,
         descending,
@@ -1498,8 +1440,6 @@ class FavoriteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1577,7 +1517,7 @@ class FavoriteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/favorite/search',
+            resource_path='/favorite/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1596,7 +1536,6 @@ class FavoriteApi:
     @validate_call
     def who_has_favorited(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the favoritableType to search on")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1623,8 +1562,6 @@ class FavoriteApi:
 
         Searches for everyone that has favorited an item
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the favoritableType to search on (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
@@ -1666,7 +1603,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._who_has_favorited_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             start=start,
@@ -1699,7 +1635,6 @@ class FavoriteApi:
     @validate_call
     def who_has_favorited_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the favoritableType to search on")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1726,8 +1661,6 @@ class FavoriteApi:
 
         Searches for everyone that has favorited an item
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the favoritableType to search on (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
@@ -1769,7 +1702,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._who_has_favorited_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             start=start,
@@ -1802,7 +1734,6 @@ class FavoriteApi:
     @validate_call
     def who_has_favorited_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         favoritable_id: Annotated[StrictInt, Field(description="The ID of the favoritableType to search on")],
         favoritable_type: Annotated[StrictStr, Field(description="The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY}")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1829,8 +1760,6 @@ class FavoriteApi:
 
         Searches for everyone that has favorited an item
 
-        :param version: (required)
-        :type version: float
         :param favoritable_id: The ID of the favoritableType to search on (required)
         :type favoritable_id: int
         :param favoritable_type: The type of the object to favorite {OFFER, OFFER_LOCATION, RETAILER_LOCATION, CATEGORY} (required)
@@ -1872,7 +1801,6 @@ class FavoriteApi:
         """ # noqa: E501
 
         _param = self._who_has_favorited_serialize(
-            version=version,
             favoritable_id=favoritable_id,
             favoritable_type=favoritable_type,
             start=start,
@@ -1900,7 +1828,6 @@ class FavoriteApi:
 
     def _who_has_favorited_serialize(
         self,
-        version,
         favoritable_id,
         favoritable_type,
         start,
@@ -1931,8 +1858,6 @@ class FavoriteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1990,7 +1915,7 @@ class FavoriteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/favorite/whois',
+            resource_path='/favorite/whois',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

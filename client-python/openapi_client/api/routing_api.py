@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Union
+from pydantic import Field, StrictStr
 from typing_extensions import Annotated
 from openapi_client.models.routing_list_response import RoutingListResponse
 
@@ -43,7 +42,6 @@ class RoutingApi:
     @validate_call
     def compute_routing(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest")],
         _request_timeout: Union[
             None,
@@ -62,8 +60,6 @@ class RoutingApi:
 
         This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 
-        :param version: (required)
-        :type version: float
         :param data: Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
         :type data: str
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +85,6 @@ class RoutingApi:
         """ # noqa: E501
 
         _param = self._compute_routing_serialize(
-            version=version,
             data=data,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +109,6 @@ class RoutingApi:
     @validate_call
     def compute_routing_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest")],
         _request_timeout: Union[
             None,
@@ -133,8 +127,6 @@ class RoutingApi:
 
         This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 
-        :param version: (required)
-        :type version: float
         :param data: Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
         :type data: str
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +152,6 @@ class RoutingApi:
         """ # noqa: E501
 
         _param = self._compute_routing_serialize(
-            version=version,
             data=data,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +176,6 @@ class RoutingApi:
     @validate_call
     def compute_routing_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         data: Annotated[StrictStr, Field(description="Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest")],
         _request_timeout: Union[
             None,
@@ -204,8 +194,6 @@ class RoutingApi:
 
         This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
 
-        :param version: (required)
-        :type version: float
         :param data: Json object containing inputs for generating the routes. See description for more info. Also see RoutingRequest (required)
         :type data: str
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +219,6 @@ class RoutingApi:
         """ # noqa: E501
 
         _param = self._compute_routing_serialize(
-            version=version,
             data=data,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +238,6 @@ class RoutingApi:
 
     def _compute_routing_serialize(
         self,
-        version,
         data,
         _request_auth,
         _content_type,
@@ -274,8 +260,6 @@ class RoutingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if data is not None:
             
@@ -301,7 +285,7 @@ class RoutingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/routing/compute',
+            resource_path='/routing/compute',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -44,7 +44,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_location_consumer(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -91,8 +90,6 @@ class RetailerLocationApi:
 
         Creates a location record for an application that can support crowd sourced locations.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param name: The name of the retailer location (required)
@@ -174,7 +171,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_location_consumer_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -227,7 +223,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_location_consumer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -274,8 +269,6 @@ class RetailerLocationApi:
 
         Creates a location record for an application that can support crowd sourced locations.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param name: The name of the retailer location (required)
@@ -357,7 +350,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_location_consumer_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -410,7 +402,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_location_consumer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
@@ -457,8 +448,6 @@ class RetailerLocationApi:
 
         Creates a location record for an application that can support crowd sourced locations.
 
-        :param version: (required)
-        :type version: float
         :param app_key: the application key (required)
         :type app_key: str
         :param name: The name of the retailer location (required)
@@ -540,7 +529,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_location_consumer_serialize(
-            version=version,
             app_key=app_key,
             name=name,
             device_id=device_id,
@@ -588,7 +576,6 @@ class RetailerLocationApi:
 
     def _create_retailer_location_consumer_serialize(
         self,
-        version,
         app_key,
         name,
         device_id,
@@ -639,8 +626,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -778,7 +763,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/location/create',
+            resource_path='/location/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -797,7 +782,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         street_address: Annotated[StrictStr, Field(description="The street address of the retailer location")],
@@ -854,8 +838,6 @@ class RetailerLocationApi:
 
         Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer (required)
         :type retailer_id: int
         :param name: The name of the retailer location (required)
@@ -957,7 +939,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_locations_serialize(
-            version=version,
             retailer_id=retailer_id,
             name=name,
             street_address=street_address,
@@ -1020,7 +1001,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         street_address: Annotated[StrictStr, Field(description="The street address of the retailer location")],
@@ -1077,8 +1057,6 @@ class RetailerLocationApi:
 
         Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer (required)
         :type retailer_id: int
         :param name: The name of the retailer location (required)
@@ -1180,7 +1158,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_locations_serialize(
-            version=version,
             retailer_id=retailer_id,
             name=name,
             street_address=street_address,
@@ -1243,7 +1220,6 @@ class RetailerLocationApi:
     @validate_call
     def create_retailer_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer")],
         name: Annotated[StrictStr, Field(description="The name of the retailer location")],
         street_address: Annotated[StrictStr, Field(description="The street address of the retailer location")],
@@ -1300,8 +1276,6 @@ class RetailerLocationApi:
 
         Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer (required)
         :type retailer_id: int
         :param name: The name of the retailer location (required)
@@ -1403,7 +1377,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._create_retailer_locations_serialize(
-            version=version,
             retailer_id=retailer_id,
             name=name,
             street_address=street_address,
@@ -1461,7 +1434,6 @@ class RetailerLocationApi:
 
     def _create_retailer_locations_serialize(
         self,
-        version,
         retailer_id,
         name,
         street_address,
@@ -1522,8 +1494,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1701,7 +1671,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/location/create',
+            resource_path='/retailer/location/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1720,7 +1690,6 @@ class RetailerLocationApi:
     @validate_call
     def delete_retailer_location(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         retailer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the retailer location to delete")] = None,
@@ -1741,8 +1710,6 @@ class RetailerLocationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the id of the logged in user
@@ -1772,7 +1739,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
@@ -1799,7 +1765,6 @@ class RetailerLocationApi:
     @validate_call
     def delete_retailer_location_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         retailer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the retailer location to delete")] = None,
@@ -1820,8 +1785,6 @@ class RetailerLocationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the id of the logged in user
@@ -1851,7 +1814,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
@@ -1878,7 +1840,6 @@ class RetailerLocationApi:
     @validate_call
     def delete_retailer_location_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the id of the logged in user")] = None,
         retailer_location_id: Annotated[Optional[StrictInt], Field(description="the id of the retailer location to delete")] = None,
@@ -1899,8 +1860,6 @@ class RetailerLocationApi:
 
         Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
 
-        :param version: (required)
-        :type version: float
         :param device_id: the device id
         :type device_id: str
         :param account_id: the id of the logged in user
@@ -1930,7 +1889,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_location_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
@@ -1952,7 +1910,6 @@ class RetailerLocationApi:
 
     def _delete_retailer_location_serialize(
         self,
-        version,
         device_id,
         account_id,
         retailer_location_id,
@@ -1977,8 +1934,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2012,7 +1967,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/location/delete',
+            resource_path='/retailer/location/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2031,7 +1986,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2053,8 +2007,6 @@ class RetailerLocationApi:
 
         Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2086,7 +2038,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2114,7 +2065,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2136,8 +2086,6 @@ class RetailerLocationApi:
 
         Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2169,7 +2117,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2197,7 +2144,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2219,8 +2165,6 @@ class RetailerLocationApi:
 
         Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2252,7 +2196,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2275,7 +2218,6 @@ class RetailerLocationApi:
 
     def _get_retailer_location_serialize(
         self,
-        version,
         retailer_location_id,
         device_id,
         account_id,
@@ -2301,8 +2243,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2340,7 +2280,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/location/get',
+            resource_path='/retailer/location/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2359,7 +2299,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location_consumer(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
@@ -2380,8 +2319,6 @@ class RetailerLocationApi:
 
         Gets the details of a retailer location as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The retailer location id (required)
         :type retailer_location_id: int
         :param device_id: The device id for returning account information (i.e. favorites)
@@ -2411,7 +2348,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_consumer_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2438,7 +2374,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location_consumer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
@@ -2459,8 +2394,6 @@ class RetailerLocationApi:
 
         Gets the details of a retailer location as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The retailer location id (required)
         :type retailer_location_id: int
         :param device_id: The device id for returning account information (i.e. favorites)
@@ -2490,7 +2423,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_consumer_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2517,7 +2449,6 @@ class RetailerLocationApi:
     @validate_call
     def get_retailer_location_consumer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location id")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id for returning account information (i.e. favorites)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id for returning account information (i.e. favorites)")] = None,
@@ -2538,8 +2469,6 @@ class RetailerLocationApi:
 
         Gets the details of a retailer location as a consumer.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The retailer location id (required)
         :type retailer_location_id: int
         :param device_id: The device id for returning account information (i.e. favorites)
@@ -2569,7 +2498,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._get_retailer_location_consumer_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -2591,7 +2519,6 @@ class RetailerLocationApi:
 
     def _get_retailer_location_consumer_serialize(
         self,
-        version,
         retailer_location_id,
         device_id,
         account_id,
@@ -2616,8 +2543,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2651,7 +2576,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/location/get',
+            resource_path='/location/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2670,7 +2595,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_distance_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude to center the search on")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude to center the search on")],
         search_range: Annotated[Union[StrictFloat, StrictInt], Field(description="The search range in the distanceUnit specified; default is MILES.")],
@@ -2722,8 +2646,6 @@ class RetailerLocationApi:
 
         Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude to center the search on (required)
         :type latitude: float
         :param longitude: The longitude to center the search on (required)
@@ -2815,7 +2737,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_distance_search_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -2873,7 +2794,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_distance_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude to center the search on")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude to center the search on")],
         search_range: Annotated[Union[StrictFloat, StrictInt], Field(description="The search range in the distanceUnit specified; default is MILES.")],
@@ -2925,8 +2845,6 @@ class RetailerLocationApi:
 
         Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude to center the search on (required)
         :type latitude: float
         :param longitude: The longitude to center the search on (required)
@@ -3018,7 +2936,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_distance_search_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -3076,7 +2993,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_distance_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         latitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The latitude to center the search on")],
         longitude: Annotated[Union[StrictFloat, StrictInt], Field(description="The longitude to center the search on")],
         search_range: Annotated[Union[StrictFloat, StrictInt], Field(description="The search range in the distanceUnit specified; default is MILES.")],
@@ -3128,8 +3044,6 @@ class RetailerLocationApi:
 
         Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
 
-        :param version: (required)
-        :type version: float
         :param latitude: The latitude to center the search on (required)
         :type latitude: float
         :param longitude: The longitude to center the search on (required)
@@ -3221,7 +3135,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_distance_search_serialize(
-            version=version,
             latitude=latitude,
             longitude=longitude,
             search_range=search_range,
@@ -3274,7 +3187,6 @@ class RetailerLocationApi:
 
     def _indexed_retailer_location_distance_search_serialize(
         self,
-        version,
         latitude,
         longitude,
         search_range,
@@ -3330,8 +3242,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if latitude is not None:
             
@@ -3489,7 +3399,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/location/idistancesearch',
+            resource_path='/retailer/location/idistancesearch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3508,7 +3418,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit for pagination")] = None,
@@ -3554,8 +3463,6 @@ class RetailerLocationApi:
 
         Retailer location (faster) indexed search. This searches all retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param start: The start index for pagination
@@ -3635,7 +3542,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_search_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -3687,7 +3593,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit for pagination")] = None,
@@ -3733,8 +3638,6 @@ class RetailerLocationApi:
 
         Retailer location (faster) indexed search. This searches all retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param start: The start index for pagination
@@ -3814,7 +3717,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_search_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -3866,7 +3768,6 @@ class RetailerLocationApi:
     @validate_call
     def indexed_retailer_location_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit for pagination")] = None,
@@ -3912,8 +3813,6 @@ class RetailerLocationApi:
 
         Retailer location (faster) indexed search. This searches all retailer locations.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user
         :type account_id: int
         :param start: The start index for pagination
@@ -3993,7 +3892,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._indexed_retailer_location_search_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -4040,7 +3938,6 @@ class RetailerLocationApi:
 
     def _indexed_retailer_location_search_serialize(
         self,
-        version,
         account_id,
         start,
         limit,
@@ -4090,8 +3987,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4225,7 +4120,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/location/isearch',
+            resource_path='/retailer/location/isearch',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4244,7 +4139,6 @@ class RetailerLocationApi:
     @validate_call
     def search_retailer_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -4287,8 +4181,6 @@ class RetailerLocationApi:
 
         Searches on retailer locations that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4362,7 +4254,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._search_retailer_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -4411,7 +4302,6 @@ class RetailerLocationApi:
     @validate_call
     def search_retailer_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -4454,8 +4344,6 @@ class RetailerLocationApi:
 
         Searches on retailer locations that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4529,7 +4417,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._search_retailer_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -4578,7 +4465,6 @@ class RetailerLocationApi:
     @validate_call
     def search_retailer_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         q: Annotated[Optional[StrictStr], Field(description="This parameter is deprecated.")] = None,
@@ -4621,8 +4507,6 @@ class RetailerLocationApi:
 
         Searches on retailer locations that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -4696,7 +4580,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._search_retailer_locations_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             q=q,
@@ -4740,7 +4623,6 @@ class RetailerLocationApi:
 
     def _search_retailer_locations_serialize(
         self,
-        version,
         device_id,
         account_id,
         q,
@@ -4787,8 +4669,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -4910,7 +4790,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/location/search',
+            resource_path='/retailer/location/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4929,7 +4809,6 @@ class RetailerLocationApi:
     @validate_call
     def update_retailer_locations(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -4988,8 +4867,6 @@ class RetailerLocationApi:
 
         Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -5095,7 +4972,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._update_retailer_locations_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -5160,7 +5036,6 @@ class RetailerLocationApi:
     @validate_call
     def update_retailer_locations_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -5219,8 +5094,6 @@ class RetailerLocationApi:
 
         Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -5326,7 +5199,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._update_retailer_locations_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -5391,7 +5263,6 @@ class RetailerLocationApi:
     @validate_call
     def update_retailer_locations_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_location_id: Annotated[StrictInt, Field(description="The ID of the retailer location")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -5450,8 +5321,6 @@ class RetailerLocationApi:
 
         Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
 
-        :param version: (required)
-        :type version: float
         :param retailer_location_id: The ID of the retailer location (required)
         :type retailer_location_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -5557,7 +5426,6 @@ class RetailerLocationApi:
         """ # noqa: E501
 
         _param = self._update_retailer_locations_serialize(
-            version=version,
             retailer_location_id=retailer_location_id,
             device_id=device_id,
             account_id=account_id,
@@ -5617,7 +5485,6 @@ class RetailerLocationApi:
 
     def _update_retailer_locations_serialize(
         self,
-        version,
         retailer_location_id,
         device_id,
         account_id,
@@ -5680,8 +5547,6 @@ class RetailerLocationApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -5867,7 +5732,7 @@ class RetailerLocationApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/location/update',
+            resource_path='/retailer/location/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

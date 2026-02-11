@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.object_store_response import ObjectStoreResponse
 
@@ -43,7 +43,6 @@ class ObjectStoreApi:
     @validate_call
     def add_field(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to add the field to")],
@@ -66,8 +65,6 @@ class ObjectStoreApi:
 
         Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -101,7 +98,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._add_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -130,7 +126,6 @@ class ObjectStoreApi:
     @validate_call
     def add_field_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to add the field to")],
@@ -153,8 +148,6 @@ class ObjectStoreApi:
 
         Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -188,7 +181,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._add_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -217,7 +209,6 @@ class ObjectStoreApi:
     @validate_call
     def add_field_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to add the field to")],
@@ -240,8 +231,6 @@ class ObjectStoreApi:
 
         Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -275,7 +264,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._add_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -299,7 +287,6 @@ class ObjectStoreApi:
 
     def _add_field_serialize(
         self,
-        version,
         account_id,
         app_key,
         object_name,
@@ -326,8 +313,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -369,7 +354,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/object/field/add',
+            resource_path='/object/field/add',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -388,7 +373,6 @@ class ObjectStoreApi:
     @validate_call
     def create_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="the name of the object to create data for")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         body: Optional[StrictStr] = None,
@@ -409,8 +393,6 @@ class ObjectStoreApi:
 
         Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
 
-        :param version: (required)
-        :type version: float
         :param object_name: the name of the object to create data for (required)
         :type object_name: str
         :param account_id: the account id
@@ -440,7 +422,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_data_serialize(
-            version=version,
             object_name=object_name,
             account_id=account_id,
             body=body,
@@ -467,7 +448,6 @@ class ObjectStoreApi:
     @validate_call
     def create_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="the name of the object to create data for")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         body: Optional[StrictStr] = None,
@@ -488,8 +468,6 @@ class ObjectStoreApi:
 
         Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
 
-        :param version: (required)
-        :type version: float
         :param object_name: the name of the object to create data for (required)
         :type object_name: str
         :param account_id: the account id
@@ -519,7 +497,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_data_serialize(
-            version=version,
             object_name=object_name,
             account_id=account_id,
             body=body,
@@ -546,7 +523,6 @@ class ObjectStoreApi:
     @validate_call
     def create_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="the name of the object to create data for")],
         account_id: Annotated[Optional[StrictInt], Field(description="the account id")] = None,
         body: Optional[StrictStr] = None,
@@ -567,8 +543,6 @@ class ObjectStoreApi:
 
         Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
 
-        :param version: (required)
-        :type version: float
         :param object_name: the name of the object to create data for (required)
         :type object_name: str
         :param account_id: the account id
@@ -598,7 +572,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_data_serialize(
-            version=version,
             object_name=object_name,
             account_id=account_id,
             body=body,
@@ -620,7 +593,6 @@ class ObjectStoreApi:
 
     def _create_data_serialize(
         self,
-        version,
         object_name,
         account_id,
         body,
@@ -645,8 +617,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if object_name is not None:
             _path_params['objectName'] = object_name
         # process the query parameters
@@ -676,7 +646,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/object/data/{objectName}',
+            resource_path='/object/data/{objectName}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -695,7 +665,6 @@ class ObjectStoreApi:
     @validate_call
     def create_object(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to create")],
@@ -716,8 +685,6 @@ class ObjectStoreApi:
 
         Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -747,7 +714,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -774,7 +740,6 @@ class ObjectStoreApi:
     @validate_call
     def create_object_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to create")],
@@ -795,8 +760,6 @@ class ObjectStoreApi:
 
         Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -826,7 +789,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -853,7 +815,6 @@ class ObjectStoreApi:
     @validate_call
     def create_object_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to create")],
@@ -874,8 +835,6 @@ class ObjectStoreApi:
 
         Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -905,7 +864,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._create_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -927,7 +885,6 @@ class ObjectStoreApi:
 
     def _create_object_serialize(
         self,
-        version,
         account_id,
         app_key,
         object_name,
@@ -952,8 +909,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -987,7 +942,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/object/create',
+            resource_path='/object/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1006,7 +961,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -1027,8 +981,6 @@ class ObjectStoreApi:
 
         Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -1058,7 +1010,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -1085,7 +1036,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -1106,8 +1056,6 @@ class ObjectStoreApi:
 
         Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -1137,7 +1085,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -1164,7 +1111,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -1185,8 +1131,6 @@ class ObjectStoreApi:
 
         Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -1216,7 +1160,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -1238,7 +1181,6 @@ class ObjectStoreApi:
 
     def _delete_data_serialize(
         self,
-        version,
         object_name,
         object_id,
         account_id,
@@ -1263,8 +1205,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if object_name is not None:
             _path_params['objectName'] = object_name
         if object_id is not None:
@@ -1294,7 +1234,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/object/data/{objectName}/{objectId}',
+            resource_path='/object/data/{objectName}/{objectId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1313,7 +1253,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_field(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to remove the field from")],
@@ -1335,8 +1274,6 @@ class ObjectStoreApi:
 
         Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -1368,7 +1305,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1396,7 +1332,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_field_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to remove the field from")],
@@ -1418,8 +1353,6 @@ class ObjectStoreApi:
 
         Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -1451,7 +1384,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1479,7 +1411,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_field_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to remove the field from")],
@@ -1501,8 +1432,6 @@ class ObjectStoreApi:
 
         Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -1534,7 +1463,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_field_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1557,7 +1485,6 @@ class ObjectStoreApi:
 
     def _delete_field_serialize(
         self,
-        version,
         account_id,
         app_key,
         object_name,
@@ -1583,8 +1510,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1622,7 +1547,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/object/field/delete',
+            resource_path='/object/field/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1641,7 +1566,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_object(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         object_name: Annotated[StrictStr, Field(description="the name of the object to delete")],
@@ -1662,8 +1586,6 @@ class ObjectStoreApi:
 
         Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1693,7 +1615,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1720,7 +1641,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_object_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         object_name: Annotated[StrictStr, Field(description="the name of the object to delete")],
@@ -1741,8 +1661,6 @@ class ObjectStoreApi:
 
         Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1772,7 +1690,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1799,7 +1716,6 @@ class ObjectStoreApi:
     @validate_call
     def delete_object_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         object_name: Annotated[StrictStr, Field(description="the name of the object to delete")],
@@ -1820,8 +1736,6 @@ class ObjectStoreApi:
 
         Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1851,7 +1765,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._delete_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -1873,7 +1786,6 @@ class ObjectStoreApi:
 
     def _delete_object_serialize(
         self,
-        version,
         account_id,
         app_key,
         object_name,
@@ -1898,8 +1810,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1933,7 +1843,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/object/delete',
+            resource_path='/object/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1952,7 +1862,6 @@ class ObjectStoreApi:
     @validate_call
     def get_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -1974,8 +1883,6 @@ class ObjectStoreApi:
 
         Get a specific record from a specified object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -2007,7 +1914,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -2035,7 +1941,6 @@ class ObjectStoreApi:
     @validate_call
     def get_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -2057,8 +1962,6 @@ class ObjectStoreApi:
 
         Get a specific record from a specified object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -2090,7 +1993,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -2118,7 +2020,6 @@ class ObjectStoreApi:
     @validate_call
     def get_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -2140,8 +2041,6 @@ class ObjectStoreApi:
 
         Get a specific record from a specified object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -2173,7 +2072,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -2196,7 +2094,6 @@ class ObjectStoreApi:
 
     def _get_data_serialize(
         self,
-        version,
         object_name,
         object_id,
         account_id,
@@ -2222,8 +2119,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if object_name is not None:
             _path_params['objectName'] = object_name
         if object_id is not None:
@@ -2257,7 +2152,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/object/data/{objectName}/{objectId}',
+            resource_path='/object/data/{objectName}/{objectId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2276,7 +2171,6 @@ class ObjectStoreApi:
     @validate_call
     def get_object(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to get the definition for")],
@@ -2297,8 +2191,6 @@ class ObjectStoreApi:
 
         Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -2328,7 +2220,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -2355,7 +2246,6 @@ class ObjectStoreApi:
     @validate_call
     def get_object_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to get the definition for")],
@@ -2376,8 +2266,6 @@ class ObjectStoreApi:
 
         Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -2407,7 +2295,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -2434,7 +2321,6 @@ class ObjectStoreApi:
     @validate_call
     def get_object_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         object_name: Annotated[StrictStr, Field(description="The name of the object to get the definition for")],
@@ -2455,8 +2341,6 @@ class ObjectStoreApi:
 
         Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -2486,7 +2370,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._get_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             object_name=object_name,
@@ -2508,7 +2391,6 @@ class ObjectStoreApi:
 
     def _get_object_serialize(
         self,
-        version,
         account_id,
         app_key,
         object_name,
@@ -2533,8 +2415,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2568,7 +2448,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/object/get',
+            resource_path='/object/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2587,7 +2467,6 @@ class ObjectStoreApi:
     @validate_call
     def search_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         count: Annotated[StrictBool, Field(description="If true just return the record count of the search. False (default) will return the actual records")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -2613,8 +2492,6 @@ class ObjectStoreApi:
 
         Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param count: If true just return the record count of the search. False (default) will return the actual records (required)
@@ -2654,7 +2531,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_data_serialize(
-            version=version,
             object_name=object_name,
             count=count,
             start=start,
@@ -2686,7 +2562,6 @@ class ObjectStoreApi:
     @validate_call
     def search_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         count: Annotated[StrictBool, Field(description="If true just return the record count of the search. False (default) will return the actual records")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -2712,8 +2587,6 @@ class ObjectStoreApi:
 
         Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param count: If true just return the record count of the search. False (default) will return the actual records (required)
@@ -2753,7 +2626,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_data_serialize(
-            version=version,
             object_name=object_name,
             count=count,
             start=start,
@@ -2785,7 +2657,6 @@ class ObjectStoreApi:
     @validate_call
     def search_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         count: Annotated[StrictBool, Field(description="If true just return the record count of the search. False (default) will return the actual records")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -2811,8 +2682,6 @@ class ObjectStoreApi:
 
         Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param count: If true just return the record count of the search. False (default) will return the actual records (required)
@@ -2852,7 +2721,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_data_serialize(
-            version=version,
             object_name=object_name,
             count=count,
             start=start,
@@ -2879,7 +2747,6 @@ class ObjectStoreApi:
 
     def _search_data_serialize(
         self,
-        version,
         object_name,
         count,
         start,
@@ -2909,8 +2776,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if object_name is not None:
             _path_params['objectName'] = object_name
         # process the query parameters
@@ -2962,7 +2827,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/object/data/{objectName}',
+            resource_path='/object/data/{objectName}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2981,7 +2846,6 @@ class ObjectStoreApi:
     @validate_call
     def search_object(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -3004,8 +2868,6 @@ class ObjectStoreApi:
 
         Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -3039,7 +2901,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -3068,7 +2929,6 @@ class ObjectStoreApi:
     @validate_call
     def search_object_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -3091,8 +2951,6 @@ class ObjectStoreApi:
 
         Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -3126,7 +2984,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -3155,7 +3012,6 @@ class ObjectStoreApi:
     @validate_call
     def search_object_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         app_key: Annotated[StrictStr, Field(description="The application key for updating an existing application")],
         start: Annotated[StrictInt, Field(description="The start of the pagination")],
@@ -3178,8 +3034,6 @@ class ObjectStoreApi:
 
         Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param app_key: The application key for updating an existing application (required)
@@ -3213,7 +3067,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._search_object_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             start=start,
@@ -3237,7 +3090,6 @@ class ObjectStoreApi:
 
     def _search_object_serialize(
         self,
-        version,
         account_id,
         app_key,
         start,
@@ -3264,8 +3116,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3307,7 +3157,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/object/search',
+            resource_path='/object/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3326,7 +3176,6 @@ class ObjectStoreApi:
     @validate_call
     def update_data(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -3348,8 +3197,6 @@ class ObjectStoreApi:
 
         Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -3381,7 +3228,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._update_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -3409,7 +3255,6 @@ class ObjectStoreApi:
     @validate_call
     def update_data_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -3431,8 +3276,6 @@ class ObjectStoreApi:
 
         Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -3464,7 +3307,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._update_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -3492,7 +3334,6 @@ class ObjectStoreApi:
     @validate_call
     def update_data_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         object_name: Annotated[StrictStr, Field(description="The name of the object to search upon")],
         object_id: Annotated[StrictStr, Field(description="objectId The id of the record to return")],
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the logged in user")] = None,
@@ -3514,8 +3355,6 @@ class ObjectStoreApi:
 
         Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
 
-        :param version: (required)
-        :type version: float
         :param object_name: The name of the object to search upon (required)
         :type object_name: str
         :param object_id: objectId The id of the record to return (required)
@@ -3547,7 +3386,6 @@ class ObjectStoreApi:
         """ # noqa: E501
 
         _param = self._update_data_serialize(
-            version=version,
             object_name=object_name,
             object_id=object_id,
             account_id=account_id,
@@ -3570,7 +3408,6 @@ class ObjectStoreApi:
 
     def _update_data_serialize(
         self,
-        version,
         object_name,
         object_id,
         account_id,
@@ -3596,8 +3433,6 @@ class ObjectStoreApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if object_name is not None:
             _path_params['objectName'] = object_name
         if object_id is not None:
@@ -3629,7 +3464,7 @@ class ObjectStoreApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/object/data/{objectName}/{objectId}',
+            resource_path='/object/data/{objectName}/{objectId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

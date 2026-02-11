@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.direction import Direction
 from openapi_client.models.route import Route
@@ -46,7 +46,6 @@ class RouteApi:
     @validate_call
     def approve_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to approve")],
         _request_timeout: Union[
             None,
@@ -65,8 +64,6 @@ class RouteApi:
 
         Approve a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to approve (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -92,7 +89,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._approve_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -117,7 +113,6 @@ class RouteApi:
     @validate_call
     def approve_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to approve")],
         _request_timeout: Union[
             None,
@@ -136,8 +131,6 @@ class RouteApi:
 
         Approve a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to approve (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -163,7 +156,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._approve_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -188,7 +180,6 @@ class RouteApi:
     @validate_call
     def approve_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to approve")],
         _request_timeout: Union[
             None,
@@ -207,8 +198,6 @@ class RouteApi:
 
         Approve a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to approve (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -234,7 +223,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._approve_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -254,7 +242,6 @@ class RouteApi:
 
     def _approve_route_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -277,8 +264,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -302,7 +287,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{routeId}/approve',
+            resource_path='/route/{routeId}/approve',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -321,7 +306,6 @@ class RouteApi:
     @validate_call
     def copy_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to duplicate")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -341,8 +325,6 @@ class RouteApi:
 
         Make an copy of the given route with optional overriding properties
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to duplicate (required)
         :type route_id: int
         :param body:
@@ -370,7 +352,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._copy_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -396,7 +377,6 @@ class RouteApi:
     @validate_call
     def copy_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to duplicate")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -416,8 +396,6 @@ class RouteApi:
 
         Make an copy of the given route with optional overriding properties
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to duplicate (required)
         :type route_id: int
         :param body:
@@ -445,7 +423,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._copy_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -471,7 +448,6 @@ class RouteApi:
     @validate_call
     def copy_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to duplicate")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -491,8 +467,6 @@ class RouteApi:
 
         Make an copy of the given route with optional overriding properties
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to duplicate (required)
         :type route_id: int
         :param body:
@@ -520,7 +494,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._copy_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -541,7 +514,6 @@ class RouteApi:
 
     def _copy_route_serialize(
         self,
-        version,
         route_id,
         body,
         _request_auth,
@@ -565,8 +537,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -592,7 +562,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{routeId}/copy',
+            resource_path='/route/{routeId}/copy',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -611,7 +581,6 @@ class RouteApi:
     @validate_call
     def create_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Route] = None,
         _request_timeout: Union[
             None,
@@ -630,8 +599,6 @@ class RouteApi:
 
         Create new route
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Route
         :param _request_timeout: timeout setting for this request. If one
@@ -657,7 +624,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -682,7 +648,6 @@ class RouteApi:
     @validate_call
     def create_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Route] = None,
         _request_timeout: Union[
             None,
@@ -701,8 +666,6 @@ class RouteApi:
 
         Create new route
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Route
         :param _request_timeout: timeout setting for this request. If one
@@ -728,7 +691,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -753,7 +715,6 @@ class RouteApi:
     @validate_call
     def create_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Route] = None,
         _request_timeout: Union[
             None,
@@ -772,8 +733,6 @@ class RouteApi:
 
         Create new route
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Route
         :param _request_timeout: timeout setting for this request. If one
@@ -799,7 +758,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -819,7 +777,6 @@ class RouteApi:
 
     def _create_route_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -842,8 +799,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -867,7 +822,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route',
+            resource_path='/route',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -886,7 +841,6 @@ class RouteApi:
     @validate_call
     def create_route_directions(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update directions for")],
         _request_timeout: Union[
             None,
@@ -905,8 +859,6 @@ class RouteApi:
 
         Regenerate the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -932,7 +884,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -957,7 +908,6 @@ class RouteApi:
     @validate_call
     def create_route_directions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update directions for")],
         _request_timeout: Union[
             None,
@@ -976,8 +926,6 @@ class RouteApi:
 
         Regenerate the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1003,7 +951,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1028,7 +975,6 @@ class RouteApi:
     @validate_call
     def create_route_directions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update directions for")],
         _request_timeout: Union[
             None,
@@ -1047,8 +993,6 @@ class RouteApi:
 
         Regenerate the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1074,7 +1018,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1094,7 +1037,6 @@ class RouteApi:
 
     def _create_route_directions_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -1117,8 +1059,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -1142,7 +1082,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/route/{routeId}/directions',
+            resource_path='/route/{routeId}/directions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1161,7 +1101,6 @@ class RouteApi:
     @validate_call
     def create_route_polyline(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to create a polyline for")],
         _request_timeout: Union[
             None,
@@ -1180,8 +1119,6 @@ class RouteApi:
 
         Update the polyline of the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to create a polyline for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1207,7 +1144,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_polyline_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1232,7 +1168,6 @@ class RouteApi:
     @validate_call
     def create_route_polyline_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to create a polyline for")],
         _request_timeout: Union[
             None,
@@ -1251,8 +1186,6 @@ class RouteApi:
 
         Update the polyline of the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to create a polyline for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1278,7 +1211,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_polyline_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1303,7 +1235,6 @@ class RouteApi:
     @validate_call
     def create_route_polyline_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to create a polyline for")],
         _request_timeout: Union[
             None,
@@ -1322,8 +1253,6 @@ class RouteApi:
 
         Update the polyline of the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to create a polyline for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1349,7 +1278,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._create_route_polyline_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1369,7 +1297,6 @@ class RouteApi:
 
     def _create_route_polyline_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -1392,8 +1319,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -1417,7 +1342,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/route/{routeId}/polyline',
+            resource_path='/route/{routeId}/polyline',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1436,7 +1361,6 @@ class RouteApi:
     @validate_call
     def delete_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         _request_timeout: Union[
             None,
@@ -1455,8 +1379,6 @@ class RouteApi:
 
         Delete an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1482,7 +1404,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._delete_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1506,7 +1427,6 @@ class RouteApi:
     @validate_call
     def delete_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         _request_timeout: Union[
             None,
@@ -1525,8 +1445,6 @@ class RouteApi:
 
         Delete an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1552,7 +1470,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._delete_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1576,7 +1493,6 @@ class RouteApi:
     @validate_call
     def delete_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         _request_timeout: Union[
             None,
@@ -1595,8 +1511,6 @@ class RouteApi:
 
         Delete an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1622,7 +1536,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._delete_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1641,7 +1554,6 @@ class RouteApi:
 
     def _delete_route_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -1664,8 +1576,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -1682,7 +1592,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/route/{routeId}',
+            resource_path='/route/{routeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1701,7 +1611,6 @@ class RouteApi:
     @validate_call
     def disapprove_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to reject")],
         _request_timeout: Union[
             None,
@@ -1720,8 +1629,6 @@ class RouteApi:
 
         Disapprove a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to reject (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1747,7 +1654,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._disapprove_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1772,7 +1678,6 @@ class RouteApi:
     @validate_call
     def disapprove_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to reject")],
         _request_timeout: Union[
             None,
@@ -1791,8 +1696,6 @@ class RouteApi:
 
         Disapprove a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to reject (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1818,7 +1721,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._disapprove_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1843,7 +1745,6 @@ class RouteApi:
     @validate_call
     def disapprove_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to reject")],
         _request_timeout: Union[
             None,
@@ -1862,8 +1763,6 @@ class RouteApi:
 
         Disapprove a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to reject (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -1889,7 +1788,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._disapprove_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1909,7 +1807,6 @@ class RouteApi:
 
     def _disapprove_route_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -1932,8 +1829,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -1957,7 +1852,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{routeId}/disapprove',
+            resource_path='/route/{routeId}/disapprove',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1976,7 +1871,6 @@ class RouteApi:
     @validate_call
     def get_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get")],
         show_inherited_properties: Annotated[StrictBool, Field(description="return inherited properties from parent or not")],
         _request_timeout: Union[
@@ -1996,8 +1890,6 @@ class RouteApi:
 
         Get an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get (required)
         :type route_id: int
         :param show_inherited_properties: return inherited properties from parent or not (required)
@@ -2025,7 +1917,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_serialize(
-            version=version,
             route_id=route_id,
             show_inherited_properties=show_inherited_properties,
             _request_auth=_request_auth,
@@ -2051,7 +1942,6 @@ class RouteApi:
     @validate_call
     def get_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get")],
         show_inherited_properties: Annotated[StrictBool, Field(description="return inherited properties from parent or not")],
         _request_timeout: Union[
@@ -2071,8 +1961,6 @@ class RouteApi:
 
         Get an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get (required)
         :type route_id: int
         :param show_inherited_properties: return inherited properties from parent or not (required)
@@ -2100,7 +1988,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_serialize(
-            version=version,
             route_id=route_id,
             show_inherited_properties=show_inherited_properties,
             _request_auth=_request_auth,
@@ -2126,7 +2013,6 @@ class RouteApi:
     @validate_call
     def get_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get")],
         show_inherited_properties: Annotated[StrictBool, Field(description="return inherited properties from parent or not")],
         _request_timeout: Union[
@@ -2146,8 +2032,6 @@ class RouteApi:
 
         Get an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get (required)
         :type route_id: int
         :param show_inherited_properties: return inherited properties from parent or not (required)
@@ -2175,7 +2059,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_serialize(
-            version=version,
             route_id=route_id,
             show_inherited_properties=show_inherited_properties,
             _request_auth=_request_auth,
@@ -2196,7 +2079,6 @@ class RouteApi:
 
     def _get_route_serialize(
         self,
-        version,
         route_id,
         show_inherited_properties,
         _request_auth,
@@ -2220,8 +2102,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -2249,7 +2129,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}',
+            resource_path='/route/{routeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2268,7 +2148,6 @@ class RouteApi:
     @validate_call
     def get_route_directions(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get directions for")],
         _request_timeout: Union[
             None,
@@ -2287,8 +2166,6 @@ class RouteApi:
 
         Get the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2314,7 +2191,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2339,7 +2215,6 @@ class RouteApi:
     @validate_call
     def get_route_directions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get directions for")],
         _request_timeout: Union[
             None,
@@ -2358,8 +2233,6 @@ class RouteApi:
 
         Get the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2385,7 +2258,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2410,7 +2282,6 @@ class RouteApi:
     @validate_call
     def get_route_directions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get directions for")],
         _request_timeout: Union[
             None,
@@ -2429,8 +2300,6 @@ class RouteApi:
 
         Get the directions of a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get directions for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2456,7 +2325,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_directions_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2476,7 +2344,6 @@ class RouteApi:
 
     def _get_route_directions_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -2499,8 +2366,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -2524,7 +2389,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}/directions',
+            resource_path='/route/{routeId}/directions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2543,7 +2408,6 @@ class RouteApi:
     @validate_call
     def get_route_shipments(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get shipments for")],
         _request_timeout: Union[
             None,
@@ -2562,8 +2426,6 @@ class RouteApi:
 
         Get the shipments on the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get shipments for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2589,7 +2451,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_shipments_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2614,7 +2475,6 @@ class RouteApi:
     @validate_call
     def get_route_shipments_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get shipments for")],
         _request_timeout: Union[
             None,
@@ -2633,8 +2493,6 @@ class RouteApi:
 
         Get the shipments on the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get shipments for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2660,7 +2518,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_shipments_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2685,7 +2542,6 @@ class RouteApi:
     @validate_call
     def get_route_shipments_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get shipments for")],
         _request_timeout: Union[
             None,
@@ -2704,8 +2560,6 @@ class RouteApi:
 
         Get the shipments on the requested route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get shipments for (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -2731,7 +2585,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_shipments_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -2751,7 +2604,6 @@ class RouteApi:
 
     def _get_route_shipments_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -2774,8 +2626,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -2799,7 +2649,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}/shipments',
+            resource_path='/route/{routeId}/shipments',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2818,7 +2668,6 @@ class RouteApi:
     @validate_call
     def get_route_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop on the route")],
         _request_timeout: Union[
@@ -2838,8 +2687,6 @@ class RouteApi:
 
         Get the specific stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop on the route (required)
@@ -2867,7 +2714,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -2893,7 +2739,6 @@ class RouteApi:
     @validate_call
     def get_route_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop on the route")],
         _request_timeout: Union[
@@ -2913,8 +2758,6 @@ class RouteApi:
 
         Get the specific stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop on the route (required)
@@ -2942,7 +2785,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -2968,7 +2810,6 @@ class RouteApi:
     @validate_call
     def get_route_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to get stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop on the route")],
         _request_timeout: Union[
@@ -2988,8 +2829,6 @@ class RouteApi:
 
         Get the specific stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to get stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop on the route (required)
@@ -3017,7 +2856,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -3038,7 +2876,6 @@ class RouteApi:
 
     def _get_route_stop_serialize(
         self,
-        version,
         route_id,
         stop_id,
         _request_auth,
@@ -3062,8 +2899,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         if stop_id is not None:
@@ -3089,7 +2924,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}/stop/{stopId}',
+            resource_path='/route/{routeId}/stop/{stopId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3108,7 +2943,6 @@ class RouteApi:
     @validate_call
     def get_route_stops(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         confirmed_only: Annotated[StrictBool, Field(description="only get stops that have been confirmed or not")],
         _request_timeout: Union[
@@ -3128,8 +2962,6 @@ class RouteApi:
 
         The stops of the route requested
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param confirmed_only: only get stops that have been confirmed or not (required)
@@ -3157,7 +2989,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stops_serialize(
-            version=version,
             route_id=route_id,
             confirmed_only=confirmed_only,
             _request_auth=_request_auth,
@@ -3183,7 +3014,6 @@ class RouteApi:
     @validate_call
     def get_route_stops_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         confirmed_only: Annotated[StrictBool, Field(description="only get stops that have been confirmed or not")],
         _request_timeout: Union[
@@ -3203,8 +3033,6 @@ class RouteApi:
 
         The stops of the route requested
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param confirmed_only: only get stops that have been confirmed or not (required)
@@ -3232,7 +3060,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stops_serialize(
-            version=version,
             route_id=route_id,
             confirmed_only=confirmed_only,
             _request_auth=_request_auth,
@@ -3258,7 +3085,6 @@ class RouteApi:
     @validate_call
     def get_route_stops_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         confirmed_only: Annotated[StrictBool, Field(description="only get stops that have been confirmed or not")],
         _request_timeout: Union[
@@ -3278,8 +3104,6 @@ class RouteApi:
 
         The stops of the route requested
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param confirmed_only: only get stops that have been confirmed or not (required)
@@ -3307,7 +3131,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_route_stops_serialize(
-            version=version,
             route_id=route_id,
             confirmed_only=confirmed_only,
             _request_auth=_request_auth,
@@ -3328,7 +3151,6 @@ class RouteApi:
 
     def _get_route_stops_serialize(
         self,
-        version,
         route_id,
         confirmed_only,
         _request_auth,
@@ -3352,8 +3174,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -3381,7 +3201,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}/stops',
+            resource_path='/route/{routeId}/stops',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3400,7 +3220,6 @@ class RouteApi:
     @validate_call
     def get_shipments_at_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the stop to get shipments on")],
         _request_timeout: Union[
@@ -3420,8 +3239,6 @@ class RouteApi:
 
         Get the list of shipments on the requested route at a stop
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the stop to get shipments on (required)
@@ -3449,7 +3266,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_shipments_at_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -3475,7 +3291,6 @@ class RouteApi:
     @validate_call
     def get_shipments_at_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the stop to get shipments on")],
         _request_timeout: Union[
@@ -3495,8 +3310,6 @@ class RouteApi:
 
         Get the list of shipments on the requested route at a stop
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the stop to get shipments on (required)
@@ -3524,7 +3337,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_shipments_at_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -3550,7 +3362,6 @@ class RouteApi:
     @validate_call
     def get_shipments_at_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the stop to get shipments on")],
         _request_timeout: Union[
@@ -3570,8 +3381,6 @@ class RouteApi:
 
         Get the list of shipments on the requested route at a stop
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the stop to get shipments on (required)
@@ -3599,7 +3408,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._get_shipments_at_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -3620,7 +3428,6 @@ class RouteApi:
 
     def _get_shipments_at_stop_serialize(
         self,
-        version,
         route_id,
         stop_id,
         _request_auth,
@@ -3644,8 +3451,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         if stop_id is not None:
@@ -3671,7 +3476,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/{routeId}/stop/{stopId}/shipments',
+            resource_path='/route/{routeId}/stop/{stopId}/shipments',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3690,7 +3495,6 @@ class RouteApi:
     @validate_call
     def optimize_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to optimize")],
         _request_timeout: Union[
             None,
@@ -3709,8 +3513,6 @@ class RouteApi:
 
         Optimize a route. The optimization method based on how the server is configured.
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to optimize (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3736,7 +3538,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._optimize_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3760,7 +3561,6 @@ class RouteApi:
     @validate_call
     def optimize_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to optimize")],
         _request_timeout: Union[
             None,
@@ -3779,8 +3579,6 @@ class RouteApi:
 
         Optimize a route. The optimization method based on how the server is configured.
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to optimize (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3806,7 +3604,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._optimize_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3830,7 +3627,6 @@ class RouteApi:
     @validate_call
     def optimize_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to optimize")],
         _request_timeout: Union[
             None,
@@ -3849,8 +3645,6 @@ class RouteApi:
 
         Optimize a route. The optimization method based on how the server is configured.
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to optimize (required)
         :type route_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -3876,7 +3670,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._optimize_route_serialize(
-            version=version,
             route_id=route_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -3895,7 +3688,6 @@ class RouteApi:
 
     def _optimize_route_serialize(
         self,
-        version,
         route_id,
         _request_auth,
         _content_type,
@@ -3918,8 +3710,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -3936,7 +3726,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{routeId}/optimize',
+            resource_path='/route/{routeId}/optimize',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3955,7 +3745,6 @@ class RouteApi:
     @validate_call
     def remove_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to delete on the route")],
         _request_timeout: Union[
@@ -3975,8 +3764,6 @@ class RouteApi:
 
         Delete a stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to delete on the route (required)
@@ -4004,7 +3791,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._remove_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -4029,7 +3815,6 @@ class RouteApi:
     @validate_call
     def remove_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to delete on the route")],
         _request_timeout: Union[
@@ -4049,8 +3834,6 @@ class RouteApi:
 
         Delete a stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to delete on the route (required)
@@ -4078,7 +3861,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._remove_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -4103,7 +3885,6 @@ class RouteApi:
     @validate_call
     def remove_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to delete on the route")],
         _request_timeout: Union[
@@ -4123,8 +3904,6 @@ class RouteApi:
 
         Delete a stop on a route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to delete on the route (required)
@@ -4152,7 +3931,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._remove_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             _request_auth=_request_auth,
@@ -4172,7 +3950,6 @@ class RouteApi:
 
     def _remove_stop_serialize(
         self,
-        version,
         route_id,
         stop_id,
         _request_auth,
@@ -4196,8 +3973,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         if stop_id is not None:
@@ -4216,7 +3991,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/route/{routeId}/stop/{stopId}',
+            resource_path='/route/{routeId}/stop/{stopId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4235,7 +4010,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_patch(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4255,8 +4029,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4284,7 +4056,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_patch_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4310,7 +4081,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_patch_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4330,8 +4100,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4359,7 +4127,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_patch_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4385,7 +4152,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_patch_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4405,8 +4171,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4434,7 +4198,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_patch_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4455,7 +4218,6 @@ class RouteApi:
 
     def _reorder_route_stops_patch_serialize(
         self,
-        version,
         route_id,
         body,
         _request_auth,
@@ -4480,8 +4242,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -4507,7 +4267,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='PATCH',
-            resource_path='/api/{version}/route/{routeId}/stops/reorder',
+            resource_path='/route/{routeId}/stops/reorder',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4526,7 +4286,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_post(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4546,8 +4305,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4575,7 +4332,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_post_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4601,7 +4357,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_post_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4621,8 +4376,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4650,7 +4403,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_post_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4676,7 +4428,6 @@ class RouteApi:
     @validate_call
     def reorder_route_stops_post_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[List[Stop]] = None,
         _request_timeout: Union[
@@ -4696,8 +4447,6 @@ class RouteApi:
 
         Reordering the stops on the route with and update route distance, time, direction, and polyline
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -4725,7 +4474,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._reorder_route_stops_post_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -4746,7 +4494,6 @@ class RouteApi:
 
     def _reorder_route_stops_post_serialize(
         self,
-        version,
         route_id,
         body,
         _request_auth,
@@ -4771,8 +4518,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -4798,7 +4543,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{routeId}/stops/reorder',
+            resource_path='/route/{routeId}/stops/reorder',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4817,7 +4562,6 @@ class RouteApi:
     @validate_call
     def search_routes(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -4856,8 +4600,6 @@ class RouteApi:
 
         Search for routes.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -4923,7 +4665,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._search_routes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -4968,7 +4709,6 @@ class RouteApi:
     @validate_call
     def search_routes_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -5007,8 +4747,6 @@ class RouteApi:
 
         Search for routes.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -5074,7 +4812,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._search_routes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -5119,7 +4856,6 @@ class RouteApi:
     @validate_call
     def search_routes_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -5158,8 +4894,6 @@ class RouteApi:
 
         Search for routes.
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -5225,7 +4959,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._search_routes_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -5265,7 +4998,6 @@ class RouteApi:
 
     def _search_routes_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -5308,8 +5040,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if hub_id is not None:
             
@@ -5415,7 +5145,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route',
+            resource_path='/route',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5434,7 +5164,6 @@ class RouteApi:
     @validate_call
     def set_driver(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the route")],
         driver_id: Annotated[StrictInt, Field(description="the id of the driver")],
         _request_timeout: Union[
@@ -5454,8 +5183,6 @@ class RouteApi:
 
         Update the driver of the route.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the route (required)
         :type id: int
         :param driver_id: the id of the driver (required)
@@ -5483,7 +5210,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._set_driver_serialize(
-            version=version,
             id=id,
             driver_id=driver_id,
             _request_auth=_request_auth,
@@ -5508,7 +5234,6 @@ class RouteApi:
     @validate_call
     def set_driver_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the route")],
         driver_id: Annotated[StrictInt, Field(description="the id of the driver")],
         _request_timeout: Union[
@@ -5528,8 +5253,6 @@ class RouteApi:
 
         Update the driver of the route.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the route (required)
         :type id: int
         :param driver_id: the id of the driver (required)
@@ -5557,7 +5280,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._set_driver_serialize(
-            version=version,
             id=id,
             driver_id=driver_id,
             _request_auth=_request_auth,
@@ -5582,7 +5304,6 @@ class RouteApi:
     @validate_call
     def set_driver_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the route")],
         driver_id: Annotated[StrictInt, Field(description="the id of the driver")],
         _request_timeout: Union[
@@ -5602,8 +5323,6 @@ class RouteApi:
 
         Update the driver of the route.
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the route (required)
         :type id: int
         :param driver_id: the id of the driver (required)
@@ -5631,7 +5350,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._set_driver_serialize(
-            version=version,
             id=id,
             driver_id=driver_id,
             _request_auth=_request_auth,
@@ -5651,7 +5369,6 @@ class RouteApi:
 
     def _set_driver_serialize(
         self,
-        version,
         id,
         driver_id,
         _request_auth,
@@ -5675,8 +5392,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         if driver_id is not None:
@@ -5695,7 +5410,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/{id}/driver/{driverId}',
+            resource_path='/route/{id}/driver/{driverId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5714,7 +5429,6 @@ class RouteApi:
     @validate_call
     def update_route(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -5734,8 +5448,6 @@ class RouteApi:
 
         Update an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -5763,7 +5475,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -5789,7 +5500,6 @@ class RouteApi:
     @validate_call
     def update_route_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -5809,8 +5519,6 @@ class RouteApi:
 
         Update an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -5838,7 +5546,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -5864,7 +5571,6 @@ class RouteApi:
     @validate_call
     def update_route_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route")],
         body: Optional[Route] = None,
         _request_timeout: Union[
@@ -5884,8 +5590,6 @@ class RouteApi:
 
         Update an existing route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route (required)
         :type route_id: int
         :param body:
@@ -5913,7 +5617,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_serialize(
-            version=version,
             route_id=route_id,
             body=body,
             _request_auth=_request_auth,
@@ -5934,7 +5637,6 @@ class RouteApi:
 
     def _update_route_serialize(
         self,
-        version,
         route_id,
         body,
         _request_auth,
@@ -5958,8 +5660,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         # process the query parameters
@@ -5985,7 +5685,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/route/{routeId}',
+            resource_path='/route/{routeId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6004,7 +5704,6 @@ class RouteApi:
     @validate_call
     def update_route_stop(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to update on the route")],
         body: Optional[Stop] = None,
@@ -6025,8 +5724,6 @@ class RouteApi:
 
         Update a stop on a specified route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to update on the route (required)
@@ -6056,7 +5753,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             body=body,
@@ -6082,7 +5778,6 @@ class RouteApi:
     @validate_call
     def update_route_stop_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to update on the route")],
         body: Optional[Stop] = None,
@@ -6103,8 +5798,6 @@ class RouteApi:
 
         Update a stop on a specified route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to update on the route (required)
@@ -6134,7 +5827,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             body=body,
@@ -6160,7 +5852,6 @@ class RouteApi:
     @validate_call
     def update_route_stop_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_id: Annotated[StrictInt, Field(description="the id of the route to update stops for")],
         stop_id: Annotated[StrictInt, Field(description="the id of the specific stop to update on the route")],
         body: Optional[Stop] = None,
@@ -6181,8 +5872,6 @@ class RouteApi:
 
         Update a stop on a specified route
 
-        :param version: (required)
-        :type version: float
         :param route_id: the id of the route to update stops for (required)
         :type route_id: int
         :param stop_id: the id of the specific stop to update on the route (required)
@@ -6212,7 +5901,6 @@ class RouteApi:
         """ # noqa: E501
 
         _param = self._update_route_stop_serialize(
-            version=version,
             route_id=route_id,
             stop_id=stop_id,
             body=body,
@@ -6233,7 +5921,6 @@ class RouteApi:
 
     def _update_route_stop_serialize(
         self,
-        version,
         route_id,
         stop_id,
         body,
@@ -6258,8 +5945,6 @@ class RouteApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_id is not None:
             _path_params['routeId'] = route_id
         if stop_id is not None:
@@ -6280,7 +5965,7 @@ class RouteApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/route/{routeId}/stop/{stopId}',
+            resource_path='/route/{routeId}/stop/{stopId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

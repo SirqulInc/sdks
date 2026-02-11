@@ -17,8 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt, StrictStr
-from typing import Union
+from pydantic import Field, StrictStr
 from typing_extensions import Annotated
 from openapi_client.models.sirqul_response import SirqulResponse
 
@@ -43,7 +42,6 @@ class StripeApi:
     @validate_call
     def create_stripe_checkout_session(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         stripe_parameters: Annotated[StrictStr, Field(description="Stripe Parameters")],
         _request_timeout: Union[
@@ -63,8 +61,6 @@ class StripeApi:
 
         Create a Stripe checkout session
 
-        :param version: (required)
-        :type version: float
         :param app_key: Sirqul Application Key (required)
         :type app_key: str
         :param stripe_parameters: Stripe Parameters (required)
@@ -92,7 +88,6 @@ class StripeApi:
         """ # noqa: E501
 
         _param = self._create_stripe_checkout_session_serialize(
-            version=version,
             app_key=app_key,
             stripe_parameters=stripe_parameters,
             _request_auth=_request_auth,
@@ -118,7 +113,6 @@ class StripeApi:
     @validate_call
     def create_stripe_checkout_session_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         stripe_parameters: Annotated[StrictStr, Field(description="Stripe Parameters")],
         _request_timeout: Union[
@@ -138,8 +132,6 @@ class StripeApi:
 
         Create a Stripe checkout session
 
-        :param version: (required)
-        :type version: float
         :param app_key: Sirqul Application Key (required)
         :type app_key: str
         :param stripe_parameters: Stripe Parameters (required)
@@ -167,7 +159,6 @@ class StripeApi:
         """ # noqa: E501
 
         _param = self._create_stripe_checkout_session_serialize(
-            version=version,
             app_key=app_key,
             stripe_parameters=stripe_parameters,
             _request_auth=_request_auth,
@@ -193,7 +184,6 @@ class StripeApi:
     @validate_call
     def create_stripe_checkout_session_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         stripe_parameters: Annotated[StrictStr, Field(description="Stripe Parameters")],
         _request_timeout: Union[
@@ -213,8 +203,6 @@ class StripeApi:
 
         Create a Stripe checkout session
 
-        :param version: (required)
-        :type version: float
         :param app_key: Sirqul Application Key (required)
         :type app_key: str
         :param stripe_parameters: Stripe Parameters (required)
@@ -242,7 +230,6 @@ class StripeApi:
         """ # noqa: E501
 
         _param = self._create_stripe_checkout_session_serialize(
-            version=version,
             app_key=app_key,
             stripe_parameters=stripe_parameters,
             _request_auth=_request_auth,
@@ -263,7 +250,6 @@ class StripeApi:
 
     def _create_stripe_checkout_session_serialize(
         self,
-        version,
         app_key,
         stripe_parameters,
         _request_auth,
@@ -287,8 +273,6 @@ class StripeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if app_key is not None:
             
@@ -318,7 +302,7 @@ class StripeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/stripe/checkout/session/create',
+            resource_path='/stripe/checkout/session/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

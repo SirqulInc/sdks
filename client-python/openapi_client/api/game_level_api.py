@@ -47,7 +47,6 @@ class GameLevelApi:
     @validate_call
     def create_game_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         game_data: Annotated[StrictStr, Field(description="The game level data: xml, json, or other text based format.")],
@@ -91,8 +90,6 @@ class GameLevelApi:
 
         Create a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -168,7 +165,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._create_game_level_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             game_data=game_data,
@@ -218,7 +214,6 @@ class GameLevelApi:
     @validate_call
     def create_game_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         game_data: Annotated[StrictStr, Field(description="The game level data: xml, json, or other text based format.")],
@@ -262,8 +257,6 @@ class GameLevelApi:
 
         Create a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -339,7 +332,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._create_game_level_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             game_data=game_data,
@@ -389,7 +381,6 @@ class GameLevelApi:
     @validate_call
     def create_game_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         name: Annotated[StrictStr, Field(description="The name of the level.")],
         game_data: Annotated[StrictStr, Field(description="The game level data: xml, json, or other text based format.")],
@@ -433,8 +424,6 @@ class GameLevelApi:
 
         Create a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param name: The name of the level. (required)
@@ -510,7 +499,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._create_game_level_serialize(
-            version=version,
             account_id=account_id,
             name=name,
             game_data=game_data,
@@ -555,7 +543,6 @@ class GameLevelApi:
 
     def _create_game_level_serialize(
         self,
-        version,
         account_id,
         name,
         game_data,
@@ -603,8 +590,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -730,7 +715,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/level/create',
+            resource_path='/level/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -749,7 +734,6 @@ class GameLevelApi:
     @validate_call
     def delete_game_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         _request_timeout: Union[
@@ -769,8 +753,6 @@ class GameLevelApi:
 
         Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -798,7 +780,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._delete_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             _request_auth=_request_auth,
@@ -824,7 +805,6 @@ class GameLevelApi:
     @validate_call
     def delete_game_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         _request_timeout: Union[
@@ -844,8 +824,6 @@ class GameLevelApi:
 
         Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -873,7 +851,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._delete_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             _request_auth=_request_auth,
@@ -899,7 +876,6 @@ class GameLevelApi:
     @validate_call
     def delete_game_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         _request_timeout: Union[
@@ -919,8 +895,6 @@ class GameLevelApi:
 
         Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -948,7 +922,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._delete_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             _request_auth=_request_auth,
@@ -969,7 +942,6 @@ class GameLevelApi:
 
     def _delete_game_level_serialize(
         self,
-        version,
         account_id,
         level_id,
         _request_auth,
@@ -993,8 +965,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1024,7 +994,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/level/delete',
+            resource_path='/level/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1043,7 +1013,6 @@ class GameLevelApi:
     @validate_call
     def get_game_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -1064,8 +1033,6 @@ class GameLevelApi:
 
         Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -1095,7 +1062,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             include_game_data=include_game_data,
@@ -1122,7 +1088,6 @@ class GameLevelApi:
     @validate_call
     def get_game_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -1143,8 +1108,6 @@ class GameLevelApi:
 
         Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -1174,7 +1137,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             include_game_data=include_game_data,
@@ -1201,7 +1163,6 @@ class GameLevelApi:
     @validate_call
     def get_game_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="The id of the level to return.")],
         include_game_data: Annotated[Optional[StrictBool], Field(description="If true include the game level data, otherwise don't. default is false.")] = None,
@@ -1222,8 +1183,6 @@ class GameLevelApi:
 
         Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: The id of the level to return. (required)
@@ -1253,7 +1212,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             include_game_data=include_game_data,
@@ -1275,7 +1233,6 @@ class GameLevelApi:
 
     def _get_game_level_serialize(
         self,
-        version,
         account_id,
         level_id,
         include_game_data,
@@ -1300,8 +1257,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1335,7 +1290,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/level/get',
+            resource_path='/level/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1354,7 +1309,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_application(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="Match the keyword to the owner name or level name.")] = None,
@@ -1382,8 +1336,6 @@ class GameLevelApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1427,7 +1379,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -1461,7 +1412,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_application_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="Match the keyword to the owner name or level name.")] = None,
@@ -1489,8 +1439,6 @@ class GameLevelApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1534,7 +1482,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -1568,7 +1515,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_application_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         app_key: Annotated[StrictStr, Field(description="the application key")],
         keyword: Annotated[Optional[StrictStr], Field(description="Match the keyword to the owner name or level name.")] = None,
@@ -1596,8 +1542,6 @@ class GameLevelApi:
 
         Get a list of levels for an application, just those the account has permissions to view.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param app_key: the application key (required)
@@ -1641,7 +1585,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_application_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -1670,7 +1613,6 @@ class GameLevelApi:
 
     def _get_game_levels_by_application_serialize(
         self,
-        version,
         account_id,
         app_key,
         keyword,
@@ -1702,8 +1644,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1765,7 +1705,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/level/search',
+            resource_path='/level/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1784,7 +1724,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_billable_entity(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -1810,8 +1749,6 @@ class GameLevelApi:
 
         Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: the application key
@@ -1851,7 +1788,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -1883,7 +1819,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_billable_entity_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -1909,8 +1844,6 @@ class GameLevelApi:
 
         Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: the application key
@@ -1950,7 +1883,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -1982,7 +1914,6 @@ class GameLevelApi:
     @validate_call
     def get_game_levels_by_billable_entity_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the user")],
         app_key: Annotated[Optional[StrictStr], Field(description="the application key")] = None,
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
@@ -2008,8 +1939,6 @@ class GameLevelApi:
 
         Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the user (required)
         :type account_id: int
         :param app_key: the application key
@@ -2049,7 +1978,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_game_levels_by_billable_entity_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             keyword=keyword,
@@ -2076,7 +2004,6 @@ class GameLevelApi:
 
     def _get_game_levels_by_billable_entity_serialize(
         self,
-        version,
         account_id,
         app_key,
         keyword,
@@ -2106,8 +2033,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2161,7 +2086,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/level/searchByBillableEntity',
+            resource_path='/level/searchByBillableEntity',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2180,7 +2105,6 @@ class GameLevelApi:
     @validate_call
     def get_questions_in_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get questions from")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2200,8 +2124,6 @@ class GameLevelApi:
 
         Get questions within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get questions from (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2229,7 +2151,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2255,7 +2176,6 @@ class GameLevelApi:
     @validate_call
     def get_questions_in_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get questions from")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2275,8 +2195,6 @@ class GameLevelApi:
 
         Get questions within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get questions from (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2304,7 +2222,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2330,7 +2247,6 @@ class GameLevelApi:
     @validate_call
     def get_questions_in_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get questions from")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2350,8 +2266,6 @@ class GameLevelApi:
 
         Get questions within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get questions from (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2379,7 +2293,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2400,7 +2313,6 @@ class GameLevelApi:
 
     def _get_questions_in_level_serialize(
         self,
-        version,
         level_id,
         account_id,
         _request_auth,
@@ -2424,8 +2336,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if level_id is not None:
             
@@ -2455,7 +2365,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/level/questions/get',
+            resource_path='/level/questions/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2474,7 +2384,6 @@ class GameLevelApi:
     @validate_call
     def get_words_in_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2494,8 +2403,6 @@ class GameLevelApi:
 
         Get words within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2523,7 +2430,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2549,7 +2455,6 @@ class GameLevelApi:
     @validate_call
     def get_words_in_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2569,8 +2474,6 @@ class GameLevelApi:
 
         Get words within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2598,7 +2501,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2624,7 +2526,6 @@ class GameLevelApi:
     @validate_call
     def get_words_in_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to get words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         _request_timeout: Union[
@@ -2644,8 +2545,6 @@ class GameLevelApi:
 
         Get words within a level.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to get words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -2673,7 +2572,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._get_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             _request_auth=_request_auth,
@@ -2694,7 +2592,6 @@ class GameLevelApi:
 
     def _get_words_in_level_serialize(
         self,
-        version,
         level_id,
         account_id,
         _request_auth,
@@ -2718,8 +2615,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if level_id is not None:
             
@@ -2749,7 +2644,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/level/words/get',
+            resource_path='/level/words/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2768,7 +2663,6 @@ class GameLevelApi:
     @validate_call
     def update_game_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="If update then include the level Id.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -2813,8 +2707,6 @@ class GameLevelApi:
 
         Update a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: If update then include the level Id. (required)
@@ -2892,7 +2784,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             app_key=app_key,
@@ -2943,7 +2834,6 @@ class GameLevelApi:
     @validate_call
     def update_game_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="If update then include the level Id.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -2988,8 +2878,6 @@ class GameLevelApi:
 
         Update a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: If update then include the level Id. (required)
@@ -3067,7 +2955,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             app_key=app_key,
@@ -3118,7 +3005,6 @@ class GameLevelApi:
     @validate_call
     def update_game_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         level_id: Annotated[StrictInt, Field(description="If update then include the level Id.")],
         app_key: Annotated[Optional[StrictStr], Field(description="The game application key to save the level for.")] = None,
@@ -3163,8 +3049,6 @@ class GameLevelApi:
 
         Update a game level. Currently does NOT support game objects.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param level_id: If update then include the level Id. (required)
@@ -3242,7 +3126,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_game_level_serialize(
-            version=version,
             account_id=account_id,
             level_id=level_id,
             app_key=app_key,
@@ -3288,7 +3171,6 @@ class GameLevelApi:
 
     def _update_game_level_serialize(
         self,
-        version,
         account_id,
         level_id,
         app_key,
@@ -3337,8 +3219,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3468,7 +3348,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/level/update',
+            resource_path='/level/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3487,7 +3367,6 @@ class GameLevelApi:
     @validate_call
     def update_questions_in_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update questions on")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question_ids: Annotated[StrictStr, Field(description="the IDs of the questions to update")],
@@ -3508,8 +3387,6 @@ class GameLevelApi:
 
         Updates a level with question game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update questions on (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -3539,7 +3416,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             question_ids=question_ids,
@@ -3566,7 +3442,6 @@ class GameLevelApi:
     @validate_call
     def update_questions_in_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update questions on")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question_ids: Annotated[StrictStr, Field(description="the IDs of the questions to update")],
@@ -3587,8 +3462,6 @@ class GameLevelApi:
 
         Updates a level with question game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update questions on (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -3618,7 +3491,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             question_ids=question_ids,
@@ -3645,7 +3517,6 @@ class GameLevelApi:
     @validate_call
     def update_questions_in_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update questions on")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         question_ids: Annotated[StrictStr, Field(description="the IDs of the questions to update")],
@@ -3666,8 +3537,6 @@ class GameLevelApi:
 
         Updates a level with question game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update questions on (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -3697,7 +3566,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_questions_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             question_ids=question_ids,
@@ -3719,7 +3587,6 @@ class GameLevelApi:
 
     def _update_questions_in_level_serialize(
         self,
-        version,
         level_id,
         account_id,
         question_ids,
@@ -3744,8 +3611,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if level_id is not None:
             
@@ -3779,7 +3644,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/level/questions/update',
+            resource_path='/level/questions/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3798,7 +3663,6 @@ class GameLevelApi:
     @validate_call
     def update_words_in_level(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         word_ids: Annotated[StrictStr, Field(description="the ids of the words to update for the level")],
@@ -3819,8 +3683,6 @@ class GameLevelApi:
 
         Updates a level with word game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -3850,7 +3712,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             word_ids=word_ids,
@@ -3877,7 +3738,6 @@ class GameLevelApi:
     @validate_call
     def update_words_in_level_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         word_ids: Annotated[StrictStr, Field(description="the ids of the words to update for the level")],
@@ -3898,8 +3758,6 @@ class GameLevelApi:
 
         Updates a level with word game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -3929,7 +3787,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             word_ids=word_ids,
@@ -3956,7 +3813,6 @@ class GameLevelApi:
     @validate_call
     def update_words_in_level_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         level_id: Annotated[StrictInt, Field(description="the id of the level to update words for")],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         word_ids: Annotated[StrictStr, Field(description="the ids of the words to update for the level")],
@@ -3977,8 +3833,6 @@ class GameLevelApi:
 
         Updates a level with word game objects.
 
-        :param version: (required)
-        :type version: float
         :param level_id: the id of the level to update words for (required)
         :type level_id: int
         :param account_id: the id of the logged in user (required)
@@ -4008,7 +3862,6 @@ class GameLevelApi:
         """ # noqa: E501
 
         _param = self._update_words_in_level_serialize(
-            version=version,
             level_id=level_id,
             account_id=account_id,
             word_ids=word_ids,
@@ -4030,7 +3883,6 @@ class GameLevelApi:
 
     def _update_words_in_level_serialize(
         self,
-        version,
         level_id,
         account_id,
         word_ids,
@@ -4055,8 +3907,6 @@ class GameLevelApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if level_id is not None:
             
@@ -4090,7 +3940,7 @@ class GameLevelApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/level/words/update',
+            resource_path='/level/words/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

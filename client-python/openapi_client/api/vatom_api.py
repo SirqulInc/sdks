@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 
 from openapi_client.api_client import ApiClient, RequestSerialized
@@ -42,7 +42,6 @@ class VatomApi:
     @validate_call
     def create_following(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -63,8 +62,6 @@ class VatomApi:
 
         Create following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -94,7 +91,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -121,7 +117,6 @@ class VatomApi:
     @validate_call
     def create_following_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -142,8 +137,6 @@ class VatomApi:
 
         Create following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -173,7 +166,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -200,7 +192,6 @@ class VatomApi:
     @validate_call
     def create_following_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -221,8 +212,6 @@ class VatomApi:
 
         Create following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -252,7 +241,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -274,7 +262,6 @@ class VatomApi:
 
     def _create_following_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -299,8 +286,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -327,7 +312,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/me/rels/following/create',
+            resource_path='/vatom/me/rels/following/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -346,7 +331,6 @@ class VatomApi:
     @validate_call
     def create_space(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -368,8 +352,6 @@ class VatomApi:
 
         Create a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -401,7 +383,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -429,7 +410,6 @@ class VatomApi:
     @validate_call
     def create_space_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -451,8 +431,6 @@ class VatomApi:
 
         Create a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -484,7 +462,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -512,7 +489,6 @@ class VatomApi:
     @validate_call
     def create_space_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -534,8 +510,6 @@ class VatomApi:
 
         Create a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -567,7 +541,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -590,7 +563,6 @@ class VatomApi:
 
     def _create_space_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -616,8 +588,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -648,7 +618,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/spaces/create',
+            resource_path='/vatom/b/spaces/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -667,7 +637,6 @@ class VatomApi:
     @validate_call
     def create_vatom_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -689,8 +658,6 @@ class VatomApi:
 
         Create a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -722,7 +689,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -750,7 +716,6 @@ class VatomApi:
     @validate_call
     def create_vatom_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -772,8 +737,6 @@ class VatomApi:
 
         Create a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -805,7 +768,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -833,7 +795,6 @@ class VatomApi:
     @validate_call
     def create_vatom_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -855,8 +816,6 @@ class VatomApi:
 
         Create a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -888,7 +847,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._create_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -911,7 +869,6 @@ class VatomApi:
 
     def _create_vatom_event_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -937,8 +894,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -969,7 +924,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/events/create',
+            resource_path='/vatom/b/events/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -988,7 +943,6 @@ class VatomApi:
     @validate_call
     def delete_following(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_rels_key: Annotated[StrictStr, Field(description="Vatom Rels Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -1009,8 +963,6 @@ class VatomApi:
 
         Delete following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_rels_key: Vatom Rels Key (required)
@@ -1040,7 +992,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_rels_key=vatom_rels_key,
             return_raw_response=return_raw_response,
@@ -1067,7 +1018,6 @@ class VatomApi:
     @validate_call
     def delete_following_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_rels_key: Annotated[StrictStr, Field(description="Vatom Rels Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -1088,8 +1038,6 @@ class VatomApi:
 
         Delete following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_rels_key: Vatom Rels Key (required)
@@ -1119,7 +1067,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_rels_key=vatom_rels_key,
             return_raw_response=return_raw_response,
@@ -1146,7 +1093,6 @@ class VatomApi:
     @validate_call
     def delete_following_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_rels_key: Annotated[StrictStr, Field(description="Vatom Rels Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -1167,8 +1113,6 @@ class VatomApi:
 
         Delete following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_rels_key: Vatom Rels Key (required)
@@ -1198,7 +1142,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_rels_key=vatom_rels_key,
             return_raw_response=return_raw_response,
@@ -1220,7 +1163,6 @@ class VatomApi:
 
     def _delete_following_serialize(
         self,
-        version,
         account_id,
         vatom_rels_key,
         return_raw_response,
@@ -1245,8 +1187,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1273,7 +1213,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/me/rels/following/delete',
+            resource_path='/vatom/me/rels/following/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1292,7 +1232,6 @@ class VatomApi:
     @validate_call
     def delete_points_balance(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -1314,8 +1253,6 @@ class VatomApi:
 
         Reset All Points Balance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1347,7 +1284,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_points_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -1375,7 +1311,6 @@ class VatomApi:
     @validate_call
     def delete_points_balance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -1397,8 +1332,6 @@ class VatomApi:
 
         Reset All Points Balance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1430,7 +1363,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_points_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -1458,7 +1390,6 @@ class VatomApi:
     @validate_call
     def delete_points_balance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -1480,8 +1411,6 @@ class VatomApi:
 
         Reset All Points Balance.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1513,7 +1442,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_points_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -1536,7 +1464,6 @@ class VatomApi:
 
     def _delete_points_balance_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -1562,8 +1489,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1594,7 +1519,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/campaign/points/delete',
+            resource_path='/vatom/b/campaign/points/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1613,7 +1538,6 @@ class VatomApi:
     @validate_call
     def delete_space(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -1635,8 +1559,6 @@ class VatomApi:
 
         Delete a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1668,7 +1590,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -1696,7 +1617,6 @@ class VatomApi:
     @validate_call
     def delete_space_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -1718,8 +1638,6 @@ class VatomApi:
 
         Delete a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1751,7 +1669,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -1779,7 +1696,6 @@ class VatomApi:
     @validate_call
     def delete_space_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -1801,8 +1717,6 @@ class VatomApi:
 
         Delete a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1834,7 +1748,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -1857,7 +1770,6 @@ class VatomApi:
 
     def _delete_space_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_space_id,
@@ -1883,8 +1795,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1915,7 +1825,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/spaces/delete',
+            resource_path='/vatom/b/spaces/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1934,7 +1844,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -1956,8 +1865,6 @@ class VatomApi:
 
         Delete a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -1989,7 +1896,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -2017,7 +1923,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -2039,8 +1944,6 @@ class VatomApi:
 
         Delete a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -2072,7 +1975,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -2100,7 +2002,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -2122,8 +2023,6 @@ class VatomApi:
 
         Delete a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -2155,7 +2054,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -2178,7 +2076,6 @@ class VatomApi:
 
     def _delete_vatom_event_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_event_id,
@@ -2204,8 +2101,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2236,7 +2131,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/events/delete',
+            resource_path='/vatom/b/events/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2255,7 +2150,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -2276,8 +2170,6 @@ class VatomApi:
 
         Delete Vatom NFT
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2307,7 +2199,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -2334,7 +2225,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -2355,8 +2245,6 @@ class VatomApi:
 
         Delete Vatom NFT
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2386,7 +2274,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -2413,7 +2300,6 @@ class VatomApi:
     @validate_call
     def delete_vatom_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -2434,8 +2320,6 @@ class VatomApi:
 
         Delete Vatom NFT
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2465,7 +2349,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._delete_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -2487,7 +2370,6 @@ class VatomApi:
 
     def _delete_vatom_nft_serialize(
         self,
-        version,
         account_id,
         vatom_id,
         return_raw_response,
@@ -2512,8 +2394,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2540,7 +2420,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/vatoms/delete',
+            resource_path='/vatom/vatoms/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2559,7 +2439,6 @@ class VatomApi:
     @validate_call
     def execute_action_on_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -2581,8 +2460,6 @@ class VatomApi:
 
         Execute Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2614,7 +2491,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._execute_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_parameters=vatom_parameters,
@@ -2642,7 +2518,6 @@ class VatomApi:
     @validate_call
     def execute_action_on_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -2664,8 +2539,6 @@ class VatomApi:
 
         Execute Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2697,7 +2570,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._execute_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_parameters=vatom_parameters,
@@ -2725,7 +2597,6 @@ class VatomApi:
     @validate_call
     def execute_action_on_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -2747,8 +2618,6 @@ class VatomApi:
 
         Execute Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -2780,7 +2649,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._execute_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_parameters=vatom_parameters,
@@ -2803,7 +2671,6 @@ class VatomApi:
 
     def _execute_action_on_nft_serialize(
         self,
-        version,
         account_id,
         vatom_id,
         vatom_parameters,
@@ -2829,8 +2696,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2861,7 +2726,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/vatoms/execute-action',
+            resource_path='/vatom/vatoms/execute-action',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2880,7 +2745,6 @@ class VatomApi:
     @validate_call
     def geomap_search(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -2901,8 +2765,6 @@ class VatomApi:
 
         Search Vatom Geo Map
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -2932,7 +2794,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._geomap_search_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -2959,7 +2820,6 @@ class VatomApi:
     @validate_call
     def geomap_search_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -2980,8 +2840,6 @@ class VatomApi:
 
         Search Vatom Geo Map
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -3011,7 +2869,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._geomap_search_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -3038,7 +2895,6 @@ class VatomApi:
     @validate_call
     def geomap_search_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3059,8 +2915,6 @@ class VatomApi:
 
         Search Vatom Geo Map
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -3090,7 +2944,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._geomap_search_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -3112,7 +2965,6 @@ class VatomApi:
 
     def _geomap_search_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -3137,8 +2989,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3165,7 +3015,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/vatoms/geo-map/search',
+            resource_path='/vatom/vatoms/geo-map/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3184,7 +3034,6 @@ class VatomApi:
     @validate_call
     def get_business_behaviors(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3205,8 +3054,6 @@ class VatomApi:
 
         Gets the behaviors of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3236,7 +3083,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_behaviors_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3263,7 +3109,6 @@ class VatomApi:
     @validate_call
     def get_business_behaviors_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3284,8 +3129,6 @@ class VatomApi:
 
         Gets the behaviors of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3315,7 +3158,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_behaviors_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3342,7 +3184,6 @@ class VatomApi:
     @validate_call
     def get_business_behaviors_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3363,8 +3204,6 @@ class VatomApi:
 
         Gets the behaviors of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3394,7 +3233,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_behaviors_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3416,7 +3254,6 @@ class VatomApi:
 
     def _get_business_behaviors_serialize(
         self,
-        version,
         account_id,
         app_key,
         return_raw_response,
@@ -3441,8 +3278,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3469,7 +3304,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/behaviors',
+            resource_path='/vatom/b/behaviors',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3488,7 +3323,6 @@ class VatomApi:
     @validate_call
     def get_business_coins_balance(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3509,8 +3343,6 @@ class VatomApi:
 
         Get the coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3540,7 +3372,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3567,7 +3398,6 @@ class VatomApi:
     @validate_call
     def get_business_coins_balance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3588,8 +3418,6 @@ class VatomApi:
 
         Get the coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3619,7 +3447,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3646,7 +3473,6 @@ class VatomApi:
     @validate_call
     def get_business_coins_balance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -3667,8 +3493,6 @@ class VatomApi:
 
         Get the coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -3698,7 +3522,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -3720,7 +3543,6 @@ class VatomApi:
 
     def _get_business_coins_balance_serialize(
         self,
-        version,
         account_id,
         app_key,
         return_raw_response,
@@ -3745,8 +3567,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3773,7 +3593,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/coins/get',
+            resource_path='/vatom/b/coins/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -3792,7 +3612,6 @@ class VatomApi:
     @validate_call
     def get_business_ids(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -3812,8 +3631,6 @@ class VatomApi:
 
         Get the business ids the logged in user has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -3841,7 +3658,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_ids_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -3867,7 +3683,6 @@ class VatomApi:
     @validate_call
     def get_business_ids_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -3887,8 +3702,6 @@ class VatomApi:
 
         Get the business ids the logged in user has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -3916,7 +3729,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_ids_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -3942,7 +3754,6 @@ class VatomApi:
     @validate_call
     def get_business_ids_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -3962,8 +3773,6 @@ class VatomApi:
 
         Get the business ids the logged in user has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -3991,7 +3800,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_ids_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -4012,7 +3820,6 @@ class VatomApi:
 
     def _get_business_ids_serialize(
         self,
-        version,
         account_id,
         return_raw_response,
         _request_auth,
@@ -4036,8 +3843,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4060,7 +3865,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/me/businesses',
+            resource_path='/vatom/me/businesses',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4079,7 +3884,6 @@ class VatomApi:
     @validate_call
     def get_business_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -4101,8 +3905,6 @@ class VatomApi:
 
         Gets the business info tied to this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4134,7 +3936,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -4162,7 +3963,6 @@ class VatomApi:
     @validate_call
     def get_business_info_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -4184,8 +3984,6 @@ class VatomApi:
 
         Gets the business info tied to this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4217,7 +4015,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -4245,7 +4042,6 @@ class VatomApi:
     @validate_call
     def get_business_info_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -4267,8 +4063,6 @@ class VatomApi:
 
         Gets the business info tied to this account.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4300,7 +4094,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -4323,7 +4116,6 @@ class VatomApi:
 
     def _get_business_info_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -4349,8 +4141,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4381,7 +4171,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/get',
+            resource_path='/vatom/b/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4400,7 +4190,6 @@ class VatomApi:
     @validate_call
     def get_business_users(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -4421,8 +4210,6 @@ class VatomApi:
 
         Gets the users of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4452,7 +4239,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_users_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -4479,7 +4265,6 @@ class VatomApi:
     @validate_call
     def get_business_users_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -4500,8 +4285,6 @@ class VatomApi:
 
         Gets the users of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4531,7 +4314,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_users_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -4558,7 +4340,6 @@ class VatomApi:
     @validate_call
     def get_business_users_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -4579,8 +4360,6 @@ class VatomApi:
 
         Gets the users of a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4610,7 +4389,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_business_users_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -4632,7 +4410,6 @@ class VatomApi:
 
     def _get_business_users_serialize(
         self,
-        version,
         account_id,
         app_key,
         return_raw_response,
@@ -4657,8 +4434,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -4685,7 +4460,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/users',
+            resource_path='/vatom/b/users',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -4704,7 +4479,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_entities(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -4726,8 +4500,6 @@ class VatomApi:
 
         Get campaign group entities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4759,7 +4531,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_entities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -4787,7 +4558,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_entities_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -4809,8 +4579,6 @@ class VatomApi:
 
         Get campaign group entities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4842,7 +4610,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_entities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -4870,7 +4637,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_entities_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -4892,8 +4658,6 @@ class VatomApi:
 
         Get campaign group entities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -4925,7 +4689,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_entities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -4948,7 +4711,6 @@ class VatomApi:
 
     def _get_campaign_group_entities_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -4974,8 +4736,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5006,7 +4766,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign-groups/entities',
+            resource_path='/vatom/b/campaign-groups/entities',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5025,7 +4785,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_rules(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5047,8 +4806,6 @@ class VatomApi:
 
         Get campaign group rules.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5080,7 +4837,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_rules_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5108,7 +4864,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_rules_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5130,8 +4885,6 @@ class VatomApi:
 
         Get campaign group rules.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5163,7 +4916,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_rules_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5191,7 +4943,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_rules_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5213,8 +4964,6 @@ class VatomApi:
 
         Get campaign group rules.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5246,7 +4995,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_rules_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5269,7 +5017,6 @@ class VatomApi:
 
     def _get_campaign_group_rules_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -5295,8 +5042,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5327,7 +5072,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign-groups/rules',
+            resource_path='/vatom/b/campaign-groups/rules',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5346,7 +5091,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_stats(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5368,8 +5112,6 @@ class VatomApi:
 
         Get campaign group stats.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5401,7 +5143,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_stats_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5429,7 +5170,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_stats_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5451,8 +5191,6 @@ class VatomApi:
 
         Get campaign group stats.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5484,7 +5222,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_stats_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5512,7 +5249,6 @@ class VatomApi:
     @validate_call
     def get_campaign_group_stats_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5534,8 +5270,6 @@ class VatomApi:
 
         Get campaign group stats.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5567,7 +5301,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_group_stats_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5590,7 +5323,6 @@ class VatomApi:
 
     def _get_campaign_group_stats_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -5616,8 +5348,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5648,7 +5378,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign-groups/stats',
+            resource_path='/vatom/b/campaign-groups/stats',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5667,7 +5397,6 @@ class VatomApi:
     @validate_call
     def get_campaign_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5689,8 +5418,6 @@ class VatomApi:
 
         Gets the info on a campaign.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5722,7 +5449,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5750,7 +5476,6 @@ class VatomApi:
     @validate_call
     def get_campaign_info_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5772,8 +5497,6 @@ class VatomApi:
 
         Gets the info on a campaign.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5805,7 +5528,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5833,7 +5555,6 @@ class VatomApi:
     @validate_call
     def get_campaign_info_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -5855,8 +5576,6 @@ class VatomApi:
 
         Gets the info on a campaign.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -5888,7 +5607,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_campaign_info_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -5911,7 +5629,6 @@ class VatomApi:
 
     def _get_campaign_info_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -5937,8 +5654,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -5969,7 +5684,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign-groups/get',
+            resource_path='/vatom/b/campaign-groups/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -5988,7 +5703,6 @@ class VatomApi:
     @validate_call
     def get_event_guest_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -6010,8 +5724,6 @@ class VatomApi:
 
         Gets the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -6043,7 +5755,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -6071,7 +5782,6 @@ class VatomApi:
     @validate_call
     def get_event_guest_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -6093,8 +5803,6 @@ class VatomApi:
 
         Gets the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -6126,7 +5834,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -6154,7 +5861,6 @@ class VatomApi:
     @validate_call
     def get_event_guest_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -6176,8 +5882,6 @@ class VatomApi:
 
         Gets the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -6209,7 +5913,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -6232,7 +5935,6 @@ class VatomApi:
 
     def _get_event_guest_list_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_event_id,
@@ -6258,8 +5960,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6290,7 +5990,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/events/guests/get',
+            resource_path='/vatom/b/events/guests/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6309,7 +6009,6 @@ class VatomApi:
     @validate_call
     def get_inventory(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -6330,8 +6029,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -6361,7 +6058,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -6388,7 +6084,6 @@ class VatomApi:
     @validate_call
     def get_inventory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -6409,8 +6104,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -6440,7 +6133,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -6467,7 +6159,6 @@ class VatomApi:
     @validate_call
     def get_inventory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -6488,8 +6179,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -6519,7 +6208,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -6541,7 +6229,6 @@ class VatomApi:
 
     def _get_inventory_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -6566,8 +6253,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6594,7 +6279,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/me/inventory',
+            resource_path='/vatom/me/inventory',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6613,7 +6298,6 @@ class VatomApi:
     @validate_call
     def get_my_following(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -6633,8 +6317,6 @@ class VatomApi:
 
         Get following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -6662,7 +6344,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_my_following_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -6688,7 +6369,6 @@ class VatomApi:
     @validate_call
     def get_my_following_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -6708,8 +6388,6 @@ class VatomApi:
 
         Get following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -6737,7 +6415,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_my_following_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -6763,7 +6440,6 @@ class VatomApi:
     @validate_call
     def get_my_following_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -6783,8 +6459,6 @@ class VatomApi:
 
         Get following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -6812,7 +6486,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_my_following_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -6833,7 +6506,6 @@ class VatomApi:
 
     def _get_my_following_serialize(
         self,
-        version,
         account_id,
         return_raw_response,
         _request_auth,
@@ -6857,8 +6529,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -6881,7 +6551,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/me/rels/following',
+            resource_path='/vatom/me/rels/following',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -6900,7 +6570,6 @@ class VatomApi:
     @validate_call
     def get_points_balance(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -6922,8 +6591,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -6955,7 +6622,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_campaign_id=vatom_campaign_id,
@@ -6983,7 +6649,6 @@ class VatomApi:
     @validate_call
     def get_points_balance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -7005,8 +6670,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -7038,7 +6701,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_campaign_id=vatom_campaign_id,
@@ -7066,7 +6728,6 @@ class VatomApi:
     @validate_call
     def get_points_balance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -7088,8 +6749,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -7121,7 +6780,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_campaign_id=vatom_campaign_id,
@@ -7144,7 +6802,6 @@ class VatomApi:
 
     def _get_points_balance_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         vatom_campaign_id,
@@ -7170,8 +6827,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7202,7 +6857,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/u/campaign/points/get',
+            resource_path='/vatom/u/campaign/points/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7221,7 +6876,6 @@ class VatomApi:
     @validate_call
     def get_points_balance_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -7244,8 +6898,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7279,7 +6931,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -7308,7 +6959,6 @@ class VatomApi:
     @validate_call
     def get_points_balance_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -7331,8 +6981,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7366,7 +7014,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -7395,7 +7042,6 @@ class VatomApi:
     @validate_call
     def get_points_balance_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -7418,8 +7064,6 @@ class VatomApi:
 
         Gets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7453,7 +7097,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -7477,7 +7120,6 @@ class VatomApi:
 
     def _get_points_balance_as_business_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_user_id,
@@ -7504,8 +7146,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7540,7 +7180,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign/u/points/get',
+            resource_path='/vatom/b/campaign/u/points/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7559,7 +7199,6 @@ class VatomApi:
     @validate_call
     def get_space(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -7581,8 +7220,6 @@ class VatomApi:
 
         Gets the details of a space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7614,7 +7251,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -7642,7 +7278,6 @@ class VatomApi:
     @validate_call
     def get_space_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -7664,8 +7299,6 @@ class VatomApi:
 
         Gets the details of a space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7697,7 +7330,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -7725,7 +7357,6 @@ class VatomApi:
     @validate_call
     def get_space_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -7747,8 +7378,6 @@ class VatomApi:
 
         Gets the details of a space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -7780,7 +7409,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -7803,7 +7431,6 @@ class VatomApi:
 
     def _get_space_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_space_id,
@@ -7829,8 +7456,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -7861,7 +7486,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/spaces/get',
+            resource_path='/vatom/b/spaces/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -7880,7 +7505,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -7902,8 +7526,6 @@ class VatomApi:
 
         Get the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -7935,7 +7557,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -7963,7 +7584,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -7985,8 +7605,6 @@ class VatomApi:
 
         Get the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8018,7 +7636,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -8046,7 +7663,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -8068,8 +7684,6 @@ class VatomApi:
 
         Get the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8101,7 +7715,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -8124,7 +7737,6 @@ class VatomApi:
 
     def _get_user_coins_as_business_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         app_key,
@@ -8150,8 +7762,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -8182,7 +7792,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/users/coins/get',
+            resource_path='/vatom/b/users/coins/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8201,7 +7811,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_balance(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -8223,8 +7832,6 @@ class VatomApi:
 
         Gets the coins balance for a Vatom User.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8256,7 +7863,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -8284,7 +7890,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_balance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -8306,8 +7911,6 @@ class VatomApi:
 
         Gets the coins balance for a Vatom User.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8339,7 +7942,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -8367,7 +7969,6 @@ class VatomApi:
     @validate_call
     def get_user_coins_balance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -8389,8 +7990,6 @@ class VatomApi:
 
         Gets the coins balance for a Vatom User.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8422,7 +8021,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_coins_balance_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -8445,7 +8043,6 @@ class VatomApi:
 
     def _get_user_coins_balance_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         vatom_parameters,
@@ -8471,8 +8068,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -8503,7 +8098,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/u/coins/get',
+            resource_path='/vatom/u/coins/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8522,7 +8117,6 @@ class VatomApi:
     @validate_call
     def get_user_followers(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -8543,8 +8137,6 @@ class VatomApi:
 
         Get user followers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8574,7 +8166,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_followers_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -8601,7 +8192,6 @@ class VatomApi:
     @validate_call
     def get_user_followers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -8622,8 +8212,6 @@ class VatomApi:
 
         Get user followers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8653,7 +8241,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_followers_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -8680,7 +8267,6 @@ class VatomApi:
     @validate_call
     def get_user_followers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -8701,8 +8287,6 @@ class VatomApi:
 
         Get user followers.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8732,7 +8316,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_followers_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -8754,7 +8337,6 @@ class VatomApi:
 
     def _get_user_followers_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         return_raw_response,
@@ -8779,8 +8361,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -8807,7 +8387,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/users/rels/followers',
+            resource_path='/vatom/users/rels/followers',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8826,7 +8406,6 @@ class VatomApi:
     @validate_call
     def get_user_following(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -8847,8 +8426,6 @@ class VatomApi:
 
         Get user following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8878,7 +8455,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -8905,7 +8481,6 @@ class VatomApi:
     @validate_call
     def get_user_following_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -8926,8 +8501,6 @@ class VatomApi:
 
         Get user following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -8957,7 +8530,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -8984,7 +8556,6 @@ class VatomApi:
     @validate_call
     def get_user_following_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -9005,8 +8576,6 @@ class VatomApi:
 
         Get user following.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -9036,7 +8605,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_following_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -9058,7 +8626,6 @@ class VatomApi:
 
     def _get_user_following_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         return_raw_response,
@@ -9083,8 +8650,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -9111,7 +8676,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/users/rels/following',
+            resource_path='/vatom/users/rels/following',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9130,7 +8695,6 @@ class VatomApi:
     @validate_call
     def get_user_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -9151,8 +8715,6 @@ class VatomApi:
 
         Get a User's Info.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -9182,7 +8744,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_info_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -9209,7 +8770,6 @@ class VatomApi:
     @validate_call
     def get_user_info_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -9230,8 +8790,6 @@ class VatomApi:
 
         Get a User's Info.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -9261,7 +8819,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_info_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -9288,7 +8845,6 @@ class VatomApi:
     @validate_call
     def get_user_info_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -9309,8 +8865,6 @@ class VatomApi:
 
         Get a User's Info.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -9340,7 +8894,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_info_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             return_raw_response=return_raw_response,
@@ -9362,7 +8915,6 @@ class VatomApi:
 
     def _get_user_info_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         return_raw_response,
@@ -9387,8 +8939,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -9415,7 +8965,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/user/get',
+            resource_path='/vatom/user/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9434,7 +8984,6 @@ class VatomApi:
     @validate_call
     def get_user_profile(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -9454,8 +9003,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -9483,7 +9030,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_profile_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -9509,7 +9055,6 @@ class VatomApi:
     @validate_call
     def get_user_profile_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -9529,8 +9074,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -9558,7 +9101,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_profile_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -9584,7 +9126,6 @@ class VatomApi:
     @validate_call
     def get_user_profile_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -9604,8 +9145,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -9633,7 +9172,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_user_profile_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -9654,7 +9192,6 @@ class VatomApi:
 
     def _get_user_profile_serialize(
         self,
-        version,
         account_id,
         return_raw_response,
         _request_auth,
@@ -9678,8 +9215,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -9702,7 +9237,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/me/get',
+            resource_path='/vatom/me/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -9721,7 +9256,6 @@ class VatomApi:
     @validate_call
     def get_vatom_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -9743,8 +9277,6 @@ class VatomApi:
 
         Gets the details of a event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -9776,7 +9308,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -9804,7 +9335,6 @@ class VatomApi:
     @validate_call
     def get_vatom_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -9826,8 +9356,6 @@ class VatomApi:
 
         Gets the details of a event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -9859,7 +9387,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -9887,7 +9414,6 @@ class VatomApi:
     @validate_call
     def get_vatom_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -9909,8 +9435,6 @@ class VatomApi:
 
         Gets the details of a event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -9942,7 +9466,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -9965,7 +9488,6 @@ class VatomApi:
 
     def _get_vatom_event_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_event_id,
@@ -9991,8 +9513,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -10023,7 +9543,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/events/get',
+            resource_path='/vatom/b/events/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10042,7 +9562,6 @@ class VatomApi:
     @validate_call
     def get_vatom_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -10063,8 +9582,6 @@ class VatomApi:
 
         Get Vatom NFT Details
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -10094,7 +9611,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -10121,7 +9637,6 @@ class VatomApi:
     @validate_call
     def get_vatom_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -10142,8 +9657,6 @@ class VatomApi:
 
         Get Vatom NFT Details
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -10173,7 +9686,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -10200,7 +9712,6 @@ class VatomApi:
     @validate_call
     def get_vatom_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -10221,8 +9732,6 @@ class VatomApi:
 
         Get Vatom NFT Details
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -10252,7 +9761,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._get_vatom_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             return_raw_response=return_raw_response,
@@ -10274,7 +9782,6 @@ class VatomApi:
 
     def _get_vatom_nft_serialize(
         self,
-        version,
         account_id,
         vatom_id,
         return_raw_response,
@@ -10299,8 +9806,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -10327,7 +9832,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/vatoms/get',
+            resource_path='/vatom/vatoms/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10346,7 +9851,6 @@ class VatomApi:
     @validate_call
     def list_communities(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10368,8 +9872,6 @@ class VatomApi:
 
         Gets the communities tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10401,7 +9903,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_communities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10429,7 +9930,6 @@ class VatomApi:
     @validate_call
     def list_communities_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10451,8 +9951,6 @@ class VatomApi:
 
         Gets the communities tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10484,7 +9982,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_communities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10512,7 +10009,6 @@ class VatomApi:
     @validate_call
     def list_communities_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10534,8 +10030,6 @@ class VatomApi:
 
         Gets the communities tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10567,7 +10061,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_communities_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10590,7 +10083,6 @@ class VatomApi:
 
     def _list_communities_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -10616,8 +10108,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -10648,7 +10138,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/communities/search',
+            resource_path='/vatom/b/communities/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10667,7 +10157,6 @@ class VatomApi:
     @validate_call
     def list_events(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10689,8 +10178,6 @@ class VatomApi:
 
         Gets the events tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10722,7 +10209,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_events_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10750,7 +10236,6 @@ class VatomApi:
     @validate_call
     def list_events_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10772,8 +10257,6 @@ class VatomApi:
 
         Gets the events tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10805,7 +10288,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_events_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10833,7 +10315,6 @@ class VatomApi:
     @validate_call
     def list_events_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -10855,8 +10336,6 @@ class VatomApi:
 
         Gets the events tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -10888,7 +10367,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_events_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -10911,7 +10389,6 @@ class VatomApi:
 
     def _list_events_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -10937,8 +10414,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -10969,7 +10444,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/events/search',
+            resource_path='/vatom/b/events/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -10988,7 +10463,6 @@ class VatomApi:
     @validate_call
     def list_spaces(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11010,8 +10484,6 @@ class VatomApi:
 
         Gets the spaces tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -11043,7 +10515,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_spaces_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -11071,7 +10542,6 @@ class VatomApi:
     @validate_call
     def list_spaces_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11093,8 +10563,6 @@ class VatomApi:
 
         Gets the spaces tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -11126,7 +10594,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_spaces_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -11154,7 +10621,6 @@ class VatomApi:
     @validate_call
     def list_spaces_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11176,8 +10642,6 @@ class VatomApi:
 
         Gets the spaces tied to a business.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -11209,7 +10673,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_spaces_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -11232,7 +10695,6 @@ class VatomApi:
 
     def _list_spaces_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -11258,8 +10720,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -11290,7 +10750,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/spaces/search',
+            resource_path='/vatom/b/spaces/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -11309,7 +10769,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11331,8 +10790,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom coin transactions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11364,7 +10821,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -11392,7 +10848,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11414,8 +10869,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom coin transactions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11447,7 +10900,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -11475,7 +10927,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
@@ -11497,8 +10948,6 @@ class VatomApi:
 
         Gets the logged in user's Vatom coin transactions.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11530,7 +10979,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -11553,7 +11001,6 @@ class VatomApi:
 
     def _list_user_coin_transactions_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         vatom_parameters,
@@ -11579,8 +11026,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -11611,7 +11056,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/u/coins/txns/search',
+            resource_path='/vatom/u/coins/txns/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -11630,7 +11075,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -11653,8 +11097,6 @@ class VatomApi:
 
         List coin transactions for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11688,7 +11130,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -11717,7 +11158,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -11740,8 +11180,6 @@ class VatomApi:
 
         List coin transactions for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11775,7 +11213,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -11804,7 +11241,6 @@ class VatomApi:
     @validate_call
     def list_user_coin_transactions_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -11827,8 +11263,6 @@ class VatomApi:
 
         List coin transactions for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -11862,7 +11296,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._list_user_coin_transactions_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -11886,7 +11319,6 @@ class VatomApi:
 
     def _list_user_coin_transactions_as_business_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         app_key,
@@ -11913,8 +11345,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -11949,7 +11379,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/users/coins/txns/search',
+            resource_path='/vatom/b/users/coins/txns/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -11968,7 +11398,6 @@ class VatomApi:
     @validate_call
     def perform_action_on_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_action: Annotated[StrictStr, Field(description="Vatom Action")],
@@ -11991,8 +11420,6 @@ class VatomApi:
 
         Perform Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -12026,7 +11453,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._perform_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_action=vatom_action,
@@ -12055,7 +11481,6 @@ class VatomApi:
     @validate_call
     def perform_action_on_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_action: Annotated[StrictStr, Field(description="Vatom Action")],
@@ -12078,8 +11503,6 @@ class VatomApi:
 
         Perform Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -12113,7 +11536,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._perform_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_action=vatom_action,
@@ -12142,7 +11564,6 @@ class VatomApi:
     @validate_call
     def perform_action_on_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_id: Annotated[StrictStr, Field(description="Vatom NFT Id")],
         vatom_action: Annotated[StrictStr, Field(description="Vatom Action")],
@@ -12165,8 +11586,6 @@ class VatomApi:
 
         Perform Action on NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_id: Vatom NFT Id (required)
@@ -12200,7 +11619,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._perform_action_on_nft_serialize(
-            version=version,
             account_id=account_id,
             vatom_id=vatom_id,
             vatom_action=vatom_action,
@@ -12224,7 +11642,6 @@ class VatomApi:
 
     def _perform_action_on_nft_serialize(
         self,
-        version,
         account_id,
         vatom_id,
         vatom_action,
@@ -12251,8 +11668,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -12287,7 +11702,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/me/vatoms/actions',
+            resource_path='/vatom/me/vatoms/actions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12306,7 +11721,6 @@ class VatomApi:
     @validate_call
     def redeem_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -12328,8 +11742,6 @@ class VatomApi:
 
         Redeem an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -12361,7 +11773,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -12389,7 +11800,6 @@ class VatomApi:
     @validate_call
     def redeem_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -12411,8 +11821,6 @@ class VatomApi:
 
         Redeem an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -12444,7 +11852,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -12472,7 +11879,6 @@ class VatomApi:
     @validate_call
     def redeem_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -12494,8 +11900,6 @@ class VatomApi:
 
         Redeem an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -12527,7 +11931,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -12550,7 +11953,6 @@ class VatomApi:
 
     def _redeem_nft_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -12576,8 +11978,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -12608,7 +12008,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/redemptions',
+            resource_path='/vatom/b/redemptions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12627,7 +12027,6 @@ class VatomApi:
     @validate_call
     def redeem_user_coins_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -12650,8 +12049,6 @@ class VatomApi:
 
         Redeem the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -12685,7 +12082,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -12714,7 +12110,6 @@ class VatomApi:
     @validate_call
     def redeem_user_coins_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -12737,8 +12132,6 @@ class VatomApi:
 
         Redeem the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -12772,7 +12165,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -12801,7 +12193,6 @@ class VatomApi:
     @validate_call
     def redeem_user_coins_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -12824,8 +12215,6 @@ class VatomApi:
 
         Redeem the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -12859,7 +12248,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._redeem_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -12883,7 +12271,6 @@ class VatomApi:
 
     def _redeem_user_coins_as_business_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         app_key,
@@ -12910,8 +12297,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -12946,7 +12331,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/users/coins/redeem',
+            resource_path='/vatom/b/users/coins/redeem',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -12965,7 +12350,6 @@ class VatomApi:
     @validate_call
     def search_businesses(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -12986,8 +12370,6 @@ class VatomApi:
 
         Searches for Vatom businesses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -13017,7 +12399,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_businesses_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -13044,7 +12425,6 @@ class VatomApi:
     @validate_call
     def search_businesses_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13065,8 +12445,6 @@ class VatomApi:
 
         Searches for Vatom businesses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -13096,7 +12474,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_businesses_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -13123,7 +12500,6 @@ class VatomApi:
     @validate_call
     def search_businesses_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13144,8 +12520,6 @@ class VatomApi:
 
         Searches for Vatom businesses.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -13175,7 +12549,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_businesses_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -13197,7 +12570,6 @@ class VatomApi:
 
     def _search_businesses_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -13222,8 +12594,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -13250,7 +12620,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/search',
+            resource_path='/vatom/b/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13269,7 +12639,6 @@ class VatomApi:
     @validate_call
     def search_campaign_groups(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13290,8 +12659,6 @@ class VatomApi:
 
         Search campaign groups.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -13321,7 +12688,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_campaign_groups_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -13348,7 +12714,6 @@ class VatomApi:
     @validate_call
     def search_campaign_groups_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13369,8 +12734,6 @@ class VatomApi:
 
         Search campaign groups.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -13400,7 +12763,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_campaign_groups_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -13427,7 +12789,6 @@ class VatomApi:
     @validate_call
     def search_campaign_groups_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13448,8 +12809,6 @@ class VatomApi:
 
         Search campaign groups.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -13479,7 +12838,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_campaign_groups_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             return_raw_response=return_raw_response,
@@ -13501,7 +12859,6 @@ class VatomApi:
 
     def _search_campaign_groups_serialize(
         self,
-        version,
         account_id,
         app_key,
         return_raw_response,
@@ -13526,8 +12883,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -13554,7 +12909,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/b/campaign-groups/search',
+            resource_path='/vatom/b/campaign-groups/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13573,7 +12928,6 @@ class VatomApi:
     @validate_call
     def search_identities(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -13593,8 +12947,6 @@ class VatomApi:
 
         Search User Identities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -13622,7 +12974,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_identities_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -13648,7 +12999,6 @@ class VatomApi:
     @validate_call
     def search_identities_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -13668,8 +13018,6 @@ class VatomApi:
 
         Search User Identities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -13697,7 +13045,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_identities_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -13723,7 +13070,6 @@ class VatomApi:
     @validate_call
     def search_identities_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
         _request_timeout: Union[
@@ -13743,8 +13089,6 @@ class VatomApi:
 
         Search User Identities.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param return_raw_response: Return raw response
@@ -13772,7 +13116,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_identities_serialize(
-            version=version,
             account_id=account_id,
             return_raw_response=return_raw_response,
             _request_auth=_request_auth,
@@ -13793,7 +13136,6 @@ class VatomApi:
 
     def _search_identities_serialize(
         self,
-        version,
         account_id,
         return_raw_response,
         _request_auth,
@@ -13817,8 +13159,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -13841,7 +13181,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/me/identities/search',
+            resource_path='/vatom/me/identities/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -13860,7 +13200,6 @@ class VatomApi:
     @validate_call
     def search_inventory(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13881,8 +13220,6 @@ class VatomApi:
 
         Searches the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -13912,7 +13249,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -13939,7 +13275,6 @@ class VatomApi:
     @validate_call
     def search_inventory_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -13960,8 +13295,6 @@ class VatomApi:
 
         Searches the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -13991,7 +13324,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -14018,7 +13350,6 @@ class VatomApi:
     @validate_call
     def search_inventory_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[Optional[StrictStr], Field(description="Vatom Parameters")] = None,
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -14039,8 +13370,6 @@ class VatomApi:
 
         Searches the logged in user's Vatom Inventory.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters
@@ -14070,7 +13399,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._search_inventory_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -14092,7 +13420,6 @@ class VatomApi:
 
     def _search_inventory_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -14117,8 +13444,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -14145,7 +13470,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/vatom/user-inventory/search',
+            resource_path='/vatom/user-inventory/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -14164,7 +13489,6 @@ class VatomApi:
     @validate_call
     def send_nft(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -14187,8 +13511,6 @@ class VatomApi:
 
         Send an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14222,7 +13544,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._send_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -14251,7 +13572,6 @@ class VatomApi:
     @validate_call
     def send_nft_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -14274,8 +13594,6 @@ class VatomApi:
 
         Send an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14309,7 +13627,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._send_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -14338,7 +13655,6 @@ class VatomApi:
     @validate_call
     def send_nft_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_campaign_id: Annotated[StrictStr, Field(description="Vatom Campaign Id")],
@@ -14361,8 +13677,6 @@ class VatomApi:
 
         Send an NFT.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14396,7 +13710,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._send_nft_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_campaign_id=vatom_campaign_id,
@@ -14420,7 +13733,6 @@ class VatomApi:
 
     def _send_nft_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_campaign_id,
@@ -14447,8 +13759,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -14483,7 +13793,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/campaigns/send',
+            resource_path='/vatom/b/campaigns/send',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -14502,7 +13812,6 @@ class VatomApi:
     @validate_call
     def set_points_balance_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -14526,8 +13835,6 @@ class VatomApi:
 
         Sets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14563,7 +13870,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._set_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -14593,7 +13899,6 @@ class VatomApi:
     @validate_call
     def set_points_balance_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -14617,8 +13922,6 @@ class VatomApi:
 
         Sets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14654,7 +13957,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._set_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -14684,7 +13986,6 @@ class VatomApi:
     @validate_call
     def set_points_balance_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
@@ -14708,8 +14009,6 @@ class VatomApi:
 
         Sets the points balance of a Vatom user.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -14745,7 +14044,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._set_points_balance_as_business_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_user_id=vatom_user_id,
@@ -14770,7 +14068,6 @@ class VatomApi:
 
     def _set_points_balance_as_business_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_user_id,
@@ -14798,8 +14095,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -14838,7 +14133,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/campaign/u/points/update',
+            resource_path='/vatom/b/campaign/u/points/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -14857,7 +14152,6 @@ class VatomApi:
     @validate_call
     def transfer_user_coins(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -14879,8 +14173,6 @@ class VatomApi:
 
         Transfer coins from Vatom Users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -14912,7 +14204,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._transfer_user_coins_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -14940,7 +14231,6 @@ class VatomApi:
     @validate_call
     def transfer_user_coins_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -14962,8 +14252,6 @@ class VatomApi:
 
         Transfer coins from Vatom Users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -14995,7 +14283,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._transfer_user_coins_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -15023,7 +14310,6 @@ class VatomApi:
     @validate_call
     def transfer_user_coins_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -15045,8 +14331,6 @@ class VatomApi:
 
         Transfer coins from Vatom Users.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -15078,7 +14362,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._transfer_user_coins_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             vatom_parameters=vatom_parameters,
@@ -15101,7 +14384,6 @@ class VatomApi:
 
     def _transfer_user_coins_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         vatom_parameters,
@@ -15127,8 +14409,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -15159,7 +14439,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/u/coins/transfer',
+            resource_path='/vatom/u/coins/transfer',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -15178,7 +14458,6 @@ class VatomApi:
     @validate_call
     def update_business_coins(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -15200,8 +14479,6 @@ class VatomApi:
 
         Fund/update coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15233,7 +14510,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_business_coins_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -15261,7 +14537,6 @@ class VatomApi:
     @validate_call
     def update_business_coins_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -15283,8 +14558,6 @@ class VatomApi:
 
         Fund/update coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15316,7 +14589,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_business_coins_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -15344,7 +14616,6 @@ class VatomApi:
     @validate_call
     def update_business_coins_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
@@ -15366,8 +14637,6 @@ class VatomApi:
 
         Fund/update coins for a Businesss.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15399,7 +14668,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_business_coins_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_parameters=vatom_parameters,
@@ -15422,7 +14690,6 @@ class VatomApi:
 
     def _update_business_coins_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_parameters,
@@ -15448,8 +14715,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -15480,7 +14745,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/coins/update',
+            resource_path='/vatom/b/coins/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -15499,7 +14764,6 @@ class VatomApi:
     @validate_call
     def update_event_guest_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -15522,8 +14786,6 @@ class VatomApi:
 
         Update the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15557,7 +14819,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -15586,7 +14847,6 @@ class VatomApi:
     @validate_call
     def update_event_guest_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -15609,8 +14869,6 @@ class VatomApi:
 
         Update the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15644,7 +14902,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -15673,7 +14930,6 @@ class VatomApi:
     @validate_call
     def update_event_guest_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -15696,8 +14952,6 @@ class VatomApi:
 
         Update the guest list of an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15731,7 +14985,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_event_guest_list_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -15755,7 +15008,6 @@ class VatomApi:
 
     def _update_event_guest_list_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_event_id,
@@ -15782,8 +15034,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -15818,7 +15068,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/events/guests/update',
+            resource_path='/vatom/b/events/guests/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -15837,7 +15087,6 @@ class VatomApi:
     @validate_call
     def update_space(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -15860,8 +15109,6 @@ class VatomApi:
 
         Update a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15895,7 +15142,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -15924,7 +15170,6 @@ class VatomApi:
     @validate_call
     def update_space_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -15947,8 +15192,6 @@ class VatomApi:
 
         Update a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -15982,7 +15225,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -16011,7 +15253,6 @@ class VatomApi:
     @validate_call
     def update_space_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_space_id: Annotated[StrictStr, Field(description="Vatom Space Id")],
@@ -16034,8 +15275,6 @@ class VatomApi:
 
         Update a Vatom space.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -16069,7 +15308,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_space_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_space_id=vatom_space_id,
@@ -16093,7 +15331,6 @@ class VatomApi:
 
     def _update_space_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_space_id,
@@ -16120,8 +15357,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -16156,7 +15391,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/spaces/update',
+            resource_path='/vatom/b/spaces/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -16175,7 +15410,6 @@ class VatomApi:
     @validate_call
     def update_user_coins_as_business(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -16198,8 +15432,6 @@ class VatomApi:
 
         Update the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -16233,7 +15465,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -16262,7 +15493,6 @@ class VatomApi:
     @validate_call
     def update_user_coins_as_business_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -16285,8 +15515,6 @@ class VatomApi:
 
         Update the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -16320,7 +15548,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -16349,7 +15576,6 @@ class VatomApi:
     @validate_call
     def update_user_coins_as_business_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_user_id: Annotated[StrictStr, Field(description="Vatom User Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
@@ -16372,8 +15598,6 @@ class VatomApi:
 
         Update the coins for a user (as a Business).
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_user_id: Vatom User Id (required)
@@ -16407,7 +15631,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_coins_as_business_serialize(
-            version=version,
             account_id=account_id,
             vatom_user_id=vatom_user_id,
             app_key=app_key,
@@ -16431,7 +15654,6 @@ class VatomApi:
 
     def _update_user_coins_as_business_serialize(
         self,
-        version,
         account_id,
         vatom_user_id,
         app_key,
@@ -16458,8 +15680,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -16494,7 +15714,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/users/coins/update',
+            resource_path='/vatom/b/users/coins/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -16513,7 +15733,6 @@ class VatomApi:
     @validate_call
     def update_user_profile(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -16534,8 +15753,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -16565,7 +15782,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_profile_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -16592,7 +15808,6 @@ class VatomApi:
     @validate_call
     def update_user_profile_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -16613,8 +15828,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -16644,7 +15857,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_profile_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -16671,7 +15883,6 @@ class VatomApi:
     @validate_call
     def update_user_profile_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         vatom_parameters: Annotated[StrictStr, Field(description="Vatom Parameters")],
         return_raw_response: Annotated[Optional[StrictBool], Field(description="Return raw response")] = None,
@@ -16692,8 +15903,6 @@ class VatomApi:
 
         Gets the logged in user's profile in Vatom.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param vatom_parameters: Vatom Parameters (required)
@@ -16723,7 +15932,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_user_profile_serialize(
-            version=version,
             account_id=account_id,
             vatom_parameters=vatom_parameters,
             return_raw_response=return_raw_response,
@@ -16745,7 +15953,6 @@ class VatomApi:
 
     def _update_user_profile_serialize(
         self,
-        version,
         account_id,
         vatom_parameters,
         return_raw_response,
@@ -16770,8 +15977,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -16798,7 +16003,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/me/update',
+            resource_path='/vatom/me/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -16817,7 +16022,6 @@ class VatomApi:
     @validate_call
     def update_vatom_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -16840,8 +16044,6 @@ class VatomApi:
 
         Update a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -16875,7 +16077,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -16904,7 +16105,6 @@ class VatomApi:
     @validate_call
     def update_vatom_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -16927,8 +16127,6 @@ class VatomApi:
 
         Update a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -16962,7 +16160,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -16991,7 +16188,6 @@ class VatomApi:
     @validate_call
     def update_vatom_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Sirqul Account Id")],
         app_key: Annotated[StrictStr, Field(description="Sirqul Application Key")],
         vatom_event_id: Annotated[StrictStr, Field(description="Vatom Event Id")],
@@ -17014,8 +16210,6 @@ class VatomApi:
 
         Update a Vatom event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: Sirqul Account Id (required)
         :type account_id: int
         :param app_key: Sirqul Application Key (required)
@@ -17049,7 +16243,6 @@ class VatomApi:
         """ # noqa: E501
 
         _param = self._update_vatom_event_serialize(
-            version=version,
             account_id=account_id,
             app_key=app_key,
             vatom_event_id=vatom_event_id,
@@ -17073,7 +16266,6 @@ class VatomApi:
 
     def _update_vatom_event_serialize(
         self,
-        version,
         account_id,
         app_key,
         vatom_event_id,
@@ -17100,8 +16292,6 @@ class VatomApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -17136,7 +16326,7 @@ class VatomApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/vatom/b/events/update',
+            resource_path='/vatom/b/events/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

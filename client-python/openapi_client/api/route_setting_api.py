@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Any, Dict, List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.route_settings import RouteSettings
 
@@ -43,7 +43,6 @@ class RouteSettingApi:
     @validate_call
     def create_route_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
             None,
@@ -62,8 +61,6 @@ class RouteSettingApi:
 
         Create a new route setting
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: RouteSettings
         :param _request_timeout: timeout setting for this request. If one
@@ -89,7 +86,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._create_route_settings_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -114,7 +110,6 @@ class RouteSettingApi:
     @validate_call
     def create_route_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
             None,
@@ -133,8 +128,6 @@ class RouteSettingApi:
 
         Create a new route setting
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: RouteSettings
         :param _request_timeout: timeout setting for this request. If one
@@ -160,7 +153,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._create_route_settings_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -185,7 +177,6 @@ class RouteSettingApi:
     @validate_call
     def create_route_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
             None,
@@ -204,8 +195,6 @@ class RouteSettingApi:
 
         Create a new route setting
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: RouteSettings
         :param _request_timeout: timeout setting for this request. If one
@@ -231,7 +220,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._create_route_settings_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -251,7 +239,6 @@ class RouteSettingApi:
 
     def _create_route_settings_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -274,8 +261,6 @@ class RouteSettingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -299,7 +284,7 @@ class RouteSettingApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/route/setting',
+            resource_path='/route/setting',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -318,7 +303,6 @@ class RouteSettingApi:
     @validate_call
     def delete_route_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route setting to delete")],
         _request_timeout: Union[
             None,
@@ -337,8 +321,6 @@ class RouteSettingApi:
 
         Delete an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route setting to delete (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -364,7 +346,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._delete_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -389,7 +370,6 @@ class RouteSettingApi:
     @validate_call
     def delete_route_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route setting to delete")],
         _request_timeout: Union[
             None,
@@ -408,8 +388,6 @@ class RouteSettingApi:
 
         Delete an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route setting to delete (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -435,7 +413,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._delete_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -460,7 +437,6 @@ class RouteSettingApi:
     @validate_call
     def delete_route_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route setting to delete")],
         _request_timeout: Union[
             None,
@@ -479,8 +455,6 @@ class RouteSettingApi:
 
         Delete an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route setting to delete (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -506,7 +480,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._delete_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -526,7 +499,6 @@ class RouteSettingApi:
 
     def _delete_route_settings_serialize(
         self,
-        version,
         route_settings_id,
         _request_auth,
         _content_type,
@@ -549,8 +521,6 @@ class RouteSettingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_settings_id is not None:
             _path_params['routeSettingsId'] = route_settings_id
         # process the query parameters
@@ -574,7 +544,7 @@ class RouteSettingApi:
 
         return self.api_client.param_serialize(
             method='DELETE',
-            resource_path='/api/{version}/route/setting/{routeSettingsId}',
+            resource_path='/route/setting/{routeSettingsId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -593,7 +563,6 @@ class RouteSettingApi:
     @validate_call
     def get_route_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to get")],
         _request_timeout: Union[
             None,
@@ -612,8 +581,6 @@ class RouteSettingApi:
 
         Get an existing route settings
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to get (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -639,7 +606,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._get_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -664,7 +630,6 @@ class RouteSettingApi:
     @validate_call
     def get_route_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to get")],
         _request_timeout: Union[
             None,
@@ -683,8 +648,6 @@ class RouteSettingApi:
 
         Get an existing route settings
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to get (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -710,7 +673,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._get_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -735,7 +697,6 @@ class RouteSettingApi:
     @validate_call
     def get_route_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to get")],
         _request_timeout: Union[
             None,
@@ -754,8 +715,6 @@ class RouteSettingApi:
 
         Get an existing route settings
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to get (required)
         :type route_settings_id: int
         :param _request_timeout: timeout setting for this request. If one
@@ -781,7 +740,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._get_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -801,7 +759,6 @@ class RouteSettingApi:
 
     def _get_route_settings_serialize(
         self,
-        version,
         route_settings_id,
         _request_auth,
         _content_type,
@@ -824,8 +781,6 @@ class RouteSettingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_settings_id is not None:
             _path_params['routeSettingsId'] = route_settings_id
         # process the query parameters
@@ -849,7 +804,7 @@ class RouteSettingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/setting/{routeSettingsId}',
+            resource_path='/route/setting/{routeSettingsId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -868,7 +823,6 @@ class RouteSettingApi:
     @validate_call
     def search_route_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -894,8 +848,6 @@ class RouteSettingApi:
 
         Search for route settings
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -935,7 +887,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._search_route_settings_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -967,7 +918,6 @@ class RouteSettingApi:
     @validate_call
     def search_route_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -993,8 +943,6 @@ class RouteSettingApi:
 
         Search for route settings
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1034,7 +982,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._search_route_settings_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1066,7 +1013,6 @@ class RouteSettingApi:
     @validate_call
     def search_route_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         sort_field: Annotated[StrictStr, Field(description="The field to sort by")],
         descending: Annotated[StrictBool, Field(description="Determines whether the sorted list is in descending or ascending order")],
         start: Annotated[StrictInt, Field(description="The start index for pagination")],
@@ -1092,8 +1038,6 @@ class RouteSettingApi:
 
         Search for route settings
 
-        :param version: (required)
-        :type version: float
         :param sort_field: The field to sort by (required)
         :type sort_field: str
         :param descending: Determines whether the sorted list is in descending or ascending order (required)
@@ -1133,7 +1077,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._search_route_settings_serialize(
-            version=version,
             sort_field=sort_field,
             descending=descending,
             start=start,
@@ -1160,7 +1103,6 @@ class RouteSettingApi:
 
     def _search_route_settings_serialize(
         self,
-        version,
         sort_field,
         descending,
         start,
@@ -1190,8 +1132,6 @@ class RouteSettingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if hub_id is not None:
             
@@ -1245,7 +1185,7 @@ class RouteSettingApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/route/setting',
+            resource_path='/route/setting',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1264,7 +1204,6 @@ class RouteSettingApi:
     @validate_call
     def update_route_settings(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to update")],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
@@ -1284,8 +1223,6 @@ class RouteSettingApi:
 
         Update an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to update (required)
         :type route_settings_id: int
         :param body:
@@ -1313,7 +1250,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._update_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             body=body,
             _request_auth=_request_auth,
@@ -1339,7 +1275,6 @@ class RouteSettingApi:
     @validate_call
     def update_route_settings_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to update")],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
@@ -1359,8 +1294,6 @@ class RouteSettingApi:
 
         Update an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to update (required)
         :type route_settings_id: int
         :param body:
@@ -1388,7 +1321,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._update_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             body=body,
             _request_auth=_request_auth,
@@ -1414,7 +1346,6 @@ class RouteSettingApi:
     @validate_call
     def update_route_settings_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         route_settings_id: Annotated[StrictInt, Field(description="the id of the route settings to update")],
         body: Optional[RouteSettings] = None,
         _request_timeout: Union[
@@ -1434,8 +1365,6 @@ class RouteSettingApi:
 
         Update an existing route setting
 
-        :param version: (required)
-        :type version: float
         :param route_settings_id: the id of the route settings to update (required)
         :type route_settings_id: int
         :param body:
@@ -1463,7 +1392,6 @@ class RouteSettingApi:
         """ # noqa: E501
 
         _param = self._update_route_settings_serialize(
-            version=version,
             route_settings_id=route_settings_id,
             body=body,
             _request_auth=_request_auth,
@@ -1484,7 +1412,6 @@ class RouteSettingApi:
 
     def _update_route_settings_serialize(
         self,
-        version,
         route_settings_id,
         body,
         _request_auth,
@@ -1508,8 +1435,6 @@ class RouteSettingApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if route_settings_id is not None:
             _path_params['routeSettingsId'] = route_settings_id
         # process the query parameters
@@ -1535,7 +1460,7 @@ class RouteSettingApi:
 
         return self.api_client.param_serialize(
             method='PUT',
-            resource_path='/api/{version}/route/setting/{routeSettingsId}',
+            resource_path='/route/setting/{routeSettingsId}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

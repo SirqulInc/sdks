@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictFloat, StrictInt
-from typing import Optional, Union
+from pydantic import Field, StrictInt
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.location import Location
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class LocationApiV2Api:
     @validate_call
     def create_location_v2(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Location] = None,
         _request_timeout: Union[
             None,
@@ -63,8 +62,6 @@ class LocationApiV2Api:
 
         Create a new location from a real object location.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Location
         :param _request_timeout: timeout setting for this request. If one
@@ -90,7 +87,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._create_location_v2_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -115,7 +111,6 @@ class LocationApiV2Api:
     @validate_call
     def create_location_v2_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Location] = None,
         _request_timeout: Union[
             None,
@@ -134,8 +129,6 @@ class LocationApiV2Api:
 
         Create a new location from a real object location.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Location
         :param _request_timeout: timeout setting for this request. If one
@@ -161,7 +154,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._create_location_v2_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -186,7 +178,6 @@ class LocationApiV2Api:
     @validate_call
     def create_location_v2_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         body: Optional[Location] = None,
         _request_timeout: Union[
             None,
@@ -205,8 +196,6 @@ class LocationApiV2Api:
 
         Create a new location from a real object location.
 
-        :param version: (required)
-        :type version: float
         :param body:
         :type body: Location
         :param _request_timeout: timeout setting for this request. If one
@@ -232,7 +221,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._create_location_v2_serialize(
-            version=version,
             body=body,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -252,7 +240,6 @@ class LocationApiV2Api:
 
     def _create_location_v2_serialize(
         self,
-        version,
         body,
         _request_auth,
         _content_type,
@@ -275,8 +262,6 @@ class LocationApiV2Api:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         # process the header parameters
         # process the form parameters
@@ -300,7 +285,7 @@ class LocationApiV2Api:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/location',
+            resource_path='/location',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -319,7 +304,6 @@ class LocationApiV2Api:
     @validate_call
     def update_location_v2(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the location to update")],
         body: Optional[Location] = None,
         _request_timeout: Union[
@@ -339,8 +323,6 @@ class LocationApiV2Api:
 
         Update an existing location
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the location to update (required)
         :type id: int
         :param body:
@@ -368,7 +350,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._update_location_v2_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -394,7 +375,6 @@ class LocationApiV2Api:
     @validate_call
     def update_location_v2_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the location to update")],
         body: Optional[Location] = None,
         _request_timeout: Union[
@@ -414,8 +394,6 @@ class LocationApiV2Api:
 
         Update an existing location
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the location to update (required)
         :type id: int
         :param body:
@@ -443,7 +421,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._update_location_v2_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -469,7 +446,6 @@ class LocationApiV2Api:
     @validate_call
     def update_location_v2_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         id: Annotated[StrictInt, Field(description="the id of the location to update")],
         body: Optional[Location] = None,
         _request_timeout: Union[
@@ -489,8 +465,6 @@ class LocationApiV2Api:
 
         Update an existing location
 
-        :param version: (required)
-        :type version: float
         :param id: the id of the location to update (required)
         :type id: int
         :param body:
@@ -518,7 +492,6 @@ class LocationApiV2Api:
         """ # noqa: E501
 
         _param = self._update_location_v2_serialize(
-            version=version,
             id=id,
             body=body,
             _request_auth=_request_auth,
@@ -539,7 +512,6 @@ class LocationApiV2Api:
 
     def _update_location_v2_serialize(
         self,
-        version,
         id,
         body,
         _request_auth,
@@ -563,8 +535,6 @@ class LocationApiV2Api:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         if id is not None:
             _path_params['id'] = id
         # process the query parameters
@@ -590,7 +560,7 @@ class LocationApiV2Api:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/location/{id}',
+            resource_path='/location/{id}',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

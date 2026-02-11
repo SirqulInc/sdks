@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Optional
 from typing_extensions import Annotated
 from openapi_client.models.payment_types_response import PaymentTypesResponse
 
@@ -43,7 +43,6 @@ class BillingInfoApi:
     @validate_call
     def add_payment_method(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="Payment Method Id")] = None,
         account_name: Annotated[Optional[StrictStr], Field(description="the name of the account")] = None,
@@ -84,8 +83,6 @@ class BillingInfoApi:
 
         Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: Payment Method Id
@@ -155,7 +152,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._add_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             account_name=account_name,
@@ -202,7 +198,6 @@ class BillingInfoApi:
     @validate_call
     def add_payment_method_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="Payment Method Id")] = None,
         account_name: Annotated[Optional[StrictStr], Field(description="the name of the account")] = None,
@@ -243,8 +238,6 @@ class BillingInfoApi:
 
         Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: Payment Method Id
@@ -314,7 +307,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._add_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             account_name=account_name,
@@ -361,7 +353,6 @@ class BillingInfoApi:
     @validate_call
     def add_payment_method_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="Payment Method Id")] = None,
         account_name: Annotated[Optional[StrictStr], Field(description="the name of the account")] = None,
@@ -402,8 +393,6 @@ class BillingInfoApi:
 
         Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: Payment Method Id
@@ -473,7 +462,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._add_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             account_name=account_name,
@@ -515,7 +503,6 @@ class BillingInfoApi:
 
     def _add_payment_method_serialize(
         self,
-        version,
         account_id,
         payment_method_id,
         account_name,
@@ -560,8 +547,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -675,7 +660,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billing/update',
+            resource_path='/billing/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -694,7 +679,6 @@ class BillingInfoApi:
     @validate_call
     def create_payment_method(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         account_name: Annotated[Optional[StrictStr], Field(description="Account Name of the credit card user")] = None,
         first_name: Annotated[Optional[StrictStr], Field(description="The first name on the credit card")] = None,
@@ -737,8 +721,6 @@ class BillingInfoApi:
 
         Add a new method of payment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param account_name: Account Name of the credit card user
@@ -812,7 +794,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_payment_method_serialize(
-            version=version,
             account_id=account_id,
             account_name=account_name,
             first_name=first_name,
@@ -861,7 +842,6 @@ class BillingInfoApi:
     @validate_call
     def create_payment_method_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         account_name: Annotated[Optional[StrictStr], Field(description="Account Name of the credit card user")] = None,
         first_name: Annotated[Optional[StrictStr], Field(description="The first name on the credit card")] = None,
@@ -904,8 +884,6 @@ class BillingInfoApi:
 
         Add a new method of payment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param account_name: Account Name of the credit card user
@@ -979,7 +957,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_payment_method_serialize(
-            version=version,
             account_id=account_id,
             account_name=account_name,
             first_name=first_name,
@@ -1028,7 +1005,6 @@ class BillingInfoApi:
     @validate_call
     def create_payment_method_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         account_name: Annotated[Optional[StrictStr], Field(description="Account Name of the credit card user")] = None,
         first_name: Annotated[Optional[StrictStr], Field(description="The first name on the credit card")] = None,
@@ -1071,8 +1047,6 @@ class BillingInfoApi:
 
         Add a new method of payment.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param account_name: Account Name of the credit card user
@@ -1146,7 +1120,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_payment_method_serialize(
-            version=version,
             account_id=account_id,
             account_name=account_name,
             first_name=first_name,
@@ -1190,7 +1163,6 @@ class BillingInfoApi:
 
     def _create_payment_method_serialize(
         self,
-        version,
         account_id,
         account_name,
         first_name,
@@ -1237,8 +1209,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1360,7 +1330,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billing/create',
+            resource_path='/billing/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1379,7 +1349,6 @@ class BillingInfoApi:
     @validate_call
     def create_smart_contract(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         token_name: Annotated[StrictStr, Field(description="The token name")],
         token_symbol: Annotated[StrictStr, Field(description="The token symbol")],
@@ -1401,8 +1370,6 @@ class BillingInfoApi:
 
         Adds a smart contract.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param token_name: The token name (required)
@@ -1434,7 +1401,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_smart_contract_serialize(
-            version=version,
             account_id=account_id,
             token_name=token_name,
             token_symbol=token_symbol,
@@ -1462,7 +1428,6 @@ class BillingInfoApi:
     @validate_call
     def create_smart_contract_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         token_name: Annotated[StrictStr, Field(description="The token name")],
         token_symbol: Annotated[StrictStr, Field(description="The token symbol")],
@@ -1484,8 +1449,6 @@ class BillingInfoApi:
 
         Adds a smart contract.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param token_name: The token name (required)
@@ -1517,7 +1480,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_smart_contract_serialize(
-            version=version,
             account_id=account_id,
             token_name=token_name,
             token_symbol=token_symbol,
@@ -1545,7 +1507,6 @@ class BillingInfoApi:
     @validate_call
     def create_smart_contract_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         token_name: Annotated[StrictStr, Field(description="The token name")],
         token_symbol: Annotated[StrictStr, Field(description="The token symbol")],
@@ -1567,8 +1528,6 @@ class BillingInfoApi:
 
         Adds a smart contract.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param token_name: The token name (required)
@@ -1600,7 +1559,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._create_smart_contract_serialize(
-            version=version,
             account_id=account_id,
             token_name=token_name,
             token_symbol=token_symbol,
@@ -1623,7 +1581,6 @@ class BillingInfoApi:
 
     def _create_smart_contract_serialize(
         self,
-        version,
         account_id,
         token_name,
         token_symbol,
@@ -1649,8 +1606,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1688,7 +1643,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/billing/crypto/transfer',
+            resource_path='/billing/crypto/transfer',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1707,7 +1662,6 @@ class BillingInfoApi:
     @validate_call
     def get_crypto_balance(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         owner_account_id: Annotated[Optional[StrictInt], Field(description="The account to retreive balances for")] = None,
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
@@ -1728,8 +1682,6 @@ class BillingInfoApi:
 
         Get the cypto balance details for a user
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param owner_account_id: The account to retreive balances for
@@ -1759,7 +1711,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_crypto_balance_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             payment_method_id=payment_method_id,
@@ -1786,7 +1737,6 @@ class BillingInfoApi:
     @validate_call
     def get_crypto_balance_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         owner_account_id: Annotated[Optional[StrictInt], Field(description="The account to retreive balances for")] = None,
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
@@ -1807,8 +1757,6 @@ class BillingInfoApi:
 
         Get the cypto balance details for a user
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param owner_account_id: The account to retreive balances for
@@ -1838,7 +1786,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_crypto_balance_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             payment_method_id=payment_method_id,
@@ -1865,7 +1812,6 @@ class BillingInfoApi:
     @validate_call
     def get_crypto_balance_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         owner_account_id: Annotated[Optional[StrictInt], Field(description="The account to retreive balances for")] = None,
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
@@ -1886,8 +1832,6 @@ class BillingInfoApi:
 
         Get the cypto balance details for a user
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param owner_account_id: The account to retreive balances for
@@ -1917,7 +1861,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_crypto_balance_serialize(
-            version=version,
             account_id=account_id,
             owner_account_id=owner_account_id,
             payment_method_id=payment_method_id,
@@ -1939,7 +1882,6 @@ class BillingInfoApi:
 
     def _get_crypto_balance_serialize(
         self,
-        version,
         account_id,
         owner_account_id,
         payment_method_id,
@@ -1964,8 +1906,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1999,7 +1939,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/billing/crypto/get',
+            resource_path='/billing/crypto/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2018,7 +1958,6 @@ class BillingInfoApi:
     @validate_call
     def get_payment_method(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
         get_current_balance: Annotated[Optional[StrictBool], Field(description="Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)")] = None,
@@ -2039,8 +1978,6 @@ class BillingInfoApi:
 
         Get the details of the user's payment method or their current default method of payment
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -2070,7 +2007,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             get_current_balance=get_current_balance,
@@ -2097,7 +2033,6 @@ class BillingInfoApi:
     @validate_call
     def get_payment_method_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
         get_current_balance: Annotated[Optional[StrictBool], Field(description="Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)")] = None,
@@ -2118,8 +2053,6 @@ class BillingInfoApi:
 
         Get the details of the user's payment method or their current default method of payment
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -2149,7 +2082,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             get_current_balance=get_current_balance,
@@ -2176,7 +2108,6 @@ class BillingInfoApi:
     @validate_call
     def get_payment_method_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account used to perform the the request")],
         payment_method_id: Annotated[Optional[StrictInt], Field(description="The payment method to return details on. If this is not set, then the user's default payment method will be returned.")] = None,
         get_current_balance: Annotated[Optional[StrictBool], Field(description="Determines whether to get the user's current balance for the requested payment method option (not all payment method options support this)")] = None,
@@ -2197,8 +2128,6 @@ class BillingInfoApi:
 
         Get the details of the user's payment method or their current default method of payment
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account used to perform the the request (required)
         :type account_id: int
         :param payment_method_id: The payment method to return details on. If this is not set, then the user's default payment method will be returned.
@@ -2228,7 +2157,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._get_payment_method_serialize(
-            version=version,
             account_id=account_id,
             payment_method_id=payment_method_id,
             get_current_balance=get_current_balance,
@@ -2250,7 +2178,6 @@ class BillingInfoApi:
 
     def _get_payment_method_serialize(
         self,
-        version,
         account_id,
         payment_method_id,
         get_current_balance,
@@ -2275,8 +2202,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2310,7 +2235,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/billing/get',
+            resource_path='/billing/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2329,7 +2254,6 @@ class BillingInfoApi:
     @validate_call
     def search_payment_method(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Account Id to search on")],
         provider: Annotated[Optional[StrictStr], Field(description="Provider to search on")] = None,
         type: Annotated[Optional[StrictStr], Field(description="the type to search on")] = None,
@@ -2355,8 +2279,6 @@ class BillingInfoApi:
 
         Search the payment methods of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account Id to search on (required)
         :type account_id: int
         :param provider: Provider to search on
@@ -2396,7 +2318,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._search_payment_method_serialize(
-            version=version,
             account_id=account_id,
             provider=provider,
             type=type,
@@ -2428,7 +2349,6 @@ class BillingInfoApi:
     @validate_call
     def search_payment_method_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Account Id to search on")],
         provider: Annotated[Optional[StrictStr], Field(description="Provider to search on")] = None,
         type: Annotated[Optional[StrictStr], Field(description="the type to search on")] = None,
@@ -2454,8 +2374,6 @@ class BillingInfoApi:
 
         Search the payment methods of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account Id to search on (required)
         :type account_id: int
         :param provider: Provider to search on
@@ -2495,7 +2413,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._search_payment_method_serialize(
-            version=version,
             account_id=account_id,
             provider=provider,
             type=type,
@@ -2527,7 +2444,6 @@ class BillingInfoApi:
     @validate_call
     def search_payment_method_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="Account Id to search on")],
         provider: Annotated[Optional[StrictStr], Field(description="Provider to search on")] = None,
         type: Annotated[Optional[StrictStr], Field(description="the type to search on")] = None,
@@ -2553,8 +2469,6 @@ class BillingInfoApi:
 
         Search the payment methods of an account
 
-        :param version: (required)
-        :type version: float
         :param account_id: Account Id to search on (required)
         :type account_id: int
         :param provider: Provider to search on
@@ -2594,7 +2508,6 @@ class BillingInfoApi:
         """ # noqa: E501
 
         _param = self._search_payment_method_serialize(
-            version=version,
             account_id=account_id,
             provider=provider,
             type=type,
@@ -2621,7 +2534,6 @@ class BillingInfoApi:
 
     def _search_payment_method_serialize(
         self,
-        version,
         account_id,
         provider,
         type,
@@ -2651,8 +2563,6 @@ class BillingInfoApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2706,7 +2616,7 @@ class BillingInfoApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/billing/search',
+            resource_path='/billing/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

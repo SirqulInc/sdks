@@ -46,7 +46,6 @@ class EventApi:
     @validate_call
     def attend_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application of where to send notifications about the attend action")] = None,
@@ -74,8 +73,6 @@ class EventApi:
 
          Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id (deviceId or accountId required)
@@ -119,7 +116,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._attend_event_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -153,7 +149,6 @@ class EventApi:
     @validate_call
     def attend_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application of where to send notifications about the attend action")] = None,
@@ -181,8 +176,6 @@ class EventApi:
 
          Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id (deviceId or accountId required)
@@ -226,7 +219,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._attend_event_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -260,7 +252,6 @@ class EventApi:
     @validate_call
     def attend_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application of where to send notifications about the attend action")] = None,
@@ -288,8 +279,6 @@ class EventApi:
 
          Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id (deviceId or accountId required)
@@ -333,7 +322,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._attend_event_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -362,7 +350,6 @@ class EventApi:
 
     def _attend_event_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -394,8 +381,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -457,7 +442,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/event/attend',
+            resource_path='/event/attend',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -476,7 +461,6 @@ class EventApi:
     @validate_call
     def create_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The event title")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -506,8 +490,6 @@ class EventApi:
 
         Create a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The event title (required)
@@ -555,7 +537,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._create_event_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             retailer_location_ids=retailer_location_ids,
@@ -591,7 +572,6 @@ class EventApi:
     @validate_call
     def create_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The event title")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -621,8 +601,6 @@ class EventApi:
 
         Create a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The event title (required)
@@ -670,7 +648,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._create_event_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             retailer_location_ids=retailer_location_ids,
@@ -706,7 +683,6 @@ class EventApi:
     @validate_call
     def create_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         title: Annotated[StrictStr, Field(description="The event title")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -736,8 +712,6 @@ class EventApi:
 
         Create a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param title: The event title (required)
@@ -785,7 +759,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._create_event_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             retailer_location_ids=retailer_location_ids,
@@ -816,7 +789,6 @@ class EventApi:
 
     def _create_event_serialize(
         self,
-        version,
         account_id,
         title,
         retailer_location_ids,
@@ -850,8 +822,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -921,7 +891,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/event/create',
+            resource_path='/event/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -940,7 +910,6 @@ class EventApi:
     @validate_call
     def delete_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="the id of the event to update")],
         _request_timeout: Union[
@@ -960,8 +929,6 @@ class EventApi:
 
         Delete an event that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: the id of the event to update (required)
@@ -989,7 +956,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._delete_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1015,7 +981,6 @@ class EventApi:
     @validate_call
     def delete_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="the id of the event to update")],
         _request_timeout: Union[
@@ -1035,8 +1000,6 @@ class EventApi:
 
         Delete an event that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: the id of the event to update (required)
@@ -1064,7 +1027,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._delete_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1090,7 +1052,6 @@ class EventApi:
     @validate_call
     def delete_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="the id of the event to update")],
         _request_timeout: Union[
@@ -1110,8 +1071,6 @@ class EventApi:
 
         Delete an event that the user has permissions to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: the id of the event to update (required)
@@ -1139,7 +1098,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._delete_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1160,7 +1118,6 @@ class EventApi:
 
     def _delete_event_serialize(
         self,
-        version,
         account_id,
         event_id,
         _request_auth,
@@ -1184,8 +1141,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1215,7 +1170,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/event/delete',
+            resource_path='/event/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1234,7 +1189,6 @@ class EventApi:
     @validate_call
     def get_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to return")],
         _request_timeout: Union[
@@ -1254,8 +1208,6 @@ class EventApi:
 
         Get an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: The id of the event to return (required)
@@ -1283,7 +1235,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._get_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1309,7 +1260,6 @@ class EventApi:
     @validate_call
     def get_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to return")],
         _request_timeout: Union[
@@ -1329,8 +1279,6 @@ class EventApi:
 
         Get an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: The id of the event to return (required)
@@ -1358,7 +1306,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._get_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1384,7 +1331,6 @@ class EventApi:
     @validate_call
     def get_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to return")],
         _request_timeout: Union[
@@ -1404,8 +1350,6 @@ class EventApi:
 
         Get an event.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param event_id: The id of the event to return (required)
@@ -1433,7 +1377,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._get_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             _request_auth=_request_auth,
@@ -1454,7 +1397,6 @@ class EventApi:
 
     def _get_event_serialize(
         self,
-        version,
         account_id,
         event_id,
         _request_auth,
@@ -1478,8 +1420,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1509,7 +1449,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/event/get',
+            resource_path='/event/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1528,7 +1468,6 @@ class EventApi:
     @validate_call
     def search_event_transactions(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1565,8 +1504,6 @@ class EventApi:
 
         Searches on event type transactions. This can be used to see who is attending an event.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1628,7 +1565,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_event_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1671,7 +1607,6 @@ class EventApi:
     @validate_call
     def search_event_transactions_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1708,8 +1643,6 @@ class EventApi:
 
         Searches on event type transactions. This can be used to see who is attending an event.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1771,7 +1704,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_event_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1814,7 +1746,6 @@ class EventApi:
     @validate_call
     def search_event_transactions_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
         app_key: Annotated[Optional[StrictStr], Field(description="The application key")] = None,
@@ -1851,8 +1782,6 @@ class EventApi:
 
         Searches on event type transactions. This can be used to see who is attending an event.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account id of the user (deviceId or accountId required)
@@ -1914,7 +1843,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_event_transactions_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             app_key=app_key,
@@ -1952,7 +1880,6 @@ class EventApi:
 
     def _search_event_transactions_serialize(
         self,
-        version,
         device_id,
         account_id,
         app_key,
@@ -1993,8 +1920,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -2092,7 +2017,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/event/attendance/search',
+            resource_path='/event/attendance/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2111,7 +2036,6 @@ class EventApi:
     @validate_call
     def search_events(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         active_only: Annotated[Optional[StrictBool], Field(description="Return only active results")] = None,
@@ -2142,8 +2066,6 @@ class EventApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: The keyword used to search
@@ -2193,7 +2115,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_events_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             active_only=active_only,
@@ -2230,7 +2151,6 @@ class EventApi:
     @validate_call
     def search_events_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         active_only: Annotated[Optional[StrictBool], Field(description="Return only active results")] = None,
@@ -2261,8 +2181,6 @@ class EventApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: The keyword used to search
@@ -2312,7 +2230,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_events_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             active_only=active_only,
@@ -2349,7 +2266,6 @@ class EventApi:
     @validate_call
     def search_events_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword used to search")] = None,
         active_only: Annotated[Optional[StrictBool], Field(description="Return only active results")] = None,
@@ -2380,8 +2296,6 @@ class EventApi:
 
         Searches on events that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param keyword: The keyword used to search
@@ -2431,7 +2345,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._search_events_serialize(
-            version=version,
             account_id=account_id,
             keyword=keyword,
             active_only=active_only,
@@ -2463,7 +2376,6 @@ class EventApi:
 
     def _search_events_serialize(
         self,
-        version,
         account_id,
         keyword,
         active_only,
@@ -2498,8 +2410,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2573,7 +2483,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/event/search',
+            resource_path='/event/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2592,7 +2502,6 @@ class EventApi:
     @validate_call
     def update_event(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to update")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -2622,8 +2531,6 @@ class EventApi:
 
         Update a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param event_id: The id of the event to update (required)
@@ -2671,7 +2578,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._update_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             retailer_location_ids=retailer_location_ids,
@@ -2707,7 +2613,6 @@ class EventApi:
     @validate_call
     def update_event_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to update")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -2737,8 +2642,6 @@ class EventApi:
 
         Update a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param event_id: The id of the event to update (required)
@@ -2786,7 +2689,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._update_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             retailer_location_ids=retailer_location_ids,
@@ -2822,7 +2724,6 @@ class EventApi:
     @validate_call
     def update_event_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The logged in user.")],
         event_id: Annotated[StrictInt, Field(description="The id of the event to update")],
         retailer_location_ids: Annotated[Optional[StrictStr], Field(description="The retailer location to have the event at")] = None,
@@ -2852,8 +2753,6 @@ class EventApi:
 
         Update a private event to share with associates.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The logged in user. (required)
         :type account_id: int
         :param event_id: The id of the event to update (required)
@@ -2901,7 +2800,6 @@ class EventApi:
         """ # noqa: E501
 
         _param = self._update_event_serialize(
-            version=version,
             account_id=account_id,
             event_id=event_id,
             retailer_location_ids=retailer_location_ids,
@@ -2932,7 +2830,6 @@ class EventApi:
 
     def _update_event_serialize(
         self,
-        version,
         account_id,
         event_id,
         retailer_location_ids,
@@ -2966,8 +2863,6 @@ class EventApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3037,7 +2932,7 @@ class EventApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/event/update',
+            resource_path='/event/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

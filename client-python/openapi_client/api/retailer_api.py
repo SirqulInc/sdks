@@ -46,7 +46,6 @@ class RetailerApi:
     @validate_call
     def create_retailer(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -97,8 +96,6 @@ class RetailerApi:
 
         Create a retailer record. A billable entity must be created first before a retailer record can be made.
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the retailer (required)
         :type name: str
         :param device_id: The device id (deviceId or accountId required)
@@ -188,7 +185,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._create_retailer_serialize(
-            version=version,
             name=name,
             device_id=device_id,
             account_id=account_id,
@@ -245,7 +241,6 @@ class RetailerApi:
     @validate_call
     def create_retailer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -296,8 +291,6 @@ class RetailerApi:
 
         Create a retailer record. A billable entity must be created first before a retailer record can be made.
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the retailer (required)
         :type name: str
         :param device_id: The device id (deviceId or accountId required)
@@ -387,7 +380,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._create_retailer_serialize(
-            version=version,
             name=name,
             device_id=device_id,
             account_id=account_id,
@@ -444,7 +436,6 @@ class RetailerApi:
     @validate_call
     def create_retailer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         name: Annotated[StrictStr, Field(description="The name of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -495,8 +486,6 @@ class RetailerApi:
 
         Create a retailer record. A billable entity must be created first before a retailer record can be made.
 
-        :param version: (required)
-        :type version: float
         :param name: The name of the retailer (required)
         :type name: str
         :param device_id: The device id (deviceId or accountId required)
@@ -586,7 +575,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._create_retailer_serialize(
-            version=version,
             name=name,
             device_id=device_id,
             account_id=account_id,
@@ -638,7 +626,6 @@ class RetailerApi:
 
     def _create_retailer_serialize(
         self,
-        version,
         name,
         device_id,
         account_id,
@@ -693,8 +680,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -848,7 +833,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/create',
+            resource_path='/retailer/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -867,7 +852,6 @@ class RetailerApi:
     @validate_call
     def delete_retailer(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the retailer.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="The ID of the retailer to be deleted")] = None,
@@ -888,8 +872,6 @@ class RetailerApi:
 
         Set the deleted timestamp to current time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the retailer.
@@ -919,7 +901,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_id=retailer_id,
@@ -946,7 +927,6 @@ class RetailerApi:
     @validate_call
     def delete_retailer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the retailer.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="The ID of the retailer to be deleted")] = None,
@@ -967,8 +947,6 @@ class RetailerApi:
 
         Set the deleted timestamp to current time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the retailer.
@@ -998,7 +976,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_id=retailer_id,
@@ -1025,7 +1002,6 @@ class RetailerApi:
     @validate_call
     def delete_retailer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account used to perform the delete, must have rights to edit the retailer.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="The ID of the retailer to be deleted")] = None,
@@ -1046,8 +1022,6 @@ class RetailerApi:
 
         Set the deleted timestamp to current time.
 
-        :param version: (required)
-        :type version: float
         :param device_id: The device id (deviceId or accountId required)
         :type device_id: str
         :param account_id: The account used to perform the delete, must have rights to edit the retailer.
@@ -1077,7 +1051,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._delete_retailer_serialize(
-            version=version,
             device_id=device_id,
             account_id=account_id,
             retailer_id=retailer_id,
@@ -1099,7 +1072,6 @@ class RetailerApi:
 
     def _delete_retailer_serialize(
         self,
-        version,
         device_id,
         account_id,
         retailer_id,
@@ -1124,8 +1096,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1159,7 +1129,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/delete',
+            resource_path='/retailer/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1178,7 +1148,6 @@ class RetailerApi:
     @validate_call
     def get_retailer(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the ID of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1200,8 +1169,6 @@ class RetailerApi:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the ID of the retailer (required)
         :type retailer_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -1233,7 +1200,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -1261,7 +1227,6 @@ class RetailerApi:
     @validate_call
     def get_retailer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the ID of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1283,8 +1248,6 @@ class RetailerApi:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the ID of the retailer (required)
         :type retailer_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -1316,7 +1279,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -1344,7 +1306,6 @@ class RetailerApi:
     @validate_call
     def get_retailer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="the ID of the retailer")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="the account id of the user (deviceId or accountId required)")] = None,
@@ -1366,8 +1327,6 @@ class RetailerApi:
 
         Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: the ID of the retailer (required)
         :type retailer_id: int
         :param device_id: the device id (deviceId or accountId required)
@@ -1399,7 +1358,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -1422,7 +1380,6 @@ class RetailerApi:
 
     def _get_retailer_serialize(
         self,
-        version,
         retailer_id,
         device_id,
         account_id,
@@ -1448,8 +1405,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1487,7 +1442,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/get',
+            resource_path='/retailer/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1506,7 +1461,6 @@ class RetailerApi:
     @validate_call
     def get_retailers(
         self,
-        version: Union[StrictFloat, StrictInt],
         visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1538,8 +1492,6 @@ class RetailerApi:
 
         earches on retailers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param visibility:  (required)
         :type visibility: str
         :param sort_field: The column to sort the search on (required)
@@ -1591,7 +1543,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailers_serialize(
-            version=version,
             visibility=visibility,
             sort_field=sort_field,
             descending=descending,
@@ -1629,7 +1580,6 @@ class RetailerApi:
     @validate_call
     def get_retailers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1661,8 +1611,6 @@ class RetailerApi:
 
         earches on retailers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param visibility:  (required)
         :type visibility: str
         :param sort_field: The column to sort the search on (required)
@@ -1714,7 +1662,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailers_serialize(
-            version=version,
             visibility=visibility,
             sort_field=sort_field,
             descending=descending,
@@ -1752,7 +1699,6 @@ class RetailerApi:
     @validate_call
     def get_retailers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         visibility: StrictStr,
         sort_field: Annotated[StrictStr, Field(description="The column to sort the search on")],
         descending: Annotated[StrictBool, Field(description="The order to return the search results")],
@@ -1784,8 +1730,6 @@ class RetailerApi:
 
         earches on retailers that the account has access to.
 
-        :param version: (required)
-        :type version: float
         :param visibility:  (required)
         :type visibility: str
         :param sort_field: The column to sort the search on (required)
@@ -1837,7 +1781,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._get_retailers_serialize(
-            version=version,
             visibility=visibility,
             sort_field=sort_field,
             descending=descending,
@@ -1870,7 +1813,6 @@ class RetailerApi:
 
     def _get_retailers_serialize(
         self,
-        version,
         visibility,
         sort_field,
         descending,
@@ -1906,8 +1848,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -1985,7 +1925,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/retailer/search',
+            resource_path='/retailer/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2004,7 +1944,6 @@ class RetailerApi:
     @validate_call
     def retailer_login_check(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (optional)")] = None,
@@ -2028,8 +1967,6 @@ class RetailerApi:
 
         Retailer login check.
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -2065,7 +2002,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._retailer_login_check_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -2095,7 +2031,6 @@ class RetailerApi:
     @validate_call
     def retailer_login_check_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (optional)")] = None,
@@ -2119,8 +2054,6 @@ class RetailerApi:
 
         Retailer login check.
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -2156,7 +2089,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._retailer_login_check_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -2186,7 +2118,6 @@ class RetailerApi:
     @validate_call
     def retailer_login_check_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         username: Annotated[StrictStr, Field(description="the user's email address they used to sign-up")],
         password: Annotated[StrictStr, Field(description="the password")],
         device_id: Annotated[Optional[StrictStr], Field(description="the device id (optional)")] = None,
@@ -2210,8 +2141,6 @@ class RetailerApi:
 
         Retailer login check.
 
-        :param version: (required)
-        :type version: float
         :param username: the user's email address they used to sign-up (required)
         :type username: str
         :param password: the password (required)
@@ -2247,7 +2176,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._retailer_login_check_serialize(
-            version=version,
             username=username,
             password=password,
             device_id=device_id,
@@ -2272,7 +2200,6 @@ class RetailerApi:
 
     def _retailer_login_check_serialize(
         self,
-        version,
         username,
         password,
         device_id,
@@ -2300,8 +2227,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if username is not None:
             
@@ -2347,7 +2272,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/login',
+            resource_path='/retailer/login',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2366,7 +2291,6 @@ class RetailerApi:
     @validate_call
     def update_retailer(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2416,8 +2340,6 @@ class RetailerApi:
 
         Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer to update (required)
         :type retailer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2505,7 +2427,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._update_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2561,7 +2482,6 @@ class RetailerApi:
     @validate_call
     def update_retailer_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2611,8 +2531,6 @@ class RetailerApi:
 
         Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer to update (required)
         :type retailer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2700,7 +2618,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._update_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2756,7 +2673,6 @@ class RetailerApi:
     @validate_call
     def update_retailer_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         retailer_id: Annotated[StrictInt, Field(description="The ID of the retailer to update")],
         device_id: Annotated[Optional[StrictStr], Field(description="The device id (deviceId or accountId required)")] = None,
         account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user (deviceId or accountId required)")] = None,
@@ -2806,8 +2722,6 @@ class RetailerApi:
 
         Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
 
-        :param version: (required)
-        :type version: float
         :param retailer_id: The ID of the retailer to update (required)
         :type retailer_id: int
         :param device_id: The device id (deviceId or accountId required)
@@ -2895,7 +2809,6 @@ class RetailerApi:
         """ # noqa: E501
 
         _param = self._update_retailer_serialize(
-            version=version,
             retailer_id=retailer_id,
             device_id=device_id,
             account_id=account_id,
@@ -2946,7 +2859,6 @@ class RetailerApi:
 
     def _update_retailer_serialize(
         self,
-        version,
         retailer_id,
         device_id,
         account_id,
@@ -3000,8 +2912,6 @@ class RetailerApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if device_id is not None:
             
@@ -3151,7 +3061,7 @@ class RetailerApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/retailer/update',
+            resource_path='/retailer/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.cell_carrier_response import CellCarrierResponse
 
@@ -43,7 +43,6 @@ class CarrierApi:
     @validate_call
     def search_carriers(
         self,
-        version: Union[StrictFloat, StrictInt],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search on")] = None,
         descending: Annotated[Optional[StrictBool], Field(description="Determines whether the sorted list is in descending or ascending order")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
@@ -66,8 +65,6 @@ class CarrierApi:
 
         Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 
-        :param version: (required)
-        :type version: float
         :param keyword: The keyword to search on
         :type keyword: str
         :param descending: Determines whether the sorted list is in descending or ascending order
@@ -101,7 +98,6 @@ class CarrierApi:
         """ # noqa: E501
 
         _param = self._search_carriers_serialize(
-            version=version,
             keyword=keyword,
             descending=descending,
             start=start,
@@ -130,7 +126,6 @@ class CarrierApi:
     @validate_call
     def search_carriers_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search on")] = None,
         descending: Annotated[Optional[StrictBool], Field(description="Determines whether the sorted list is in descending or ascending order")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
@@ -153,8 +148,6 @@ class CarrierApi:
 
         Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 
-        :param version: (required)
-        :type version: float
         :param keyword: The keyword to search on
         :type keyword: str
         :param descending: Determines whether the sorted list is in descending or ascending order
@@ -188,7 +181,6 @@ class CarrierApi:
         """ # noqa: E501
 
         _param = self._search_carriers_serialize(
-            version=version,
             keyword=keyword,
             descending=descending,
             start=start,
@@ -217,7 +209,6 @@ class CarrierApi:
     @validate_call
     def search_carriers_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         keyword: Annotated[Optional[StrictStr], Field(description="The keyword to search on")] = None,
         descending: Annotated[Optional[StrictBool], Field(description="Determines whether the sorted list is in descending or ascending order")] = None,
         start: Annotated[Optional[StrictInt], Field(description="The start index for pagination")] = None,
@@ -240,8 +231,6 @@ class CarrierApi:
 
         Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
 
-        :param version: (required)
-        :type version: float
         :param keyword: The keyword to search on
         :type keyword: str
         :param descending: Determines whether the sorted list is in descending or ascending order
@@ -275,7 +264,6 @@ class CarrierApi:
         """ # noqa: E501
 
         _param = self._search_carriers_serialize(
-            version=version,
             keyword=keyword,
             descending=descending,
             start=start,
@@ -299,7 +287,6 @@ class CarrierApi:
 
     def _search_carriers_serialize(
         self,
-        version,
         keyword,
         descending,
         start,
@@ -326,8 +313,6 @@ class CarrierApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if keyword is not None:
             
@@ -369,7 +354,7 @@ class CarrierApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/carrier/search',
+            resource_path='/carrier/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

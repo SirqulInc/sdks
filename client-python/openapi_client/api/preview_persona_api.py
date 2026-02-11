@@ -44,7 +44,6 @@ class PreviewPersonaApi:
     @validate_call
     def create_persona(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         title: Annotated[StrictStr, Field(description="the title of the persona")],
         preview_accounts: Annotated[Optional[StrictStr], Field(description="the accounts that are able to preview from this persona")] = None,
@@ -71,8 +70,6 @@ class PreviewPersonaApi:
 
         Creates a new persona. If the given params are null those attributes will be override by null.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param title: the title of the persona (required)
@@ -114,7 +111,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._create_persona_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             preview_accounts=preview_accounts,
@@ -147,7 +143,6 @@ class PreviewPersonaApi:
     @validate_call
     def create_persona_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         title: Annotated[StrictStr, Field(description="the title of the persona")],
         preview_accounts: Annotated[Optional[StrictStr], Field(description="the accounts that are able to preview from this persona")] = None,
@@ -174,8 +169,6 @@ class PreviewPersonaApi:
 
         Creates a new persona. If the given params are null those attributes will be override by null.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param title: the title of the persona (required)
@@ -217,7 +210,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._create_persona_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             preview_accounts=preview_accounts,
@@ -250,7 +242,6 @@ class PreviewPersonaApi:
     @validate_call
     def create_persona_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         title: Annotated[StrictStr, Field(description="the title of the persona")],
         preview_accounts: Annotated[Optional[StrictStr], Field(description="the accounts that are able to preview from this persona")] = None,
@@ -277,8 +268,6 @@ class PreviewPersonaApi:
 
         Creates a new persona. If the given params are null those attributes will be override by null.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param title: the title of the persona (required)
@@ -320,7 +309,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._create_persona_serialize(
-            version=version,
             account_id=account_id,
             title=title,
             preview_accounts=preview_accounts,
@@ -348,7 +336,6 @@ class PreviewPersonaApi:
 
     def _create_persona_serialize(
         self,
-        version,
         account_id,
         title,
         preview_accounts,
@@ -379,8 +366,6 @@ class PreviewPersonaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -438,7 +423,7 @@ class PreviewPersonaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/persona/create',
+            resource_path='/persona/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -457,7 +442,6 @@ class PreviewPersonaApi:
     @validate_call
     def delete_persona(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         persona_id: Annotated[StrictInt, Field(description="the id of the persona to delete")],
         _request_timeout: Union[
@@ -477,8 +461,6 @@ class PreviewPersonaApi:
 
         Mark the persona for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param persona_id: the id of the persona to delete (required)
@@ -506,7 +488,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._delete_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -532,7 +513,6 @@ class PreviewPersonaApi:
     @validate_call
     def delete_persona_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         persona_id: Annotated[StrictInt, Field(description="the id of the persona to delete")],
         _request_timeout: Union[
@@ -552,8 +532,6 @@ class PreviewPersonaApi:
 
         Mark the persona for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param persona_id: the id of the persona to delete (required)
@@ -581,7 +559,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._delete_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -607,7 +584,6 @@ class PreviewPersonaApi:
     @validate_call
     def delete_persona_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account id of the user")],
         persona_id: Annotated[StrictInt, Field(description="the id of the persona to delete")],
         _request_timeout: Union[
@@ -627,8 +603,6 @@ class PreviewPersonaApi:
 
         Mark the persona for deletion.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account id of the user (required)
         :type account_id: int
         :param persona_id: the id of the persona to delete (required)
@@ -656,7 +630,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._delete_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -677,7 +650,6 @@ class PreviewPersonaApi:
 
     def _delete_persona_serialize(
         self,
-        version,
         account_id,
         persona_id,
         _request_auth,
@@ -701,8 +673,6 @@ class PreviewPersonaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -732,7 +702,7 @@ class PreviewPersonaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/persona/delete',
+            resource_path='/persona/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -751,7 +721,6 @@ class PreviewPersonaApi:
     @validate_call
     def get_persona_list(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona")],
         _request_timeout: Union[
@@ -771,8 +740,6 @@ class PreviewPersonaApi:
 
         Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona (required)
@@ -800,7 +767,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._get_persona_list_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -826,7 +792,6 @@ class PreviewPersonaApi:
     @validate_call
     def get_persona_list_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona")],
         _request_timeout: Union[
@@ -846,8 +811,6 @@ class PreviewPersonaApi:
 
         Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona (required)
@@ -875,7 +838,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._get_persona_list_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -901,7 +863,6 @@ class PreviewPersonaApi:
     @validate_call
     def get_persona_list_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona")],
         _request_timeout: Union[
@@ -921,8 +882,6 @@ class PreviewPersonaApi:
 
         Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona (required)
@@ -950,7 +909,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._get_persona_list_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             _request_auth=_request_auth,
@@ -971,7 +929,6 @@ class PreviewPersonaApi:
 
     def _get_persona_list_serialize(
         self,
-        version,
         account_id,
         persona_id,
         _request_auth,
@@ -995,8 +952,6 @@ class PreviewPersonaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1026,7 +981,7 @@ class PreviewPersonaApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/persona/get',
+            resource_path='/persona/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1045,7 +1000,6 @@ class PreviewPersonaApi:
     @validate_call
     def search_persona(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
         limit: Annotated[StrictInt, Field(description="the limit for pagination (There is a hard limit of 100)")],
@@ -1066,8 +1020,6 @@ class PreviewPersonaApi:
 
         Search for persona that the account owns by the given account ID.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param start: the start index for pagination (required)
@@ -1097,7 +1049,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._search_persona_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -1124,7 +1075,6 @@ class PreviewPersonaApi:
     @validate_call
     def search_persona_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
         limit: Annotated[StrictInt, Field(description="the limit for pagination (There is a hard limit of 100)")],
@@ -1145,8 +1095,6 @@ class PreviewPersonaApi:
 
         Search for persona that the account owns by the given account ID.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param start: the start index for pagination (required)
@@ -1176,7 +1124,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._search_persona_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -1203,7 +1150,6 @@ class PreviewPersonaApi:
     @validate_call
     def search_persona_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         start: Annotated[StrictInt, Field(description="the start index for pagination")],
         limit: Annotated[StrictInt, Field(description="the limit for pagination (There is a hard limit of 100)")],
@@ -1224,8 +1170,6 @@ class PreviewPersonaApi:
 
         Search for persona that the account owns by the given account ID.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param start: the start index for pagination (required)
@@ -1255,7 +1199,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._search_persona_serialize(
-            version=version,
             account_id=account_id,
             start=start,
             limit=limit,
@@ -1277,7 +1220,6 @@ class PreviewPersonaApi:
 
     def _search_persona_serialize(
         self,
-        version,
         account_id,
         start,
         limit,
@@ -1302,8 +1244,6 @@ class PreviewPersonaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1337,7 +1277,7 @@ class PreviewPersonaApi:
 
         return self.api_client.param_serialize(
             method='GET',
-            resource_path='/api/{version}/persona/search',
+            resource_path='/persona/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1356,7 +1296,6 @@ class PreviewPersonaApi:
     @validate_call
     def update_persona(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona to update")],
         title: Annotated[Optional[StrictStr], Field(description="the title of the persona")] = None,
@@ -1385,8 +1324,6 @@ class PreviewPersonaApi:
 
         Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona to update (required)
@@ -1432,7 +1369,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._update_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             title=title,
@@ -1467,7 +1403,6 @@ class PreviewPersonaApi:
     @validate_call
     def update_persona_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona to update")],
         title: Annotated[Optional[StrictStr], Field(description="the title of the persona")] = None,
@@ -1496,8 +1431,6 @@ class PreviewPersonaApi:
 
         Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona to update (required)
@@ -1543,7 +1476,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._update_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             title=title,
@@ -1578,7 +1510,6 @@ class PreviewPersonaApi:
     @validate_call
     def update_persona_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the account ID of the user")],
         persona_id: Annotated[StrictInt, Field(description="the persona ID of the persona to update")],
         title: Annotated[Optional[StrictStr], Field(description="the title of the persona")] = None,
@@ -1607,8 +1538,6 @@ class PreviewPersonaApi:
 
         Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the account ID of the user (required)
         :type account_id: int
         :param persona_id: the persona ID of the persona to update (required)
@@ -1654,7 +1583,6 @@ class PreviewPersonaApi:
         """ # noqa: E501
 
         _param = self._update_persona_serialize(
-            version=version,
             account_id=account_id,
             persona_id=persona_id,
             title=title,
@@ -1684,7 +1612,6 @@ class PreviewPersonaApi:
 
     def _update_persona_serialize(
         self,
-        version,
         account_id,
         persona_id,
         title,
@@ -1717,8 +1644,6 @@ class PreviewPersonaApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1784,7 +1709,7 @@ class PreviewPersonaApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/persona/update',
+            resource_path='/persona/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

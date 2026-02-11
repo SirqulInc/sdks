@@ -17,8 +17,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
-from typing import List, Optional, Union
+from pydantic import Field, StrictBool, StrictInt, StrictStr, field_validator
+from typing import List, Optional
 from typing_extensions import Annotated
 from openapi_client.models.employee_response import EmployeeResponse
 from openapi_client.models.sirqul_response import SirqulResponse
@@ -44,7 +44,6 @@ class EmployeeApi:
     @validate_call
     def assign_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be assigned as employee")],
@@ -66,8 +65,6 @@ class EmployeeApi:
 
         Assign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -99,7 +96,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             employee_account_id=employee_account_id,
@@ -127,7 +123,6 @@ class EmployeeApi:
     @validate_call
     def assign_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be assigned as employee")],
@@ -149,8 +144,6 @@ class EmployeeApi:
 
         Assign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -182,7 +175,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             employee_account_id=employee_account_id,
@@ -210,7 +202,6 @@ class EmployeeApi:
     @validate_call
     def assign_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be assigned as employee")],
@@ -232,8 +223,6 @@ class EmployeeApi:
 
         Assign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -265,7 +254,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             employee_account_id=employee_account_id,
@@ -288,7 +276,6 @@ class EmployeeApi:
 
     def _assign_employee_serialize(
         self,
-        version,
         account_id,
         manager_account_id,
         employee_account_id,
@@ -314,8 +301,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -353,7 +338,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/assign',
+            resource_path='/employee/assign',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -372,7 +357,6 @@ class EmployeeApi:
     @validate_call
     def assign_to_location_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location to apply the change to")],
         employee_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user to apply the change to")] = None,
@@ -394,8 +378,6 @@ class EmployeeApi:
 
         Assign or unassign the account to a retailer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param retailer_location_id: The retailer location to apply the change to (required)
@@ -427,7 +409,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_to_location_employee_serialize(
-            version=version,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
             employee_account_id=employee_account_id,
@@ -455,7 +436,6 @@ class EmployeeApi:
     @validate_call
     def assign_to_location_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location to apply the change to")],
         employee_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user to apply the change to")] = None,
@@ -477,8 +457,6 @@ class EmployeeApi:
 
         Assign or unassign the account to a retailer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param retailer_location_id: The retailer location to apply the change to (required)
@@ -510,7 +488,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_to_location_employee_serialize(
-            version=version,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
             employee_account_id=employee_account_id,
@@ -538,7 +515,6 @@ class EmployeeApi:
     @validate_call
     def assign_to_location_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         retailer_location_id: Annotated[StrictInt, Field(description="The retailer location to apply the change to")],
         employee_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the user to apply the change to")] = None,
@@ -560,8 +536,6 @@ class EmployeeApi:
 
         Assign or unassign the account to a retailer location.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param retailer_location_id: The retailer location to apply the change to (required)
@@ -593,7 +567,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._assign_to_location_employee_serialize(
-            version=version,
             account_id=account_id,
             retailer_location_id=retailer_location_id,
             employee_account_id=employee_account_id,
@@ -616,7 +589,6 @@ class EmployeeApi:
 
     def _assign_to_location_employee_serialize(
         self,
-        version,
         account_id,
         retailer_location_id,
         employee_account_id,
@@ -642,8 +614,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -681,7 +651,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/assignToLocation',
+            resource_path='/employee/assignToLocation',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -700,7 +670,6 @@ class EmployeeApi:
     @validate_call
     def create_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         username: Annotated[StrictStr, Field(description="The username/email for the new user. This must be unique across the entire the system.")],
@@ -748,8 +717,6 @@ class EmployeeApi:
 
         Create a new account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -833,7 +800,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._create_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             username=username,
@@ -887,7 +853,6 @@ class EmployeeApi:
     @validate_call
     def create_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         username: Annotated[StrictStr, Field(description="The username/email for the new user. This must be unique across the entire the system.")],
@@ -935,8 +900,6 @@ class EmployeeApi:
 
         Create a new account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -1020,7 +983,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._create_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             username=username,
@@ -1074,7 +1036,6 @@ class EmployeeApi:
     @validate_call
     def create_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         manager_account_id: Annotated[StrictInt, Field(description="The account id of the manager to assign under")],
         username: Annotated[StrictStr, Field(description="The username/email for the new user. This must be unique across the entire the system.")],
@@ -1122,8 +1083,6 @@ class EmployeeApi:
 
         Create a new account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param manager_account_id: The account id of the manager to assign under (required)
@@ -1207,7 +1166,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._create_employee_serialize(
-            version=version,
             account_id=account_id,
             manager_account_id=manager_account_id,
             username=username,
@@ -1256,7 +1214,6 @@ class EmployeeApi:
 
     def _create_employee_serialize(
         self,
-        version,
         account_id,
         manager_account_id,
         username,
@@ -1308,8 +1265,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1451,7 +1406,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/create',
+            resource_path='/employee/create',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1470,7 +1425,6 @@ class EmployeeApi:
     @validate_call
     def delete_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee to delete")],
         _request_timeout: Union[
@@ -1490,8 +1444,6 @@ class EmployeeApi:
 
         Set the deleted date field which marks the record as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee to delete (required)
@@ -1519,7 +1471,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._delete_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -1545,7 +1496,6 @@ class EmployeeApi:
     @validate_call
     def delete_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee to delete")],
         _request_timeout: Union[
@@ -1565,8 +1515,6 @@ class EmployeeApi:
 
         Set the deleted date field which marks the record as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee to delete (required)
@@ -1594,7 +1542,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._delete_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -1620,7 +1567,6 @@ class EmployeeApi:
     @validate_call
     def delete_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee to delete")],
         _request_timeout: Union[
@@ -1640,8 +1586,6 @@ class EmployeeApi:
 
         Set the deleted date field which marks the record as deleted.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee to delete (required)
@@ -1669,7 +1613,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._delete_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -1690,7 +1633,6 @@ class EmployeeApi:
 
     def _delete_employee_serialize(
         self,
-        version,
         account_id,
         employee_account_id,
         _request_auth,
@@ -1714,8 +1656,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -1745,7 +1685,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/delete',
+            resource_path='/employee/delete',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -1764,7 +1704,6 @@ class EmployeeApi:
     @validate_call
     def get_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account to get")],
         settings_app_key: Annotated[Optional[StrictStr], Field(description="Determines whether to return the application settings for the employee for a particular application")] = None,
@@ -1785,8 +1724,6 @@ class EmployeeApi:
 
         Get the account record for the account id provided.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account to get (required)
@@ -1816,7 +1753,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._get_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             settings_app_key=settings_app_key,
@@ -1843,7 +1779,6 @@ class EmployeeApi:
     @validate_call
     def get_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account to get")],
         settings_app_key: Annotated[Optional[StrictStr], Field(description="Determines whether to return the application settings for the employee for a particular application")] = None,
@@ -1864,8 +1799,6 @@ class EmployeeApi:
 
         Get the account record for the account id provided.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account to get (required)
@@ -1895,7 +1828,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._get_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             settings_app_key=settings_app_key,
@@ -1922,7 +1854,6 @@ class EmployeeApi:
     @validate_call
     def get_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="the id of logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account to get")],
         settings_app_key: Annotated[Optional[StrictStr], Field(description="Determines whether to return the application settings for the employee for a particular application")] = None,
@@ -1943,8 +1874,6 @@ class EmployeeApi:
 
         Get the account record for the account id provided.
 
-        :param version: (required)
-        :type version: float
         :param account_id: the id of logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account to get (required)
@@ -1974,7 +1903,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._get_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             settings_app_key=settings_app_key,
@@ -1996,7 +1924,6 @@ class EmployeeApi:
 
     def _get_employee_serialize(
         self,
-        version,
         account_id,
         employee_account_id,
         settings_app_key,
@@ -2021,8 +1948,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2056,7 +1981,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/get',
+            resource_path='/employee/get',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2075,7 +2000,6 @@ class EmployeeApi:
     @validate_call
     def search_employees(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         role: Annotated[Optional[StrictStr], Field(description="The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Filters employees by retailer")] = None,
@@ -2110,8 +2034,6 @@ class EmployeeApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param role: The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -2169,7 +2091,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._search_employees_serialize(
-            version=version,
             account_id=account_id,
             role=role,
             retailer_id=retailer_id,
@@ -2210,7 +2131,6 @@ class EmployeeApi:
     @validate_call
     def search_employees_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         role: Annotated[Optional[StrictStr], Field(description="The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Filters employees by retailer")] = None,
@@ -2245,8 +2165,6 @@ class EmployeeApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param role: The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -2304,7 +2222,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._search_employees_serialize(
-            version=version,
             account_id=account_id,
             role=role,
             retailer_id=retailer_id,
@@ -2345,7 +2262,6 @@ class EmployeeApi:
     @validate_call
     def search_employees_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         role: Annotated[Optional[StrictStr], Field(description="The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.")] = None,
         retailer_id: Annotated[Optional[StrictInt], Field(description="Filters employees by retailer")] = None,
@@ -2380,8 +2296,6 @@ class EmployeeApi:
 
         Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param role: The role to limit the search to: RETAILER or RETAILER_LIMITED. Leave empty to search on both roles.
@@ -2439,7 +2353,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._search_employees_serialize(
-            version=version,
             account_id=account_id,
             role=role,
             retailer_id=retailer_id,
@@ -2475,7 +2388,6 @@ class EmployeeApi:
 
     def _search_employees_serialize(
         self,
-        version,
         account_id,
         role,
         retailer_id,
@@ -2514,8 +2426,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2605,7 +2515,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/search',
+            resource_path='/employee/search',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2624,7 +2534,6 @@ class EmployeeApi:
     @validate_call
     def unassign_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be unassigned")],
         _request_timeout: Union[
@@ -2644,8 +2553,6 @@ class EmployeeApi:
 
         Unassign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: The account id of the user to be unassigned (required)
@@ -2673,7 +2580,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._unassign_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -2699,7 +2605,6 @@ class EmployeeApi:
     @validate_call
     def unassign_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be unassigned")],
         _request_timeout: Union[
@@ -2719,8 +2624,6 @@ class EmployeeApi:
 
         Unassign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: The account id of the user to be unassigned (required)
@@ -2748,7 +2651,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._unassign_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -2774,7 +2676,6 @@ class EmployeeApi:
     @validate_call
     def unassign_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="The account id of the user to be unassigned")],
         _request_timeout: Union[
@@ -2794,8 +2695,6 @@ class EmployeeApi:
 
         Unassign An existing account to be an employee
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: The account id of the user to be unassigned (required)
@@ -2823,7 +2722,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._unassign_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             _request_auth=_request_auth,
@@ -2844,7 +2742,6 @@ class EmployeeApi:
 
     def _unassign_employee_serialize(
         self,
-        version,
         account_id,
         employee_account_id,
         _request_auth,
@@ -2868,8 +2765,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -2899,7 +2794,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/unassign',
+            resource_path='/employee/unassign',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2918,7 +2813,6 @@ class EmployeeApi:
     @validate_call
     def update_employee(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account")],
         manager_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the manager to assign under")] = None,
@@ -2966,8 +2860,6 @@ class EmployeeApi:
 
         Update the account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account (required)
@@ -3051,7 +2943,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._update_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             manager_account_id=manager_account_id,
@@ -3105,7 +2996,6 @@ class EmployeeApi:
     @validate_call
     def update_employee_with_http_info(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account")],
         manager_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the manager to assign under")] = None,
@@ -3153,8 +3043,6 @@ class EmployeeApi:
 
         Update the account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account (required)
@@ -3238,7 +3126,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._update_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             manager_account_id=manager_account_id,
@@ -3292,7 +3179,6 @@ class EmployeeApi:
     @validate_call
     def update_employee_without_preload_content(
         self,
-        version: Union[StrictFloat, StrictInt],
         account_id: Annotated[StrictInt, Field(description="The account id of the logged in user")],
         employee_account_id: Annotated[StrictInt, Field(description="the id of the employee account")],
         manager_account_id: Annotated[Optional[StrictInt], Field(description="The account id of the manager to assign under")] = None,
@@ -3340,8 +3226,6 @@ class EmployeeApi:
 
         Update the account record with the provided information.
 
-        :param version: (required)
-        :type version: float
         :param account_id: The account id of the logged in user (required)
         :type account_id: int
         :param employee_account_id: the id of the employee account (required)
@@ -3425,7 +3309,6 @@ class EmployeeApi:
         """ # noqa: E501
 
         _param = self._update_employee_serialize(
-            version=version,
             account_id=account_id,
             employee_account_id=employee_account_id,
             manager_account_id=manager_account_id,
@@ -3474,7 +3357,6 @@ class EmployeeApi:
 
     def _update_employee_serialize(
         self,
-        version,
         account_id,
         employee_account_id,
         manager_account_id,
@@ -3526,8 +3408,6 @@ class EmployeeApi:
         _body_params: Optional[bytes] = None
 
         # process the path parameters
-        if version is not None:
-            _path_params['version'] = version
         # process the query parameters
         if account_id is not None:
             
@@ -3669,7 +3549,7 @@ class EmployeeApi:
 
         return self.api_client.param_serialize(
             method='POST',
-            resource_path='/api/{version}/employee/update',
+            resource_path='/employee/update',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
