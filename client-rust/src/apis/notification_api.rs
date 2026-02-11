@@ -108,9 +108,8 @@ pub enum UpdateNotificationTemplateError {
 
 
 /// Create a notification template. Developers will only be able to create notification templates for their own applications.
-pub async fn create_notification_template(configuration: &configuration::Configuration, version: f64, account_id: i64, conduit: &str, title: &str, body: &str, app_key: Option<&str>, event: Option<&str>, tags: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<CreateNotificationTemplateError>> {
+pub async fn create_notification_template(configuration: &configuration::Configuration, account_id: i64, conduit: &str, title: &str, body: &str, app_key: Option<&str>, event: Option<&str>, tags: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<CreateNotificationTemplateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_conduit = conduit;
     let p_query_title = title;
@@ -119,7 +118,7 @@ pub async fn create_notification_template(configuration: &configuration::Configu
     let p_query_event = event;
     let p_query_tags = tags;
 
-    let uri_str = format!("{}/api/{version}/notification/template/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/template/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -165,14 +164,13 @@ pub async fn create_notification_template(configuration: &configuration::Configu
 }
 
 /// Create or update blocked notification settings
-pub async fn create_or_update_blocked_notifications(configuration: &configuration::Configuration, version: f64, app_key: &str, data: &str, account_id: Option<i64>) -> Result<models::BlockedNotificationResponse, Error<CreateOrUpdateBlockedNotificationsError>> {
+pub async fn create_or_update_blocked_notifications(configuration: &configuration::Configuration, app_key: &str, data: &str, account_id: Option<i64>) -> Result<models::BlockedNotificationResponse, Error<CreateOrUpdateBlockedNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_data = data;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/notification/blocked/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/blocked/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -210,13 +208,12 @@ pub async fn create_or_update_blocked_notifications(configuration: &configuratio
 }
 
 /// Deletes a notification template. Developers will only be able to delete notification templates for their own applications.
-pub async fn delete_notification_template(configuration: &configuration::Configuration, version: f64, account_id: i64, notification_template_id: i64) -> Result<models::NotificationTemplateResponse, Error<DeleteNotificationTemplateError>> {
+pub async fn delete_notification_template(configuration: &configuration::Configuration, account_id: i64, notification_template_id: i64) -> Result<models::NotificationTemplateResponse, Error<DeleteNotificationTemplateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_notification_template_id = notification_template_id;
 
-    let uri_str = format!("{}/api/{version}/notification/template/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/template/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -251,13 +248,12 @@ pub async fn delete_notification_template(configuration: &configuration::Configu
 }
 
 /// Get the details of a notification template. Developers will only be able to see notification templates for their own applications.
-pub async fn get_notification_template(configuration: &configuration::Configuration, version: f64, account_id: i64, notification_template_id: i64) -> Result<models::NotificationTemplateResponse, Error<GetNotificationTemplateError>> {
+pub async fn get_notification_template(configuration: &configuration::Configuration, account_id: i64, notification_template_id: i64) -> Result<models::NotificationTemplateResponse, Error<GetNotificationTemplateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_notification_template_id = notification_template_id;
 
-    let uri_str = format!("{}/api/{version}/notification/template/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/template/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -292,9 +288,8 @@ pub async fn get_notification_template(configuration: &configuration::Configurat
 }
 
 /// Get a list of notifications for a user. If the \"markAsRead\" parameter is set to true, the returned notifications will be marked as \"read\" after the response has been sent. By default, read messages will not be returned, so to see read messages, set \"returnReadMessages\" to true.
-pub async fn get_notifications(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, app_key: Option<&str>, event_type: Option<&str>, content_ids: Option<&str>, content_types: Option<&str>, parent_ids: Option<&str>, parent_types: Option<&str>, action_category: Option<&str>, conduits: Option<&str>, keyword: Option<&str>, return_read_messages: Option<bool>, mark_as_read: Option<bool>, from_date: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, return_sent: Option<bool>, ignore_flagged: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::NotificationMessageListResponse, Error<GetNotificationsError>> {
+pub async fn get_notifications(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, app_key: Option<&str>, event_type: Option<&str>, content_ids: Option<&str>, content_types: Option<&str>, parent_ids: Option<&str>, parent_types: Option<&str>, action_category: Option<&str>, conduits: Option<&str>, keyword: Option<&str>, return_read_messages: Option<bool>, mark_as_read: Option<bool>, from_date: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, return_sent: Option<bool>, ignore_flagged: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::NotificationMessageListResponse, Error<GetNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
@@ -317,7 +312,7 @@ pub async fn get_notifications(configuration: &configuration::Configuration, ver
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/notification/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -413,9 +408,8 @@ pub async fn get_notifications(configuration: &configuration::Configuration, ver
 }
 
 /// Register a token to send application dependent notifications like Google Cloud Messaging, or Apple Push Notifications.
-pub async fn register_notification_token(configuration: &configuration::Configuration, version: f64, token: &str, push_type: &str, device_id: Option<&str>, account_id: Option<i64>, environment: Option<&str>, app_key: Option<&str>, game_type: Option<&str>, active: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RegisterNotificationTokenError>> {
+pub async fn register_notification_token(configuration: &configuration::Configuration, token: &str, push_type: &str, device_id: Option<&str>, account_id: Option<i64>, environment: Option<&str>, app_key: Option<&str>, game_type: Option<&str>, active: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RegisterNotificationTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_token = token;
     let p_query_push_type = push_type;
     let p_query_device_id = device_id;
@@ -427,7 +421,7 @@ pub async fn register_notification_token(configuration: &configuration::Configur
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/notification/token", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/token", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -486,9 +480,8 @@ pub async fn register_notification_token(configuration: &configuration::Configur
 }
 
 /// Search on the user's blocked notification settings
-pub async fn search_blocked_notifications(configuration: &configuration::Configuration, version: f64, app_key: &str, account_id: Option<i64>, search_tags: Option<&str>, events: Option<&str>, conduits: Option<&str>, custom_types: Option<&str>, content_types: Option<&str>, content_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::BlockedNotificationResponse, Error<SearchBlockedNotificationsError>> {
+pub async fn search_blocked_notifications(configuration: &configuration::Configuration, app_key: &str, account_id: Option<i64>, search_tags: Option<&str>, events: Option<&str>, conduits: Option<&str>, custom_types: Option<&str>, content_types: Option<&str>, content_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::BlockedNotificationResponse, Error<SearchBlockedNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_account_id = account_id;
     let p_query_search_tags = search_tags;
@@ -502,7 +495,7 @@ pub async fn search_blocked_notifications(configuration: &configuration::Configu
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/notification/blocked/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/blocked/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -569,9 +562,8 @@ pub async fn search_blocked_notifications(configuration: &configuration::Configu
 }
 
 /// Search for notification templates on owned applications.
-pub async fn search_notification_template(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, app_key: Option<&str>, event: Option<&str>, conduit: Option<&str>, global_only: Option<bool>, reserved_only: Option<bool>, keyword: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<SearchNotificationTemplateError>> {
+pub async fn search_notification_template(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, app_key: Option<&str>, event: Option<&str>, conduit: Option<&str>, global_only: Option<bool>, reserved_only: Option<bool>, keyword: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<SearchNotificationTemplateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -584,7 +576,7 @@ pub async fn search_notification_template(configuration: &configuration::Configu
     let p_query_reserved_only = reserved_only;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/notification/template/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/template/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -640,9 +632,8 @@ pub async fn search_notification_template(configuration: &configuration::Configu
 }
 
 /// Search for application users to send notifications.
-pub async fn search_recipients(configuration: &configuration::Configuration, version: f64, sort_field: &str, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, conduit: Option<&str>, keyword: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, connection_group_ids: Option<&str>, recipient_account_ids: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::NotificationRecipientResponse>, Error<SearchRecipientsError>> {
+pub async fn search_recipients(configuration: &configuration::Configuration, sort_field: &str, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, conduit: Option<&str>, keyword: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, connection_group_ids: Option<&str>, recipient_account_ids: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::NotificationRecipientResponse>, Error<SearchRecipientsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -657,7 +648,7 @@ pub async fn search_recipients(configuration: &configuration::Configuration, ver
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/notification/recipient/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/recipient/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -727,9 +718,8 @@ pub async fn search_recipients(configuration: &configuration::Configuration, ver
 }
 
 /// Search for application users to send notifications (count/grouped variant).
-pub async fn search_recipients_count(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, conduit: Option<&str>, keyword: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, connection_group_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::NotificationRecipientResponseListResponse, Error<SearchRecipientsCountError>> {
+pub async fn search_recipients_count(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, conduit: Option<&str>, keyword: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, connection_group_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::NotificationRecipientResponseListResponse, Error<SearchRecipientsCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -743,7 +733,7 @@ pub async fn search_recipients_count(configuration: &configuration::Configuratio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/notification/recipient/search/count", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/recipient/search/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -812,9 +802,8 @@ pub async fn search_recipients_count(configuration: &configuration::Configuratio
 }
 
 /// Send notifications to all users of an application. Only someone with permissions to the application can do this.
-pub async fn send_batch_notifications(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, custom_message: &str, conduit: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>) -> Result<models::SirqulResponse, Error<SendBatchNotificationsError>> {
+pub async fn send_batch_notifications(configuration: &configuration::Configuration, account_id: i64, app_key: &str, custom_message: &str, conduit: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>) -> Result<models::SirqulResponse, Error<SendBatchNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_custom_message = custom_message;
@@ -825,7 +814,7 @@ pub async fn send_batch_notifications(configuration: &configuration::Configurati
     let p_query_parent_id = parent_id;
     let p_query_parent_type = parent_type;
 
-    let uri_str = format!("{}/api/{version}/notification/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -879,9 +868,8 @@ pub async fn send_batch_notifications(configuration: &configuration::Configurati
 }
 
 /// Send your own custom notification to a user. NOTE: the EventType of these notifications will be CUSTOM. Notifications sent to yourself will currently be ignored.
-pub async fn send_custom_notifications(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, receiver_account_ids: Option<&str>, include_friend_group: Option<bool>, app_key: Option<&str>, game_type: Option<&str>, conduit: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, action_category: Option<&str>, subject: Option<&str>, custom_message: Option<&str>, friend_only_apns: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<SendCustomNotificationsError>> {
+pub async fn send_custom_notifications(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, receiver_account_ids: Option<&str>, include_friend_group: Option<bool>, app_key: Option<&str>, game_type: Option<&str>, conduit: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, action_category: Option<&str>, subject: Option<&str>, custom_message: Option<&str>, friend_only_apns: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<SendCustomNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_receiver_account_ids = receiver_account_ids;
@@ -901,7 +889,7 @@ pub async fn send_custom_notifications(configuration: &configuration::Configurat
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/notification/custom", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/custom", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -988,16 +976,15 @@ pub async fn send_custom_notifications(configuration: &configuration::Configurat
 }
 
 /// Update a notification template. Developers will only be able to update notification templates for their own applications.
-pub async fn update_notification_template(configuration: &configuration::Configuration, version: f64, account_id: i64, notification_template_id: i64, title: Option<&str>, body: Option<&str>, tags: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<UpdateNotificationTemplateError>> {
+pub async fn update_notification_template(configuration: &configuration::Configuration, account_id: i64, notification_template_id: i64, title: Option<&str>, body: Option<&str>, tags: Option<&str>) -> Result<models::NotificationTemplateResponse, Error<UpdateNotificationTemplateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_notification_template_id = notification_template_id;
     let p_query_title = title;
     let p_query_body = body;
     let p_query_tags = tags;
 
-    let uri_str = format!("{}/api/{version}/notification/template/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/template/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

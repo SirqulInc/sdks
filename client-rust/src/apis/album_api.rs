@@ -80,9 +80,8 @@ pub enum UpdateAlbumCollectionError {
 
 
 /// Create an Album.
-pub async fn add_album_collection(configuration: &configuration::Configuration, version: f64, title: &str, cover_asset_nullable: bool, include_cover_in_asset_list: bool, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, anonymous: bool, device_id: Option<&str>, account_id: Option<i64>, assets_to_add: Option<&str>, media: Option<std::path::PathBuf>, media_url: Option<&str>, asset_id: Option<i64>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, description: Option<&str>, album_type: Option<&str>, album_type_id: Option<i64>, sub_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, location_description: Option<&str>, visibility: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, cell_phone: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, full_address: Option<&str>, meta_data: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, include_all_app_users_as_members: Option<bool>, include_audiences_as_members: Option<bool>, audience_operator: Option<&str>, approval_status: Option<&str>, linked_object_type: Option<&str>, linked_object_id: Option<i64>) -> Result<models::SearchResponse, Error<AddAlbumCollectionError>> {
+pub async fn add_album_collection(configuration: &configuration::Configuration, title: &str, cover_asset_nullable: bool, include_cover_in_asset_list: bool, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, anonymous: bool, device_id: Option<&str>, account_id: Option<i64>, assets_to_add: Option<&str>, media: Option<std::path::PathBuf>, media_url: Option<&str>, asset_id: Option<i64>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, description: Option<&str>, album_type: Option<&str>, album_type_id: Option<i64>, sub_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, location_description: Option<&str>, visibility: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, cell_phone: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, full_address: Option<&str>, meta_data: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, include_all_app_users_as_members: Option<bool>, include_audiences_as_members: Option<bool>, audience_operator: Option<&str>, approval_status: Option<&str>, linked_object_type: Option<&str>, linked_object_id: Option<i64>) -> Result<models::SearchResponse, Error<AddAlbumCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_title = title;
     let p_query_cover_asset_nullable = cover_asset_nullable;
     let p_query_include_cover_in_asset_list = include_cover_in_asset_list;
@@ -130,7 +129,7 @@ pub async fn add_album_collection(configuration: &configuration::Configuration, 
     let p_query_linked_object_type = linked_object_type;
     let p_query_linked_object_id = linked_object_id;
 
-    let uri_str = format!("{}/api/{version}/album/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -285,9 +284,8 @@ pub async fn add_album_collection(configuration: &configuration::Configuration, 
 }
 
 /// Add users to an album as participants.
-pub async fn add_album_users(configuration: &configuration::Configuration, version: f64, album_id: i64, include_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, read: Option<bool>, write: Option<bool>, delete: Option<bool>, add: Option<bool>, connections: Option<&str>, connection_groups: Option<&str>) -> Result<models::SirqulResponse, Error<AddAlbumUsersError>> {
+pub async fn add_album_users(configuration: &configuration::Configuration, album_id: i64, include_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, read: Option<bool>, write: Option<bool>, delete: Option<bool>, add: Option<bool>, connections: Option<&str>, connection_groups: Option<&str>) -> Result<models::SirqulResponse, Error<AddAlbumUsersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_include_friend_group = include_friend_group;
     let p_query_device_id = device_id;
@@ -299,7 +297,7 @@ pub async fn add_album_users(configuration: &configuration::Configuration, versi
     let p_query_connections = connections;
     let p_query_connection_groups = connection_groups;
 
-    let uri_str = format!("{}/api/{version}/album/user/add", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/user/add", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -358,16 +356,15 @@ pub async fn add_album_users(configuration: &configuration::Configuration, versi
 }
 
 /// Sets the approval status of an Album.
-pub async fn approve_album(configuration: &configuration::Configuration, version: f64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, approval_status: Option<&str>, verified: Option<bool>) -> Result<models::SirqulResponse, Error<ApproveAlbumError>> {
+pub async fn approve_album(configuration: &configuration::Configuration, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, approval_status: Option<&str>, verified: Option<bool>) -> Result<models::SirqulResponse, Error<ApproveAlbumError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_approval_status = approval_status;
     let p_query_verified = verified;
 
-    let uri_str = format!("{}/api/{version}/album/approve", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/approve", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -413,9 +410,8 @@ pub async fn approve_album(configuration: &configuration::Configuration, version
 }
 
 /// Get an Album.
-pub async fn get_album_collection(configuration: &configuration::Configuration, version: f64, return_nulls: bool, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, like_preview_size: Option<i32>, asset_preview_size: Option<i32>, note_preview_size: Option<i32>, connection_preview_size: Option<i32>, audience_preview_size: Option<i32>) -> Result<models::AlbumFullResponse, Error<GetAlbumCollectionError>> {
+pub async fn get_album_collection(configuration: &configuration::Configuration, return_nulls: bool, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, like_preview_size: Option<i32>, asset_preview_size: Option<i32>, note_preview_size: Option<i32>, connection_preview_size: Option<i32>, audience_preview_size: Option<i32>) -> Result<models::AlbumFullResponse, Error<GetAlbumCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
@@ -426,7 +422,7 @@ pub async fn get_album_collection(configuration: &configuration::Configuration, 
     let p_query_connection_preview_size = connection_preview_size;
     let p_query_audience_preview_size = audience_preview_size;
 
-    let uri_str = format!("{}/api/{version}/album/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -482,14 +478,13 @@ pub async fn get_album_collection(configuration: &configuration::Configuration, 
 }
 
 ///  Allows a user to leave an album (they are no longer considered a participant). The album creator cannot leave their own albums.
-pub async fn leave_album(configuration: &configuration::Configuration, version: f64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<LeaveAlbumError>> {
+pub async fn leave_album(configuration: &configuration::Configuration, album_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<LeaveAlbumError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/album/user/leave", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/user/leave", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -529,14 +524,13 @@ pub async fn leave_album(configuration: &configuration::Configuration, version: 
 }
 
 /// Deletes an Album
-pub async fn remove_album(configuration: &configuration::Configuration, version: f64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<RemoveAlbumError>> {
+pub async fn remove_album(configuration: &configuration::Configuration, album_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<RemoveAlbumError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/album/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -576,9 +570,8 @@ pub async fn remove_album(configuration: &configuration::Configuration, version:
 }
 
 /// Remove participants of an album.
-pub async fn remove_album_users(configuration: &configuration::Configuration, version: f64, album_id: i64, remove_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, connections: Option<&str>, connection_groups: Option<&str>) -> Result<models::SirqulResponse, Error<RemoveAlbumUsersError>> {
+pub async fn remove_album_users(configuration: &configuration::Configuration, album_id: i64, remove_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, connections: Option<&str>, connection_groups: Option<&str>) -> Result<models::SirqulResponse, Error<RemoveAlbumUsersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_remove_friend_group = remove_friend_group;
     let p_query_device_id = device_id;
@@ -586,7 +579,7 @@ pub async fn remove_album_users(configuration: &configuration::Configuration, ve
     let p_query_connections = connections;
     let p_query_connection_groups = connection_groups;
 
-    let uri_str = format!("{}/api/{version}/album/user/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/user/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -633,9 +626,8 @@ pub async fn remove_album_users(configuration: &configuration::Configuration, ve
 }
 
 /// Searches on Albums.
-pub async fn search_albums(configuration: &configuration::Configuration, version: f64, filter: &str, album_type_id: i64, sub_type: &str, include_inactive: bool, sort_field: &str, descending: bool, start: i32, limit: i32, range: f64, include_liked: bool, include_favorited: bool, include_permissions: bool, like_preview_size: i32, asset_preview_size: i32, note_preview_size: i32, connection_preview_size: i32, audience_preview_size: i32, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, owner_id: Option<i64>, album_ids: Option<&str>, exclude_album_ids: Option<&str>, media_id: Option<i64>, keyword: Option<&str>, album_type: Option<&str>, limit_per_album_type: Option<i32>, date_created: Option<i64>, updated_since: Option<i64>, updated_before: Option<i64>, created_since: Option<i64>, created_before: Option<i64>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, exclude_audience_ids: Option<&str>, include_completable: Option<bool>, include_rating: Option<bool>, search_mode: Option<&str>, stack_search: Option<bool>, stack_window_size: Option<i32>, min_stack_per_page: Option<i32>, stack_pagination_identifier: Option<&str>, stack_details: Option<bool>, flag_count_minimum: Option<i64>, remove_flagged_content: Option<bool>, verified_filter: Option<bool>, linked_object_type: Option<&str>, linked_object_id: Option<i64>, order_audience_id: Option<i64>, ignore_default_app_filter: Option<bool>, search_expression: Option<&str>, generate_albums: Option<bool>) -> Result<Vec<models::AlbumFullResponse>, Error<SearchAlbumsError>> {
+pub async fn search_albums(configuration: &configuration::Configuration, filter: &str, album_type_id: i64, sub_type: &str, include_inactive: bool, sort_field: &str, descending: bool, start: i32, limit: i32, range: f64, include_liked: bool, include_favorited: bool, include_permissions: bool, like_preview_size: i32, asset_preview_size: i32, note_preview_size: i32, connection_preview_size: i32, audience_preview_size: i32, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, owner_id: Option<i64>, album_ids: Option<&str>, exclude_album_ids: Option<&str>, media_id: Option<i64>, keyword: Option<&str>, album_type: Option<&str>, limit_per_album_type: Option<i32>, date_created: Option<i64>, updated_since: Option<i64>, updated_before: Option<i64>, created_since: Option<i64>, created_before: Option<i64>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, exclude_audience_ids: Option<&str>, include_completable: Option<bool>, include_rating: Option<bool>, search_mode: Option<&str>, stack_search: Option<bool>, stack_window_size: Option<i32>, min_stack_per_page: Option<i32>, stack_pagination_identifier: Option<&str>, stack_details: Option<bool>, flag_count_minimum: Option<i64>, remove_flagged_content: Option<bool>, verified_filter: Option<bool>, linked_object_type: Option<&str>, linked_object_id: Option<i64>, order_audience_id: Option<i64>, ignore_default_app_filter: Option<bool>, search_expression: Option<&str>, generate_albums: Option<bool>) -> Result<Vec<models::AlbumFullResponse>, Error<SearchAlbumsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_filter = filter;
     let p_query_album_type_id = album_type_id;
     let p_query_sub_type = sub_type;
@@ -697,7 +689,7 @@ pub async fn search_albums(configuration: &configuration::Configuration, version
     let p_query_search_expression = search_expression;
     let p_query_generate_albums = generate_albums;
 
-    let uri_str = format!("{}/api/{version}/album/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -876,9 +868,8 @@ pub async fn search_albums(configuration: &configuration::Configuration, version
 }
 
 /// Update an Album.
-pub async fn update_album_collection(configuration: &configuration::Configuration, version: f64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, assets_to_add: Option<&str>, assets_to_remove: Option<&str>, asset_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, active: Option<bool>, title: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, description: Option<&str>, album_type: Option<&str>, album_type_id: Option<i64>, sub_type: Option<&str>, public_read: Option<bool>, public_write: Option<bool>, public_delete: Option<bool>, public_add: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, location_description: Option<&str>, visibility: Option<&str>, cell_phone: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, full_address: Option<&str>, anonymous: Option<bool>, meta_data: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, include_all_app_users_as_members: Option<bool>, include_audiences_as_members: Option<bool>, audience_operator: Option<&str>, linked_object_type: Option<&str>, linked_object_id: Option<i64>, index_now: Option<bool>) -> Result<models::AlbumResponse, Error<UpdateAlbumCollectionError>> {
+pub async fn update_album_collection(configuration: &configuration::Configuration, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, assets_to_add: Option<&str>, assets_to_remove: Option<&str>, asset_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, active: Option<bool>, title: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, description: Option<&str>, album_type: Option<&str>, album_type_id: Option<i64>, sub_type: Option<&str>, public_read: Option<bool>, public_write: Option<bool>, public_delete: Option<bool>, public_add: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, location_description: Option<&str>, visibility: Option<&str>, cell_phone: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, full_address: Option<&str>, anonymous: Option<bool>, meta_data: Option<&str>, category_ids: Option<&str>, category_filter_ids: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, include_all_app_users_as_members: Option<bool>, include_audiences_as_members: Option<bool>, audience_operator: Option<&str>, linked_object_type: Option<&str>, linked_object_id: Option<i64>, index_now: Option<bool>) -> Result<models::AlbumResponse, Error<UpdateAlbumCollectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -925,7 +916,7 @@ pub async fn update_album_collection(configuration: &configuration::Configuratio
     let p_query_linked_object_id = linked_object_id;
     let p_query_index_now = index_now;
 
-    let uri_str = format!("{}/api/{version}/album/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/album/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

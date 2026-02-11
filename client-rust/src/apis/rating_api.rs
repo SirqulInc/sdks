@@ -59,9 +59,8 @@ pub enum UpdateRatingError {
 
 
 /// This is used to leave rating on a ratable object (i.e. retailer locations). Each user can only rate on a ratable object once per category. If a user rates on the same object and category, the previous rating will be overwritten. Leaving a rating on a ratable object will be visible to everyone who has access to view the object.
-pub async fn create_rating(configuration: &configuration::Configuration, version: f64, ratable_type: &str, ratable_id: i64, rating_value: i32, device_id: Option<&str>, account_id: Option<i64>, category_id: Option<i64>, display: Option<&str>, description: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RatingResponse, Error<CreateRatingError>> {
+pub async fn create_rating(configuration: &configuration::Configuration, ratable_type: &str, ratable_id: i64, rating_value: i32, device_id: Option<&str>, account_id: Option<i64>, category_id: Option<i64>, display: Option<&str>, description: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RatingResponse, Error<CreateRatingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_ratable_type = ratable_type;
     let p_query_ratable_id = ratable_id;
     let p_query_rating_value = rating_value;
@@ -74,7 +73,7 @@ pub async fn create_rating(configuration: &configuration::Configuration, version
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/rating/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/rating/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -134,14 +133,13 @@ pub async fn create_rating(configuration: &configuration::Configuration, version
 }
 
 /// Sets a rating as deleted.
-pub async fn delete_rating(configuration: &configuration::Configuration, version: f64, rating_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRatingError>> {
+pub async fn delete_rating(configuration: &configuration::Configuration, rating_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRatingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_rating_id = rating_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/rating/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/rating/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -181,9 +179,8 @@ pub async fn delete_rating(configuration: &configuration::Configuration, version
 }
 
 /// Search for retailer locations by averages near you.
-pub async fn search_location_rating_indexes(configuration: &configuration::Configuration, version: f64, category_ids: Option<&str>, keyword: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, search_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, return_overall_rating: Option<bool>, distance_unit: Option<&str>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>) -> Result<Vec<models::RatingIndexResponse>, Error<SearchLocationRatingIndexesError>> {
+pub async fn search_location_rating_indexes(configuration: &configuration::Configuration, category_ids: Option<&str>, keyword: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, search_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, return_overall_rating: Option<bool>, distance_unit: Option<&str>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>) -> Result<Vec<models::RatingIndexResponse>, Error<SearchLocationRatingIndexesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_category_ids = category_ids;
     let p_query_keyword = keyword;
     let p_query_location_type = location_type;
@@ -202,7 +199,7 @@ pub async fn search_location_rating_indexes(configuration: &configuration::Confi
     let p_query_return_categories = return_categories;
     let p_query_return_filters = return_filters;
 
-    let uri_str = format!("{}/api/{version}/location/rating/index/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/rating/index/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_category_ids {
@@ -286,9 +283,8 @@ pub async fn search_location_rating_indexes(configuration: &configuration::Confi
 }
 
 /// Search for ratable items by averages.
-pub async fn search_rating_indexes(configuration: &configuration::Configuration, version: f64, ratable_type: &str, ratable_ids: Option<&str>, category_ids: Option<&str>, secondary_type: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, return_ratable: Option<bool>, return_overall_rating: Option<bool>) -> Result<Vec<models::RatingIndexResponse>, Error<SearchRatingIndexesError>> {
+pub async fn search_rating_indexes(configuration: &configuration::Configuration, ratable_type: &str, ratable_ids: Option<&str>, category_ids: Option<&str>, secondary_type: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, return_ratable: Option<bool>, return_overall_rating: Option<bool>) -> Result<Vec<models::RatingIndexResponse>, Error<SearchRatingIndexesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_ratable_type = ratable_type;
     let p_query_ratable_ids = ratable_ids;
     let p_query_category_ids = category_ids;
@@ -303,7 +299,7 @@ pub async fn search_rating_indexes(configuration: &configuration::Configuration,
     let p_query_return_ratable = return_ratable;
     let p_query_return_overall_rating = return_overall_rating;
 
-    let uri_str = format!("{}/api/{version}/rating/index/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/rating/index/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("ratableType", &p_query_ratable_type.to_string())]);
@@ -373,9 +369,8 @@ pub async fn search_rating_indexes(configuration: &configuration::Configuration,
 }
 
 /// Search for ratings on a ratable object.
-pub async fn search_ratings(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, filter_account_id: Option<i64>, ratable_type: Option<&str>, ratable_id: Option<i64>, category_ids: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::RatingResponse>, Error<SearchRatingsError>> {
+pub async fn search_ratings(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, filter_account_id: Option<i64>, ratable_type: Option<&str>, ratable_id: Option<i64>, category_ids: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::RatingResponse>, Error<SearchRatingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_filter_account_id = filter_account_id;
@@ -388,7 +383,7 @@ pub async fn search_ratings(configuration: &configuration::Configuration, versio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/rating/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/rating/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -454,9 +449,8 @@ pub async fn search_ratings(configuration: &configuration::Configuration, versio
 }
 
 /// Update an existing rating. Only the creator of the rating have permission to update.
-pub async fn update_rating(configuration: &configuration::Configuration, version: f64, rating_id: i64, device_id: Option<&str>, account_id: Option<i64>, rating_value: Option<i32>, category_id: Option<i64>, display: Option<&str>, description: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RatingResponse, Error<UpdateRatingError>> {
+pub async fn update_rating(configuration: &configuration::Configuration, rating_id: i64, device_id: Option<&str>, account_id: Option<i64>, rating_value: Option<i32>, category_id: Option<i64>, display: Option<&str>, description: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RatingResponse, Error<UpdateRatingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_rating_id = rating_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -468,7 +462,7 @@ pub async fn update_rating(configuration: &configuration::Configuration, version
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/rating/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/rating/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

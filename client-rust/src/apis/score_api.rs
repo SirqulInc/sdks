@@ -38,9 +38,8 @@ pub enum SearchScoresError {
 
 
 /// Create a score.  The response object will contain a series of   coded messages detailing what items were completed, the score registered,   and any tickets allocated.  Scoring a  level could complete the pack it   is in, completing that pack could complete the game, which  in turn could   complete the mission.  This completion chain is indicated to the client   via  a list of {@link MessageResponse}.
-pub async fn create_score(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, points: i32, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, time_taken: Option<i32>, highest: Option<bool>) -> Result<models::ScoreResponse, Error<CreateScoreError>> {
+pub async fn create_score(configuration: &configuration::Configuration, account_id: i64, app_key: &str, points: i32, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, time_taken: Option<i32>, highest: Option<bool>) -> Result<models::ScoreResponse, Error<CreateScoreError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_points = points;
@@ -52,7 +51,7 @@ pub async fn create_score(configuration: &configuration::Configuration, version:
     let p_query_time_taken = time_taken;
     let p_query_highest = highest;
 
-    let uri_str = format!("{}/api/{version}/score/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/score/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -109,9 +108,8 @@ pub async fn create_score(configuration: &configuration::Configuration, version:
 }
 
 /// Get the high score for an item.  Pass in the full path IDs for the score.
-pub async fn get_score(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, score_object_type: Option<&str>, score_status: Option<&str>) -> Result<models::ScoreResponse, Error<GetScoreError>> {
+pub async fn get_score(configuration: &configuration::Configuration, account_id: i64, app_key: &str, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, score_object_type: Option<&str>, score_status: Option<&str>) -> Result<models::ScoreResponse, Error<GetScoreError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_mission_id = mission_id;
@@ -122,7 +120,7 @@ pub async fn get_score(configuration: &configuration::Configuration, version: f6
     let p_query_score_object_type = score_object_type;
     let p_query_score_status = score_status;
 
-    let uri_str = format!("{}/api/{version}/score/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/score/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -178,9 +176,8 @@ pub async fn get_score(configuration: &configuration::Configuration, version: f6
 }
 
 /// Search the scores for an item.  Pass in the full path IDs for the scores.
-pub async fn search_scores(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>) -> Result<Vec<models::ScoreResponse>, Error<SearchScoresError>> {
+pub async fn search_scores(configuration: &configuration::Configuration, account_id: i64, app_key: &str, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>) -> Result<Vec<models::ScoreResponse>, Error<SearchScoresError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_mission_id = mission_id;
@@ -189,7 +186,7 @@ pub async fn search_scores(configuration: &configuration::Configuration, version
     let p_query_game_level_id = game_level_id;
     let p_query_game_object_id = game_object_id;
 
-    let uri_str = format!("{}/api/{version}/score/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/score/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

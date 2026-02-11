@@ -52,9 +52,8 @@ pub enum UpdateTaskError {
 
 
 /// Create a Task
-pub async fn create_task(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TaskResponse, Error<CreateTaskError>> {
+pub async fn create_task(configuration: &configuration::Configuration, account_id: i64, name: &str, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TaskResponse, Error<CreateTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_app_key = app_key;
@@ -68,7 +67,7 @@ pub async fn create_task(configuration: &configuration::Configuration, version: 
     let p_query_visibility = visibility;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/task/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/task/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -133,13 +132,12 @@ pub async fn create_task(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete a Task
-pub async fn delete_task(configuration: &configuration::Configuration, version: f64, account_id: i64, task_id: i64) -> Result<models::SirqulResponse, Error<DeleteTaskError>> {
+pub async fn delete_task(configuration: &configuration::Configuration, account_id: i64, task_id: i64) -> Result<models::SirqulResponse, Error<DeleteTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_task_id = task_id;
 
-    let uri_str = format!("{}/api/{version}/task/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/task/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -174,13 +172,12 @@ pub async fn delete_task(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a Task
-pub async fn get_task(configuration: &configuration::Configuration, version: f64, account_id: i64, task_id: i64) -> Result<models::TaskResponse, Error<GetTaskError>> {
+pub async fn get_task(configuration: &configuration::Configuration, account_id: i64, task_id: i64) -> Result<models::TaskResponse, Error<GetTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_task_id = task_id;
 
-    let uri_str = format!("{}/api/{version}/task/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/task/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -215,9 +212,8 @@ pub async fn get_task(configuration: &configuration::Configuration, version: f64
 }
 
 /// Search on Tasks
-pub async fn search_tasks(configuration: &configuration::Configuration, version: f64, account_id: i64, grouping_id: Option<&str>, filter: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::TaskResponse>, Error<SearchTasksError>> {
+pub async fn search_tasks(configuration: &configuration::Configuration, account_id: i64, grouping_id: Option<&str>, filter: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::TaskResponse>, Error<SearchTasksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_grouping_id = grouping_id;
     let p_query_filter = filter;
@@ -231,7 +227,7 @@ pub async fn search_tasks(configuration: &configuration::Configuration, version:
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/task/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/task/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -298,9 +294,8 @@ pub async fn search_tasks(configuration: &configuration::Configuration, version:
 }
 
 /// Update a Task
-pub async fn update_task(configuration: &configuration::Configuration, version: f64, task_id: i64, account_id: i64, name: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TaskResponse, Error<UpdateTaskError>> {
+pub async fn update_task(configuration: &configuration::Configuration, task_id: i64, account_id: i64, name: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TaskResponse, Error<UpdateTaskError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_task_id = task_id;
     let p_query_account_id = account_id;
     let p_query_name = name;
@@ -315,7 +310,7 @@ pub async fn update_task(configuration: &configuration::Configuration, version: 
     let p_query_visibility = visibility;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/task/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/task/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("taskId", &p_query_task_id.to_string())]);

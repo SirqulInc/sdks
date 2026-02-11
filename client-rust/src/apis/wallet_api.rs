@@ -59,9 +59,8 @@ pub enum UpdateOfferTransactionError {
 
 
 /// Adds offers to the wallet
-pub async fn create_offer_transaction(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, offer_cart: Option<&str>, promo_code: Option<&str>, currency_type: Option<&str>, use_points: Option<bool>, meta_data: Option<&str>, app_key: Option<&str>, status: Option<i32>) -> Result<Vec<models::OfferTransactionResponse>, Error<CreateOfferTransactionError>> {
+pub async fn create_offer_transaction(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, offer_cart: Option<&str>, promo_code: Option<&str>, currency_type: Option<&str>, use_points: Option<bool>, meta_data: Option<&str>, app_key: Option<&str>, status: Option<i32>) -> Result<Vec<models::OfferTransactionResponse>, Error<CreateOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_offer_id = offer_id;
@@ -74,7 +73,7 @@ pub async fn create_offer_transaction(configuration: &configuration::Configurati
     let p_query_app_key = app_key;
     let p_query_status = status;
 
-    let uri_str = format!("{}/api/{version}/wallet/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -140,14 +139,13 @@ pub async fn create_offer_transaction(configuration: &configuration::Configurati
 }
 
 /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-pub async fn delete_offer_transaction(configuration: &configuration::Configuration, version: f64, transaction_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferTransactionError>> {
+pub async fn delete_offer_transaction(configuration: &configuration::Configuration, transaction_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_transaction_id = transaction_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/wallet/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -186,9 +184,8 @@ pub async fn delete_offer_transaction(configuration: &configuration::Configurati
     }
 }
 
-pub async fn get_offer_transaction(configuration: &configuration::Configuration, version: f64, transaction_id: i64, device_id: Option<&str>, account_id: Option<i64>, include_mission: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, return_full_response: Option<bool>) -> Result<models::OfferTransactionResponse, Error<GetOfferTransactionError>> {
+pub async fn get_offer_transaction(configuration: &configuration::Configuration, transaction_id: i64, device_id: Option<&str>, account_id: Option<i64>, include_mission: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, return_full_response: Option<bool>) -> Result<models::OfferTransactionResponse, Error<GetOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_transaction_id = transaction_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -197,7 +194,7 @@ pub async fn get_offer_transaction(configuration: &configuration::Configuration,
     let p_query_longitude = longitude;
     let p_query_return_full_response = return_full_response;
 
-    let uri_str = format!("{}/api/{version}/wallet/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -249,9 +246,8 @@ pub async fn get_offer_transaction(configuration: &configuration::Configuration,
 }
 
 /// Preview the final cost of a transaction without charging the user
-pub async fn preview_offer_transaction(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, offer_cart: Option<&str>, promo_code: Option<&str>, currency_type: Option<&str>, use_points: Option<bool>, meta_data: Option<&str>, app_key: Option<&str>) -> Result<Vec<models::OfferTransactionResponse>, Error<PreviewOfferTransactionError>> {
+pub async fn preview_offer_transaction(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, offer_cart: Option<&str>, promo_code: Option<&str>, currency_type: Option<&str>, use_points: Option<bool>, meta_data: Option<&str>, app_key: Option<&str>) -> Result<Vec<models::OfferTransactionResponse>, Error<PreviewOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_offer_id = offer_id;
@@ -263,7 +259,7 @@ pub async fn preview_offer_transaction(configuration: &configuration::Configurat
     let p_query_meta_data = meta_data;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/wallet/preview", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/preview", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -326,9 +322,8 @@ pub async fn preview_offer_transaction(configuration: &configuration::Configurat
 }
 
 /// Search on active offers currently in the user's wallet, or past offers the user has already redeemed.
-pub async fn search_offer_transactions(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_ids: Option<&str>, retailer_location_id: Option<i64>, retailer_location_ids: Option<&str>, exclude_retailer_location_ids: Option<&str>, offer_id: Option<i64>, offer_ids: Option<&str>, offer_location_id: Option<i64>, offer_location_ids: Option<&str>, offer_type: Option<&str>, offer_types: Option<&str>, special_offer_type: Option<&str>, special_offer_types: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, filter_by_parent_offer: Option<bool>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>, redeemed: Option<bool>, statuses: Option<&str>, reservations_only: Option<bool>, active_only: Option<bool>, return_full_response: Option<bool>, recurring_started_since: Option<i64>, recurring_started_before: Option<i64>, recurring_expiration_since: Option<i64>, recurring_expiration_before: Option<i64>) -> Result<Vec<models::OfferTransactionResponse>, Error<SearchOfferTransactionsError>> {
+pub async fn search_offer_transactions(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_ids: Option<&str>, retailer_location_id: Option<i64>, retailer_location_ids: Option<&str>, exclude_retailer_location_ids: Option<&str>, offer_id: Option<i64>, offer_ids: Option<&str>, offer_location_id: Option<i64>, offer_location_ids: Option<&str>, offer_type: Option<&str>, offer_types: Option<&str>, special_offer_type: Option<&str>, special_offer_types: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, filter_by_parent_offer: Option<bool>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>, redeemed: Option<bool>, statuses: Option<&str>, reservations_only: Option<bool>, active_only: Option<bool>, return_full_response: Option<bool>, recurring_started_since: Option<i64>, recurring_started_before: Option<i64>, recurring_expiration_since: Option<i64>, recurring_expiration_before: Option<i64>) -> Result<Vec<models::OfferTransactionResponse>, Error<SearchOfferTransactionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
@@ -371,7 +366,7 @@ pub async fn search_offer_transactions(configuration: &configuration::Configurat
     let p_query_recurring_expiration_since = recurring_expiration_since;
     let p_query_recurring_expiration_before = recurring_expiration_before;
 
-    let uri_str = format!("{}/api/{version}/wallet/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -527,9 +522,8 @@ pub async fn search_offer_transactions(configuration: &configuration::Configurat
 }
 
 /// Update offer status. The status values are: 0 - not redeemable, 1 - redeemable.  Not redeemable means the customer has received the offer but has not decided to use (or print) it yet.  Until they choose to do this the merchant cannot redeem the offer (has not been given permission yet).   Redeemable means the customer has chosen to use the offer and wishes to redeem it.  Redeemed means the merchant has accepted the offer and the given the customer its value, then marked it a used in the system.  This status change is handled by a merchant end point.
-pub async fn update_offer_transaction(configuration: &configuration::Configuration, version: f64, transaction_id: i64, status: i32, device_id: Option<&str>, account_id: Option<i64>, offer_location_id: Option<i64>, currency_type: Option<&str>, use_points: Option<bool>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, return_full_response: Option<bool>, exception_membership_offer_ids: Option<&str>) -> Result<models::OfferTransactionResponse, Error<UpdateOfferTransactionError>> {
+pub async fn update_offer_transaction(configuration: &configuration::Configuration, transaction_id: i64, status: i32, device_id: Option<&str>, account_id: Option<i64>, offer_location_id: Option<i64>, currency_type: Option<&str>, use_points: Option<bool>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, return_full_response: Option<bool>, exception_membership_offer_ids: Option<&str>) -> Result<models::OfferTransactionResponse, Error<UpdateOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_transaction_id = transaction_id;
     let p_query_status = status;
     let p_query_device_id = device_id;
@@ -544,7 +538,7 @@ pub async fn update_offer_transaction(configuration: &configuration::Configurati
     let p_query_return_full_response = return_full_response;
     let p_query_exception_membership_offer_ids = exception_membership_offer_ids;
 
-    let uri_str = format!("{}/api/{version}/wallet/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/wallet/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

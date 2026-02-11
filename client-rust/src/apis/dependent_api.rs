@@ -39,13 +39,12 @@ pub enum RemoveDependentError {
 
 
 /// Create dependent of the account
-pub async fn create(configuration: &configuration::Configuration, version: f64, account_id: i64, body: Option<models::Account>) -> Result<models::SirqulResponse, Error<CreateError>> {
+pub async fn create(configuration: &configuration::Configuration, account_id: i64, body: Option<models::Account>) -> Result<models::SirqulResponse, Error<CreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_account_id = account_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/cargo/dependent/{accountId}", configuration.base_path, version=p_path_version, accountId=p_path_account_id);
+    let uri_str = format!("{}/cargo/dependent/{accountId}", configuration.base_path, accountId=p_path_account_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -79,12 +78,11 @@ pub async fn create(configuration: &configuration::Configuration, version: f64, 
 }
 
 /// Get the dependent list of an account
-pub async fn get_dependents(configuration: &configuration::Configuration, version: f64, account_id: i64) -> Result<models::SirqulResponse, Error<GetDependentsError>> {
+pub async fn get_dependents(configuration: &configuration::Configuration, account_id: i64) -> Result<models::SirqulResponse, Error<GetDependentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/cargo/dependent/{accountId}", configuration.base_path, version=p_path_version, accountId=p_path_account_id);
+    let uri_str = format!("{}/cargo/dependent/{accountId}", configuration.base_path, accountId=p_path_account_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -117,13 +115,12 @@ pub async fn get_dependents(configuration: &configuration::Configuration, versio
 }
 
 /// Delete the Dependent
-pub async fn remove_dependent(configuration: &configuration::Configuration, version: f64, account_id: i64, dependent_id: i64) -> Result<(), Error<RemoveDependentError>> {
+pub async fn remove_dependent(configuration: &configuration::Configuration, account_id: i64, dependent_id: i64) -> Result<(), Error<RemoveDependentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_account_id = account_id;
     let p_path_dependent_id = dependent_id;
 
-    let uri_str = format!("{}/api/{version}/cargo/dependent/{accountId}", configuration.base_path, version=p_path_version, accountId=p_path_account_id, dependentId=p_path_dependent_id);
+    let uri_str = format!("{}/cargo/dependent/{accountId}", configuration.base_path, accountId=p_path_account_id, dependentId=p_path_dependent_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

@@ -59,9 +59,8 @@ pub enum SearchPermissionablesFollowingDistanceError {
 
 
 /// Adds a user to a permissionable object.
-pub async fn add_users_to_permissionable(configuration: &configuration::Configuration, version: f64, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, read: Option<bool>, write: Option<bool>, delete: Option<bool>, add: Option<bool>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, connection_group_ids: Option<&str>, pending: Option<bool>, admin: Option<bool>, include_friend_group: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, audience_ids: Option<&str>) -> Result<models::SirqulResponse, Error<AddUsersToPermissionableError>> {
+pub async fn add_users_to_permissionable(configuration: &configuration::Configuration, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, read: Option<bool>, write: Option<bool>, delete: Option<bool>, add: Option<bool>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, connection_group_ids: Option<&str>, pending: Option<bool>, admin: Option<bool>, include_friend_group: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, audience_ids: Option<&str>) -> Result<models::SirqulResponse, Error<AddUsersToPermissionableError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_permissionable_type = permissionable_type;
     let p_query_permissionable_id = permissionable_id;
     let p_query_device_id = device_id;
@@ -80,7 +79,7 @@ pub async fn add_users_to_permissionable(configuration: &configuration::Configur
     let p_query_longitude = longitude;
     let p_query_audience_ids = audience_ids;
 
-    let uri_str = format!("{}/api/{version}/consumer/permissions/add", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/permissions/add", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -160,16 +159,15 @@ pub async fn add_users_to_permissionable(configuration: &configuration::Configur
 }
 
 /// Sets the approval status of a permissionable object.
-pub async fn approve_permissionable(configuration: &configuration::Configuration, version: f64, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, approval_status: Option<&str>) -> Result<models::SirqulResponse, Error<ApprovePermissionableError>> {
+pub async fn approve_permissionable(configuration: &configuration::Configuration, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, approval_status: Option<&str>) -> Result<models::SirqulResponse, Error<ApprovePermissionableError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_permissionable_type = permissionable_type;
     let p_query_permissionable_id = permissionable_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_approval_status = approval_status;
 
-    let uri_str = format!("{}/api/{version}/permissionable/approve", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/permissionable/approve", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -213,9 +211,8 @@ pub async fn approve_permissionable(configuration: &configuration::Configuration
 }
 
 /// Used when the user wants to leave from someone else's permissionable object
-pub async fn leave_from_permissionable(configuration: &configuration::Configuration, version: f64, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<LeaveFromPermissionableError>> {
+pub async fn leave_from_permissionable(configuration: &configuration::Configuration, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<LeaveFromPermissionableError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_permissionable_type = permissionable_type;
     let p_query_permissionable_id = permissionable_id;
     let p_query_device_id = device_id;
@@ -223,7 +220,7 @@ pub async fn leave_from_permissionable(configuration: &configuration::Configurat
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/permissions/leave", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/permissions/leave", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -270,9 +267,8 @@ pub async fn leave_from_permissionable(configuration: &configuration::Configurat
 }
 
 /// Used to remove someone (assuming they have permission) from a permissionable object
-pub async fn remove_users_from_permissionable(configuration: &configuration::Configuration, version: f64, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, connection_group_ids: Option<&str>, remove_friend_group: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, audience_ids: Option<&str>) -> Result<models::SirqulResponse, Error<RemoveUsersFromPermissionableError>> {
+pub async fn remove_users_from_permissionable(configuration: &configuration::Configuration, permissionable_type: &str, permissionable_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, connection_group_ids: Option<&str>, remove_friend_group: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, audience_ids: Option<&str>) -> Result<models::SirqulResponse, Error<RemoveUsersFromPermissionableError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_permissionable_type = permissionable_type;
     let p_query_permissionable_id = permissionable_id;
     let p_query_device_id = device_id;
@@ -285,7 +281,7 @@ pub async fn remove_users_from_permissionable(configuration: &configuration::Con
     let p_query_longitude = longitude;
     let p_query_audience_ids = audience_ids;
 
-    let uri_str = format!("{}/api/{version}/consumer/permissions/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/permissions/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -347,9 +343,8 @@ pub async fn remove_users_from_permissionable(configuration: &configuration::Con
 }
 
 /// Search on UserPermissions
-pub async fn search_permissionables(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, connection_account_ids: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, pending: Option<bool>, admin: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::UserPermissionsResponse>, Error<SearchPermissionablesError>> {
+pub async fn search_permissionables(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, connection_account_ids: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, pending: Option<bool>, admin: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::UserPermissionsResponse>, Error<SearchPermissionablesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
@@ -364,7 +359,7 @@ pub async fn search_permissionables(configuration: &configuration::Configuration
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/permissions/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/permissions/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -436,9 +431,8 @@ pub async fn search_permissionables(configuration: &configuration::Configuration
 }
 
 /// Search on UserPermissions by distance
-pub async fn search_permissionables_following_distance(configuration: &configuration::Configuration, version: f64, latitude: f64, longitude: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, connection_account_ids: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, search_range: Option<f64>, keyword: Option<&str>, pending: Option<bool>, admin: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::UserPermissionsResponse>, Error<SearchPermissionablesFollowingDistanceError>> {
+pub async fn search_permissionables_following_distance(configuration: &configuration::Configuration, latitude: f64, longitude: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, connection_account_ids: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, search_range: Option<f64>, keyword: Option<&str>, pending: Option<bool>, admin: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::UserPermissionsResponse>, Error<SearchPermissionablesFollowingDistanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_device_id = device_id;
@@ -454,7 +448,7 @@ pub async fn search_permissionables_following_distance(configuration: &configura
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/permissions/distancesearch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/permissions/distancesearch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

@@ -44,16 +44,15 @@ pub enum UploadCsvError {
 }
 
 
-pub async fn get_status_csv(configuration: &configuration::Configuration, version: f64, account_id: i64, batch_id: i64, response_group: &str, start: i64, limit: i64) -> Result<models::SirqulResponse, Error<GetStatusCsvError>> {
+pub async fn get_status_csv(configuration: &configuration::Configuration, account_id: i64, batch_id: i64, response_group: &str, start: i64, limit: i64) -> Result<models::SirqulResponse, Error<GetStatusCsvError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_batch_id = batch_id;
     let p_query_response_group = response_group;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/csvimport/batch/status/details", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/csvimport/batch/status/details", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -91,14 +90,13 @@ pub async fn get_status_csv(configuration: &configuration::Configuration, versio
 }
 
 /// Retrieves batches for a user.
-pub async fn list_status_csv(configuration: &configuration::Configuration, version: f64, account_id: i64, start: i32, limit: i32) -> Result<models::CsvImportResponse, Error<ListStatusCsvError>> {
+pub async fn list_status_csv(configuration: &configuration::Configuration, account_id: i64, start: i32, limit: i32) -> Result<models::CsvImportResponse, Error<ListStatusCsvError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/csvimport/batch/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/csvimport/batch/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -134,13 +132,12 @@ pub async fn list_status_csv(configuration: &configuration::Configuration, versi
 }
 
 /// Checks status of batch upload.
-pub async fn status_csv(configuration: &configuration::Configuration, version: f64, account_id: i64, batch_id: i64) -> Result<models::CsvImportResponse, Error<StatusCsvError>> {
+pub async fn status_csv(configuration: &configuration::Configuration, account_id: i64, batch_id: i64) -> Result<models::CsvImportResponse, Error<StatusCsvError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_batch_id = batch_id;
 
-    let uri_str = format!("{}/api/{version}/csvimport/batch/status", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/csvimport/batch/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -175,16 +172,15 @@ pub async fn status_csv(configuration: &configuration::Configuration, version: f
 }
 
 /// Uploads a CSV import file.
-pub async fn upload_csv(configuration: &configuration::Configuration, version: f64, account_id: i64, upload_type: &str, import_file: std::path::PathBuf, file_format: &str, app_key: Option<&str>) -> Result<models::CsvImportResponse, Error<UploadCsvError>> {
+pub async fn upload_csv(configuration: &configuration::Configuration, account_id: i64, upload_type: &str, import_file: std::path::PathBuf, file_format: &str, app_key: Option<&str>) -> Result<models::CsvImportResponse, Error<UploadCsvError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_upload_type = upload_type;
     let p_query_import_file = import_file;
     let p_query_file_format = file_format;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/csvimport/upload", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/csvimport/upload", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

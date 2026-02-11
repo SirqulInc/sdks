@@ -52,9 +52,8 @@ pub enum UpdatePurchaseItemError {
 
 
 /// Creates a purchase item for in app purchases
-pub async fn create_purchase_item(configuration: &configuration::Configuration, version: f64, app_key: &str, name: &str, purchase_type: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, tickets: Option<i32>, price: Option<f32>, purchase_code: Option<&str>, secret_key: Option<&str>, purchase_limit: Option<i32>, service_action: Option<&str>, cover_asset_id: Option<i64>, promo_asset_id: Option<i64>, giftable: Option<bool>, assetable: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>, offer_location_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<CreatePurchaseItemError>> {
+pub async fn create_purchase_item(configuration: &configuration::Configuration, app_key: &str, name: &str, purchase_type: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, tickets: Option<i32>, price: Option<f32>, purchase_code: Option<&str>, secret_key: Option<&str>, purchase_limit: Option<i32>, service_action: Option<&str>, cover_asset_id: Option<i64>, promo_asset_id: Option<i64>, giftable: Option<bool>, assetable: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>, offer_location_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<CreatePurchaseItemError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_name = name;
     let p_query_purchase_type = purchase_type;
@@ -76,7 +75,7 @@ pub async fn create_purchase_item(configuration: &configuration::Configuration, 
     let p_query_points = points;
     let p_query_offer_location_id = offer_location_id;
 
-    let uri_str = format!("{}/api/{version}/purchase/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -163,14 +162,13 @@ pub async fn create_purchase_item(configuration: &configuration::Configuration, 
 }
 
 /// Marks the purchase item as deleted
-pub async fn delete_purchase_item(configuration: &configuration::Configuration, version: f64, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeletePurchaseItemError>> {
+pub async fn delete_purchase_item(configuration: &configuration::Configuration, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeletePurchaseItemError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_purchase_item_id = purchase_item_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/purchase/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -210,14 +208,13 @@ pub async fn delete_purchase_item(configuration: &configuration::Configuration, 
 }
 
 /// Get detailed information about a purchase item
-pub async fn get_purchase_item(configuration: &configuration::Configuration, version: f64, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<GetPurchaseItemError>> {
+pub async fn get_purchase_item(configuration: &configuration::Configuration, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<GetPurchaseItemError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_purchase_item_id = purchase_item_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/purchase/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -257,9 +254,8 @@ pub async fn get_purchase_item(configuration: &configuration::Configuration, ver
 }
 
 /// Search for purchasable items from the system
-pub async fn search_purchase_items(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, filter_by_billable: Option<bool>, purchase_type: Option<&str>, service_action: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::PurchaseItemResponse>, Error<SearchPurchaseItemsError>> {
+pub async fn search_purchase_items(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, filter_by_billable: Option<bool>, purchase_type: Option<&str>, service_action: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::PurchaseItemResponse>, Error<SearchPurchaseItemsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -273,7 +269,7 @@ pub async fn search_purchase_items(configuration: &configuration::Configuration,
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/purchase/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -342,9 +338,8 @@ pub async fn search_purchase_items(configuration: &configuration::Configuration,
 }
 
 /// Updates a purchase item for in app purchases
-pub async fn update_purchase_item(configuration: &configuration::Configuration, version: f64, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, tickets: Option<i32>, price: Option<f32>, purchase_type: Option<&str>, purchase_code: Option<&str>, secret_key: Option<&str>, purchase_limit: Option<i32>, service_action: Option<&str>, cover_asset_id: Option<i64>, promo_asset_id: Option<i64>, giftable: Option<bool>, assetable: Option<bool>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>, offer_location_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<UpdatePurchaseItemError>> {
+pub async fn update_purchase_item(configuration: &configuration::Configuration, purchase_item_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, tickets: Option<i32>, price: Option<f32>, purchase_type: Option<&str>, purchase_code: Option<&str>, secret_key: Option<&str>, purchase_limit: Option<i32>, service_action: Option<&str>, cover_asset_id: Option<i64>, promo_asset_id: Option<i64>, giftable: Option<bool>, assetable: Option<bool>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>, offer_location_id: Option<i64>) -> Result<models::PurchaseItemFullResponse, Error<UpdatePurchaseItemError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_purchase_item_id = purchase_item_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -367,7 +362,7 @@ pub async fn update_purchase_item(configuration: &configuration::Configuration, 
     let p_query_points = points;
     let p_query_offer_location_id = offer_location_id;
 
-    let uri_str = format!("{}/api/{version}/purchase/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

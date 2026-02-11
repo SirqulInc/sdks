@@ -73,15 +73,14 @@ pub enum UpdateEmployeeError {
 
 
 /// Assign An existing account to be an employee
-pub async fn assign_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, manager_account_id: i64, employee_account_id: i64, role: Option<&str>) -> Result<models::EmployeeResponse, Error<AssignEmployeeError>> {
+pub async fn assign_employee(configuration: &configuration::Configuration, account_id: i64, manager_account_id: i64, employee_account_id: i64, role: Option<&str>) -> Result<models::EmployeeResponse, Error<AssignEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_manager_account_id = manager_account_id;
     let p_query_employee_account_id = employee_account_id;
     let p_query_role = role;
 
-    let uri_str = format!("{}/api/{version}/employee/assign", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/assign", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -120,15 +119,14 @@ pub async fn assign_employee(configuration: &configuration::Configuration, versi
 }
 
 /// Assign or unassign the account to a retailer location.
-pub async fn assign_to_location_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, retailer_location_id: i64, employee_account_id: Option<i64>, assign: Option<bool>) -> Result<models::SirqulResponse, Error<AssignToLocationEmployeeError>> {
+pub async fn assign_to_location_employee(configuration: &configuration::Configuration, account_id: i64, retailer_location_id: i64, employee_account_id: Option<i64>, assign: Option<bool>) -> Result<models::SirqulResponse, Error<AssignToLocationEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_employee_account_id = employee_account_id;
     let p_query_assign = assign;
 
-    let uri_str = format!("{}/api/{version}/employee/assignToLocation", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/assignToLocation", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -169,9 +167,8 @@ pub async fn assign_to_location_employee(configuration: &configuration::Configur
 }
 
 /// Create a new account record with the provided information.
-pub async fn create_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, manager_account_id: i64, username: &str, password: &str, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, about_us: Option<&str>, asset_id: Option<i64>, gender: Option<&str>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, role: Option<&str>, retailer_location_ids: Option<&str>, settings_app_key: Option<&str>, app_blob: Option<&str>, assigned_device_id: Option<&str>) -> Result<models::EmployeeResponse, Error<CreateEmployeeError>> {
+pub async fn create_employee(configuration: &configuration::Configuration, account_id: i64, manager_account_id: i64, username: &str, password: &str, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, about_us: Option<&str>, asset_id: Option<i64>, gender: Option<&str>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, role: Option<&str>, retailer_location_ids: Option<&str>, settings_app_key: Option<&str>, app_blob: Option<&str>, assigned_device_id: Option<&str>) -> Result<models::EmployeeResponse, Error<CreateEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_manager_account_id = manager_account_id;
     let p_query_username = username;
@@ -203,7 +200,7 @@ pub async fn create_employee(configuration: &configuration::Configuration, versi
     let p_query_app_blob = app_blob;
     let p_query_assigned_device_id = assigned_device_id;
 
-    let uri_str = format!("{}/api/{version}/employee/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -318,13 +315,12 @@ pub async fn create_employee(configuration: &configuration::Configuration, versi
 }
 
 /// Set the deleted date field which marks the record as deleted.
-pub async fn delete_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, employee_account_id: i64) -> Result<models::SirqulResponse, Error<DeleteEmployeeError>> {
+pub async fn delete_employee(configuration: &configuration::Configuration, account_id: i64, employee_account_id: i64) -> Result<models::SirqulResponse, Error<DeleteEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_employee_account_id = employee_account_id;
 
-    let uri_str = format!("{}/api/{version}/employee/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -359,14 +355,13 @@ pub async fn delete_employee(configuration: &configuration::Configuration, versi
 }
 
 /// Get the account record for the account id provided.
-pub async fn get_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, employee_account_id: i64, settings_app_key: Option<&str>) -> Result<models::EmployeeResponse, Error<GetEmployeeError>> {
+pub async fn get_employee(configuration: &configuration::Configuration, account_id: i64, employee_account_id: i64, settings_app_key: Option<&str>) -> Result<models::EmployeeResponse, Error<GetEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_employee_account_id = employee_account_id;
     let p_query_settings_app_key = settings_app_key;
 
-    let uri_str = format!("{}/api/{version}/employee/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -404,9 +399,8 @@ pub async fn get_employee(configuration: &configuration::Configuration, version:
 }
 
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all accounts associated as managers/employees.
-pub async fn search_employees(configuration: &configuration::Configuration, version: f64, account_id: i64, role: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, active_only: Option<bool>, managed_only: Option<bool>, settings_app_key: Option<&str>, category_ids: Option<&str>, query: Option<&str>) -> Result<Vec<models::EmployeeResponse>, Error<SearchEmployeesError>> {
+pub async fn search_employees(configuration: &configuration::Configuration, account_id: i64, role: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, active_only: Option<bool>, managed_only: Option<bool>, settings_app_key: Option<&str>, category_ids: Option<&str>, query: Option<&str>) -> Result<Vec<models::EmployeeResponse>, Error<SearchEmployeesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_role = role;
     let p_query_retailer_id = retailer_id;
@@ -425,7 +419,7 @@ pub async fn search_employees(configuration: &configuration::Configuration, vers
     let p_query_category_ids = category_ids;
     let p_query_query = query;
 
-    let uri_str = format!("{}/api/{version}/employee/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -507,13 +501,12 @@ pub async fn search_employees(configuration: &configuration::Configuration, vers
 }
 
 /// Unassign An existing account to be an employee
-pub async fn unassign_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, employee_account_id: i64) -> Result<models::EmployeeResponse, Error<UnassignEmployeeError>> {
+pub async fn unassign_employee(configuration: &configuration::Configuration, account_id: i64, employee_account_id: i64) -> Result<models::EmployeeResponse, Error<UnassignEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_employee_account_id = employee_account_id;
 
-    let uri_str = format!("{}/api/{version}/employee/unassign", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/unassign", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -548,9 +541,8 @@ pub async fn unassign_employee(configuration: &configuration::Configuration, ver
 }
 
 /// Update the account record with the provided information.
-pub async fn update_employee(configuration: &configuration::Configuration, version: f64, account_id: i64, employee_account_id: i64, manager_account_id: Option<i64>, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, asset_id: Option<i64>, gender: Option<&str>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, role: Option<&str>, active: Option<bool>, password: Option<&str>, retailer_location_ids: Option<&str>, settings_app_key: Option<&str>, app_blob: Option<&str>, assigned_device_id: Option<&str>) -> Result<models::EmployeeResponse, Error<UpdateEmployeeError>> {
+pub async fn update_employee(configuration: &configuration::Configuration, account_id: i64, employee_account_id: i64, manager_account_id: Option<i64>, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, asset_id: Option<i64>, gender: Option<&str>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, role: Option<&str>, active: Option<bool>, password: Option<&str>, retailer_location_ids: Option<&str>, settings_app_key: Option<&str>, app_blob: Option<&str>, assigned_device_id: Option<&str>) -> Result<models::EmployeeResponse, Error<UpdateEmployeeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_employee_account_id = employee_account_id;
     let p_query_manager_account_id = manager_account_id;
@@ -582,7 +574,7 @@ pub async fn update_employee(configuration: &configuration::Configuration, versi
     let p_query_app_blob = app_blob;
     let p_query_assigned_device_id = assigned_device_id;
 
-    let uri_str = format!("{}/api/{version}/employee/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/employee/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

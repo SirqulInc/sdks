@@ -94,9 +94,8 @@ pub enum UpdateNetworkError {
 
 
 /// This endpoint creates a third-party login for a Sirqul account. A third party login is a way for external systems (Third Party Networks) to link their own user accounts with a Sirqul account.   The thirdPartyId parameter is used to determine if the user already exists in Sirqul or not. This parameter needs to be unique for each user in the Third Party Network (identified by the networkUID parameter). Note that subsequent calls will update the user's third-party login credentials for the user with the same thirdPartyId and networkUID combination.    The thirdPartyToken parameter acts as a shared secret and used by client applications to log users into Sirqul without providing a Sirqul username and password. 
-pub async fn create_credential(configuration: &configuration::Configuration, version: f64, third_party_id: &str, third_party_token: &str, network_uid: &str, app_key: &str, account_id: Option<i64>, device_id: Option<&str>, session_id: Option<&str>, third_party_name: Option<&str>, email_address: Option<&str>, signin_only_mode: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, third_party_refresh_token: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>) -> Result<models::ProfileResponse, Error<CreateCredentialError>> {
+pub async fn create_credential(configuration: &configuration::Configuration, third_party_id: &str, third_party_token: &str, network_uid: &str, app_key: &str, account_id: Option<i64>, device_id: Option<&str>, session_id: Option<&str>, third_party_name: Option<&str>, email_address: Option<&str>, signin_only_mode: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, third_party_refresh_token: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>) -> Result<models::ProfileResponse, Error<CreateCredentialError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_third_party_id = third_party_id;
     let p_query_third_party_token = third_party_token;
     let p_query_network_uid = network_uid;
@@ -115,7 +114,7 @@ pub async fn create_credential(configuration: &configuration::Configuration, ver
     let p_query_audience_ids_to_add = audience_ids_to_add;
     let p_query_audience_ids_to_remove = audience_ids_to_remove;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -191,9 +190,8 @@ pub async fn create_credential(configuration: &configuration::Configuration, ver
 }
 
 /// Creates a custom third party network.
-pub async fn create_network(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, enable_introspection: bool, description: Option<&str>, introspection_method: Option<&str>, introspection_url: Option<&str>, introspection_params: Option<&str>, required_root_field: Option<&str>, enable_mfa: Option<bool>, size_mfa: Option<i32>, shelf_life_mfa: Option<i32>, oauth_token_url: Option<&str>, oauth_private_key: Option<std::path::PathBuf>, oauth_public_key: Option<std::path::PathBuf>, oauth_client_id: Option<&str>, oauth_secret_key: Option<&str>, body: Option<&str>) -> Result<models::ThirdPartyNetworkResponse, Error<CreateNetworkError>> {
+pub async fn create_network(configuration: &configuration::Configuration, account_id: i64, name: &str, enable_introspection: bool, description: Option<&str>, introspection_method: Option<&str>, introspection_url: Option<&str>, introspection_params: Option<&str>, required_root_field: Option<&str>, enable_mfa: Option<bool>, size_mfa: Option<i32>, shelf_life_mfa: Option<i32>, oauth_token_url: Option<&str>, oauth_private_key: Option<std::path::PathBuf>, oauth_public_key: Option<std::path::PathBuf>, oauth_client_id: Option<&str>, oauth_secret_key: Option<&str>, body: Option<&str>) -> Result<models::ThirdPartyNetworkResponse, Error<CreateNetworkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_enable_introspection = enable_introspection;
@@ -212,7 +210,7 @@ pub async fn create_network(configuration: &configuration::Configuration, versio
     let p_query_oauth_secret_key = oauth_secret_key;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/network/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/network/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -288,15 +286,14 @@ pub async fn create_network(configuration: &configuration::Configuration, versio
 }
 
 /// Delete a third party network on a Sirqul account.
-pub async fn delete_credential(configuration: &configuration::Configuration, version: f64, account_id: i64, network_uid: &str, third_party_id: &str, app_key: &str) -> Result<models::SirqulResponse, Error<DeleteCredentialError>> {
+pub async fn delete_credential(configuration: &configuration::Configuration, account_id: i64, network_uid: &str, third_party_id: &str, app_key: &str) -> Result<models::SirqulResponse, Error<DeleteCredentialError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_network_uid = network_uid;
     let p_query_third_party_id = third_party_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -333,13 +330,12 @@ pub async fn delete_credential(configuration: &configuration::Configuration, ver
 }
 
 /// Marks a custom third party network as deleted. Only the network owners and managers have access to this.
-pub async fn delete_network(configuration: &configuration::Configuration, version: f64, account_id: i64, network_uid: &str) -> Result<models::SirqulResponse, Error<DeleteNetworkError>> {
+pub async fn delete_network(configuration: &configuration::Configuration, account_id: i64, network_uid: &str) -> Result<models::SirqulResponse, Error<DeleteNetworkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_network_uid = network_uid;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/network/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/network/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -374,9 +370,8 @@ pub async fn delete_network(configuration: &configuration::Configuration, versio
 }
 
 /// Gets the account information given a third party token.
-pub async fn get_credential(configuration: &configuration::Configuration, version: f64, network_uid: &str, app_key: &str, account_id: Option<i64>, device_id: Option<&str>, session_id: Option<&str>, third_party_credential_id: Option<i64>, third_party_token: Option<&str>, third_party_secret: Option<&str>, create_new_account: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, referral_account_id: Option<i64>) -> Result<models::ProfileResponse, Error<GetCredentialError>> {
+pub async fn get_credential(configuration: &configuration::Configuration, network_uid: &str, app_key: &str, account_id: Option<i64>, device_id: Option<&str>, session_id: Option<&str>, third_party_credential_id: Option<i64>, third_party_token: Option<&str>, third_party_secret: Option<&str>, create_new_account: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, referral_account_id: Option<i64>) -> Result<models::ProfileResponse, Error<GetCredentialError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_network_uid = network_uid;
     let p_query_app_key = app_key;
     let p_query_account_id = account_id;
@@ -393,7 +388,7 @@ pub async fn get_credential(configuration: &configuration::Configuration, versio
     let p_query_audience_ids_to_remove = audience_ids_to_remove;
     let p_query_referral_account_id = referral_account_id;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -467,13 +462,12 @@ pub async fn get_credential(configuration: &configuration::Configuration, versio
 }
 
 /// Get the details of a third party network. Only the network owners and managers have access to this.
-pub async fn get_network(configuration: &configuration::Configuration, version: f64, account_id: i64, network_uid: &str) -> Result<models::ThirdPartyNetworkResponse, Error<GetNetworkError>> {
+pub async fn get_network(configuration: &configuration::Configuration, account_id: i64, network_uid: &str) -> Result<models::ThirdPartyNetworkResponse, Error<GetNetworkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_network_uid = network_uid;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/network/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/network/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -508,9 +502,8 @@ pub async fn get_network(configuration: &configuration::Configuration, version: 
 }
 
 /// Search on a user's linked third party networks.
-pub async fn search_credentials(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>, network_uid: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ThirdPartyCredentialResponse>, Error<SearchCredentialsError>> {
+pub async fn search_credentials(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>, network_uid: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ThirdPartyCredentialResponse>, Error<SearchCredentialsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_network_uid = network_uid;
@@ -518,7 +511,7 @@ pub async fn search_credentials(configuration: &configuration::Configuration, ve
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -567,9 +560,8 @@ pub async fn search_credentials(configuration: &configuration::Configuration, ve
 }
 
 /// Search on supported third party networks and custom networks from external users.
-pub async fn search_networks(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>, filter_billable: Option<bool>) -> Result<Vec<models::ThirdPartyNetworkShortResponse>, Error<SearchNetworksError>> {
+pub async fn search_networks(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>, filter_billable: Option<bool>) -> Result<Vec<models::ThirdPartyNetworkShortResponse>, Error<SearchNetworksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -579,7 +571,7 @@ pub async fn search_networks(configuration: &configuration::Configuration, versi
     let p_query_keyword = keyword;
     let p_query_filter_billable = filter_billable;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/network/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/network/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -624,16 +616,15 @@ pub async fn search_networks(configuration: &configuration::Configuration, versi
 }
 
 /// Sends an MFA challenge (SMS or Email) for networks with MFA enabled.
-pub async fn send_mfa_challenge(configuration: &configuration::Configuration, version: f64, network_uid: &str, app_key: &str, third_party_token: Option<&str>, third_party_credential_id: Option<i64>, device_id: Option<&str>) -> Result<models::SirqulResponse, Error<SendMfaChallengeError>> {
+pub async fn send_mfa_challenge(configuration: &configuration::Configuration, network_uid: &str, app_key: &str, third_party_token: Option<&str>, third_party_credential_id: Option<i64>, device_id: Option<&str>) -> Result<models::SirqulResponse, Error<SendMfaChallengeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_network_uid = network_uid;
     let p_query_app_key = app_key;
     let p_query_third_party_token = third_party_token;
     let p_query_third_party_credential_id = third_party_credential_id;
     let p_query_device_id = device_id;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/mfa/send", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/mfa/send", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_third_party_token {
@@ -677,9 +668,8 @@ pub async fn send_mfa_challenge(configuration: &configuration::Configuration, ve
 }
 
 /// Updates a third-party login for an account.
-pub async fn update_credential(configuration: &configuration::Configuration, version: f64, network_uid: &str, third_party_id: &str, app_key: &str, device_id: Option<&str>, third_party_name: Option<&str>, third_party_token: Option<&str>, response_filters: Option<&str>, meta_data: Option<&str>, third_party_refresh_token: Option<&str>) -> Result<models::ProfileResponse, Error<UpdateCredentialError>> {
+pub async fn update_credential(configuration: &configuration::Configuration, network_uid: &str, third_party_id: &str, app_key: &str, device_id: Option<&str>, third_party_name: Option<&str>, third_party_token: Option<&str>, response_filters: Option<&str>, meta_data: Option<&str>, third_party_refresh_token: Option<&str>) -> Result<models::ProfileResponse, Error<UpdateCredentialError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_network_uid = network_uid;
     let p_query_third_party_id = third_party_id;
     let p_query_app_key = app_key;
@@ -690,7 +680,7 @@ pub async fn update_credential(configuration: &configuration::Configuration, ver
     let p_query_meta_data = meta_data;
     let p_query_third_party_refresh_token = third_party_refresh_token;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/credential/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/credential/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -744,9 +734,8 @@ pub async fn update_credential(configuration: &configuration::Configuration, ver
 }
 
 /// Updates a custom third party network. Only the network owners and managers have access to this.
-pub async fn update_network(configuration: &configuration::Configuration, version: f64, account_id: i64, network_uid: &str, name: Option<&str>, description: Option<&str>, enable_introspection: Option<bool>, introspection_method: Option<&str>, introspection_url: Option<&str>, introspection_params: Option<&str>, required_root_field: Option<&str>, enable_mfa: Option<bool>, size_mfa: Option<i32>, shelf_life_mfa: Option<i32>, oauth_token_url: Option<&str>, oauth_private_key: Option<std::path::PathBuf>, oauth_public_key: Option<std::path::PathBuf>, oauth_client_id: Option<&str>, oauth_secret_key: Option<&str>, body: Option<&str>) -> Result<models::ThirdPartyNetworkResponse, Error<UpdateNetworkError>> {
+pub async fn update_network(configuration: &configuration::Configuration, account_id: i64, network_uid: &str, name: Option<&str>, description: Option<&str>, enable_introspection: Option<bool>, introspection_method: Option<&str>, introspection_url: Option<&str>, introspection_params: Option<&str>, required_root_field: Option<&str>, enable_mfa: Option<bool>, size_mfa: Option<i32>, shelf_life_mfa: Option<i32>, oauth_token_url: Option<&str>, oauth_private_key: Option<std::path::PathBuf>, oauth_public_key: Option<std::path::PathBuf>, oauth_client_id: Option<&str>, oauth_secret_key: Option<&str>, body: Option<&str>) -> Result<models::ThirdPartyNetworkResponse, Error<UpdateNetworkError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_network_uid = network_uid;
     let p_query_name = name;
@@ -766,7 +755,7 @@ pub async fn update_network(configuration: &configuration::Configuration, versio
     let p_query_oauth_secret_key = oauth_secret_key;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/thirdparty/network/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/thirdparty/network/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

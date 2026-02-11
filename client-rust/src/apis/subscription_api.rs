@@ -66,14 +66,13 @@ pub enum UpdateSubscriptionError {
 
 
 /// Create a subscription for a billable entity.  Provide a planId, if not provided then the base plan will be assigned.
-pub async fn create_subscription(configuration: &configuration::Configuration, version: f64, account_id: i64, plan_id: Option<i64>, promo_code: Option<&str>) -> Result<models::SubscriptionResponse, Error<CreateSubscriptionError>> {
+pub async fn create_subscription(configuration: &configuration::Configuration, account_id: i64, plan_id: Option<i64>, promo_code: Option<&str>) -> Result<models::SubscriptionResponse, Error<CreateSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_plan_id = plan_id;
     let p_query_promo_code = promo_code;
 
-    let uri_str = format!("{}/api/{version}/subscription/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -113,12 +112,11 @@ pub async fn create_subscription(configuration: &configuration::Configuration, v
 }
 
 /// Suspend the current subscription for the billable entity managed by the account.  The account must be the responsible manager to perform this action
-pub async fn delete_subscription(configuration: &configuration::Configuration, version: f64, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteSubscriptionError>> {
+pub async fn delete_subscription(configuration: &configuration::Configuration, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/subscription/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -152,12 +150,11 @@ pub async fn delete_subscription(configuration: &configuration::Configuration, v
 }
 
 /// Use the accountId to determine the associated BillableEntity.  Then get the subscription.
-pub async fn get_subscription(configuration: &configuration::Configuration, version: f64, account_id: i64) -> Result<models::SubscriptionResponse, Error<GetSubscriptionError>> {
+pub async fn get_subscription(configuration: &configuration::Configuration, account_id: i64) -> Result<models::SubscriptionResponse, Error<GetSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/subscription/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -191,12 +188,11 @@ pub async fn get_subscription(configuration: &configuration::Configuration, vers
 }
 
 /// Get the matched subscription plan
-pub async fn get_subscription_plan(configuration: &configuration::Configuration, version: f64, plan_id: i64) -> Result<models::SubscriptionPlanResponse, Error<GetSubscriptionPlanError>> {
+pub async fn get_subscription_plan(configuration: &configuration::Configuration, plan_id: i64) -> Result<models::SubscriptionPlanResponse, Error<GetSubscriptionPlanError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_plan_id = plan_id;
 
-    let uri_str = format!("{}/api/{version}/subscription/plan/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/plan/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("planId", &p_query_plan_id.to_string())]);
@@ -230,13 +226,12 @@ pub async fn get_subscription_plan(configuration: &configuration::Configuration,
 }
 
 /// Get the matched subscription plan
-pub async fn get_subscription_plans(configuration: &configuration::Configuration, version: f64, visible: Option<bool>, role: Option<&str>) -> Result<Vec<models::SubscriptionPlanResponse>, Error<GetSubscriptionPlansError>> {
+pub async fn get_subscription_plans(configuration: &configuration::Configuration, visible: Option<bool>, role: Option<&str>) -> Result<Vec<models::SubscriptionPlanResponse>, Error<GetSubscriptionPlansError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_visible = visible;
     let p_query_role = role;
 
-    let uri_str = format!("{}/api/{version}/subscription/plan/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/plan/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_visible {
@@ -275,15 +270,14 @@ pub async fn get_subscription_plans(configuration: &configuration::Configuration
 }
 
 /// Use the accountId to determine the associated BillableEntity.  Then get the application usage.
-pub async fn get_subscription_usage(configuration: &configuration::Configuration, version: f64, account_id: i64, application_id: Option<i64>, start: Option<i64>, end: Option<i64>) -> Result<models::ApplicationUsageResponse, Error<GetSubscriptionUsageError>> {
+pub async fn get_subscription_usage(configuration: &configuration::Configuration, account_id: i64, application_id: Option<i64>, start: Option<i64>, end: Option<i64>) -> Result<models::ApplicationUsageResponse, Error<GetSubscriptionUsageError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_application_id = application_id;
     let p_query_start = start;
     let p_query_end = end;
 
-    let uri_str = format!("{}/api/{version}/subscription/usage/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/usage/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -326,15 +320,14 @@ pub async fn get_subscription_usage(configuration: &configuration::Configuration
 }
 
 /// Updates the subscription for the billable entity for an account
-pub async fn update_subscription(configuration: &configuration::Configuration, version: f64, account_id: i64, plan_id: Option<i64>, promo_code: Option<&str>, active: Option<bool>) -> Result<models::SubscriptionResponse, Error<UpdateSubscriptionError>> {
+pub async fn update_subscription(configuration: &configuration::Configuration, account_id: i64, plan_id: Option<i64>, promo_code: Option<&str>, active: Option<bool>) -> Result<models::SubscriptionResponse, Error<UpdateSubscriptionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_plan_id = plan_id;
     let p_query_promo_code = promo_code;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/subscription/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/subscription/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

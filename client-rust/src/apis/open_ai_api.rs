@@ -24,14 +24,13 @@ pub enum ImageGenerationError {
 
 
 /// Generate images with OpenAI.
-pub async fn image_generation(configuration: &configuration::Configuration, version: f64, account_id: i64, post_body: &str, return_raw_response: Option<bool>) -> Result<models::WrappedProxyItemResponse, Error<ImageGenerationError>> {
+pub async fn image_generation(configuration: &configuration::Configuration, account_id: i64, post_body: &str, return_raw_response: Option<bool>) -> Result<models::WrappedProxyItemResponse, Error<ImageGenerationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_post_body = post_body;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/openai/v1/images/generations", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/openai/v1/images/generations", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

@@ -185,9 +185,8 @@ pub enum TtsError {
 
 
 /// Add a movie to be indexed for Topics. Indexing a movie analyses the content and incorporates it into the topics model for future /topics calls. This does not store the movie file long-term.
-pub async fn add_movie(configuration: &configuration::Configuration, version: f64, account_id: i64, movie_name: &str, third_party_account_id: Option<&str>, tags: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiAddMovieResponse, Error<AddMovieError>> {
+pub async fn add_movie(configuration: &configuration::Configuration, account_id: i64, movie_name: &str, third_party_account_id: Option<&str>, tags: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiAddMovieResponse, Error<AddMovieError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_movie_name = movie_name;
     let p_query_third_party_account_id = third_party_account_id;
@@ -196,7 +195,7 @@ pub async fn add_movie(configuration: &configuration::Configuration, version: f6
     let p_query_url = url;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/addMovie", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/addMovie", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -246,16 +245,15 @@ pub async fn add_movie(configuration: &configuration::Configuration, version: f6
 }
 
 /// Takes in a text string representing one or more sentences and it returns a list of documents which are related to the provided document.
-pub async fn ai_docs(configuration: &configuration::Configuration, version: f64, account_id: i64, doc: &str, return_topics: Option<bool>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiDocsError>> {
+pub async fn ai_docs(configuration: &configuration::Configuration, account_id: i64, doc: &str, return_topics: Option<bool>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiDocsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_doc = doc;
     let p_query_return_topics = return_topics;
     let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/docs", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/docs", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -299,16 +297,15 @@ pub async fn ai_docs(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Returns a list of URIs of images that match the text.
-pub async fn ai_find_images(configuration: &configuration::Configuration, version: f64, account_id: i64, text: &str, parse_flag: Option<&str>, fetch_flag: Option<&str>, size: Option<&str>) -> Result<models::OrsonAiProtoResponse, Error<AiFindImagesError>> {
+pub async fn ai_find_images(configuration: &configuration::Configuration, account_id: i64, text: &str, parse_flag: Option<&str>, fetch_flag: Option<&str>, size: Option<&str>) -> Result<models::OrsonAiProtoResponse, Error<AiFindImagesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_text = text;
     let p_query_parse_flag = parse_flag;
     let p_query_fetch_flag = fetch_flag;
     let p_query_size = size;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/img", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/img", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -352,16 +349,15 @@ pub async fn ai_find_images(configuration: &configuration::Configuration, versio
 }
 
 /// Search the tags column of user provided tags using this endpoint.
-pub async fn ai_tags(configuration: &configuration::Configuration, version: f64, account_id: i64, tags: &str, conditional: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiTagsError>> {
+pub async fn ai_tags(configuration: &configuration::Configuration, account_id: i64, tags: &str, conditional: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_tags = tags;
     let p_query_conditional = conditional;
     let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/tags", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/tags", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -405,16 +401,15 @@ pub async fn ai_tags(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Search the movie text column of movie text using this endpoint.
-pub async fn ai_text(configuration: &configuration::Configuration, version: f64, account_id: i64, terms: &str, conditional: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiTextError>> {
+pub async fn ai_text(configuration: &configuration::Configuration, account_id: i64, terms: &str, conditional: Option<&str>, limit: Option<i32>, offset: Option<i32>) -> Result<models::OrsonAiProtoResponse, Error<AiTextError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_terms = terms;
     let p_query_conditional = conditional;
     let p_query_limit = limit;
     let p_query_offset = offset;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/text", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/text", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -458,9 +453,8 @@ pub async fn ai_text(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Run several types of analysis on an audio or video file in a single API call, instead of calling several operations for the same file..
-pub async fn batch(configuration: &configuration::Configuration, version: f64, account_id: i64, third_party_account_id: Option<&str>, limit: Option<i32>, operations: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiBatchResponse, Error<BatchError>> {
+pub async fn batch(configuration: &configuration::Configuration, account_id: i64, third_party_account_id: Option<&str>, limit: Option<i32>, operations: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiBatchResponse, Error<BatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_third_party_account_id = third_party_account_id;
     let p_query_limit = limit;
@@ -469,7 +463,7 @@ pub async fn batch(configuration: &configuration::Configuration, version: f64, a
     let p_query_url = url;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -521,13 +515,12 @@ pub async fn batch(configuration: &configuration::Configuration, version: f64, a
 }
 
 /// Creates an instant episode for a given StoryStrip by providing all necessary inputs, interview recordings, and pictures, kicking off a render immediately.
-pub async fn create_instant_episode(configuration: &configuration::Configuration, version: f64, account_id: i64, data: &str) -> Result<models::OrsonEpisodeResponse, Error<CreateInstantEpisodeError>> {
+pub async fn create_instant_episode(configuration: &configuration::Configuration, account_id: i64, data: &str) -> Result<models::OrsonEpisodeResponse, Error<CreateInstantEpisodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_data = data;
 
-    let uri_str = format!("{}/api/{version}/orson/stories/episodes/instant", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/stories/episodes/instant", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -562,9 +555,8 @@ pub async fn create_instant_episode(configuration: &configuration::Configuration
 }
 
 /// Create VoiceCanvas images for provided text, file upload, or file URL
-pub async fn create_voice_canvas(configuration: &configuration::Configuration, version: f64, account_id: i64, dimensions: &str, third_party_account_id: Option<&str>, text: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, parse_flag: Option<bool>, fetch_flag: Option<bool>, callback: Option<&str>) -> Result<models::OrsonAiVoiceCanvasResponse, Error<CreateVoiceCanvasError>> {
+pub async fn create_voice_canvas(configuration: &configuration::Configuration, account_id: i64, dimensions: &str, third_party_account_id: Option<&str>, text: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, parse_flag: Option<bool>, fetch_flag: Option<bool>, callback: Option<&str>) -> Result<models::OrsonAiVoiceCanvasResponse, Error<CreateVoiceCanvasError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_dimensions = dimensions;
     let p_query_third_party_account_id = third_party_account_id;
@@ -575,7 +567,7 @@ pub async fn create_voice_canvas(configuration: &configuration::Configuration, v
     let p_query_fetch_flag = fetch_flag;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/voiceCanvas", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/voiceCanvas", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -631,16 +623,15 @@ pub async fn create_voice_canvas(configuration: &configuration::Configuration, v
 }
 
 /// Detects emotions in an audio or video recording.
-pub async fn emotion(configuration: &configuration::Configuration, version: f64, account_id: i64, third_party_account_id: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiEmotionsResponse, Error<EmotionError>> {
+pub async fn emotion(configuration: &configuration::Configuration, account_id: i64, third_party_account_id: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiEmotionsResponse, Error<EmotionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_third_party_account_id = third_party_account_id;
     let p_query_file = file;
     let p_query_url = url;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/emotion", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/emotion", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -686,13 +677,12 @@ pub async fn emotion(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Get the result of an in progress Add Movie request from an earlier POST.
-pub async fn get_add_movie_result(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiAddMovieResponse, Error<GetAddMovieResultError>> {
+pub async fn get_add_movie_result(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiAddMovieResponse, Error<GetAddMovieResultError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/addMovie/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/addMovie/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -726,13 +716,12 @@ pub async fn get_add_movie_result(configuration: &configuration::Configuration, 
 }
 
 /// Gets the completed Video Batch results, if done, or an error or status update if not.
-pub async fn get_batch(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiBatchResponse, Error<GetBatchError>> {
+pub async fn get_batch(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiBatchResponse, Error<GetBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/batch/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/batch/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -766,13 +755,12 @@ pub async fn get_batch(configuration: &configuration::Configuration, version: f6
 }
 
 /// Checks the Emotion analysis and returns in progress, results, or error.
-pub async fn get_emotion(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiEmotionsResponse, Error<GetEmotionError>> {
+pub async fn get_emotion(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiEmotionsResponse, Error<GetEmotionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/emotion/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/emotion/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -806,13 +794,12 @@ pub async fn get_emotion(configuration: &configuration::Configuration, version: 
 }
 
 /// Gets a summary of the episode's status, including any renders.
-pub async fn get_episode_status(configuration: &configuration::Configuration, version: f64, episode_id: i64, account_id: i64) -> Result<models::OrsonEpisodeResponse, Error<GetEpisodeStatusError>> {
+pub async fn get_episode_status(configuration: &configuration::Configuration, episode_id: i64, account_id: i64) -> Result<models::OrsonEpisodeResponse, Error<GetEpisodeStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_episode_id = episode_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/stories/episodes/{episodeId}/status", configuration.base_path, version=p_path_version, episodeId=p_path_episode_id);
+    let uri_str = format!("{}/orson/stories/episodes/{episodeId}/status", configuration.base_path, episodeId=p_path_episode_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -846,13 +833,12 @@ pub async fn get_episode_status(configuration: &configuration::Configuration, ve
 }
 
 /// Gets a summary of the episode's status, including any renders.
-pub async fn get_render_status(configuration: &configuration::Configuration, version: f64, render_id: &str, account_id: i64) -> Result<models::OrsonRenderResponse, Error<GetRenderStatusError>> {
+pub async fn get_render_status(configuration: &configuration::Configuration, render_id: &str, account_id: i64) -> Result<models::OrsonRenderResponse, Error<GetRenderStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_render_id = render_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/stories/renders/{renderId}/status", configuration.base_path, version=p_path_version, renderId=crate::apis::urlencode(p_path_render_id));
+    let uri_str = format!("{}/orson/stories/renders/{renderId}/status", configuration.base_path, renderId=crate::apis::urlencode(p_path_render_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -886,13 +872,12 @@ pub async fn get_render_status(configuration: &configuration::Configuration, ver
 }
 
 /// The results of the video transcription and optional translation.
-pub async fn get_stt(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiSttResponse, Error<GetSttError>> {
+pub async fn get_stt(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiSttResponse, Error<GetSttError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/stt/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/stt/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -926,13 +911,12 @@ pub async fn get_stt(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Get a result or continue waiting for a pending request for TechTune analysis.
-pub async fn get_tech_tune(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiTechTuneResponse, Error<GetTechTuneError>> {
+pub async fn get_tech_tune(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiTechTuneResponse, Error<GetTechTuneError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/techTune/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/techTune/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -966,13 +950,12 @@ pub async fn get_tech_tune(configuration: &configuration::Configuration, version
 }
 
 /// Get the result of an in progress Topics Analysis from an earlier POST.
-pub async fn get_topics(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiTopicsResponse, Error<GetTopicsError>> {
+pub async fn get_topics(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiTopicsResponse, Error<GetTopicsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/topics/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/topics/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1006,13 +989,12 @@ pub async fn get_topics(configuration: &configuration::Configuration, version: f
 }
 
 /// Check the status of an in progress Text-to-Speech call or download the result.
-pub async fn get_tts(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiTtsResponse, Error<GetTtsError>> {
+pub async fn get_tts(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiTtsResponse, Error<GetTtsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/tts/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/tts/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1046,13 +1028,12 @@ pub async fn get_tts(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Get a result or continue waiting for a pending request for VoiceCanvas Images.
-pub async fn get_voice_canvas(configuration: &configuration::Configuration, version: f64, request_id: &str, account_id: i64) -> Result<models::OrsonAiVoiceCanvasResponse, Error<GetVoiceCanvasError>> {
+pub async fn get_voice_canvas(configuration: &configuration::Configuration, request_id: &str, account_id: i64) -> Result<models::OrsonAiVoiceCanvasResponse, Error<GetVoiceCanvasError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_request_id = request_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/voiceCanvas/{requestId}", configuration.base_path, version=p_path_version, requestId=crate::apis::urlencode(p_path_request_id));
+    let uri_str = format!("{}/orson/ai/voiceCanvas/{requestId}", configuration.base_path, requestId=crate::apis::urlencode(p_path_request_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1086,13 +1067,12 @@ pub async fn get_voice_canvas(configuration: &configuration::Configuration, vers
 }
 
 /// Starts a StoryStitch video render to produce your final video, returning the status details.
-pub async fn start_video_render(configuration: &configuration::Configuration, version: f64, account_id: i64, data: &str) -> Result<models::OrsonRenderResponse, Error<StartVideoRenderError>> {
+pub async fn start_video_render(configuration: &configuration::Configuration, account_id: i64, data: &str) -> Result<models::OrsonRenderResponse, Error<StartVideoRenderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_data = data;
 
-    let uri_str = format!("{}/api/{version}/orson/stories/renders", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/stories/renders", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1127,9 +1107,8 @@ pub async fn start_video_render(configuration: &configuration::Configuration, ve
 }
 
 /// Accepts a movie URL or uploaded file and transcribes it. You also have the option to translate it into one of our additional supported languages.
-pub async fn stt(configuration: &configuration::Configuration, version: f64, account_id: i64, third_party_account_id: Option<&str>, source_language: Option<&str>, target_language: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiSttResponse, Error<SttError>> {
+pub async fn stt(configuration: &configuration::Configuration, account_id: i64, third_party_account_id: Option<&str>, source_language: Option<&str>, target_language: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiSttResponse, Error<SttError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_third_party_account_id = third_party_account_id;
     let p_query_source_language = source_language;
@@ -1138,7 +1117,7 @@ pub async fn stt(configuration: &configuration::Configuration, version: f64, acc
     let p_query_url = url;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/stt", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/stt", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1190,9 +1169,8 @@ pub async fn stt(configuration: &configuration::Configuration, version: f64, acc
 }
 
 /// Takes in a string of text sentences (also known as a document) and returns a list of associated topics and their proximity score.
-pub async fn summarize_topics(configuration: &configuration::Configuration, version: f64, account_id: i64, third_party_account_id: Option<&str>, doc: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, limit: Option<i32>, offset: Option<i32>, callback: Option<&str>) -> Result<models::OrsonAiTopicsResponse, Error<SummarizeTopicsError>> {
+pub async fn summarize_topics(configuration: &configuration::Configuration, account_id: i64, third_party_account_id: Option<&str>, doc: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, limit: Option<i32>, offset: Option<i32>, callback: Option<&str>) -> Result<models::OrsonAiTopicsResponse, Error<SummarizeTopicsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_third_party_account_id = third_party_account_id;
     let p_query_doc = doc;
@@ -1202,7 +1180,7 @@ pub async fn summarize_topics(configuration: &configuration::Configuration, vers
     let p_query_offset = offset;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/topics", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/topics", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1257,9 +1235,8 @@ pub async fn summarize_topics(configuration: &configuration::Configuration, vers
 }
 
 /// Analyses a movie file to detect technical issues, such as too few people in frame.
-pub async fn tech_tune(configuration: &configuration::Configuration, version: f64, account_id: i64, num_faces_expected: i32, third_party_account_id: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiTechTuneResponse, Error<TechTuneError>> {
+pub async fn tech_tune(configuration: &configuration::Configuration, account_id: i64, num_faces_expected: i32, third_party_account_id: Option<&str>, file: Option<std::path::PathBuf>, url: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiTechTuneResponse, Error<TechTuneError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_num_faces_expected = num_faces_expected;
     let p_query_third_party_account_id = third_party_account_id;
@@ -1267,7 +1244,7 @@ pub async fn tech_tune(configuration: &configuration::Configuration, version: f6
     let p_query_url = url;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/techTune", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/techTune", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1314,9 +1291,8 @@ pub async fn tech_tune(configuration: &configuration::Configuration, version: f6
 }
 
 /// Creates an audio file for the given text, with the option of language and voice selection.
-pub async fn tts(configuration: &configuration::Configuration, version: f64, account_id: i64, text: &str, third_party_account_id: Option<&str>, language: Option<&str>, voice: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiTtsResponse, Error<TtsError>> {
+pub async fn tts(configuration: &configuration::Configuration, account_id: i64, text: &str, third_party_account_id: Option<&str>, language: Option<&str>, voice: Option<&str>, callback: Option<&str>) -> Result<models::OrsonAiTtsResponse, Error<TtsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_text = text;
     let p_query_third_party_account_id = third_party_account_id;
@@ -1324,7 +1300,7 @@ pub async fn tts(configuration: &configuration::Configuration, version: f64, acc
     let p_query_voice = voice;
     let p_query_callback = callback;
 
-    let uri_str = format!("{}/api/{version}/orson/ai/tts", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/orson/ai/tts", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

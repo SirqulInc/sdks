@@ -24,15 +24,14 @@ pub enum SmsBuyOfferError {
 
 
 /// Recieve an SMS payload from Twillio to purchase an offer.
-pub async fn sms_buy_offer(configuration: &configuration::Configuration, version: f64, app_key: &str, body: &str, from: &str, currency_type: &str) -> Result<models::TwiMlResponse, Error<SmsBuyOfferError>> {
+pub async fn sms_buy_offer(configuration: &configuration::Configuration, app_key: &str, body: &str, from: &str, currency_type: &str) -> Result<models::TwiMlResponse, Error<SmsBuyOfferError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_app_key = app_key;
     let p_query_body = body;
     let p_query_from = from;
     let p_query_currency_type = currency_type;
 
-    let uri_str = format!("{}/api/{version}/sms/buyoffer/{appKey}", configuration.base_path, version=p_path_version, appKey=crate::apis::urlencode(p_path_app_key));
+    let uri_str = format!("{}/sms/buyoffer/{appKey}", configuration.base_path, appKey=crate::apis::urlencode(p_path_app_key));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("Body", &p_query_body.to_string())]);

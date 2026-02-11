@@ -52,9 +52,8 @@ pub enum UpdateWordError {
 
 
 /// Create a word by the given params.
-pub async fn create_word(configuration: &configuration::Configuration, version: f64, account_id: i64, word: &str, definition: &str, active: bool, allocate_tickets: bool, ticket_count: i64, asset_id: Option<i64>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::WordzWordResponse, Error<CreateWordError>> {
+pub async fn create_word(configuration: &configuration::Configuration, account_id: i64, word: &str, definition: &str, active: bool, allocate_tickets: bool, ticket_count: i64, asset_id: Option<i64>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::WordzWordResponse, Error<CreateWordError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_word = word;
     let p_query_definition = definition;
@@ -65,7 +64,7 @@ pub async fn create_word(configuration: &configuration::Configuration, version: 
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/game/word/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/word/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -113,13 +112,12 @@ pub async fn create_word(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete a word by the given id. The accountId given needs to be the owner or executive to delete.
-pub async fn delete_word(configuration: &configuration::Configuration, version: f64, word_id: i64, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteWordError>> {
+pub async fn delete_word(configuration: &configuration::Configuration, word_id: i64, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteWordError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_word_id = word_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/game/word/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/word/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     req_builder = req_builder.query(&[("wordId", &p_query_word_id.to_string())]);
@@ -154,13 +152,12 @@ pub async fn delete_word(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a word by the given id.
-pub async fn get_word(configuration: &configuration::Configuration, version: f64, word_id: i64, account_id: i64) -> Result<models::WordzWordResponse, Error<GetWordError>> {
+pub async fn get_word(configuration: &configuration::Configuration, word_id: i64, account_id: i64) -> Result<models::WordzWordResponse, Error<GetWordError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_word_id = word_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/game/word/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/word/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("wordId", &p_query_word_id.to_string())]);
@@ -195,9 +192,8 @@ pub async fn get_word(configuration: &configuration::Configuration, version: f64
 }
 
 /// Search for words by the given params.
-pub async fn get_words(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, keyword: Option<&str>) -> Result<Vec<models::WordzWordResponse>, Error<GetWordsError>> {
+pub async fn get_words(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, keyword: Option<&str>) -> Result<Vec<models::WordzWordResponse>, Error<GetWordsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -206,7 +202,7 @@ pub async fn get_words(configuration: &configuration::Configuration, version: f6
     let p_query_limit = limit;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/game/word/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/word/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -248,9 +244,8 @@ pub async fn get_words(configuration: &configuration::Configuration, version: f6
 }
 
 /// Update a word by the given params.
-pub async fn update_word(configuration: &configuration::Configuration, version: f64, word_id: i64, account_id: i64, ticket_count: i64, word_text: Option<&str>, definition: Option<&str>, asset_id: Option<i64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::WordzWordResponse, Error<UpdateWordError>> {
+pub async fn update_word(configuration: &configuration::Configuration, word_id: i64, account_id: i64, ticket_count: i64, word_text: Option<&str>, definition: Option<&str>, asset_id: Option<i64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::WordzWordResponse, Error<UpdateWordError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_word_id = word_id;
     let p_query_account_id = account_id;
     let p_query_ticket_count = ticket_count;
@@ -262,7 +257,7 @@ pub async fn update_word(configuration: &configuration::Configuration, version: 
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/game/word/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/word/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("wordId", &p_query_word_id.to_string())]);

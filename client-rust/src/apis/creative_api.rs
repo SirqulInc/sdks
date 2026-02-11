@@ -73,13 +73,12 @@ pub enum UpdateCreativeError {
 
 
 /// Enable this ad for preview for this account.
-pub async fn add_preview(configuration: &configuration::Configuration, version: f64, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<AddPreviewError>> {
+pub async fn add_preview(configuration: &configuration::Configuration, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<AddPreviewError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_creative_id = creative_id;
 
-    let uri_str = format!("{}/api/{version}/creative/addpreview", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/addpreview", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -114,9 +113,8 @@ pub async fn add_preview(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a set of ad filtered by the parameters provided.
-pub async fn ads_find(configuration: &configuration::Configuration, version: f64, app_key: &str, randomize: bool, targeted_ads_only: bool, r#type: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, device: Option<&str>, device_identifier: Option<i64>, device_version: Option<&str>, start: Option<i32>, limit: Option<i32>, include_audiences: Option<bool>, allocates_tickets: Option<bool>, mission_ids: Option<&str>) -> Result<Vec<models::MissionResponse>, Error<AdsFindError>> {
+pub async fn ads_find(configuration: &configuration::Configuration, app_key: &str, randomize: bool, targeted_ads_only: bool, r#type: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, device: Option<&str>, device_identifier: Option<i64>, device_version: Option<&str>, start: Option<i32>, limit: Option<i32>, include_audiences: Option<bool>, allocates_tickets: Option<bool>, mission_ids: Option<&str>) -> Result<Vec<models::MissionResponse>, Error<AdsFindError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_randomize = randomize;
     let p_query_targeted_ads_only = targeted_ads_only;
@@ -134,7 +132,7 @@ pub async fn ads_find(configuration: &configuration::Configuration, version: f64
     let p_query_allocates_tickets = allocates_tickets;
     let p_query_mission_ids = mission_ids;
 
-    let uri_str = format!("{}/api/{version}/ads/find", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ads/find", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);
@@ -209,9 +207,8 @@ pub async fn ads_find(configuration: &configuration::Configuration, version: f64
 }
 
 /// Create a creative
-pub async fn create_creative(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, active: bool, wait_for_asset: bool, description: Option<&str>, asset_image_id: Option<i64>, action: Option<&str>, data: Option<&str>, suffix: Option<&str>, r#type: Option<&str>, balance: Option<f64>, reference_id: Option<i64>, app_version: Option<&str>, mission_id: Option<i64>, offer_id: Option<i64>) -> Result<models::CreativeResponse, Error<CreateCreativeError>> {
+pub async fn create_creative(configuration: &configuration::Configuration, account_id: i64, name: &str, active: bool, wait_for_asset: bool, description: Option<&str>, asset_image_id: Option<i64>, action: Option<&str>, data: Option<&str>, suffix: Option<&str>, r#type: Option<&str>, balance: Option<f64>, reference_id: Option<i64>, app_version: Option<&str>, mission_id: Option<i64>, offer_id: Option<i64>) -> Result<models::CreativeResponse, Error<CreateCreativeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_active = active;
@@ -228,7 +225,7 @@ pub async fn create_creative(configuration: &configuration::Configuration, versi
     let p_query_mission_id = mission_id;
     let p_query_offer_id = offer_id;
 
-    let uri_str = format!("{}/api/{version}/creative/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -298,13 +295,12 @@ pub async fn create_creative(configuration: &configuration::Configuration, versi
 }
 
 /// Delete a creative
-pub async fn delete_creative(configuration: &configuration::Configuration, version: f64, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<DeleteCreativeError>> {
+pub async fn delete_creative(configuration: &configuration::Configuration, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<DeleteCreativeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_creative_id = creative_id;
 
-    let uri_str = format!("{}/api/{version}/creative/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -339,13 +335,12 @@ pub async fn delete_creative(configuration: &configuration::Configuration, versi
 }
 
 /// Get a creative
-pub async fn get_creative(configuration: &configuration::Configuration, version: f64, account_id: i64, creative_id: i64) -> Result<models::CreativeResponse, Error<GetCreativeError>> {
+pub async fn get_creative(configuration: &configuration::Configuration, account_id: i64, creative_id: i64) -> Result<models::CreativeResponse, Error<GetCreativeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_creative_id = creative_id;
 
-    let uri_str = format!("{}/api/{version}/creative/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -380,9 +375,8 @@ pub async fn get_creative(configuration: &configuration::Configuration, version:
 }
 
 /// Get a list of levels for an application, just those the account has permissions to view.
-pub async fn get_creatives_by_application(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, start: i32, limit: i32, mission_id: Option<i64>, keyword: Option<&str>) -> Result<Vec<models::CreativeResponse>, Error<GetCreativesByApplicationError>> {
+pub async fn get_creatives_by_application(configuration: &configuration::Configuration, account_id: i64, app_key: &str, start: i32, limit: i32, mission_id: Option<i64>, keyword: Option<&str>) -> Result<Vec<models::CreativeResponse>, Error<GetCreativesByApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_start = start;
@@ -390,7 +384,7 @@ pub async fn get_creatives_by_application(configuration: &configuration::Configu
     let p_query_mission_id = mission_id;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/creative/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -433,13 +427,12 @@ pub async fn get_creatives_by_application(configuration: &configuration::Configu
 }
 
 /// Remove this ad for preview for this account.
-pub async fn remove_preview(configuration: &configuration::Configuration, version: f64, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<RemovePreviewError>> {
+pub async fn remove_preview(configuration: &configuration::Configuration, account_id: i64, creative_id: i64) -> Result<models::SirqulResponse, Error<RemovePreviewError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_creative_id = creative_id;
 
-    let uri_str = format!("{}/api/{version}/creative/removepreview", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/removepreview", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -474,9 +467,8 @@ pub async fn remove_preview(configuration: &configuration::Configuration, versio
 }
 
 /// Update a creative
-pub async fn update_creative(configuration: &configuration::Configuration, version: f64, account_id: i64, creative_id: i64, name: Option<&str>, description: Option<&str>, asset_image_id: Option<i64>, action: Option<&str>, data: Option<&str>, suffix: Option<&str>, r#type: Option<&str>, balance: Option<f64>, active: Option<bool>, reference_id: Option<i64>, app_version: Option<&str>, mission_id: Option<i64>) -> Result<models::CreativeResponse, Error<UpdateCreativeError>> {
+pub async fn update_creative(configuration: &configuration::Configuration, account_id: i64, creative_id: i64, name: Option<&str>, description: Option<&str>, asset_image_id: Option<i64>, action: Option<&str>, data: Option<&str>, suffix: Option<&str>, r#type: Option<&str>, balance: Option<f64>, active: Option<bool>, reference_id: Option<i64>, app_version: Option<&str>, mission_id: Option<i64>) -> Result<models::CreativeResponse, Error<UpdateCreativeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_creative_id = creative_id;
     let p_query_name = name;
@@ -492,7 +484,7 @@ pub async fn update_creative(configuration: &configuration::Configuration, versi
     let p_query_app_version = app_version;
     let p_query_mission_id = mission_id;
 
-    let uri_str = format!("{}/api/{version}/creative/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/creative/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

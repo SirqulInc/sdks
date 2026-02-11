@@ -52,12 +52,11 @@ pub enum UpdateRouteSettingsError {
 
 
 /// Create a new route setting
-pub async fn create_route_settings(configuration: &configuration::Configuration, version: f64, body: Option<models::RouteSettings>) -> Result<models::RouteSettings, Error<CreateRouteSettingsError>> {
+pub async fn create_route_settings(configuration: &configuration::Configuration, body: Option<models::RouteSettings>) -> Result<models::RouteSettings, Error<CreateRouteSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/setting", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/route/setting", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -91,12 +90,11 @@ pub async fn create_route_settings(configuration: &configuration::Configuration,
 }
 
 /// Delete an existing route setting
-pub async fn delete_route_settings(configuration: &configuration::Configuration, version: f64, route_settings_id: i64) -> Result<serde_json::Value, Error<DeleteRouteSettingsError>> {
+pub async fn delete_route_settings(configuration: &configuration::Configuration, route_settings_id: i64) -> Result<serde_json::Value, Error<DeleteRouteSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_settings_id = route_settings_id;
 
-    let uri_str = format!("{}/api/{version}/route/setting/{routeSettingsId}", configuration.base_path, version=p_path_version, routeSettingsId=p_path_route_settings_id);
+    let uri_str = format!("{}/route/setting/{routeSettingsId}", configuration.base_path, routeSettingsId=p_path_route_settings_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -129,12 +127,11 @@ pub async fn delete_route_settings(configuration: &configuration::Configuration,
 }
 
 /// Get an existing route settings
-pub async fn get_route_settings(configuration: &configuration::Configuration, version: f64, route_settings_id: i64) -> Result<models::RouteSettings, Error<GetRouteSettingsError>> {
+pub async fn get_route_settings(configuration: &configuration::Configuration, route_settings_id: i64) -> Result<models::RouteSettings, Error<GetRouteSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_settings_id = route_settings_id;
 
-    let uri_str = format!("{}/api/{version}/route/setting/{routeSettingsId}", configuration.base_path, version=p_path_version, routeSettingsId=p_path_route_settings_id);
+    let uri_str = format!("{}/route/setting/{routeSettingsId}", configuration.base_path, routeSettingsId=p_path_route_settings_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -167,9 +164,8 @@ pub async fn get_route_settings(configuration: &configuration::Configuration, ve
 }
 
 /// Search for route settings
-pub async fn search_route_settings(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, hub_id: Option<i64>, program_id: Option<i64>, keyword: Option<&str>) -> Result<Vec<models::RouteSettings>, Error<SearchRouteSettingsError>> {
+pub async fn search_route_settings(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, hub_id: Option<i64>, program_id: Option<i64>, keyword: Option<&str>) -> Result<Vec<models::RouteSettings>, Error<SearchRouteSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -179,7 +175,7 @@ pub async fn search_route_settings(configuration: &configuration::Configuration,
     let p_query_program_id = program_id;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/route/setting", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/route/setting", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_hub_id {
@@ -226,13 +222,12 @@ pub async fn search_route_settings(configuration: &configuration::Configuration,
 }
 
 /// Update an existing route setting
-pub async fn update_route_settings(configuration: &configuration::Configuration, version: f64, route_settings_id: i64, body: Option<models::RouteSettings>) -> Result<models::RouteSettings, Error<UpdateRouteSettingsError>> {
+pub async fn update_route_settings(configuration: &configuration::Configuration, route_settings_id: i64, body: Option<models::RouteSettings>) -> Result<models::RouteSettings, Error<UpdateRouteSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_settings_id = route_settings_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/setting/{routeSettingsId}", configuration.base_path, version=p_path_version, routeSettingsId=p_path_route_settings_id);
+    let uri_str = format!("{}/route/setting/{routeSettingsId}", configuration.base_path, routeSettingsId=p_path_route_settings_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

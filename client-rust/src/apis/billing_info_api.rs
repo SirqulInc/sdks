@@ -59,9 +59,8 @@ pub enum SearchPaymentMethodError {
 
 
 /// Update a method of payment. If the paymentMethodId is not passed in then will update their default payment method.
-pub async fn add_payment_method(configuration: &configuration::Configuration, version: f64, account_id: i64, payment_method_id: Option<i64>, account_name: Option<&str>, first_name: Option<&str>, last_name: Option<&str>, address: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, phone: Option<&str>, credit_card_number: Option<&str>, expiration_date: Option<&str>, ccv: Option<&str>, account_number: Option<&str>, bank_name: Option<&str>, routing_number: Option<&str>, default_payment_method: Option<bool>, payment_method_nickname: Option<&str>, tax_id: Option<&str>, provider_customer_profile_id: Option<&str>, provider_payment_profile_id: Option<&str>, meta_data: Option<&str>) -> Result<models::PaymentTypesResponse, Error<AddPaymentMethodError>> {
+pub async fn add_payment_method(configuration: &configuration::Configuration, account_id: i64, payment_method_id: Option<i64>, account_name: Option<&str>, first_name: Option<&str>, last_name: Option<&str>, address: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, phone: Option<&str>, credit_card_number: Option<&str>, expiration_date: Option<&str>, ccv: Option<&str>, account_number: Option<&str>, bank_name: Option<&str>, routing_number: Option<&str>, default_payment_method: Option<bool>, payment_method_nickname: Option<&str>, tax_id: Option<&str>, provider_customer_profile_id: Option<&str>, provider_payment_profile_id: Option<&str>, meta_data: Option<&str>) -> Result<models::PaymentTypesResponse, Error<AddPaymentMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_payment_method_id = payment_method_id;
     let p_query_account_name = account_name;
@@ -86,7 +85,7 @@ pub async fn add_payment_method(configuration: &configuration::Configuration, ve
     let p_query_provider_payment_profile_id = provider_payment_profile_id;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/billing/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -186,9 +185,8 @@ pub async fn add_payment_method(configuration: &configuration::Configuration, ve
 }
 
 /// Add a new method of payment.
-pub async fn create_payment_method(configuration: &configuration::Configuration, version: f64, account_id: i64, account_name: Option<&str>, first_name: Option<&str>, last_name: Option<&str>, address: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, phone: Option<&str>, credit_card_number: Option<&str>, expiration_date: Option<&str>, ccv: Option<&str>, account_number: Option<&str>, bank_name: Option<&str>, routing_number: Option<&str>, payment_method_nickname: Option<&str>, tax_id: Option<&str>, default_payment_method: Option<bool>, auth_token: Option<&str>, provider: Option<&str>, provider_customer_profile_id: Option<&str>, provider_payment_profile_id: Option<&str>, meta_data: Option<&str>, app_key: Option<&str>) -> Result<models::PaymentTypesResponse, Error<CreatePaymentMethodError>> {
+pub async fn create_payment_method(configuration: &configuration::Configuration, account_id: i64, account_name: Option<&str>, first_name: Option<&str>, last_name: Option<&str>, address: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, phone: Option<&str>, credit_card_number: Option<&str>, expiration_date: Option<&str>, ccv: Option<&str>, account_number: Option<&str>, bank_name: Option<&str>, routing_number: Option<&str>, payment_method_nickname: Option<&str>, tax_id: Option<&str>, default_payment_method: Option<bool>, auth_token: Option<&str>, provider: Option<&str>, provider_customer_profile_id: Option<&str>, provider_payment_profile_id: Option<&str>, meta_data: Option<&str>, app_key: Option<&str>) -> Result<models::PaymentTypesResponse, Error<CreatePaymentMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_account_name = account_name;
     let p_query_first_name = first_name;
@@ -215,7 +213,7 @@ pub async fn create_payment_method(configuration: &configuration::Configuration,
     let p_query_meta_data = meta_data;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/billing/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -321,15 +319,14 @@ pub async fn create_payment_method(configuration: &configuration::Configuration,
 }
 
 /// Adds a smart contract.
-pub async fn create_smart_contract(configuration: &configuration::Configuration, version: f64, account_id: i64, token_name: &str, token_symbol: &str, payment_method_id: Option<i64>) -> Result<models::PaymentTypesResponse, Error<CreateSmartContractError>> {
+pub async fn create_smart_contract(configuration: &configuration::Configuration, account_id: i64, token_name: &str, token_symbol: &str, payment_method_id: Option<i64>) -> Result<models::PaymentTypesResponse, Error<CreateSmartContractError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_token_name = token_name;
     let p_query_token_symbol = token_symbol;
     let p_query_payment_method_id = payment_method_id;
 
-    let uri_str = format!("{}/api/{version}/billing/crypto/transfer", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/crypto/transfer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -368,14 +365,13 @@ pub async fn create_smart_contract(configuration: &configuration::Configuration,
 }
 
 /// Get the cypto balance details for a user
-pub async fn get_crypto_balance(configuration: &configuration::Configuration, version: f64, account_id: i64, owner_account_id: Option<i64>, payment_method_id: Option<i64>) -> Result<models::PaymentTypesResponse, Error<GetCryptoBalanceError>> {
+pub async fn get_crypto_balance(configuration: &configuration::Configuration, account_id: i64, owner_account_id: Option<i64>, payment_method_id: Option<i64>) -> Result<models::PaymentTypesResponse, Error<GetCryptoBalanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_owner_account_id = owner_account_id;
     let p_query_payment_method_id = payment_method_id;
 
-    let uri_str = format!("{}/api/{version}/billing/crypto/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/crypto/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -415,14 +411,13 @@ pub async fn get_crypto_balance(configuration: &configuration::Configuration, ve
 }
 
 /// Get the details of the user's payment method or their current default method of payment
-pub async fn get_payment_method(configuration: &configuration::Configuration, version: f64, account_id: i64, payment_method_id: Option<i64>, get_current_balance: Option<bool>) -> Result<models::PaymentTypesResponse, Error<GetPaymentMethodError>> {
+pub async fn get_payment_method(configuration: &configuration::Configuration, account_id: i64, payment_method_id: Option<i64>, get_current_balance: Option<bool>) -> Result<models::PaymentTypesResponse, Error<GetPaymentMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_payment_method_id = payment_method_id;
     let p_query_get_current_balance = get_current_balance;
 
-    let uri_str = format!("{}/api/{version}/billing/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -462,9 +457,8 @@ pub async fn get_payment_method(configuration: &configuration::Configuration, ve
 }
 
 /// Search the payment methods of an account
-pub async fn search_payment_method(configuration: &configuration::Configuration, version: f64, account_id: i64, provider: Option<&str>, r#type: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::PaymentTypesResponse, Error<SearchPaymentMethodError>> {
+pub async fn search_payment_method(configuration: &configuration::Configuration, account_id: i64, provider: Option<&str>, r#type: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::PaymentTypesResponse, Error<SearchPaymentMethodError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_provider = provider;
     let p_query_type = r#type;
@@ -474,7 +468,7 @@ pub async fn search_payment_method(configuration: &configuration::Configuration,
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/billing/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billing/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

@@ -52,14 +52,13 @@ pub enum UsageBatchError {
 
 
 /// Get an activity feed by user.
-pub async fn activities(configuration: &configuration::Configuration, version: f64, start: i32, limit: i32, account_id: i64) -> Result<Vec<models::UserActivityResponse>, Error<ActivitiesError>> {
+pub async fn activities(configuration: &configuration::Configuration, start: i32, limit: i32, account_id: i64) -> Result<Vec<models::UserActivityResponse>, Error<ActivitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start = start;
     let p_query_limit = limit;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/analytics/useractivity", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/analytics/useractivity", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("start", &p_query_start.to_string())]);
@@ -95,9 +94,8 @@ pub async fn activities(configuration: &configuration::Configuration, version: f
 }
 
 /// Query analytics to get data used for nested graphs and charts
-pub async fn aggregated_filtered_usage(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, device_type: Option<&str>, device: Option<&str>, device_os: Option<&str>, gender: Option<&str>, age_group: Option<&str>, country: Option<&str>, state: Option<&str>, city: Option<&str>, zip: Option<&str>, model: Option<&str>, tag: Option<&str>, user_account_id: Option<i64>, user_account_display: Option<&str>, user_account_username: Option<&str>, group_by_root: Option<&str>, group_by: Option<&str>, distinct_count: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, hide_unknown: Option<bool>, response_format: Option<&str>, _l: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ChartData, Error<AggregatedFilteredUsageError>> {
+pub async fn aggregated_filtered_usage(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, device_type: Option<&str>, device: Option<&str>, device_os: Option<&str>, gender: Option<&str>, age_group: Option<&str>, country: Option<&str>, state: Option<&str>, city: Option<&str>, zip: Option<&str>, model: Option<&str>, tag: Option<&str>, user_account_id: Option<i64>, user_account_display: Option<&str>, user_account_username: Option<&str>, group_by_root: Option<&str>, group_by: Option<&str>, distinct_count: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, hide_unknown: Option<bool>, response_format: Option<&str>, _l: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ChartData, Error<AggregatedFilteredUsageError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_application_id = application_id;
@@ -130,7 +128,7 @@ pub async fn aggregated_filtered_usage(configuration: &configuration::Configurat
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/analytics/aggregatedFilteredUsage", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/analytics/aggregatedFilteredUsage", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -256,9 +254,8 @@ pub async fn aggregated_filtered_usage(configuration: &configuration::Configurat
 }
 
 /// Query analytics to get data used for graphs and charts
-pub async fn filtered_usage(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, device_type: Option<&str>, device: Option<&str>, device_os: Option<&str>, gender: Option<&str>, age_group: Option<&str>, country: Option<&str>, state: Option<&str>, city: Option<&str>, zip: Option<&str>, model: Option<&str>, tag: Option<&str>, user_account_id: Option<i64>, user_account_display: Option<&str>, user_account_username: Option<&str>, custom_id: Option<i64>, custom_type: Option<&str>, custom_value: Option<f64>, custom_value2: Option<f64>, custom_long: Option<i64>, custom_long2: Option<i64>, custom_message: Option<&str>, custom_message2: Option<&str>, group_by: Option<&str>, distinct_count: Option<&str>, sum_column: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, hide_unknown: Option<bool>, response_format: Option<&str>, _l: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ChartData, Error<FilteredUsageError>> {
+pub async fn filtered_usage(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, device_type: Option<&str>, device: Option<&str>, device_os: Option<&str>, gender: Option<&str>, age_group: Option<&str>, country: Option<&str>, state: Option<&str>, city: Option<&str>, zip: Option<&str>, model: Option<&str>, tag: Option<&str>, user_account_id: Option<i64>, user_account_display: Option<&str>, user_account_username: Option<&str>, custom_id: Option<i64>, custom_type: Option<&str>, custom_value: Option<f64>, custom_value2: Option<f64>, custom_long: Option<i64>, custom_long2: Option<i64>, custom_message: Option<&str>, custom_message2: Option<&str>, group_by: Option<&str>, distinct_count: Option<&str>, sum_column: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, hide_unknown: Option<bool>, response_format: Option<&str>, _l: Option<i32>, limit: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ChartData, Error<FilteredUsageError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_application_id = application_id;
@@ -299,7 +296,7 @@ pub async fn filtered_usage(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/analytics/filteredUsage", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/analytics/filteredUsage", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -449,9 +446,8 @@ pub async fn filtered_usage(configuration: &configuration::Configuration, versio
 }
 
 /// Record an analytic record for a known state within the application.
-pub async fn usage(configuration: &configuration::Configuration, version: f64, tag: &str, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, app_version: Option<&str>, device: Option<&str>, device_type: Option<&str>, device_os: Option<&str>, model: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, custom_id: Option<i64>, custom_type: Option<&str>, achievement_increment: Option<i64>, city: Option<&str>, state: Option<&str>, country: Option<&str>, zip: Option<&str>, location_description: Option<&str>, client_time: Option<i64>, error_message: Option<&str>, ip: Option<&str>, user_agent: Option<&str>, background_event: Option<bool>, custom_message: Option<&str>, custom_message2: Option<&str>, custom_value: Option<f64>, custom_value2: Option<f64>, custom_long: Option<i64>, custom_long2: Option<i64>) -> Result<models::SirqulResponse, Error<UsageError>> {
+pub async fn usage(configuration: &configuration::Configuration, tag: &str, device_id: Option<&str>, account_id: Option<i64>, application_id: Option<i64>, app_key: Option<&str>, app_version: Option<&str>, device: Option<&str>, device_type: Option<&str>, device_os: Option<&str>, model: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, custom_id: Option<i64>, custom_type: Option<&str>, achievement_increment: Option<i64>, city: Option<&str>, state: Option<&str>, country: Option<&str>, zip: Option<&str>, location_description: Option<&str>, client_time: Option<i64>, error_message: Option<&str>, ip: Option<&str>, user_agent: Option<&str>, background_event: Option<bool>, custom_message: Option<&str>, custom_message2: Option<&str>, custom_value: Option<f64>, custom_value2: Option<f64>, custom_long: Option<i64>, custom_long2: Option<i64>) -> Result<models::SirqulResponse, Error<UsageError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_tag = tag;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -484,7 +480,7 @@ pub async fn usage(configuration: &configuration::Configuration, version: f64, t
     let p_query_custom_long = custom_long;
     let p_query_custom_long2 = custom_long2;
 
-    let uri_str = format!("{}/api/{version}/analytics/usage", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/analytics/usage", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("tag", &p_query_tag.to_string())]);
@@ -608,9 +604,8 @@ pub async fn usage(configuration: &configuration::Configuration, version: f64, t
 }
 
 /// Sends multiple analytics. Can be used to send in the user's stored usage when they did not have internet access. Should not include more than 100 items per batch.
-pub async fn usage_batch(configuration: &configuration::Configuration, version: f64, app_key: &str, device: &str, data: &str, device_id: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, device_type: Option<&str>, device_os: Option<&str>, model: Option<&str>, update_ranking: Option<bool>, return_summary_response: Option<bool>) -> Result<models::SirqulResponse, Error<UsageBatchError>> {
+pub async fn usage_batch(configuration: &configuration::Configuration, app_key: &str, device: &str, data: &str, device_id: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, device_type: Option<&str>, device_os: Option<&str>, model: Option<&str>, update_ranking: Option<bool>, return_summary_response: Option<bool>) -> Result<models::SirqulResponse, Error<UsageBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_device = device;
     let p_query_data = data;
@@ -623,7 +618,7 @@ pub async fn usage_batch(configuration: &configuration::Configuration, version: 
     let p_query_update_ranking = update_ranking;
     let p_query_return_summary_response = return_summary_response;
 
-    let uri_str = format!("{}/api/{version}/analytics/usage/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/analytics/usage/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

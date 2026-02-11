@@ -45,9 +45,8 @@ pub enum UpdateBidError {
 
 
 /// Creates a bid on a biddable object
-pub async fn create_bid(configuration: &configuration::Configuration, version: f64, biddable_type: &str, biddable_id: i64, amount_per_view: f64, amount_per_action: f64, budget_amount: f64, budget_schedule: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::BidResponse, Error<CreateBidError>> {
+pub async fn create_bid(configuration: &configuration::Configuration, biddable_type: &str, biddable_id: i64, amount_per_view: f64, amount_per_action: f64, budget_amount: f64, budget_schedule: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::BidResponse, Error<CreateBidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_biddable_type = biddable_type;
     let p_query_biddable_id = biddable_id;
     let p_query_amount_per_view = amount_per_view;
@@ -57,7 +56,7 @@ pub async fn create_bid(configuration: &configuration::Configuration, version: f
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/bid/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/bid/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -102,14 +101,13 @@ pub async fn create_bid(configuration: &configuration::Configuration, version: f
 }
 
 /// Deleted a bid on a biddable object
-pub async fn delete_bid(configuration: &configuration::Configuration, version: f64, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteBidError>> {
+pub async fn delete_bid(configuration: &configuration::Configuration, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteBidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_bid_id = bid_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/bid/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/bid/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -149,14 +147,13 @@ pub async fn delete_bid(configuration: &configuration::Configuration, version: f
 }
 
 /// Get the bid details of a biddable object
-pub async fn get_bid(configuration: &configuration::Configuration, version: f64, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::BidResponse, Error<GetBidError>> {
+pub async fn get_bid(configuration: &configuration::Configuration, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::BidResponse, Error<GetBidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_bid_id = bid_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/bid/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/bid/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -196,9 +193,8 @@ pub async fn get_bid(configuration: &configuration::Configuration, version: f64,
 }
 
 /// Updates a bid on a biddable object
-pub async fn update_bid(configuration: &configuration::Configuration, version: f64, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>, amount_per_view: Option<f64>, amount_per_action: Option<f64>, budget_amount: Option<f64>, budget_schedule: Option<&str>) -> Result<models::BidResponse, Error<UpdateBidError>> {
+pub async fn update_bid(configuration: &configuration::Configuration, bid_id: i64, device_id: Option<&str>, account_id: Option<i64>, amount_per_view: Option<f64>, amount_per_action: Option<f64>, budget_amount: Option<f64>, budget_schedule: Option<&str>) -> Result<models::BidResponse, Error<UpdateBidError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_bid_id = bid_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -207,7 +203,7 @@ pub async fn update_bid(configuration: &configuration::Configuration, version: f
     let p_query_budget_amount = budget_amount;
     let p_query_budget_schedule = budget_schedule;
 
-    let uri_str = format!("{}/api/{version}/bid/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/bid/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

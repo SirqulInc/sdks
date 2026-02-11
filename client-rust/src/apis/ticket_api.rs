@@ -59,16 +59,15 @@ pub enum TicketOffersError {
 
 
 /// Gets the ticket count.
-pub async fn get_ticket_count(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, ticket_type: Option<&str>) -> Result<models::CountResponse, Error<GetTicketCountError>> {
+pub async fn get_ticket_count(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, ticket_type: Option<&str>) -> Result<models::CountResponse, Error<GetTicketCountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_game_type = game_type;
     let p_query_app_key = app_key;
     let p_query_ticket_type = ticket_type;
 
-    let uri_str = format!("{}/api/{version}/ticket/count", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ticket/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -116,9 +115,8 @@ pub async fn get_ticket_count(configuration: &configuration::Configuration, vers
 }
 
 /// Gets the list of tickets.
-pub async fn get_ticket_list(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, ticket_object_type: Option<&str>, action_type: Option<&str>, ticket_ids: Option<&str>, object_ids: Option<&str>, receipt_tokens: Option<&str>, game_type: Option<&str>, app_key: Option<&str>) -> Result<models::TicketListResponse, Error<GetTicketListError>> {
+pub async fn get_ticket_list(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, ticket_object_type: Option<&str>, action_type: Option<&str>, ticket_ids: Option<&str>, object_ids: Option<&str>, receipt_tokens: Option<&str>, game_type: Option<&str>, app_key: Option<&str>) -> Result<models::TicketListResponse, Error<GetTicketListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_ticket_object_type = ticket_object_type;
@@ -129,7 +127,7 @@ pub async fn get_ticket_list(configuration: &configuration::Configuration, versi
     let p_query_game_type = game_type;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/ticket/getList", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ticket/getList", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -189,9 +187,8 @@ pub async fn get_ticket_list(configuration: &configuration::Configuration, versi
 }
 
 /// Gift tickets to another user.
-pub async fn gift_purchase(configuration: &configuration::Configuration, version: f64, receiver_account_id: i64, ticket_id: i64, device_id: Option<&str>, account_id: Option<i64>, asset_id: Option<i64>, custom_message: Option<&str>, game_type: Option<&str>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<GiftPurchaseError>> {
+pub async fn gift_purchase(configuration: &configuration::Configuration, receiver_account_id: i64, ticket_id: i64, device_id: Option<&str>, account_id: Option<i64>, asset_id: Option<i64>, custom_message: Option<&str>, game_type: Option<&str>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<GiftPurchaseError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_receiver_account_id = receiver_account_id;
     let p_query_ticket_id = ticket_id;
     let p_query_device_id = device_id;
@@ -201,7 +198,7 @@ pub async fn gift_purchase(configuration: &configuration::Configuration, version
     let p_query_game_type = game_type;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/purchase/gift", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/purchase/gift", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -254,9 +251,8 @@ pub async fn gift_purchase(configuration: &configuration::Configuration, version
 }
 
 /// Allow user to acquire a purchase item and generate a ticket record. Used to redeem tickets or add tickets to the system.
-pub async fn save_ticket(configuration: &configuration::Configuration, version: f64, action_type: &str, ticket_object_type: &str, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, object_id: Option<i64>, purchase_code: Option<&str>, receipt_token: Option<&str>, receipt_data: Option<&str>, count: Option<i64>, ticket_type: Option<&str>, purchase_provider: Option<&str>, purchase_type: Option<&str>, return_profile_response: Option<bool>, include_profile_response: Option<bool>, app_version: Option<&str>) -> Result<models::ProfileResponse, Error<SaveTicketError>> {
+pub async fn save_ticket(configuration: &configuration::Configuration, action_type: &str, ticket_object_type: &str, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, object_id: Option<i64>, purchase_code: Option<&str>, receipt_token: Option<&str>, receipt_data: Option<&str>, count: Option<i64>, ticket_type: Option<&str>, purchase_provider: Option<&str>, purchase_type: Option<&str>, return_profile_response: Option<bool>, include_profile_response: Option<bool>, app_version: Option<&str>) -> Result<models::ProfileResponse, Error<SaveTicketError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_action_type = action_type;
     let p_query_ticket_object_type = ticket_object_type;
     let p_query_return_nulls = return_nulls;
@@ -276,7 +272,7 @@ pub async fn save_ticket(configuration: &configuration::Configuration, version: 
     let p_query_include_profile_response = include_profile_response;
     let p_query_app_version = app_version;
 
-    let uri_str = format!("{}/api/{version}/ticket/save", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ticket/save", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_return_nulls {
@@ -359,9 +355,8 @@ pub async fn save_ticket(configuration: &configuration::Configuration, version: 
 }
 
 /// Similar to the Save Ticket endpoint but allows the receiptData to be in binary format. This must be a multi-part post
-pub async fn save_ticket_via_file_upload(configuration: &configuration::Configuration, version: f64, action_type: &str, ticket_object_type: &str, receipt_data: std::path::PathBuf, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, object_id: Option<i64>, purchase_code: Option<&str>, receipt_token: Option<&str>, count: Option<i64>, ticket_type: Option<&str>, purchase_provider: Option<&str>, purchase_type: Option<&str>, return_profile_response: Option<bool>, include_profile_response: Option<bool>, app_version: Option<&str>) -> Result<models::ProfileResponse, Error<SaveTicketViaFileUploadError>> {
+pub async fn save_ticket_via_file_upload(configuration: &configuration::Configuration, action_type: &str, ticket_object_type: &str, receipt_data: std::path::PathBuf, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, object_id: Option<i64>, purchase_code: Option<&str>, receipt_token: Option<&str>, count: Option<i64>, ticket_type: Option<&str>, purchase_provider: Option<&str>, purchase_type: Option<&str>, return_profile_response: Option<bool>, include_profile_response: Option<bool>, app_version: Option<&str>) -> Result<models::ProfileResponse, Error<SaveTicketViaFileUploadError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_action_type = action_type;
     let p_query_ticket_object_type = ticket_object_type;
     let p_query_receipt_data = receipt_data;
@@ -381,7 +376,7 @@ pub async fn save_ticket_via_file_upload(configuration: &configuration::Configur
     let p_query_include_profile_response = include_profile_response;
     let p_query_app_version = app_version;
 
-    let uri_str = format!("{}/api/{version}/ticket/save/fileUpload", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ticket/save/fileUpload", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_return_nulls {
@@ -462,11 +457,9 @@ pub async fn save_ticket_via_file_upload(configuration: &configuration::Configur
 }
 
 /// Get a list offers for tickets owned by sirqul.  Purchasing these will add the number of tickets to the account specified by the offer.
-pub async fn ticket_offers(configuration: &configuration::Configuration, version: f64) -> Result<models::TicketOfferResponse, Error<TicketOffersError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
+pub async fn ticket_offers(configuration: &configuration::Configuration, ) -> Result<models::TicketOfferResponse, Error<TicketOffersError>> {
 
-    let uri_str = format!("{}/api/{version}/ticket/ticketoffers", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ticket/ticketoffers", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

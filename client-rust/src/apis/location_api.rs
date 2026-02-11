@@ -52,16 +52,15 @@ pub enum GetLocationsError {
 
 
 /// Creates trilateration samples for a source device (i.e. a router).
-pub async fn cache_trilateration_data(configuration: &configuration::Configuration, version: f64, udid: &str, source_time: Option<i64>, minimum_sample_size: Option<i32>, data: Option<&str>, data_file: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<CacheTrilaterationDataError>> {
+pub async fn cache_trilateration_data(configuration: &configuration::Configuration, udid: &str, source_time: Option<i64>, minimum_sample_size: Option<i32>, data: Option<&str>, data_file: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<CacheTrilaterationDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_udid = udid;
     let p_query_source_time = source_time;
     let p_query_minimum_sample_size = minimum_sample_size;
     let p_query_data = data;
     let p_query_data_file = data_file;
 
-    let uri_str = format!("{}/api/{version}/location/trilaterate/cache", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/trilaterate/cache", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("udid", &p_query_udid.to_string())]);
@@ -107,12 +106,11 @@ pub async fn cache_trilateration_data(configuration: &configuration::Configurati
 }
 
 /// Creates trilateration samples for a source device (i.e. a router).
-pub async fn cache_trilateration_data_gzip(configuration: &configuration::Configuration, version: f64, body: Option<models::TrilatCacheRequest>) -> Result<models::SirqulResponse, Error<CacheTrilaterationDataGzipError>> {
+pub async fn cache_trilateration_data_gzip(configuration: &configuration::Configuration, body: Option<models::TrilatCacheRequest>) -> Result<models::SirqulResponse, Error<CacheTrilaterationDataGzipError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/location/trilaterate/cache/submit", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/trilaterate/cache/submit", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -146,12 +144,11 @@ pub async fn cache_trilateration_data_gzip(configuration: &configuration::Config
 }
 
 /// Get location information based on an IP address.
-pub async fn get_location_by_ip(configuration: &configuration::Configuration, version: f64, ip: Option<&str>) -> Result<models::CoordsResponse, Error<GetLocationByIpError>> {
+pub async fn get_location_by_ip(configuration: &configuration::Configuration, ip: Option<&str>) -> Result<models::CoordsResponse, Error<GetLocationByIpError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_ip = ip;
 
-    let uri_str = format!("{}/api/{version}/location/ip", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/ip", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_ip {
@@ -187,16 +184,15 @@ pub async fn get_location_by_ip(configuration: &configuration::Configuration, ve
 }
 
 /// Send in device data and calculate a position based on signal strengths.
-pub async fn get_location_by_trilateration(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, data: Option<&str>, response_filters: Option<&str>) -> Result<models::GeoPointResponse, Error<GetLocationByTrilaterationError>> {
+pub async fn get_location_by_trilateration(configuration: &configuration::Configuration, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, data: Option<&str>, response_filters: Option<&str>) -> Result<models::GeoPointResponse, Error<GetLocationByTrilaterationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_data = data;
     let p_query_response_filters = response_filters;
 
-    let uri_str = format!("{}/api/{version}/account/location/trilaterate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/location/trilaterate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -244,9 +240,8 @@ pub async fn get_location_by_trilateration(configuration: &configuration::Config
 }
 
 /// Searches geographic locations by proximity via address or keyword.
-pub async fn get_locations(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, currentlatitude: Option<f64>, currentlongitude: Option<f64>, current_latitude: Option<f64>, current_longitude: Option<f64>, query: Option<&str>, zipcode: Option<&str>, zip_code: Option<&str>, selected_maplatitude: Option<f64>, selected_maplongitude: Option<f64>, selected_map_latitude: Option<f64>, selected_map_longitude: Option<f64>, search_range: Option<f64>, use_geocode: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::LocationSearchResponse, Error<GetLocationsError>> {
+pub async fn get_locations(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, currentlatitude: Option<f64>, currentlongitude: Option<f64>, current_latitude: Option<f64>, current_longitude: Option<f64>, query: Option<&str>, zipcode: Option<&str>, zip_code: Option<&str>, selected_maplatitude: Option<f64>, selected_maplongitude: Option<f64>, selected_map_latitude: Option<f64>, selected_map_longitude: Option<f64>, search_range: Option<f64>, use_geocode: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::LocationSearchResponse, Error<GetLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_currentlatitude = currentlatitude;
@@ -267,7 +262,7 @@ pub async fn get_locations(configuration: &configuration::Configuration, version
     let p_query__l = _l;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/location/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

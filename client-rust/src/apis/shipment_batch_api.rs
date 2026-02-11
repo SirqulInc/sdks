@@ -53,12 +53,11 @@ pub enum SearchShipmentBatchError {
 
 
 /// Create a new shipment batch
-pub async fn create_shipment_batch(configuration: &configuration::Configuration, version: f64, body: Option<models::ShipmentBatch>) -> Result<models::ShipmentBatch, Error<CreateShipmentBatchError>> {
+pub async fn create_shipment_batch(configuration: &configuration::Configuration, body: Option<models::ShipmentBatch>) -> Result<models::ShipmentBatch, Error<CreateShipmentBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/shipment/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/shipment/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -92,12 +91,11 @@ pub async fn create_shipment_batch(configuration: &configuration::Configuration,
 }
 
 /// Search for shipment batches
-pub async fn delete_shipment_batch(configuration: &configuration::Configuration, version: f64, batch_id: i64) -> Result<(), Error<DeleteShipmentBatchError>> {
+pub async fn delete_shipment_batch(configuration: &configuration::Configuration, batch_id: i64) -> Result<(), Error<DeleteShipmentBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_batch_id = batch_id;
 
-    let uri_str = format!("{}/api/{version}/shipment/batch/{batchId}", configuration.base_path, version=p_path_version, batchId=p_path_batch_id);
+    let uri_str = format!("{}/shipment/batch/{batchId}", configuration.base_path, batchId=p_path_batch_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -119,12 +117,11 @@ pub async fn delete_shipment_batch(configuration: &configuration::Configuration,
 }
 
 /// Get an existing shipment batch
-pub async fn get_shipment_batch(configuration: &configuration::Configuration, version: f64, batch_id: i64) -> Result<models::ShipmentBatch, Error<GetShipmentBatchError>> {
+pub async fn get_shipment_batch(configuration: &configuration::Configuration, batch_id: i64) -> Result<models::ShipmentBatch, Error<GetShipmentBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_batch_id = batch_id;
 
-    let uri_str = format!("{}/api/{version}/shipment/batch/{batchId}", configuration.base_path, version=p_path_version, batchId=p_path_batch_id);
+    let uri_str = format!("{}/shipment/batch/{batchId}", configuration.base_path, batchId=p_path_batch_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -157,9 +154,8 @@ pub async fn get_shipment_batch(configuration: &configuration::Configuration, ve
 }
 
 /// Get the import status list of the import shipment batch
-pub async fn get_shipment_batch_status(configuration: &configuration::Configuration, version: f64, batch_id: i64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, valid: Option<bool>, started: Option<bool>, completed: Option<bool>, has_shipment: Option<bool>, has_route: Option<bool>, keyword: Option<&str>) -> Result<Vec<models::ShipmentImportStatus>, Error<GetShipmentBatchStatusError>> {
+pub async fn get_shipment_batch_status(configuration: &configuration::Configuration, batch_id: i64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, valid: Option<bool>, started: Option<bool>, completed: Option<bool>, has_shipment: Option<bool>, has_route: Option<bool>, keyword: Option<&str>) -> Result<Vec<models::ShipmentImportStatus>, Error<GetShipmentBatchStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_batch_id = batch_id;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
@@ -173,7 +169,7 @@ pub async fn get_shipment_batch_status(configuration: &configuration::Configurat
     let p_query_has_route = has_route;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/shipment/batch/{batchId}/status", configuration.base_path, version=p_path_version, batchId=p_path_batch_id);
+    let uri_str = format!("{}/shipment/batch/{batchId}/status", configuration.base_path, batchId=p_path_batch_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -229,16 +225,15 @@ pub async fn get_shipment_batch_status(configuration: &configuration::Configurat
 }
 
 /// Search for shipment batches
-pub async fn search_shipment_batch(configuration: &configuration::Configuration, version: f64, hub_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32) -> Result<Vec<models::ShipmentBatch>, Error<SearchShipmentBatchError>> {
+pub async fn search_shipment_batch(configuration: &configuration::Configuration, hub_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32) -> Result<Vec<models::ShipmentBatch>, Error<SearchShipmentBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_hub_id = hub_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/shipment/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/shipment/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("hubId", &p_query_hub_id.to_string())]);

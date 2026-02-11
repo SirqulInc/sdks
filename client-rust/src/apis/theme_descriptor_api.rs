@@ -45,9 +45,8 @@ pub enum RemoveThemeDescriptorError {
 
 
 /// Creates or updates a theme descriptor that can be used to give applications a customized look and feel. The theme can be created by consumers and shared to other users, allowing them to use and/or collaborate on making the theme.
-pub async fn add_or_update_theme_descriptor(configuration: &configuration::Configuration, version: f64, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, visibility: &str, include_friend_group: bool, complete_with_default_values: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, theme_descriptor_id: Option<i64>, title: Option<&str>, description: Option<&str>, connection_ids_to_add: Option<&str>, connection_group_ids_to_add: Option<&str>, app_version: Option<&str>, color_value_json: Option<&str>, string_replacer_json: Option<&str>, custom_json_objects: Option<&str>, icon_image: Option<std::path::PathBuf>, scene_atlas_image: Option<std::path::PathBuf>, bg_image: Option<std::path::PathBuf>, bg_sound: Option<std::path::PathBuf>, music_selection: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ThemeDescriptorResponse, Error<AddOrUpdateThemeDescriptorError>> {
+pub async fn add_or_update_theme_descriptor(configuration: &configuration::Configuration, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, visibility: &str, include_friend_group: bool, complete_with_default_values: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, theme_descriptor_id: Option<i64>, title: Option<&str>, description: Option<&str>, connection_ids_to_add: Option<&str>, connection_group_ids_to_add: Option<&str>, app_version: Option<&str>, color_value_json: Option<&str>, string_replacer_json: Option<&str>, custom_json_objects: Option<&str>, icon_image: Option<std::path::PathBuf>, scene_atlas_image: Option<std::path::PathBuf>, bg_image: Option<std::path::PathBuf>, bg_sound: Option<std::path::PathBuf>, music_selection: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ThemeDescriptorResponse, Error<AddOrUpdateThemeDescriptorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_public_read = public_read;
     let p_query_public_write = public_write;
     let p_query_public_delete = public_delete;
@@ -76,7 +75,7 @@ pub async fn add_or_update_theme_descriptor(configuration: &configuration::Confi
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/theme", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/theme", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -176,9 +175,8 @@ pub async fn add_or_update_theme_descriptor(configuration: &configuration::Confi
 }
 
 /// Gets a theme.
-pub async fn get_theme_descriptor(configuration: &configuration::Configuration, version: f64, theme_descriptor_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PurchaseItemListResponse, Error<GetThemeDescriptorError>> {
+pub async fn get_theme_descriptor(configuration: &configuration::Configuration, theme_descriptor_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PurchaseItemListResponse, Error<GetThemeDescriptorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_theme_descriptor_id = theme_descriptor_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -186,7 +184,7 @@ pub async fn get_theme_descriptor(configuration: &configuration::Configuration, 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/theme/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/theme/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -235,9 +233,8 @@ pub async fn get_theme_descriptor(configuration: &configuration::Configuration, 
 }
 
 /// Searches for themes.
-pub async fn get_theme_descriptors(configuration: &configuration::Configuration, version: f64, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, contest_type: Option<&str>, owner_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, date_created: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PurchaseItemListResponse, Error<GetThemeDescriptorsError>> {
+pub async fn get_theme_descriptors(configuration: &configuration::Configuration, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, contest_type: Option<&str>, owner_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, date_created: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PurchaseItemListResponse, Error<GetThemeDescriptorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_filter = filter;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -257,7 +254,7 @@ pub async fn get_theme_descriptors(configuration: &configuration::Configuration,
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/theme/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/theme/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -334,9 +331,8 @@ pub async fn get_theme_descriptors(configuration: &configuration::Configuration,
 }
 
 /// Removes a theme.
-pub async fn remove_theme_descriptor(configuration: &configuration::Configuration, version: f64, theme_descriptor_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveThemeDescriptorError>> {
+pub async fn remove_theme_descriptor(configuration: &configuration::Configuration, theme_descriptor_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveThemeDescriptorError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_theme_descriptor_id = theme_descriptor_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -344,7 +340,7 @@ pub async fn remove_theme_descriptor(configuration: &configuration::Configuratio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/theme/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/theme/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

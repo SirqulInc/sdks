@@ -52,9 +52,8 @@ pub enum UpdateTriggerError {
 
 
 /// Create a trigger
-pub async fn create_trigger(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, conditional_input: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TriggerResponse, Error<CreateTriggerError>> {
+pub async fn create_trigger(configuration: &configuration::Configuration, account_id: i64, name: &str, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, conditional_input: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TriggerResponse, Error<CreateTriggerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_app_key = app_key;
@@ -69,7 +68,7 @@ pub async fn create_trigger(configuration: &configuration::Configuration, versio
     let p_query_visibility = visibility;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/trigger/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trigger/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -137,13 +136,12 @@ pub async fn create_trigger(configuration: &configuration::Configuration, versio
 }
 
 /// Mark a trigger as deleted.
-pub async fn delete_trigger(configuration: &configuration::Configuration, version: f64, account_id: i64, trigger_id: i64) -> Result<models::SirqulResponse, Error<DeleteTriggerError>> {
+pub async fn delete_trigger(configuration: &configuration::Configuration, account_id: i64, trigger_id: i64) -> Result<models::SirqulResponse, Error<DeleteTriggerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_trigger_id = trigger_id;
 
-    let uri_str = format!("{}/api/{version}/trigger/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trigger/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -178,13 +176,12 @@ pub async fn delete_trigger(configuration: &configuration::Configuration, versio
 }
 
 /// Get a trigger
-pub async fn get_trigger(configuration: &configuration::Configuration, version: f64, account_id: i64, trigger_id: i64) -> Result<models::TriggerResponse, Error<GetTriggerError>> {
+pub async fn get_trigger(configuration: &configuration::Configuration, account_id: i64, trigger_id: i64) -> Result<models::TriggerResponse, Error<GetTriggerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_trigger_id = trigger_id;
 
-    let uri_str = format!("{}/api/{version}/trigger/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trigger/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -219,9 +216,8 @@ pub async fn get_trigger(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for triggers
-pub async fn search_triggers(configuration: &configuration::Configuration, version: f64, account_id: i64, grouping_id: Option<&str>, filter: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::TriggerResponse>, Error<SearchTriggersError>> {
+pub async fn search_triggers(configuration: &configuration::Configuration, account_id: i64, grouping_id: Option<&str>, filter: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::TriggerResponse>, Error<SearchTriggersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_grouping_id = grouping_id;
     let p_query_filter = filter;
@@ -235,7 +231,7 @@ pub async fn search_triggers(configuration: &configuration::Configuration, versi
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/trigger/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trigger/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -302,9 +298,8 @@ pub async fn search_triggers(configuration: &configuration::Configuration, versi
 }
 
 /// Update a trigger
-pub async fn update_trigger(configuration: &configuration::Configuration, version: f64, trigger_id: i64, account_id: i64, name: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, conditional_input: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TriggerResponse, Error<UpdateTriggerError>> {
+pub async fn update_trigger(configuration: &configuration::Configuration, trigger_id: i64, account_id: i64, name: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, conditional_input: Option<&str>, visibility: Option<&str>, active: Option<bool>) -> Result<models::TriggerResponse, Error<UpdateTriggerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_trigger_id = trigger_id;
     let p_query_account_id = account_id;
     let p_query_name = name;
@@ -320,7 +315,7 @@ pub async fn update_trigger(configuration: &configuration::Configuration, versio
     let p_query_visibility = visibility;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/trigger/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trigger/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("triggerId", &p_query_trigger_id.to_string())]);

@@ -52,9 +52,8 @@ pub enum UpdateFlagThresholdError {
 
 
 /// Allows a user to flag an object that the user deems inappropriate or offensive. Flagable objects include accounts, albums, album contests, assets, game levels, and theme descriptors
-pub async fn create_flag(configuration: &configuration::Configuration, version: f64, flagable_type: &str, flagable_id: i64, device_id: Option<&str>, account_id: Option<i64>, flag_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<CreateFlagError>> {
+pub async fn create_flag(configuration: &configuration::Configuration, flagable_type: &str, flagable_id: i64, device_id: Option<&str>, account_id: Option<i64>, flag_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<CreateFlagError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_flagable_type = flagable_type;
     let p_query_flagable_id = flagable_id;
     let p_query_device_id = device_id;
@@ -63,7 +62,7 @@ pub async fn create_flag(configuration: &configuration::Configuration, version: 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/flag/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/flag/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -113,9 +112,8 @@ pub async fn create_flag(configuration: &configuration::Configuration, version: 
 }
 
 /// Deletes a flag.
-pub async fn delete_flag(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, item_being_flagged_type: Option<&str>, item_being_flagged_id: Option<i64>, flagable_type: Option<&str>, flagable_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteFlagError>> {
+pub async fn delete_flag(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, item_being_flagged_type: Option<&str>, item_being_flagged_id: Option<i64>, flagable_type: Option<&str>, flagable_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteFlagError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_item_being_flagged_type = item_being_flagged_type;
@@ -123,7 +121,7 @@ pub async fn delete_flag(configuration: &configuration::Configuration, version: 
     let p_query_flagable_type = flagable_type;
     let p_query_flagable_id = flagable_id;
 
-    let uri_str = format!("{}/api/{version}/flag/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/flag/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -174,9 +172,8 @@ pub async fn delete_flag(configuration: &configuration::Configuration, version: 
 }
 
 /// Gets the details on whether the user has flagged a particular flagable object.
-pub async fn get_flag(configuration: &configuration::Configuration, version: f64, flagable_type: &str, flagable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::FlagResponse, Error<GetFlagError>> {
+pub async fn get_flag(configuration: &configuration::Configuration, flagable_type: &str, flagable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::FlagResponse, Error<GetFlagError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_flagable_type = flagable_type;
     let p_query_flagable_id = flagable_id;
     let p_query_device_id = device_id;
@@ -184,7 +181,7 @@ pub async fn get_flag(configuration: &configuration::Configuration, version: f64
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/flag/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/flag/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -231,13 +228,12 @@ pub async fn get_flag(configuration: &configuration::Configuration, version: f64
 }
 
 /// Get the flag threshold value on an object type for a particular application.
-pub async fn get_flag_threshold(configuration: &configuration::Configuration, version: f64, item_being_flagged_type: &str, app_key: &str) -> Result<models::CountResponse, Error<GetFlagThresholdError>> {
+pub async fn get_flag_threshold(configuration: &configuration::Configuration, item_being_flagged_type: &str, app_key: &str) -> Result<models::CountResponse, Error<GetFlagThresholdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_item_being_flagged_type = item_being_flagged_type;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/flag/threshold/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/flag/threshold/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("itemBeingFlaggedType", &p_query_item_being_flagged_type.to_string())]);
@@ -272,16 +268,15 @@ pub async fn get_flag_threshold(configuration: &configuration::Configuration, ve
 }
 
 /// Update the flag threshold on an object type for a particular application.
-pub async fn update_flag_threshold(configuration: &configuration::Configuration, version: f64, item_being_flagged_type: &str, threshold: i64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::CountResponse, Error<UpdateFlagThresholdError>> {
+pub async fn update_flag_threshold(configuration: &configuration::Configuration, item_being_flagged_type: &str, threshold: i64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::CountResponse, Error<UpdateFlagThresholdError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_item_being_flagged_type = item_being_flagged_type;
     let p_query_threshold = threshold;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/flag/threshold/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/flag/threshold/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

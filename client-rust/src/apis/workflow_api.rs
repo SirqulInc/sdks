@@ -24,16 +24,15 @@ pub enum RunWorkflowError {
 
 
 /// Runs a published executable workflow
-pub async fn run_workflow(configuration: &configuration::Configuration, version: f64, account_id: i64, workflow_id: i64, sku_id: Option<i64>, version_code: Option<i32>, parameters: Option<&str>) -> Result<models::SirqulResponse, Error<RunWorkflowError>> {
+pub async fn run_workflow(configuration: &configuration::Configuration, account_id: i64, workflow_id: i64, sku_id: Option<i64>, version_code: Option<i32>, parameters: Option<&str>) -> Result<models::SirqulResponse, Error<RunWorkflowError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_workflow_id = workflow_id;
     let p_query_sku_id = sku_id;
     let p_query_version_code = version_code;
     let p_query_parameters = parameters;
 
-    let uri_str = format!("{}/api/{version}/workflow/run", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/workflow/run", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

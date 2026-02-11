@@ -129,9 +129,8 @@ pub enum UploadApplicationCertificateError {
 
 
 /// Create an application record and one placement record for that application. You can create more placements for this application by using {@link createApplicationPlacement}.
-pub async fn create_application(configuration: &configuration::Configuration, version: f64, app_name: &str, device_id: Option<&str>, account_id: Option<i64>, about: Option<&str>, bundle_id: Option<&str>, app_icon_asset_id: Option<i64>, app_logo_asset_id: Option<i64>, facebook_app_id: Option<&str>, facebook_app_secret: Option<&str>, google_api_key: Option<&str>, update_eula_date: Option<bool>, eula_version: Option<&str>, landing_page_url: Option<&str>, show_in_activities: Option<bool>, activity_description: Option<&str>, invite_welcome_text: Option<&str>, invite_page_url: Option<&str>, url_scheme: Option<&str>, platforms: Option<&str>, download_urls: Option<&str>, category_ids: Option<&str>, scoring_type: Option<&str>, hint_cost: Option<i32>, max_score: Option<i32>, tickets_per_point: Option<f32>, has_game_data: Option<bool>, public_notifications: Option<bool>, use_matching_algorithm: Option<bool>, global_tickets: Option<bool>, build_version: Option<f32>, api_version: Option<f32>, placement_name: Option<&str>, placement_description: Option<&str>, placement_size: Option<&str>, placement_height: Option<i32>, placement_width: Option<i32>, placement_refresh_interval: Option<i32>, create_object_store: Option<bool>, public_content_approval: Option<bool>, production_mode: Option<bool>, minimum_session_length: Option<i32>, session_gap_length: Option<i32>, local_ads_enabled: Option<bool>, sqoot_api_key: Option<&str>, trilat_processing_type: Option<&str>, max_sample_size: Option<i32>, min_rssi: Option<f64>, modules: Option<&str>, authorized_count: Option<i32>, authorized_servers: Option<&str>, default_timezone: Option<&str>, smtp_pass: Option<&str>, meta_data: Option<&str>, placement_meta_data: Option<&str>, ips_floor: Option<bool>, enable_apns_badge: Option<bool>, include_in_report: Option<bool>, default_app_filter_id: Option<i64>, enable_welcome_email: Option<bool>, apple_app_id: Option<&str>, apple_team_id: Option<&str>, apple_auth_key_id: Option<&str>, apple_auth_key: Option<std::path::PathBuf>, apple_issuer_id: Option<&str>, app_store_key_id: Option<&str>, app_store_key: Option<std::path::PathBuf>, google_private_key_file: Option<std::path::PathBuf>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>, email_sender: Option<&str>, smtp_user: Option<&str>, smtp_host: Option<&str>, vatom_business_id: Option<&str>, vatom_rest_client_id: Option<&str>, vatom_rest_secret_key: Option<&str>, twilio_account_sid: Option<&str>, twilio_auth_token: Option<&str>, twilio_sender_phone_number: Option<&str>, open_ai_secret_key: Option<&str>) -> Result<models::ApplicationResponse, Error<CreateApplicationError>> {
+pub async fn create_application(configuration: &configuration::Configuration, app_name: &str, device_id: Option<&str>, account_id: Option<i64>, about: Option<&str>, bundle_id: Option<&str>, app_icon_asset_id: Option<i64>, app_logo_asset_id: Option<i64>, facebook_app_id: Option<&str>, facebook_app_secret: Option<&str>, google_api_key: Option<&str>, update_eula_date: Option<bool>, eula_version: Option<&str>, landing_page_url: Option<&str>, show_in_activities: Option<bool>, activity_description: Option<&str>, invite_welcome_text: Option<&str>, invite_page_url: Option<&str>, url_scheme: Option<&str>, platforms: Option<&str>, download_urls: Option<&str>, category_ids: Option<&str>, scoring_type: Option<&str>, hint_cost: Option<i32>, max_score: Option<i32>, tickets_per_point: Option<f32>, has_game_data: Option<bool>, public_notifications: Option<bool>, use_matching_algorithm: Option<bool>, global_tickets: Option<bool>, build_version: Option<f32>, api_version: Option<f32>, placement_name: Option<&str>, placement_description: Option<&str>, placement_size: Option<&str>, placement_height: Option<i32>, placement_width: Option<i32>, placement_refresh_interval: Option<i32>, create_object_store: Option<bool>, public_content_approval: Option<bool>, production_mode: Option<bool>, minimum_session_length: Option<i32>, session_gap_length: Option<i32>, local_ads_enabled: Option<bool>, sqoot_api_key: Option<&str>, trilat_processing_type: Option<&str>, max_sample_size: Option<i32>, min_rssi: Option<f64>, modules: Option<&str>, authorized_count: Option<i32>, authorized_servers: Option<&str>, default_timezone: Option<&str>, smtp_pass: Option<&str>, meta_data: Option<&str>, placement_meta_data: Option<&str>, ips_floor: Option<bool>, enable_apns_badge: Option<bool>, include_in_report: Option<bool>, default_app_filter_id: Option<i64>, enable_welcome_email: Option<bool>, apple_app_id: Option<&str>, apple_team_id: Option<&str>, apple_auth_key_id: Option<&str>, apple_auth_key: Option<std::path::PathBuf>, apple_issuer_id: Option<&str>, app_store_key_id: Option<&str>, app_store_key: Option<std::path::PathBuf>, google_private_key_file: Option<std::path::PathBuf>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>, email_sender: Option<&str>, smtp_user: Option<&str>, smtp_host: Option<&str>, vatom_business_id: Option<&str>, vatom_rest_client_id: Option<&str>, vatom_rest_secret_key: Option<&str>, twilio_account_sid: Option<&str>, twilio_auth_token: Option<&str>, twilio_sender_phone_number: Option<&str>, open_ai_secret_key: Option<&str>) -> Result<models::ApplicationResponse, Error<CreateApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_name = app_name;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -212,7 +211,7 @@ pub async fn create_application(configuration: &configuration::Configuration, ve
     let p_query_twilio_sender_phone_number = twilio_sender_phone_number;
     let p_query_open_ai_secret_key = open_ai_secret_key;
 
-    let uri_str = format!("{}/api/{version}/application/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -480,9 +479,8 @@ pub async fn create_application(configuration: &configuration::Configuration, ve
 }
 
 /// Creates a new ad placement for an application.
-pub async fn create_application_placement(configuration: &configuration::Configuration, version: f64, app_key: &str, size: &str, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, height: Option<i32>, width: Option<i32>, refresh_interval: Option<i32>, default_image_id: Option<i64>, active: Option<bool>) -> Result<models::PlacementResponse, Error<CreateApplicationPlacementError>> {
+pub async fn create_application_placement(configuration: &configuration::Configuration, app_key: &str, size: &str, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, height: Option<i32>, width: Option<i32>, refresh_interval: Option<i32>, default_image_id: Option<i64>, active: Option<bool>) -> Result<models::PlacementResponse, Error<CreateApplicationPlacementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_size = size;
     let p_query_device_id = device_id;
@@ -495,7 +493,7 @@ pub async fn create_application_placement(configuration: &configuration::Configu
     let p_query_default_image_id = default_image_id;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/application/placement/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/placement/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -557,13 +555,12 @@ pub async fn create_application_placement(configuration: &configuration::Configu
 }
 
 /// Set the deleted timestamp to current time. This effectively deletes the application since all queries should ignore any records with a deleted timestamp
-pub async fn delete_application(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteApplicationError>> {
+pub async fn delete_application(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/application/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -602,14 +599,13 @@ pub async fn delete_application(configuration: &configuration::Configuration, ve
 }
 
 /// Deletes an ad placement for an application.
-pub async fn delete_application_placement(configuration: &configuration::Configuration, version: f64, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PlacementResponse, Error<DeleteApplicationPlacementError>> {
+pub async fn delete_application_placement(configuration: &configuration::Configuration, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PlacementResponse, Error<DeleteApplicationPlacementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_placement_id = placement_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/application/placement/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/placement/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -649,13 +645,12 @@ pub async fn delete_application_placement(configuration: &configuration::Configu
 }
 
 /// Get a specific application by appKey
-pub async fn get_application(configuration: &configuration::Configuration, version: f64, app_key: Option<&str>, application_id: Option<i64>) -> Result<models::ApplicationResponse, Error<GetApplicationError>> {
+pub async fn get_application(configuration: &configuration::Configuration, app_key: Option<&str>, application_id: Option<i64>) -> Result<models::ApplicationResponse, Error<GetApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_application_id = application_id;
 
-    let uri_str = format!("{}/api/{version}/application/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_app_key {
@@ -694,14 +689,13 @@ pub async fn get_application(configuration: &configuration::Configuration, versi
 }
 
 /// Get details of an ad placement
-pub async fn get_application_placement(configuration: &configuration::Configuration, version: f64, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PlacementResponse, Error<GetApplicationPlacementError>> {
+pub async fn get_application_placement(configuration: &configuration::Configuration, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::PlacementResponse, Error<GetApplicationPlacementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_placement_id = placement_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/application/placement/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/placement/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -741,11 +735,9 @@ pub async fn get_application_placement(configuration: &configuration::Configurat
 }
 
 /// Will return a comma separated list of numbers, newest first. For example: 3.0, 2.2, 2.1, 1.8
-pub async fn get_application_versions(configuration: &configuration::Configuration, version: f64) -> Result<models::SirqulResponse, Error<GetApplicationVersionsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
+pub async fn get_application_versions(configuration: &configuration::Configuration, ) -> Result<models::SirqulResponse, Error<GetApplicationVersionsError>> {
 
-    let uri_str = format!("{}/api/{version}/application/versions", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/versions", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -778,9 +770,8 @@ pub async fn get_application_versions(configuration: &configuration::Configurati
 }
 
 /// Get a list of users per application
-pub async fn get_unique_users_by_app(configuration: &configuration::Configuration, version: f64, app_key: &str, q: Option<&str>, keyword: Option<&str>, since: Option<i64>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::AccountListResponse, Error<GetUniqueUsersByAppError>> {
+pub async fn get_unique_users_by_app(configuration: &configuration::Configuration, app_key: &str, q: Option<&str>, keyword: Option<&str>, since: Option<i64>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::AccountListResponse, Error<GetUniqueUsersByAppError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_q = q;
     let p_query_keyword = keyword;
@@ -790,7 +781,7 @@ pub async fn get_unique_users_by_app(configuration: &configuration::Configuratio
     let p_query__l = _l;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/application/users", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);
@@ -845,9 +836,8 @@ pub async fn get_unique_users_by_app(configuration: &configuration::Configuratio
 }
 
 /// List active applications matching the criteria (as a consumer)
-pub async fn list_applications(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, platforms: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, category_ids: Option<&str>, sort_field: Option<&str>, has_ads: Option<bool>, public_notifications: Option<bool>, filter_billable: Option<bool>, filter_content_admin: Option<bool>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, application_ids: Option<&str>, has_object_store: Option<bool>, active_only: Option<bool>) -> Result<Vec<models::ApplicationShortResponse>, Error<ListApplicationsError>> {
+pub async fn list_applications(configuration: &configuration::Configuration, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, platforms: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, category_ids: Option<&str>, sort_field: Option<&str>, has_ads: Option<bool>, public_notifications: Option<bool>, filter_billable: Option<bool>, filter_content_admin: Option<bool>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, application_ids: Option<&str>, has_object_store: Option<bool>, active_only: Option<bool>) -> Result<Vec<models::ApplicationShortResponse>, Error<ListApplicationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_q = q;
     let p_query_keyword = keyword;
@@ -869,7 +859,7 @@ pub async fn list_applications(configuration: &configuration::Configuration, ver
     let p_query_has_object_store = has_object_store;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/application/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -962,16 +952,15 @@ pub async fn list_applications(configuration: &configuration::Configuration, ver
 }
 
 /// Searches placements for an application.
-pub async fn search_application_placement(configuration: &configuration::Configuration, version: f64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::PlacementResponse>, Error<SearchApplicationPlacementError>> {
+pub async fn search_application_placement(configuration: &configuration::Configuration, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::PlacementResponse>, Error<SearchApplicationPlacementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/application/placement/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/placement/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1017,9 +1006,8 @@ pub async fn search_application_placement(configuration: &configuration::Configu
 }
 
 /// Returns a list of applications that the user has logged into before, and returns specific settings for that application and user
-pub async fn search_application_settings(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::ApplicationSettingsResponse, Error<SearchApplicationSettingsError>> {
+pub async fn search_application_settings(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::ApplicationSettingsResponse, Error<SearchApplicationSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
@@ -1029,7 +1017,7 @@ pub async fn search_application_settings(configuration: &configuration::Configur
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/application/settings/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/settings/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1086,9 +1074,8 @@ pub async fn search_application_settings(configuration: &configuration::Configur
 }
 
 /// Search for applications matching the criteria that the logged in user has access to
-pub async fn search_applications(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, q: Option<&str>, keyword: Option<&str>, q_search_fields: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, has_ads: Option<bool>, public_notifications: Option<bool>, active_only: Option<bool>) -> Result<Vec<models::ApplicationResponse>, Error<SearchApplicationsError>> {
+pub async fn search_applications(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, q: Option<&str>, keyword: Option<&str>, q_search_fields: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, has_ads: Option<bool>, public_notifications: Option<bool>, active_only: Option<bool>) -> Result<Vec<models::ApplicationResponse>, Error<SearchApplicationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
@@ -1106,7 +1093,7 @@ pub async fn search_applications(configuration: &configuration::Configuration, v
     let p_query_public_notifications = public_notifications;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/application/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1187,9 +1174,8 @@ pub async fn search_applications(configuration: &configuration::Configuration, v
 }
 
 /// Update an application record
-pub async fn update_application(configuration: &configuration::Configuration, version: f64, app_key: &str, app_name: &str, device_id: Option<&str>, account_id: Option<i64>, about: Option<&str>, bundle_id: Option<&str>, app_icon_asset_id: Option<i64>, app_logo_asset_id: Option<i64>, facebook_app_id: Option<&str>, facebook_app_secret: Option<&str>, google_api_key: Option<&str>, update_eula_date: Option<bool>, eula_version: Option<&str>, landing_page_url: Option<&str>, show_in_activities: Option<bool>, activity_description: Option<&str>, invite_welcome_text: Option<&str>, invite_page_url: Option<&str>, url_scheme: Option<&str>, platforms: Option<&str>, download_urls: Option<&str>, category_ids: Option<&str>, scoring_type: Option<&str>, hint_cost: Option<i32>, max_score: Option<i32>, tickets_per_point: Option<f32>, has_game_data: Option<bool>, public_notifications: Option<bool>, use_matching_algorithm: Option<bool>, global_tickets: Option<bool>, build_version: Option<f32>, api_version: Option<f32>, placement_name: Option<&str>, placement_description: Option<&str>, placement_size: Option<&str>, placement_height: Option<i32>, placement_width: Option<i32>, placement_refresh_interval: Option<i32>, create_object_store: Option<bool>, public_content_approval: Option<bool>, production_mode: Option<bool>, minimum_session_length: Option<i32>, session_gap_length: Option<i32>, local_ads_enabled: Option<bool>, sqoot_api_key: Option<&str>, trilat_processing_type: Option<&str>, max_sample_size: Option<i32>, min_rssi: Option<f64>, modules: Option<&str>, authorized_count: Option<i32>, authorized_servers: Option<&str>, default_timezone: Option<&str>, smtp_pass: Option<&str>, meta_data: Option<&str>, placement_meta_data: Option<&str>, ips_floor: Option<bool>, enable_apns_badge: Option<bool>, include_in_report: Option<bool>, default_app_filter_id: Option<i64>, enable_welcome_email: Option<bool>, apple_app_id: Option<&str>, apple_team_id: Option<&str>, apple_auth_key_id: Option<&str>, apple_auth_key: Option<std::path::PathBuf>, apple_issuer_id: Option<&str>, app_store_key_id: Option<&str>, app_store_key: Option<std::path::PathBuf>, google_private_key_file: Option<std::path::PathBuf>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>, email_sender: Option<&str>, smtp_user: Option<&str>, smtp_host: Option<&str>, vatom_business_id: Option<&str>, vatom_rest_client_id: Option<&str>, vatom_rest_secret_key: Option<&str>, twilio_account_sid: Option<&str>, twilio_auth_token: Option<&str>, twilio_sender_phone_number: Option<&str>, open_ai_secret_key: Option<&str>) -> Result<models::ApplicationResponse, Error<UpdateApplicationError>> {
+pub async fn update_application(configuration: &configuration::Configuration, app_key: &str, app_name: &str, device_id: Option<&str>, account_id: Option<i64>, about: Option<&str>, bundle_id: Option<&str>, app_icon_asset_id: Option<i64>, app_logo_asset_id: Option<i64>, facebook_app_id: Option<&str>, facebook_app_secret: Option<&str>, google_api_key: Option<&str>, update_eula_date: Option<bool>, eula_version: Option<&str>, landing_page_url: Option<&str>, show_in_activities: Option<bool>, activity_description: Option<&str>, invite_welcome_text: Option<&str>, invite_page_url: Option<&str>, url_scheme: Option<&str>, platforms: Option<&str>, download_urls: Option<&str>, category_ids: Option<&str>, scoring_type: Option<&str>, hint_cost: Option<i32>, max_score: Option<i32>, tickets_per_point: Option<f32>, has_game_data: Option<bool>, public_notifications: Option<bool>, use_matching_algorithm: Option<bool>, global_tickets: Option<bool>, build_version: Option<f32>, api_version: Option<f32>, placement_name: Option<&str>, placement_description: Option<&str>, placement_size: Option<&str>, placement_height: Option<i32>, placement_width: Option<i32>, placement_refresh_interval: Option<i32>, create_object_store: Option<bool>, public_content_approval: Option<bool>, production_mode: Option<bool>, minimum_session_length: Option<i32>, session_gap_length: Option<i32>, local_ads_enabled: Option<bool>, sqoot_api_key: Option<&str>, trilat_processing_type: Option<&str>, max_sample_size: Option<i32>, min_rssi: Option<f64>, modules: Option<&str>, authorized_count: Option<i32>, authorized_servers: Option<&str>, default_timezone: Option<&str>, smtp_pass: Option<&str>, meta_data: Option<&str>, placement_meta_data: Option<&str>, ips_floor: Option<bool>, enable_apns_badge: Option<bool>, include_in_report: Option<bool>, default_app_filter_id: Option<i64>, enable_welcome_email: Option<bool>, apple_app_id: Option<&str>, apple_team_id: Option<&str>, apple_auth_key_id: Option<&str>, apple_auth_key: Option<std::path::PathBuf>, apple_issuer_id: Option<&str>, app_store_key_id: Option<&str>, app_store_key: Option<std::path::PathBuf>, google_private_key_file: Option<std::path::PathBuf>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>, email_sender: Option<&str>, smtp_user: Option<&str>, smtp_host: Option<&str>, vatom_business_id: Option<&str>, vatom_rest_client_id: Option<&str>, vatom_rest_secret_key: Option<&str>, twilio_account_sid: Option<&str>, twilio_auth_token: Option<&str>, twilio_sender_phone_number: Option<&str>, open_ai_secret_key: Option<&str>) -> Result<models::ApplicationResponse, Error<UpdateApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_app_name = app_name;
     let p_query_device_id = device_id;
@@ -1271,7 +1257,7 @@ pub async fn update_application(configuration: &configuration::Configuration, ve
     let p_query_twilio_sender_phone_number = twilio_sender_phone_number;
     let p_query_open_ai_secret_key = open_ai_secret_key;
 
-    let uri_str = format!("{}/api/{version}/application/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1540,14 +1526,13 @@ pub async fn update_application(configuration: &configuration::Configuration, ve
 }
 
 /// Set the application's active flag to true/false. This effectively activates or deactivates the application.
-pub async fn update_application_active(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, active: bool) -> Result<models::SirqulResponse, Error<UpdateApplicationActiveError>> {
+pub async fn update_application_active(configuration: &configuration::Configuration, account_id: i64, app_key: &str, active: bool) -> Result<models::SirqulResponse, Error<UpdateApplicationActiveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/application/active", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/active", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1583,9 +1568,8 @@ pub async fn update_application_active(configuration: &configuration::Configurat
 }
 
 /// Updates an ad placement for an application.
-pub async fn update_application_placement(configuration: &configuration::Configuration, version: f64, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, size: Option<&str>, height: Option<i32>, width: Option<i32>, refresh_interval: Option<i32>, default_image_id: Option<i64>, active: Option<bool>) -> Result<models::PlacementResponse, Error<UpdateApplicationPlacementError>> {
+pub async fn update_application_placement(configuration: &configuration::Configuration, placement_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, description: Option<&str>, size: Option<&str>, height: Option<i32>, width: Option<i32>, refresh_interval: Option<i32>, default_image_id: Option<i64>, active: Option<bool>) -> Result<models::PlacementResponse, Error<UpdateApplicationPlacementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_placement_id = placement_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1598,7 +1582,7 @@ pub async fn update_application_placement(configuration: &configuration::Configu
     let p_query_default_image_id = default_image_id;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/application/placement/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/placement/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1662,15 +1646,14 @@ pub async fn update_application_placement(configuration: &configuration::Configu
 }
 
 /// Uploads a certificate for an application that the user has access to.
-pub async fn upload_application_certificate(configuration: &configuration::Configuration, version: f64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, certificate: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<UploadApplicationCertificateError>> {
+pub async fn upload_application_certificate(configuration: &configuration::Configuration, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, certificate: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<UploadApplicationCertificateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_certificate = certificate;
 
-    let uri_str = format!("{}/api/{version}/application/certificate/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/application/certificate/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

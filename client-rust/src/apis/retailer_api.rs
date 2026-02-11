@@ -59,9 +59,8 @@ pub enum UpdateRetailerError {
 
 
 /// Create a retailer record. A billable entity must be created first before a retailer record can be made.
-pub async fn create_retailer(configuration: &configuration::Configuration, version: f64, name: &str, device_id: Option<&str>, account_id: Option<i64>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, facebook_url: Option<&str>, twitter_url: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, category_ids_to_add: Option<&str>, category_ids_to_remove: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, search_tags: Option<&str>, retailer_type: Option<&str>, visibility: Option<&str>, create_default_location: Option<bool>, response_format: Option<&str>) -> Result<models::RetailerFullResponse, Error<CreateRetailerError>> {
+pub async fn create_retailer(configuration: &configuration::Configuration, name: &str, device_id: Option<&str>, account_id: Option<i64>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, facebook_url: Option<&str>, twitter_url: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, category_ids_to_add: Option<&str>, category_ids_to_remove: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, search_tags: Option<&str>, retailer_type: Option<&str>, visibility: Option<&str>, create_default_location: Option<bool>, response_format: Option<&str>) -> Result<models::RetailerFullResponse, Error<CreateRetailerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_name = name;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -96,7 +95,7 @@ pub async fn create_retailer(configuration: &configuration::Configuration, versi
     let p_query_create_default_location = create_default_location;
     let p_query_response_format = response_format;
 
-    let uri_str = format!("{}/api/{version}/retailer/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -226,14 +225,13 @@ pub async fn create_retailer(configuration: &configuration::Configuration, versi
 }
 
 /// Set the deleted timestamp to current time.
-pub async fn delete_retailer(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, retailer_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRetailerError>> {
+pub async fn delete_retailer(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, retailer_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRetailerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_retailer_id = retailer_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -275,15 +273,14 @@ pub async fn delete_retailer(configuration: &configuration::Configuration, versi
 }
 
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-pub async fn get_retailer(configuration: &configuration::Configuration, version: f64, retailer_id: i64, device_id: Option<&str>, account_id: Option<i64>, include_counts: Option<bool>) -> Result<models::RetailerFullResponse, Error<GetRetailerError>> {
+pub async fn get_retailer(configuration: &configuration::Configuration, retailer_id: i64, device_id: Option<&str>, account_id: Option<i64>, include_counts: Option<bool>) -> Result<models::RetailerFullResponse, Error<GetRetailerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_id = retailer_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_include_counts = include_counts;
 
-    let uri_str = format!("{}/api/{version}/retailer/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -326,9 +323,8 @@ pub async fn get_retailer(configuration: &configuration::Configuration, version:
 }
 
 /// earches on retailers that the account has access to.
-pub async fn get_retailers(configuration: &configuration::Configuration, version: f64, visibility: &str, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, _i: Option<i32>, _l: Option<i32>) -> Result<Vec<models::RetailerResponse>, Error<GetRetailersError>> {
+pub async fn get_retailers(configuration: &configuration::Configuration, visibility: &str, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, _i: Option<i32>, _l: Option<i32>) -> Result<Vec<models::RetailerResponse>, Error<GetRetailersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_visibility = visibility;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -344,7 +340,7 @@ pub async fn get_retailers(configuration: &configuration::Configuration, version
     let p_query__i = _i;
     let p_query__l = _l;
 
-    let uri_str = format!("{}/api/{version}/retailer/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -407,9 +403,8 @@ pub async fn get_retailers(configuration: &configuration::Configuration, version
 }
 
 /// Retailer login check.
-pub async fn retailer_login_check(configuration: &configuration::Configuration, version: f64, username: &str, password: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>) -> Result<models::AccountLoginResponse, Error<RetailerLoginCheckError>> {
+pub async fn retailer_login_check(configuration: &configuration::Configuration, username: &str, password: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>) -> Result<models::AccountLoginResponse, Error<RetailerLoginCheckError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_username = username;
     let p_query_password = password;
     let p_query_device_id = device_id;
@@ -417,7 +412,7 @@ pub async fn retailer_login_check(configuration: &configuration::Configuration, 
     let p_query_longitude = longitude;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/retailer/login", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/login", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("username", &p_query_username.to_string())]);
@@ -464,9 +459,8 @@ pub async fn retailer_login_check(configuration: &configuration::Configuration, 
 }
 
 /// Update a retailer record. Only the owner and the employees of the retailer have access to update its information.
-pub async fn update_retailer(configuration: &configuration::Configuration, version: f64, retailer_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, facebook_url: Option<&str>, twitter_url: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, search_tags: Option<&str>, retailer_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, response_format: Option<&str>) -> Result<models::RetailerFullResponse, Error<UpdateRetailerError>> {
+pub async fn update_retailer(configuration: &configuration::Configuration, retailer_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, facebook_url: Option<&str>, twitter_url: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, search_tags: Option<&str>, retailer_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, response_format: Option<&str>) -> Result<models::RetailerFullResponse, Error<UpdateRetailerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_id = retailer_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -500,7 +494,7 @@ pub async fn update_retailer(configuration: &configuration::Configuration, versi
     let p_query_active = active;
     let p_query_response_format = response_format;
 
-    let uri_str = format!("{}/api/{version}/retailer/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

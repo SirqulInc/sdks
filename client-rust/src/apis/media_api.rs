@@ -52,9 +52,8 @@ pub enum UpdateMediaError {
 
 
 /// Create a media offering.
-pub async fn create_media(configuration: &configuration::Configuration, version: f64, account_id: i64, title: &str, barcode_type: &str, no_expiration: bool, available_limit: i32, available_limit_per_user: i32, added_limit: i32, view_limit: i32, max_prints: i32, ticket_price: i64, full_price: f64, discount_price: f64, special_offer_type: &str, offer_visibility: &str, active: bool, retailer_location_ids: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, ticket_price_type: Option<&str>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, parental_rating: Option<&str>, availability_date: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::MediaOfferResponse, Error<CreateMediaError>> {
+pub async fn create_media(configuration: &configuration::Configuration, account_id: i64, title: &str, barcode_type: &str, no_expiration: bool, available_limit: i32, available_limit_per_user: i32, added_limit: i32, view_limit: i32, max_prints: i32, ticket_price: i64, full_price: f64, discount_price: f64, special_offer_type: &str, offer_visibility: &str, active: bool, retailer_location_ids: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, ticket_price_type: Option<&str>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, parental_rating: Option<&str>, availability_date: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::MediaOfferResponse, Error<CreateMediaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_title = title;
     let p_query_barcode_type = barcode_type;
@@ -113,7 +112,7 @@ pub async fn create_media(configuration: &configuration::Configuration, version:
     let p_query_availability = availability;
     let p_query_availability_summary = availability_summary;
 
-    let uri_str = format!("{}/api/{version}/media/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/media/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -287,13 +286,12 @@ pub async fn create_media(configuration: &configuration::Configuration, version:
 }
 
 /// Delete a media offering that the user has permissions to.
-pub async fn delete_media(configuration: &configuration::Configuration, version: f64, account_id: i64, media_id: i64) -> Result<models::SirqulResponse, Error<DeleteMediaError>> {
+pub async fn delete_media(configuration: &configuration::Configuration, account_id: i64, media_id: i64) -> Result<models::SirqulResponse, Error<DeleteMediaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_media_id = media_id;
 
-    let uri_str = format!("{}/api/{version}/media/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/media/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -328,13 +326,12 @@ pub async fn delete_media(configuration: &configuration::Configuration, version:
 }
 
 /// Get a media offering.
-pub async fn get_media(configuration: &configuration::Configuration, version: f64, account_id: i64, media_id: i64) -> Result<models::MediaOfferResponse, Error<GetMediaError>> {
+pub async fn get_media(configuration: &configuration::Configuration, account_id: i64, media_id: i64) -> Result<models::MediaOfferResponse, Error<GetMediaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_media_id = media_id;
 
-    let uri_str = format!("{}/api/{version}/media/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/media/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -369,9 +366,8 @@ pub async fn get_media(configuration: &configuration::Configuration, version: f6
 }
 
 /// Searches on events that the account has access to.
-pub async fn search_media(configuration: &configuration::Configuration, version: f64, account_id: i64, active_only: bool, sort_field: &str, descending: bool, keyword: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::MediaOfferResponse>, Error<SearchMediaError>> {
+pub async fn search_media(configuration: &configuration::Configuration, account_id: i64, active_only: bool, sort_field: &str, descending: bool, keyword: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::MediaOfferResponse>, Error<SearchMediaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_active_only = active_only;
     let p_query_sort_field = sort_field;
@@ -382,7 +378,7 @@ pub async fn search_media(configuration: &configuration::Configuration, version:
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/media/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/media/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -434,9 +430,8 @@ pub async fn search_media(configuration: &configuration::Configuration, version:
 }
 
 /// Update a media offering.
-pub async fn update_media(configuration: &configuration::Configuration, version: f64, account_id: i64, media_id: i64, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, no_expiration: Option<bool>, available_limit: Option<i32>, available_limit_per_user: Option<i32>, added_limit: Option<i32>, view_limit: Option<i32>, max_prints: Option<i32>, ticket_price_type: Option<&str>, ticket_price: Option<i64>, full_price: Option<f64>, discount_price: Option<f64>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, special_offer_type: Option<&str>, offer_visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, availability_date: Option<i64>, parental_rating: Option<&str>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::MediaOfferResponse, Error<UpdateMediaError>> {
+pub async fn update_media(configuration: &configuration::Configuration, account_id: i64, media_id: i64, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, no_expiration: Option<bool>, available_limit: Option<i32>, available_limit_per_user: Option<i32>, added_limit: Option<i32>, view_limit: Option<i32>, max_prints: Option<i32>, ticket_price_type: Option<&str>, ticket_price: Option<i64>, full_price: Option<f64>, discount_price: Option<f64>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, special_offer_type: Option<&str>, offer_visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, availability_date: Option<i64>, parental_rating: Option<&str>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::MediaOfferResponse, Error<UpdateMediaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_media_id = media_id;
     let p_query_retailer_location_ids = retailer_location_ids;
@@ -497,7 +492,7 @@ pub async fn update_media(configuration: &configuration::Configuration, version:
     let p_query_availability = availability;
     let p_query_availability_summary = availability_summary;
 
-    let uri_str = format!("{}/api/{version}/media/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/media/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

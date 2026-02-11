@@ -52,9 +52,8 @@ pub enum UpdatePostalCodeError {
 
 
 /// Create a Postal Code
-pub async fn create_postal_code(configuration: &configuration::Configuration, version: f64, account_id: i64, code: &str, latitude: f64, longitude: f64, state_code: Option<&str>, city: Option<&str>, active: Option<bool>) -> Result<models::PostalCodeResponse, Error<CreatePostalCodeError>> {
+pub async fn create_postal_code(configuration: &configuration::Configuration, account_id: i64, code: &str, latitude: f64, longitude: f64, state_code: Option<&str>, city: Option<&str>, active: Option<bool>) -> Result<models::PostalCodeResponse, Error<CreatePostalCodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_code = code;
     let p_query_latitude = latitude;
@@ -63,7 +62,7 @@ pub async fn create_postal_code(configuration: &configuration::Configuration, ve
     let p_query_city = city;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/postalCode/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/postalCode/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -109,13 +108,12 @@ pub async fn create_postal_code(configuration: &configuration::Configuration, ve
 }
 
 /// Delete a Postal Code
-pub async fn delete_postal_code(configuration: &configuration::Configuration, version: f64, account_id: i64, postal_code_id: i64) -> Result<models::SirqulResponse, Error<DeletePostalCodeError>> {
+pub async fn delete_postal_code(configuration: &configuration::Configuration, account_id: i64, postal_code_id: i64) -> Result<models::SirqulResponse, Error<DeletePostalCodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_postal_code_id = postal_code_id;
 
-    let uri_str = format!("{}/api/{version}/postalCode/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/postalCode/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -150,12 +148,11 @@ pub async fn delete_postal_code(configuration: &configuration::Configuration, ve
 }
 
 /// Get a Postal Code
-pub async fn get_postal_code(configuration: &configuration::Configuration, version: f64, postal_code_id: i64) -> Result<models::PostalCodeResponse, Error<GetPostalCodeError>> {
+pub async fn get_postal_code(configuration: &configuration::Configuration, postal_code_id: i64) -> Result<models::PostalCodeResponse, Error<GetPostalCodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_postal_code_id = postal_code_id;
 
-    let uri_str = format!("{}/api/{version}/postalCode/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/postalCode/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("postalCodeId", &p_query_postal_code_id.to_string())]);
@@ -189,9 +186,8 @@ pub async fn get_postal_code(configuration: &configuration::Configuration, versi
 }
 
 /// Get the list of regions. If latitude or longitude is null, will return all postal codes in the system with paginated response.
-pub async fn get_postal_codes(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>, miles: Option<f64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::PostalCodeResponse>, Error<GetPostalCodesError>> {
+pub async fn get_postal_codes(configuration: &configuration::Configuration, sort_field: &str, descending: bool, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>, miles: Option<f64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::PostalCodeResponse>, Error<GetPostalCodesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_latitude = latitude;
@@ -201,7 +197,7 @@ pub async fn get_postal_codes(configuration: &configuration::Configuration, vers
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/postalCode/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/postalCode/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_latitude {
@@ -254,9 +250,8 @@ pub async fn get_postal_codes(configuration: &configuration::Configuration, vers
 }
 
 /// Update a Postal Code
-pub async fn update_postal_code(configuration: &configuration::Configuration, version: f64, account_id: i64, postal_code_id: i64, code: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, state_code: Option<&str>, city: Option<&str>, active: Option<bool>) -> Result<models::PostalCodeResponse, Error<UpdatePostalCodeError>> {
+pub async fn update_postal_code(configuration: &configuration::Configuration, account_id: i64, postal_code_id: i64, code: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, state_code: Option<&str>, city: Option<&str>, active: Option<bool>) -> Result<models::PostalCodeResponse, Error<UpdatePostalCodeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_postal_code_id = postal_code_id;
     let p_query_code = code;
@@ -266,7 +261,7 @@ pub async fn update_postal_code(configuration: &configuration::Configuration, ve
     let p_query_city = city;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/postalCode/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/postalCode/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

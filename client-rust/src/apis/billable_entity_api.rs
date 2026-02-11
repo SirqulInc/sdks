@@ -45,9 +45,8 @@ pub enum UpdateBillableEntityError {
 
 
 /// reate a billable entity for an account. The creator is assumed to be the responsible account. An account can only have one billable entity
-pub async fn create_billable_entity(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>) -> Result<models::BillableEntityResponse, Error<CreateBillableEntityError>> {
+pub async fn create_billable_entity(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>) -> Result<models::BillableEntityResponse, Error<CreateBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_name = name;
@@ -61,7 +60,7 @@ pub async fn create_billable_entity(configuration: &configuration::Configuration
     let p_query_authorize_net_api_key = authorize_net_api_key;
     let p_query_authorize_net_transaction_key = authorize_net_transaction_key;
 
-    let uri_str = format!("{}/api/{version}/billable/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billable/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -130,13 +129,12 @@ pub async fn create_billable_entity(configuration: &configuration::Configuration
 }
 
 /// Mark the billable as deleted
-pub async fn delete_billable_entity(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteBillableEntityError>> {
+pub async fn delete_billable_entity(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/billable/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billable/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -175,15 +173,14 @@ pub async fn delete_billable_entity(configuration: &configuration::Configuration
 }
 
 /// Used to determine the associated BillableEntity of an account
-pub async fn get_billable_entity(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, include_counts: Option<bool>, include_payments: Option<bool>) -> Result<models::BillableEntityResponse, Error<GetBillableEntityError>> {
+pub async fn get_billable_entity(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, include_counts: Option<bool>, include_payments: Option<bool>) -> Result<models::BillableEntityResponse, Error<GetBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_include_counts = include_counts;
     let p_query_include_payments = include_payments;
 
-    let uri_str = format!("{}/api/{version}/billable/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billable/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -228,9 +225,8 @@ pub async fn get_billable_entity(configuration: &configuration::Configuration, v
 }
 
 /// Updates the billable record for an account
-pub async fn update_billable_entity(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>) -> Result<models::BillableEntityResponse, Error<UpdateBillableEntityError>> {
+pub async fn update_billable_entity(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, authorize_net_api_key: Option<&str>, authorize_net_transaction_key: Option<&str>) -> Result<models::BillableEntityResponse, Error<UpdateBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_name = name;
@@ -244,7 +240,7 @@ pub async fn update_billable_entity(configuration: &configuration::Configuration
     let p_query_authorize_net_api_key = authorize_net_api_key;
     let p_query_authorize_net_transaction_key = authorize_net_transaction_key;
 
-    let uri_str = format!("{}/api/{version}/billable/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/billable/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

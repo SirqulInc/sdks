@@ -94,16 +94,15 @@ pub enum UpdateDataError {
 
 
 /// Add a field to a specific object.  The field name should be camel   case with the first letter lower case, for example: myFieldName.  Duplicate   field names are not allowed.   The field name cannot be any of the following   reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE,   BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE,   CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE,   CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP,   CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE,   DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE,   DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE,   ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4,   FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY,   HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE,   INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER,   INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT,   LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG,   LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT,   MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND,   MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC,   ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION,   PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES,   REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN,   REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE,   SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION,   SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT,   SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT,   TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED,   UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY,   VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH,   ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW.     The following field names are reserved (cannot be used directly) and are automatically   included during object creation: ID, OBJECTID, CREATED, UPDATED, DELETED.   Additionally the field names must start with a letter or number.
-pub async fn add_field(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, object_name: &str, field_name: &str, field_type: &str) -> Result<models::ObjectStoreResponse, Error<AddFieldError>> {
+pub async fn add_field(configuration: &configuration::Configuration, account_id: i64, app_key: &str, object_name: &str, field_name: &str, field_type: &str) -> Result<models::ObjectStoreResponse, Error<AddFieldError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_object_name = object_name;
     let p_query_field_name = field_name;
     let p_query_field_type = field_type;
 
-    let uri_str = format!("{}/api/{version}/object/field/add", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/field/add", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -141,14 +140,13 @@ pub async fn add_field(configuration: &configuration::Configuration, version: f6
 }
 
 /// Create a record for the specified object.  If the object does not exist then a new one will be created prior to inserting the record.  If any of the fields included does not exist for the object then they are added to the object. 
-pub async fn create_data(configuration: &configuration::Configuration, version: f64, object_name: &str, account_id: Option<i64>, body: Option<&str>) -> Result<models::ObjectStoreResponse, Error<CreateDataError>> {
+pub async fn create_data(configuration: &configuration::Configuration, object_name: &str, account_id: Option<i64>, body: Option<&str>) -> Result<models::ObjectStoreResponse, Error<CreateDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_object_name = object_name;
     let p_query_account_id = account_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/object/data/{objectName}", configuration.base_path, version=p_path_version, objectName=crate::apis::urlencode(p_path_object_name));
+    let uri_str = format!("{}/object/data/{objectName}", configuration.base_path, objectName=crate::apis::urlencode(p_path_object_name));
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -185,14 +183,13 @@ pub async fn create_data(configuration: &configuration::Configuration, version: 
 }
 
 /// Create an Object Store table.  By default tables will have the columns: id, created, updated, deleted.  Names og objects should be camel case with the first letter capitalized, for example: MyTableName.   Duplicate object names are not allowed.   The object name cannot be any of the following reserved words: ACCESSIBLE, ADD, ALL, ALTER, ANALYZE, AND, AS, ASC, ASENSITIVE, BEFORE, BETWEEN, BIGINT, BINARY, BLOB, BOTH, BY, CALL, CASCADE, CASE, CHANGE, CHAR, CHARACTER, CHECK, COLLATE, COLUMN, CONDITION, CONSTRAINT, CONTINUE, CONVERT, CREATE, CROSS, CURRENT_, ATE, CURRENT_TIME, CURRENT_TIMESTAMP, CURRENT_USER, CURSOR, DATABASE, DATABASES, DAY_HOUR, DAY_MICROSECOND, DAY_MINUTE, DAY_SECOND, DEC, DECIMAL, DECLARE, DEFAULT, DELAYED, DELETE, DESC, DESCRIBE, DETERMINISTIC, DISTINCT, DISTINCTROW, DIV, DOUBLE, DROP, DUAL, EACH, ELSE, ELSEIF, ENCLOSED, ESCAPED, EXISTS, EXIT, EXPLAIN, FALSE, FETCH, FLOAT, FLOAT4, FLOAT8, FOR, FORCE, FOREIGN, FROM, FULLTEXT, GRANT, GROUP, HAVING, HIGH_PRIORITY, HOUR_MICROSECOND, HOUR_MINUTE, HOUR_SECOND, IF, IGNORE, IN, INDEX, INFILE, INNER, INOUT, INSENSITIVE, INSERT, INT, INT1, INT2, INT3, INT4, INT8, INTEGER, INTERVAL, INTO, IS, ITERATE, JOIN, KEY, KEYS, KILL, LEADING, LEAVE, LEFT, LIKE, LIMIT, LINEAR, LINES, LOAD, LOCALTIME, LOCALTIMESTAMP, LOCK, LONG, LONGBLOB, LONGT, XT, LOOP, LOW_PRIORITY, MASTER_SSL_VERIFY_SERVER_CERT, MATCH, MAXVALUE, MEDIUMBLOB, MEDIUMINT, MEDIUMTEXT, MIDDLEINT, MINUTE_MICROSECOND, MINUTE_SECOND, MOD, MODIFIES, NATURAL, NOT, NO_WRITE_TO_BINLOG, NULL, NUMERIC, ON, OPTIMIZE, OPTION, OPTIONALLY, OR, ORDER, OUT, OUTER, OUTFILE, PRECISION, PRIMARY, PROCEDURE, PURGE, RANGE, READ, READS, READ_WRITE, REAL, REFERENCES, REGEXP, RELEASE, RENAME, REPEAT, REPLACE, REQUIRE, RESIGNAL, RESTRICT, RETURN, REVOKE, RIGHT, RLIKE, SCHEMA, SCHEMAS, SECOND_MICROSECOND, SELECT, SENSITIVE, SEPARATOR, SET, SHOW, SIGNAL, SMALLINT, SPATIAL, SPECIFIC, SQL, SQLEXCEPTION, SQLSTATE, SQLWARNING, SQL_BIG_RESULT, SQL_CALC_FOUND_ROWS, SQL_SMALL_RESULT, SSL, STARTING, STRAIGHT_JOIN, TABLE, TERMINATED, THEN, TINYBLOB, TINYINT, TINYTEXT, TO, TRAILING, TRIGGER, TRUE, NDO, UNION, UNIQUE, UNLOCK, UNSIGNED, UPDATE, USAGE, USE, USING, UTC_DATE, UTC_TIME, UTC_TIMESTAMP, VALUES, VARBINARY, VARCHAR, VARCHARACTER, VARYING, WHEN, WHERE, WHILE, WITH, WRITE, XOR, YEAR_MONTH, ZEROFILL, GENERAL, IGNORE_SERVER_IDS, MASTER_HEARTBEAT_PERIOD, SLOW. 
-pub async fn create_object(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<CreateObjectError>> {
+pub async fn create_object(configuration: &configuration::Configuration, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<CreateObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_object_name = object_name;
 
-    let uri_str = format!("{}/api/{version}/object/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -228,14 +225,13 @@ pub async fn create_object(configuration: &configuration::Configuration, version
 }
 
 /// Delete a record for the specified object. Cannot be undone so use only when abolutely sure.
-pub async fn delete_data(configuration: &configuration::Configuration, version: f64, object_name: &str, object_id: &str, account_id: Option<i64>) -> Result<models::ObjectStoreResponse, Error<DeleteDataError>> {
+pub async fn delete_data(configuration: &configuration::Configuration, object_name: &str, object_id: &str, account_id: Option<i64>) -> Result<models::ObjectStoreResponse, Error<DeleteDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_object_name = object_name;
     let p_path_object_id = object_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/object/data/{objectName}/{objectId}", configuration.base_path, version=p_path_version, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
+    let uri_str = format!("{}/object/data/{objectName}/{objectId}", configuration.base_path, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -271,15 +267,14 @@ pub async fn delete_data(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete a field from an object.  This will remove the field, indexes,   and foreign keys associated with the field.   The following field names   are reserved and cannot be removed from the object: ID, OBJECTID, CREATED,   UPDATED, DELETED
-pub async fn delete_field(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, object_name: &str, field_name: &str) -> Result<models::ObjectStoreResponse, Error<DeleteFieldError>> {
+pub async fn delete_field(configuration: &configuration::Configuration, account_id: i64, app_key: &str, object_name: &str, field_name: &str) -> Result<models::ObjectStoreResponse, Error<DeleteFieldError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_object_name = object_name;
     let p_query_field_name = field_name;
 
-    let uri_str = format!("{}/api/{version}/object/field/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/field/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -316,14 +311,13 @@ pub async fn delete_field(configuration: &configuration::Configuration, version:
 }
 
 /// Delete and Object in the store.  This will delete the table and clean up and foreign keys referencing it. Cannot be undone so use only when abolutely sure.
-pub async fn delete_object(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<DeleteObjectError>> {
+pub async fn delete_object(configuration: &configuration::Configuration, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<DeleteObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_object_name = object_name;
 
-    let uri_str = format!("{}/api/{version}/object/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -359,15 +353,14 @@ pub async fn delete_object(configuration: &configuration::Configuration, version
 }
 
 /// Get a specific record from a specified object.
-pub async fn get_data(configuration: &configuration::Configuration, version: f64, object_name: &str, object_id: &str, account_id: Option<i64>, include: Option<&str>) -> Result<models::ObjectStoreResponse, Error<GetDataError>> {
+pub async fn get_data(configuration: &configuration::Configuration, object_name: &str, object_id: &str, account_id: Option<i64>, include: Option<&str>) -> Result<models::ObjectStoreResponse, Error<GetDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_object_name = object_name;
     let p_path_object_id = object_id;
     let p_query_account_id = account_id;
     let p_query_include = include;
 
-    let uri_str = format!("{}/api/{version}/object/data/{objectName}/{objectId}", configuration.base_path, version=p_path_version, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
+    let uri_str = format!("{}/object/data/{objectName}/{objectId}", configuration.base_path, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -406,14 +399,13 @@ pub async fn get_data(configuration: &configuration::Configuration, version: f64
 }
 
 /// Get the definition of an Object. Returns all field names, types, and current size. The types supported are: STRING, DATE, NUMBER, BOOLEAN, IDENTITY.
-pub async fn get_object(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<GetObjectError>> {
+pub async fn get_object(configuration: &configuration::Configuration, account_id: i64, app_key: &str, object_name: &str) -> Result<models::ObjectStoreResponse, Error<GetObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_object_name = object_name;
 
-    let uri_str = format!("{}/api/{version}/object/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -449,9 +441,8 @@ pub async fn get_object(configuration: &configuration::Configuration, version: f
 }
 
 /// Search for records given the specified criteria.  The criteria is a defined set of json values used to build a query
-pub async fn search_data(configuration: &configuration::Configuration, version: f64, object_name: &str, count: bool, start: i64, limit: i64, account_id: Option<i64>, criteria: Option<&str>, order: Option<&str>, include: Option<&str>) -> Result<models::ObjectStoreResponse, Error<SearchDataError>> {
+pub async fn search_data(configuration: &configuration::Configuration, object_name: &str, count: bool, start: i64, limit: i64, account_id: Option<i64>, criteria: Option<&str>, order: Option<&str>, include: Option<&str>) -> Result<models::ObjectStoreResponse, Error<SearchDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_object_name = object_name;
     let p_query_count = count;
     let p_query_start = start;
@@ -461,7 +452,7 @@ pub async fn search_data(configuration: &configuration::Configuration, version: 
     let p_query_order = order;
     let p_query_include = include;
 
-    let uri_str = format!("{}/api/{version}/object/data/{objectName}", configuration.base_path, version=p_path_version, objectName=crate::apis::urlencode(p_path_object_name));
+    let uri_str = format!("{}/object/data/{objectName}", configuration.base_path, objectName=crate::apis::urlencode(p_path_object_name));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -509,16 +500,15 @@ pub async fn search_data(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for Objects and return the list of names found.  Use this in conjunction with the object get service to present the current data model defined.
-pub async fn search_object(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, start: i64, limit: i64, keyword: Option<&str>) -> Result<models::ObjectStoreResponse, Error<SearchObjectError>> {
+pub async fn search_object(configuration: &configuration::Configuration, account_id: i64, app_key: &str, start: i64, limit: i64, keyword: Option<&str>) -> Result<models::ObjectStoreResponse, Error<SearchObjectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_start = start;
     let p_query_limit = limit;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/object/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/object/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -558,15 +548,14 @@ pub async fn search_object(configuration: &configuration::Configuration, version
 }
 
 /// Update a record for the specified object.  If the object does not exist the request will be rejected, use the data create service for the first entry. If any of the fields included does not exist for the object then they are added to the object.
-pub async fn update_data(configuration: &configuration::Configuration, version: f64, object_name: &str, object_id: &str, account_id: Option<i64>, body: Option<&str>) -> Result<models::ObjectStoreResponse, Error<UpdateDataError>> {
+pub async fn update_data(configuration: &configuration::Configuration, object_name: &str, object_id: &str, account_id: Option<i64>, body: Option<&str>) -> Result<models::ObjectStoreResponse, Error<UpdateDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_object_name = object_name;
     let p_path_object_id = object_id;
     let p_query_account_id = account_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/object/data/{objectName}/{objectId}", configuration.base_path, version=p_path_version, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
+    let uri_str = format!("{}/object/data/{objectName}/{objectId}", configuration.base_path, objectName=crate::apis::urlencode(p_path_object_name), objectId=crate::apis::urlencode(p_path_object_id));
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {

@@ -108,9 +108,8 @@ pub enum UpdateAudienceError {
 
 
 /// Create a user defined audience.
-pub async fn create_audience(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, description: Option<&str>, search_tags: Option<&str>, gender: Option<&str>, age_groups: Option<&str>, category_ids: Option<&str>, application_ids: Option<&str>, game_experience_level: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>, start_time_offset: Option<i32>, end_time_offset: Option<i32>, send_suggestion: Option<bool>, associate_description: Option<&str>, associate_type: Option<&str>, associate_id: Option<i64>, grouping_id: Option<&str>, meta_data: Option<&str>, visibility: Option<&str>, audience_type: Option<&str>, use_order: Option<bool>, cohort_regions_data: Option<&str>, app_key: Option<&str>, trilateration_types: Option<&str>, unique_name: Option<bool>) -> Result<models::AudienceResponse, Error<CreateAudienceError>> {
+pub async fn create_audience(configuration: &configuration::Configuration, account_id: i64, name: &str, description: Option<&str>, search_tags: Option<&str>, gender: Option<&str>, age_groups: Option<&str>, category_ids: Option<&str>, application_ids: Option<&str>, game_experience_level: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>, start_time_offset: Option<i32>, end_time_offset: Option<i32>, send_suggestion: Option<bool>, associate_description: Option<&str>, associate_type: Option<&str>, associate_id: Option<i64>, grouping_id: Option<&str>, meta_data: Option<&str>, visibility: Option<&str>, audience_type: Option<&str>, use_order: Option<bool>, cohort_regions_data: Option<&str>, app_key: Option<&str>, trilateration_types: Option<&str>, unique_name: Option<bool>) -> Result<models::AudienceResponse, Error<CreateAudienceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_description = description;
@@ -141,7 +140,7 @@ pub async fn create_audience(configuration: &configuration::Configuration, versi
     let p_query_trilateration_types = trilateration_types;
     let p_query_unique_name = unique_name;
 
-    let uri_str = format!("{}/api/{version}/audience/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -257,13 +256,12 @@ pub async fn create_audience(configuration: &configuration::Configuration, versi
 }
 
 /// Delete an audience. The audience and account must be valid and have the appropirate permissions to view the content.
-pub async fn delete_audience(configuration: &configuration::Configuration, version: f64, account_id: i64, audience_id: i64) -> Result<models::SirqulResponse, Error<DeleteAudienceError>> {
+pub async fn delete_audience(configuration: &configuration::Configuration, account_id: i64, audience_id: i64) -> Result<models::SirqulResponse, Error<DeleteAudienceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_audience_id = audience_id;
 
-    let uri_str = format!("{}/api/{version}/audience/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -298,11 +296,9 @@ pub async fn delete_audience(configuration: &configuration::Configuration, versi
 }
 
 /// Gets the list of available age groups that can be selected by consumers and retailers targeting offers.
-pub async fn get_age_groups(configuration: &configuration::Configuration, version: f64) -> Result<Vec<models::AgeGroupResponse>, Error<GetAgeGroupsError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
+pub async fn get_age_groups(configuration: &configuration::Configuration, ) -> Result<Vec<models::AgeGroupResponse>, Error<GetAgeGroupsError>> {
 
-    let uri_str = format!("{}/api/{version}/audience/ageGroups", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/ageGroups", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -335,9 +331,8 @@ pub async fn get_age_groups(configuration: &configuration::Configuration, versio
 }
 
 /// Get an audience. The audience and account must be valid and have the appropriate permissions to view the content.
-pub async fn get_audience(configuration: &configuration::Configuration, version: f64, account_id: i64, audience_id: i64, app_key: Option<&str>, return_account_count: Option<bool>, return_album_count: Option<bool>, album_types_for_count: Option<&str>) -> Result<models::AudienceResponse, Error<GetAudienceError>> {
+pub async fn get_audience(configuration: &configuration::Configuration, account_id: i64, audience_id: i64, app_key: Option<&str>, return_account_count: Option<bool>, return_album_count: Option<bool>, album_types_for_count: Option<&str>) -> Result<models::AudienceResponse, Error<GetAudienceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_audience_id = audience_id;
     let p_query_app_key = app_key;
@@ -345,7 +340,7 @@ pub async fn get_audience(configuration: &configuration::Configuration, version:
     let p_query_return_album_count = return_album_count;
     let p_query_album_types_for_count = album_types_for_count;
 
-    let uri_str = format!("{}/api/{version}/audience/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -392,9 +387,8 @@ pub async fn get_audience(configuration: &configuration::Configuration, version:
 }
 
 /// Get the list audiences owned by the account
-pub async fn get_audience_list(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, album_ids: Option<&str>, keyword: Option<&str>, keyword_fields: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, send_suggestion: Option<bool>, active_only: Option<bool>, group_by_grouping_id: Option<bool>, app_key: Option<&str>, return_global: Option<bool>, exact_keyword: Option<bool>, audience_type: Option<&str>, audience_types: Option<&str>, return_account_count: Option<bool>, return_album_count: Option<bool>, album_types_for_count: Option<&str>) -> Result<Vec<models::SearchResponse>, Error<GetAudienceListError>> {
+pub async fn get_audience_list(configuration: &configuration::Configuration, account_id: Option<i64>, album_ids: Option<&str>, keyword: Option<&str>, keyword_fields: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, send_suggestion: Option<bool>, active_only: Option<bool>, group_by_grouping_id: Option<bool>, app_key: Option<&str>, return_global: Option<bool>, exact_keyword: Option<bool>, audience_type: Option<&str>, audience_types: Option<&str>, return_account_count: Option<bool>, return_album_count: Option<bool>, album_types_for_count: Option<&str>) -> Result<Vec<models::SearchResponse>, Error<GetAudienceListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_album_ids = album_ids;
     let p_query_keyword = keyword;
@@ -415,7 +409,7 @@ pub async fn get_audience_list(configuration: &configuration::Configuration, ver
     let p_query_return_album_count = return_album_count;
     let p_query_album_types_for_count = album_types_for_count;
 
-    let uri_str = format!("{}/api/{version}/audience/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -505,12 +499,11 @@ pub async fn get_audience_list(configuration: &configuration::Configuration, ver
 }
 
 /// Gets the list of available devices that can be selected by consumers and retailers.
-pub async fn get_devices(configuration: &configuration::Configuration, version: f64, include_inactive: bool) -> Result<Vec<models::AudienceDeviceResponse>, Error<GetDevicesError>> {
+pub async fn get_devices(configuration: &configuration::Configuration, include_inactive: bool) -> Result<Vec<models::AudienceDeviceResponse>, Error<GetDevicesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_include_inactive = include_inactive;
 
-    let uri_str = format!("{}/api/{version}/audience/devices", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/devices", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("includeInactive", &p_query_include_inactive.to_string())]);
@@ -544,11 +537,9 @@ pub async fn get_devices(configuration: &configuration::Configuration, version: 
 }
 
 /// Gets the list of available experiences that can be selected by consumers and retailers.
-pub async fn get_experiences(configuration: &configuration::Configuration, version: f64) -> Result<models::SirqulResponse, Error<GetExperiencesError>> {
-    // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
+pub async fn get_experiences(configuration: &configuration::Configuration, ) -> Result<models::SirqulResponse, Error<GetExperiencesError>> {
 
-    let uri_str = format!("{}/api/{version}/audience/experiences", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/experiences", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -581,13 +572,12 @@ pub async fn get_experiences(configuration: &configuration::Configuration, versi
 }
 
 /// Get a group of audiences. The audience and account must be valid and have the appropriate permissions to view the content.
-pub async fn get_grouped_audiences(configuration: &configuration::Configuration, version: f64, account_id: i64, audience_grouping_id: &str) -> Result<models::AudienceResponse, Error<GetGroupedAudiencesError>> {
+pub async fn get_grouped_audiences(configuration: &configuration::Configuration, account_id: i64, audience_grouping_id: &str) -> Result<models::AudienceResponse, Error<GetGroupedAudiencesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_audience_grouping_id = audience_grouping_id;
 
-    let uri_str = format!("{}/api/{version}/audience/grouped/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/grouped/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -622,14 +612,13 @@ pub async fn get_grouped_audiences(configuration: &configuration::Configuration,
 }
 
 /// List either Missions or Offers that the user matches the assigned audience.
-pub async fn list_by_account(configuration: &configuration::Configuration, version: f64, account_id: i64, limit: i32, suggestion_type: &str) -> Result<models::OfferListResponse, Error<ListByAccountError>> {
+pub async fn list_by_account(configuration: &configuration::Configuration, account_id: i64, limit: i32, suggestion_type: &str) -> Result<models::OfferListResponse, Error<ListByAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_limit = limit;
     let p_query_suggestion_type = suggestion_type;
 
-    let uri_str = format!("{}/api/{version}/audience/suggestion/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/suggestion/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -665,9 +654,8 @@ pub async fn list_by_account(configuration: &configuration::Configuration, versi
 }
 
 /// Get a list of offer locations based on audience information provided.
-pub async fn list_by_audience(configuration: &configuration::Configuration, version: f64, limit: i32, gender: Option<&str>, age: Option<i32>, category_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferListResponse, Error<ListByAudienceError>> {
+pub async fn list_by_audience(configuration: &configuration::Configuration, limit: i32, gender: Option<&str>, age: Option<i32>, category_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferListResponse, Error<ListByAudienceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_limit = limit;
     let p_query_gender = gender;
     let p_query_age = age;
@@ -675,7 +663,7 @@ pub async fn list_by_audience(configuration: &configuration::Configuration, vers
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/audience/suggestion/offersByAudience", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/suggestion/offersByAudience", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_gender {
@@ -724,14 +712,13 @@ pub async fn list_by_audience(configuration: &configuration::Configuration, vers
 }
 
 /// Return list of recent trigger suggestions that have been sent to the user.
-pub async fn list_lastest_by_account(configuration: &configuration::Configuration, version: f64, account_id: i64, timeframe: i32, suggestion_type: &str) -> Result<models::OfferListResponse, Error<ListLastestByAccountError>> {
+pub async fn list_lastest_by_account(configuration: &configuration::Configuration, account_id: i64, timeframe: i32, suggestion_type: &str) -> Result<models::OfferListResponse, Error<ListLastestByAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_timeframe = timeframe;
     let p_query_suggestion_type = suggestion_type;
 
-    let uri_str = format!("{}/api/{version}/audience/suggestion/latest", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/suggestion/latest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -767,14 +754,13 @@ pub async fn list_lastest_by_account(configuration: &configuration::Configuratio
 }
 
 /// Use the accountId to determine the associated BillableEntity. From there get a list of all triggers associated with the BillableEntity.
-pub async fn send_by_account(configuration: &configuration::Configuration, version: f64, account_id: i64, latitude: f64, longitude: f64) -> Result<models::SirqulResponse, Error<SendByAccountError>> {
+pub async fn send_by_account(configuration: &configuration::Configuration, account_id: i64, latitude: f64, longitude: f64) -> Result<models::SirqulResponse, Error<SendByAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/audience/suggestion/send", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/suggestion/send", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -810,9 +796,8 @@ pub async fn send_by_account(configuration: &configuration::Configuration, versi
 }
 
 /// Update a user defined audience.
-pub async fn update_audience(configuration: &configuration::Configuration, version: f64, account_id: i64, audience_id: i64, name: Option<&str>, description: Option<&str>, search_tags: Option<&str>, gender: Option<&str>, age_groups: Option<&str>, category_ids: Option<&str>, application_ids: Option<&str>, game_experience_level: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>, active: Option<bool>, send_suggestion: Option<bool>, start_time_offset: Option<i32>, end_time_offset: Option<i32>, associate_description: Option<&str>, associate_type: Option<&str>, associate_id: Option<i64>, grouping_id: Option<&str>, meta_data: Option<&str>, visibility: Option<&str>, audience_type: Option<&str>, use_order: Option<bool>, cohort_regions_data: Option<&str>, app_key: Option<&str>, trilateration_types: Option<&str>, unique_name: Option<bool>) -> Result<models::AudienceResponse, Error<UpdateAudienceError>> {
+pub async fn update_audience(configuration: &configuration::Configuration, account_id: i64, audience_id: i64, name: Option<&str>, description: Option<&str>, search_tags: Option<&str>, gender: Option<&str>, age_groups: Option<&str>, category_ids: Option<&str>, application_ids: Option<&str>, game_experience_level: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>, active: Option<bool>, send_suggestion: Option<bool>, start_time_offset: Option<i32>, end_time_offset: Option<i32>, associate_description: Option<&str>, associate_type: Option<&str>, associate_id: Option<i64>, grouping_id: Option<&str>, meta_data: Option<&str>, visibility: Option<&str>, audience_type: Option<&str>, use_order: Option<bool>, cohort_regions_data: Option<&str>, app_key: Option<&str>, trilateration_types: Option<&str>, unique_name: Option<bool>) -> Result<models::AudienceResponse, Error<UpdateAudienceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_audience_id = audience_id;
     let p_query_name = name;
@@ -845,7 +830,7 @@ pub async fn update_audience(configuration: &configuration::Configuration, versi
     let p_query_trilateration_types = trilateration_types;
     let p_query_unique_name = unique_name;
 
-    let uri_str = format!("{}/api/{version}/audience/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/audience/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

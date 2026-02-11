@@ -59,9 +59,8 @@ pub enum SearchBatchError {
 
 
 /// Create an entry for the batch for offline report
-pub async fn create_batch(configuration: &configuration::Configuration, version: f64, account_id: i64, status: &str, preview_limit: i32, app_key: Option<&str>, endpoint: Option<&str>, parameters: Option<&str>, name: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, description: Option<&str>, page_url: Option<&str>) -> Result<models::ReportBatchResponse, Error<CreateBatchError>> {
+pub async fn create_batch(configuration: &configuration::Configuration, account_id: i64, status: &str, preview_limit: i32, app_key: Option<&str>, endpoint: Option<&str>, parameters: Option<&str>, name: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, description: Option<&str>, page_url: Option<&str>) -> Result<models::ReportBatchResponse, Error<CreateBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_status = status;
     let p_query_preview_limit = preview_limit;
@@ -74,7 +73,7 @@ pub async fn create_batch(configuration: &configuration::Configuration, version:
     let p_query_description = description;
     let p_query_page_url = page_url;
 
-    let uri_str = format!("{}/api/{version}/report/batch/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/batch/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -134,12 +133,11 @@ pub async fn create_batch(configuration: &configuration::Configuration, version:
 }
 
 /// Create an entry for the batch for offline report
-pub async fn create_region_leg_summary_batch(configuration: &configuration::Configuration, version: f64, body: Option<Vec<models::RegionLegSummary>>) -> Result<models::ReportRegionLegSummaryBatchResponse, Error<CreateRegionLegSummaryBatchError>> {
+pub async fn create_region_leg_summary_batch(configuration: &configuration::Configuration, body: Option<Vec<models::RegionLegSummary>>) -> Result<models::ReportRegionLegSummaryBatchResponse, Error<CreateRegionLegSummaryBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/report/region/summary/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/region/summary/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -173,13 +171,12 @@ pub async fn create_region_leg_summary_batch(configuration: &configuration::Conf
 }
 
 /// Deletes a batch report.
-pub async fn delete_batch(configuration: &configuration::Configuration, version: f64, account_id: i64, batch_id: i64) -> Result<models::SirqulResponse, Error<DeleteBatchError>> {
+pub async fn delete_batch(configuration: &configuration::Configuration, account_id: i64, batch_id: i64) -> Result<models::SirqulResponse, Error<DeleteBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_batch_id = batch_id;
 
-    let uri_str = format!("{}/api/{version}/report/batch/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/batch/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -214,14 +211,13 @@ pub async fn delete_batch(configuration: &configuration::Configuration, version:
 }
 
 /// Checks status of batch report.
-pub async fn get_report_batch(configuration: &configuration::Configuration, version: f64, account_id: i64, batch_id: i64, all_results: bool) -> Result<models::ReportBatchResponse, Error<GetReportBatchError>> {
+pub async fn get_report_batch(configuration: &configuration::Configuration, account_id: i64, batch_id: i64, all_results: bool) -> Result<models::ReportBatchResponse, Error<GetReportBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_batch_id = batch_id;
     let p_query_all_results = all_results;
 
-    let uri_str = format!("{}/api/{version}/report/batch/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/batch/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -257,9 +253,8 @@ pub async fn get_report_batch(configuration: &configuration::Configuration, vers
 }
 
 ///  This endpoint allows you to run a set of predefined reports that can be used to understand your users' behavior as well as trends within your application.
-pub async fn run_report(configuration: &configuration::Configuration, version: f64, desc: bool, account_id: Option<i64>, query: Option<&str>, parameters: Option<&str>, order: Option<&str>, start: Option<i64>, limit: Option<i64>, response_format: Option<&str>) -> Result<models::ReportResponse, Error<RunReportError>> {
+pub async fn run_report(configuration: &configuration::Configuration, desc: bool, account_id: Option<i64>, query: Option<&str>, parameters: Option<&str>, order: Option<&str>, start: Option<i64>, limit: Option<i64>, response_format: Option<&str>) -> Result<models::ReportResponse, Error<RunReportError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_desc = desc;
     let p_query_account_id = account_id;
     let p_query_query = query;
@@ -269,7 +264,7 @@ pub async fn run_report(configuration: &configuration::Configuration, version: f
     let p_query_limit = limit;
     let p_query_response_format = response_format;
 
-    let uri_str = format!("{}/api/{version}/report/run", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/run", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -324,9 +319,8 @@ pub async fn run_report(configuration: &configuration::Configuration, version: f
 }
 
 /// Retrieves batches for a user..
-pub async fn search_batch(configuration: &configuration::Configuration, version: f64, account_id: i64, start: i32, limit: i32, names: Option<&str>, app_key: Option<&str>, status: Option<&str>, global_app_search: Option<bool>, start_date: Option<i64>, end_date: Option<i64>) -> Result<Vec<models::ReportBatchResponse>, Error<SearchBatchError>> {
+pub async fn search_batch(configuration: &configuration::Configuration, account_id: i64, start: i32, limit: i32, names: Option<&str>, app_key: Option<&str>, status: Option<&str>, global_app_search: Option<bool>, start_date: Option<i64>, end_date: Option<i64>) -> Result<Vec<models::ReportBatchResponse>, Error<SearchBatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start = start;
     let p_query_limit = limit;
@@ -337,7 +331,7 @@ pub async fn search_batch(configuration: &configuration::Configuration, version:
     let p_query_start_date = start_date;
     let p_query_end_date = end_date;
 
-    let uri_str = format!("{}/api/{version}/report/batch/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/report/batch/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

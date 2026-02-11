@@ -31,12 +31,11 @@ pub enum LoginTwitterError {
 
 
 /// Makes an authorization call to twitter for a user to login and allow any app permissions.
-pub async fn authorize_twitter(configuration: &configuration::Configuration, version: f64, app_key: &str) -> Result<models::SirqulResponse, Error<AuthorizeTwitterError>> {
+pub async fn authorize_twitter(configuration: &configuration::Configuration, app_key: &str) -> Result<models::SirqulResponse, Error<AuthorizeTwitterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/twitter/authorize", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/twitter/authorize", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);
@@ -70,9 +69,8 @@ pub async fn authorize_twitter(configuration: &configuration::Configuration, ver
 }
 
 /// Returns the user profile information given an access token and the secret access token. This call verifies the tokens with twitter and creates a Sirqul account for the user if its their first time logging in.
-pub async fn login_twitter(configuration: &configuration::Configuration, version: f64, access_token: &str, access_token_secret: &str, app_key: &str, response_filters: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginTwitterError>> {
+pub async fn login_twitter(configuration: &configuration::Configuration, access_token: &str, access_token_secret: &str, app_key: &str, response_filters: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginTwitterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_access_token = access_token;
     let p_query_access_token_secret = access_token_secret;
     let p_query_app_key = app_key;
@@ -81,7 +79,7 @@ pub async fn login_twitter(configuration: &configuration::Configuration, version
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/twitter/login", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/twitter/login", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

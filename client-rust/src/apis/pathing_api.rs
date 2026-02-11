@@ -24,15 +24,14 @@ pub enum ComputePathError {
 
 
 /// Calculates the shortest path from point to point on a grid
-pub async fn compute_path(configuration: &configuration::Configuration, version: f64, data: &str, units: &str, reduce_path: bool, directions: bool) -> Result<models::PathingResponse, Error<ComputePathError>> {
+pub async fn compute_path(configuration: &configuration::Configuration, data: &str, units: &str, reduce_path: bool, directions: bool) -> Result<models::PathingResponse, Error<ComputePathError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_data = data;
     let p_query_units = units;
     let p_query_reduce_path = reduce_path;
     let p_query_directions = directions;
 
-    let uri_str = format!("{}/api/{version}/pathing/compute", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pathing/compute", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("data", &p_query_data.to_string())]);

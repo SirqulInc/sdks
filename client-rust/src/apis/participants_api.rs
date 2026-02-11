@@ -31,14 +31,13 @@ pub enum ProcessParticipantsError {
 
 
 /// Processes all supported participant feeds.
-pub async fn process_all_participants(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: Option<&str>, use_short_name_as_id: Option<bool>) -> Result<models::SirqulResponse, Error<ProcessAllParticipantsError>> {
+pub async fn process_all_participants(configuration: &configuration::Configuration, account_id: i64, app_key: Option<&str>, use_short_name_as_id: Option<bool>) -> Result<models::SirqulResponse, Error<ProcessAllParticipantsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_use_short_name_as_id = use_short_name_as_id;
 
-    let uri_str = format!("{}/api/{version}/participant/process/all", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/participant/process/all", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -78,16 +77,15 @@ pub async fn process_all_participants(configuration: &configuration::Configurati
 }
 
 /// Processes a participant feed or uploaded file for a specific league.
-pub async fn process_participants(configuration: &configuration::Configuration, version: f64, account_id: i64, league: &str, app_key: Option<&str>, use_short_name_as_id: Option<bool>, file: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<ProcessParticipantsError>> {
+pub async fn process_participants(configuration: &configuration::Configuration, account_id: i64, league: &str, app_key: Option<&str>, use_short_name_as_id: Option<bool>, file: Option<std::path::PathBuf>) -> Result<models::SirqulResponse, Error<ProcessParticipantsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_league = league;
     let p_query_app_key = app_key;
     let p_query_use_short_name_as_id = use_short_name_as_id;
     let p_query_file = file;
 
-    let uri_str = format!("{}/api/{version}/participant/process", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/participant/process", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

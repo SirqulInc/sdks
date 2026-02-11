@@ -52,9 +52,8 @@ pub enum UpdateOfferTransactionStatusError {
 
 
 /// Create an offer status record
-pub async fn create_offer_transaction_status(configuration: &configuration::Configuration, version: f64, name: &str, code: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, description: Option<&str>, role: Option<&str>, active: Option<bool>, application_ids: Option<&str>) -> Result<models::OfferTransactionStatusResponse, Error<CreateOfferTransactionStatusError>> {
+pub async fn create_offer_transaction_status(configuration: &configuration::Configuration, name: &str, code: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, description: Option<&str>, role: Option<&str>, active: Option<bool>, application_ids: Option<&str>) -> Result<models::OfferTransactionStatusResponse, Error<CreateOfferTransactionStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_name = name;
     let p_query_code = code;
     let p_query_device_id = device_id;
@@ -66,7 +65,7 @@ pub async fn create_offer_transaction_status(configuration: &configuration::Conf
     let p_query_active = active;
     let p_query_application_ids = application_ids;
 
-    let uri_str = format!("{}/api/{version}/offer/status/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/status/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -125,16 +124,15 @@ pub async fn create_offer_transaction_status(configuration: &configuration::Conf
 }
 
 /// Mark an offer status record as deleted
-pub async fn delete_offer_transaction_status(configuration: &configuration::Configuration, version: f64, status_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteOfferTransactionStatusError>> {
+pub async fn delete_offer_transaction_status(configuration: &configuration::Configuration, status_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteOfferTransactionStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_status_id = status_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/offer/status/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/status/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -180,16 +178,15 @@ pub async fn delete_offer_transaction_status(configuration: &configuration::Conf
 }
 
 /// Get an offer status record
-pub async fn get_offer_transaction_status(configuration: &configuration::Configuration, version: f64, status_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferTransactionStatusResponse, Error<GetOfferTransactionStatusError>> {
+pub async fn get_offer_transaction_status(configuration: &configuration::Configuration, status_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferTransactionStatusResponse, Error<GetOfferTransactionStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_status_id = status_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/offer/status/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/status/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -235,9 +232,8 @@ pub async fn get_offer_transaction_status(configuration: &configuration::Configu
 }
 
 /// Search for the available offer statuses
-pub async fn search_offer_transaction_statuses(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>, role: Option<&str>, app_key: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, include_inactive: Option<bool>) -> Result<Vec<models::OfferTransactionStatusResponse>, Error<SearchOfferTransactionStatusesError>> {
+pub async fn search_offer_transaction_statuses(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>, role: Option<&str>, app_key: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, include_inactive: Option<bool>) -> Result<Vec<models::OfferTransactionStatusResponse>, Error<SearchOfferTransactionStatusesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
@@ -251,7 +247,7 @@ pub async fn search_offer_transaction_statuses(configuration: &configuration::Co
     let p_query_limit = limit;
     let p_query_include_inactive = include_inactive;
 
-    let uri_str = format!("{}/api/{version}/offer/status/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/status/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -320,9 +316,8 @@ pub async fn search_offer_transaction_statuses(configuration: &configuration::Co
 }
 
 /// Update an offer status record
-pub async fn update_offer_transaction_status(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, status_id: Option<i64>, name: Option<&str>, description: Option<&str>, code: Option<i32>, role: Option<&str>, active: Option<bool>, application_ids: Option<&str>) -> Result<models::OfferTransactionStatusResponse, Error<UpdateOfferTransactionStatusError>> {
+pub async fn update_offer_transaction_status(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, status_id: Option<i64>, name: Option<&str>, description: Option<&str>, code: Option<i32>, role: Option<&str>, active: Option<bool>, application_ids: Option<&str>) -> Result<models::OfferTransactionStatusResponse, Error<UpdateOfferTransactionStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
@@ -335,7 +330,7 @@ pub async fn update_offer_transaction_status(configuration: &configuration::Conf
     let p_query_active = active;
     let p_query_application_ids = application_ids;
 
-    let uri_str = format!("{}/api/{version}/offer/status/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/status/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

@@ -52,9 +52,8 @@ pub enum WhoHasFavoritedError {
 
 
 /// Adds an offer, offer location, retailer location, or category to your favorites.
-pub async fn add_favorite(configuration: &configuration::Configuration, version: f64, favoritable_id: i64, favoritable_type: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::WrappedResponse, Error<AddFavoriteError>> {
+pub async fn add_favorite(configuration: &configuration::Configuration, favoritable_id: i64, favoritable_type: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::WrappedResponse, Error<AddFavoriteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_favoritable_id = favoritable_id;
     let p_query_favoritable_type = favoritable_type;
     let p_query_device_id = device_id;
@@ -62,7 +61,7 @@ pub async fn add_favorite(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/favorite/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/favorite/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -109,16 +108,15 @@ pub async fn add_favorite(configuration: &configuration::Configuration, version:
 }
 
 /// Removes a favorited item from the user's favorites list.
-pub async fn delete_favorite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, favorite_id: Option<i64>, favoritable_id: Option<i64>, favoritable_type: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteFavoriteError>> {
+pub async fn delete_favorite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, favorite_id: Option<i64>, favoritable_id: Option<i64>, favoritable_type: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteFavoriteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_favorite_id = favorite_id;
     let p_query_favoritable_id = favoritable_id;
     let p_query_favoritable_type = favoritable_type;
 
-    let uri_str = format!("{}/api/{version}/favorite/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/favorite/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -166,16 +164,15 @@ pub async fn delete_favorite(configuration: &configuration::Configuration, versi
 }
 
 /// Retrieves a single favorited item.
-pub async fn get_favorite(configuration: &configuration::Configuration, version: f64, favorite_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::WrappedResponse, Error<GetFavoriteError>> {
+pub async fn get_favorite(configuration: &configuration::Configuration, favorite_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::WrappedResponse, Error<GetFavoriteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_favorite_id = favorite_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/favorite/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/favorite/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -221,9 +218,8 @@ pub async fn get_favorite(configuration: &configuration::Configuration, version:
 }
 
 /// Searches on the user's favorites.
-pub async fn search_favorites(configuration: &configuration::Configuration, version: f64, favoritable_type: &str, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, return_full_response: bool, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, secondary_type: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SearchResponse, Error<SearchFavoritesError>> {
+pub async fn search_favorites(configuration: &configuration::Configuration, favoritable_type: &str, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, return_full_response: bool, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, secondary_type: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SearchResponse, Error<SearchFavoritesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_favoritable_type = favoritable_type;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -239,7 +235,7 @@ pub async fn search_favorites(configuration: &configuration::Configuration, vers
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/favorite/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/favorite/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -300,9 +296,8 @@ pub async fn search_favorites(configuration: &configuration::Configuration, vers
 }
 
 /// Searches for everyone that has favorited an item
-pub async fn who_has_favorited(configuration: &configuration::Configuration, version: f64, favoritable_id: i64, favoritable_type: &str, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>) -> Result<Vec<models::AccountResponse>, Error<WhoHasFavoritedError>> {
+pub async fn who_has_favorited(configuration: &configuration::Configuration, favoritable_id: i64, favoritable_type: &str, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>) -> Result<Vec<models::AccountResponse>, Error<WhoHasFavoritedError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_favoritable_id = favoritable_id;
     let p_query_favoritable_type = favoritable_type;
     let p_query_start = start;
@@ -313,7 +308,7 @@ pub async fn who_has_favorited(configuration: &configuration::Configuration, ver
     let p_query_longitude = longitude;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/favorite/whois", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/favorite/whois", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

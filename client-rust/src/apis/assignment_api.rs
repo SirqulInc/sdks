@@ -94,13 +94,12 @@ pub enum AssignmentUpdateError {
 
 
 /// Search for avaiable users for creating or updating assignment.
-pub async fn assigment_assignee_account_search(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>) -> Result<Vec<models::AccountMiniResponse>, Error<AssigmentAssigneeAccountSearchError>> {
+pub async fn assigment_assignee_account_search(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>) -> Result<Vec<models::AccountMiniResponse>, Error<AssigmentAssigneeAccountSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/assignment/assignee/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/assignee/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -137,9 +136,8 @@ pub async fn assigment_assignee_account_search(configuration: &configuration::Co
 }
 
 /// Create an assignment.
-pub async fn assignment_create(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, assignee_account_id: i64, description: Option<&str>, retailer_location_id: Option<i64>, tags: Option<&str>, active: Option<bool>) -> Result<models::AssignmentResponse, Error<AssignmentCreateError>> {
+pub async fn assignment_create(configuration: &configuration::Configuration, account_id: i64, name: &str, assignee_account_id: i64, description: Option<&str>, retailer_location_id: Option<i64>, tags: Option<&str>, active: Option<bool>) -> Result<models::AssignmentResponse, Error<AssignmentCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_assignee_account_id = assignee_account_id;
@@ -148,7 +146,7 @@ pub async fn assignment_create(configuration: &configuration::Configuration, ver
     let p_query_tags = tags;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/assignment/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -196,13 +194,12 @@ pub async fn assignment_create(configuration: &configuration::Configuration, ver
 }
 
 /// Delete an assignment.
-pub async fn assignment_delete(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_id: i64) -> Result<models::SirqulResponse, Error<AssignmentDeleteError>> {
+pub async fn assignment_delete(configuration: &configuration::Configuration, account_id: i64, assignment_id: i64) -> Result<models::SirqulResponse, Error<AssignmentDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_id = assignment_id;
 
-    let uri_str = format!("{}/api/{version}/assignment/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -237,13 +234,12 @@ pub async fn assignment_delete(configuration: &configuration::Configuration, ver
 }
 
 /// Get the details of an assignment.
-pub async fn assignment_get(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_id: i64) -> Result<models::AssignmentResponse, Error<AssignmentGetError>> {
+pub async fn assignment_get(configuration: &configuration::Configuration, account_id: i64, assignment_id: i64) -> Result<models::AssignmentResponse, Error<AssignmentGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_id = assignment_id;
 
-    let uri_str = format!("{}/api/{version}/assignment/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -278,9 +274,8 @@ pub async fn assignment_get(configuration: &configuration::Configuration, versio
 }
 
 /// Search for assignments by the given parameters.
-pub async fn assignment_search(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, creator_account_id: Option<i64>, assignee_account_ids: Option<&str>, retailer_location_ids: Option<&str>, current_status_type: Option<&str>, keyword: Option<&str>) -> Result<Vec<models::AssignmentResponse>, Error<AssignmentSearchError>> {
+pub async fn assignment_search(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, creator_account_id: Option<i64>, assignee_account_ids: Option<&str>, retailer_location_ids: Option<&str>, current_status_type: Option<&str>, keyword: Option<&str>) -> Result<Vec<models::AssignmentResponse>, Error<AssignmentSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -293,7 +288,7 @@ pub async fn assignment_search(configuration: &configuration::Configuration, ver
     let p_query_current_status_type = current_status_type;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/assignment/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -347,9 +342,8 @@ pub async fn assignment_search(configuration: &configuration::Configuration, ver
 }
 
 /// Create an assignment status.
-pub async fn assignment_status_create(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_id: i64, scheduled_notification_id: Option<i64>, to_do: Option<&str>, connection: Option<&str>, method: Option<&str>, status: Option<&str>, closure: Option<&str>, message: Option<&str>, follow_up: Option<i64>, active: Option<bool>) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusCreateError>> {
+pub async fn assignment_status_create(configuration: &configuration::Configuration, account_id: i64, assignment_id: i64, scheduled_notification_id: Option<i64>, to_do: Option<&str>, connection: Option<&str>, method: Option<&str>, status: Option<&str>, closure: Option<&str>, message: Option<&str>, follow_up: Option<i64>, active: Option<bool>) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_id = assignment_id;
     let p_query_scheduled_notification_id = scheduled_notification_id;
@@ -362,7 +356,7 @@ pub async fn assignment_status_create(configuration: &configuration::Configurati
     let p_query_follow_up = follow_up;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/assignment/status/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/status/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -424,13 +418,12 @@ pub async fn assignment_status_create(configuration: &configuration::Configurati
 }
 
 /// Deletes an assignment status.
-pub async fn assignment_status_delete(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_status_id: i64) -> Result<models::SirqulResponse, Error<AssignmentStatusDeleteError>> {
+pub async fn assignment_status_delete(configuration: &configuration::Configuration, account_id: i64, assignment_status_id: i64) -> Result<models::SirqulResponse, Error<AssignmentStatusDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_status_id = assignment_status_id;
 
-    let uri_str = format!("{}/api/{version}/assignment/status/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/status/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -465,13 +458,12 @@ pub async fn assignment_status_delete(configuration: &configuration::Configurati
 }
 
 /// Get an assignment status.
-pub async fn assignment_status_get(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_status_id: i64) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusGetError>> {
+pub async fn assignment_status_get(configuration: &configuration::Configuration, account_id: i64, assignment_status_id: i64) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_status_id = assignment_status_id;
 
-    let uri_str = format!("{}/api/{version}/assignment/status/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/status/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -506,9 +498,8 @@ pub async fn assignment_status_get(configuration: &configuration::Configuration,
 }
 
 /// Search on assignment statuses.
-pub async fn assignment_status_search(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, assignment_id: Option<i64>, creator_account_id: Option<i64>, assignee_account_id: Option<i64>, retailer_location_id: Option<i64>, status_type: Option<&str>, keyword: Option<&str>) -> Result<Vec<models::AssignmentStatusResponse>, Error<AssignmentStatusSearchError>> {
+pub async fn assignment_status_search(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, assignment_id: Option<i64>, creator_account_id: Option<i64>, assignee_account_id: Option<i64>, retailer_location_id: Option<i64>, status_type: Option<&str>, keyword: Option<&str>) -> Result<Vec<models::AssignmentStatusResponse>, Error<AssignmentStatusSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -522,7 +513,7 @@ pub async fn assignment_status_search(configuration: &configuration::Configurati
     let p_query_status_type = status_type;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/assignment/status/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/status/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -579,9 +570,8 @@ pub async fn assignment_status_search(configuration: &configuration::Configurati
 }
 
 /// Updates an assignment status.
-pub async fn assignment_status_update(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_status_id: i64, scheduled_notification_id: Option<i64>, to_do: Option<&str>, connection: Option<&str>, method: Option<&str>, status: Option<&str>, closure: Option<&str>, message: Option<&str>, follow_up: Option<i64>, active: Option<bool>) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusUpdateError>> {
+pub async fn assignment_status_update(configuration: &configuration::Configuration, account_id: i64, assignment_status_id: i64, scheduled_notification_id: Option<i64>, to_do: Option<&str>, connection: Option<&str>, method: Option<&str>, status: Option<&str>, closure: Option<&str>, message: Option<&str>, follow_up: Option<i64>, active: Option<bool>) -> Result<models::AssignmentStatusResponse, Error<AssignmentStatusUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_status_id = assignment_status_id;
     let p_query_scheduled_notification_id = scheduled_notification_id;
@@ -594,7 +584,7 @@ pub async fn assignment_status_update(configuration: &configuration::Configurati
     let p_query_follow_up = follow_up;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/assignment/status/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/status/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -656,9 +646,8 @@ pub async fn assignment_status_update(configuration: &configuration::Configurati
 }
 
 /// Updates an assignment.
-pub async fn assignment_update(configuration: &configuration::Configuration, version: f64, account_id: i64, assignment_id: i64, name: Option<&str>, description: Option<&str>, assignee_account_id: Option<i64>, retailer_location_id: Option<i64>, tags: Option<&str>, active: Option<bool>) -> Result<models::AssignmentResponse, Error<AssignmentUpdateError>> {
+pub async fn assignment_update(configuration: &configuration::Configuration, account_id: i64, assignment_id: i64, name: Option<&str>, description: Option<&str>, assignee_account_id: Option<i64>, retailer_location_id: Option<i64>, tags: Option<&str>, active: Option<bool>) -> Result<models::AssignmentResponse, Error<AssignmentUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_assignment_id = assignment_id;
     let p_query_name = name;
@@ -668,7 +657,7 @@ pub async fn assignment_update(configuration: &configuration::Configuration, ver
     let p_query_tags = tags;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/assignment/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/assignment/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

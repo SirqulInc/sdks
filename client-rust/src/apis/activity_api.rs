@@ -24,12 +24,11 @@ pub enum CreateEntityReferenceError {
 
 
 /// Creates a reference for an entity for syncing data between servers.
-pub async fn create_entity_reference(configuration: &configuration::Configuration, version: f64, body: models::EntityReference) -> Result<models::ActivityResponse, Error<CreateEntityReferenceError>> {
+pub async fn create_entity_reference(configuration: &configuration::Configuration, body: models::EntityReference) -> Result<models::ActivityResponse, Error<CreateEntityReferenceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/entity/reference", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/entity/reference", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

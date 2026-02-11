@@ -80,9 +80,8 @@ pub enum SearchTrackingLegsError {
 
 
 /// Batch create tracking legs
-pub async fn batch_save_tracking(configuration: &configuration::Configuration, version: f64, data: &str, device_id: Option<&str>, account_id: Option<i64>, generate_accounts: Option<bool>, update_account_locations: Option<bool>, default_tag: Option<&str>, slave_uid: Option<&str>) -> Result<Vec<models::Leg>, Error<BatchSaveTrackingError>> {
+pub async fn batch_save_tracking(configuration: &configuration::Configuration, data: &str, device_id: Option<&str>, account_id: Option<i64>, generate_accounts: Option<bool>, update_account_locations: Option<bool>, default_tag: Option<&str>, slave_uid: Option<&str>) -> Result<Vec<models::Leg>, Error<BatchSaveTrackingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_data = data;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -91,7 +90,7 @@ pub async fn batch_save_tracking(configuration: &configuration::Configuration, v
     let p_query_default_tag = default_tag;
     let p_query_slave_uid = slave_uid;
 
-    let uri_str = format!("{}/api/{version}/tracking/batch/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/batch/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -143,9 +142,8 @@ pub async fn batch_save_tracking(configuration: &configuration::Configuration, v
 }
 
 /// Get the predicted location for a customer based on previous behavior.  If a customer resides in a place for a period of time this is marked as a preferred location.  We look back over the previous few days and the previous days of the week from the day specified.  If for instance the day was a Wednesday then this would check the days before, including: Tuesday, Monday, Sunday, etc. It will also check some number of previous Wednesdays in the past few weeks.
-pub async fn get_predicted_locations(configuration: &configuration::Configuration, version: f64, account_id: i64, latitude: Option<f64>, longitude: Option<f64>, date_check: Option<i64>, hour_check: Option<&str>, threshold: Option<i64>, distance_unit: Option<&str>, search_range: Option<f64>, sort_order: Option<&str>) -> Result<models::PredictedLocationResponse, Error<GetPredictedLocationsError>> {
+pub async fn get_predicted_locations(configuration: &configuration::Configuration, account_id: i64, latitude: Option<f64>, longitude: Option<f64>, date_check: Option<i64>, hour_check: Option<&str>, threshold: Option<i64>, distance_unit: Option<&str>, search_range: Option<f64>, sort_order: Option<&str>) -> Result<models::PredictedLocationResponse, Error<GetPredictedLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
@@ -156,7 +154,7 @@ pub async fn get_predicted_locations(configuration: &configuration::Configuratio
     let p_query_search_range = search_range;
     let p_query_sort_order = sort_order;
 
-    let uri_str = format!("{}/api/{version}/tracking/predicted/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/predicted/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -214,14 +212,13 @@ pub async fn get_predicted_locations(configuration: &configuration::Configuratio
 }
 
 /// Get the path (lat/long coordinates) between 2 steps previously logged for a customer.
-pub async fn get_predicted_path(configuration: &configuration::Configuration, version: f64, account_id: i64, start_step_id: i64, end_step_id: i64) -> Result<Vec<models::StepResponse>, Error<GetPredictedPathError>> {
+pub async fn get_predicted_path(configuration: &configuration::Configuration, account_id: i64, start_step_id: i64, end_step_id: i64) -> Result<Vec<models::StepResponse>, Error<GetPredictedPathError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start_step_id = start_step_id;
     let p_query_end_step_id = end_step_id;
 
-    let uri_str = format!("{}/api/{version}/tracking/path/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/path/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -257,9 +254,8 @@ pub async fn get_predicted_path(configuration: &configuration::Configuration, ve
 }
 
 /// Search on preferred locations for a user, which is created when a customer resides in a place for a period of time.
-pub async fn get_preferred_locations(configuration: &configuration::Configuration, version: f64, account_id: i64, latitude: Option<f64>, longitude: Option<f64>, date_check: Option<i64>, hour_check: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, search_range: Option<f64>, distance_unit: Option<&str>) -> Result<Vec<models::PreferredLocationResponse>, Error<GetPreferredLocationsError>> {
+pub async fn get_preferred_locations(configuration: &configuration::Configuration, account_id: i64, latitude: Option<f64>, longitude: Option<f64>, date_check: Option<i64>, hour_check: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, search_range: Option<f64>, distance_unit: Option<&str>) -> Result<Vec<models::PreferredLocationResponse>, Error<GetPreferredLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
@@ -272,7 +268,7 @@ pub async fn get_preferred_locations(configuration: &configuration::Configuratio
     let p_query_search_range = search_range;
     let p_query_distance_unit = distance_unit;
 
-    let uri_str = format!("{}/api/{version}/tracking/preferred/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/preferred/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -336,9 +332,8 @@ pub async fn get_preferred_locations(configuration: &configuration::Configuratio
 }
 
 /// Retrieve tracking data to be able to show where a user has been.
-pub async fn get_tracking_legs(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, owner_id: Option<i64>, tracking_device_id: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, get_last_point: Option<bool>) -> Result<Vec<models::LegResponse>, Error<GetTrackingLegsError>> {
+pub async fn get_tracking_legs(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, owner_id: Option<i64>, tracking_device_id: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, get_last_point: Option<bool>) -> Result<Vec<models::LegResponse>, Error<GetTrackingLegsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_owner_id = owner_id;
@@ -348,7 +343,7 @@ pub async fn get_tracking_legs(configuration: &configuration::Configuration, ver
     let p_query_tags = tags;
     let p_query_get_last_point = get_last_point;
 
-    let uri_str = format!("{}/api/{version}/tracking/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -405,9 +400,8 @@ pub async fn get_tracking_legs(configuration: &configuration::Configuration, ver
 }
 
 /// Send tracking points to be able to generate pathing data
-pub async fn save_tracking_leg(configuration: &configuration::Configuration, version: f64, start_lat: f64, start_lng: f64, start_date: i64, end_lat: f64, end_lng: f64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, distance: Option<f64>, duration: Option<i64>, steps: Option<&str>, tags: Option<&str>) -> Result<models::SirqulResponse, Error<SaveTrackingLegError>> {
+pub async fn save_tracking_leg(configuration: &configuration::Configuration, start_lat: f64, start_lng: f64, start_date: i64, end_lat: f64, end_lng: f64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, distance: Option<f64>, duration: Option<i64>, steps: Option<&str>, tags: Option<&str>) -> Result<models::SirqulResponse, Error<SaveTrackingLegError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start_lat = start_lat;
     let p_query_start_lng = start_lng;
     let p_query_start_date = start_date;
@@ -421,7 +415,7 @@ pub async fn save_tracking_leg(configuration: &configuration::Configuration, ver
     let p_query_steps = steps;
     let p_query_tags = tags;
 
-    let uri_str = format!("{}/api/{version}/tracking/leg/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/leg/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -478,9 +472,8 @@ pub async fn save_tracking_leg(configuration: &configuration::Configuration, ver
 }
 
 /// Send tracking points to be able to generate pathing data
-pub async fn save_tracking_step(configuration: &configuration::Configuration, version: f64, leg_id: i64, start_lat: f64, start_lng: f64, start_date: i64, end_lat: f64, end_lng: f64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, distance: Option<f64>, duration: Option<i64>) -> Result<models::SirqulResponse, Error<SaveTrackingStepError>> {
+pub async fn save_tracking_step(configuration: &configuration::Configuration, leg_id: i64, start_lat: f64, start_lng: f64, start_date: i64, end_lat: f64, end_lng: f64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, distance: Option<f64>, duration: Option<i64>) -> Result<models::SirqulResponse, Error<SaveTrackingStepError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_leg_id = leg_id;
     let p_query_start_lat = start_lat;
     let p_query_start_lng = start_lng;
@@ -493,7 +486,7 @@ pub async fn save_tracking_step(configuration: &configuration::Configuration, ve
     let p_query_distance = distance;
     let p_query_duration = duration;
 
-    let uri_str = format!("{}/api/{version}/tracking/step/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/step/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -545,9 +538,8 @@ pub async fn save_tracking_step(configuration: &configuration::Configuration, ve
 }
 
 /// Search for all accounts that have tracking legs data by the given constraints.
-pub async fn search_accounts_with_tracking_legs(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, audience_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::AccountMiniResponse>, Error<SearchAccountsWithTrackingLegsError>> {
+pub async fn search_accounts_with_tracking_legs(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, audience_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::AccountMiniResponse>, Error<SearchAccountsWithTrackingLegsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_start_date = start_date;
@@ -563,7 +555,7 @@ pub async fn search_accounts_with_tracking_legs(configuration: &configuration::C
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/tracking/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -636,9 +628,8 @@ pub async fn search_accounts_with_tracking_legs(configuration: &configuration::C
 }
 
 /// Retrieve tracking data for billable/account scoped queries.
-pub async fn search_tracking_legs(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, tracking_device_id: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::LegResponse>, Error<SearchTrackingLegsError>> {
+pub async fn search_tracking_legs(configuration: &configuration::Configuration, account_id: i64, app_key: &str, tracking_device_id: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, tags: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::LegResponse>, Error<SearchTrackingLegsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_tracking_device_id = tracking_device_id;
@@ -648,7 +639,7 @@ pub async fn search_tracking_legs(configuration: &configuration::Configuration, 
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/tracking/searchByBillable", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tracking/searchByBillable", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

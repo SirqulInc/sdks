@@ -59,9 +59,8 @@ pub enum UpdateListingError {
 
 
 /// Creates a listing.
-pub async fn create_listing(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, filter_ids: Option<&str>, description: Option<&str>, start: Option<i64>, end: Option<i64>, location_name: Option<&str>, location_description: Option<&str>, is_private: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::ListingFullResponse, Error<CreateListingError>> {
+pub async fn create_listing(configuration: &configuration::Configuration, account_id: i64, name: &str, filter_ids: Option<&str>, description: Option<&str>, start: Option<i64>, end: Option<i64>, location_name: Option<&str>, location_description: Option<&str>, is_private: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::ListingFullResponse, Error<CreateListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_filter_ids = filter_ids;
@@ -77,7 +76,7 @@ pub async fn create_listing(configuration: &configuration::Configuration, versio
     let p_query_active = active;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/listing/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -148,13 +147,12 @@ pub async fn create_listing(configuration: &configuration::Configuration, versio
 }
 
 /// Delete a listing.
-pub async fn delete_listing(configuration: &configuration::Configuration, version: f64, account_id: i64, listing_id: i64) -> Result<models::SirqulResponse, Error<DeleteListingError>> {
+pub async fn delete_listing(configuration: &configuration::Configuration, account_id: i64, listing_id: i64) -> Result<models::SirqulResponse, Error<DeleteListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_listing_id = listing_id;
 
-    let uri_str = format!("{}/api/{version}/listing/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -189,12 +187,11 @@ pub async fn delete_listing(configuration: &configuration::Configuration, versio
 }
 
 /// Get a listing by id.
-pub async fn get_listing(configuration: &configuration::Configuration, version: f64, listing_id: i64) -> Result<models::ListingFullResponse, Error<GetListingError>> {
+pub async fn get_listing(configuration: &configuration::Configuration, listing_id: i64) -> Result<models::ListingFullResponse, Error<GetListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_listing_id = listing_id;
 
-    let uri_str = format!("{}/api/{version}/listing/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("listingId", &p_query_listing_id.to_string())]);
@@ -228,9 +225,8 @@ pub async fn get_listing(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for event listings from the start time to end time
-pub async fn search_listing(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, start_date: Option<i64>, end_date: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, use_listing_order_ids: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>) -> Result<Vec<models::ListingResponse>, Error<SearchListingError>> {
+pub async fn search_listing(configuration: &configuration::Configuration, account_id: Option<i64>, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, start_date: Option<i64>, end_date: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, use_listing_order_ids: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>) -> Result<Vec<models::ListingResponse>, Error<SearchListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_start = start;
@@ -247,7 +243,7 @@ pub async fn search_listing(configuration: &configuration::Configuration, versio
     let p_query_external_id2 = external_id2;
     let p_query_external_group_id = external_group_id;
 
-    let uri_str = format!("{}/api/{version}/listing/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -325,16 +321,15 @@ pub async fn search_listing(configuration: &configuration::Configuration, versio
 }
 
 /// Search for a list of summary listings from the start time up to 8 days out.
-pub async fn summary_listing(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, start_date: Option<i64>, category_ids: Option<&str>, days_to_include: Option<i32>, use_listing_order_ids: Option<bool>) -> Result<Vec<models::ListingGroupResponse>, Error<SummaryListingError>> {
+pub async fn summary_listing(configuration: &configuration::Configuration, account_id: Option<i64>, start_date: Option<i64>, category_ids: Option<&str>, days_to_include: Option<i32>, use_listing_order_ids: Option<bool>) -> Result<Vec<models::ListingGroupResponse>, Error<SummaryListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start_date = start_date;
     let p_query_category_ids = category_ids;
     let p_query_days_to_include = days_to_include;
     let p_query_use_listing_order_ids = use_listing_order_ids;
 
-    let uri_str = format!("{}/api/{version}/listing/summary", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/summary", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -382,9 +377,8 @@ pub async fn summary_listing(configuration: &configuration::Configuration, versi
 }
 
 /// Updates a listing.
-pub async fn update_listing(configuration: &configuration::Configuration, version: f64, account_id: i64, listing_id: i64, filter_ids: Option<&str>, name: Option<&str>, description: Option<&str>, start: Option<i64>, end: Option<i64>, location_name: Option<&str>, location_description: Option<&str>, is_private: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::ListingFullResponse, Error<UpdateListingError>> {
+pub async fn update_listing(configuration: &configuration::Configuration, account_id: i64, listing_id: i64, filter_ids: Option<&str>, name: Option<&str>, description: Option<&str>, start: Option<i64>, end: Option<i64>, location_name: Option<&str>, location_description: Option<&str>, is_private: Option<bool>, external_id: Option<&str>, external_id2: Option<&str>, external_group_id: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::ListingFullResponse, Error<UpdateListingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_listing_id = listing_id;
     let p_query_filter_ids = filter_ids;
@@ -401,7 +395,7 @@ pub async fn update_listing(configuration: &configuration::Configuration, versio
     let p_query_active = active;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/listing/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/listing/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

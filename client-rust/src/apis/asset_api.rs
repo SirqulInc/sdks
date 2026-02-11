@@ -73,12 +73,11 @@ pub enum UpdateAssetError {
 
 
 /// Downloads an asset from the server for assets that have been uploaded to the server.
-pub async fn asset_download(configuration: &configuration::Configuration, version: f64, filename: &str) -> Result<models::SirqulResponse, Error<AssetDownloadError>> {
+pub async fn asset_download(configuration: &configuration::Configuration, filename: &str) -> Result<models::SirqulResponse, Error<AssetDownloadError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_filename = filename;
 
-    let uri_str = format!("{}/api/{version}/asset/download/{filename}", configuration.base_path, version=p_path_version, filename=crate::apis::urlencode(p_path_filename));
+    let uri_str = format!("{}/asset/download/{filename}", configuration.base_path, filename=crate::apis::urlencode(p_path_filename));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -111,9 +110,8 @@ pub async fn asset_download(configuration: &configuration::Configuration, versio
 }
 
 /// Converts an offer image + text into a creative image.
-pub async fn asset_morph(configuration: &configuration::Configuration, version: f64, offer_id: i64, ad_size: &str, creative_id: Option<i64>, width: Option<i32>, height: Option<i32>, background_size: Option<&str>, template: Option<&str>) -> Result<models::AssetShortResponse, Error<AssetMorphError>> {
+pub async fn asset_morph(configuration: &configuration::Configuration, offer_id: i64, ad_size: &str, creative_id: Option<i64>, width: Option<i32>, height: Option<i32>, background_size: Option<&str>, template: Option<&str>) -> Result<models::AssetShortResponse, Error<AssetMorphError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_id = offer_id;
     let p_query_ad_size = ad_size;
     let p_query_creative_id = creative_id;
@@ -122,7 +120,7 @@ pub async fn asset_morph(configuration: &configuration::Configuration, version: 
     let p_query_background_size = background_size;
     let p_query_template = template;
 
-    let uri_str = format!("{}/api/{version}/asset/morph", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/morph", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("offerId", &p_query_offer_id.to_string())]);
@@ -172,9 +170,8 @@ pub async fn asset_morph(configuration: &configuration::Configuration, version: 
 }
 
 /// Uploads an asset to server and returns an asset id which can be used to assign to various objects.
-pub async fn create_asset(configuration: &configuration::Configuration, version: f64, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, collection_id: Option<i64>, add_to_default_album: Option<&str>, add_to_media_library: Option<bool>, version_code: Option<i32>, version_name: Option<&str>, meta_data: Option<&str>, caption: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, media_string: Option<&str>, media_string_file_name: Option<&str>, media_string_content_type: Option<&str>, media_height: Option<i32>, media_width: Option<i32>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, attached_media_string: Option<&str>, attached_media_string_file_name: Option<&str>, attached_media_string_content_type: Option<&str>, attached_media_height: Option<i32>, attached_media_width: Option<i32>, location_description: Option<&str>, app: Option<&str>, app_key: Option<&str>, search_tags: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AssetResponse, Error<CreateAssetError>> {
+pub async fn create_asset(configuration: &configuration::Configuration, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, collection_id: Option<i64>, add_to_default_album: Option<&str>, add_to_media_library: Option<bool>, version_code: Option<i32>, version_name: Option<&str>, meta_data: Option<&str>, caption: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, media_string: Option<&str>, media_string_file_name: Option<&str>, media_string_content_type: Option<&str>, media_height: Option<i32>, media_width: Option<i32>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, attached_media_string: Option<&str>, attached_media_string_file_name: Option<&str>, attached_media_string_content_type: Option<&str>, attached_media_height: Option<i32>, attached_media_width: Option<i32>, location_description: Option<&str>, app: Option<&str>, app_key: Option<&str>, search_tags: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AssetResponse, Error<CreateAssetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -210,7 +207,7 @@ pub async fn create_asset(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/asset/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_return_nulls {
@@ -345,16 +342,15 @@ pub async fn create_asset(configuration: &configuration::Configuration, version:
 }
 
 /// Delete an asset.
-pub async fn delete_asset(configuration: &configuration::Configuration, version: f64, asset_id: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteAssetError>> {
+pub async fn delete_asset(configuration: &configuration::Configuration, asset_id: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteAssetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_asset_id = asset_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/asset/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -400,15 +396,14 @@ pub async fn delete_asset(configuration: &configuration::Configuration, version:
 }
 
 /// Gets the full asset response including attached likes and notes.
-pub async fn get_asset(configuration: &configuration::Configuration, version: f64, asset_id: i64, device_id: Option<&str>, account_id: Option<i64>, note_descending: Option<bool>) -> Result<models::AssetFullResponse, Error<GetAssetError>> {
+pub async fn get_asset(configuration: &configuration::Configuration, asset_id: i64, device_id: Option<&str>, account_id: Option<i64>, note_descending: Option<bool>) -> Result<models::AssetFullResponse, Error<GetAssetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_asset_id = asset_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_note_descending = note_descending;
 
-    let uri_str = format!("{}/api/{version}/asset/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -451,9 +446,8 @@ pub async fn get_asset(configuration: &configuration::Configuration, version: f6
 }
 
 /// Remove assets from collections
-pub async fn remove_asset(configuration: &configuration::Configuration, version: f64, asset_id: &str, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, collection_id: Option<i64>, remove_from_default_albums: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveAssetError>> {
+pub async fn remove_asset(configuration: &configuration::Configuration, asset_id: &str, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, collection_id: Option<i64>, remove_from_default_albums: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveAssetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_asset_id = asset_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -463,7 +457,7 @@ pub async fn remove_asset(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/asset/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -518,9 +512,8 @@ pub async fn remove_asset(configuration: &configuration::Configuration, version:
 }
 
 /// Searches for assets
-pub async fn search_assets(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, album_ids: Option<&str>, asset_ids: Option<&str>, app_key: Option<&str>, media_type: Option<&str>, mime_type: Option<&str>, keyword: Option<&str>, version_code: Option<i32>, version_name: Option<&str>, updated_since: Option<i64>, updated_before: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, search_media_library: Option<bool>, filter_by_billable: Option<bool>, active_only: Option<bool>, return_app: Option<bool>, start: Option<i32>, limit: Option<i32>, search_mode: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>) -> Result<Vec<models::AssetResponse>, Error<SearchAssetsError>> {
+pub async fn search_assets(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, album_ids: Option<&str>, asset_ids: Option<&str>, app_key: Option<&str>, media_type: Option<&str>, mime_type: Option<&str>, keyword: Option<&str>, version_code: Option<i32>, version_name: Option<&str>, updated_since: Option<i64>, updated_before: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, search_media_library: Option<bool>, filter_by_billable: Option<bool>, active_only: Option<bool>, return_app: Option<bool>, start: Option<i32>, limit: Option<i32>, search_mode: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>) -> Result<Vec<models::AssetResponse>, Error<SearchAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_album_ids = album_ids;
@@ -546,7 +539,7 @@ pub async fn search_assets(configuration: &configuration::Configuration, version
     let p_query_approval_status = approval_status;
     let p_query_assigned_account_id = assigned_account_id;
 
-    let uri_str = format!("{}/api/{version}/asset/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -651,9 +644,8 @@ pub async fn search_assets(configuration: &configuration::Configuration, version
 }
 
 /// Updates an asset's meta data. If an album reference is passed in, the participants with write permissions are allowed to edit the asset. Otherwise, only the asset up-loader has permission to edit the data.
-pub async fn update_asset(configuration: &configuration::Configuration, version: f64, asset_id: i64, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, attached_asset_id: Option<i64>, version_code: Option<i32>, version_name: Option<&str>, meta_data: Option<&str>, caption: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, media_string: Option<&str>, media_string_file_name: Option<&str>, media_string_content_type: Option<&str>, media_height: Option<i32>, media_width: Option<i32>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, attached_media_string: Option<&str>, attached_media_string_file_name: Option<&str>, attached_media_string_content_type: Option<&str>, attached_media_height: Option<i32>, attached_media_width: Option<i32>, location_description: Option<&str>, search_tags: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<UpdateAssetError>> {
+pub async fn update_asset(configuration: &configuration::Configuration, asset_id: i64, device_id: Option<&str>, account_id: Option<i64>, album_id: Option<i64>, attached_asset_id: Option<i64>, version_code: Option<i32>, version_name: Option<&str>, meta_data: Option<&str>, caption: Option<&str>, asset_type: Option<&str>, approval_status: Option<&str>, assigned_account_id: Option<i64>, media: Option<std::path::PathBuf>, media_url: Option<&str>, media_string: Option<&str>, media_string_file_name: Option<&str>, media_string_content_type: Option<&str>, media_height: Option<i32>, media_width: Option<i32>, attached_media: Option<std::path::PathBuf>, attached_media_url: Option<&str>, attached_media_string: Option<&str>, attached_media_string_file_name: Option<&str>, attached_media_string_content_type: Option<&str>, attached_media_height: Option<i32>, attached_media_width: Option<i32>, location_description: Option<&str>, search_tags: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<UpdateAssetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_asset_id = asset_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -686,7 +678,7 @@ pub async fn update_asset(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/asset/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/asset/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

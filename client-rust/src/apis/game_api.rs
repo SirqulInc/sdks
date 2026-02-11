@@ -52,9 +52,8 @@ pub enum UpdateGameError {
 
 
 /// Create a Game.
-pub async fn create_game(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>, pack_ids: Option<&str>, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<CreateGameError>> {
+pub async fn create_game(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>, pack_ids: Option<&str>, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<CreateGameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_title = title;
@@ -63,7 +62,7 @@ pub async fn create_game(configuration: &configuration::Configuration, version: 
     let p_query_pack_ids = pack_ids;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/game/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -117,13 +116,12 @@ pub async fn create_game(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete a game.
-pub async fn delete_game(configuration: &configuration::Configuration, version: f64, account_id: i64, game_id: i64) -> Result<models::SirqulResponse, Error<DeleteGameError>> {
+pub async fn delete_game(configuration: &configuration::Configuration, account_id: i64, game_id: i64) -> Result<models::SirqulResponse, Error<DeleteGameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_game_id = game_id;
 
-    let uri_str = format!("{}/api/{version}/game/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -158,14 +156,13 @@ pub async fn delete_game(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a Game by id.
-pub async fn get_game(configuration: &configuration::Configuration, version: f64, account_id: i64, game_id: i64, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<GetGameError>> {
+pub async fn get_game(configuration: &configuration::Configuration, account_id: i64, game_id: i64, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<GetGameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_game_id = game_id;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/game/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -203,9 +200,8 @@ pub async fn get_game(configuration: &configuration::Configuration, version: f64
 }
 
 /// Get a list of games for an application, just those the account has permissions to view.
-pub async fn search_games(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, start: i32, limit: i32, keyword: Option<&str>, app_version: Option<&str>, include_game_data: Option<bool>, include_inactive: Option<bool>) -> Result<models::GameResponse, Error<SearchGamesError>> {
+pub async fn search_games(configuration: &configuration::Configuration, account_id: i64, app_key: &str, start: i32, limit: i32, keyword: Option<&str>, app_version: Option<&str>, include_game_data: Option<bool>, include_inactive: Option<bool>) -> Result<models::GameResponse, Error<SearchGamesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_start = start;
@@ -215,7 +211,7 @@ pub async fn search_games(configuration: &configuration::Configuration, version:
     let p_query_include_game_data = include_game_data;
     let p_query_include_inactive = include_inactive;
 
-    let uri_str = format!("{}/api/{version}/game/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -264,9 +260,8 @@ pub async fn search_games(configuration: &configuration::Configuration, version:
 }
 
 /// Update a Game
-pub async fn update_game(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, game_id: Option<i64>, app_key: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>, pack_ids: Option<&str>, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<UpdateGameError>> {
+pub async fn update_game(configuration: &configuration::Configuration, account_id: Option<i64>, game_id: Option<i64>, app_key: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>, pack_ids: Option<&str>, include_game_data: Option<bool>) -> Result<models::GameResponse, Error<UpdateGameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_game_id = game_id;
     let p_query_app_key = app_key;
@@ -276,7 +271,7 @@ pub async fn update_game(configuration: &configuration::Configuration, version: 
     let p_query_pack_ids = pack_ids;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/game/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {

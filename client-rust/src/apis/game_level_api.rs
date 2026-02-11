@@ -87,9 +87,8 @@ pub enum UpdateWordsInLevelError {
 
 
 /// Create a game level. Currently does NOT support game objects.
-pub async fn create_game_level(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, game_data: &str, game_data_suffix: &str, app_key: Option<&str>, description: Option<&str>, difficulty: Option<&str>, app_version: Option<&str>, asset_image_id: Option<i64>, asset_icon_id: Option<i64>, visibility: Option<&str>, friend_group: Option<bool>, connection_ids: Option<&str>, connection_group_ids: Option<&str>, balance: Option<f64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, tutorial_title: Option<&str>, tutorial_message: Option<&str>, tutorial_alignment: Option<&str>, tutorial_image_asset_id: Option<i64>, offer_id: Option<i64>, meta_data: Option<&str>) -> Result<models::GameLevelResponse, Error<CreateGameLevelError>> {
+pub async fn create_game_level(configuration: &configuration::Configuration, account_id: i64, name: &str, game_data: &str, game_data_suffix: &str, app_key: Option<&str>, description: Option<&str>, difficulty: Option<&str>, app_version: Option<&str>, asset_image_id: Option<i64>, asset_icon_id: Option<i64>, visibility: Option<&str>, friend_group: Option<bool>, connection_ids: Option<&str>, connection_group_ids: Option<&str>, balance: Option<f64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, tutorial_title: Option<&str>, tutorial_message: Option<&str>, tutorial_alignment: Option<&str>, tutorial_image_asset_id: Option<i64>, offer_id: Option<i64>, meta_data: Option<&str>) -> Result<models::GameLevelResponse, Error<CreateGameLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_game_data = game_data;
@@ -117,7 +116,7 @@ pub async fn create_game_level(configuration: &configuration::Configuration, ver
     let p_query_offer_id = offer_id;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/level/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -220,13 +219,12 @@ pub async fn create_game_level(configuration: &configuration::Configuration, ver
 }
 
 /// Delete a game level. The level and account must be valid and have the appropirate permissions to view the content.
-pub async fn delete_game_level(configuration: &configuration::Configuration, version: f64, account_id: i64, level_id: i64) -> Result<models::SirqulResponse, Error<DeleteGameLevelError>> {
+pub async fn delete_game_level(configuration: &configuration::Configuration, account_id: i64, level_id: i64) -> Result<models::SirqulResponse, Error<DeleteGameLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_level_id = level_id;
 
-    let uri_str = format!("{}/api/{version}/level/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -261,14 +259,13 @@ pub async fn delete_game_level(configuration: &configuration::Configuration, ver
 }
 
 /// Get a game level. The level and account must be valid and have the appropirate permissions to view the content.
-pub async fn get_game_level(configuration: &configuration::Configuration, version: f64, account_id: i64, level_id: i64, include_game_data: Option<bool>) -> Result<models::GameLevelResponse, Error<GetGameLevelError>> {
+pub async fn get_game_level(configuration: &configuration::Configuration, account_id: i64, level_id: i64, include_game_data: Option<bool>) -> Result<models::GameLevelResponse, Error<GetGameLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_level_id = level_id;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/level/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -306,9 +303,8 @@ pub async fn get_game_level(configuration: &configuration::Configuration, versio
 }
 
 /// Get a list of levels for an application, just those the account has permissions to view.
-pub async fn get_game_levels_by_application(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, app_version: Option<&str>, include_game_data: Option<bool>, filters: Option<&str>) -> Result<models::GameLevelListResponse, Error<GetGameLevelsByApplicationError>> {
+pub async fn get_game_levels_by_application(configuration: &configuration::Configuration, account_id: i64, app_key: &str, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, app_version: Option<&str>, include_game_data: Option<bool>, filters: Option<&str>) -> Result<models::GameLevelListResponse, Error<GetGameLevelsByApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_keyword = keyword;
@@ -320,7 +316,7 @@ pub async fn get_game_levels_by_application(configuration: &configuration::Confi
     let p_query_include_game_data = include_game_data;
     let p_query_filters = filters;
 
-    let uri_str = format!("{}/api/{version}/level/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -379,9 +375,8 @@ pub async fn get_game_levels_by_application(configuration: &configuration::Confi
 }
 
 /// Searches on game levels that the logged in user has access to. A user would have access if the creator of the game level is managed under the same BillableEntity.
-pub async fn get_game_levels_by_billable_entity(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, active_only: Option<bool>, start: Option<i64>, limit: Option<i64>) -> Result<models::GameLevelResponse, Error<GetGameLevelsByBillableEntityError>> {
+pub async fn get_game_levels_by_billable_entity(configuration: &configuration::Configuration, account_id: i64, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, active_only: Option<bool>, start: Option<i64>, limit: Option<i64>) -> Result<models::GameLevelResponse, Error<GetGameLevelsByBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_keyword = keyword;
@@ -391,7 +386,7 @@ pub async fn get_game_levels_by_billable_entity(configuration: &configuration::C
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/level/searchByBillableEntity", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/searchByBillableEntity", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -446,13 +441,12 @@ pub async fn get_game_levels_by_billable_entity(configuration: &configuration::C
 }
 
 /// Get questions within a level.
-pub async fn get_questions_in_level(configuration: &configuration::Configuration, version: f64, level_id: i64, account_id: i64) -> Result<models::QuestionResponse, Error<GetQuestionsInLevelError>> {
+pub async fn get_questions_in_level(configuration: &configuration::Configuration, level_id: i64, account_id: i64) -> Result<models::QuestionResponse, Error<GetQuestionsInLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_level_id = level_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/level/questions/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/questions/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("levelId", &p_query_level_id.to_string())]);
@@ -487,13 +481,12 @@ pub async fn get_questions_in_level(configuration: &configuration::Configuration
 }
 
 /// Get words within a level.
-pub async fn get_words_in_level(configuration: &configuration::Configuration, version: f64, level_id: i64, account_id: i64) -> Result<models::WordzWordResponse, Error<GetWordsInLevelError>> {
+pub async fn get_words_in_level(configuration: &configuration::Configuration, level_id: i64, account_id: i64) -> Result<models::WordzWordResponse, Error<GetWordsInLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_level_id = level_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/level/words/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/words/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("levelId", &p_query_level_id.to_string())]);
@@ -528,9 +521,8 @@ pub async fn get_words_in_level(configuration: &configuration::Configuration, ve
 }
 
 /// Update a game level. Currently does NOT support game objects.
-pub async fn update_game_level(configuration: &configuration::Configuration, version: f64, account_id: i64, level_id: i64, app_key: Option<&str>, name: Option<&str>, description: Option<&str>, difficulty: Option<&str>, app_version: Option<&str>, asset_image_id: Option<i64>, asset_icon_id: Option<i64>, game_data: Option<&str>, game_data_suffix: Option<&str>, visibility: Option<&str>, friend_group: Option<bool>, connection_ids: Option<&str>, connection_group_ids: Option<&str>, balance: Option<f64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, tutorial_title: Option<&str>, tutorial_message: Option<&str>, tutorial_alignment: Option<&str>, tutorial_image_asset_id: Option<i64>, offer_id: Option<i64>, meta_data: Option<&str>) -> Result<models::GameLevelResponse, Error<UpdateGameLevelError>> {
+pub async fn update_game_level(configuration: &configuration::Configuration, account_id: i64, level_id: i64, app_key: Option<&str>, name: Option<&str>, description: Option<&str>, difficulty: Option<&str>, app_version: Option<&str>, asset_image_id: Option<i64>, asset_icon_id: Option<i64>, game_data: Option<&str>, game_data_suffix: Option<&str>, visibility: Option<&str>, friend_group: Option<bool>, connection_ids: Option<&str>, connection_group_ids: Option<&str>, balance: Option<f64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, tutorial_title: Option<&str>, tutorial_message: Option<&str>, tutorial_alignment: Option<&str>, tutorial_image_asset_id: Option<i64>, offer_id: Option<i64>, meta_data: Option<&str>) -> Result<models::GameLevelResponse, Error<UpdateGameLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_level_id = level_id;
     let p_query_app_key = app_key;
@@ -559,7 +551,7 @@ pub async fn update_game_level(configuration: &configuration::Configuration, ver
     let p_query_offer_id = offer_id;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/level/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -669,14 +661,13 @@ pub async fn update_game_level(configuration: &configuration::Configuration, ver
 }
 
 /// Updates a level with question game objects.
-pub async fn update_questions_in_level(configuration: &configuration::Configuration, version: f64, level_id: i64, account_id: i64, question_ids: &str) -> Result<models::SirqulResponse, Error<UpdateQuestionsInLevelError>> {
+pub async fn update_questions_in_level(configuration: &configuration::Configuration, level_id: i64, account_id: i64, question_ids: &str) -> Result<models::SirqulResponse, Error<UpdateQuestionsInLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_level_id = level_id;
     let p_query_account_id = account_id;
     let p_query_question_ids = question_ids;
 
-    let uri_str = format!("{}/api/{version}/level/questions/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/questions/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("levelId", &p_query_level_id.to_string())]);
@@ -712,14 +703,13 @@ pub async fn update_questions_in_level(configuration: &configuration::Configurat
 }
 
 /// Updates a level with word game objects.
-pub async fn update_words_in_level(configuration: &configuration::Configuration, version: f64, level_id: i64, account_id: i64, word_ids: &str) -> Result<models::SirqulResponse, Error<UpdateWordsInLevelError>> {
+pub async fn update_words_in_level(configuration: &configuration::Configuration, level_id: i64, account_id: i64, word_ids: &str) -> Result<models::SirqulResponse, Error<UpdateWordsInLevelError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_level_id = level_id;
     let p_query_account_id = account_id;
     let p_query_word_ids = word_ids;
 
-    let uri_str = format!("{}/api/{version}/level/words/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/level/words/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("levelId", &p_query_level_id.to_string())]);

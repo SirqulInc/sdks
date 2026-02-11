@@ -53,12 +53,11 @@ pub enum UpdateCargoTypeError {
 
 
 /// Create new cargo type
-pub async fn create_cargo_type(configuration: &configuration::Configuration, version: f64, body: Option<models::CargoType>) -> Result<models::CargoType, Error<CreateCargoTypeError>> {
+pub async fn create_cargo_type(configuration: &configuration::Configuration, body: Option<models::CargoType>) -> Result<models::CargoType, Error<CreateCargoTypeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/cargo/type", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/cargo/type", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -92,12 +91,11 @@ pub async fn create_cargo_type(configuration: &configuration::Configuration, ver
 }
 
 /// Delete a type of cargo
-pub async fn delete_cargo_type(configuration: &configuration::Configuration, version: f64, cargo_type_id: i64) -> Result<(), Error<DeleteCargoTypeError>> {
+pub async fn delete_cargo_type(configuration: &configuration::Configuration, cargo_type_id: i64) -> Result<(), Error<DeleteCargoTypeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_cargo_type_id = cargo_type_id;
 
-    let uri_str = format!("{}/api/{version}/cargo/type/{cargoTypeId}", configuration.base_path, version=p_path_version, cargoTypeId=p_path_cargo_type_id);
+    let uri_str = format!("{}/cargo/type/{cargoTypeId}", configuration.base_path, cargoTypeId=p_path_cargo_type_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -119,12 +117,11 @@ pub async fn delete_cargo_type(configuration: &configuration::Configuration, ver
 }
 
 /// Get an existing cargo type
-pub async fn get_cargo_type(configuration: &configuration::Configuration, version: f64, cargo_type_id: i64) -> Result<models::CargoType, Error<GetCargoTypeError>> {
+pub async fn get_cargo_type(configuration: &configuration::Configuration, cargo_type_id: i64) -> Result<models::CargoType, Error<GetCargoTypeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_cargo_type_id = cargo_type_id;
 
-    let uri_str = format!("{}/api/{version}/cargo/type/{cargoTypeId}", configuration.base_path, version=p_path_version, cargoTypeId=p_path_cargo_type_id);
+    let uri_str = format!("{}/cargo/type/{cargoTypeId}", configuration.base_path, cargoTypeId=p_path_cargo_type_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -157,9 +154,8 @@ pub async fn get_cargo_type(configuration: &configuration::Configuration, versio
 }
 
 /// Search for types of cargo
-pub async fn search_cargo_types(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, retailer_id: Option<i64>, hub_id: Option<i64>) -> Result<Vec<models::CargoType>, Error<SearchCargoTypesError>> {
+pub async fn search_cargo_types(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, retailer_id: Option<i64>, hub_id: Option<i64>) -> Result<Vec<models::CargoType>, Error<SearchCargoTypesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -168,7 +164,7 @@ pub async fn search_cargo_types(configuration: &configuration::Configuration, ve
     let p_query_retailer_id = retailer_id;
     let p_query_hub_id = hub_id;
 
-    let uri_str = format!("{}/api/{version}/cargo/type", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/cargo/type", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_retailer_id {
@@ -212,13 +208,12 @@ pub async fn search_cargo_types(configuration: &configuration::Configuration, ve
 }
 
 /// Update an existing cargo type
-pub async fn update_cargo_type(configuration: &configuration::Configuration, version: f64, cargo_type_id: i64, body: Option<models::CargoType>) -> Result<models::CargoType, Error<UpdateCargoTypeError>> {
+pub async fn update_cargo_type(configuration: &configuration::Configuration, cargo_type_id: i64, body: Option<models::CargoType>) -> Result<models::CargoType, Error<UpdateCargoTypeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_cargo_type_id = cargo_type_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/cargo/type/{cargoTypeId}", configuration.base_path, version=p_path_version, cargoTypeId=p_path_cargo_type_id);
+    let uri_str = format!("{}/cargo/type/{cargoTypeId}", configuration.base_path, cargoTypeId=p_path_cargo_type_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

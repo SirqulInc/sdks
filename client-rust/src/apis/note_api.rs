@@ -59,16 +59,15 @@ pub enum UpdateNoteError {
 
 
 /// Perform a batch operation on notes for a notable object (for example: DELETE_ALL_NOTES_IN_NOTABLE). 
-pub async fn batch_operation(configuration: &configuration::Configuration, version: f64, notable_id: i64, notable_type: &str, device_id: Option<&str>, account_id: Option<i64>, batch_operation: Option<&str>) -> Result<models::SirqulResponse, Error<BatchOperationError>> {
+pub async fn batch_operation(configuration: &configuration::Configuration, notable_id: i64, notable_type: &str, device_id: Option<&str>, account_id: Option<i64>, batch_operation: Option<&str>) -> Result<models::SirqulResponse, Error<BatchOperationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_notable_id = notable_id;
     let p_query_notable_type = notable_type;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_batch_operation = batch_operation;
 
-    let uri_str = format!("{}/api/{version}/note/batch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/batch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -112,9 +111,8 @@ pub async fn batch_operation(configuration: &configuration::Configuration, versi
 }
 
 /// This is used to leave a comment (note) on a notable object (i.e. albums, album contests, assets, game levels, offers, offer locations, retailers, retailer locations, and theme descriptors). Leaving a comment on a notable object will be visiable to everyone who has access to view the object.
-pub async fn create_note(configuration: &configuration::Configuration, version: f64, comment: &str, device_id: Option<&str>, account_id: Option<i64>, notable_type: Option<&str>, notable_id: Option<i64>, note_type: Option<&str>, asset_ids: Option<&str>, tags: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, app_key: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, receiver_account_ids: Option<&str>, return_full_response: Option<bool>, initialize_asset: Option<bool>, asset_return_nulls: Option<bool>, asset_album_id: Option<i64>, asset_collection_id: Option<i64>, asset_add_to_default_album: Option<&str>, asset_add_to_media_library: Option<bool>, asset_version_code: Option<i32>, asset_version_name: Option<&str>, asset_meta_data: Option<&str>, asset_caption: Option<&str>, asset_media: Option<std::path::PathBuf>, asset_media_url: Option<&str>, asset_media_string: Option<&str>, asset_media_string_file_name: Option<&str>, asset_media_string_content_type: Option<&str>, asset_attached_media: Option<std::path::PathBuf>, asset_attached_media_url: Option<&str>, asset_attached_media_string: Option<&str>, asset_attached_media_string_file_name: Option<&str>, asset_attached_media_string_content_type: Option<&str>, asset_location_description: Option<&str>, asset_app: Option<&str>, asset_search_tags: Option<&str>, asset_latitude: Option<f64>, asset_longitude: Option<f64>) -> Result<models::NoteResponse, Error<CreateNoteError>> {
+pub async fn create_note(configuration: &configuration::Configuration, comment: &str, device_id: Option<&str>, account_id: Option<i64>, notable_type: Option<&str>, notable_id: Option<i64>, note_type: Option<&str>, asset_ids: Option<&str>, tags: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, app_key: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, receiver_account_ids: Option<&str>, return_full_response: Option<bool>, initialize_asset: Option<bool>, asset_return_nulls: Option<bool>, asset_album_id: Option<i64>, asset_collection_id: Option<i64>, asset_add_to_default_album: Option<&str>, asset_add_to_media_library: Option<bool>, asset_version_code: Option<i32>, asset_version_name: Option<&str>, asset_meta_data: Option<&str>, asset_caption: Option<&str>, asset_media: Option<std::path::PathBuf>, asset_media_url: Option<&str>, asset_media_string: Option<&str>, asset_media_string_file_name: Option<&str>, asset_media_string_content_type: Option<&str>, asset_attached_media: Option<std::path::PathBuf>, asset_attached_media_url: Option<&str>, asset_attached_media_string: Option<&str>, asset_attached_media_string_file_name: Option<&str>, asset_attached_media_string_content_type: Option<&str>, asset_location_description: Option<&str>, asset_app: Option<&str>, asset_search_tags: Option<&str>, asset_latitude: Option<f64>, asset_longitude: Option<f64>) -> Result<models::NoteResponse, Error<CreateNoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_comment = comment;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -158,7 +156,7 @@ pub async fn create_note(configuration: &configuration::Configuration, version: 
     let p_query_asset_latitude = asset_latitude;
     let p_query_asset_longitude = asset_longitude;
 
-    let uri_str = format!("{}/api/{version}/note/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -315,9 +313,8 @@ pub async fn create_note(configuration: &configuration::Configuration, version: 
 }
 
 /// Sets a comment (note) as deleted.
-pub async fn delete_note(configuration: &configuration::Configuration, version: f64, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteNoteError>> {
+pub async fn delete_note(configuration: &configuration::Configuration, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<DeleteNoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_note_id = note_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -325,7 +322,7 @@ pub async fn delete_note(configuration: &configuration::Configuration, version: 
     let p_query_longitude = longitude;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/note/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -374,15 +371,14 @@ pub async fn delete_note(configuration: &configuration::Configuration, version: 
 }
 
 /// Get for a note based on its Id.
-pub async fn get_note(configuration: &configuration::Configuration, version: f64, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, return_full_response: Option<bool>) -> Result<models::SirqulResponse, Error<GetNoteError>> {
+pub async fn get_note(configuration: &configuration::Configuration, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, return_full_response: Option<bool>) -> Result<models::SirqulResponse, Error<GetNoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_note_id = note_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_return_full_response = return_full_response;
 
-    let uri_str = format!("{}/api/{version}/note/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -425,9 +421,8 @@ pub async fn get_note(configuration: &configuration::Configuration, version: f64
 }
 
 /// Search for notes on a notable object.
-pub async fn search_notes(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, notable_type: Option<&str>, notable_id: Option<i64>, note_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, flag_count_minimum: Option<i64>, flags_exceed_threshold: Option<bool>, include_inactive: Option<bool>, sort_field: Option<&str>, descending: Option<bool>, return_full_response: Option<bool>, updated_since: Option<i64>, updated_before: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::NoteResponse>, Error<SearchNotesError>> {
+pub async fn search_notes(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, notable_type: Option<&str>, notable_id: Option<i64>, note_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, flag_count_minimum: Option<i64>, flags_exceed_threshold: Option<bool>, include_inactive: Option<bool>, sort_field: Option<&str>, descending: Option<bool>, return_full_response: Option<bool>, updated_since: Option<i64>, updated_before: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::NoteResponse>, Error<SearchNotesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_notable_type = notable_type;
@@ -446,7 +441,7 @@ pub async fn search_notes(configuration: &configuration::Configuration, version:
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/note/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -530,9 +525,8 @@ pub async fn search_notes(configuration: &configuration::Configuration, version:
 }
 
 /// Update an existing comment (note). Only the creator of the note have permission to update.
-pub async fn update_note(configuration: &configuration::Configuration, version: f64, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, comment: Option<&str>, note_type: Option<&str>, asset_ids: Option<&str>, tags: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, app_key: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, return_full_response: Option<bool>, active: Option<bool>, update_asset: Option<bool>, asset_return_nulls: Option<bool>, asset_album_id: Option<i64>, asset_collection_id: Option<i64>, asset_add_to_default_album: Option<&str>, asset_add_to_media_library: Option<bool>, asset_version_code: Option<i32>, asset_version_name: Option<&str>, asset_meta_data: Option<&str>, asset_caption: Option<&str>, asset_media: Option<std::path::PathBuf>, asset_media_url: Option<&str>, asset_media_string: Option<&str>, asset_media_string_file_name: Option<&str>, asset_media_string_content_type: Option<&str>, asset_attached_media: Option<std::path::PathBuf>, asset_attached_media_url: Option<&str>, asset_attached_media_string: Option<&str>, asset_attached_media_string_file_name: Option<&str>, asset_attached_media_string_content_type: Option<&str>, asset_location_description: Option<&str>, asset_app: Option<&str>, asset_search_tags: Option<&str>, asset_latitude: Option<f64>, asset_longitude: Option<f64>) -> Result<models::NoteResponse, Error<UpdateNoteError>> {
+pub async fn update_note(configuration: &configuration::Configuration, note_id: i64, device_id: Option<&str>, account_id: Option<i64>, comment: Option<&str>, note_type: Option<&str>, asset_ids: Option<&str>, tags: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, app_key: Option<&str>, location_description: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, meta_data: Option<&str>, return_full_response: Option<bool>, active: Option<bool>, update_asset: Option<bool>, asset_return_nulls: Option<bool>, asset_album_id: Option<i64>, asset_collection_id: Option<i64>, asset_add_to_default_album: Option<&str>, asset_add_to_media_library: Option<bool>, asset_version_code: Option<i32>, asset_version_name: Option<&str>, asset_meta_data: Option<&str>, asset_caption: Option<&str>, asset_media: Option<std::path::PathBuf>, asset_media_url: Option<&str>, asset_media_string: Option<&str>, asset_media_string_file_name: Option<&str>, asset_media_string_content_type: Option<&str>, asset_attached_media: Option<std::path::PathBuf>, asset_attached_media_url: Option<&str>, asset_attached_media_string: Option<&str>, asset_attached_media_string_file_name: Option<&str>, asset_attached_media_string_content_type: Option<&str>, asset_location_description: Option<&str>, asset_app: Option<&str>, asset_search_tags: Option<&str>, asset_latitude: Option<f64>, asset_longitude: Option<f64>) -> Result<models::NoteResponse, Error<UpdateNoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_note_id = note_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -575,7 +569,7 @@ pub async fn update_note(configuration: &configuration::Configuration, version: 
     let p_query_asset_latitude = asset_latitude;
     let p_query_asset_longitude = asset_longitude;
 
-    let uri_str = format!("{}/api/{version}/note/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/note/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

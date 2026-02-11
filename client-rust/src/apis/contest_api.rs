@@ -59,9 +59,8 @@ pub enum VoteOnAlbumContestError {
 
 
 /// Creates or updates a contest.
-pub async fn add_or_update_album_contest(configuration: &configuration::Configuration, version: f64, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, visibility: &str, include_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, contest_type: Option<&str>, album_contest_id: Option<i64>, title: Option<&str>, description: Option<&str>, album_id1: Option<i64>, remove_album1: Option<bool>, album_id2: Option<i64>, remove_album2: Option<bool>, start_date: Option<i64>, end_date: Option<i64>, location_description: Option<&str>, connection_ids_to_add: Option<&str>, connection_group_ids_to_add: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<AddOrUpdateAlbumContestError>> {
+pub async fn add_or_update_album_contest(configuration: &configuration::Configuration, public_read: bool, public_write: bool, public_delete: bool, public_add: bool, visibility: &str, include_friend_group: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, contest_type: Option<&str>, album_contest_id: Option<i64>, title: Option<&str>, description: Option<&str>, album_id1: Option<i64>, remove_album1: Option<bool>, album_id2: Option<i64>, remove_album2: Option<bool>, start_date: Option<i64>, end_date: Option<i64>, location_description: Option<&str>, connection_ids_to_add: Option<&str>, connection_group_ids_to_add: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<AddOrUpdateAlbumContestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_public_read = public_read;
     let p_query_public_write = public_write;
     let p_query_public_delete = public_delete;
@@ -88,7 +87,7 @@ pub async fn add_or_update_album_contest(configuration: &configuration::Configur
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -184,15 +183,14 @@ pub async fn add_or_update_album_contest(configuration: &configuration::Configur
 }
 
 /// Sets the approval status of a contest.
-pub async fn approve_album_contest(configuration: &configuration::Configuration, version: f64, album_contest_id: i64, approval_status: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<ApproveAlbumContestError>> {
+pub async fn approve_album_contest(configuration: &configuration::Configuration, album_contest_id: i64, approval_status: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<ApproveAlbumContestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_contest_id = album_contest_id;
     let p_query_approval_status = approval_status;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest/approve", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest/approve", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -233,16 +231,15 @@ pub async fn approve_album_contest(configuration: &configuration::Configuration,
 }
 
 /// Deletes a contest.
-pub async fn delete_contest(configuration: &configuration::Configuration, version: f64, album_contest_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteContestError>> {
+pub async fn delete_contest(configuration: &configuration::Configuration, album_contest_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<DeleteContestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_contest_id = album_contest_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -288,16 +285,15 @@ pub async fn delete_contest(configuration: &configuration::Configuration, versio
 }
 
 /// Gets the contest object including the likes and notes
-pub async fn get_album_contest(configuration: &configuration::Configuration, version: f64, album_contest_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<GetAlbumContestError>> {
+pub async fn get_album_contest(configuration: &configuration::Configuration, album_contest_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<GetAlbumContestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_contest_id = album_contest_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -343,9 +339,8 @@ pub async fn get_album_contest(configuration: &configuration::Configuration, ver
 }
 
 /// Searches on contests.
-pub async fn get_album_contests(configuration: &configuration::Configuration, version: f64, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, app_type: Option<&str>, contest_type: Option<&str>, owner_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, date_created: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestListResponse, Error<GetAlbumContestsError>> {
+pub async fn get_album_contests(configuration: &configuration::Configuration, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, app_type: Option<&str>, contest_type: Option<&str>, owner_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, date_created: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestListResponse, Error<GetAlbumContestsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_filter = filter;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -366,7 +361,7 @@ pub async fn get_album_contests(configuration: &configuration::Configuration, ve
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -446,9 +441,8 @@ pub async fn get_album_contests(configuration: &configuration::Configuration, ve
 }
 
 /// Vote on a collection in a contest.
-pub async fn vote_on_album_contest(configuration: &configuration::Configuration, version: f64, album_contest_id: i64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, contest_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<VoteOnAlbumContestError>> {
+pub async fn vote_on_album_contest(configuration: &configuration::Configuration, album_contest_id: i64, album_id: i64, device_id: Option<&str>, account_id: Option<i64>, contest_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::AlbumContestResponse, Error<VoteOnAlbumContestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_album_contest_id = album_contest_id;
     let p_query_album_id = album_id;
     let p_query_device_id = device_id;
@@ -457,7 +451,7 @@ pub async fn vote_on_album_contest(configuration: &configuration::Configuration,
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/album/contest/vote", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/album/contest/vote", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

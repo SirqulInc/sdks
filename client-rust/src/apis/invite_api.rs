@@ -87,9 +87,8 @@ pub enum RetailerLocationInviteError {
 
 
 /// Allows a user to accept an invite. The user could also become the inviter's friend.
-pub async fn accept_invite(configuration: &configuration::Configuration, version: f64, token: &str, account_id: i64, album_id: Option<i64>, mission_id: Option<i64>, album_contest_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, retailer_location_id: Option<i64>, app_key: Option<&str>, auto_friend: Option<bool>, auto_attend_event: Option<bool>, auto_favorite_offer: Option<bool>, auto_favorite_offer_location: Option<bool>, auto_favorite_retailer_location: Option<bool>) -> Result<models::ConsumerInviteResponse, Error<AcceptInviteError>> {
+pub async fn accept_invite(configuration: &configuration::Configuration, token: &str, account_id: i64, album_id: Option<i64>, mission_id: Option<i64>, album_contest_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, retailer_location_id: Option<i64>, app_key: Option<&str>, auto_friend: Option<bool>, auto_attend_event: Option<bool>, auto_favorite_offer: Option<bool>, auto_favorite_offer_location: Option<bool>, auto_favorite_retailer_location: Option<bool>) -> Result<models::ConsumerInviteResponse, Error<AcceptInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_token = token;
     let p_query_account_id = account_id;
     let p_query_album_id = album_id;
@@ -105,7 +104,7 @@ pub async fn accept_invite(configuration: &configuration::Configuration, version
     let p_query_auto_favorite_offer_location = auto_favorite_offer_location;
     let p_query_auto_favorite_retailer_location = auto_favorite_retailer_location;
 
-    let uri_str = format!("{}/api/{version}/invite/accept", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/accept", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("token", &p_query_token.to_string())]);
@@ -176,9 +175,8 @@ pub async fn accept_invite(configuration: &configuration::Configuration, version
 }
 
 /// Allows a user to invite people to gain access to a contest. This will generate an invite token, which when used, will give the invitee access to a contest (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-pub async fn album_contest_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, album_contest_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<AlbumContestInviteError>> {
+pub async fn album_contest_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, album_contest_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<AlbumContestInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_id = app_id;
@@ -187,7 +185,7 @@ pub async fn album_contest_invite(configuration: &configuration::Configuration, 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/invite/albumContest", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/albumContest", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -241,9 +239,8 @@ pub async fn album_contest_invite(configuration: &configuration::Configuration, 
 }
 
 /// Allows a user to invite people to gain access to a collection. This will generate an invite token, which when used, will give the invitee access to a collection (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-pub async fn album_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, album_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<AlbumInviteError>> {
+pub async fn album_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, album_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<AlbumInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_id = app_id;
@@ -252,7 +249,7 @@ pub async fn album_invite(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/invite/album", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/album", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -306,16 +303,15 @@ pub async fn album_invite(configuration: &configuration::Configuration, version:
 }
 
 /// Allows a user to invite people to attend an event. This will generate an invite token, which when used, will allow the invitee to add the offer to their wallet.
-pub async fn event_invite(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, listing_id: i64, receiver_account_ids: Option<&str>, retailer_location_id: Option<i64>) -> Result<models::InviteResponse, Error<EventInviteError>> {
+pub async fn event_invite(configuration: &configuration::Configuration, account_id: i64, app_key: &str, listing_id: i64, receiver_account_ids: Option<&str>, retailer_location_id: Option<i64>) -> Result<models::InviteResponse, Error<EventInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_listing_id = listing_id;
     let p_query_receiver_account_ids = receiver_account_ids;
     let p_query_retailer_location_id = retailer_location_id;
 
-    let uri_str = format!("{}/api/{version}/invite/event", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/event", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -357,9 +353,8 @@ pub async fn event_invite(configuration: &configuration::Configuration, version:
 }
 
 /// Allows a user to invite people to gain access to an album. This will generate an invite token, which when used, will give the invitee access to an album (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-pub async fn game_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, game_level_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<GameInviteError>> {
+pub async fn game_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, game_level_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<GameInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_id = app_id;
@@ -368,7 +363,7 @@ pub async fn game_invite(configuration: &configuration::Configuration, version: 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/invite/gameLevel", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/gameLevel", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -422,9 +417,8 @@ pub async fn game_invite(configuration: &configuration::Configuration, version: 
 }
 
 /// This is used to determine whether an invite token is valid. If the token is valid, this will also return information about who invited the user, and what they are invited to.
-pub async fn get_invite(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, token: Option<&str>, album_id: Option<i64>, mission_id: Option<i64>, album_contest_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, retailer_location_id: Option<i64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<GetInviteError>> {
+pub async fn get_invite(configuration: &configuration::Configuration, account_id: Option<i64>, token: Option<&str>, album_id: Option<i64>, mission_id: Option<i64>, album_contest_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, retailer_location_id: Option<i64>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<GetInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_token = token;
     let p_query_album_id = album_id;
@@ -435,7 +429,7 @@ pub async fn get_invite(configuration: &configuration::Configuration, version: f
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/invite/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -495,9 +489,8 @@ pub async fn get_invite(configuration: &configuration::Configuration, version: f
 }
 
 /// Allows a user to invite people to gain access to a mission. This will generate an invite token, which when used, will give the invitee access to a mission (whether it is private or not). The invitee will also become the user's friend when the invitation is accepted.
-pub async fn mission_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, mission_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<MissionInviteError>> {
+pub async fn mission_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_id: Option<i64>, app_key: Option<&str>, mission_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::InviteResponse, Error<MissionInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_id = app_id;
@@ -506,7 +499,7 @@ pub async fn mission_invite(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/invite/mission", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/mission", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -560,14 +553,13 @@ pub async fn mission_invite(configuration: &configuration::Configuration, versio
 }
 
 /// Allows a user to invite people to favorite an offer. This will generate an invite token, which when used, will give the invitee the offer in their favorite's list.
-pub async fn offer_invite(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, offer_id: i64) -> Result<models::InviteResponse, Error<OfferInviteError>> {
+pub async fn offer_invite(configuration: &configuration::Configuration, account_id: i64, app_key: &str, offer_id: i64) -> Result<models::InviteResponse, Error<OfferInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_offer_id = offer_id;
 
-    let uri_str = format!("{}/api/{version}/invite/offer", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/offer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -603,14 +595,13 @@ pub async fn offer_invite(configuration: &configuration::Configuration, version:
 }
 
 /// Allows a user to invite people to favorite an offer location. This will generate an invite token, which when used, will give the invitee the offer location in their favorite's list.
-pub async fn offer_location_invite(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, offer_location_id: i64) -> Result<models::InviteResponse, Error<OfferLocationInviteError>> {
+pub async fn offer_location_invite(configuration: &configuration::Configuration, account_id: i64, app_key: &str, offer_location_id: i64) -> Result<models::InviteResponse, Error<OfferLocationInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_offer_location_id = offer_location_id;
 
-    let uri_str = format!("{}/api/{version}/invite/offerLocation", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/offerLocation", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -646,15 +637,14 @@ pub async fn offer_location_invite(configuration: &configuration::Configuration,
 }
 
 /// Allows a user to invite people to favorite a retailer location. This will generate an invite token, which when used, will give the invitee the retailer location in their favorite's list.
-pub async fn retailer_location_invite(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, retailer_location_id: i64, album_id: Option<i64>) -> Result<models::InviteResponse, Error<RetailerLocationInviteError>> {
+pub async fn retailer_location_invite(configuration: &configuration::Configuration, account_id: i64, app_key: &str, retailer_location_id: i64, album_id: Option<i64>) -> Result<models::InviteResponse, Error<RetailerLocationInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_album_id = album_id;
 
-    let uri_str = format!("{}/api/{version}/invite/retailerLocation", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/invite/retailerLocation", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

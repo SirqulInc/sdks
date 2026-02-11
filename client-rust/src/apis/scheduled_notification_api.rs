@@ -59,9 +59,8 @@ pub enum UpdateScheduledNotificationError {
 
 
 /// This endpoint creates a Scheduled Notification message that can be configured to process and send periodically at set time periods
-pub async fn create_scheduled_notification(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, r#type: &str, message: &str, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, connection_group_ids: Option<&str>, connection_account_ids: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, album_ids: Option<&str>, report_id: Option<i64>, report_params: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, cron_type: Option<&str>, meta_data: Option<&str>, conditional_input: Option<&str>, template_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, send_now: Option<bool>, event_type: Option<&str>, deep_link_uri: Option<&str>, send_to_all: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<CreateScheduledNotificationError>> {
+pub async fn create_scheduled_notification(configuration: &configuration::Configuration, account_id: i64, name: &str, r#type: &str, message: &str, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, connection_group_ids: Option<&str>, connection_account_ids: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, album_ids: Option<&str>, report_id: Option<i64>, report_params: Option<&str>, endpoint_url: Option<&str>, payload: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, cron_type: Option<&str>, meta_data: Option<&str>, conditional_input: Option<&str>, template_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, send_now: Option<bool>, event_type: Option<&str>, deep_link_uri: Option<&str>, send_to_all: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<CreateScheduledNotificationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_type = r#type;
@@ -97,7 +96,7 @@ pub async fn create_scheduled_notification(configuration: &configuration::Config
     let p_query_deep_link_uri = deep_link_uri;
     let p_query_send_to_all = send_to_all;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -224,14 +223,13 @@ pub async fn create_scheduled_notification(configuration: &configuration::Config
 }
 
 /// This endpoint deletes a Scheduled Notification. Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using the UserPermissionsApi.
-pub async fn delete_scheduled_notification(configuration: &configuration::Configuration, version: f64, account_id: i64, scheduled_notification_id: i64, delete_by_grouping_id: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<DeleteScheduledNotificationError>> {
+pub async fn delete_scheduled_notification(configuration: &configuration::Configuration, account_id: i64, scheduled_notification_id: i64, delete_by_grouping_id: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<DeleteScheduledNotificationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_scheduled_notification_id = scheduled_notification_id;
     let p_query_delete_by_grouping_id = delete_by_grouping_id;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -269,13 +267,12 @@ pub async fn delete_scheduled_notification(configuration: &configuration::Config
 }
 
 /// Get a ScheduledNotification
-pub async fn get_scheduled_notification(configuration: &configuration::Configuration, version: f64, account_id: i64, scheduled_notification_id: i64) -> Result<models::ScheduledNotificationFullResponse, Error<GetScheduledNotificationError>> {
+pub async fn get_scheduled_notification(configuration: &configuration::Configuration, account_id: i64, scheduled_notification_id: i64) -> Result<models::ScheduledNotificationFullResponse, Error<GetScheduledNotificationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_scheduled_notification_id = scheduled_notification_id;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -310,9 +307,8 @@ pub async fn get_scheduled_notification(configuration: &configuration::Configura
 }
 
 /// Use a report to identify events that are starting soon and then create a scheduled notification to push a message to matching users.
-pub async fn schedule_notification_listings(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, report_name: &str, message: &str, offset: i32, recipient_report_id: i64, report_params: Option<&str>, r#type: Option<&str>) -> Result<models::SirqulResponse, Error<ScheduleNotificationListingsError>> {
+pub async fn schedule_notification_listings(configuration: &configuration::Configuration, account_id: i64, app_key: &str, report_name: &str, message: &str, offset: i32, recipient_report_id: i64, report_params: Option<&str>, r#type: Option<&str>) -> Result<models::SirqulResponse, Error<ScheduleNotificationListingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_report_name = report_name;
@@ -322,7 +318,7 @@ pub async fn schedule_notification_listings(configuration: &configuration::Confi
     let p_query_report_params = report_params;
     let p_query_type = r#type;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/generate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/generate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -367,9 +363,8 @@ pub async fn schedule_notification_listings(configuration: &configuration::Confi
 }
 
 /// This endpoint searches on Scheduled Notifications. If a scheduled notification was created with the visibility parameter set to PUBLIC, then anyone can search on it if the filter parameter includes the PUBLIC value. PRIVATE visibility means that it can only be searched on by the owner or if it has been shared to the user using the UserPermissionsApi.  In addition, if a PUBLIC Scheduled Notification was created for an application that requires content approval (using the publicContentApproval parameter), then an administrator of the application needs to approve it before it can be search on by other users. Before this happens, it is in a PENDING state, and only the original creator or the owner of the application can search and see it. Also, only the owner of the application can use the UserPermissionsApi to approve or reject it. Scheduled notifications that have been rejected are only visible to the original creators.
-pub async fn search_scheduled_notifications(configuration: &configuration::Configuration, version: f64, account_id: i64, grouping_id: Option<&str>, audience_id: Option<i64>, filter: Option<&str>, types: Option<&str>, content_ids: Option<&str>, content_types: Option<&str>, parent_ids: Option<&str>, parent_types: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, group_by_grouping_id: Option<bool>, return_audience_account_count: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<SearchScheduledNotificationsError>> {
+pub async fn search_scheduled_notifications(configuration: &configuration::Configuration, account_id: i64, grouping_id: Option<&str>, audience_id: Option<i64>, filter: Option<&str>, types: Option<&str>, content_ids: Option<&str>, content_types: Option<&str>, parent_ids: Option<&str>, parent_types: Option<&str>, statuses: Option<&str>, template_types: Option<&str>, app_key: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, group_by_grouping_id: Option<bool>, return_audience_account_count: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<SearchScheduledNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_grouping_id = grouping_id;
     let p_query_audience_id = audience_id;
@@ -391,7 +386,7 @@ pub async fn search_scheduled_notifications(configuration: &configuration::Confi
     let p_query_group_by_grouping_id = group_by_grouping_id;
     let p_query_return_audience_account_count = return_audience_account_count;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -482,9 +477,8 @@ pub async fn search_scheduled_notifications(configuration: &configuration::Confi
 }
 
 /// This endpoint updates a Scheduled Notification message that can be configured to process and send periodically at set time periods. Please see createScheduledNotification for more details.  Only the original owner of the Scheduled Notification or someone with write permissions can use this endpoint. Permissions can be granted to other users by using theUserPermissionsApi.
-pub async fn update_scheduled_notification(configuration: &configuration::Configuration, version: f64, scheduled_notification_id: i64, account_id: i64, name: Option<&str>, r#type: Option<&str>, message: Option<&str>, payload: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, connection_group_ids: Option<&str>, connection_account_ids: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, album_ids: Option<&str>, report_id: Option<i64>, report_params: Option<&str>, endpoint_url: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, cron_type: Option<&str>, meta_data: Option<&str>, conditional_input: Option<&str>, template_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, error_message: Option<&str>, status: Option<&str>, update_by_grouping_id: Option<bool>, send_now: Option<bool>, event_type: Option<&str>, deep_link_uri: Option<&str>, send_to_all: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<UpdateScheduledNotificationError>> {
+pub async fn update_scheduled_notification(configuration: &configuration::Configuration, scheduled_notification_id: i64, account_id: i64, name: Option<&str>, r#type: Option<&str>, message: Option<&str>, payload: Option<&str>, content_id: Option<i64>, content_name: Option<&str>, content_type: Option<&str>, parent_id: Option<i64>, parent_type: Option<&str>, app_key: Option<&str>, grouping_id: Option<&str>, connection_group_ids: Option<&str>, connection_account_ids: Option<&str>, audience_id: Option<i64>, audience_ids: Option<&str>, album_ids: Option<&str>, report_id: Option<i64>, report_params: Option<&str>, endpoint_url: Option<&str>, scheduled_date: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, cron_expression: Option<&str>, cron_type: Option<&str>, meta_data: Option<&str>, conditional_input: Option<&str>, template_type: Option<&str>, visibility: Option<&str>, active: Option<bool>, error_message: Option<&str>, status: Option<&str>, update_by_grouping_id: Option<bool>, send_now: Option<bool>, event_type: Option<&str>, deep_link_uri: Option<&str>, send_to_all: Option<bool>) -> Result<models::ScheduledNotificationFullResponse, Error<UpdateScheduledNotificationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_scheduled_notification_id = scheduled_notification_id;
     let p_query_account_id = account_id;
     let p_query_name = name;
@@ -524,7 +518,7 @@ pub async fn update_scheduled_notification(configuration: &configuration::Config
     let p_query_deep_link_uri = deep_link_uri;
     let p_query_send_to_all = send_to_all;
 
-    let uri_str = format!("{}/api/{version}/notification/schedule/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/notification/schedule/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("scheduledNotificationId", &p_query_scheduled_notification_id.to_string())]);

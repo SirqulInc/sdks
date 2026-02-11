@@ -52,9 +52,8 @@ pub enum UpdateRegionError {
 
 
 /// Create a region.
-pub async fn create_region(configuration: &configuration::Configuration, version: f64, account_id: i64, region_class: &str, short_name: &str, full_name: Option<&str>, parent_ids: Option<&str>, children_ids: Option<&str>, postal_code_ids: Option<&str>, locations: Option<&str>, retailer_location_id: Option<i64>, visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i64>, end: Option<i64>, polygon: Option<&str>, meta_data: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, version_code: Option<i32>, root: Option<bool>, active: Option<bool>) -> Result<models::RegionResponse, Error<CreateRegionError>> {
+pub async fn create_region(configuration: &configuration::Configuration, account_id: i64, region_class: &str, short_name: &str, full_name: Option<&str>, parent_ids: Option<&str>, children_ids: Option<&str>, postal_code_ids: Option<&str>, locations: Option<&str>, retailer_location_id: Option<i64>, visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i64>, end: Option<i64>, polygon: Option<&str>, meta_data: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, version_code: Option<i32>, root: Option<bool>, active: Option<bool>) -> Result<models::RegionResponse, Error<CreateRegionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_region_class = region_class;
     let p_query_short_name = short_name;
@@ -77,7 +76,7 @@ pub async fn create_region(configuration: &configuration::Configuration, version
     let p_query_root = root;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/region/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/region/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -167,13 +166,12 @@ pub async fn create_region(configuration: &configuration::Configuration, version
 }
 
 /// Delete a region.
-pub async fn delete_region(configuration: &configuration::Configuration, version: f64, account_id: i64, region_id: i64) -> Result<models::RegionResponse, Error<DeleteRegionError>> {
+pub async fn delete_region(configuration: &configuration::Configuration, account_id: i64, region_id: i64) -> Result<models::RegionResponse, Error<DeleteRegionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_region_id = region_id;
 
-    let uri_str = format!("{}/api/{version}/region/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/region/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -208,13 +206,12 @@ pub async fn delete_region(configuration: &configuration::Configuration, version
 }
 
 /// Get a region.
-pub async fn get_region(configuration: &configuration::Configuration, version: f64, region_id: i64, account_id: Option<i64>) -> Result<models::RegionResponse, Error<GetRegionError>> {
+pub async fn get_region(configuration: &configuration::Configuration, region_id: i64, account_id: Option<i64>) -> Result<models::RegionResponse, Error<GetRegionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_region_id = region_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/region/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/region/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -251,9 +248,8 @@ pub async fn get_region(configuration: &configuration::Configuration, version: f
 }
 
 /// Get the list of regions.
-pub async fn search_regions(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, query: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>, region_class: Option<&str>, visibility: Option<&str>, search_mode: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, include_parent: Option<bool>, include_children: Option<bool>, include_postal_codes: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, version_code: Option<i32>, active_only: Option<bool>, show_deleted: Option<bool>, last_updated_since: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::RegionResponse>, Error<SearchRegionsError>> {
+pub async fn search_regions(configuration: &configuration::Configuration, account_id: Option<i64>, query: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>, region_class: Option<&str>, visibility: Option<&str>, search_mode: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, include_parent: Option<bool>, include_children: Option<bool>, include_postal_codes: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, version_code: Option<i32>, active_only: Option<bool>, show_deleted: Option<bool>, last_updated_since: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::RegionResponse>, Error<SearchRegionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_query = query;
     let p_query_keyword = keyword;
@@ -277,7 +273,7 @@ pub async fn search_regions(configuration: &configuration::Configuration, versio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/region/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/region/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -376,9 +372,8 @@ pub async fn search_regions(configuration: &configuration::Configuration, versio
 }
 
 /// Update a region.
-pub async fn update_region(configuration: &configuration::Configuration, version: f64, account_id: i64, region_id: i64, region_class: Option<&str>, short_name: Option<&str>, full_name: Option<&str>, parent_ids: Option<&str>, children_ids: Option<&str>, postal_code_ids: Option<&str>, locations: Option<&str>, retailer_location_id: Option<i64>, visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i64>, end: Option<i64>, polygon: Option<&str>, meta_data: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, version_code: Option<i32>, root: Option<bool>, active: Option<bool>, clear_lists: Option<bool>) -> Result<models::RegionResponse, Error<UpdateRegionError>> {
+pub async fn update_region(configuration: &configuration::Configuration, account_id: i64, region_id: i64, region_class: Option<&str>, short_name: Option<&str>, full_name: Option<&str>, parent_ids: Option<&str>, children_ids: Option<&str>, postal_code_ids: Option<&str>, locations: Option<&str>, retailer_location_id: Option<i64>, visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, start: Option<i64>, end: Option<i64>, polygon: Option<&str>, meta_data: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, version_code: Option<i32>, root: Option<bool>, active: Option<bool>, clear_lists: Option<bool>) -> Result<models::RegionResponse, Error<UpdateRegionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_region_id = region_id;
     let p_query_region_class = region_class;
@@ -403,7 +398,7 @@ pub async fn update_region(configuration: &configuration::Configuration, version
     let p_query_active = active;
     let p_query_clear_lists = clear_lists;
 
-    let uri_str = format!("{}/api/{version}/region/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/region/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

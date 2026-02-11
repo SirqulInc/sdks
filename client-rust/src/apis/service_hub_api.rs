@@ -60,12 +60,11 @@ pub enum SearchServiceHubsError {
 
 
 /// Create new service hub
-pub async fn create_service_hub(configuration: &configuration::Configuration, version: f64, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<CreateServiceHubError>> {
+pub async fn create_service_hub(configuration: &configuration::Configuration, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<CreateServiceHubError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/hub", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/hub", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -99,12 +98,11 @@ pub async fn create_service_hub(configuration: &configuration::Configuration, ve
 }
 
 /// Delete an existing service hub
-pub async fn delete_service_hub(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<DeleteServiceHubError>> {
+pub async fn delete_service_hub(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<DeleteServiceHubError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/hub/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/hub/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -126,12 +124,11 @@ pub async fn delete_service_hub(configuration: &configuration::Configuration, ve
 }
 
 /// Get an existing service hub
-pub async fn get_service_hub(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<serde_json::Value, Error<GetServiceHubError>> {
+pub async fn get_service_hub(configuration: &configuration::Configuration, id: i64) -> Result<serde_json::Value, Error<GetServiceHubError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/hub/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/hub/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -164,13 +161,12 @@ pub async fn get_service_hub(configuration: &configuration::Configuration, versi
 }
 
 /// Update an existing service hub
-pub async fn post_service_hub(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<PostServiceHubError>> {
+pub async fn post_service_hub(configuration: &configuration::Configuration, id: i64, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<PostServiceHubError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/hub/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/hub/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -204,13 +200,12 @@ pub async fn post_service_hub(configuration: &configuration::Configuration, vers
 }
 
 /// Update an existing service hub
-pub async fn put_service_hub(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<PutServiceHubError>> {
+pub async fn put_service_hub(configuration: &configuration::Configuration, id: i64, body: Option<models::ServiceHub>) -> Result<models::ServiceHub, Error<PutServiceHubError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/hub/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/hub/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -244,9 +239,8 @@ pub async fn put_service_hub(configuration: &configuration::Configuration, versi
 }
 
 /// Search for service hubs.
-pub async fn search_service_hubs(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>, retailer_id: Option<i64>) -> Result<Vec<models::ServiceHub>, Error<SearchServiceHubsError>> {
+pub async fn search_service_hubs(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>, retailer_id: Option<i64>) -> Result<Vec<models::ServiceHub>, Error<SearchServiceHubsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -255,7 +249,7 @@ pub async fn search_service_hubs(configuration: &configuration::Configuration, v
     let p_query_keyword = keyword;
     let p_query_retailer_id = retailer_id;
 
-    let uri_str = format!("{}/api/{version}/hub", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/hub", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_keyword {

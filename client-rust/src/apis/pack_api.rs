@@ -52,9 +52,8 @@ pub enum UpdatePackError {
 
 
 /// Create a pack.
-pub async fn create_pack(configuration: &configuration::Configuration, version: f64, account_id: i64, title: &str, pack_order: i64, price: i32, highest: bool, allocate_tickets: bool, ticket_count: i64, description: Option<&str>, search_tags: Option<&str>, active: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, pack_type: Option<&str>, sequence_type: Option<&str>, background_id: Option<i64>, image_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, author_override: Option<&str>, price_type: Option<&str>, game_level_ids: Option<&str>, in_game: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::PackResponse, Error<CreatePackError>> {
+pub async fn create_pack(configuration: &configuration::Configuration, account_id: i64, title: &str, pack_order: i64, price: i32, highest: bool, allocate_tickets: bool, ticket_count: i64, description: Option<&str>, search_tags: Option<&str>, active: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, pack_type: Option<&str>, sequence_type: Option<&str>, background_id: Option<i64>, image_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, author_override: Option<&str>, price_type: Option<&str>, game_level_ids: Option<&str>, in_game: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::PackResponse, Error<CreatePackError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_title = title;
     let p_query_pack_order = pack_order;
@@ -80,7 +79,7 @@ pub async fn create_pack(configuration: &configuration::Configuration, version: 
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/pack/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pack/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -171,13 +170,12 @@ pub async fn create_pack(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete a pack.
-pub async fn delete_pack(configuration: &configuration::Configuration, version: f64, account_id: i64, pack_id: i64) -> Result<models::SirqulResponse, Error<DeletePackError>> {
+pub async fn delete_pack(configuration: &configuration::Configuration, account_id: i64, pack_id: i64) -> Result<models::SirqulResponse, Error<DeletePackError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_pack_id = pack_id;
 
-    let uri_str = format!("{}/api/{version}/pack/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pack/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -212,14 +210,13 @@ pub async fn delete_pack(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a pack.
-pub async fn get_pack(configuration: &configuration::Configuration, version: f64, account_id: i64, pack_id: i64, include_game_data: bool) -> Result<models::PackResponse, Error<GetPackError>> {
+pub async fn get_pack(configuration: &configuration::Configuration, account_id: i64, pack_id: i64, include_game_data: bool) -> Result<models::PackResponse, Error<GetPackError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_pack_id = pack_id;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/pack/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pack/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -255,9 +252,8 @@ pub async fn get_pack(configuration: &configuration::Configuration, version: f64
 }
 
 /// Search on packs.
-pub async fn search_packs(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, keyword: Option<&str>, pack_type: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_inactive: Option<bool>, app_key: Option<&str>) -> Result<Vec<models::PackResponse>, Error<SearchPacksError>> {
+pub async fn search_packs(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, keyword: Option<&str>, pack_type: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_inactive: Option<bool>, app_key: Option<&str>) -> Result<Vec<models::PackResponse>, Error<SearchPacksError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -269,7 +265,7 @@ pub async fn search_packs(configuration: &configuration::Configuration, version:
     let p_query_include_inactive = include_inactive;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/pack/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pack/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -326,9 +322,8 @@ pub async fn search_packs(configuration: &configuration::Configuration, version:
 }
 
 /// Update a pack.
-pub async fn update_pack(configuration: &configuration::Configuration, version: f64, account_id: i64, pack_id: i64, allocate_tickets: bool, ticket_count: i64, title: Option<&str>, description: Option<&str>, search_tags: Option<&str>, active: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, pack_type: Option<&str>, pack_order: Option<i64>, sequence_type: Option<&str>, background_id: Option<i64>, image_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, author_override: Option<&str>, price: Option<i32>, price_type: Option<&str>, game_level_ids: Option<&str>, in_game: Option<bool>, highest: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::PackResponse, Error<UpdatePackError>> {
+pub async fn update_pack(configuration: &configuration::Configuration, account_id: i64, pack_id: i64, allocate_tickets: bool, ticket_count: i64, title: Option<&str>, description: Option<&str>, search_tags: Option<&str>, active: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, pack_type: Option<&str>, pack_order: Option<i64>, sequence_type: Option<&str>, background_id: Option<i64>, image_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, author_override: Option<&str>, price: Option<i32>, price_type: Option<&str>, game_level_ids: Option<&str>, in_game: Option<bool>, highest: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::PackResponse, Error<UpdatePackError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_pack_id = pack_id;
     let p_query_allocate_tickets = allocate_tickets;
@@ -355,7 +350,7 @@ pub async fn update_pack(configuration: &configuration::Configuration, version: 
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/pack/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/pack/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

@@ -52,12 +52,11 @@ pub enum UpdateDisbursementError {
 
 
 /// Checks the status of a captured disbrusement to see if it has been settled.
-pub async fn check_disbursements(configuration: &configuration::Configuration, version: f64, disbursement_id: i64) -> Result<models::DisbursementResponse, Error<CheckDisbursementsError>> {
+pub async fn check_disbursements(configuration: &configuration::Configuration, disbursement_id: i64) -> Result<models::DisbursementResponse, Error<CheckDisbursementsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_disbursement_id = disbursement_id;
 
-    let uri_str = format!("{}/api/{version}/disbursement/check", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/disbursement/check", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("disbursementId", &p_query_disbursement_id.to_string())]);
@@ -91,9 +90,8 @@ pub async fn check_disbursements(configuration: &configuration::Configuration, v
 }
 
 /// Creates a Disbursement for sending money to a retailer
-pub async fn create_disbursement(configuration: &configuration::Configuration, version: f64, account_id: i64, receiver_account_id: i64, original_sender_account_id: i64, amount: f64, provider: &str, scheduled_date: Option<i64>, title: Option<&str>, comment: Option<&str>, external_id: Option<&str>, introspection_params: Option<&str>) -> Result<models::DisbursementResponse, Error<CreateDisbursementError>> {
+pub async fn create_disbursement(configuration: &configuration::Configuration, account_id: i64, receiver_account_id: i64, original_sender_account_id: i64, amount: f64, provider: &str, scheduled_date: Option<i64>, title: Option<&str>, comment: Option<&str>, external_id: Option<&str>, introspection_params: Option<&str>) -> Result<models::DisbursementResponse, Error<CreateDisbursementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_receiver_account_id = receiver_account_id;
     let p_query_original_sender_account_id = original_sender_account_id;
@@ -105,7 +103,7 @@ pub async fn create_disbursement(configuration: &configuration::Configuration, v
     let p_query_external_id = external_id;
     let p_query_introspection_params = introspection_params;
 
-    let uri_str = format!("{}/api/{version}/disbursement/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/disbursement/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -158,13 +156,12 @@ pub async fn create_disbursement(configuration: &configuration::Configuration, v
 }
 
 /// Get Disbursement details
-pub async fn get_disbursement(configuration: &configuration::Configuration, version: f64, account_id: i64, disbursement_id: i64) -> Result<models::DisbursementResponse, Error<GetDisbursementError>> {
+pub async fn get_disbursement(configuration: &configuration::Configuration, account_id: i64, disbursement_id: i64) -> Result<models::DisbursementResponse, Error<GetDisbursementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_disbursement_id = disbursement_id;
 
-    let uri_str = format!("{}/api/{version}/disbursement/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/disbursement/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -199,9 +196,8 @@ pub async fn get_disbursement(configuration: &configuration::Configuration, vers
 }
 
 /// Search Disbursements
-pub async fn search_disbursements(configuration: &configuration::Configuration, version: f64, account_id: i64, receiver_account_id: Option<i64>, statuses: Option<&str>, providers: Option<&str>, before_date: Option<i64>, after_date: Option<i64>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, external_id: Option<&str>) -> Result<Vec<models::DisbursementResponse>, Error<SearchDisbursementsError>> {
+pub async fn search_disbursements(configuration: &configuration::Configuration, account_id: i64, receiver_account_id: Option<i64>, statuses: Option<&str>, providers: Option<&str>, before_date: Option<i64>, after_date: Option<i64>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, external_id: Option<&str>) -> Result<Vec<models::DisbursementResponse>, Error<SearchDisbursementsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_receiver_account_id = receiver_account_id;
     let p_query_statuses = statuses;
@@ -213,7 +209,7 @@ pub async fn search_disbursements(configuration: &configuration::Configuration, 
     let p_query_active_only = active_only;
     let p_query_external_id = external_id;
 
-    let uri_str = format!("{}/api/{version}/disbursement/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/disbursement/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -274,9 +270,8 @@ pub async fn search_disbursements(configuration: &configuration::Configuration, 
 }
 
 /// Update Disbursement
-pub async fn update_disbursement(configuration: &configuration::Configuration, version: f64, account_id: i64, disbursement_id: i64, amount: Option<f64>, provider: Option<&str>, scheduled_date: Option<i64>, title: Option<&str>, comment: Option<&str>, external_id: Option<&str>, retry: Option<bool>, introspection_params: Option<&str>) -> Result<models::DisbursementResponse, Error<UpdateDisbursementError>> {
+pub async fn update_disbursement(configuration: &configuration::Configuration, account_id: i64, disbursement_id: i64, amount: Option<f64>, provider: Option<&str>, scheduled_date: Option<i64>, title: Option<&str>, comment: Option<&str>, external_id: Option<&str>, retry: Option<bool>, introspection_params: Option<&str>) -> Result<models::DisbursementResponse, Error<UpdateDisbursementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_disbursement_id = disbursement_id;
     let p_query_amount = amount;
@@ -288,7 +283,7 @@ pub async fn update_disbursement(configuration: &configuration::Configuration, v
     let p_query_retry = retry;
     let p_query_introspection_params = introspection_params;
 
-    let uri_str = format!("{}/api/{version}/disbursement/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/disbursement/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

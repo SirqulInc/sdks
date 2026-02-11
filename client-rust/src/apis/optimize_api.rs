@@ -31,14 +31,13 @@ pub enum RequestOptimizationError {
 
 
 /// Get the results of the import batch.
-pub async fn get_optimization_result(configuration: &configuration::Configuration, version: f64, batch_id: &str, start: i32, limit: i32) -> Result<std::collections::HashMap<String, models::ShipmentOrder>, Error<GetOptimizationResultError>> {
+pub async fn get_optimization_result(configuration: &configuration::Configuration, batch_id: &str, start: i32, limit: i32) -> Result<std::collections::HashMap<String, models::ShipmentOrder>, Error<GetOptimizationResultError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_batch_id = batch_id;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/optimize/result/{batchID}", configuration.base_path, version=p_path_version, batchID=crate::apis::urlencode(p_path_batch_id));
+    let uri_str = format!("{}/optimize/result/{batchID}", configuration.base_path, batchID=crate::apis::urlencode(p_path_batch_id));
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("start", &p_query_start.to_string())]);
@@ -73,12 +72,11 @@ pub async fn get_optimization_result(configuration: &configuration::Configuratio
 }
 
 /// Request and upload of shipment orders and create ShipmentImportBatch for optimization.
-pub async fn request_optimization(configuration: &configuration::Configuration, version: f64, body: Option<models::Orders>) -> Result<models::ImportStatuses, Error<RequestOptimizationError>> {
+pub async fn request_optimization(configuration: &configuration::Configuration, body: Option<models::Orders>) -> Result<models::ImportStatuses, Error<RequestOptimizationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/optimize/request", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/optimize/request", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

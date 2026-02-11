@@ -52,16 +52,15 @@ pub enum UpdateMissionInviteError {
 
 
 /// Create the mission invite. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-pub async fn create_mission_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, join_code: Option<&str>, include_game_data: Option<bool>) -> Result<models::MissionResponse, Error<CreateMissionInviteError>> {
+pub async fn create_mission_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, join_code: Option<&str>, include_game_data: Option<bool>) -> Result<models::MissionResponse, Error<CreateMissionInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_join_code = join_code;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/mission/invite/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/invite/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -109,16 +108,15 @@ pub async fn create_mission_invite(configuration: &configuration::Configuration,
 }
 
 /// Update the mission invite status to quit.
-pub async fn delete_mission_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, mission_invite_id: Option<i64>, include_game_data: Option<bool>) -> Result<models::SirqulResponse, Error<DeleteMissionInviteError>> {
+pub async fn delete_mission_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, mission_invite_id: Option<i64>, include_game_data: Option<bool>) -> Result<models::SirqulResponse, Error<DeleteMissionInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_mission_invite_id = mission_invite_id;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/mission/invite/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/invite/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -166,9 +164,8 @@ pub async fn delete_mission_invite(configuration: &configuration::Configuration,
 }
 
 /// Get the mission invite. An account can only be invited to a mission one time.
-pub async fn get_mission_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, mission_invite_id: Option<i64>, include_game_data: Option<bool>, include_scores: Option<&str>) -> Result<models::MissionResponse, Error<GetMissionInviteError>> {
+pub async fn get_mission_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, mission_id: Option<i64>, mission_invite_id: Option<i64>, include_game_data: Option<bool>, include_scores: Option<&str>) -> Result<models::MissionResponse, Error<GetMissionInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
@@ -176,7 +173,7 @@ pub async fn get_mission_invite(configuration: &configuration::Configuration, ve
     let p_query_include_game_data = include_game_data;
     let p_query_include_scores = include_scores;
 
-    let uri_str = format!("{}/api/{version}/mission/invite/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/invite/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -227,9 +224,8 @@ pub async fn get_mission_invite(configuration: &configuration::Configuration, ve
 }
 
 /// Get a list of mission invites that the account has.
-pub async fn search_mission_invites(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, app_version: Option<&str>, mission_id: Option<i64>, status: Option<&str>, last_updated: Option<i64>, start: Option<i32>, limit: Option<i32>, keyword: Option<&str>, mission_types: Option<&str>, filter_by_billable: Option<bool>, include_game_data: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionInvitesError>> {
+pub async fn search_mission_invites(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, app_version: Option<&str>, mission_id: Option<i64>, status: Option<&str>, last_updated: Option<i64>, start: Option<i32>, limit: Option<i32>, keyword: Option<&str>, mission_types: Option<&str>, filter_by_billable: Option<bool>, include_game_data: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionInvitesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -244,7 +240,7 @@ pub async fn search_mission_invites(configuration: &configuration::Configuration
     let p_query_filter_by_billable = filter_by_billable;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/mission/invite/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/invite/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -316,9 +312,8 @@ pub async fn search_mission_invites(configuration: &configuration::Configuration
 }
 
 /// Update the mission invite status. An account can only be invited to a mission one time. For missions that require user submission and reviewing the permissionableType and permissionableId need to be provided.
-pub async fn update_mission_invite(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, mission_id: Option<i64>, mission_invite_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, status: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, include_game_data: Option<bool>) -> Result<models::MissionResponse, Error<UpdateMissionInviteError>> {
+pub async fn update_mission_invite(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, mission_id: Option<i64>, mission_invite_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, status: Option<&str>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, include_game_data: Option<bool>) -> Result<models::MissionResponse, Error<UpdateMissionInviteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -331,7 +326,7 @@ pub async fn update_mission_invite(configuration: &configuration::Configuration,
     let p_query_permissionable_id = permissionable_id;
     let p_query_include_game_data = include_game_data;
 
-    let uri_str = format!("{}/api/{version}/mission/invite/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/invite/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

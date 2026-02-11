@@ -24,13 +24,12 @@ pub enum CreateStripeCheckoutSessionError {
 
 
 /// Create a Stripe checkout session
-pub async fn create_stripe_checkout_session(configuration: &configuration::Configuration, version: f64, app_key: &str, stripe_parameters: &str) -> Result<models::SirqulResponse, Error<CreateStripeCheckoutSessionError>> {
+pub async fn create_stripe_checkout_session(configuration: &configuration::Configuration, app_key: &str, stripe_parameters: &str) -> Result<models::SirqulResponse, Error<CreateStripeCheckoutSessionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_stripe_parameters = stripe_parameters;
 
-    let uri_str = format!("{}/api/{version}/stripe/checkout/session/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/stripe/checkout/session/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);

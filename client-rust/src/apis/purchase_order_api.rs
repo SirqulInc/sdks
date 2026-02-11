@@ -59,9 +59,8 @@ pub enum UpdateOrderError {
 
 
 /// Creates a new purchase with some number of items associated with it. The purchase is added to the order that was created
-pub async fn create_order(configuration: &configuration::Configuration, version: f64, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_order_id: Option<&str>, external_payment_id: Option<&str>, remote_ref_type: Option<&str>, external_date: Option<i64>, promo_code: Option<&str>) -> Result<models::OrderResponse, Error<CreateOrderError>> {
+pub async fn create_order(configuration: &configuration::Configuration, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_order_id: Option<&str>, external_payment_id: Option<&str>, remote_ref_type: Option<&str>, external_date: Option<i64>, promo_code: Option<&str>) -> Result<models::OrderResponse, Error<CreateOrderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_cart = cart;
     let p_query_device_id = device_id;
@@ -75,7 +74,7 @@ pub async fn create_order(configuration: &configuration::Configuration, version:
     let p_query_external_date = external_date;
     let p_query_promo_code = promo_code;
 
-    let uri_str = format!("{}/api/{version}/order/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -140,14 +139,13 @@ pub async fn create_order(configuration: &configuration::Configuration, version:
 }
 
 /// Removes the transaction from the wallet by setting the deleted date to the current date/time.  Requires a valid account and transactionId.
-pub async fn delete_order(configuration: &configuration::Configuration, version: f64, order_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOrderError>> {
+pub async fn delete_order(configuration: &configuration::Configuration, order_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOrderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_order_id = order_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/order/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -187,15 +185,14 @@ pub async fn delete_order(configuration: &configuration::Configuration, version:
 }
 
 /// Get an order record
-pub async fn get_order(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, order_id: Option<i64>, external_order_id: Option<&str>) -> Result<models::OrderResponse, Error<GetOrderError>> {
+pub async fn get_order(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, order_id: Option<i64>, external_order_id: Option<&str>) -> Result<models::OrderResponse, Error<GetOrderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_order_id = order_id;
     let p_query_external_order_id = external_order_id;
 
-    let uri_str = format!("{}/api/{version}/order/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -240,9 +237,8 @@ pub async fn get_order(configuration: &configuration::Configuration, version: f6
 }
 
 /// Previews a purchase to see the total cost before making it.
-pub async fn preview_order(configuration: &configuration::Configuration, version: f64, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_order_id: Option<&str>, external_payment_id: Option<&str>, remote_ref_type: Option<&str>, external_date: Option<i64>, promo_code: Option<&str>) -> Result<models::OrderResponse, Error<PreviewOrderError>> {
+pub async fn preview_order(configuration: &configuration::Configuration, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_order_id: Option<&str>, external_payment_id: Option<&str>, remote_ref_type: Option<&str>, external_date: Option<i64>, promo_code: Option<&str>) -> Result<models::OrderResponse, Error<PreviewOrderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_cart = cart;
     let p_query_device_id = device_id;
@@ -256,7 +252,7 @@ pub async fn preview_order(configuration: &configuration::Configuration, version
     let p_query_external_date = external_date;
     let p_query_promo_code = promo_code;
 
-    let uri_str = format!("{}/api/{version}/order/preview", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/preview", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -321,9 +317,8 @@ pub async fn preview_order(configuration: &configuration::Configuration, version
 }
 
 /// Search on active orders by customer
-pub async fn search_orders(configuration: &configuration::Configuration, version: f64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>, descending: Option<bool>, active_only: Option<bool>, ignore_customer_filter: Option<bool>, order_item_types: Option<&str>, order_item_ids: Option<&str>, order_custom_types: Option<&str>, order_custom_ids: Option<&str>, sort_field: Option<&str>, offer_types: Option<&str>, special_offer_types: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, transaction_audience_ids: Option<&str>, offer_ids: Option<&str>, offer_location_ids: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, statuses: Option<&str>, keyword: Option<&str>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>) -> Result<Vec<models::OrderResponse>, Error<SearchOrdersError>> {
+pub async fn search_orders(configuration: &configuration::Configuration, app_key: &str, device_id: Option<&str>, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>, descending: Option<bool>, active_only: Option<bool>, ignore_customer_filter: Option<bool>, order_item_types: Option<&str>, order_item_ids: Option<&str>, order_custom_types: Option<&str>, order_custom_ids: Option<&str>, sort_field: Option<&str>, offer_types: Option<&str>, special_offer_types: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, transaction_audience_ids: Option<&str>, offer_ids: Option<&str>, offer_location_ids: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, statuses: Option<&str>, keyword: Option<&str>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, started_since: Option<i64>, started_before: Option<i64>, ended_since: Option<i64>, ended_before: Option<i64>) -> Result<Vec<models::OrderResponse>, Error<SearchOrdersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -356,7 +351,7 @@ pub async fn search_orders(configuration: &configuration::Configuration, version
     let p_query_ended_since = ended_since;
     let p_query_ended_before = ended_before;
 
-    let uri_str = format!("{}/api/{version}/order/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -480,9 +475,8 @@ pub async fn search_orders(configuration: &configuration::Configuration, version
 }
 
 /// Updates new purchase with some number of items associated with it. The orderId provided is used to retrieve the record and the payment is added to it.
-pub async fn update_order(configuration: &configuration::Configuration, version: f64, order_id: i64, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, payment_transaction_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_payment_id: Option<&str>, external_date: Option<i64>) -> Result<models::OrderResponse, Error<UpdateOrderError>> {
+pub async fn update_order(configuration: &configuration::Configuration, order_id: i64, app_key: &str, cart: &str, device_id: Option<&str>, account_id: Option<i64>, payment_transaction_id: Option<i64>, description: Option<&str>, currency_type: Option<&str>, payment_method_id: Option<i64>, external_payment_id: Option<&str>, external_date: Option<i64>) -> Result<models::OrderResponse, Error<UpdateOrderError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_order_id = order_id;
     let p_query_app_key = app_key;
     let p_query_cart = cart;
@@ -495,7 +489,7 @@ pub async fn update_order(configuration: &configuration::Configuration, version:
     let p_query_external_payment_id = external_payment_id;
     let p_query_external_date = external_date;
 
-    let uri_str = format!("{}/api/{version}/order/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/order/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

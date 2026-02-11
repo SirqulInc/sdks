@@ -52,9 +52,8 @@ pub enum UpdateLeaderboardError {
 
 
 /// Create a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-pub async fn create_leaderboard(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, icon_media: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, banner_media: Option<std::path::PathBuf>, banner_asset_id: Option<i64>, limitation: Option<i32>, sort_field: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>) -> Result<models::LeaderboardResponse, Error<CreateLeaderboardError>> {
+pub async fn create_leaderboard(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, icon_media: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, banner_media: Option<std::path::PathBuf>, banner_asset_id: Option<i64>, limitation: Option<i32>, sort_field: Option<&str>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>) -> Result<models::LeaderboardResponse, Error<CreateLeaderboardError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_rank_type = rank_type;
@@ -69,7 +68,7 @@ pub async fn create_leaderboard(configuration: &configuration::Configuration, ve
     let p_query_description = description;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/leaderboard/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/leaderboard/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -141,13 +140,12 @@ pub async fn create_leaderboard(configuration: &configuration::Configuration, ve
 }
 
 /// Removes a leader board id.
-pub async fn delete_leaderboard(configuration: &configuration::Configuration, version: f64, leaderboard_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteLeaderboardError>> {
+pub async fn delete_leaderboard(configuration: &configuration::Configuration, leaderboard_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteLeaderboardError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_leaderboard_id = leaderboard_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/leaderboard/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/leaderboard/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -184,14 +182,13 @@ pub async fn delete_leaderboard(configuration: &configuration::Configuration, ve
 }
 
 /// Read a leaderboard by id and retrieve the matching ranking list
-pub async fn get_leaderboard(configuration: &configuration::Configuration, version: f64, leaderboard_id: i64, account_id: Option<i64>, include_full_ranking_list: Option<bool>) -> Result<models::LeaderboardResponse, Error<GetLeaderboardError>> {
+pub async fn get_leaderboard(configuration: &configuration::Configuration, leaderboard_id: i64, account_id: Option<i64>, include_full_ranking_list: Option<bool>) -> Result<models::LeaderboardResponse, Error<GetLeaderboardError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_leaderboard_id = leaderboard_id;
     let p_query_account_id = account_id;
     let p_query_include_full_ranking_list = include_full_ranking_list;
 
-    let uri_str = format!("{}/api/{version}/leaderboard/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/leaderboard/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -231,9 +228,8 @@ pub async fn get_leaderboard(configuration: &configuration::Configuration, versi
 }
 
 /// Search leaderboard and retrieve the matching ranking list
-pub async fn search_leaderboards(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>, global_only: Option<bool>, keyword: Option<&str>, leaderboard_ids: Option<&str>, rank_types: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, include_inactive: Option<bool>, include_app_response: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::LeaderboardResponse, Error<SearchLeaderboardsError>> {
+pub async fn search_leaderboards(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>, global_only: Option<bool>, keyword: Option<&str>, leaderboard_ids: Option<&str>, rank_types: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, include_inactive: Option<bool>, include_app_response: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::LeaderboardResponse, Error<SearchLeaderboardsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_global_only = global_only;
@@ -247,7 +243,7 @@ pub async fn search_leaderboards(configuration: &configuration::Configuration, v
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/leaderboard/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/leaderboard/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -316,9 +312,8 @@ pub async fn search_leaderboards(configuration: &configuration::Configuration, v
 }
 
 /// Update a leaderboard based on the rankingType, rankMode(leaderboardMode), sortField and limitation
-pub async fn update_leaderboard(configuration: &configuration::Configuration, version: f64, leaderboard_id: i64, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, sort_field: Option<&str>, icon_media: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, banner_media: Option<std::path::PathBuf>, banner_asset_id: Option<i64>, limitation: Option<i32>, active: Option<bool>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>) -> Result<models::LeaderboardResponse, Error<UpdateLeaderboardError>> {
+pub async fn update_leaderboard(configuration: &configuration::Configuration, leaderboard_id: i64, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, sort_field: Option<&str>, icon_media: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, banner_media: Option<std::path::PathBuf>, banner_asset_id: Option<i64>, limitation: Option<i32>, active: Option<bool>, title: Option<&str>, description: Option<&str>, meta_data: Option<&str>) -> Result<models::LeaderboardResponse, Error<UpdateLeaderboardError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_leaderboard_id = leaderboard_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -335,7 +330,7 @@ pub async fn update_leaderboard(configuration: &configuration::Configuration, ve
     let p_query_description = description;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/leaderboard/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/leaderboard/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {

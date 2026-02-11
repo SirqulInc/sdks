@@ -73,9 +73,8 @@ pub enum QueueUpdateError {
 
 
 /// Create a connection to an existing amqp queue and register as a consumer.
-pub async fn consumer_create(configuration: &configuration::Configuration, version: f64, app_key: &str, name: &str, hostname: &str, username: &str, password: &str, data_mapping: &str, device_id: Option<&str>, account_id: Option<i64>, port: Option<i32>, virtual_host: Option<&str>, exchanger: Option<&str>, exchanger_type: Option<&str>, workers: Option<i32>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<ConsumerCreateError>> {
+pub async fn consumer_create(configuration: &configuration::Configuration, app_key: &str, name: &str, hostname: &str, username: &str, password: &str, data_mapping: &str, device_id: Option<&str>, account_id: Option<i64>, port: Option<i32>, virtual_host: Option<&str>, exchanger: Option<&str>, exchanger_type: Option<&str>, workers: Option<i32>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<ConsumerCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_name = name;
     let p_query_hostname = hostname;
@@ -91,7 +90,7 @@ pub async fn consumer_create(configuration: &configuration::Configuration, versi
     let p_query_workers = workers;
     let p_query_use_ssl = use_ssl;
 
-    let uri_str = format!("{}/api/{version}/queue/consumer/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/consumer/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -154,9 +153,8 @@ pub async fn consumer_create(configuration: &configuration::Configuration, versi
 }
 
 /// Update an existing amqp queue's data mapping.
-pub async fn consumer_update(configuration: &configuration::Configuration, version: f64, app_key: &str, queue_id: i64, data_mapping: &str, device_id: Option<&str>, account_id: Option<i64>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<ConsumerUpdateError>> {
+pub async fn consumer_update(configuration: &configuration::Configuration, app_key: &str, queue_id: i64, data_mapping: &str, device_id: Option<&str>, account_id: Option<i64>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<ConsumerUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_queue_id = queue_id;
     let p_query_data_mapping = data_mapping;
@@ -164,7 +162,7 @@ pub async fn consumer_update(configuration: &configuration::Configuration, versi
     let p_query_account_id = account_id;
     let p_query_use_ssl = use_ssl;
 
-    let uri_str = format!("{}/api/{version}/queue/consumer/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/consumer/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -209,9 +207,8 @@ pub async fn consumer_update(configuration: &configuration::Configuration, versi
 }
 
 /// Create a basic AMQP queue. If the username and password and virtual host is not sepcified, the queue will be created on the virtual host assigned to the application.
-pub async fn queue_create(configuration: &configuration::Configuration, version: f64, app_key: &str, name: &str, device_id: Option<&str>, account_id: Option<i64>, workers: Option<i32>, analytic_tags: Option<&str>, hostname: Option<&str>, port: Option<i32>, username: Option<&str>, password: Option<&str>, virtual_host: Option<&str>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<QueueCreateError>> {
+pub async fn queue_create(configuration: &configuration::Configuration, app_key: &str, name: &str, device_id: Option<&str>, account_id: Option<i64>, workers: Option<i32>, analytic_tags: Option<&str>, hostname: Option<&str>, port: Option<i32>, username: Option<&str>, password: Option<&str>, virtual_host: Option<&str>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<QueueCreateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_name = name;
     let p_query_device_id = device_id;
@@ -225,7 +222,7 @@ pub async fn queue_create(configuration: &configuration::Configuration, version:
     let p_query_virtual_host = virtual_host;
     let p_query_use_ssl = use_ssl;
 
-    let uri_str = format!("{}/api/{version}/queue/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -290,14 +287,13 @@ pub async fn queue_create(configuration: &configuration::Configuration, version:
 }
 
 /// Delete the stored queue record and close any active connections to the AMQP servers.
-pub async fn queue_delete(configuration: &configuration::Configuration, version: f64, queue_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<QueueDeleteError>> {
+pub async fn queue_delete(configuration: &configuration::Configuration, queue_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<QueueDeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_queue_id = queue_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/queue/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -337,9 +333,8 @@ pub async fn queue_delete(configuration: &configuration::Configuration, version:
 }
 
 /// Get the stored queue record. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-pub async fn queue_get(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, queue_id: Option<i64>, app_key: Option<&str>, name: Option<&str>, hostname: Option<&str>, virtual_host: Option<&str>) -> Result<models::QueueResponse, Error<QueueGetError>> {
+pub async fn queue_get(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, queue_id: Option<i64>, app_key: Option<&str>, name: Option<&str>, hostname: Option<&str>, virtual_host: Option<&str>) -> Result<models::QueueResponse, Error<QueueGetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_queue_id = queue_id;
@@ -348,7 +343,7 @@ pub async fn queue_get(configuration: &configuration::Configuration, version: f6
     let p_query_hostname = hostname;
     let p_query_virtual_host = virtual_host;
 
-    let uri_str = format!("{}/api/{version}/queue/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -402,9 +397,8 @@ pub async fn queue_get(configuration: &configuration::Configuration, version: f6
 }
 
 /// Publish a message to a stored queue. Must supply the queueId, or the name and hostname and virtualHost, or the name and appKey to find the record.
-pub async fn queue_publish(configuration: &configuration::Configuration, version: f64, message: &str, queue_id: Option<i64>, app_key: Option<&str>, name: Option<&str>, hostname: Option<&str>, virtual_host: Option<&str>) -> Result<models::SirqulResponse, Error<QueuePublishError>> {
+pub async fn queue_publish(configuration: &configuration::Configuration, message: &str, queue_id: Option<i64>, app_key: Option<&str>, name: Option<&str>, hostname: Option<&str>, virtual_host: Option<&str>) -> Result<models::SirqulResponse, Error<QueuePublishError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_message = message;
     let p_query_queue_id = queue_id;
     let p_query_app_key = app_key;
@@ -412,7 +406,7 @@ pub async fn queue_publish(configuration: &configuration::Configuration, version
     let p_query_hostname = hostname;
     let p_query_virtual_host = virtual_host;
 
-    let uri_str = format!("{}/api/{version}/queue/publish", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/publish", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_queue_id {
@@ -461,9 +455,8 @@ pub async fn queue_publish(configuration: &configuration::Configuration, version
 }
 
 /// Get the queues setup for the BillableEntity's applications.
-pub async fn queue_search(configuration: &configuration::Configuration, version: f64, queue_id: Option<i64>, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::QueueResponse, Error<QueueSearchError>> {
+pub async fn queue_search(configuration: &configuration::Configuration, queue_id: Option<i64>, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::QueueResponse, Error<QueueSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_queue_id = queue_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -471,7 +464,7 @@ pub async fn queue_search(configuration: &configuration::Configuration, version:
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/queue/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_queue_id {
@@ -522,9 +515,8 @@ pub async fn queue_search(configuration: &configuration::Configuration, version:
 }
 
 /// Update the basic AMQP queue.
-pub async fn queue_update(configuration: &configuration::Configuration, version: f64, queue_id: i64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, workers: Option<i32>, analytic_tags: Option<&str>, hostname: Option<&str>, port: Option<i32>, username: Option<&str>, password: Option<&str>, virtual_host: Option<&str>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<QueueUpdateError>> {
+pub async fn queue_update(configuration: &configuration::Configuration, queue_id: i64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, workers: Option<i32>, analytic_tags: Option<&str>, hostname: Option<&str>, port: Option<i32>, username: Option<&str>, password: Option<&str>, virtual_host: Option<&str>, use_ssl: Option<bool>) -> Result<models::QueueResponse, Error<QueueUpdateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_queue_id = queue_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -538,7 +530,7 @@ pub async fn queue_update(configuration: &configuration::Configuration, version:
     let p_query_virtual_host = virtual_host;
     let p_query_use_ssl = use_ssl;
 
-    let uri_str = format!("{}/api/{version}/queue/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/queue/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

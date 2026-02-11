@@ -59,9 +59,8 @@ pub enum UpdateApplicationConfigError {
 
 
 /// Creates a new application configuration. If the configVersion provided already exists for the given app, an invalid response is returned and the application configuration won't be created.
-pub async fn create_application_config(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, config_version: &str, asset_id: i64, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::ApplicationConfigResponse, Error<CreateApplicationConfigError>> {
+pub async fn create_application_config(configuration: &configuration::Configuration, account_id: i64, app_key: &str, config_version: &str, asset_id: i64, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::ApplicationConfigResponse, Error<CreateApplicationConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_config_version = config_version;
@@ -70,7 +69,7 @@ pub async fn create_application_config(configuration: &configuration::Configurat
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_udid = udid;
 
-    let uri_str = format!("{}/api/{version}/appconfig/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -116,13 +115,12 @@ pub async fn create_application_config(configuration: &configuration::Configurat
 }
 
 /// Mark the application configuration for deletion.
-pub async fn delete_application_config(configuration: &configuration::Configuration, version: f64, account_id: i64, config_id: i64) -> Result<models::SirqulResponse, Error<DeleteApplicationConfigError>> {
+pub async fn delete_application_config(configuration: &configuration::Configuration, account_id: i64, config_id: i64) -> Result<models::SirqulResponse, Error<DeleteApplicationConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_config_id = config_id;
 
-    let uri_str = format!("{}/api/{version}/appconfig/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -157,13 +155,12 @@ pub async fn delete_application_config(configuration: &configuration::Configurat
 }
 
 /// Gets the appConfig data by the given configId. If appConfig cannot be found, it returns an invalid response.
-pub async fn get_application_config(configuration: &configuration::Configuration, version: f64, account_id: i64, config_id: i64) -> Result<models::ApplicationConfigResponse, Error<GetApplicationConfigError>> {
+pub async fn get_application_config(configuration: &configuration::Configuration, account_id: i64, config_id: i64) -> Result<models::ApplicationConfigResponse, Error<GetApplicationConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_config_id = config_id;
 
-    let uri_str = format!("{}/api/{version}/appconfig/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -198,9 +195,8 @@ pub async fn get_application_config(configuration: &configuration::Configuration
 }
 
 /// Gets the appConfig data by the given appKey and app configVersion number.If the appKey is is invalid or appConfig is not found, it returns an invalid response. 
-pub async fn get_application_config_by_config_version(configuration: &configuration::Configuration, version: f64, app_key: &str, config_version: &str, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>, allow_older_versions: Option<bool>) -> Result<models::ApplicationConfigResponse, Error<GetApplicationConfigByConfigVersionError>> {
+pub async fn get_application_config_by_config_version(configuration: &configuration::Configuration, app_key: &str, config_version: &str, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>, allow_older_versions: Option<bool>) -> Result<models::ApplicationConfigResponse, Error<GetApplicationConfigByConfigVersionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_config_version = config_version;
     let p_query_retailer_id = retailer_id;
@@ -208,7 +204,7 @@ pub async fn get_application_config_by_config_version(configuration: &configurat
     let p_query_udid = udid;
     let p_query_allow_older_versions = allow_older_versions;
 
-    let uri_str = format!("{}/api/{version}/appconfig/getbyversion", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/getbyversion", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);
@@ -255,9 +251,8 @@ pub async fn get_application_config_by_config_version(configuration: &configurat
 }
 
 /// Gets all versions of application configurations in a particular app by the given appKey.
-pub async fn search_application_config(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>, config_version: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ApplicationConfigResponse>, Error<SearchApplicationConfigError>> {
+pub async fn search_application_config(configuration: &configuration::Configuration, account_id: i64, app_key: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>, config_version: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ApplicationConfigResponse>, Error<SearchApplicationConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_retailer_id = retailer_id;
@@ -269,7 +264,7 @@ pub async fn search_application_config(configuration: &configuration::Configurat
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/appconfig/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -330,9 +325,8 @@ pub async fn search_application_config(configuration: &configuration::Configurat
 }
 
 /// pdates an existing application configuration. If the configVersion provided already exists for the given app the application configuration won't be updated.
-pub async fn update_application_config(configuration: &configuration::Configuration, version: f64, account_id: i64, config_id: i64, app_key: Option<&str>, config_version: Option<&str>, asset_id: Option<i64>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::ApplicationConfigResponse, Error<UpdateApplicationConfigError>> {
+pub async fn update_application_config(configuration: &configuration::Configuration, account_id: i64, config_id: i64, app_key: Option<&str>, config_version: Option<&str>, asset_id: Option<i64>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::ApplicationConfigResponse, Error<UpdateApplicationConfigError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_config_id = config_id;
     let p_query_app_key = app_key;
@@ -342,7 +336,7 @@ pub async fn update_application_config(configuration: &configuration::Configurat
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_udid = udid;
 
-    let uri_str = format!("{}/api/{version}/appconfig/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/appconfig/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

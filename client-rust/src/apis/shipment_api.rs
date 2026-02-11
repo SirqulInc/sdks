@@ -69,12 +69,11 @@ pub enum UpdateShipmentStatusError {
 
 
 /// Remove shipment from route
-pub async fn cancel_shipment(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<CancelShipmentError>> {
+pub async fn cancel_shipment(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<CancelShipmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/shipment/{id}/cancel", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/shipment/{id}/cancel", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -96,12 +95,11 @@ pub async fn cancel_shipment(configuration: &configuration::Configuration, versi
 }
 
 /// Create new shipment
-pub async fn create_shipment(configuration: &configuration::Configuration, version: f64, body: Option<models::Shipment>) -> Result<models::Shipment, Error<CreateShipmentError>> {
+pub async fn create_shipment(configuration: &configuration::Configuration, body: Option<models::Shipment>) -> Result<models::Shipment, Error<CreateShipmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/shipment", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/shipment", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -135,12 +133,11 @@ pub async fn create_shipment(configuration: &configuration::Configuration, versi
 }
 
 /// Delete an existing shipment
-pub async fn delete_shipment(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<DeleteShipmentError>> {
+pub async fn delete_shipment(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<DeleteShipmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/shipment/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/shipment/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -162,12 +159,11 @@ pub async fn delete_shipment(configuration: &configuration::Configuration, versi
 }
 
 /// Get an existing shipment
-pub async fn get_shipment(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<models::Shipment, Error<GetShipmentError>> {
+pub async fn get_shipment(configuration: &configuration::Configuration, id: i64) -> Result<models::Shipment, Error<GetShipmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/shipment/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/shipment/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -200,9 +196,8 @@ pub async fn get_shipment(configuration: &configuration::Configuration, version:
 }
 
 /// Search for shipments
-pub async fn search_shipments(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, owner_id: Option<i64>, rider_id: Option<i64>, route_id: Option<i64>) -> Result<Vec<models::Shipment>, Error<SearchShipmentsError>> {
+pub async fn search_shipments(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, owner_id: Option<i64>, rider_id: Option<i64>, route_id: Option<i64>) -> Result<Vec<models::Shipment>, Error<SearchShipmentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -212,7 +207,7 @@ pub async fn search_shipments(configuration: &configuration::Configuration, vers
     let p_query_rider_id = rider_id;
     let p_query_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/shipment", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/shipment", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_owner_id {
@@ -259,13 +254,12 @@ pub async fn search_shipments(configuration: &configuration::Configuration, vers
 }
 
 /// Update an existing shipment
-pub async fn update_shipment(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Shipment>) -> Result<models::Shipment, Error<UpdateShipmentError>> {
+pub async fn update_shipment(configuration: &configuration::Configuration, id: i64, body: Option<models::Shipment>) -> Result<models::Shipment, Error<UpdateShipmentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/shipment/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/shipment/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -299,13 +293,12 @@ pub async fn update_shipment(configuration: &configuration::Configuration, versi
 }
 
 /// Update status of an existing shipment
-pub async fn update_shipment_status(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<std::collections::HashMap<String, bool>>) -> Result<(), Error<UpdateShipmentStatusError>> {
+pub async fn update_shipment_status(configuration: &configuration::Configuration, id: i64, body: Option<std::collections::HashMap<String, bool>>) -> Result<(), Error<UpdateShipmentStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/shipment/{id}/status", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/shipment/{id}/status", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

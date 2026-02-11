@@ -206,9 +206,8 @@ pub enum ValidatePasswordResetError {
 
 
 /// Search accounts by their location. This only searches on users that have location data. Use ConnectionApi to perform a regular search on accounts.
-pub async fn account_location_search(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, postal_code: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>, range: Option<f64>, location_last_updated: Option<i64>, gender: Option<&str>, min_age: Option<i32>, max_age: Option<i32>, companionship_index: Option<i32>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, search_mode: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, roles: Option<&str>, tags: Option<&str>, experience: Option<&str>, category_ids: Option<&str>, audience_ids: Option<&str>, audience_operator: Option<&str>, update_current_location: Option<bool>, update_preferred_settings: Option<bool>, show_exact_locations: Option<bool>, show_connection_to_searcher: Option<bool>, flag_count_minimum: Option<i64>, verified_user_only: Option<bool>, content_admin_only: Option<bool>) -> Result<models::UserLocationSearchResponse, Error<AccountLocationSearchError>> {
+pub async fn account_location_search(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, postal_code: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app_key: Option<&str>, range: Option<f64>, location_last_updated: Option<i64>, gender: Option<&str>, min_age: Option<i32>, max_age: Option<i32>, companionship_index: Option<i32>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, search_mode: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, roles: Option<&str>, tags: Option<&str>, experience: Option<&str>, category_ids: Option<&str>, audience_ids: Option<&str>, audience_operator: Option<&str>, update_current_location: Option<bool>, update_preferred_settings: Option<bool>, show_exact_locations: Option<bool>, show_connection_to_searcher: Option<bool>, flag_count_minimum: Option<i64>, verified_user_only: Option<bool>, content_admin_only: Option<bool>) -> Result<models::UserLocationSearchResponse, Error<AccountLocationSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_q = q;
@@ -244,7 +243,7 @@ pub async fn account_location_search(configuration: &configuration::Configuratio
     let p_query_verified_user_only = verified_user_only;
     let p_query_content_admin_only = content_admin_only;
 
-    let uri_str = format!("{}/api/{version}/account/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -379,9 +378,8 @@ pub async fn account_location_search(configuration: &configuration::Configuratio
 }
 
 /// Moves or removes an account into the user's blocked group.
-pub async fn block_account(configuration: &configuration::Configuration, version: f64, account_id_being_blocked: i64, device_id: Option<&str>, account_id: Option<i64>, block_flag_value: Option<bool>, remove_from_groups_if_blocked: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<BlockAccountError>> {
+pub async fn block_account(configuration: &configuration::Configuration, account_id_being_blocked: i64, device_id: Option<&str>, account_id: Option<i64>, block_flag_value: Option<bool>, remove_from_groups_if_blocked: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<BlockAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id_being_blocked = account_id_being_blocked;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -390,7 +388,7 @@ pub async fn block_account(configuration: &configuration::Configuration, version
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/block", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/block", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -442,9 +440,8 @@ pub async fn block_account(configuration: &configuration::Configuration, version
 }
 
 /// Create a new account by role.
-pub async fn create_account(configuration: &configuration::Configuration, version: f64, username: &str, password: &str, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, device_id: Option<&str>, device_id_type: Option<&str>, email_address: Option<&str>, asset_id: Option<i64>, street_address: Option<&str>, zipcode: Option<&str>, gender: Option<&str>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, role: Option<&str>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, game_experience: Option<&str>, category_ids: Option<&str>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, accepted_terms: Option<bool>, invite_token: Option<&str>, referral_account_id: Option<i64>, send_validation: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, app_version: Option<&str>, response_type: Option<&str>, audience_ids_to_add: Option<&str>, app_blob: Option<&str>, app_enable_push: Option<bool>, app_enable_sms: Option<bool>, app_enable_email: Option<bool>, location_visibility: Option<&str>, home_latitude: Option<f64>, home_longitude: Option<f64>, app_nickname: Option<&str>, personal_audience_id: Option<i64>) -> Result<models::AccountLoginResponse, Error<CreateAccountError>> {
+pub async fn create_account(configuration: &configuration::Configuration, username: &str, password: &str, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, device_id: Option<&str>, device_id_type: Option<&str>, email_address: Option<&str>, asset_id: Option<i64>, street_address: Option<&str>, zipcode: Option<&str>, gender: Option<&str>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, role: Option<&str>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, game_experience: Option<&str>, category_ids: Option<&str>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, accepted_terms: Option<bool>, invite_token: Option<&str>, referral_account_id: Option<i64>, send_validation: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, app_version: Option<&str>, response_type: Option<&str>, audience_ids_to_add: Option<&str>, app_blob: Option<&str>, app_enable_push: Option<bool>, app_enable_sms: Option<bool>, app_enable_email: Option<bool>, location_visibility: Option<&str>, home_latitude: Option<f64>, home_longitude: Option<f64>, app_nickname: Option<&str>, personal_audience_id: Option<i64>) -> Result<models::AccountLoginResponse, Error<CreateAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_username = username;
     let p_query_password = password;
     let p_query_name = name;
@@ -518,7 +515,7 @@ pub async fn create_account(configuration: &configuration::Configuration, versio
     let p_query_app_nickname = app_nickname;
     let p_query_personal_audience_id = personal_audience_id;
 
-    let uri_str = format!("{}/api/{version}/account/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_name {
@@ -763,9 +760,8 @@ pub async fn create_account(configuration: &configuration::Configuration, versio
 }
 
 /// Edit the user's profile information
-pub async fn edit_account(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, role: Option<&str>, asset_id: Option<i64>, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, gender: Option<&str>, age: Option<i32>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, make_profile_info_public: Option<bool>, make_game_info_public: Option<bool>, make_friends_info_public: Option<bool>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, match_token: Option<&str>, game_experience: Option<&str>, categories: Option<&str>, category_ids: Option<&str>, response_filters: Option<&str>, show_as_zipcode: Option<bool>, show_exact_location: Option<bool>, show_others_exact_location: Option<bool>, accepted_terms: Option<bool>, location_visibility: Option<&str>, app_blob: Option<&str>, app_enable_push: Option<bool>, app_enable_sms: Option<bool>, app_enable_email: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, return_profile: Option<bool>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, referral_account_id: Option<i64>, app_nickname: Option<&str>, personal_audience_id: Option<i64>, non_guest_username: Option<&str>) -> Result<models::ProfileInfoResponse, Error<EditAccountError>> {
+pub async fn edit_account(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, role: Option<&str>, asset_id: Option<i64>, name: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, gender: Option<&str>, age: Option<i32>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, email_address: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, zipcode: Option<&str>, country: Option<&str>, make_profile_info_public: Option<bool>, make_game_info_public: Option<bool>, make_friends_info_public: Option<bool>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, match_token: Option<&str>, game_experience: Option<&str>, categories: Option<&str>, category_ids: Option<&str>, response_filters: Option<&str>, show_as_zipcode: Option<bool>, show_exact_location: Option<bool>, show_others_exact_location: Option<bool>, accepted_terms: Option<bool>, location_visibility: Option<&str>, app_blob: Option<&str>, app_enable_push: Option<bool>, app_enable_sms: Option<bool>, app_enable_email: Option<bool>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, return_profile: Option<bool>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, referral_account_id: Option<i64>, app_nickname: Option<&str>, personal_audience_id: Option<i64>, non_guest_username: Option<&str>) -> Result<models::ProfileInfoResponse, Error<EditAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
@@ -849,7 +845,7 @@ pub async fn edit_account(configuration: &configuration::Configuration, version:
     let p_query_personal_audience_id = personal_audience_id;
     let p_query_non_guest_username = non_guest_username;
 
-    let uri_str = format!("{}/api/{version}/account/profile/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/profile/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1128,15 +1124,14 @@ pub async fn edit_account(configuration: &configuration::Configuration, version:
 }
 
 /// Update account's own username and/or emailAddress
-pub async fn edit_username(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, email_address: Option<&str>, username: Option<&str>) -> Result<models::SirqulResponse, Error<EditUsernameError>> {
+pub async fn edit_username(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, email_address: Option<&str>, username: Option<&str>) -> Result<models::SirqulResponse, Error<EditUsernameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_email_address = email_address;
     let p_query_username = username;
 
-    let uri_str = format!("{}/api/{version}/account/username/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/username/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1181,9 +1176,8 @@ pub async fn edit_username(configuration: &configuration::Configuration, version
 }
 
 /// Gets a user's account profile. Application settings and account settings will also be returned for the owner of the account.
-pub async fn get_account(configuration: &configuration::Configuration, version: f64, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, connection_account_email: Option<&str>, connection_account_id: Option<i64>, response_filters: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, purchase_type: Option<&str>, update_viewed_date: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<GetAccountError>> {
+pub async fn get_account(configuration: &configuration::Configuration, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, connection_account_email: Option<&str>, connection_account_id: Option<i64>, response_filters: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, purchase_type: Option<&str>, update_viewed_date: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<GetAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1197,7 +1191,7 @@ pub async fn get_account(configuration: &configuration::Configuration, version: 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/profile/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/profile/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_return_nulls {
@@ -1266,9 +1260,8 @@ pub async fn get_account(configuration: &configuration::Configuration, version: 
 }
 
 /// Get a list of assets a person has ever uploaded. Filters the list based on parameters.
-pub async fn get_profile_assets(configuration: &configuration::Configuration, version: f64, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, owner_id: Option<i64>, media_types: Option<&str>, mime_types: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::AssetListResponse, Error<GetProfileAssetsError>> {
+pub async fn get_profile_assets(configuration: &configuration::Configuration, return_nulls: Option<bool>, device_id: Option<&str>, account_id: Option<i64>, owner_id: Option<i64>, media_types: Option<&str>, mime_types: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, latitude: Option<f64>, longitude: Option<f64>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::AssetListResponse, Error<GetProfileAssetsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1284,7 +1277,7 @@ pub async fn get_profile_assets(configuration: &configuration::Configuration, ve
     let p_query__l = _l;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/account/profile/assets", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/profile/assets", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_return_nulls {
@@ -1359,9 +1352,8 @@ pub async fn get_profile_assets(configuration: &configuration::Configuration, ve
 }
 
 /// Gets a user's account profile and their referral List.
-pub async fn get_referral_list(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>, retrieve_type: Option<&str>, level_limit: Option<f64>, ancestor_level_limit: Option<f64>, children_level_limit: Option<f64>, ancestor_list_start: Option<f64>, ancestor_list_limit: Option<f64>, children_list_start: Option<f64>, children_list_limit: Option<f64>, children_children: Option<bool>) -> Result<(), Error<GetReferralListError>> {
+pub async fn get_referral_list(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>, retrieve_type: Option<&str>, level_limit: Option<f64>, ancestor_level_limit: Option<f64>, children_level_limit: Option<f64>, ancestor_list_start: Option<f64>, ancestor_list_limit: Option<f64>, children_list_start: Option<f64>, children_list_limit: Option<f64>, children_children: Option<bool>) -> Result<(), Error<GetReferralListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_retrieve_type = retrieve_type;
@@ -1374,7 +1366,7 @@ pub async fn get_referral_list(configuration: &configuration::Configuration, ver
     let p_query_children_list_limit = children_list_limit;
     let p_query_children_children = children_children;
 
-    let uri_str = format!("{}/api/{version}/account/referral/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/referral/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -1429,15 +1421,14 @@ pub async fn get_referral_list(configuration: &configuration::Configuration, ver
 }
 
 /// Get the account settings for a user
-pub async fn get_settings(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::UserSettingsResponse, Error<GetSettingsError>> {
+pub async fn get_settings(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::UserSettingsResponse, Error<GetSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/settings/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/settings/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1482,9 +1473,8 @@ pub async fn get_settings(configuration: &configuration::Configuration, version:
 }
 
 /// A login service that supports logging in as someone else (accounts that the user manages). Intended for internal use for now.
-pub async fn login_delegate(configuration: &configuration::Configuration, version: f64, access_token: &str, app_key: &str, device_id: Option<&str>, access_token_secret: Option<&str>, delegated_account_id: Option<i64>, delegated_username: Option<&str>, network_uid: Option<&str>, age_restriction: Option<i32>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginDelegateError>> {
+pub async fn login_delegate(configuration: &configuration::Configuration, access_token: &str, app_key: &str, device_id: Option<&str>, access_token_secret: Option<&str>, delegated_account_id: Option<i64>, delegated_username: Option<&str>, network_uid: Option<&str>, age_restriction: Option<i32>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginDelegateError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_access_token = access_token;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
@@ -1497,7 +1487,7 @@ pub async fn login_delegate(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/login/delegate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/login/delegate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1559,9 +1549,8 @@ pub async fn login_delegate(configuration: &configuration::Configuration, versio
 }
 
 /// General login service that supports various authentication methods. Currently supports Facebook, Twitter, Sirqul Username, and Sirqul Phone by default. Can also support custom networks created using the {@link ThirdPartyApi}
-pub async fn login_general(configuration: &configuration::Configuration, version: f64, access_token: &str, network_uid: &str, app_key: &str, device_id: Option<&str>, device_id_type: Option<&str>, access_token_secret: Option<&str>, age_restriction: Option<i32>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, email_match: Option<bool>, chosen_account_id: Option<i64>, third_party_credential_id: Option<i64>) -> Result<models::ProfileResponse, Error<LoginGeneralError>> {
+pub async fn login_general(configuration: &configuration::Configuration, access_token: &str, network_uid: &str, app_key: &str, device_id: Option<&str>, device_id_type: Option<&str>, access_token_secret: Option<&str>, age_restriction: Option<i32>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, email_match: Option<bool>, chosen_account_id: Option<i64>, third_party_credential_id: Option<i64>) -> Result<models::ProfileResponse, Error<LoginGeneralError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_access_token = access_token;
     let p_query_network_uid = network_uid;
     let p_query_app_key = app_key;
@@ -1576,7 +1565,7 @@ pub async fn login_general(configuration: &configuration::Configuration, version
     let p_query_chosen_account_id = chosen_account_id;
     let p_query_third_party_credential_id = third_party_credential_id;
 
-    let uri_str = format!("{}/api/{version}/account/login", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/login", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1642,9 +1631,8 @@ pub async fn login_general(configuration: &configuration::Configuration, version
 }
 
 /// Login to system with an account
-pub async fn login_username(configuration: &configuration::Configuration, version: f64, username: &str, password: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, return_profile: Option<bool>, response_filters: Option<&str>) -> Result<models::ProfileResponse, Error<LoginUsernameError>> {
+pub async fn login_username(configuration: &configuration::Configuration, username: &str, password: &str, device_id: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, app: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, return_profile: Option<bool>, response_filters: Option<&str>) -> Result<models::ProfileResponse, Error<LoginUsernameError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_username = username;
     let p_query_password = password;
     let p_query_device_id = device_id;
@@ -1656,7 +1644,7 @@ pub async fn login_username(configuration: &configuration::Configuration, versio
     let p_query_return_profile = return_profile;
     let p_query_response_filters = response_filters;
 
-    let uri_str = format!("{}/api/{version}/account/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1715,16 +1703,15 @@ pub async fn login_username(configuration: &configuration::Configuration, versio
 }
 
 /// Cleans up the users data for logging out.
-pub async fn logout(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, device_id_type: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<LogoutError>> {
+pub async fn logout(configuration: &configuration::Configuration, device_id: Option<&str>, device_id_type: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<LogoutError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_device_id_type = device_id_type;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/logout", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/logout", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1772,15 +1759,14 @@ pub async fn logout(configuration: &configuration::Configuration, version: f64, 
 }
 
 /// Merges the analytics, achievements, leaderboards of two accounts.
-pub async fn merge_account(configuration: &configuration::Configuration, version: f64, merge_account_id: i64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<MergeAccountError>> {
+pub async fn merge_account(configuration: &configuration::Configuration, merge_account_id: i64, app_key: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<MergeAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_merge_account_id = merge_account_id;
     let p_query_app_key = app_key;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/account/merge", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/merge", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1821,15 +1807,14 @@ pub async fn merge_account(configuration: &configuration::Configuration, version
 }
 
 /// Update the account password.
-pub async fn password_change(configuration: &configuration::Configuration, version: f64, account_id: i64, old_password: &str, new_password: &str, confirm_password: &str) -> Result<models::SirqulResponse, Error<PasswordChangeError>> {
+pub async fn password_change(configuration: &configuration::Configuration, account_id: i64, old_password: &str, new_password: &str, confirm_password: &str) -> Result<models::SirqulResponse, Error<PasswordChangeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_old_password = old_password;
     let p_query_new_password = new_password;
     let p_query_confirm_password = confirm_password;
 
-    let uri_str = format!("{}/api/{version}/account/passwordchange", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/passwordchange", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1866,14 +1851,13 @@ pub async fn password_change(configuration: &configuration::Configuration, versi
 }
 
 /// Reset the account password. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token.
-pub async fn password_reset(configuration: &configuration::Configuration, version: f64, token: &str, password: &str, confirm: &str) -> Result<models::SirqulResponse, Error<PasswordResetError>> {
+pub async fn password_reset(configuration: &configuration::Configuration, token: &str, password: &str, confirm: &str) -> Result<models::SirqulResponse, Error<PasswordResetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_token = token;
     let p_query_password = password;
     let p_query_confirm = confirm;
 
-    let uri_str = format!("{}/api/{version}/account/passwordreset", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/passwordreset", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("token", &p_query_token.to_string())]);
@@ -1909,16 +1893,15 @@ pub async fn password_reset(configuration: &configuration::Configuration, versio
 }
 
 /// Request that an account password be reset. The account is looked up by email address and then a link is sent via email to that account with a reset token. The token is valid for 24 hours.
-pub async fn request_password_reset(configuration: &configuration::Configuration, version: f64, email: &str, from: Option<&str>, domain: Option<&str>, sub_url: Option<&str>, referer: Option<&str>) -> Result<models::SirqulResponse, Error<RequestPasswordResetError>> {
+pub async fn request_password_reset(configuration: &configuration::Configuration, email: &str, from: Option<&str>, domain: Option<&str>, sub_url: Option<&str>, referer: Option<&str>) -> Result<models::SirqulResponse, Error<RequestPasswordResetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_email = email;
     let p_query_from = from;
     let p_query_domain = domain;
     let p_query_sub_url = sub_url;
     let p_query_referer = referer;
 
-    let uri_str = format!("{}/api/{version}/account/requestpasswordreset", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/requestpasswordreset", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("email", &p_query_email.to_string())]);
@@ -1964,12 +1947,11 @@ pub async fn request_password_reset(configuration: &configuration::Configuration
 }
 
 /// Send an email to validate a user's account.
-pub async fn request_validate_account(configuration: &configuration::Configuration, version: f64, account_id: i64) -> Result<models::SirqulResponse, Error<RequestValidateAccountError>> {
+pub async fn request_validate_account(configuration: &configuration::Configuration, account_id: i64) -> Result<models::SirqulResponse, Error<RequestValidateAccountError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/account/requestValidateAccount", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/requestValidateAccount", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2003,9 +1985,8 @@ pub async fn request_validate_account(configuration: &configuration::Configurati
 }
 
 /// Search for account profiles.
-pub async fn search_accounts(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, radius: Option<f64>, gender: Option<&str>, game_experience: Option<&str>, age: Option<i32>, category_ids: Option<&str>, return_nulls: Option<bool>, response_filters: Option<&str>, purchase_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::ProfileResponse>, Error<SearchAccountsError>> {
+pub async fn search_accounts(configuration: &configuration::Configuration, account_id: i64, app_key: &str, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, radius: Option<f64>, gender: Option<&str>, game_experience: Option<&str>, age: Option<i32>, category_ids: Option<&str>, return_nulls: Option<bool>, response_filters: Option<&str>, purchase_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::ProfileResponse>, Error<SearchAccountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_keyword = keyword;
@@ -2025,7 +2006,7 @@ pub async fn search_accounts(configuration: &configuration::Configuration, versi
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/account/profile/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/profile/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2108,9 +2089,8 @@ pub async fn search_accounts(configuration: &configuration::Configuration, versi
 }
 
 /// ogin with encrypted user-name and password.
-pub async fn secure_login(configuration: &configuration::Configuration, version: f64, username: &str, password: &str, game_type: &str, device_id: Option<&str>, charset_name: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, return_profile: Option<bool>, response_filters: Option<&str>) -> Result<models::ProfileResponse, Error<SecureLoginError>> {
+pub async fn secure_login(configuration: &configuration::Configuration, username: &str, password: &str, game_type: &str, device_id: Option<&str>, charset_name: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, return_profile: Option<bool>, response_filters: Option<&str>) -> Result<models::ProfileResponse, Error<SecureLoginError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_username = username;
     let p_query_password = password;
     let p_query_game_type = game_type;
@@ -2121,7 +2101,7 @@ pub async fn secure_login(configuration: &configuration::Configuration, version:
     let p_query_return_profile = return_profile;
     let p_query_response_filters = response_filters;
 
-    let uri_str = format!("{}/api/{version}/account/login/validate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/login/validate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -2175,9 +2155,8 @@ pub async fn secure_login(configuration: &configuration::Configuration, version:
 }
 
 /// Create a new account by role (with encrypted user-name and password)
-pub async fn secure_signup(configuration: &configuration::Configuration, version: f64, device_id: &str, username: &str, password: &str, name: Option<&str>, invite_token: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, device_id_type: Option<&str>, email_address: Option<&str>, asset_id: Option<i64>, address: Option<&str>, zipcode: Option<&str>, gender: Option<&str>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, role: Option<&str>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, game_experience: Option<&str>, category_ids: Option<&str>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, accepted_terms: Option<bool>, charset_name: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, app_version: Option<&str>, response_type: Option<&str>) -> Result<models::ProfileInfoResponse, Error<SecureSignupError>> {
+pub async fn secure_signup(configuration: &configuration::Configuration, device_id: &str, username: &str, password: &str, name: Option<&str>, invite_token: Option<&str>, prefix_name: Option<&str>, first_name: Option<&str>, middle_name: Option<&str>, last_name: Option<&str>, suffix_name: Option<&str>, title: Option<&str>, device_id_type: Option<&str>, email_address: Option<&str>, asset_id: Option<i64>, address: Option<&str>, zipcode: Option<&str>, gender: Option<&str>, birthday: Option<i64>, home_phone: Option<&str>, cell_phone: Option<&str>, cell_phone_carrier: Option<&str>, business_phone: Option<&str>, role: Option<&str>, platforms: Option<&str>, tags: Option<&str>, about_us: Option<&str>, game_experience: Option<&str>, category_ids: Option<&str>, hometown: Option<&str>, height: Option<&str>, height_index: Option<i32>, ethnicity: Option<&str>, body_type: Option<&str>, marital_status: Option<&str>, children: Option<&str>, religion: Option<&str>, education: Option<&str>, education_index: Option<i32>, smoke: Option<&str>, drink: Option<&str>, companionship: Option<&str>, companionship_index: Option<i32>, preferred_min_age: Option<i32>, preferred_max_age: Option<i32>, preferred_min_height: Option<i32>, preferred_max_height: Option<i32>, preferred_gender: Option<&str>, preferred_education: Option<&str>, preferred_education_index: Option<i32>, preferred_body_type: Option<&str>, preferred_ethnicity: Option<&str>, preferred_location: Option<&str>, preferred_location_range: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, accepted_terms: Option<bool>, charset_name: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, app_version: Option<&str>, response_type: Option<&str>) -> Result<models::ProfileInfoResponse, Error<SecureSignupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_username = username;
     let p_query_password = password;
@@ -2240,7 +2219,7 @@ pub async fn secure_signup(configuration: &configuration::Configuration, version
     let p_query_app_version = app_version;
     let p_query_response_type = response_type;
 
-    let uri_str = format!("{}/api/{version}/account/create/validate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/create/validate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_name {
@@ -2450,9 +2429,8 @@ pub async fn secure_signup(configuration: &configuration::Configuration, version
 }
 
 /// Save user's match token to be used for profile match making
-pub async fn set_match_token(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, match_token: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<SetMatchTokenError>> {
+pub async fn set_match_token(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, match_token: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<SetMatchTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_match_token = match_token;
@@ -2461,7 +2439,7 @@ pub async fn set_match_token(configuration: &configuration::Configuration, versi
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/profile/matchToken", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/profile/matchToken", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -2515,16 +2493,15 @@ pub async fn set_match_token(configuration: &configuration::Configuration, versi
 }
 
 /// Activate or deactivate an account (requires appropriate permissions).
-pub async fn update_actve_status(configuration: &configuration::Configuration, version: f64, account_id: i64, connection_account_id: i64, active: bool, device_id: Option<&str>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<UpdateActveStatusError>> {
+pub async fn update_actve_status(configuration: &configuration::Configuration, account_id: i64, connection_account_id: i64, active: bool, device_id: Option<&str>, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<UpdateActveStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
     let p_query_active = active;
     let p_query_device_id = device_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/account/active/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/active/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -2566,16 +2543,15 @@ pub async fn update_actve_status(configuration: &configuration::Configuration, v
 }
 
 /// Update the account location
-pub async fn update_location(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, client_time: Option<i64>) -> Result<models::SirqulResponse, Error<UpdateLocationError>> {
+pub async fn update_location(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, client_time: Option<i64>) -> Result<models::SirqulResponse, Error<UpdateLocationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_client_time = client_time;
 
-    let uri_str = format!("{}/api/{version}/account/location/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/location/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -2623,9 +2599,8 @@ pub async fn update_location(configuration: &configuration::Configuration, versi
 }
 
 /// Update the account settings for a user
-pub async fn update_settings(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, blocked_notifications: Option<&str>, suggestion_method: Option<&str>, suggestion_count: Option<i32>, suggestion_time_frame: Option<i32>, show_others_exact_location: Option<bool>, show_as_zipcode: Option<bool>, show_exact_location: Option<bool>, favorite_visibility: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::UserSettingsResponse, Error<UpdateSettingsError>> {
+pub async fn update_settings(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, blocked_notifications: Option<&str>, suggestion_method: Option<&str>, suggestion_count: Option<i32>, suggestion_time_frame: Option<i32>, show_others_exact_location: Option<bool>, show_as_zipcode: Option<bool>, show_exact_location: Option<bool>, favorite_visibility: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::UserSettingsResponse, Error<UpdateSettingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_blocked_notifications = blocked_notifications;
@@ -2639,7 +2614,7 @@ pub async fn update_settings(configuration: &configuration::Configuration, versi
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/account/settings/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/settings/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -2708,12 +2683,11 @@ pub async fn update_settings(configuration: &configuration::Configuration, versi
 }
 
 /// Validate the account's email address. The token must be valid and not expired. Use the RequestValidateAccount end point to request a new token.
-pub async fn validate_account_signup(configuration: &configuration::Configuration, version: f64, token: &str) -> Result<models::AccountLoginResponse, Error<ValidateAccountSignupError>> {
+pub async fn validate_account_signup(configuration: &configuration::Configuration, token: &str) -> Result<models::AccountLoginResponse, Error<ValidateAccountSignupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_token = token;
 
-    let uri_str = format!("{}/api/{version}/account/validateAccountSignup", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/validateAccountSignup", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("token", &p_query_token.to_string())]);
@@ -2747,12 +2721,11 @@ pub async fn validate_account_signup(configuration: &configuration::Configuratio
 }
 
 /// Validate the password reset token. The token must be valid and not expired. Use the RequestPasswordReset end point to request a token. The user receives and email with the reset page, therefore it should be validated before bwing used to reset the password.
-pub async fn validate_password_reset(configuration: &configuration::Configuration, version: f64, token: &str) -> Result<models::SirqulResponse, Error<ValidatePasswordResetError>> {
+pub async fn validate_password_reset(configuration: &configuration::Configuration, token: &str) -> Result<models::SirqulResponse, Error<ValidatePasswordResetError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_token = token;
 
-    let uri_str = format!("{}/api/{version}/account/validatepasswordreset", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/account/validatepasswordreset", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("token", &p_query_token.to_string())]);

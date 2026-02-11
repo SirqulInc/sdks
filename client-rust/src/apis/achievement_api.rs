@@ -15,10 +15,10 @@ use crate::{apis::ResponseContent, models};
 use super::{Error, configuration, ContentType};
 
 
-/// struct for typed errors of method [`api_version_achievement_tier_search_post`]
+/// struct for typed errors of method [`achievement_tier_search_post`]
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(untagged)]
-pub enum ApiVersionAchievementTierSearchPostError {
+pub enum AchievementTierSearchPostError {
     UnknownValue(serde_json::Value),
 }
 
@@ -115,9 +115,8 @@ pub enum UpdateUserAchievementError {
 
 
 /// Searches a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn api_version_achievement_tier_search_post(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, achievement_type: Option<i64>, rank_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, descending_goal: Option<bool>, start: Option<i64>, limit: Option<i64>) -> Result<models::AchievementTierResponse, Error<ApiVersionAchievementTierSearchPostError>> {
+pub async fn achievement_tier_search_post(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, achievement_type: Option<i64>, rank_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, descending_goal: Option<bool>, start: Option<i64>, limit: Option<i64>) -> Result<models::AchievementTierResponse, Error<AchievementTierSearchPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -130,7 +129,7 @@ pub async fn api_version_achievement_tier_search_post(configuration: &configurat
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/achievement/tier/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tier/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -190,15 +189,14 @@ pub async fn api_version_achievement_tier_search_post(configuration: &configurat
         }
     } else {
         let content = resp.text().await?;
-        let entity: Option<ApiVersionAchievementTierSearchPostError> = serde_json::from_str(&content).ok();
+        let entity: Option<AchievementTierSearchPostError> = serde_json::from_str(&content).ok();
         Err(Error::ResponseError(ResponseContent { status, content, entity }))
     }
 }
 
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn create_achievement(configuration: &configuration::Configuration, version: f64, app_key: &str, title: &str, device_id: Option<&str>, account_id: Option<i64>, analytics_tag: Option<&str>, description: Option<&str>, rank_type: Option<&str>, rank_increment: Option<i32>, min_increment: Option<i32>, max_increment: Option<i32>, validate: Option<bool>, active: Option<bool>, trigger_definition: Option<&str>) -> Result<models::AchievementResponse, Error<CreateAchievementError>> {
+pub async fn create_achievement(configuration: &configuration::Configuration, app_key: &str, title: &str, device_id: Option<&str>, account_id: Option<i64>, analytics_tag: Option<&str>, description: Option<&str>, rank_type: Option<&str>, rank_increment: Option<i32>, min_increment: Option<i32>, max_increment: Option<i32>, validate: Option<bool>, active: Option<bool>, trigger_definition: Option<&str>) -> Result<models::AchievementResponse, Error<CreateAchievementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_title = title;
     let p_query_device_id = device_id;
@@ -213,7 +211,7 @@ pub async fn create_achievement(configuration: &configuration::Configuration, ve
     let p_query_active = active;
     let p_query_trigger_definition = trigger_definition;
 
-    let uri_str = format!("{}/api/{version}/achievement/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -281,9 +279,8 @@ pub async fn create_achievement(configuration: &configuration::Configuration, ve
 }
 
 /// Create a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn create_achievement_tier(configuration: &configuration::Configuration, version: f64, achievement_id: i64, score_all_instances: bool, device_id: Option<&str>, account_id: Option<i64>, icon: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, title: Option<&str>, description: Option<&str>, goal_count: Option<i64>, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i32>) -> Result<models::AchievementTierResponse, Error<CreateAchievementTierError>> {
+pub async fn create_achievement_tier(configuration: &configuration::Configuration, achievement_id: i64, score_all_instances: bool, device_id: Option<&str>, account_id: Option<i64>, icon: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, title: Option<&str>, description: Option<&str>, goal_count: Option<i64>, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i32>) -> Result<models::AchievementTierResponse, Error<CreateAchievementTierError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_achievement_id = achievement_id;
     let p_query_score_all_instances = score_all_instances;
     let p_query_device_id = device_id;
@@ -299,7 +296,7 @@ pub async fn create_achievement_tier(configuration: &configuration::Configuratio
     let p_query_game_level_id = game_level_id;
     let p_query_game_object_id = game_object_id;
 
-    let uri_str = format!("{}/api/{version}/achievement/tier/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tier/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -370,13 +367,12 @@ pub async fn create_achievement_tier(configuration: &configuration::Configuratio
 }
 
 /// Deletes an achievement (for developer/retailer use). User must have permissions to the application the achievement was created for.
-pub async fn delete_achievement(configuration: &configuration::Configuration, version: f64, achievement_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteAchievementError>> {
+pub async fn delete_achievement(configuration: &configuration::Configuration, achievement_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteAchievementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_achievement_id = achievement_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/achievement/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -413,13 +409,12 @@ pub async fn delete_achievement(configuration: &configuration::Configuration, ve
 }
 
 /// Deletes an achievement tier (for developer/retailer use). User must have permissions to the application the achievement was created for.
-pub async fn delete_achievement_tier(configuration: &configuration::Configuration, version: f64, achievement_tier_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteAchievementTierError>> {
+pub async fn delete_achievement_tier(configuration: &configuration::Configuration, achievement_tier_id: i64, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteAchievementTierError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_achievement_tier_id = achievement_tier_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/achievement/tier/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tier/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -456,15 +451,14 @@ pub async fn delete_achievement_tier(configuration: &configuration::Configuratio
 }
 
 /// Get an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn get_achievement(configuration: &configuration::Configuration, version: f64, achievement_id: i64, device_id: Option<&str>, account_id: Option<i64>, achievement_type: Option<&str>) -> Result<models::AchievementTierResponse, Error<GetAchievementError>> {
+pub async fn get_achievement(configuration: &configuration::Configuration, achievement_id: i64, device_id: Option<&str>, account_id: Option<i64>, achievement_type: Option<&str>) -> Result<models::AchievementTierResponse, Error<GetAchievementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_achievement_id = achievement_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_achievement_type = achievement_type;
 
-    let uri_str = format!("{}/api/{version}/achievement/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -507,13 +501,12 @@ pub async fn get_achievement(configuration: &configuration::Configuration, versi
 }
 
 /// Gets an achievement tier (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn get_achievement_tier(configuration: &configuration::Configuration, version: f64, account_id: i64, achievement_tier_id: i64) -> Result<models::AchievementTierResponse, Error<GetAchievementTierError>> {
+pub async fn get_achievement_tier(configuration: &configuration::Configuration, account_id: i64, achievement_tier_id: i64) -> Result<models::AchievementTierResponse, Error<GetAchievementTierError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_achievement_tier_id = achievement_tier_id;
 
-    let uri_str = format!("{}/api/{version}/achievement/tier/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tier/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -548,9 +541,8 @@ pub async fn get_achievement_tier(configuration: &configuration::Configuration, 
 }
 
 /// Gets a list of user achievements.
-pub async fn get_user_achievements(configuration: &configuration::Configuration, version: f64, return_nulls: bool, app_key: &str, include_undiscovered: bool, device_id: Option<&str>, account_id: Option<i64>, connection_account_email: Option<&str>, connection_account_id: Option<i64>, rank_type: Option<&str>, achievement_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<Vec<models::AchievementProgressResponse>, Error<GetUserAchievementsError>> {
+pub async fn get_user_achievements(configuration: &configuration::Configuration, return_nulls: bool, app_key: &str, include_undiscovered: bool, device_id: Option<&str>, account_id: Option<i64>, connection_account_email: Option<&str>, connection_account_id: Option<i64>, rank_type: Option<&str>, achievement_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<Vec<models::AchievementProgressResponse>, Error<GetUserAchievementsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_app_key = app_key;
     let p_query_include_undiscovered = include_undiscovered;
@@ -563,7 +555,7 @@ pub async fn get_user_achievements(configuration: &configuration::Configuration,
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/achievement/progress/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/progress/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -623,12 +615,11 @@ pub async fn get_user_achievements(configuration: &configuration::Configuration,
 }
 
 /// List achievement tags by application
-pub async fn list_achievement_tags(configuration: &configuration::Configuration, version: f64, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<ListAchievementTagsError>> {
+pub async fn list_achievement_tags(configuration: &configuration::Configuration, app_key: Option<&str>) -> Result<models::SirqulResponse, Error<ListAchievementTagsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/achievement/tag/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tag/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_app_key {
@@ -664,9 +655,8 @@ pub async fn list_achievement_tags(configuration: &configuration::Configuration,
 }
 
 /// List achievements by billable.
-pub async fn list_achievements(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, achievement_type: Option<&str>, rank_type: Option<&str>) -> Result<Vec<models::AchievementShortResponse>, Error<ListAchievementsError>> {
+pub async fn list_achievements(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, achievement_type: Option<&str>, rank_type: Option<&str>) -> Result<Vec<models::AchievementShortResponse>, Error<ListAchievementsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -679,7 +669,7 @@ pub async fn list_achievements(configuration: &configuration::Configuration, ver
     let p_query_achievement_type = achievement_type;
     let p_query_rank_type = rank_type;
 
-    let uri_str = format!("{}/api/{version}/achievement/list", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/list", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -735,9 +725,8 @@ pub async fn list_achievements(configuration: &configuration::Configuration, ver
 }
 
 /// Searches achievements by application for consumers.
-pub async fn search_achievements(configuration: &configuration::Configuration, version: f64, app_key: &str, sort_field: &str, descending: bool, include_tiers: bool, include_inactive_tiers: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, achievement_type: Option<&str>, rank_type: Option<&str>) -> Result<Vec<models::AchievementShortResponse>, Error<SearchAchievementsError>> {
+pub async fn search_achievements(configuration: &configuration::Configuration, app_key: &str, sort_field: &str, descending: bool, include_tiers: bool, include_inactive_tiers: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, achievement_type: Option<&str>, rank_type: Option<&str>) -> Result<Vec<models::AchievementShortResponse>, Error<SearchAchievementsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -751,7 +740,7 @@ pub async fn search_achievements(configuration: &configuration::Configuration, v
     let p_query_achievement_type = achievement_type;
     let p_query_rank_type = rank_type;
 
-    let uri_str = format!("{}/api/{version}/achievement/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -806,9 +795,8 @@ pub async fn search_achievements(configuration: &configuration::Configuration, v
 }
 
 /// Updates an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn update_achievement(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, achievement_id: Option<i64>, analytics_tag: Option<&str>, title: Option<&str>, description: Option<&str>, rank_type: Option<&str>, rank_increment: Option<i32>, min_increment: Option<i32>, null_min_increment: Option<bool>, max_increment: Option<i32>, null_max_increment: Option<bool>, validate: Option<bool>, active: Option<bool>, trigger_definition: Option<&str>) -> Result<models::AchievementResponse, Error<UpdateAchievementError>> {
+pub async fn update_achievement(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, achievement_id: Option<i64>, analytics_tag: Option<&str>, title: Option<&str>, description: Option<&str>, rank_type: Option<&str>, rank_increment: Option<i32>, min_increment: Option<i32>, null_min_increment: Option<bool>, max_increment: Option<i32>, null_max_increment: Option<bool>, validate: Option<bool>, active: Option<bool>, trigger_definition: Option<&str>) -> Result<models::AchievementResponse, Error<UpdateAchievementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_achievement_id = achievement_id;
@@ -825,7 +813,7 @@ pub async fn update_achievement(configuration: &configuration::Configuration, ve
     let p_query_active = active;
     let p_query_trigger_definition = trigger_definition;
 
-    let uri_str = format!("{}/api/{version}/achievement/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -903,9 +891,8 @@ pub async fn update_achievement(configuration: &configuration::Configuration, ve
 }
 
 /// Updates a tier of an achievement (for developer/retailer use). User must have permissions to the application the achievement is created for.
-pub async fn update_achievement_tier(configuration: &configuration::Configuration, version: f64, achievement_tier_id: i64, device_id: Option<&str>, account_id: Option<i64>, icon: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, title: Option<&str>, description: Option<&str>, goal_count: Option<i64>, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, score_all_instances: Option<bool>) -> Result<models::AchievementTierResponse, Error<UpdateAchievementTierError>> {
+pub async fn update_achievement_tier(configuration: &configuration::Configuration, achievement_tier_id: i64, device_id: Option<&str>, account_id: Option<i64>, icon: Option<std::path::PathBuf>, icon_asset_id: Option<i64>, title: Option<&str>, description: Option<&str>, goal_count: Option<i64>, mission_id: Option<i64>, game_id: Option<i64>, pack_id: Option<i64>, game_level_id: Option<i64>, game_object_id: Option<i64>, score_all_instances: Option<bool>) -> Result<models::AchievementTierResponse, Error<UpdateAchievementTierError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_achievement_tier_id = achievement_tier_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -921,7 +908,7 @@ pub async fn update_achievement_tier(configuration: &configuration::Configuratio
     let p_query_game_object_id = game_object_id;
     let p_query_score_all_instances = score_all_instances;
 
-    let uri_str = format!("{}/api/{version}/achievement/tier/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/tier/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -994,9 +981,8 @@ pub async fn update_achievement_tier(configuration: &configuration::Configuratio
 }
 
 /// Update user achievement progress.
-pub async fn update_user_achievement(configuration: &configuration::Configuration, version: f64, account_id: i64, achievement_id: Option<i64>, tag: Option<&str>, custom_id: Option<i64>, increment: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, return_progress: Option<bool>) -> Result<models::SirqulResponse, Error<UpdateUserAchievementError>> {
+pub async fn update_user_achievement(configuration: &configuration::Configuration, account_id: i64, achievement_id: Option<i64>, tag: Option<&str>, custom_id: Option<i64>, increment: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, return_progress: Option<bool>) -> Result<models::SirqulResponse, Error<UpdateUserAchievementError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_achievement_id = achievement_id;
     let p_query_tag = tag;
@@ -1006,7 +992,7 @@ pub async fn update_user_achievement(configuration: &configuration::Configuratio
     let p_query_end_date = end_date;
     let p_query_return_progress = return_progress;
 
-    let uri_str = format!("{}/api/{version}/achievement/progress/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/achievement/progress/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

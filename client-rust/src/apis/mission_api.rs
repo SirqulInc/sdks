@@ -80,9 +80,8 @@ pub enum UpdateMissionError {
 
 
 /// Create a user defined mission.
-pub async fn create_mission(configuration: &configuration::Configuration, version: f64, account_id: i64, title: &str, description: Option<&str>, sub_type: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, active: Option<bool>, game_level_ids: Option<&str>, creative_ids: Option<&str>, audience_ids: Option<&str>, mission_task: Option<&str>, format_type: Option<&str>, offer_id: Option<i64>, balance: Option<f64>, advanced_reporting: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, meta_data: Option<&str>, application_ids: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>) -> Result<models::MissionResponse, Error<CreateMissionError>> {
+pub async fn create_mission(configuration: &configuration::Configuration, account_id: i64, title: &str, description: Option<&str>, sub_type: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, active: Option<bool>, game_level_ids: Option<&str>, creative_ids: Option<&str>, audience_ids: Option<&str>, mission_task: Option<&str>, format_type: Option<&str>, offer_id: Option<i64>, balance: Option<f64>, advanced_reporting: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, meta_data: Option<&str>, application_ids: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>) -> Result<models::MissionResponse, Error<CreateMissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_title = title;
     let p_query_description = description;
@@ -110,7 +109,7 @@ pub async fn create_mission(configuration: &configuration::Configuration, versio
     let p_query_locations = locations;
     let p_query_radius = radius;
 
-    let uri_str = format!("{}/api/{version}/mission/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -217,13 +216,12 @@ pub async fn create_mission(configuration: &configuration::Configuration, versio
 }
 
 /// Delete a mission.
-pub async fn delete_mission(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64) -> Result<models::SirqulResponse, Error<DeleteMissionError>> {
+pub async fn delete_mission(configuration: &configuration::Configuration, account_id: i64, mission_id: i64) -> Result<models::SirqulResponse, Error<DeleteMissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
 
-    let uri_str = format!("{}/api/{version}/mission/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -258,9 +256,8 @@ pub async fn delete_mission(configuration: &configuration::Configuration, versio
 }
 
 /// Get a set of ad filtered by the parameters provided.
-pub async fn find_missions(configuration: &configuration::Configuration, version: f64, app_key: &str, suffix: Option<&str>, r#type: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, device: Option<&str>, device_identifier: Option<i64>, device_version: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, allocates_tickets: Option<bool>, randomize: Option<bool>, targeted_ads_only: Option<bool>, mission_ids: Option<&str>, audience_operator: Option<&str>) -> Result<models::MissionResponse, Error<FindMissionsError>> {
+pub async fn find_missions(configuration: &configuration::Configuration, app_key: &str, suffix: Option<&str>, r#type: Option<&str>, account_id: Option<i64>, app_version: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, device: Option<&str>, device_identifier: Option<i64>, device_version: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, allocates_tickets: Option<bool>, randomize: Option<bool>, targeted_ads_only: Option<bool>, mission_ids: Option<&str>, audience_operator: Option<&str>) -> Result<models::MissionResponse, Error<FindMissionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_suffix = suffix;
     let p_query_type = r#type;
@@ -281,7 +278,7 @@ pub async fn find_missions(configuration: &configuration::Configuration, version
     let p_query_mission_ids = mission_ids;
     let p_query_audience_operator = audience_operator;
 
-    let uri_str = format!("{}/api/{version}/mission/find", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/find", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("appKey", &p_query_app_key.to_string())]);
@@ -369,14 +366,13 @@ pub async fn find_missions(configuration: &configuration::Configuration, version
 }
 
 /// Get a mission.
-pub async fn get_mission(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64, return_creative: Option<bool>) -> Result<models::MissionResponse, Error<GetMissionError>> {
+pub async fn get_mission(configuration: &configuration::Configuration, account_id: i64, mission_id: i64, return_creative: Option<bool>) -> Result<models::MissionResponse, Error<GetMissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_return_creative = return_creative;
 
-    let uri_str = format!("{}/api/{version}/mission/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -414,9 +410,8 @@ pub async fn get_mission(configuration: &configuration::Configuration, version: 
 }
 
 /// Create a mission using a source item such as an offer location.
-pub async fn import_mission(configuration: &configuration::Configuration, version: f64, account_id: i64, latitude: f64, longitude: f64, app_key: &str, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, ad_size: Option<&str>) -> Result<models::SirqulResponse, Error<ImportMissionError>> {
+pub async fn import_mission(configuration: &configuration::Configuration, account_id: i64, latitude: f64, longitude: f64, app_key: &str, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, ad_size: Option<&str>) -> Result<models::SirqulResponse, Error<ImportMissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
@@ -426,7 +421,7 @@ pub async fn import_mission(configuration: &configuration::Configuration, versio
     let p_query_limit = limit;
     let p_query_ad_size = ad_size;
 
-    let uri_str = format!("{}/api/{version}/mission/import", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/import", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -475,14 +470,13 @@ pub async fn import_mission(configuration: &configuration::Configuration, versio
 }
 
 /// Searches on pre-defined mission formats
-pub async fn search_mission_formats(configuration: &configuration::Configuration, version: f64, start: i32, limit: i32, active_only: bool) -> Result<Vec<models::MissionFormatResponse>, Error<SearchMissionFormatsError>> {
+pub async fn search_mission_formats(configuration: &configuration::Configuration, start: i32, limit: i32, active_only: bool) -> Result<Vec<models::MissionFormatResponse>, Error<SearchMissionFormatsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start = start;
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/mission/format/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/format/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("start", &p_query_start.to_string())]);
@@ -518,9 +512,8 @@ pub async fn search_mission_formats(configuration: &configuration::Configuration
 }
 
 /// Get the list missions available to the account.  
-pub async fn search_missions(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>, sub_type: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, include_inactive: Option<bool>, suffix: Option<&str>, sort_field: Option<&str>, descending: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionsError>> {
+pub async fn search_missions(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>, sub_type: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, include_inactive: Option<bool>, suffix: Option<&str>, sort_field: Option<&str>, descending: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_sub_type = sub_type;
@@ -533,7 +526,7 @@ pub async fn search_missions(configuration: &configuration::Configuration, versi
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
 
-    let uri_str = format!("{}/api/{version}/mission/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -597,9 +590,8 @@ pub async fn search_missions(configuration: &configuration::Configuration, versi
 }
 
 /// Use the accountId to determine the associated BillableEntity.  From there get a list of all accounts associated as managers.  Get the list missions owned by all associated managers.
-pub async fn search_missions_by_billable_entity(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, include_inactive: Option<bool>, suffix: Option<&str>, sort_field: Option<&str>, descending: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionsByBillableEntityError>> {
+pub async fn search_missions_by_billable_entity(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>, include_game_data: Option<bool>, include_audiences: Option<bool>, include_inactive: Option<bool>, suffix: Option<&str>, sort_field: Option<&str>, descending: Option<bool>) -> Result<Vec<models::MissionResponse>, Error<SearchMissionsByBillableEntityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_start = start;
@@ -611,7 +603,7 @@ pub async fn search_missions_by_billable_entity(configuration: &configuration::C
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
 
-    let uri_str = format!("{}/api/{version}/mission/searchByBillableEntity", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/searchByBillableEntity", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -672,9 +664,8 @@ pub async fn search_missions_by_billable_entity(configuration: &configuration::C
 }
 
 /// Update a mission.
-pub async fn update_mission(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64, title: Option<&str>, description: Option<&str>, sub_type: Option<&str>, meta_data: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, active: Option<bool>, game_level_ids: Option<&str>, creative_ids: Option<&str>, audience_ids: Option<&str>, offer_id: Option<i64>, balance: Option<f64>, advanced_reporting: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, application_ids: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>) -> Result<models::MissionResponse, Error<UpdateMissionError>> {
+pub async fn update_mission(configuration: &configuration::Configuration, account_id: i64, mission_id: i64, title: Option<&str>, description: Option<&str>, sub_type: Option<&str>, meta_data: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, active: Option<bool>, game_level_ids: Option<&str>, creative_ids: Option<&str>, audience_ids: Option<&str>, offer_id: Option<i64>, balance: Option<f64>, advanced_reporting: Option<bool>, allocate_tickets: Option<bool>, ticket_count: Option<i64>, ticket_type: Option<&str>, points: Option<i64>, application_ids: Option<&str>, devices: Option<&str>, device_ids: Option<&str>, device_versions: Option<&str>, locations: Option<&str>, radius: Option<&str>) -> Result<models::MissionResponse, Error<UpdateMissionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_title = title;
@@ -701,7 +692,7 @@ pub async fn update_mission(configuration: &configuration::Configuration, versio
     let p_query_locations = locations;
     let p_query_radius = radius;
 
-    let uri_str = format!("{}/api/{version}/mission/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/mission/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

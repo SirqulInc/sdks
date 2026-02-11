@@ -52,14 +52,13 @@ pub enum UpdateTerritoryError {
 
 
 /// Creates a territory.
-pub async fn create_territory(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, active: Option<bool>) -> Result<models::TerritoryResponse, Error<CreateTerritoryError>> {
+pub async fn create_territory(configuration: &configuration::Configuration, account_id: i64, name: &str, active: Option<bool>) -> Result<models::TerritoryResponse, Error<CreateTerritoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/territory/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/territory/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -97,13 +96,12 @@ pub async fn create_territory(configuration: &configuration::Configuration, vers
 }
 
 /// Deletes a territory.
-pub async fn delete_territory(configuration: &configuration::Configuration, version: f64, account_id: i64, territory_id: i64) -> Result<models::SirqulResponse, Error<DeleteTerritoryError>> {
+pub async fn delete_territory(configuration: &configuration::Configuration, account_id: i64, territory_id: i64) -> Result<models::SirqulResponse, Error<DeleteTerritoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_territory_id = territory_id;
 
-    let uri_str = format!("{}/api/{version}/territory/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/territory/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -138,12 +136,11 @@ pub async fn delete_territory(configuration: &configuration::Configuration, vers
 }
 
 /// Get a territory.
-pub async fn get_territory(configuration: &configuration::Configuration, version: f64, territory_id: i64) -> Result<models::TerritoryResponse, Error<GetTerritoryError>> {
+pub async fn get_territory(configuration: &configuration::Configuration, territory_id: i64) -> Result<models::TerritoryResponse, Error<GetTerritoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_territory_id = territory_id;
 
-    let uri_str = format!("{}/api/{version}/territory/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/territory/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("territoryId", &p_query_territory_id.to_string())]);
@@ -177,16 +174,15 @@ pub async fn get_territory(configuration: &configuration::Configuration, version
 }
 
 /// Searches on territories.
-pub async fn search_territories(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::TerritoryResponse>, Error<SearchTerritoriesError>> {
+pub async fn search_territories(configuration: &configuration::Configuration, sort_field: &str, descending: bool, keyword: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::TerritoryResponse>, Error<SearchTerritoriesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_keyword = keyword;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/territory/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/territory/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_keyword {
@@ -230,15 +226,14 @@ pub async fn search_territories(configuration: &configuration::Configuration, ve
 }
 
 /// Updates a territory.
-pub async fn update_territory(configuration: &configuration::Configuration, version: f64, account_id: i64, territory_id: i64, name: Option<&str>, active: Option<bool>) -> Result<models::TerritoryResponse, Error<UpdateTerritoryError>> {
+pub async fn update_territory(configuration: &configuration::Configuration, account_id: i64, territory_id: i64, name: Option<&str>, active: Option<bool>) -> Result<models::TerritoryResponse, Error<UpdateTerritoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_territory_id = territory_id;
     let p_query_name = name;
     let p_query_active = active;
 
-    let uri_str = format!("{}/api/{version}/territory/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/territory/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

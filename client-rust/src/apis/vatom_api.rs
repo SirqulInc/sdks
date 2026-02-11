@@ -395,14 +395,13 @@ pub enum UpdateVatomEventError {
 
 
 /// Create following.
-pub async fn create_following(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateFollowingError>> {
+pub async fn create_following(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateFollowingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/rels/following/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/rels/following/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -429,15 +428,14 @@ pub async fn create_following(configuration: &configuration::Configuration, vers
 }
 
 /// Create a Vatom space.
-pub async fn create_space(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateSpaceError>> {
+pub async fn create_space(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateSpaceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/spaces/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/spaces/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -465,15 +463,14 @@ pub async fn create_space(configuration: &configuration::Configuration, version:
 }
 
 /// Create a Vatom event.
-pub async fn create_vatom_event(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateVatomEventError>> {
+pub async fn create_vatom_event(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<CreateVatomEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -501,14 +498,13 @@ pub async fn create_vatom_event(configuration: &configuration::Configuration, ve
 }
 
 /// Delete following.
-pub async fn delete_following(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_rels_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteFollowingError>> {
+pub async fn delete_following(configuration: &configuration::Configuration, account_id: i64, vatom_rels_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteFollowingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_rels_key = vatom_rels_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/rels/following/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/rels/following/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -535,15 +531,14 @@ pub async fn delete_following(configuration: &configuration::Configuration, vers
 }
 
 /// Reset All Points Balance.
-pub async fn delete_points_balance(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeletePointsBalanceError>> {
+pub async fn delete_points_balance(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeletePointsBalanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign/points/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign/points/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -571,15 +566,14 @@ pub async fn delete_points_balance(configuration: &configuration::Configuration,
 }
 
 /// Delete a Vatom space.
-pub async fn delete_space(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_space_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteSpaceError>> {
+pub async fn delete_space(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_space_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteSpaceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_space_id = vatom_space_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/spaces/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/spaces/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -607,15 +601,14 @@ pub async fn delete_space(configuration: &configuration::Configuration, version:
 }
 
 /// Delete a Vatom event.
-pub async fn delete_vatom_event(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteVatomEventError>> {
+pub async fn delete_vatom_event(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteVatomEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_event_id = vatom_event_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -643,14 +636,13 @@ pub async fn delete_vatom_event(configuration: &configuration::Configuration, ve
 }
 
 /// Delete Vatom NFT
-pub async fn delete_vatom_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteVatomNftError>> {
+pub async fn delete_vatom_nft(configuration: &configuration::Configuration, account_id: i64, vatom_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<DeleteVatomNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_id = vatom_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/vatoms/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/vatoms/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -677,15 +669,14 @@ pub async fn delete_vatom_nft(configuration: &configuration::Configuration, vers
 }
 
 /// Execute Action on NFT.
-pub async fn execute_action_on_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<ExecuteActionOnNftError>> {
+pub async fn execute_action_on_nft(configuration: &configuration::Configuration, account_id: i64, vatom_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<ExecuteActionOnNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_id = vatom_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/vatoms/execute-action", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/vatoms/execute-action", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -713,14 +704,13 @@ pub async fn execute_action_on_nft(configuration: &configuration::Configuration,
 }
 
 /// Search Vatom Geo Map
-pub async fn geomap_search(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<GeomapSearchError>> {
+pub async fn geomap_search(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<GeomapSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/vatoms/geo-map/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/vatoms/geo-map/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -747,14 +737,13 @@ pub async fn geomap_search(configuration: &configuration::Configuration, version
 }
 
 /// Gets the behaviors of a business.
-pub async fn get_business_behaviors(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessBehaviorsError>> {
+pub async fn get_business_behaviors(configuration: &configuration::Configuration, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessBehaviorsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/behaviors", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/behaviors", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -781,14 +770,13 @@ pub async fn get_business_behaviors(configuration: &configuration::Configuration
 }
 
 /// Get the coins for a Businesss.
-pub async fn get_business_coins_balance(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessCoinsBalanceError>> {
+pub async fn get_business_coins_balance(configuration: &configuration::Configuration, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessCoinsBalanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/coins/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/coins/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -815,13 +803,12 @@ pub async fn get_business_coins_balance(configuration: &configuration::Configura
 }
 
 /// Get the business ids the logged in user has access to.
-pub async fn get_business_ids(configuration: &configuration::Configuration, version: f64, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessIdsError>> {
+pub async fn get_business_ids(configuration: &configuration::Configuration, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessIdsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/businesses", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/businesses", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -847,15 +834,14 @@ pub async fn get_business_ids(configuration: &configuration::Configuration, vers
 }
 
 /// Gets the business info tied to this account.
-pub async fn get_business_info(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessInfoError>> {
+pub async fn get_business_info(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessInfoError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -885,14 +871,13 @@ pub async fn get_business_info(configuration: &configuration::Configuration, ver
 }
 
 /// Gets the users of a business.
-pub async fn get_business_users(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessUsersError>> {
+pub async fn get_business_users(configuration: &configuration::Configuration, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetBusinessUsersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/users", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/users", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -919,15 +904,14 @@ pub async fn get_business_users(configuration: &configuration::Configuration, ve
 }
 
 /// Get campaign group entities.
-pub async fn get_campaign_group_entities(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupEntitiesError>> {
+pub async fn get_campaign_group_entities(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupEntitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign-groups/entities", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign-groups/entities", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -955,15 +939,14 @@ pub async fn get_campaign_group_entities(configuration: &configuration::Configur
 }
 
 /// Get campaign group rules.
-pub async fn get_campaign_group_rules(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupRulesError>> {
+pub async fn get_campaign_group_rules(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupRulesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign-groups/rules", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign-groups/rules", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -991,15 +974,14 @@ pub async fn get_campaign_group_rules(configuration: &configuration::Configurati
 }
 
 /// Get campaign group stats.
-pub async fn get_campaign_group_stats(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupStatsError>> {
+pub async fn get_campaign_group_stats(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignGroupStatsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign-groups/stats", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign-groups/stats", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1027,15 +1009,14 @@ pub async fn get_campaign_group_stats(configuration: &configuration::Configurati
 }
 
 /// Gets the info on a campaign.
-pub async fn get_campaign_info(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignInfoError>> {
+pub async fn get_campaign_info(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetCampaignInfoError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign-groups/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign-groups/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1063,15 +1044,14 @@ pub async fn get_campaign_info(configuration: &configuration::Configuration, ver
 }
 
 /// Gets the guest list of an event.
-pub async fn get_event_guest_list(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetEventGuestListError>> {
+pub async fn get_event_guest_list(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetEventGuestListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_event_id = vatom_event_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/guests/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/guests/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1099,14 +1079,13 @@ pub async fn get_event_guest_list(configuration: &configuration::Configuration, 
 }
 
 /// Gets the logged in user's Vatom Inventory.
-pub async fn get_inventory(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetInventoryError>> {
+pub async fn get_inventory(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetInventoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/inventory", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/inventory", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1133,13 +1112,12 @@ pub async fn get_inventory(configuration: &configuration::Configuration, version
 }
 
 /// Get following.
-pub async fn get_my_following(configuration: &configuration::Configuration, version: f64, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetMyFollowingError>> {
+pub async fn get_my_following(configuration: &configuration::Configuration, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetMyFollowingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/rels/following", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/rels/following", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1165,15 +1143,14 @@ pub async fn get_my_following(configuration: &configuration::Configuration, vers
 }
 
 /// Gets the points balance of a Vatom user.
-pub async fn get_points_balance(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetPointsBalanceError>> {
+pub async fn get_points_balance(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetPointsBalanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/u/campaign/points/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/u/campaign/points/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1201,16 +1178,15 @@ pub async fn get_points_balance(configuration: &configuration::Configuration, ve
 }
 
 /// Gets the points balance of a Vatom user.
-pub async fn get_points_balance_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_user_id: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetPointsBalanceAsBusinessError>> {
+pub async fn get_points_balance_as_business(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_user_id: &str, vatom_campaign_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetPointsBalanceAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign/u/points/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign/u/points/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1239,15 +1215,14 @@ pub async fn get_points_balance_as_business(configuration: &configuration::Confi
 }
 
 /// Gets the details of a space.
-pub async fn get_space(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_space_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetSpaceError>> {
+pub async fn get_space(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_space_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetSpaceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_space_id = vatom_space_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/spaces/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/spaces/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1275,15 +1250,14 @@ pub async fn get_space(configuration: &configuration::Configuration, version: f6
 }
 
 /// Get the coins for a user (as a Business).
-pub async fn get_user_coins_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserCoinsAsBusinessError>> {
+pub async fn get_user_coins_as_business(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserCoinsAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_app_key = app_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/users/coins/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/users/coins/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1311,15 +1285,14 @@ pub async fn get_user_coins_as_business(configuration: &configuration::Configura
 }
 
 /// Gets the coins balance for a Vatom User.
-pub async fn get_user_coins_balance(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<GetUserCoinsBalanceError>> {
+pub async fn get_user_coins_balance(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<GetUserCoinsBalanceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/u/coins/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/u/coins/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1349,14 +1322,13 @@ pub async fn get_user_coins_balance(configuration: &configuration::Configuration
 }
 
 /// Get user followers.
-pub async fn get_user_followers(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserFollowersError>> {
+pub async fn get_user_followers(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserFollowersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/users/rels/followers", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/users/rels/followers", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1383,14 +1355,13 @@ pub async fn get_user_followers(configuration: &configuration::Configuration, ve
 }
 
 /// Get user following.
-pub async fn get_user_following(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserFollowingError>> {
+pub async fn get_user_following(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserFollowingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/users/rels/following", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/users/rels/following", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1417,14 +1388,13 @@ pub async fn get_user_following(configuration: &configuration::Configuration, ve
 }
 
 /// Get a User's Info.
-pub async fn get_user_info(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserInfoError>> {
+pub async fn get_user_info(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetUserInfoError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/user/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/user/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1451,13 +1421,12 @@ pub async fn get_user_info(configuration: &configuration::Configuration, version
 }
 
 /// Gets the logged in user's profile in Vatom.
-pub async fn get_user_profile(configuration: &configuration::Configuration, version: f64, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetUserProfileError>> {
+pub async fn get_user_profile(configuration: &configuration::Configuration, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<GetUserProfileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1483,15 +1452,14 @@ pub async fn get_user_profile(configuration: &configuration::Configuration, vers
 }
 
 /// Gets the details of a event.
-pub async fn get_vatom_event(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetVatomEventError>> {
+pub async fn get_vatom_event(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_event_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetVatomEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_event_id = vatom_event_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1519,14 +1487,13 @@ pub async fn get_vatom_event(configuration: &configuration::Configuration, versi
 }
 
 /// Get Vatom NFT Details
-pub async fn get_vatom_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetVatomNftError>> {
+pub async fn get_vatom_nft(configuration: &configuration::Configuration, account_id: i64, vatom_id: &str, return_raw_response: Option<bool>) -> Result<(), Error<GetVatomNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_id = vatom_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/vatoms/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/vatoms/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1553,15 +1520,14 @@ pub async fn get_vatom_nft(configuration: &configuration::Configuration, version
 }
 
 /// Gets the communities tied to a business.
-pub async fn list_communities(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListCommunitiesError>> {
+pub async fn list_communities(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListCommunitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/communities/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/communities/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1591,15 +1557,14 @@ pub async fn list_communities(configuration: &configuration::Configuration, vers
 }
 
 /// Gets the events tied to a business.
-pub async fn list_events(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListEventsError>> {
+pub async fn list_events(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1629,15 +1594,14 @@ pub async fn list_events(configuration: &configuration::Configuration, version: 
 }
 
 /// Gets the spaces tied to a business.
-pub async fn list_spaces(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListSpacesError>> {
+pub async fn list_spaces(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListSpacesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/spaces/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/spaces/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1667,15 +1631,14 @@ pub async fn list_spaces(configuration: &configuration::Configuration, version: 
 }
 
 /// Gets the logged in user's Vatom coin transactions.
-pub async fn list_user_coin_transactions(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListUserCoinTransactionsError>> {
+pub async fn list_user_coin_transactions(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListUserCoinTransactionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/u/coins/txns/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/u/coins/txns/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1705,16 +1668,15 @@ pub async fn list_user_coin_transactions(configuration: &configuration::Configur
 }
 
 /// List coin transactions for a user (as a Business).
-pub async fn list_user_coin_transactions_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListUserCoinTransactionsAsBusinessError>> {
+pub async fn list_user_coin_transactions_as_business(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<ListUserCoinTransactionsAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/users/coins/txns/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/users/coins/txns/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1745,16 +1707,15 @@ pub async fn list_user_coin_transactions_as_business(configuration: &configurati
 }
 
 /// Perform Action on NFT.
-pub async fn perform_action_on_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_id: &str, vatom_action: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<PerformActionOnNftError>> {
+pub async fn perform_action_on_nft(configuration: &configuration::Configuration, account_id: i64, vatom_id: &str, vatom_action: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<PerformActionOnNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_id = vatom_id;
     let p_query_vatom_action = vatom_action;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/vatoms/actions", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/vatoms/actions", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1783,15 +1744,14 @@ pub async fn perform_action_on_nft(configuration: &configuration::Configuration,
 }
 
 /// Redeem an NFT.
-pub async fn redeem_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<RedeemNftError>> {
+pub async fn redeem_nft(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<RedeemNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/redemptions", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/redemptions", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1819,16 +1779,15 @@ pub async fn redeem_nft(configuration: &configuration::Configuration, version: f
 }
 
 /// Redeem the coins for a user (as a Business).
-pub async fn redeem_user_coins_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<RedeemUserCoinsAsBusinessError>> {
+pub async fn redeem_user_coins_as_business(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<RedeemUserCoinsAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/users/coins/redeem", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/users/coins/redeem", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1857,14 +1816,13 @@ pub async fn redeem_user_coins_as_business(configuration: &configuration::Config
 }
 
 /// Searches for Vatom businesses.
-pub async fn search_businesses(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<SearchBusinessesError>> {
+pub async fn search_businesses(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<SearchBusinessesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1893,14 +1851,13 @@ pub async fn search_businesses(configuration: &configuration::Configuration, ver
 }
 
 /// Search campaign groups.
-pub async fn search_campaign_groups(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<SearchCampaignGroupsError>> {
+pub async fn search_campaign_groups(configuration: &configuration::Configuration, account_id: i64, app_key: &str, return_raw_response: Option<bool>) -> Result<(), Error<SearchCampaignGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign-groups/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign-groups/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1927,13 +1884,12 @@ pub async fn search_campaign_groups(configuration: &configuration::Configuration
 }
 
 /// Search User Identities.
-pub async fn search_identities(configuration: &configuration::Configuration, version: f64, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<SearchIdentitiesError>> {
+pub async fn search_identities(configuration: &configuration::Configuration, account_id: i64, return_raw_response: Option<bool>) -> Result<(), Error<SearchIdentitiesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/identities/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/identities/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1959,14 +1915,13 @@ pub async fn search_identities(configuration: &configuration::Configuration, ver
 }
 
 /// Searches the logged in user's Vatom Inventory.
-pub async fn search_inventory(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<SearchInventoryError>> {
+pub async fn search_inventory(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: Option<&str>, return_raw_response: Option<bool>) -> Result<(), Error<SearchInventoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/user-inventory/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/user-inventory/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -1995,16 +1950,15 @@ pub async fn search_inventory(configuration: &configuration::Configuration, vers
 }
 
 /// Send an NFT.
-pub async fn send_nft(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_campaign_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<SendNftError>> {
+pub async fn send_nft(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_campaign_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<SendNftError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_campaign_id = vatom_campaign_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaigns/send", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaigns/send", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2033,9 +1987,8 @@ pub async fn send_nft(configuration: &configuration::Configuration, version: f64
 }
 
 /// Sets the points balance of a Vatom user.
-pub async fn set_points_balance_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_user_id: &str, vatom_campaign_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<SetPointsBalanceAsBusinessError>> {
+pub async fn set_points_balance_as_business(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_user_id: &str, vatom_campaign_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<SetPointsBalanceAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_user_id = vatom_user_id;
@@ -2043,7 +1996,7 @@ pub async fn set_points_balance_as_business(configuration: &configuration::Confi
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/campaign/u/points/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/campaign/u/points/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2073,15 +2026,14 @@ pub async fn set_points_balance_as_business(configuration: &configuration::Confi
 }
 
 /// Transfer coins from Vatom Users.
-pub async fn transfer_user_coins(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<TransferUserCoinsError>> {
+pub async fn transfer_user_coins(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<TransferUserCoinsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/u/coins/transfer", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/u/coins/transfer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2109,15 +2061,14 @@ pub async fn transfer_user_coins(configuration: &configuration::Configuration, v
 }
 
 /// Fund/update coins for a Businesss.
-pub async fn update_business_coins(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateBusinessCoinsError>> {
+pub async fn update_business_coins(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateBusinessCoinsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/coins/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/coins/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2145,16 +2096,15 @@ pub async fn update_business_coins(configuration: &configuration::Configuration,
 }
 
 /// Update the guest list of an event.
-pub async fn update_event_guest_list(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_event_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateEventGuestListError>> {
+pub async fn update_event_guest_list(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_event_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateEventGuestListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_event_id = vatom_event_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/guests/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/guests/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2183,16 +2133,15 @@ pub async fn update_event_guest_list(configuration: &configuration::Configuratio
 }
 
 /// Update a Vatom space.
-pub async fn update_space(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_space_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateSpaceError>> {
+pub async fn update_space(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_space_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateSpaceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_space_id = vatom_space_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/spaces/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/spaces/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2221,16 +2170,15 @@ pub async fn update_space(configuration: &configuration::Configuration, version:
 }
 
 /// Update the coins for a user (as a Business).
-pub async fn update_user_coins_as_business(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateUserCoinsAsBusinessError>> {
+pub async fn update_user_coins_as_business(configuration: &configuration::Configuration, account_id: i64, vatom_user_id: &str, app_key: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateUserCoinsAsBusinessError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_user_id = vatom_user_id;
     let p_query_app_key = app_key;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/users/coins/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/users/coins/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2259,14 +2207,13 @@ pub async fn update_user_coins_as_business(configuration: &configuration::Config
 }
 
 /// Gets the logged in user's profile in Vatom.
-pub async fn update_user_profile(configuration: &configuration::Configuration, version: f64, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateUserProfileError>> {
+pub async fn update_user_profile(configuration: &configuration::Configuration, account_id: i64, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateUserProfileError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/me/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/me/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -2293,16 +2240,15 @@ pub async fn update_user_profile(configuration: &configuration::Configuration, v
 }
 
 /// Update a Vatom event.
-pub async fn update_vatom_event(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, vatom_event_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateVatomEventError>> {
+pub async fn update_vatom_event(configuration: &configuration::Configuration, account_id: i64, app_key: &str, vatom_event_id: &str, vatom_parameters: &str, return_raw_response: Option<bool>) -> Result<(), Error<UpdateVatomEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_vatom_event_id = vatom_event_id;
     let p_query_vatom_parameters = vatom_parameters;
     let p_query_return_raw_response = return_raw_response;
 
-    let uri_str = format!("{}/api/{version}/vatom/b/events/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vatom/b/events/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

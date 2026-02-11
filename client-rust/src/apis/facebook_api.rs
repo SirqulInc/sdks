@@ -31,15 +31,14 @@ pub enum GraphInterfaceError {
 
 
 /// Gets a user's Facebook token.
-pub async fn get_token(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::TokenResponse, Error<GetTokenError>> {
+pub async fn get_token(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::TokenResponse, Error<GetTokenError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/facebook/getfbtoken", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/facebook/getfbtoken", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -84,9 +83,8 @@ pub async fn get_token(configuration: &configuration::Configuration, version: f6
 }
 
 /// Make Facebook posts on behalf of the user.
-pub async fn graph_interface(configuration: &configuration::Configuration, version: f64, event: &str, device_id: Option<&str>, account_id: Option<i64>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, asset_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<GraphInterfaceError>> {
+pub async fn graph_interface(configuration: &configuration::Configuration, event: &str, device_id: Option<&str>, account_id: Option<i64>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, asset_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<GraphInterfaceError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_event = event;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -98,7 +96,7 @@ pub async fn graph_interface(configuration: &configuration::Configuration, versi
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/facebook/graph", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/facebook/graph", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

@@ -53,13 +53,12 @@ pub enum UpdateVehicleError {
 
 
 /// Create new vehicle
-pub async fn create_vehicle(configuration: &configuration::Configuration, version: f64, vehicle: &str, body: Option<models::Vehicle>) -> Result<models::Vehicle, Error<CreateVehicleError>> {
+pub async fn create_vehicle(configuration: &configuration::Configuration, vehicle: &str, body: Option<models::Vehicle>) -> Result<models::Vehicle, Error<CreateVehicleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_vehicle = vehicle;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/vehicle", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vehicle", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("vehicle", &p_query_vehicle.to_string())]);
@@ -94,12 +93,11 @@ pub async fn create_vehicle(configuration: &configuration::Configuration, versio
 }
 
 /// Delete an existing vehicle
-pub async fn delete_vehicle(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<DeleteVehicleError>> {
+pub async fn delete_vehicle(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<DeleteVehicleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/vehicle/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/vehicle/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -121,12 +119,11 @@ pub async fn delete_vehicle(configuration: &configuration::Configuration, versio
 }
 
 /// Get an existing vehicle
-pub async fn get_vehicle(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<models::Vehicle, Error<GetVehicleError>> {
+pub async fn get_vehicle(configuration: &configuration::Configuration, id: i64) -> Result<models::Vehicle, Error<GetVehicleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/vehicle/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/vehicle/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -159,9 +156,8 @@ pub async fn get_vehicle(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for vehicles
-pub async fn search_vehicle(configuration: &configuration::Configuration, version: f64, hub_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>) -> Result<Vec<models::Vehicle>, Error<SearchVehicleError>> {
+pub async fn search_vehicle(configuration: &configuration::Configuration, hub_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>) -> Result<Vec<models::Vehicle>, Error<SearchVehicleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_hub_id = hub_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -170,7 +166,7 @@ pub async fn search_vehicle(configuration: &configuration::Configuration, versio
     let p_query_active_only = active_only;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/vehicle", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/vehicle", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("hubId", &p_query_hub_id.to_string())]);
@@ -212,14 +208,13 @@ pub async fn search_vehicle(configuration: &configuration::Configuration, versio
 }
 
 /// Update an existing vehicle
-pub async fn update_vehicle(configuration: &configuration::Configuration, version: f64, id: i64, vehicle: &str, body: Option<models::Vehicle>) -> Result<models::Vehicle, Error<UpdateVehicleError>> {
+pub async fn update_vehicle(configuration: &configuration::Configuration, id: i64, vehicle: &str, body: Option<models::Vehicle>) -> Result<models::Vehicle, Error<UpdateVehicleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_query_vehicle = vehicle;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/vehicle/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/vehicle/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     req_builder = req_builder.query(&[("vehicle", &p_query_vehicle.to_string())]);

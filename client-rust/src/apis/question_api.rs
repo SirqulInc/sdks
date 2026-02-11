@@ -52,9 +52,8 @@ pub enum UpdateQuestionError {
 
 
 /// Create a question and related answers by the given params.
-pub async fn create_question(configuration: &configuration::Configuration, version: f64, account_id: i64, question: &str, answers: &str, active: bool, allocate_tickets: bool, ticket_count: i64, tags: Option<&str>, video_url: Option<&str>, asset_id: Option<i64>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::QuestionResponse, Error<CreateQuestionError>> {
+pub async fn create_question(configuration: &configuration::Configuration, account_id: i64, question: &str, answers: &str, active: bool, allocate_tickets: bool, ticket_count: i64, tags: Option<&str>, video_url: Option<&str>, asset_id: Option<i64>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::QuestionResponse, Error<CreateQuestionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_question = question;
     let p_query_answers = answers;
@@ -67,7 +66,7 @@ pub async fn create_question(configuration: &configuration::Configuration, versi
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/game/question/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/question/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -121,13 +120,12 @@ pub async fn create_question(configuration: &configuration::Configuration, versi
 }
 
 /// Delete a question by the given questionId. The accountId given needs to be the owner or executive to delete.
-pub async fn delete_question(configuration: &configuration::Configuration, version: f64, question_id: i64, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteQuestionError>> {
+pub async fn delete_question(configuration: &configuration::Configuration, question_id: i64, account_id: i64) -> Result<models::SirqulResponse, Error<DeleteQuestionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_question_id = question_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/game/question/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/question/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("questionId", &p_query_question_id.to_string())]);
@@ -162,13 +160,12 @@ pub async fn delete_question(configuration: &configuration::Configuration, versi
 }
 
 /// Get a question by the given id.
-pub async fn get_question(configuration: &configuration::Configuration, version: f64, question_id: i64, account_id: i64) -> Result<models::QuestionResponse, Error<GetQuestionError>> {
+pub async fn get_question(configuration: &configuration::Configuration, question_id: i64, account_id: i64) -> Result<models::QuestionResponse, Error<GetQuestionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_question_id = question_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/game/question/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/question/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("questionId", &p_query_question_id.to_string())]);
@@ -203,9 +200,8 @@ pub async fn get_question(configuration: &configuration::Configuration, version:
 }
 
 /// Search for questions by the given params.
-pub async fn search_questions(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, keyword: Option<&str>) -> Result<Vec<models::QuestionResponse>, Error<SearchQuestionsError>> {
+pub async fn search_questions(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, keyword: Option<&str>) -> Result<Vec<models::QuestionResponse>, Error<SearchQuestionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -214,7 +210,7 @@ pub async fn search_questions(configuration: &configuration::Configuration, vers
     let p_query_limit = limit;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/game/question/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/question/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -256,9 +252,8 @@ pub async fn search_questions(configuration: &configuration::Configuration, vers
 }
 
 /// Update a question and related answers.
-pub async fn update_question(configuration: &configuration::Configuration, version: f64, question_id: i64, account_id: i64, ticket_count: i64, question: Option<&str>, answers: Option<&str>, tags: Option<&str>, video_url: Option<&str>, asset_id: Option<i64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::QuestionResponse, Error<UpdateQuestionError>> {
+pub async fn update_question(configuration: &configuration::Configuration, question_id: i64, account_id: i64, ticket_count: i64, question: Option<&str>, answers: Option<&str>, tags: Option<&str>, video_url: Option<&str>, asset_id: Option<i64>, active: Option<bool>, allocate_tickets: Option<bool>, ticket_type: Option<&str>, points: Option<i64>) -> Result<models::QuestionResponse, Error<UpdateQuestionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_question_id = question_id;
     let p_query_account_id = account_id;
     let p_query_ticket_count = ticket_count;
@@ -272,7 +267,7 @@ pub async fn update_question(configuration: &configuration::Configuration, versi
     let p_query_ticket_type = ticket_type;
     let p_query_points = points;
 
-    let uri_str = format!("{}/api/{version}/game/question/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/game/question/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("questionId", &p_query_question_id.to_string())]);

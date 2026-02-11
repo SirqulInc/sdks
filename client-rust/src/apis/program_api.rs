@@ -60,12 +60,11 @@ pub enum SearchProgramsError {
 
 
 /// Create a new program
-pub async fn create_program(configuration: &configuration::Configuration, version: f64, body: Option<models::Program>) -> Result<models::Program, Error<CreateProgramError>> {
+pub async fn create_program(configuration: &configuration::Configuration, body: Option<models::Program>) -> Result<models::Program, Error<CreateProgramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/program", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/program", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -99,12 +98,11 @@ pub async fn create_program(configuration: &configuration::Configuration, versio
 }
 
 /// Delete an existing program
-pub async fn delete_program(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<DeleteProgramError>> {
+pub async fn delete_program(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<DeleteProgramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/program/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/program/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -126,12 +124,11 @@ pub async fn delete_program(configuration: &configuration::Configuration, versio
 }
 
 /// Get an existing program
-pub async fn get_program(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<models::Program, Error<GetProgramError>> {
+pub async fn get_program(configuration: &configuration::Configuration, id: i64) -> Result<models::Program, Error<GetProgramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/program/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/program/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -164,13 +161,12 @@ pub async fn get_program(configuration: &configuration::Configuration, version: 
 }
 
 /// Update an existing program
-pub async fn post_program(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Program>) -> Result<models::Program, Error<PostProgramError>> {
+pub async fn post_program(configuration: &configuration::Configuration, id: i64, body: Option<models::Program>) -> Result<models::Program, Error<PostProgramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/program/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/program/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -204,13 +200,12 @@ pub async fn post_program(configuration: &configuration::Configuration, version:
 }
 
 /// Update an existing program
-pub async fn put_program(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Program>) -> Result<models::Program, Error<PutProgramError>> {
+pub async fn put_program(configuration: &configuration::Configuration, id: i64, body: Option<models::Program>) -> Result<models::Program, Error<PutProgramError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/program/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/program/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -244,9 +239,8 @@ pub async fn put_program(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for programs
-pub async fn search_programs(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>) -> Result<Vec<models::Program>, Error<SearchProgramsError>> {
+pub async fn search_programs(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, keyword: Option<&str>) -> Result<Vec<models::Program>, Error<SearchProgramsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -254,7 +248,7 @@ pub async fn search_programs(configuration: &configuration::Configuration, versi
     let p_query_active_only = active_only;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/program", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/program", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_keyword {

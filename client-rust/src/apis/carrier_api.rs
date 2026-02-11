@@ -24,16 +24,15 @@ pub enum SearchCarriersError {
 
 
 /// Search on supported mobile telephone carriers that can be used to send SMS notifications via email.
-pub async fn search_carriers(configuration: &configuration::Configuration, version: f64, keyword: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::CellCarrierResponse>, Error<SearchCarriersError>> {
+pub async fn search_carriers(configuration: &configuration::Configuration, keyword: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::CellCarrierResponse>, Error<SearchCarriersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_keyword = keyword;
     let p_query_descending = descending;
     let p_query_start = start;
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/carrier/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/carrier/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_keyword {

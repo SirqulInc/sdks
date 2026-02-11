@@ -52,9 +52,8 @@ pub enum UpdateRankingsError {
 
 
 /// Get historical leaderboard rankings by time-frame.
-pub async fn get_historical_rankings(configuration: &configuration::Configuration, version: f64, app_key: &str, rank_type: &str, start_date: i64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::RankFullResponse, Error<GetHistoricalRankingsError>> {
+pub async fn get_historical_rankings(configuration: &configuration::Configuration, app_key: &str, rank_type: &str, start_date: i64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::RankFullResponse, Error<GetHistoricalRankingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_rank_type = rank_type;
     let p_query_start_date = start_date;
@@ -66,7 +65,7 @@ pub async fn get_historical_rankings(configuration: &configuration::Configuratio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/ranking/historical/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ranking/historical/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -121,9 +120,8 @@ pub async fn get_historical_rankings(configuration: &configuration::Configuratio
 }
 
 /// Get leader board rankings. This is an all in one endpoint that can return multiple ranking types and also the current user rank.
-pub async fn get_rankings(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, q: Option<&str>, keyword: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, within_account_ids: Option<&str>, return_user_rank: Option<bool>, album_id: Option<i64>, audience_id: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::RankFullResponse, Error<GetRankingsError>> {
+pub async fn get_rankings(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, q: Option<&str>, keyword: Option<&str>, rank_type: Option<&str>, leaderboard_mode: Option<&str>, within_account_ids: Option<&str>, return_user_rank: Option<bool>, album_id: Option<i64>, audience_id: Option<i64>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>) -> Result<models::RankFullResponse, Error<GetRankingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_game_type = game_type;
@@ -143,7 +141,7 @@ pub async fn get_rankings(configuration: &configuration::Configuration, version:
     let p_query__l = _l;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/ranking/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ranking/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -230,9 +228,8 @@ pub async fn get_rankings(configuration: &configuration::Configuration, version:
 }
 
 /// Returns the user's ranks for one or more rank types and modes.
-pub async fn get_user_rank(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, return_user_rank: Option<bool>, leaderboard_mode: Option<&str>, sort_field: Option<&str>, keyword: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<serde_json::Value, Error<GetUserRankError>> {
+pub async fn get_user_rank(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, rank_type: Option<&str>, return_user_rank: Option<bool>, leaderboard_mode: Option<&str>, sort_field: Option<&str>, keyword: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<serde_json::Value, Error<GetUserRankError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -245,7 +242,7 @@ pub async fn get_user_rank(configuration: &configuration::Configuration, version
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/ranking/personal/ranks", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ranking/personal/ranks", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -311,9 +308,8 @@ pub async fn get_user_rank(configuration: &configuration::Configuration, version
 }
 
 /// Allows an admin of an application to override a user's scores for a leaderboard.
-pub async fn override_user_rank(configuration: &configuration::Configuration, version: f64, account_id: i64, owner_account_id: i64, app_key: &str, rank_type: &str, total_score: Option<i64>, total_count: Option<i64>, total_time: Option<i64>, daily_score: Option<i64>, daily_count: Option<i64>, daily_time: Option<i64>, weekly_score: Option<i64>, weekly_count: Option<i64>, weekly_time: Option<i64>, monthly_score: Option<i64>, monthly_count: Option<i64>, monthly_time: Option<i64>, top_score: Option<i64>, lowest_score: Option<i64>, streak_count: Option<i64>, streak_best_count: Option<i64>, start_date: Option<i64>, end_date: Option<i64>) -> Result<models::SirqulResponse, Error<OverrideUserRankError>> {
+pub async fn override_user_rank(configuration: &configuration::Configuration, account_id: i64, owner_account_id: i64, app_key: &str, rank_type: &str, total_score: Option<i64>, total_count: Option<i64>, total_time: Option<i64>, daily_score: Option<i64>, daily_count: Option<i64>, daily_time: Option<i64>, weekly_score: Option<i64>, weekly_count: Option<i64>, weekly_time: Option<i64>, monthly_score: Option<i64>, monthly_count: Option<i64>, monthly_time: Option<i64>, top_score: Option<i64>, lowest_score: Option<i64>, streak_count: Option<i64>, streak_best_count: Option<i64>, start_date: Option<i64>, end_date: Option<i64>) -> Result<models::SirqulResponse, Error<OverrideUserRankError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_owner_account_id = owner_account_id;
     let p_query_app_key = app_key;
@@ -337,7 +333,7 @@ pub async fn override_user_rank(configuration: &configuration::Configuration, ve
     let p_query_start_date = start_date;
     let p_query_end_date = end_date;
 
-    let uri_str = format!("{}/api/{version}/ranking/override", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ranking/override", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -428,9 +424,8 @@ pub async fn override_user_rank(configuration: &configuration::Configuration, ve
 }
 
 /// Update the rank value 
-pub async fn update_rankings(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, rank_type: &str, increment: Option<i64>, time_increment: Option<i64>, tag: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, update_global: Option<bool>, create_leaderboard: Option<bool>) -> Result<models::SirqulResponse, Error<UpdateRankingsError>> {
+pub async fn update_rankings(configuration: &configuration::Configuration, account_id: i64, app_key: &str, rank_type: &str, increment: Option<i64>, time_increment: Option<i64>, tag: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, update_global: Option<bool>, create_leaderboard: Option<bool>) -> Result<models::SirqulResponse, Error<UpdateRankingsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_rank_type = rank_type;
@@ -442,7 +437,7 @@ pub async fn update_rankings(configuration: &configuration::Configuration, versi
     let p_query_update_global = update_global;
     let p_query_create_leaderboard = create_leaderboard;
 
-    let uri_str = format!("{}/api/{version}/ranking/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/ranking/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

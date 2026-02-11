@@ -59,9 +59,8 @@ pub enum SearchScheduleError {
 
 
 /// Creates a reservation on an offer object
-pub async fn create_reservation(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, app_key: Option<&str>, meta_data: Option<&str>) -> Result<(), Error<CreateReservationError>> {
+pub async fn create_reservation(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, app_key: Option<&str>, meta_data: Option<&str>) -> Result<(), Error<CreateReservationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_start_date = start_date;
@@ -71,7 +70,7 @@ pub async fn create_reservation(configuration: &configuration::Configuration, ve
     let p_query_app_key = app_key;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/reservation/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservation/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -117,14 +116,13 @@ pub async fn create_reservation(configuration: &configuration::Configuration, ve
 }
 
 /// Deleted a reservation on a reservation object
-pub async fn delete_reservation(configuration: &configuration::Configuration, version: f64, reservation_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<(), Error<DeleteReservationError>> {
+pub async fn delete_reservation(configuration: &configuration::Configuration, reservation_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<(), Error<DeleteReservationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_reservation_id = reservation_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/reservation/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservation/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -152,9 +150,8 @@ pub async fn delete_reservation(configuration: &configuration::Configuration, ve
     }
 }
 
-pub async fn reservable_availability(configuration: &configuration::Configuration, version: f64, reservable_id: i64, reservable_type: &str, device_id: Option<&str>, account_id: Option<i64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<Vec<models::AvailabilityResponse>, Error<ReservableAvailabilityError>> {
+pub async fn reservable_availability(configuration: &configuration::Configuration, reservable_id: i64, reservable_type: &str, device_id: Option<&str>, account_id: Option<i64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<Vec<models::AvailabilityResponse>, Error<ReservableAvailabilityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_reservable_id = reservable_id;
     let p_query_reservable_type = reservable_type;
     let p_query_device_id = device_id;
@@ -162,7 +159,7 @@ pub async fn reservable_availability(configuration: &configuration::Configuratio
     let p_query_availability = availability;
     let p_query_availability_summary = availability_summary;
 
-    let uri_str = format!("{}/api/{version}/reservable/availability/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservable/availability/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -208,9 +205,8 @@ pub async fn reservable_availability(configuration: &configuration::Configuratio
     }
 }
 
-pub async fn search_availability(configuration: &configuration::Configuration, version: f64, reservable_id: i64, reservable_type: &str, device_id: Option<&str>, account_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::AvailabilityResponse>, Error<SearchAvailabilityError>> {
+pub async fn search_availability(configuration: &configuration::Configuration, reservable_id: i64, reservable_type: &str, device_id: Option<&str>, account_id: Option<i64>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::AvailabilityResponse>, Error<SearchAvailabilityError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_reservable_id = reservable_id;
     let p_query_reservable_type = reservable_type;
     let p_query_device_id = device_id;
@@ -220,7 +216,7 @@ pub async fn search_availability(configuration: &configuration::Configuration, v
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/reservable/availability/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservable/availability/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -272,9 +268,8 @@ pub async fn search_availability(configuration: &configuration::Configuration, v
     }
 }
 
-pub async fn search_reservations(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, app_key: Option<&str>, account_id: Option<i64>, filter_account_id: Option<i64>, reservable_id: Option<i64>, reservable_type: Option<&str>, keyword: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ReservationResponse>, Error<SearchReservationsError>> {
+pub async fn search_reservations(configuration: &configuration::Configuration, device_id: Option<&str>, app_key: Option<&str>, account_id: Option<i64>, filter_account_id: Option<i64>, reservable_id: Option<i64>, reservable_type: Option<&str>, keyword: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::ReservationResponse>, Error<SearchReservationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_app_key = app_key;
     let p_query_account_id = account_id;
@@ -287,7 +282,7 @@ pub async fn search_reservations(configuration: &configuration::Configuration, v
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/reservation/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservation/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -352,9 +347,8 @@ pub async fn search_reservations(configuration: &configuration::Configuration, v
     }
 }
 
-pub async fn search_schedule(configuration: &configuration::Configuration, version: f64, reservable_id: i64, reservable_type: &str, start_date: i64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, time_bucket_mins: Option<i32>) -> Result<Vec<models::TimeSlotResponse>, Error<SearchScheduleError>> {
+pub async fn search_schedule(configuration: &configuration::Configuration, reservable_id: i64, reservable_type: &str, start_date: i64, end_date: i64, device_id: Option<&str>, account_id: Option<i64>, time_bucket_mins: Option<i32>) -> Result<Vec<models::TimeSlotResponse>, Error<SearchScheduleError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_reservable_id = reservable_id;
     let p_query_reservable_type = reservable_type;
     let p_query_start_date = start_date;
@@ -363,7 +357,7 @@ pub async fn search_schedule(configuration: &configuration::Configuration, versi
     let p_query_account_id = account_id;
     let p_query_time_bucket_mins = time_bucket_mins;
 
-    let uri_str = format!("{}/api/{version}/reservable/schedule/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/reservable/schedule/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

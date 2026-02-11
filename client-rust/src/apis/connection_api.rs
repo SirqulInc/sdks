@@ -171,9 +171,8 @@ pub enum SearchConnectionsError {
 
 
 /// Adds a connection to a group.
-pub async fn add_connection_to_group(configuration: &configuration::Configuration, version: f64, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<AddConnectionToGroupError>> {
+pub async fn add_connection_to_group(configuration: &configuration::Configuration, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<AddConnectionToGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_group_id = group_id;
     let p_query_device_id = device_id;
@@ -184,7 +183,7 @@ pub async fn add_connection_to_group(configuration: &configuration::Configuratio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/addConnection", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/addConnection", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -240,9 +239,8 @@ pub async fn add_connection_to_group(configuration: &configuration::Configuratio
 }
 
 /// Adds a list of connections to a group.
-pub async fn add_connections_to_group(configuration: &configuration::Configuration, version: f64, connection_group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<AddConnectionsToGroupError>> {
+pub async fn add_connections_to_group(configuration: &configuration::Configuration, connection_group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<AddConnectionsToGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_connection_group_id = connection_group_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -251,7 +249,7 @@ pub async fn add_connections_to_group(configuration: &configuration::Configurati
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/connection/group/addConnections", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/connection/group/addConnections", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -303,9 +301,8 @@ pub async fn add_connections_to_group(configuration: &configuration::Configurati
 }
 
 /// Add sub groups to a group.
-pub async fn add_sub_groups(configuration: &configuration::Configuration, version: f64, return_nulls: bool, group_id: i64, sub_group_ids: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionGroupResponse, Error<AddSubGroupsError>> {
+pub async fn add_sub_groups(configuration: &configuration::Configuration, return_nulls: bool, group_id: i64, sub_group_ids: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionGroupResponse, Error<AddSubGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_group_id = group_id;
     let p_query_sub_group_ids = sub_group_ids;
@@ -314,7 +311,7 @@ pub async fn add_sub_groups(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/addSubGroup", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/addSubGroup", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -362,9 +359,8 @@ pub async fn add_sub_groups(configuration: &configuration::Configuration, versio
 }
 
 /// Creates or updates the connection of the user and another account. Allows a user to follow, block, mark as trusted, and/or add someone to a group.
-pub async fn create_or_update_connection(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, group_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, is_trusted: Option<bool>, ignore_friend_request: Option<bool>, is_contact: Option<bool>, is_blocked: Option<bool>, is_following: Option<bool>, connection_response: Option<bool>) -> Result<models::ConnectionResponse, Error<CreateOrUpdateConnectionError>> {
+pub async fn create_or_update_connection(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, group_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, is_trusted: Option<bool>, ignore_friend_request: Option<bool>, is_contact: Option<bool>, is_blocked: Option<bool>, is_following: Option<bool>, connection_response: Option<bool>) -> Result<models::ConnectionResponse, Error<CreateOrUpdateConnectionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_connection_id = connection_id;
@@ -380,7 +376,7 @@ pub async fn create_or_update_connection(configuration: &configuration::Configur
     let p_query_is_following = is_following;
     let p_query_connection_response = connection_response;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/add", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/add", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -455,9 +451,8 @@ pub async fn create_or_update_connection(configuration: &configuration::Configur
 }
 
 /// Creates a new private group.
-pub async fn create_or_update_group(configuration: &configuration::Configuration, version: f64, return_nulls: bool, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, group_id: Option<i64>, asset_id: Option<i64>, connections: Option<&str>, description: Option<&str>, can_view_profile_info: Option<bool>, can_view_game_info: Option<bool>, can_view_friend_info: Option<bool>, active: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<CreateOrUpdateGroupError>> {
+pub async fn create_or_update_group(configuration: &configuration::Configuration, return_nulls: bool, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, group_id: Option<i64>, asset_id: Option<i64>, connections: Option<&str>, description: Option<&str>, can_view_profile_info: Option<bool>, can_view_game_info: Option<bool>, can_view_friend_info: Option<bool>, active: Option<bool>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<CreateOrUpdateGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -473,7 +468,7 @@ pub async fn create_or_update_group(configuration: &configuration::Configuration
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -546,14 +541,13 @@ pub async fn create_or_update_group(configuration: &configuration::Configuration
 }
 
 /// Accept someone's follow request.
-pub async fn follow_accept(configuration: &configuration::Configuration, version: f64, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowAcceptError>> {
+pub async fn follow_accept(configuration: &configuration::Configuration, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowAcceptError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/consumer/follow/accept", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/follow/accept", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -589,14 +583,13 @@ pub async fn follow_accept(configuration: &configuration::Configuration, version
 }
 
 /// Reject someone's follow request or remove them as a follower.
-pub async fn follow_reject(configuration: &configuration::Configuration, version: f64, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowRejectError>> {
+pub async fn follow_reject(configuration: &configuration::Configuration, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowRejectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/consumer/follow/reject", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/follow/reject", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -632,14 +625,13 @@ pub async fn follow_reject(configuration: &configuration::Configuration, version
 }
 
 /// Unfollow someone you are following or remove them as a follower.
-pub async fn follow_remove(configuration: &configuration::Configuration, version: f64, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowRemoveError>> {
+pub async fn follow_remove(configuration: &configuration::Configuration, account_id: i64, connection_account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<FollowRemoveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/consumer/follow/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/follow/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -675,15 +667,14 @@ pub async fn follow_remove(configuration: &configuration::Configuration, version
 }
 
 /// Send a request to follow someone.
-pub async fn follow_request(configuration: &configuration::Configuration, version: f64, account_id: i64, connection_account_id: i64, app_key: &str, approval_needed: Option<bool>) -> Result<models::SirqulResponse, Error<FollowRequestError>> {
+pub async fn follow_request(configuration: &configuration::Configuration, account_id: i64, connection_account_id: i64, app_key: &str, approval_needed: Option<bool>) -> Result<models::SirqulResponse, Error<FollowRequestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_connection_account_id = connection_account_id;
     let p_query_app_key = app_key;
     let p_query_approval_needed = approval_needed;
 
-    let uri_str = format!("{}/api/{version}/consumer/follow/request", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/follow/request", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -722,9 +713,8 @@ pub async fn follow_request(configuration: &configuration::Configuration, versio
 }
 
 /// Accept a friend request and optionally sends a notification.
-pub async fn friend_accept(configuration: &configuration::Configuration, version: f64, friend_account_id: i64, notify_friend: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendAcceptError>> {
+pub async fn friend_accept(configuration: &configuration::Configuration, friend_account_id: i64, notify_friend: bool, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendAcceptError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_friend_account_id = friend_account_id;
     let p_query_notify_friend = notify_friend;
     let p_query_device_id = device_id;
@@ -733,7 +723,7 @@ pub async fn friend_accept(configuration: &configuration::Configuration, version
     let p_query_app_key = app_key;
     let p_query_notification_message = notification_message;
 
-    let uri_str = format!("{}/api/{version}/consumer/friend/accept", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/friend/accept", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -783,9 +773,8 @@ pub async fn friend_accept(configuration: &configuration::Configuration, version
 }
 
 /// Request a friend request and optionally sends a notification.
-pub async fn friend_reject(configuration: &configuration::Configuration, version: f64, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notify_friend: Option<bool>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendRejectError>> {
+pub async fn friend_reject(configuration: &configuration::Configuration, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notify_friend: Option<bool>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendRejectError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_friend_account_id = friend_account_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -794,7 +783,7 @@ pub async fn friend_reject(configuration: &configuration::Configuration, version
     let p_query_notify_friend = notify_friend;
     let p_query_notification_message = notification_message;
 
-    let uri_str = format!("{}/api/{version}/consumer/friend/reject", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/friend/reject", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -846,16 +835,15 @@ pub async fn friend_reject(configuration: &configuration::Configuration, version
 }
 
 /// Removes a friend from the user's friends list.
-pub async fn friend_remove(configuration: &configuration::Configuration, version: f64, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, notify_friend: Option<bool>, remove_from_groups: Option<bool>) -> Result<models::SirqulResponse, Error<FriendRemoveError>> {
+pub async fn friend_remove(configuration: &configuration::Configuration, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, notify_friend: Option<bool>, remove_from_groups: Option<bool>) -> Result<models::SirqulResponse, Error<FriendRemoveError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_friend_account_id = friend_account_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_notify_friend = notify_friend;
     let p_query_remove_from_groups = remove_from_groups;
 
-    let uri_str = format!("{}/api/{version}/consumer/friend/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/friend/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -901,9 +889,8 @@ pub async fn friend_remove(configuration: &configuration::Configuration, version
 }
 
 /// Sends a friend request notification to another user.
-pub async fn friend_request(configuration: &configuration::Configuration, version: f64, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendRequestError>> {
+pub async fn friend_request(configuration: &configuration::Configuration, friend_account_id: i64, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, app_key: Option<&str>, notification_message: Option<&str>) -> Result<models::SirqulResponse, Error<FriendRequestError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_friend_account_id = friend_account_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -911,7 +898,7 @@ pub async fn friend_request(configuration: &configuration::Configuration, versio
     let p_query_app_key = app_key;
     let p_query_notification_message = notification_message;
 
-    let uri_str = format!("{}/api/{version}/consumer/friend/request", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/friend/request", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -960,13 +947,12 @@ pub async fn friend_request(configuration: &configuration::Configuration, versio
 }
 
 /// Gets the connection sent friend requests.
-pub async fn get_connection_sent_friend_requests(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::ConnectionListResponse, Error<GetConnectionSentFriendRequestsError>> {
+pub async fn get_connection_sent_friend_requests(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::ConnectionListResponse, Error<GetConnectionSentFriendRequestsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/getRequested", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/getRequested", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1005,9 +991,8 @@ pub async fn get_connection_sent_friend_requests(configuration: &configuration::
 }
 
 /// Gets the connections.
-pub async fn get_connections(configuration: &configuration::Configuration, version: f64, return_nulls: bool, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionListResponse, Error<GetConnectionsError>> {
+pub async fn get_connections(configuration: &configuration::Configuration, return_nulls: bool, filter: &str, sort_field: &str, descending: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, connection_account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, _i: Option<i32>, _l: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionListResponse, Error<GetConnectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_filter = filter;
     let p_query_sort_field = sort_field;
@@ -1024,7 +1009,7 @@ pub async fn get_connections(configuration: &configuration::Configuration, versi
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -1089,9 +1074,8 @@ pub async fn get_connections(configuration: &configuration::Configuration, versi
     }
 }
 
-pub async fn get_group_details(configuration: &configuration::Configuration, version: f64, combine_connections: bool, device_id: Option<&str>, account_id: Option<i64>, group_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionGroupResponse, Error<GetGroupDetailsError>> {
+pub async fn get_group_details(configuration: &configuration::Configuration, combine_connections: bool, device_id: Option<&str>, account_id: Option<i64>, group_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ConnectionGroupResponse, Error<GetGroupDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_combine_connections = combine_connections;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1099,7 +1083,7 @@ pub async fn get_group_details(configuration: &configuration::Configuration, ver
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/details/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/details/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1148,9 +1132,8 @@ pub async fn get_group_details(configuration: &configuration::Configuration, ver
 }
 
 /// Gets a user's private groups and default groups.
-pub async fn group_search(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>) -> Result<Vec<models::ConnectionInfoResponse>, Error<GroupSearchError>> {
+pub async fn group_search(configuration: &configuration::Configuration, sort_field: &str, descending: bool, active_only: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, keyword: Option<&str>) -> Result<Vec<models::ConnectionInfoResponse>, Error<GroupSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_active_only = active_only;
@@ -1162,7 +1145,7 @@ pub async fn group_search(configuration: &configuration::Configuration, version:
     let p_query_longitude = longitude;
     let p_query_keyword = keyword;
 
-    let uri_str = format!("{}/api/{version}/connection/group/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/connection/group/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1215,9 +1198,8 @@ pub async fn group_search(configuration: &configuration::Configuration, version:
 }
 
 /// Removes the connection from group.
-pub async fn remove_connection_from_group(configuration: &configuration::Configuration, version: f64, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveConnectionFromGroupError>> {
+pub async fn remove_connection_from_group(configuration: &configuration::Configuration, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_id: Option<i64>, connection_account_id: Option<i64>, pending_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveConnectionFromGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_group_id = group_id;
     let p_query_device_id = device_id;
@@ -1228,7 +1210,7 @@ pub async fn remove_connection_from_group(configuration: &configuration::Configu
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/removeConnection", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/removeConnection", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -1284,9 +1266,8 @@ pub async fn remove_connection_from_group(configuration: &configuration::Configu
 }
 
 /// Remove a list of connections from a group.
-pub async fn remove_connections_from_group(configuration: &configuration::Configuration, version: f64, connection_group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveConnectionsFromGroupError>> {
+pub async fn remove_connections_from_group(configuration: &configuration::Configuration, connection_group_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_ids: Option<&str>, connection_account_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveConnectionsFromGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_connection_group_id = connection_group_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1295,7 +1276,7 @@ pub async fn remove_connections_from_group(configuration: &configuration::Config
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/connection/group/removeConnections", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/connection/group/removeConnections", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1347,9 +1328,8 @@ pub async fn remove_connections_from_group(configuration: &configuration::Config
 }
 
 /// Remove a user's group.
-pub async fn remove_group(configuration: &configuration::Configuration, version: f64, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveGroupError>> {
+pub async fn remove_group(configuration: &configuration::Configuration, return_nulls: bool, group_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveGroupError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_group_id = group_id;
     let p_query_device_id = device_id;
@@ -1357,7 +1337,7 @@ pub async fn remove_group(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/remove", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/remove", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -1404,9 +1384,8 @@ pub async fn remove_group(configuration: &configuration::Configuration, version:
 }
 
 /// Remove sub groups from a group
-pub async fn remove_sub_groups(configuration: &configuration::Configuration, version: f64, return_nulls: bool, group_id: i64, sub_group_ids: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveSubGroupsError>> {
+pub async fn remove_sub_groups(configuration: &configuration::Configuration, return_nulls: bool, group_id: i64, sub_group_ids: &str, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::SirqulResponse, Error<RemoveSubGroupsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_group_id = group_id;
     let p_query_sub_group_ids = sub_group_ids;
@@ -1415,7 +1394,7 @@ pub async fn remove_sub_groups(configuration: &configuration::Configuration, ver
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/consumer/connection/group/removeSubGroup", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/consumer/connection/group/removeSubGroup", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);
@@ -1463,9 +1442,8 @@ pub async fn remove_sub_groups(configuration: &configuration::Configuration, ver
 }
 
 /// Search for accounts that the user may not have a connection with.
-pub async fn search_connections(configuration: &configuration::Configuration, version: f64, return_nulls: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, game_type: Option<&str>, app_key: Option<&str>, _i: Option<i32>, _l: Option<i32>, sort_field: Option<&str>, has_location: Option<bool>) -> Result<models::ConnectionListResponse, Error<SearchConnectionsError>> {
+pub async fn search_connections(configuration: &configuration::Configuration, return_nulls: bool, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, game_type: Option<&str>, app_key: Option<&str>, _i: Option<i32>, _l: Option<i32>, sort_field: Option<&str>, has_location: Option<bool>) -> Result<models::ConnectionListResponse, Error<SearchConnectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_return_nulls = return_nulls;
     let p_query_start = start;
     let p_query_limit = limit;
@@ -1482,7 +1460,7 @@ pub async fn search_connections(configuration: &configuration::Configuration, ve
     let p_query_sort_field = sort_field;
     let p_query_has_location = has_location;
 
-    let uri_str = format!("{}/api/{version}/connection/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/connection/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("returnNulls", &p_query_return_nulls.to_string())]);

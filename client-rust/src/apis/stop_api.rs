@@ -31,12 +31,11 @@ pub enum UpdateStopError {
 
 
 /// Get an existing stop
-pub async fn get_stop(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<models::Stop, Error<GetStopError>> {
+pub async fn get_stop(configuration: &configuration::Configuration, id: i64) -> Result<models::Stop, Error<GetStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/stop/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/stop/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -69,13 +68,12 @@ pub async fn get_stop(configuration: &configuration::Configuration, version: f64
 }
 
 /// Update an existing stop
-pub async fn update_stop(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Stop>) -> Result<models::Stop, Error<UpdateStopError>> {
+pub async fn update_stop(configuration: &configuration::Configuration, id: i64, body: Option<models::Stop>) -> Result<models::Stop, Error<UpdateStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/stop/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/stop/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

@@ -24,13 +24,12 @@ pub enum SimulationError {
 
 
 /// Simulates routing requests.
-pub async fn simulation(configuration: &configuration::Configuration, version: f64, data: &str, real_time: bool) -> Result<models::SirqulResponse, Error<SimulationError>> {
+pub async fn simulation(configuration: &configuration::Configuration, data: &str, real_time: bool) -> Result<models::SirqulResponse, Error<SimulationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_data = data;
     let p_query_real_time = real_time;
 
-    let uri_str = format!("{}/api/{version}/simulation/routing", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/simulation/routing", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("data", &p_query_data.to_string())]);

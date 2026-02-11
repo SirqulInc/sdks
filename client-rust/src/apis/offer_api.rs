@@ -129,14 +129,13 @@ pub enum UpdateOfferStatusError {
 
 
 /// Batch update offer locations.
-pub async fn batch_update_offer_locations(configuration: &configuration::Configuration, version: f64, data: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<BatchUpdateOfferLocationsError>> {
+pub async fn batch_update_offer_locations(configuration: &configuration::Configuration, data: &str, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<BatchUpdateOfferLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_data = data;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/location/batchUpdate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/location/batchUpdate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -176,9 +175,8 @@ pub async fn batch_update_offer_locations(configuration: &configuration::Configu
 }
 
 /// Create an offer and assign it to the provided retailer locations.
-pub async fn create_offer(configuration: &configuration::Configuration, version: f64, include_offer_locations: bool, title: &str, barcode_type: &str, no_expiration: bool, available_limit: i32, available_limit_per_user: i32, added_limit: i32, view_limit: i32, max_prints: i32, ticket_price: i64, full_price: f64, discount_price: f64, offer_type: &str, special_offer_type: &str, offer_visibility: &str, active: bool, device_id: Option<&str>, account_id: Option<i64>, tags: Option<&str>, parent_offer_id: Option<i64>, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, external_id: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, ticket_price_type: Option<&str>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, brand: Option<&str>, product_type: Option<&str>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, department: Option<&str>, features: Option<&str>, minimum_price: Option<f64>, width: Option<f64>, height: Option<f64>, depth: Option<f64>, weight: Option<f64>, unit: Option<&str>, studio: Option<&str>, parental_rating: Option<&str>, publish_date: Option<i64>, availability_date: Option<i64>, size_id: Option<i64>, listing_id: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, reboot_time_hour: Option<i32>, reboot_time_minute: Option<i32>, idle_timeout_in_second: Option<i32>, serial_number: Option<&str>, udid: Option<&str>, device_type: Option<&str>, device_power: Option<f64>, device_interference: Option<f64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::RetailerOfferResponse, Error<CreateOfferError>> {
+pub async fn create_offer(configuration: &configuration::Configuration, include_offer_locations: bool, title: &str, barcode_type: &str, no_expiration: bool, available_limit: i32, available_limit_per_user: i32, added_limit: i32, view_limit: i32, max_prints: i32, ticket_price: i64, full_price: f64, discount_price: f64, offer_type: &str, special_offer_type: &str, offer_visibility: &str, active: bool, device_id: Option<&str>, account_id: Option<i64>, tags: Option<&str>, parent_offer_id: Option<i64>, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, external_id: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, ticket_price_type: Option<&str>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, brand: Option<&str>, product_type: Option<&str>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, department: Option<&str>, features: Option<&str>, minimum_price: Option<f64>, width: Option<f64>, height: Option<f64>, depth: Option<f64>, weight: Option<f64>, unit: Option<&str>, studio: Option<&str>, parental_rating: Option<&str>, publish_date: Option<i64>, availability_date: Option<i64>, size_id: Option<i64>, listing_id: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, reboot_time_hour: Option<i32>, reboot_time_minute: Option<i32>, idle_timeout_in_second: Option<i32>, serial_number: Option<&str>, udid: Option<&str>, device_type: Option<&str>, device_power: Option<f64>, device_interference: Option<f64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::RetailerOfferResponse, Error<CreateOfferError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_include_offer_locations = include_offer_locations;
     let p_query_title = title;
     let p_query_barcode_type = barcode_type;
@@ -266,7 +264,7 @@ pub async fn create_offer(configuration: &configuration::Configuration, version:
     let p_query_availability = availability;
     let p_query_availability_summary = availability_summary;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -525,14 +523,13 @@ pub async fn create_offer(configuration: &configuration::Configuration, version:
 }
 
 /// Set the deleted timestamp to current time. This effectively deletes the offer since all queries should ignore any records with a deleted time stamp.
-pub async fn delete_offer(configuration: &configuration::Configuration, version: f64, offer_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferError>> {
+pub async fn delete_offer(configuration: &configuration::Configuration, offer_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_id = offer_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -572,14 +569,13 @@ pub async fn delete_offer(configuration: &configuration::Configuration, version:
 }
 
 /// Set the deleted timestamp to current time. This effectively deletes the offer location since all queries should ignore any records with a deleted time stamp.
-pub async fn delete_offer_location(configuration: &configuration::Configuration, version: f64, offer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferLocationError>> {
+pub async fn delete_offer_location(configuration: &configuration::Configuration, offer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteOfferLocationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_location_id = offer_location_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/location/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/location/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -619,15 +615,14 @@ pub async fn delete_offer_location(configuration: &configuration::Configuration,
 }
 
 /// Gets the details of an offer that the user has access to.
-pub async fn get_offer(configuration: &configuration::Configuration, version: f64, offer_id: i64, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::RetailerOfferResponse, Error<GetOfferError>> {
+pub async fn get_offer(configuration: &configuration::Configuration, offer_id: i64, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::RetailerOfferResponse, Error<GetOfferError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_id = offer_id;
     let p_query_include_offer_locations = include_offer_locations;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -668,9 +663,8 @@ pub async fn get_offer(configuration: &configuration::Configuration, version: f6
 }
 
 /// Gets offer or offer location details as a consumer.  Will check if it is a favorite if the deviceId/accountId is provided.  If the offerId is provided it will look up the main offer and ignore the the offerLocationId. If no offerId is provided then an offerLocationId must be specified.
-pub async fn get_offer_details(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, distance: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, include_offer_locations: Option<bool>, include_retailer_locations: Option<bool>, include_child_offers: Option<bool>) -> Result<models::OfferResponse, Error<GetOfferDetailsError>> {
+pub async fn get_offer_details(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, distance: Option<f64>, latitude: Option<f64>, longitude: Option<f64>, include_offer_locations: Option<bool>, include_retailer_locations: Option<bool>, include_child_offers: Option<bool>) -> Result<models::OfferResponse, Error<GetOfferDetailsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_offer_id = offer_id;
@@ -682,7 +676,7 @@ pub async fn get_offer_details(configuration: &configuration::Configuration, ver
     let p_query_include_retailer_locations = include_retailer_locations;
     let p_query_include_child_offers = include_child_offers;
 
-    let uri_str = format!("{}/api/{version}/offer/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -745,15 +739,14 @@ pub async fn get_offer_details(configuration: &configuration::Configuration, ver
 }
 
 /// Gets the offer list counts.
-pub async fn get_offer_list_counts(configuration: &configuration::Configuration, version: f64, latitude: f64, longitude: f64, search_range: Option<f64>, distance_unit: Option<&str>) -> Result<models::ListCountResponse, Error<GetOfferListCountsError>> {
+pub async fn get_offer_list_counts(configuration: &configuration::Configuration, latitude: f64, longitude: f64, search_range: Option<f64>, distance_unit: Option<&str>) -> Result<models::ListCountResponse, Error<GetOfferListCountsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_search_range = search_range;
     let p_query_distance_unit = distance_unit;
 
-    let uri_str = format!("{}/api/{version}/offer/lists/count", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/lists/count", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("latitude", &p_query_latitude.to_string())]);
@@ -794,13 +787,12 @@ pub async fn get_offer_list_counts(configuration: &configuration::Configuration,
 }
 
 /// Gets the offer location by offer location id or udid (of a device)
-pub async fn get_offer_location(configuration: &configuration::Configuration, version: f64, offer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::OfferShortResponse, Error<GetOfferLocationError>> {
+pub async fn get_offer_location(configuration: &configuration::Configuration, offer_location_id: Option<i64>, udid: Option<&str>) -> Result<models::OfferShortResponse, Error<GetOfferLocationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_location_id = offer_location_id;
     let p_query_udid = udid;
 
-    let uri_str = format!("{}/api/{version}/offer/location/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/location/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_offer_location_id {
@@ -839,9 +831,8 @@ pub async fn get_offer_location(configuration: &configuration::Configuration, ve
 }
 
 /// Searches on offer locations, which are records that represent an offer that has been assigned to a retailer location. If an offer does not have any locations assigned, then it will NOT be returned.
-pub async fn get_offer_locations_for_retailers(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, include_retailer_location: bool, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, offer_type: Option<&str>, special_offer_type: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, isbn: Option<&str>, asin: Option<&str>, device_status: Option<&str>, needs_notification_sent: Option<bool>, last_notification_sent: Option<i64>) -> Result<Vec<models::OfferShortResponse>, Error<GetOfferLocationsForRetailersError>> {
+pub async fn get_offer_locations_for_retailers(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, include_retailer_location: bool, device_id: Option<&str>, account_id: Option<i64>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, offer_type: Option<&str>, special_offer_type: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, isbn: Option<&str>, asin: Option<&str>, device_status: Option<&str>, needs_notification_sent: Option<bool>, last_notification_sent: Option<i64>) -> Result<Vec<models::OfferShortResponse>, Error<GetOfferLocationsForRetailersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -863,7 +854,7 @@ pub async fn get_offer_locations_for_retailers(configuration: &configuration::Co
     let p_query_needs_notification_sent = needs_notification_sent;
     let p_query_last_notification_sent = last_notification_sent;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/location/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/location/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -944,9 +935,8 @@ pub async fn get_offer_locations_for_retailers(configuration: &configuration::Co
 }
 
 /// Searches on offers that the account has access to.
-pub async fn get_offers_for_retailers(configuration: &configuration::Configuration, version: f64, offer_visibility: &str, sort_field: &str, descending: bool, start: i32, limit: i32, available_only: bool, active_only: bool, include_categories: bool, include_filters: bool, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, q: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, coupon_type: Option<&str>, offer_type: Option<&str>, offer_types: Option<&str>, special_offer_type: Option<&str>, _i: Option<i32>, _l: Option<i32>, barcode_type: Option<&str>, barcode_entry: Option<&str>, isbn: Option<&str>, asin: Option<&str>, device_status: Option<&str>, needs_notification_sent: Option<bool>, last_notification_sent: Option<i64>) -> Result<Vec<models::OfferResponse>, Error<GetOffersForRetailersError>> {
+pub async fn get_offers_for_retailers(configuration: &configuration::Configuration, offer_visibility: &str, sort_field: &str, descending: bool, start: i32, limit: i32, available_only: bool, active_only: bool, include_categories: bool, include_filters: bool, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, q: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, coupon_type: Option<&str>, offer_type: Option<&str>, offer_types: Option<&str>, special_offer_type: Option<&str>, _i: Option<i32>, _l: Option<i32>, barcode_type: Option<&str>, barcode_entry: Option<&str>, isbn: Option<&str>, asin: Option<&str>, device_status: Option<&str>, needs_notification_sent: Option<bool>, last_notification_sent: Option<i64>) -> Result<Vec<models::OfferResponse>, Error<GetOffersForRetailersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_visibility = offer_visibility;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -979,7 +969,7 @@ pub async fn get_offers_for_retailers(configuration: &configuration::Configurati
     let p_query_needs_notification_sent = needs_notification_sent;
     let p_query_last_notification_sent = last_notification_sent;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1085,16 +1075,15 @@ pub async fn get_offers_for_retailers(configuration: &configuration::Configurati
 }
 
 /// Redeems an offer.
-pub async fn redeem_offer_transaction(configuration: &configuration::Configuration, version: f64, offer_transaction_id: i64, status: i32, device_id: Option<&str>, account_id: Option<i64>, offer_location_id: Option<i64>) -> Result<models::SirqulResponse, Error<RedeemOfferTransactionError>> {
+pub async fn redeem_offer_transaction(configuration: &configuration::Configuration, offer_transaction_id: i64, status: i32, device_id: Option<&str>, account_id: Option<i64>, offer_location_id: Option<i64>) -> Result<models::SirqulResponse, Error<RedeemOfferTransactionError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_transaction_id = offer_transaction_id;
     let p_query_status = status;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_offer_location_id = offer_location_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/transaction/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/transaction/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1138,9 +1127,8 @@ pub async fn redeem_offer_transaction(configuration: &configuration::Configurati
 }
 
 /// Searches on offer transactions for offers that the account has access to.
-pub async fn search_offer_transactions_for_retailers(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, redeemed: Option<bool>, reservations_only: Option<bool>, coupon_type: Option<&str>, offer_type: Option<&str>, special_offer_type: Option<&str>, customer_account_ids: Option<&str>, category_ids: Option<&str>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, _i: Option<i32>, _l: Option<i32>) -> Result<Vec<models::OfferTransactionResponse>, Error<SearchOfferTransactionsForRetailersError>> {
+pub async fn search_offer_transactions_for_retailers(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, redeemed: Option<bool>, reservations_only: Option<bool>, coupon_type: Option<&str>, offer_type: Option<&str>, special_offer_type: Option<&str>, customer_account_ids: Option<&str>, category_ids: Option<&str>, redeemable_start_date: Option<i64>, redeemable_end_date: Option<i64>, _i: Option<i32>, _l: Option<i32>) -> Result<Vec<models::OfferTransactionResponse>, Error<SearchOfferTransactionsForRetailersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -1166,7 +1154,7 @@ pub async fn search_offer_transactions_for_retailers(configuration: &configurati
     let p_query__i = _i;
     let p_query__l = _l;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/transaction/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/transaction/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1261,9 +1249,8 @@ pub async fn search_offer_transactions_for_retailers(configuration: &configurati
 }
 
 /// Searches for offers as a consumer.
-pub async fn search_offers_for_consumer(configuration: &configuration::Configuration, version: f64, latitude: f64, longitude: f64, recommendation_type: &str, location_id: i64, start: i32, limit: i32, max_recommendations: i32, distance_unit: &str, app_key: Option<&str>, device_id: Option<&str>, account_id: Option<i64>, search_range: Option<f64>, tags: Option<&str>, supported_postal_codes: Option<&str>, keyword: Option<&str>, categories: Option<&str>, filters: Option<&str>, offer_types: Option<&str>, r#type: Option<&str>, sort_field: Option<&str>, recommend_offer_ids: Option<&str>, retailer_location_ids: Option<&str>, offer_id: Option<i64>, include_mission: Option<bool>, include_categories: Option<bool>, include_filters: Option<bool>, include_expired: Option<bool>, include_favorite: Option<bool>, closest_offer_only: Option<bool>, search_expression: Option<&str>, group_by: Option<&str>) -> Result<models::OfferListResponse, Error<SearchOffersForConsumerError>> {
+pub async fn search_offers_for_consumer(configuration: &configuration::Configuration, latitude: f64, longitude: f64, recommendation_type: &str, location_id: i64, start: i32, limit: i32, max_recommendations: i32, distance_unit: &str, app_key: Option<&str>, device_id: Option<&str>, account_id: Option<i64>, search_range: Option<f64>, tags: Option<&str>, supported_postal_codes: Option<&str>, keyword: Option<&str>, categories: Option<&str>, filters: Option<&str>, offer_types: Option<&str>, r#type: Option<&str>, sort_field: Option<&str>, recommend_offer_ids: Option<&str>, retailer_location_ids: Option<&str>, offer_id: Option<i64>, include_mission: Option<bool>, include_categories: Option<bool>, include_filters: Option<bool>, include_expired: Option<bool>, include_favorite: Option<bool>, closest_offer_only: Option<bool>, search_expression: Option<&str>, group_by: Option<&str>) -> Result<models::OfferListResponse, Error<SearchOffersForConsumerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_recommendation_type = recommendation_type;
@@ -1296,7 +1283,7 @@ pub async fn search_offers_for_consumer(configuration: &configuration::Configura
     let p_query_search_expression = search_expression;
     let p_query_group_by = group_by;
 
-    let uri_str = format!("{}/api/{version}/offer/lists", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/lists", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_app_key {
@@ -1406,13 +1393,12 @@ pub async fn search_offers_for_consumer(configuration: &configuration::Configura
 }
 
 /// Gets the top active offers.
-pub async fn top_offer_transactions(configuration: &configuration::Configuration, version: f64, start: Option<i32>, limit: Option<i32>) -> Result<models::OfferListResponse, Error<TopOfferTransactionsError>> {
+pub async fn top_offer_transactions(configuration: &configuration::Configuration, start: Option<i32>, limit: Option<i32>) -> Result<models::OfferListResponse, Error<TopOfferTransactionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/offer/top", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/offer/top", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_start {
@@ -1451,9 +1437,8 @@ pub async fn top_offer_transactions(configuration: &configuration::Configuration
 }
 
 /// Update an offer, must provide a current list of retailer locations or the current offer locations will be marked as deleted.
-pub async fn update_offer(configuration: &configuration::Configuration, version: f64, offer_id: i64, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>, parent_offer_id: Option<i64>, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, tags: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, external_id: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, no_expiration: Option<bool>, available_limit: Option<i32>, available_limit_per_user: Option<i32>, added_limit: Option<i32>, view_limit: Option<i32>, max_prints: Option<i32>, ticket_price_type: Option<&str>, ticket_price: Option<i64>, full_price: Option<f64>, discount_price: Option<f64>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, offer_type: Option<&str>, special_offer_type: Option<&str>, offer_visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, brand: Option<&str>, product_type: Option<&str>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, department: Option<&str>, features: Option<&str>, minimum_price: Option<f64>, width: Option<f64>, height: Option<f64>, depth: Option<f64>, weight: Option<f64>, unit: Option<&str>, studio: Option<&str>, parental_rating: Option<&str>, publish_date: Option<i64>, availability_date: Option<i64>, size_id: Option<i64>, listing_id: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, reboot_time_hour: Option<i32>, reboot_time_minute: Option<i32>, idle_timeout_in_second: Option<i32>, serial_number: Option<&str>, udid: Option<&str>, device_type: Option<&str>, device_power: Option<f64>, device_interference: Option<f64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::RetailerOfferResponse, Error<UpdateOfferError>> {
+pub async fn update_offer(configuration: &configuration::Configuration, offer_id: i64, include_offer_locations: bool, device_id: Option<&str>, account_id: Option<i64>, parent_offer_id: Option<i64>, retailer_location_ids: Option<&str>, offer_locations: Option<&str>, tags: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, sub_details: Option<&str>, fine_print: Option<&str>, barcode_type: Option<&str>, barcode_entry: Option<&str>, external_redeem_options: Option<&str>, external_url: Option<&str>, external_id: Option<&str>, tickets_reward_type: Option<&str>, tickets_reward: Option<i64>, activated: Option<i64>, expires: Option<i64>, no_expiration: Option<bool>, available_limit: Option<i32>, available_limit_per_user: Option<i32>, added_limit: Option<i32>, view_limit: Option<i32>, max_prints: Option<i32>, ticket_price_type: Option<&str>, ticket_price: Option<i64>, full_price: Option<f64>, discount_price: Option<f64>, show_remaining: Option<bool>, show_redeemed: Option<bool>, replaced: Option<bool>, featured: Option<bool>, offer_type: Option<&str>, special_offer_type: Option<&str>, offer_visibility: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, barcode_asset_id: Option<i64>, image_asset_id: Option<i64>, image_asset_id1: Option<i64>, image_asset_id2: Option<i64>, image_asset_id3: Option<i64>, image_asset_id4: Option<i64>, image_asset_id5: Option<i64>, publisher: Option<&str>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, brand: Option<&str>, product_type: Option<&str>, condition_type: Option<&str>, isbn: Option<&str>, asin: Option<&str>, catalog_numbers: Option<&str>, department: Option<&str>, features: Option<&str>, minimum_price: Option<f64>, width: Option<f64>, height: Option<f64>, depth: Option<f64>, weight: Option<f64>, unit: Option<&str>, studio: Option<&str>, parental_rating: Option<&str>, publish_date: Option<i64>, availability_date: Option<i64>, size_id: Option<i64>, listing_id: Option<i64>, media_type: Option<&str>, duration: Option<i32>, author: Option<&str>, release_date: Option<i64>, collection_ids: Option<&str>, reboot_time_hour: Option<i32>, reboot_time_minute: Option<i32>, idle_timeout_in_second: Option<i32>, serial_number: Option<&str>, udid: Option<&str>, device_type: Option<&str>, device_power: Option<f64>, device_interference: Option<f64>, availability: Option<&str>, availability_summary: Option<&str>) -> Result<models::RetailerOfferResponse, Error<UpdateOfferError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_id = offer_id;
     let p_query_include_offer_locations = include_offer_locations;
     let p_query_device_id = device_id;
@@ -1542,7 +1527,7 @@ pub async fn update_offer(configuration: &configuration::Configuration, version:
     let p_query_availability = availability;
     let p_query_availability_summary = availability_summary;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1832,15 +1817,14 @@ pub async fn update_offer(configuration: &configuration::Configuration, version:
 }
 
 /// Sets the activated date on offers. This will make offers visible for consumers.
-pub async fn update_offer_status(configuration: &configuration::Configuration, version: f64, offer_ids: &str, active: bool, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<UpdateOfferStatusError>> {
+pub async fn update_offer_status(configuration: &configuration::Configuration, offer_ids: &str, active: bool, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::SirqulResponse, Error<UpdateOfferStatusError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_offer_ids = offer_ids;
     let p_query_active = active;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/offer/status", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/offer/status", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

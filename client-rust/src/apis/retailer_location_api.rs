@@ -80,9 +80,8 @@ pub enum UpdateRetailerLocationsError {
 
 
 /// Creates a location record for an application that can support crowd sourced locations.
-pub async fn create_retailer_location_consumer(configuration: &configuration::Configuration, version: f64, app_key: &str, name: &str, device_id: Option<&str>, account_id: Option<i64>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, tags: Option<&str>, logo_asset_id: Option<i64>, picture1_asset_id: Option<i64>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, meta_data: Option<&str>, public_location: Option<bool>, active: Option<bool>, location_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RetailerLocationResponse, Error<CreateRetailerLocationConsumerError>> {
+pub async fn create_retailer_location_consumer(configuration: &configuration::Configuration, app_key: &str, name: &str, device_id: Option<&str>, account_id: Option<i64>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, tags: Option<&str>, logo_asset_id: Option<i64>, picture1_asset_id: Option<i64>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, meta_data: Option<&str>, public_location: Option<bool>, active: Option<bool>, location_type: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::RetailerLocationResponse, Error<CreateRetailerLocationConsumerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_name = name;
     let p_query_device_id = device_id;
@@ -113,7 +112,7 @@ pub async fn create_retailer_location_consumer(configuration: &configuration::Co
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/location/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -229,9 +228,8 @@ pub async fn create_retailer_location_consumer(configuration: &configuration::Co
 }
 
 /// Creates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-pub async fn create_retailer_locations(configuration: &configuration::Configuration, version: f64, retailer_id: i64, name: &str, street_address: &str, city: &str, state: &str, postal_code: &str, device_id: Option<&str>, account_id: Option<i64>, street_address2: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, internal_id: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, building: Option<&str>, google_place_id: Option<&str>, yelp_id: Option<&str>, active: Option<bool>, public_location: Option<bool>, location_type: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, response_format: Option<&str>, response_includes: Option<&str>) -> Result<models::RetailerLocationResponse, Error<CreateRetailerLocationsError>> {
+pub async fn create_retailer_locations(configuration: &configuration::Configuration, retailer_id: i64, name: &str, street_address: &str, city: &str, state: &str, postal_code: &str, device_id: Option<&str>, account_id: Option<i64>, street_address2: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, internal_id: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, building: Option<&str>, google_place_id: Option<&str>, yelp_id: Option<&str>, active: Option<bool>, public_location: Option<bool>, location_type: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, response_format: Option<&str>, response_includes: Option<&str>) -> Result<models::RetailerLocationResponse, Error<CreateRetailerLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_id = retailer_id;
     let p_query_name = name;
     let p_query_street_address = street_address;
@@ -272,7 +270,7 @@ pub async fn create_retailer_locations(configuration: &configuration::Configurat
     let p_query_response_format = response_format;
     let p_query_response_includes = response_includes;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -410,14 +408,13 @@ pub async fn create_retailer_locations(configuration: &configuration::Configurat
 }
 
 /// Set the deleted timestamp to current time. This effectively deletes the retailer location since all queries should ignore any records with a deleted time stamp.
-pub async fn delete_retailer_location(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, retailer_location_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRetailerLocationError>> {
+pub async fn delete_retailer_location(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, retailer_location_id: Option<i64>) -> Result<models::SirqulResponse, Error<DeleteRetailerLocationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_retailer_location_id = retailer_location_id;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -459,15 +456,14 @@ pub async fn delete_retailer_location(configuration: &configuration::Configurati
 }
 
 /// Gets a retailer location. Only the owner and the employees of the retailer have access to view its information.
-pub async fn get_retailer_location(configuration: &configuration::Configuration, version: f64, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>, retailer_location_token: Option<&str>) -> Result<models::RetailerLocationResponse, Error<GetRetailerLocationError>> {
+pub async fn get_retailer_location(configuration: &configuration::Configuration, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>, retailer_location_token: Option<&str>) -> Result<models::RetailerLocationResponse, Error<GetRetailerLocationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_retailer_location_token = retailer_location_token;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -510,14 +506,13 @@ pub async fn get_retailer_location(configuration: &configuration::Configuration,
 }
 
 /// Gets the details of a retailer location as a consumer.
-pub async fn get_retailer_location_consumer(configuration: &configuration::Configuration, version: f64, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::RetailerLocationResponse, Error<GetRetailerLocationConsumerError>> {
+pub async fn get_retailer_location_consumer(configuration: &configuration::Configuration, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>) -> Result<models::RetailerLocationResponse, Error<GetRetailerLocationConsumerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
 
-    let uri_str = format!("{}/api/{version}/location/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -557,9 +552,8 @@ pub async fn get_retailer_location_consumer(configuration: &configuration::Confi
 }
 
 /// Retailer location indexed search by distance. This searches on any retailer location with location data and returns the results sorted by distance.
-pub async fn indexed_retailer_location_distance_search(configuration: &configuration::Configuration, version: f64, latitude: f64, longitude: f64, search_range: f64, start: i32, limit: i32, account_id: Option<i64>, address: Option<&str>, has_offers: Option<bool>, categories: Option<&str>, filters: Option<&str>, audiences: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, tags: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, q: Option<&str>, keyword: Option<&str>, keyword_operator: Option<&str>, search_expression: Option<&str>, distance_unit: Option<&str>, return_favorited: Option<bool>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, return_external_category_data: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<IndexedRetailerLocationDistanceSearchError>> {
+pub async fn indexed_retailer_location_distance_search(configuration: &configuration::Configuration, latitude: f64, longitude: f64, search_range: f64, start: i32, limit: i32, account_id: Option<i64>, address: Option<&str>, has_offers: Option<bool>, categories: Option<&str>, filters: Option<&str>, audiences: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, tags: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, q: Option<&str>, keyword: Option<&str>, keyword_operator: Option<&str>, search_expression: Option<&str>, distance_unit: Option<&str>, return_favorited: Option<bool>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, return_external_category_data: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<IndexedRetailerLocationDistanceSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_search_range = search_range;
@@ -595,7 +589,7 @@ pub async fn indexed_retailer_location_distance_search(configuration: &configura
     let p_query_include_liked = include_liked;
     let p_query_include_rating = include_rating;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/idistancesearch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/idistancesearch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("latitude", &p_query_latitude.to_string())]);
@@ -720,9 +714,8 @@ pub async fn indexed_retailer_location_distance_search(configuration: &configura
 }
 
 /// Retailer location (faster) indexed search. This searches all retailer locations.
-pub async fn indexed_retailer_location_search(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>, has_offers: Option<bool>, categories: Option<&str>, filters: Option<&str>, audiences: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, tags: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, q: Option<&str>, keyword: Option<&str>, keyword_operator: Option<&str>, search_expression: Option<&str>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, return_external_category_data: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<IndexedRetailerLocationSearchError>> {
+pub async fn indexed_retailer_location_search(configuration: &configuration::Configuration, account_id: Option<i64>, start: Option<i32>, limit: Option<i32>, has_offers: Option<bool>, categories: Option<&str>, filters: Option<&str>, audiences: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, tags: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, q: Option<&str>, keyword: Option<&str>, keyword_operator: Option<&str>, search_expression: Option<&str>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, return_external_category_data: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<IndexedRetailerLocationSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start = start;
     let p_query_limit = limit;
@@ -752,7 +745,7 @@ pub async fn indexed_retailer_location_search(configuration: &configuration::Con
     let p_query_include_liked = include_liked;
     let p_query_include_rating = include_rating;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/isearch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/isearch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -869,9 +862,8 @@ pub async fn indexed_retailer_location_search(configuration: &configuration::Con
 }
 
 /// Searches on retailer locations that the account has access to.
-pub async fn search_retailer_locations(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, show_public_locations: Option<bool>, active_only: Option<bool>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<SearchRetailerLocationsError>> {
+pub async fn search_retailer_locations(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, q: Option<&str>, keyword: Option<&str>, retailer_ids: Option<&str>, retailer_location_ids: Option<&str>, location_type: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, start: Option<i32>, _l: Option<i32>, limit: Option<i32>, show_public_locations: Option<bool>, active_only: Option<bool>, return_retailer: Option<bool>, return_assets: Option<bool>, return_offers: Option<bool>, return_categories: Option<bool>, return_filters: Option<bool>, return_audiences: Option<bool>, return_qr_code: Option<bool>, include_favorite: Option<bool>, include_liked: Option<bool>, include_rating: Option<bool>) -> Result<Vec<models::RetailerLocationResponse>, Error<SearchRetailerLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_q = q;
@@ -898,7 +890,7 @@ pub async fn search_retailer_locations(configuration: &configuration::Configurat
     let p_query_include_liked = include_liked;
     let p_query_include_rating = include_rating;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -1006,9 +998,8 @@ pub async fn search_retailer_locations(configuration: &configuration::Configurat
 }
 
 /// Updates a location record for a retailer. Only the owner and the employees of the retailer have access to do this.
-pub async fn update_retailer_locations(configuration: &configuration::Configuration, version: f64, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, internal_id: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, building: Option<&str>, google_place_id: Option<&str>, yelp_id: Option<&str>, meta_data: Option<&str>, payment_provider: Option<&str>, active: Option<bool>, public_location: Option<bool>, location_type: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, response_format: Option<&str>, tags: Option<&str>) -> Result<models::RetailerLocationResponse, Error<UpdateRetailerLocationsError>> {
+pub async fn update_retailer_locations(configuration: &configuration::Configuration, retailer_location_id: i64, device_id: Option<&str>, account_id: Option<i64>, name: Option<&str>, street_address: Option<&str>, street_address2: Option<&str>, city: Option<&str>, state: Option<&str>, postal_code: Option<&str>, country: Option<&str>, business_phone: Option<&str>, business_phone_ext: Option<&str>, website: Option<&str>, email: Option<&str>, internal_id: Option<&str>, details_header: Option<&str>, details_body: Option<&str>, hours: Option<&str>, logo: Option<std::path::PathBuf>, logo_asset_id: Option<i64>, picture1: Option<std::path::PathBuf>, picture1_asset_id: Option<i64>, picture2: Option<std::path::PathBuf>, picture2_asset_id: Option<i64>, category_ids: Option<&str>, filter_ids: Option<&str>, latitude: Option<f64>, longitude: Option<f64>, building: Option<&str>, google_place_id: Option<&str>, yelp_id: Option<&str>, meta_data: Option<&str>, payment_provider: Option<&str>, active: Option<bool>, public_location: Option<bool>, location_type: Option<&str>, audience_ids: Option<&str>, audience_ids_to_add: Option<&str>, audience_ids_to_remove: Option<&str>, response_format: Option<&str>, tags: Option<&str>) -> Result<models::RetailerLocationResponse, Error<UpdateRetailerLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_location_id = retailer_location_id;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
@@ -1051,7 +1042,7 @@ pub async fn update_retailer_locations(configuration: &configuration::Configurat
     let p_query_response_format = response_format;
     let p_query_tags = tags;
 
-    let uri_str = format!("{}/api/{version}/retailer/location/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer/location/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

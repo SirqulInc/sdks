@@ -38,9 +38,8 @@ pub enum SearchLikesError {
 
 
 /// Allows a user to like or dislike accounts, albums, album contests, assets, game levels, notes, and theme descriptors. Multiple likes\\dislikes on the same object will replace the previous one.
-pub async fn register_like(configuration: &configuration::Configuration, version: f64, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, like: Option<bool>, app: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::LikableResponse, Error<RegisterLikeError>> {
+pub async fn register_like(configuration: &configuration::Configuration, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, permissionable_type: Option<&str>, permissionable_id: Option<i64>, like: Option<bool>, app: Option<&str>, game_type: Option<&str>, app_key: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::LikableResponse, Error<RegisterLikeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_likable_type = likable_type;
     let p_query_likable_id = likable_id;
     let p_query_device_id = device_id;
@@ -54,7 +53,7 @@ pub async fn register_like(configuration: &configuration::Configuration, version
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/like", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/like", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -119,9 +118,8 @@ pub async fn register_like(configuration: &configuration::Configuration, version
 }
 
 /// Removes a like. This will make the user \"neutral\".
-pub async fn remove_like(configuration: &configuration::Configuration, version: f64, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::LikableResponse, Error<RemoveLikeError>> {
+pub async fn remove_like(configuration: &configuration::Configuration, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::LikableResponse, Error<RemoveLikeError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_likable_type = likable_type;
     let p_query_likable_id = likable_id;
     let p_query_device_id = device_id;
@@ -129,7 +127,7 @@ pub async fn remove_like(configuration: &configuration::Configuration, version: 
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/like/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/like/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -176,9 +174,8 @@ pub async fn remove_like(configuration: &configuration::Configuration, version: 
 }
 
 /// Search for likes on a likable object.
-pub async fn search_likes(configuration: &configuration::Configuration, version: f64, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_account_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, updated_since: Option<i64>, updated_before: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<models::SearchResponse, Error<SearchLikesError>> {
+pub async fn search_likes(configuration: &configuration::Configuration, likable_type: &str, likable_id: i64, device_id: Option<&str>, account_id: Option<i64>, connection_account_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, updated_since: Option<i64>, updated_before: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<models::SearchResponse, Error<SearchLikesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_likable_type = likable_type;
     let p_query_likable_id = likable_id;
     let p_query_device_id = device_id;
@@ -191,7 +188,7 @@ pub async fn search_likes(configuration: &configuration::Configuration, version:
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/like/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/like/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {

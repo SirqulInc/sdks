@@ -66,9 +66,8 @@ pub enum UpdateEventError {
 
 
 ///  Specify whether the user is attending an event at a particular location. This can also be used as a \"check-in\" action.
-pub async fn attend_event(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, listing_id: Option<i64>, retailer_location_id: Option<i64>, offer_location_id: Option<i64>, transaction_id: Option<i64>, status: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferResponse, Error<AttendEventError>> {
+pub async fn attend_event(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, listing_id: Option<i64>, retailer_location_id: Option<i64>, offer_location_id: Option<i64>, transaction_id: Option<i64>, status: Option<i32>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::OfferResponse, Error<AttendEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -80,7 +79,7 @@ pub async fn attend_event(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/event/attend", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/attend", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -143,9 +142,8 @@ pub async fn attend_event(configuration: &configuration::Configuration, version:
 }
 
 /// Create a private event to share with associates.
-pub async fn create_event(configuration: &configuration::Configuration, version: f64, account_id: i64, title: &str, retailer_location_ids: Option<&str>, sub_title: Option<&str>, details: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, image_asset_id: Option<i64>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, meta_data: Option<&str>) -> Result<models::OfferResponse, Error<CreateEventError>> {
+pub async fn create_event(configuration: &configuration::Configuration, account_id: i64, title: &str, retailer_location_ids: Option<&str>, sub_title: Option<&str>, details: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, image_asset_id: Option<i64>, redeemable_start: Option<i64>, redeemable_end: Option<i64>, meta_data: Option<&str>) -> Result<models::OfferResponse, Error<CreateEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_title = title;
     let p_query_retailer_location_ids = retailer_location_ids;
@@ -159,7 +157,7 @@ pub async fn create_event(configuration: &configuration::Configuration, version:
     let p_query_redeemable_end = redeemable_end;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/event/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -224,13 +222,12 @@ pub async fn create_event(configuration: &configuration::Configuration, version:
 }
 
 /// Delete an event that the user has permissions to.
-pub async fn delete_event(configuration: &configuration::Configuration, version: f64, account_id: i64, event_id: i64) -> Result<models::SirqulResponse, Error<DeleteEventError>> {
+pub async fn delete_event(configuration: &configuration::Configuration, account_id: i64, event_id: i64) -> Result<models::SirqulResponse, Error<DeleteEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_event_id = event_id;
 
-    let uri_str = format!("{}/api/{version}/event/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -265,13 +262,12 @@ pub async fn delete_event(configuration: &configuration::Configuration, version:
 }
 
 /// Get an event.
-pub async fn get_event(configuration: &configuration::Configuration, version: f64, account_id: i64, event_id: i64) -> Result<models::OfferResponse, Error<GetEventError>> {
+pub async fn get_event(configuration: &configuration::Configuration, account_id: i64, event_id: i64) -> Result<models::OfferResponse, Error<GetEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_event_id = event_id;
 
-    let uri_str = format!("{}/api/{version}/event/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -306,9 +302,8 @@ pub async fn get_event(configuration: &configuration::Configuration, version: f6
 }
 
 /// Searches on event type transactions. This can be used to see who is attending an event.
-pub async fn search_event_transactions(configuration: &configuration::Configuration, version: f64, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, exclude_retailer_location_id: Option<i64>, listing_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, customer_account_ids: Option<&str>, affiliated_category_ids: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, statuses: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::EventAttendanceResponse>, Error<SearchEventTransactionsError>> {
+pub async fn search_event_transactions(configuration: &configuration::Configuration, device_id: Option<&str>, account_id: Option<i64>, app_key: Option<&str>, keyword: Option<&str>, retailer_id: Option<i64>, retailer_location_id: Option<i64>, exclude_retailer_location_id: Option<i64>, listing_id: Option<i64>, offer_id: Option<i64>, offer_location_id: Option<i64>, customer_account_ids: Option<&str>, affiliated_category_ids: Option<&str>, start_date: Option<i64>, end_date: Option<i64>, statuses: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::EventAttendanceResponse>, Error<SearchEventTransactionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_device_id = device_id;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
@@ -329,7 +324,7 @@ pub async fn search_event_transactions(configuration: &configuration::Configurat
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/event/attendance/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/attendance/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -419,9 +414,8 @@ pub async fn search_event_transactions(configuration: &configuration::Configurat
 }
 
 /// Searches on events that the account has access to.
-pub async fn search_events(configuration: &configuration::Configuration, version: f64, account_id: i64, keyword: Option<&str>, active_only: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, transaction_audience_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::OfferShortResponse>, Error<SearchEventsError>> {
+pub async fn search_events(configuration: &configuration::Configuration, account_id: i64, keyword: Option<&str>, active_only: Option<bool>, category_ids: Option<&str>, filter_ids: Option<&str>, offer_audience_ids: Option<&str>, transaction_audience_ids: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, start_date: Option<i64>, end_date: Option<i64>, start: Option<i32>, limit: Option<i32>) -> Result<Vec<models::OfferShortResponse>, Error<SearchEventsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_active_only = active_only;
@@ -436,7 +430,7 @@ pub async fn search_events(configuration: &configuration::Configuration, version
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/event/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -506,9 +500,8 @@ pub async fn search_events(configuration: &configuration::Configuration, version
 }
 
 /// Update a private event to share with associates.
-pub async fn update_event(configuration: &configuration::Configuration, version: f64, account_id: i64, event_id: i64, retailer_location_ids: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, image_asset_id: Option<i64>, redeemable_start: Option<i64>, redeemable_end: Option<i64>) -> Result<models::OfferResponse, Error<UpdateEventError>> {
+pub async fn update_event(configuration: &configuration::Configuration, account_id: i64, event_id: i64, retailer_location_ids: Option<&str>, title: Option<&str>, sub_title: Option<&str>, details: Option<&str>, category_ids: Option<&str>, filter_ids: Option<&str>, active: Option<bool>, image_asset_id: Option<i64>, redeemable_start: Option<i64>, redeemable_end: Option<i64>) -> Result<models::OfferResponse, Error<UpdateEventError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_event_id = event_id;
     let p_query_retailer_location_ids = retailer_location_ids;
@@ -522,7 +515,7 @@ pub async fn update_event(configuration: &configuration::Configuration, version:
     let p_query_redeemable_start = redeemable_start;
     let p_query_redeemable_end = redeemable_end;
 
-    let uri_str = format!("{}/api/{version}/event/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/event/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

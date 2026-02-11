@@ -59,9 +59,8 @@ pub enum UpdateSecureApplicationError {
 
 
 /// Create a secure application record.
-pub async fn create_secure_application(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, key_cert: std::path::PathBuf, trust_store: std::path::PathBuf, username: &str, password: &str, active: Option<bool>, biometric_type: Option<&str>, biometric_position: Option<&str>, biometric_position2: Option<&str>) -> Result<models::SirqulResponse, Error<CreateSecureApplicationError>> {
+pub async fn create_secure_application(configuration: &configuration::Configuration, account_id: i64, app_key: &str, key_cert: std::path::PathBuf, trust_store: std::path::PathBuf, username: &str, password: &str, active: Option<bool>, biometric_type: Option<&str>, biometric_position: Option<&str>, biometric_position2: Option<&str>) -> Result<models::SirqulResponse, Error<CreateSecureApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_key_cert = key_cert;
@@ -73,7 +72,7 @@ pub async fn create_secure_application(configuration: &configuration::Configurat
     let p_query_biometric_position = biometric_position;
     let p_query_biometric_position2 = biometric_position2;
 
-    let uri_str = format!("{}/api/{version}/secure/application/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/application/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -124,13 +123,12 @@ pub async fn create_secure_application(configuration: &configuration::Configurat
 }
 
 /// Delete a secure application record.
-pub async fn delete_secure_application(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<DeleteSecureApplicationError>> {
+pub async fn delete_secure_application(configuration: &configuration::Configuration, account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<DeleteSecureApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/secure/application/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/application/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -165,9 +163,8 @@ pub async fn delete_secure_application(configuration: &configuration::Configurat
 }
 
 /// Login via Clear.me. Creates a new account if logging in for the first time.
-pub async fn login_secure(configuration: &configuration::Configuration, version: f64, app_key: &str, biometric_file: std::path::PathBuf, device_id: Option<&str>, biometric_file2: Option<std::path::PathBuf>, age_restriction: Option<i32>, return_profile: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginSecureError>> {
+pub async fn login_secure(configuration: &configuration::Configuration, app_key: &str, biometric_file: std::path::PathBuf, device_id: Option<&str>, biometric_file2: Option<std::path::PathBuf>, age_restriction: Option<i32>, return_profile: Option<bool>, response_filters: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::ProfileResponse, Error<LoginSecureError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_app_key = app_key;
     let p_query_biometric_file = biometric_file;
     let p_query_device_id = device_id;
@@ -178,7 +175,7 @@ pub async fn login_secure(configuration: &configuration::Configuration, version:
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/secure/login", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/login", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -234,12 +231,11 @@ pub async fn login_secure(configuration: &configuration::Configuration, version:
 }
 
 /// Purchase via Clear.me. Creates a new account if purchasing for the first time.
-pub async fn purchase_secure(configuration: &configuration::Configuration, version: f64, body: models::PaymentRequest) -> Result<models::ProfileResponse, Error<PurchaseSecureError>> {
+pub async fn purchase_secure(configuration: &configuration::Configuration, body: models::PaymentRequest) -> Result<models::ProfileResponse, Error<PurchaseSecureError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/secure/purchase", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/purchase", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -273,13 +269,12 @@ pub async fn purchase_secure(configuration: &configuration::Configuration, versi
 }
 
 /// Reset a secure application client.
-pub async fn reset_secure(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<ResetSecureError>> {
+pub async fn reset_secure(configuration: &configuration::Configuration, account_id: i64, app_key: &str) -> Result<models::SirqulResponse, Error<ResetSecureError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
 
-    let uri_str = format!("{}/api/{version}/secure/application/reset", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/application/reset", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -314,9 +309,8 @@ pub async fn reset_secure(configuration: &configuration::Configuration, version:
 }
 
 /// Update a secure application record.
-pub async fn update_secure_application(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, active: Option<bool>, key_cert: Option<std::path::PathBuf>, trust_store: Option<std::path::PathBuf>, username: Option<&str>, password: Option<&str>, biometric_type: Option<&str>, biometric_position: Option<&str>, biometric_position2: Option<&str>) -> Result<models::SirqulResponse, Error<UpdateSecureApplicationError>> {
+pub async fn update_secure_application(configuration: &configuration::Configuration, account_id: i64, app_key: &str, active: Option<bool>, key_cert: Option<std::path::PathBuf>, trust_store: Option<std::path::PathBuf>, username: Option<&str>, password: Option<&str>, biometric_type: Option<&str>, biometric_position: Option<&str>, biometric_position2: Option<&str>) -> Result<models::SirqulResponse, Error<UpdateSecureApplicationError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_active = active;
@@ -328,7 +322,7 @@ pub async fn update_secure_application(configuration: &configuration::Configurat
     let p_query_biometric_position = biometric_position;
     let p_query_biometric_position2 = biometric_position2;
 
-    let uri_str = format!("{}/api/{version}/secure/application/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/secure/application/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

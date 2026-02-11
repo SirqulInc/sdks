@@ -24,15 +24,14 @@ pub enum SearchWeatherError {
 
 
 /// Search the weather forcast for the next 5 days
-pub async fn search_weather(configuration: &configuration::Configuration, version: f64, region_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, timezone_offset: Option<i64>) -> Result<models::WeatherResponse, Error<SearchWeatherError>> {
+pub async fn search_weather(configuration: &configuration::Configuration, region_id: Option<i64>, latitude: Option<f64>, longitude: Option<f64>, timezone_offset: Option<i64>) -> Result<models::WeatherResponse, Error<SearchWeatherError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_region_id = region_id;
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
     let p_query_timezone_offset = timezone_offset;
 
-    let uri_str = format!("{}/api/{version}/weather/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/weather/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_region_id {

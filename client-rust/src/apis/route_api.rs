@@ -169,12 +169,11 @@ pub enum UpdateRouteStopError {
 
 
 /// Approve a route
-pub async fn approve_route(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<models::Route, Error<ApproveRouteError>> {
+pub async fn approve_route(configuration: &configuration::Configuration, route_id: i64) -> Result<models::Route, Error<ApproveRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/approve", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/approve", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -207,13 +206,12 @@ pub async fn approve_route(configuration: &configuration::Configuration, version
 }
 
 /// Make an copy of the given route with optional overriding properties
-pub async fn copy_route(configuration: &configuration::Configuration, version: f64, route_id: i64, body: Option<models::Route>) -> Result<models::Route, Error<CopyRouteError>> {
+pub async fn copy_route(configuration: &configuration::Configuration, route_id: i64, body: Option<models::Route>) -> Result<models::Route, Error<CopyRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/copy", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/copy", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -247,12 +245,11 @@ pub async fn copy_route(configuration: &configuration::Configuration, version: f
 }
 
 /// Create new route
-pub async fn create_route(configuration: &configuration::Configuration, version: f64, body: Option<models::Route>) -> Result<models::Route, Error<CreateRouteError>> {
+pub async fn create_route(configuration: &configuration::Configuration, body: Option<models::Route>) -> Result<models::Route, Error<CreateRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/route", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -286,12 +283,11 @@ pub async fn create_route(configuration: &configuration::Configuration, version:
 }
 
 /// Regenerate the directions of a route
-pub async fn create_route_directions(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<Vec<models::Direction>, Error<CreateRouteDirectionsError>> {
+pub async fn create_route_directions(configuration: &configuration::Configuration, route_id: i64) -> Result<Vec<models::Direction>, Error<CreateRouteDirectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/directions", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/directions", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -324,12 +320,11 @@ pub async fn create_route_directions(configuration: &configuration::Configuratio
 }
 
 /// Update the polyline of the requested route
-pub async fn create_route_polyline(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<models::Route, Error<CreateRoutePolylineError>> {
+pub async fn create_route_polyline(configuration: &configuration::Configuration, route_id: i64) -> Result<models::Route, Error<CreateRoutePolylineError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/polyline", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/polyline", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -362,12 +357,11 @@ pub async fn create_route_polyline(configuration: &configuration::Configuration,
 }
 
 /// Delete an existing route
-pub async fn delete_route(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<(), Error<DeleteRouteError>> {
+pub async fn delete_route(configuration: &configuration::Configuration, route_id: i64) -> Result<(), Error<DeleteRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -389,12 +383,11 @@ pub async fn delete_route(configuration: &configuration::Configuration, version:
 }
 
 /// Disapprove a route
-pub async fn disapprove_route(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<models::Route, Error<DisapproveRouteError>> {
+pub async fn disapprove_route(configuration: &configuration::Configuration, route_id: i64) -> Result<models::Route, Error<DisapproveRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/disapprove", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/disapprove", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -427,13 +420,12 @@ pub async fn disapprove_route(configuration: &configuration::Configuration, vers
 }
 
 /// Get an existing route
-pub async fn get_route(configuration: &configuration::Configuration, version: f64, route_id: i64, show_inherited_properties: bool) -> Result<models::Route, Error<GetRouteError>> {
+pub async fn get_route(configuration: &configuration::Configuration, route_id: i64, show_inherited_properties: bool) -> Result<models::Route, Error<GetRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_query_show_inherited_properties = show_inherited_properties;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("showInheritedProperties", &p_query_show_inherited_properties.to_string())]);
@@ -467,12 +459,11 @@ pub async fn get_route(configuration: &configuration::Configuration, version: f6
 }
 
 /// Get the directions of a route
-pub async fn get_route_directions(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<Vec<models::Direction>, Error<GetRouteDirectionsError>> {
+pub async fn get_route_directions(configuration: &configuration::Configuration, route_id: i64) -> Result<Vec<models::Direction>, Error<GetRouteDirectionsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/directions", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/directions", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -505,12 +496,11 @@ pub async fn get_route_directions(configuration: &configuration::Configuration, 
 }
 
 /// Get the shipments on the requested route
-pub async fn get_route_shipments(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<Vec<models::Shipment>, Error<GetRouteShipmentsError>> {
+pub async fn get_route_shipments(configuration: &configuration::Configuration, route_id: i64) -> Result<Vec<models::Shipment>, Error<GetRouteShipmentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/shipments", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/shipments", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -543,13 +533,12 @@ pub async fn get_route_shipments(configuration: &configuration::Configuration, v
 }
 
 /// Get the specific stop on a route
-pub async fn get_route_stop(configuration: &configuration::Configuration, version: f64, route_id: i64, stop_id: i64) -> Result<models::Stop, Error<GetRouteStopError>> {
+pub async fn get_route_stop(configuration: &configuration::Configuration, route_id: i64, stop_id: i64) -> Result<models::Stop, Error<GetRouteStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_path_stop_id = stop_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stop/{stopId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id, stopId=p_path_stop_id);
+    let uri_str = format!("{}/route/{routeId}/stop/{stopId}", configuration.base_path, routeId=p_path_route_id, stopId=p_path_stop_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -582,13 +571,12 @@ pub async fn get_route_stop(configuration: &configuration::Configuration, versio
 }
 
 /// The stops of the route requested
-pub async fn get_route_stops(configuration: &configuration::Configuration, version: f64, route_id: i64, confirmed_only: bool) -> Result<Vec<models::Stop>, Error<GetRouteStopsError>> {
+pub async fn get_route_stops(configuration: &configuration::Configuration, route_id: i64, confirmed_only: bool) -> Result<Vec<models::Stop>, Error<GetRouteStopsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_query_confirmed_only = confirmed_only;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stops", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/stops", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("confirmedOnly", &p_query_confirmed_only.to_string())]);
@@ -622,13 +610,12 @@ pub async fn get_route_stops(configuration: &configuration::Configuration, versi
 }
 
 /// Get the list of shipments on the requested route at a stop
-pub async fn get_shipments_at_stop(configuration: &configuration::Configuration, version: f64, route_id: i64, stop_id: i64) -> Result<Vec<models::Shipment>, Error<GetShipmentsAtStopError>> {
+pub async fn get_shipments_at_stop(configuration: &configuration::Configuration, route_id: i64, stop_id: i64) -> Result<Vec<models::Shipment>, Error<GetShipmentsAtStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_path_stop_id = stop_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stop/{stopId}/shipments", configuration.base_path, version=p_path_version, routeId=p_path_route_id, stopId=p_path_stop_id);
+    let uri_str = format!("{}/route/{routeId}/stop/{stopId}/shipments", configuration.base_path, routeId=p_path_route_id, stopId=p_path_stop_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -661,12 +648,11 @@ pub async fn get_shipments_at_stop(configuration: &configuration::Configuration,
 }
 
 /// Optimize a route. The optimization method based on how the server is configured.
-pub async fn optimize_route(configuration: &configuration::Configuration, version: f64, route_id: i64) -> Result<(), Error<OptimizeRouteError>> {
+pub async fn optimize_route(configuration: &configuration::Configuration, route_id: i64) -> Result<(), Error<OptimizeRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/optimize", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/optimize", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -688,13 +674,12 @@ pub async fn optimize_route(configuration: &configuration::Configuration, versio
 }
 
 /// Delete a stop on a route
-pub async fn remove_stop(configuration: &configuration::Configuration, version: f64, route_id: i64, stop_id: i64) -> Result<(), Error<RemoveStopError>> {
+pub async fn remove_stop(configuration: &configuration::Configuration, route_id: i64, stop_id: i64) -> Result<(), Error<RemoveStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_path_stop_id = stop_id;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stop/{stopId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id, stopId=p_path_stop_id);
+    let uri_str = format!("{}/route/{routeId}/stop/{stopId}", configuration.base_path, routeId=p_path_route_id, stopId=p_path_stop_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -716,13 +701,12 @@ pub async fn remove_stop(configuration: &configuration::Configuration, version: 
 }
 
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
-pub async fn reorder_route_stops_patch(configuration: &configuration::Configuration, version: f64, route_id: i64, body: Option<Vec<models::Stop>>) -> Result<Vec<models::Stop>, Error<ReorderRouteStopsPatchError>> {
+pub async fn reorder_route_stops_patch(configuration: &configuration::Configuration, route_id: i64, body: Option<Vec<models::Stop>>) -> Result<Vec<models::Stop>, Error<ReorderRouteStopsPatchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stops/reorder", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/stops/reorder", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PATCH, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -756,13 +740,12 @@ pub async fn reorder_route_stops_patch(configuration: &configuration::Configurat
 }
 
 /// Reordering the stops on the route with and update route distance, time, direction, and polyline
-pub async fn reorder_route_stops_post(configuration: &configuration::Configuration, version: f64, route_id: i64, body: Option<Vec<models::Stop>>) -> Result<Vec<models::Stop>, Error<ReorderRouteStopsPostError>> {
+pub async fn reorder_route_stops_post(configuration: &configuration::Configuration, route_id: i64, body: Option<Vec<models::Stop>>) -> Result<Vec<models::Stop>, Error<ReorderRouteStopsPostError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stops/reorder", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}/stops/reorder", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -796,9 +779,8 @@ pub async fn reorder_route_stops_post(configuration: &configuration::Configurati
 }
 
 /// Search for routes.
-pub async fn search_routes(configuration: &configuration::Configuration, version: f64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, includes_empty: bool, root_only: bool, show_inherited_properties: bool, hub_id: Option<i64>, program_id: Option<i64>, scheduled_start: Option<i64>, scheduled_end: Option<i64>, updated_start: Option<i64>, updated_end: Option<i64>, featured: Option<bool>, seat_count: Option<i32>, approved: Option<bool>, started: Option<bool>, completed: Option<bool>, valid: Option<bool>, parent_id: Option<i64>) -> Result<Vec<models::Route>, Error<SearchRoutesError>> {
+pub async fn search_routes(configuration: &configuration::Configuration, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, includes_empty: bool, root_only: bool, show_inherited_properties: bool, hub_id: Option<i64>, program_id: Option<i64>, scheduled_start: Option<i64>, scheduled_end: Option<i64>, updated_start: Option<i64>, updated_end: Option<i64>, featured: Option<bool>, seat_count: Option<i32>, approved: Option<bool>, started: Option<bool>, completed: Option<bool>, valid: Option<bool>, parent_id: Option<i64>) -> Result<Vec<models::Route>, Error<SearchRoutesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
     let p_query_start = start;
@@ -821,7 +803,7 @@ pub async fn search_routes(configuration: &configuration::Configuration, version
     let p_query_valid = valid;
     let p_query_parent_id = parent_id;
 
-    let uri_str = format!("{}/api/{version}/route", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/route", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_hub_id {
@@ -901,13 +883,12 @@ pub async fn search_routes(configuration: &configuration::Configuration, version
 }
 
 /// Update the driver of the route.
-pub async fn set_driver(configuration: &configuration::Configuration, version: f64, id: i64, driver_id: i64) -> Result<(), Error<SetDriverError>> {
+pub async fn set_driver(configuration: &configuration::Configuration, id: i64, driver_id: i64) -> Result<(), Error<SetDriverError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_path_driver_id = driver_id;
 
-    let uri_str = format!("{}/api/{version}/route/{id}/driver/{driverId}", configuration.base_path, version=p_path_version, id=p_path_id, driverId=p_path_driver_id);
+    let uri_str = format!("{}/route/{id}/driver/{driverId}", configuration.base_path, id=p_path_id, driverId=p_path_driver_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -929,13 +910,12 @@ pub async fn set_driver(configuration: &configuration::Configuration, version: f
 }
 
 /// Update an existing route
-pub async fn update_route(configuration: &configuration::Configuration, version: f64, route_id: i64, body: Option<models::Route>) -> Result<models::Route, Error<UpdateRouteError>> {
+pub async fn update_route(configuration: &configuration::Configuration, route_id: i64, body: Option<models::Route>) -> Result<models::Route, Error<UpdateRouteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id);
+    let uri_str = format!("{}/route/{routeId}", configuration.base_path, routeId=p_path_route_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -969,14 +949,13 @@ pub async fn update_route(configuration: &configuration::Configuration, version:
 }
 
 /// Update a stop on a specified route
-pub async fn update_route_stop(configuration: &configuration::Configuration, version: f64, route_id: i64, stop_id: i64, body: Option<models::Stop>) -> Result<(), Error<UpdateRouteStopError>> {
+pub async fn update_route_stop(configuration: &configuration::Configuration, route_id: i64, stop_id: i64, body: Option<models::Stop>) -> Result<(), Error<UpdateRouteStopError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_route_id = route_id;
     let p_path_stop_id = stop_id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/route/{routeId}/stop/{stopId}", configuration.base_path, version=p_path_version, routeId=p_path_route_id, stopId=p_path_stop_id);
+    let uri_str = format!("{}/route/{routeId}/stop/{stopId}", configuration.base_path, routeId=p_path_route_id, stopId=p_path_stop_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {

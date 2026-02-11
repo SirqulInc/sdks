@@ -130,12 +130,11 @@ pub enum UpdateTripNotificationsError {
 
 
 /// Create a new trip
-pub async fn create_trip(configuration: &configuration::Configuration, version: f64, body: Option<models::Trip>) -> Result<models::Trip, Error<CreateTripError>> {
+pub async fn create_trip(configuration: &configuration::Configuration, body: Option<models::Trip>) -> Result<models::Trip, Error<CreateTripError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trip", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -169,12 +168,11 @@ pub async fn create_trip(configuration: &configuration::Configuration, version: 
 }
 
 /// Delete an existing trip
-pub async fn delete(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<(), Error<DeleteError>> {
+pub async fn delete(configuration: &configuration::Configuration, id: i64) -> Result<(), Error<DeleteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::DELETE, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -196,13 +194,12 @@ pub async fn delete(configuration: &configuration::Configuration, version: f64, 
 }
 
 /// Update trip preference to drive, also create a route and assign the trip to the route
-pub async fn drive_trip(configuration: &configuration::Configuration, version: f64, id: i64, recurrence: bool) -> Result<models::Trip, Error<DriveTripError>> {
+pub async fn drive_trip(configuration: &configuration::Configuration, id: i64, recurrence: bool) -> Result<models::Trip, Error<DriveTripError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_query_recurrence = recurrence;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/drive", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/drive", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("recurrence", &p_query_recurrence.to_string())]);
@@ -236,13 +233,12 @@ pub async fn drive_trip(configuration: &configuration::Configuration, version: f
 }
 
 /// Update trip preference to flexible.
-pub async fn flexible_trip(configuration: &configuration::Configuration, version: f64, id: i64, recurrence: bool) -> Result<models::Trip, Error<FlexibleTripError>> {
+pub async fn flexible_trip(configuration: &configuration::Configuration, id: i64, recurrence: bool) -> Result<models::Trip, Error<FlexibleTripError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_query_recurrence = recurrence;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/flexible", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/flexible", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("recurrence", &p_query_recurrence.to_string())]);
@@ -276,12 +272,11 @@ pub async fn flexible_trip(configuration: &configuration::Configuration, version
 }
 
 /// Get an existing trip
-pub async fn get_trip(configuration: &configuration::Configuration, version: f64, id: i64) -> Result<models::Trip, Error<GetTripError>> {
+pub async fn get_trip(configuration: &configuration::Configuration, id: i64) -> Result<models::Trip, Error<GetTripError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -314,9 +309,8 @@ pub async fn get_trip(configuration: &configuration::Configuration, version: f64
 }
 
 /// Get matching trips of specific trip
-pub async fn get_trip_matches(configuration: &configuration::Configuration, version: f64, id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, matched_has_route: Option<bool>, matched_has_driver: Option<bool>) -> Result<Vec<models::Trip>, Error<GetTripMatchesError>> {
+pub async fn get_trip_matches(configuration: &configuration::Configuration, id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, matched_has_route: Option<bool>, matched_has_driver: Option<bool>) -> Result<Vec<models::Trip>, Error<GetTripMatchesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -326,7 +320,7 @@ pub async fn get_trip_matches(configuration: &configuration::Configuration, vers
     let p_query_matched_has_route = matched_has_route;
     let p_query_matched_has_driver = matched_has_driver;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/match", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/match", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_matched_has_route {
@@ -370,14 +364,13 @@ pub async fn get_trip_matches(configuration: &configuration::Configuration, vers
 }
 
 /// Process trip matching, assign trips with no route to matched trips with route.
-pub async fn process_trip_matches(configuration: &configuration::Configuration, version: f64, start_date: Option<i64>, end_date: Option<i64>, trip_id: Option<i64>) -> Result<Vec<models::Trip>, Error<ProcessTripMatchesError>> {
+pub async fn process_trip_matches(configuration: &configuration::Configuration, start_date: Option<i64>, end_date: Option<i64>, trip_id: Option<i64>) -> Result<Vec<models::Trip>, Error<ProcessTripMatchesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start_date = start_date;
     let p_query_end_date = end_date;
     let p_query_trip_id = trip_id;
 
-    let uri_str = format!("{}/api/{version}/trip/match/process", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trip/match/process", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_start_date {
@@ -419,13 +412,12 @@ pub async fn process_trip_matches(configuration: &configuration::Configuration, 
 }
 
 /// Update trip preference to ride.
-pub async fn ride(configuration: &configuration::Configuration, version: f64, id: i64, recurrence: bool) -> Result<models::Trip, Error<RideError>> {
+pub async fn ride(configuration: &configuration::Configuration, id: i64, recurrence: bool) -> Result<models::Trip, Error<RideError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_query_recurrence = recurrence;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/ride", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/ride", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("recurrence", &p_query_recurrence.to_string())]);
@@ -459,9 +451,8 @@ pub async fn ride(configuration: &configuration::Configuration, version: f64, id
 }
 
 /// Search for trips
-pub async fn search(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, start_date: Option<i64>, end_date: Option<i64>, has_notifications: Option<bool>) -> Result<Vec<models::Trip>, Error<SearchError>> {
+pub async fn search(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, start_date: Option<i64>, end_date: Option<i64>, has_notifications: Option<bool>) -> Result<Vec<models::Trip>, Error<SearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -472,7 +463,7 @@ pub async fn search(configuration: &configuration::Configuration, version: f64, 
     let p_query_end_date = end_date;
     let p_query_has_notifications = has_notifications;
 
-    let uri_str = format!("{}/api/{version}/trip", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trip", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -520,9 +511,8 @@ pub async fn search(configuration: &configuration::Configuration, version: f64, 
 }
 
 /// Search for trips with matching information.
-pub async fn search_trips(configuration: &configuration::Configuration, version: f64, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, start_date: Option<i64>, end_date: Option<i64>, matched_has_route: Option<bool>, matched_has_driver: Option<bool>) -> Result<Vec<models::Trip>, Error<SearchTripsError>> {
+pub async fn search_trips(configuration: &configuration::Configuration, account_id: i64, sort_field: &str, descending: bool, start: i32, limit: i32, active_only: bool, start_date: Option<i64>, end_date: Option<i64>, matched_has_route: Option<bool>, matched_has_driver: Option<bool>) -> Result<Vec<models::Trip>, Error<SearchTripsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_sort_field = sort_field;
     let p_query_descending = descending;
@@ -534,7 +524,7 @@ pub async fn search_trips(configuration: &configuration::Configuration, version:
     let p_query_matched_has_route = matched_has_route;
     let p_query_matched_has_driver = matched_has_driver;
 
-    let uri_str = format!("{}/api/{version}/trip/match", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trip/match", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -584,13 +574,12 @@ pub async fn search_trips(configuration: &configuration::Configuration, version:
     }
 }
 
-pub async fn update_locations(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateLocationsError>> {
+pub async fn update_locations(configuration: &configuration::Configuration, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/locations", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/locations", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -623,13 +612,12 @@ pub async fn update_locations(configuration: &configuration::Configuration, vers
     }
 }
 
-pub async fn update_recurrence_locations(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Trip>) -> Result<Vec<models::Trip>, Error<UpdateRecurrenceLocationsError>> {
+pub async fn update_recurrence_locations(configuration: &configuration::Configuration, id: i64, body: Option<models::Trip>) -> Result<Vec<models::Trip>, Error<UpdateRecurrenceLocationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/locations/recurrence", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/locations/recurrence", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -662,13 +650,12 @@ pub async fn update_recurrence_locations(configuration: &configuration::Configur
     }
 }
 
-pub async fn update_recurrence_shipments(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Trip>) -> Result<Vec<models::Trip>, Error<UpdateRecurrenceShipmentsError>> {
+pub async fn update_recurrence_shipments(configuration: &configuration::Configuration, id: i64, body: Option<models::Trip>) -> Result<Vec<models::Trip>, Error<UpdateRecurrenceShipmentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/shipments/recurrence", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/shipments/recurrence", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -701,13 +688,12 @@ pub async fn update_recurrence_shipments(configuration: &configuration::Configur
     }
 }
 
-pub async fn update_shipments(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateShipmentsError>> {
+pub async fn update_shipments(configuration: &configuration::Configuration, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateShipmentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}/shipments", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}/shipments", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -741,13 +727,12 @@ pub async fn update_shipments(configuration: &configuration::Configuration, vers
 }
 
 /// Update an existing trip. Does not support recurring trip update.
-pub async fn update_trip(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateTripError>> {
+pub async fn update_trip(configuration: &configuration::Configuration, id: i64, body: Option<models::Trip>) -> Result<models::Trip, Error<UpdateTripError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/trip/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/trip/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::PUT, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -781,13 +766,12 @@ pub async fn update_trip(configuration: &configuration::Configuration, version: 
 }
 
 /// Update the trip notifications
-pub async fn update_trip_notifications(configuration: &configuration::Configuration, version: f64, id: i64, notifications: Option<&str>) -> Result<models::Trip, Error<UpdateTripNotificationsError>> {
+pub async fn update_trip_notifications(configuration: &configuration::Configuration, id: i64, notifications: Option<&str>) -> Result<models::Trip, Error<UpdateTripNotificationsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_id = id;
     let p_query_notifications = notifications;
 
-    let uri_str = format!("{}/api/{version}/trip/notifications", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/trip/notifications", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("id", &p_query_id.to_string())]);

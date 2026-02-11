@@ -87,9 +87,8 @@ pub enum UpdateTournamentError {
 
 
 /// Create a tournament.
-pub async fn create_tournament(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, title: &str, cost_to_play: i32, start_date: i64, sub_type: Option<&str>, image_asset_id: Option<i64>, seconds_between_levels: Option<i32>, seconds_for_tie_breaker: Option<i32>, seconds_between_packs: Option<i32>, maximum_level_length: Option<i32>, cost_to_play_type: Option<&str>, minimum_to_play: Option<i32>, starting_limit: Option<i32>, available_limit: Option<i32>, description: Option<&str>, meta_data: Option<&str>, audience_ids: Option<&str>, active: Option<bool>, enable_buy_back: Option<bool>, offer_ids: Option<&str>, offer_asset_id: Option<i64>, fixed_reward: Option<bool>, split_reward: Option<&str>, allocate_tickets: Option<bool>, tournament_data: Option<&str>, mission_type: Option<&str>, visibility: Option<&str>, preliminary_groups: Option<i32>, preliminary_group_advancements: Option<&str>, enable_multiple_entries: Option<bool>, enable_multiple_votes: Option<bool>, featured: Option<bool>, winner_tag: Option<&str>, tie_tag: Option<&str>) -> Result<models::TournamentResponse, Error<CreateTournamentError>> {
+pub async fn create_tournament(configuration: &configuration::Configuration, account_id: i64, app_key: &str, title: &str, cost_to_play: i32, start_date: i64, sub_type: Option<&str>, image_asset_id: Option<i64>, seconds_between_levels: Option<i32>, seconds_for_tie_breaker: Option<i32>, seconds_between_packs: Option<i32>, maximum_level_length: Option<i32>, cost_to_play_type: Option<&str>, minimum_to_play: Option<i32>, starting_limit: Option<i32>, available_limit: Option<i32>, description: Option<&str>, meta_data: Option<&str>, audience_ids: Option<&str>, active: Option<bool>, enable_buy_back: Option<bool>, offer_ids: Option<&str>, offer_asset_id: Option<i64>, fixed_reward: Option<bool>, split_reward: Option<&str>, allocate_tickets: Option<bool>, tournament_data: Option<&str>, mission_type: Option<&str>, visibility: Option<&str>, preliminary_groups: Option<i32>, preliminary_group_advancements: Option<&str>, enable_multiple_entries: Option<bool>, enable_multiple_votes: Option<bool>, featured: Option<bool>, winner_tag: Option<&str>, tie_tag: Option<&str>) -> Result<models::TournamentResponse, Error<CreateTournamentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_title = title;
@@ -126,7 +125,7 @@ pub async fn create_tournament(configuration: &configuration::Configuration, ver
     let p_query_winner_tag = winner_tag;
     let p_query_tie_tag = tie_tag;
 
-    let uri_str = format!("{}/api/{version}/tournament/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -254,13 +253,12 @@ pub async fn create_tournament(configuration: &configuration::Configuration, ver
 }
 
 /// Delete a tournament.
-pub async fn delete_tournament(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64) -> Result<models::SirqulResponse, Error<DeleteTournamentError>> {
+pub async fn delete_tournament(configuration: &configuration::Configuration, account_id: i64, mission_id: i64) -> Result<models::SirqulResponse, Error<DeleteTournamentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
 
-    let uri_str = format!("{}/api/{version}/tournament/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -295,16 +293,15 @@ pub async fn delete_tournament(configuration: &configuration::Configuration, ver
 }
 
 /// Get a tournament.
-pub async fn get_tournament(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: Option<i64>, join_code: Option<&str>, include_scores: Option<&str>, object_preview_size: Option<i32>) -> Result<models::TournamentResponse, Error<GetTournamentError>> {
+pub async fn get_tournament(configuration: &configuration::Configuration, account_id: i64, mission_id: Option<i64>, join_code: Option<&str>, include_scores: Option<&str>, object_preview_size: Option<i32>) -> Result<models::TournamentResponse, Error<GetTournamentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_join_code = join_code;
     let p_query_include_scores = include_scores;
     let p_query_object_preview_size = object_preview_size;
 
-    let uri_str = format!("{}/api/{version}/tournament/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -350,9 +347,8 @@ pub async fn get_tournament(configuration: &configuration::Configuration, versio
 }
 
 /// Search on game objects of tournaments
-pub async fn search_objects(configuration: &configuration::Configuration, version: f64, account_id: i64, game_level_id: i64, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::SirqulResponse, Error<SearchObjectsError>> {
+pub async fn search_objects(configuration: &configuration::Configuration, account_id: i64, game_level_id: i64, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>) -> Result<models::SirqulResponse, Error<SearchObjectsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_game_level_id = game_level_id;
     let p_query_sort_field = sort_field;
@@ -360,7 +356,7 @@ pub async fn search_objects(configuration: &configuration::Configuration, versio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/tournament/object/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/object/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -407,9 +403,8 @@ pub async fn search_objects(configuration: &configuration::Configuration, versio
 }
 
 /// Search for the user's tournament games.
-pub async fn search_rounds(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, status: Option<&str>, mission_type: Option<&str>, current_only: Option<bool>, visibilities: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::SirqulResponse, Error<SearchRoundsError>> {
+pub async fn search_rounds(configuration: &configuration::Configuration, account_id: i64, app_key: &str, status: Option<&str>, mission_type: Option<&str>, current_only: Option<bool>, visibilities: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::SirqulResponse, Error<SearchRoundsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_status = status;
@@ -419,7 +414,7 @@ pub async fn search_rounds(configuration: &configuration::Configuration, version
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/tournament/round/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/round/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -472,9 +467,8 @@ pub async fn search_rounds(configuration: &configuration::Configuration, version
 }
 
 /// Search for tournaments
-pub async fn search_tournaments(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, keyword: Option<&str>, sub_type: Option<&str>, include_inactive: Option<bool>, mission_types: Option<&str>, filter: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, visibility: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::MissionShortResponse, Error<SearchTournamentsError>> {
+pub async fn search_tournaments(configuration: &configuration::Configuration, account_id: i64, app_key: &str, keyword: Option<&str>, sub_type: Option<&str>, include_inactive: Option<bool>, mission_types: Option<&str>, filter: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, visibility: Option<&str>, start: Option<i32>, limit: Option<i32>) -> Result<models::MissionShortResponse, Error<SearchTournamentsError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_keyword = keyword;
@@ -488,7 +482,7 @@ pub async fn search_tournaments(configuration: &configuration::Configuration, ve
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/tournament/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -553,9 +547,8 @@ pub async fn search_tournaments(configuration: &configuration::Configuration, ve
 }
 
 /// Submit an array of scores for a tournament match. 
-pub async fn submit_tournament_score(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, mission_id: i64, game_id: i64, pack_id: i64, scores: &str, game_level_id: Option<i64>) -> Result<models::SirqulResponse, Error<SubmitTournamentScoreError>> {
+pub async fn submit_tournament_score(configuration: &configuration::Configuration, account_id: i64, app_key: &str, mission_id: i64, game_id: i64, pack_id: i64, scores: &str, game_level_id: Option<i64>) -> Result<models::SirqulResponse, Error<SubmitTournamentScoreError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_mission_id = mission_id;
@@ -564,7 +557,7 @@ pub async fn submit_tournament_score(configuration: &configuration::Configuratio
     let p_query_scores = scores;
     let p_query_game_level_id = game_level_id;
 
-    let uri_str = format!("{}/api/{version}/tournament/score", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/score", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -606,9 +599,8 @@ pub async fn submit_tournament_score(configuration: &configuration::Configuratio
 }
 
 /// Submit a vote for a multi-stage album tournament.
-pub async fn submit_tournament_vote(configuration: &configuration::Configuration, version: f64, account_id: i64, app_key: &str, mission_id: i64, game_object_id: i64, device_id: Option<&str>, check_if_device_already_voted: Option<bool>) -> Result<models::SirqulResponse, Error<SubmitTournamentVoteError>> {
+pub async fn submit_tournament_vote(configuration: &configuration::Configuration, account_id: i64, app_key: &str, mission_id: i64, game_object_id: i64, device_id: Option<&str>, check_if_device_already_voted: Option<bool>) -> Result<models::SirqulResponse, Error<SubmitTournamentVoteError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_mission_id = mission_id;
@@ -616,7 +608,7 @@ pub async fn submit_tournament_vote(configuration: &configuration::Configuration
     let p_query_device_id = device_id;
     let p_query_check_if_device_already_voted = check_if_device_already_voted;
 
-    let uri_str = format!("{}/api/{version}/tournament/vote", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/vote", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -659,15 +651,14 @@ pub async fn submit_tournament_vote(configuration: &configuration::Configuration
 }
 
 /// Service to replace the user's opponent in the current level - pack - mission with an AI account.
-pub async fn substitute_tournament_player(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64, pack_id: i64, game_level_id: i64) -> Result<models::SirqulResponse, Error<SubstituteTournamentPlayerError>> {
+pub async fn substitute_tournament_player(configuration: &configuration::Configuration, account_id: i64, mission_id: i64, pack_id: i64, game_level_id: i64) -> Result<models::SirqulResponse, Error<SubstituteTournamentPlayerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_pack_id = pack_id;
     let p_query_game_level_id = game_level_id;
 
-    let uri_str = format!("{}/api/{version}/tournament/substitute", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/substitute", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -704,9 +695,8 @@ pub async fn substitute_tournament_player(configuration: &configuration::Configu
 }
 
 /// Update a tournament.
-pub async fn update_tournament(configuration: &configuration::Configuration, version: f64, account_id: i64, mission_id: i64, title: Option<&str>, sub_type: Option<&str>, image_asset_id: Option<i64>, seconds_between_levels: Option<i32>, seconds_for_tie_breaker: Option<i32>, seconds_between_packs: Option<i32>, maximum_level_length: Option<i32>, cost_to_play: Option<i32>, cost_to_play_type: Option<&str>, minimum_to_play: Option<i32>, starting_limit: Option<i32>, available_limit: Option<i32>, description: Option<&str>, meta_data: Option<&str>, start_date: Option<i64>, audience_ids: Option<&str>, active: Option<bool>, enable_buy_back: Option<bool>, offer_ids: Option<&str>, offer_asset_id: Option<i64>, fixed_reward: Option<bool>, split_reward: Option<&str>, allocate_tickets: Option<bool>, tournament_data: Option<&str>, visibility: Option<&str>, preliminary_groups: Option<i32>, preliminary_group_advancements: Option<&str>, enable_multiple_entries: Option<bool>, enable_multiple_votes: Option<bool>, featured: Option<bool>, winner_tag: Option<&str>, tie_tag: Option<&str>) -> Result<models::TournamentResponse, Error<UpdateTournamentError>> {
+pub async fn update_tournament(configuration: &configuration::Configuration, account_id: i64, mission_id: i64, title: Option<&str>, sub_type: Option<&str>, image_asset_id: Option<i64>, seconds_between_levels: Option<i32>, seconds_for_tie_breaker: Option<i32>, seconds_between_packs: Option<i32>, maximum_level_length: Option<i32>, cost_to_play: Option<i32>, cost_to_play_type: Option<&str>, minimum_to_play: Option<i32>, starting_limit: Option<i32>, available_limit: Option<i32>, description: Option<&str>, meta_data: Option<&str>, start_date: Option<i64>, audience_ids: Option<&str>, active: Option<bool>, enable_buy_back: Option<bool>, offer_ids: Option<&str>, offer_asset_id: Option<i64>, fixed_reward: Option<bool>, split_reward: Option<&str>, allocate_tickets: Option<bool>, tournament_data: Option<&str>, visibility: Option<&str>, preliminary_groups: Option<i32>, preliminary_group_advancements: Option<&str>, enable_multiple_entries: Option<bool>, enable_multiple_votes: Option<bool>, featured: Option<bool>, winner_tag: Option<&str>, tie_tag: Option<&str>) -> Result<models::TournamentResponse, Error<UpdateTournamentError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_mission_id = mission_id;
     let p_query_title = title;
@@ -742,7 +732,7 @@ pub async fn update_tournament(configuration: &configuration::Configuration, ver
     let p_query_winner_tag = winner_tag;
     let p_query_tie_tag = tie_tag;
 
-    let uri_str = format!("{}/api/{version}/tournament/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/tournament/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

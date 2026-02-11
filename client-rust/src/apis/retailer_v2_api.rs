@@ -24,9 +24,8 @@ pub enum GetRetaokilerError {
 
 
 /// Gets a retailer. Only the owner and the employees of a retailer have access to view its information.
-pub async fn get_retaokiler(configuration: &configuration::Configuration, version: f64, retailer_id: i64, active_only: bool, keyword: Option<&str>, sort_field: Option<&str>, start: Option<i64>, limit: Option<i64>) -> Result<models::SirqulResponse, Error<GetRetaokilerError>> {
+pub async fn get_retaokiler(configuration: &configuration::Configuration, retailer_id: i64, active_only: bool, keyword: Option<&str>, sort_field: Option<&str>, start: Option<i64>, limit: Option<i64>) -> Result<models::SirqulResponse, Error<GetRetaokilerError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_retailer_id = retailer_id;
     let p_query_active_only = active_only;
     let p_query_keyword = keyword;
@@ -34,7 +33,7 @@ pub async fn get_retaokiler(configuration: &configuration::Configuration, versio
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/retailer", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/retailer", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_keyword {

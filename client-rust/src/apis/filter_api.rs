@@ -52,9 +52,8 @@ pub enum UpdateFilterError {
 
 
 /// Create a filter
-pub async fn create_filter(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, app_key: Option<&str>, parent_filter_id: Option<i64>, description: Option<&str>, external_id: Option<&str>, external_type: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::FilterTreeResponse, Error<CreateFilterError>> {
+pub async fn create_filter(configuration: &configuration::Configuration, account_id: i64, name: &str, app_key: Option<&str>, parent_filter_id: Option<i64>, description: Option<&str>, external_id: Option<&str>, external_type: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::FilterTreeResponse, Error<CreateFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_app_key = app_key;
@@ -65,7 +64,7 @@ pub async fn create_filter(configuration: &configuration::Configuration, version
     let p_query_active = active;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/filter/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/filter/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -121,13 +120,12 @@ pub async fn create_filter(configuration: &configuration::Configuration, version
 }
 
 /// Delete a filter.
-pub async fn delete_filter(configuration: &configuration::Configuration, version: f64, account_id: i64, filter_id: i64) -> Result<models::SirqulResponse, Error<DeleteFilterError>> {
+pub async fn delete_filter(configuration: &configuration::Configuration, account_id: i64, filter_id: i64) -> Result<models::SirqulResponse, Error<DeleteFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_filter_id = filter_id;
 
-    let uri_str = format!("{}/api/{version}/filter/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/filter/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -162,12 +160,11 @@ pub async fn delete_filter(configuration: &configuration::Configuration, version
 }
 
 /// Get the details of a specific filter. Recursively include all child filters and their children.
-pub async fn get_filter(configuration: &configuration::Configuration, version: f64, filter_id: i64) -> Result<models::FilterTreeResponse, Error<GetFilterError>> {
+pub async fn get_filter(configuration: &configuration::Configuration, filter_id: i64) -> Result<models::FilterTreeResponse, Error<GetFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_filter_id = filter_id;
 
-    let uri_str = format!("{}/api/{version}/filter/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/filter/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("filterId", &p_query_filter_id.to_string())]);
@@ -201,9 +198,8 @@ pub async fn get_filter(configuration: &configuration::Configuration, version: f
 }
 
 /// Search for filters.
-pub async fn search_filters(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, response_group: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::FilterResponse>, Error<SearchFiltersError>> {
+pub async fn search_filters(configuration: &configuration::Configuration, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, response_group: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>) -> Result<Vec<models::FilterResponse>, Error<SearchFiltersError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_app_key = app_key;
@@ -215,7 +211,7 @@ pub async fn search_filters(configuration: &configuration::Configuration, versio
     let p_query_limit = limit;
     let p_query_active_only = active_only;
 
-    let uri_str = format!("{}/api/{version}/filter/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/filter/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -278,9 +274,8 @@ pub async fn search_filters(configuration: &configuration::Configuration, versio
 }
 
 /// Update a filter.
-pub async fn update_filter(configuration: &configuration::Configuration, version: f64, account_id: i64, filter_id: i64, parent_filter_id: Option<i64>, name: Option<&str>, description: Option<&str>, external_id: Option<&str>, external_type: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::FilterTreeResponse, Error<UpdateFilterError>> {
+pub async fn update_filter(configuration: &configuration::Configuration, account_id: i64, filter_id: i64, parent_filter_id: Option<i64>, name: Option<&str>, description: Option<&str>, external_id: Option<&str>, external_type: Option<&str>, active: Option<bool>, meta_data: Option<&str>) -> Result<models::FilterTreeResponse, Error<UpdateFilterError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_filter_id = filter_id;
     let p_query_parent_filter_id = parent_filter_id;
@@ -291,7 +286,7 @@ pub async fn update_filter(configuration: &configuration::Configuration, version
     let p_query_active = active;
     let p_query_meta_data = meta_data;
 
-    let uri_str = format!("{}/api/{version}/filter/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/filter/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

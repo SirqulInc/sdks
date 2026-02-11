@@ -24,12 +24,11 @@ pub enum ComputeRoutingError {
 
 
 /// This service finds the most optimal routes for delivering items between locations (reducing transit time/resources). It can take in a list of vehicles and a list of items (to be transported).All load items have pick-up and drop-off locations with time windows for when the item is expected to be picked-up and dropped-off. 
-pub async fn compute_routing(configuration: &configuration::Configuration, version: f64, data: &str) -> Result<models::RoutingListResponse, Error<ComputeRoutingError>> {
+pub async fn compute_routing(configuration: &configuration::Configuration, data: &str) -> Result<models::RoutingListResponse, Error<ComputeRoutingError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_data = data;
 
-    let uri_str = format!("{}/api/{version}/routing/compute", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/routing/compute", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("data", &p_query_data.to_string())]);

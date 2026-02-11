@@ -66,9 +66,8 @@ pub enum UpdateCategoryError {
 
 
 /// Search for categories by distance.
-pub async fn category_distance_search(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, category_ids: Option<&str>, parent_category_ids: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, response_group: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, return_external: Option<bool>, exact_match: Option<bool>, r#type: Option<&str>, external_type: Option<&str>, min_offer_count: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>) -> Result<Vec<models::CategoryResponse>, Error<CategoryDistanceSearchError>> {
+pub async fn category_distance_search(configuration: &configuration::Configuration, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, category_ids: Option<&str>, parent_category_ids: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, response_group: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, return_external: Option<bool>, exact_match: Option<bool>, r#type: Option<&str>, external_type: Option<&str>, min_offer_count: Option<i32>, latitude: Option<f64>, longitude: Option<f64>, range: Option<f64>) -> Result<Vec<models::CategoryResponse>, Error<CategoryDistanceSearchError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_app_key = app_key;
@@ -90,7 +89,7 @@ pub async fn category_distance_search(configuration: &configuration::Configurati
     let p_query_longitude = longitude;
     let p_query_range = range;
 
-    let uri_str = format!("{}/api/{version}/category/distancesearch", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/distancesearch", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -183,9 +182,8 @@ pub async fn category_distance_search(configuration: &configuration::Configurati
 }
 
 /// Create a new category.
-pub async fn create_category(configuration: &configuration::Configuration, version: f64, account_id: i64, name: &str, app_key: Option<&str>, parent_category_id: Option<i64>, description: Option<&str>, r#type: Option<&str>, asset_id: Option<i64>, external_id: Option<&str>, external_type: Option<&str>, external_category_slug: Option<&str>, sqoot_slug: Option<&str>, active: Option<bool>, meta_data: Option<&str>, search_tags: Option<&str>) -> Result<models::CategoryTreeResponse, Error<CreateCategoryError>> {
+pub async fn create_category(configuration: &configuration::Configuration, account_id: i64, name: &str, app_key: Option<&str>, parent_category_id: Option<i64>, description: Option<&str>, r#type: Option<&str>, asset_id: Option<i64>, external_id: Option<&str>, external_type: Option<&str>, external_category_slug: Option<&str>, sqoot_slug: Option<&str>, active: Option<bool>, meta_data: Option<&str>, search_tags: Option<&str>) -> Result<models::CategoryTreeResponse, Error<CreateCategoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_name = name;
     let p_query_app_key = app_key;
@@ -201,7 +199,7 @@ pub async fn create_category(configuration: &configuration::Configuration, versi
     let p_query_meta_data = meta_data;
     let p_query_search_tags = search_tags;
 
-    let uri_str = format!("{}/api/{version}/category/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_app_key {
@@ -272,13 +270,12 @@ pub async fn create_category(configuration: &configuration::Configuration, versi
 }
 
 /// Delete a category.
-pub async fn delete_category(configuration: &configuration::Configuration, version: f64, account_id: i64, category_id: i64) -> Result<models::SirqulResponse, Error<DeleteCategoryError>> {
+pub async fn delete_category(configuration: &configuration::Configuration, account_id: i64, category_id: i64) -> Result<models::SirqulResponse, Error<DeleteCategoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_category_id = category_id;
 
-    let uri_str = format!("{}/api/{version}/category/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -313,15 +310,14 @@ pub async fn delete_category(configuration: &configuration::Configuration, versi
 }
 
 /// Duplicate a category, including all its children.
-pub async fn duplicate_category(configuration: &configuration::Configuration, version: f64, account_id: i64, category_id: i64, app_key: Option<&str>, parent_category_id: Option<i64>) -> Result<models::CategoryTreeResponse, Error<DuplicateCategoryError>> {
+pub async fn duplicate_category(configuration: &configuration::Configuration, account_id: i64, category_id: i64, app_key: Option<&str>, parent_category_id: Option<i64>) -> Result<models::CategoryTreeResponse, Error<DuplicateCategoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_category_id = category_id;
     let p_query_app_key = app_key;
     let p_query_parent_category_id = parent_category_id;
 
-    let uri_str = format!("{}/api/{version}/category/duplicate", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/duplicate", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_app_key {
@@ -362,13 +358,12 @@ pub async fn duplicate_category(configuration: &configuration::Configuration, ve
 }
 
 /// Get the details of a specific category. Recursively include all child categories and their children.
-pub async fn get_category(configuration: &configuration::Configuration, version: f64, category_id: i64, return_external: Option<bool>) -> Result<models::CategoryTreeResponse, Error<GetCategoryError>> {
+pub async fn get_category(configuration: &configuration::Configuration, category_id: i64, return_external: Option<bool>) -> Result<models::CategoryTreeResponse, Error<GetCategoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_category_id = category_id;
     let p_query_return_external = return_external;
 
-    let uri_str = format!("{}/api/{version}/category/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("categoryId", &p_query_category_id.to_string())]);
@@ -405,9 +400,8 @@ pub async fn get_category(configuration: &configuration::Configuration, version:
 }
 
 /// Search for categories.
-pub async fn search_categories(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, category_id: Option<&str>, category_ids: Option<&str>, parent_category_ids: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, response_group: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, return_external: Option<bool>, exact_match: Option<bool>, r#type: Option<&str>, external_type: Option<&str>, exclude_external_type: Option<bool>, min_offer_count: Option<i32>, search_depth: Option<i32>, search_mode: Option<&str>) -> Result<Vec<models::CategoryResponse>, Error<SearchCategoriesError>> {
+pub async fn search_categories(configuration: &configuration::Configuration, account_id: Option<i64>, keyword: Option<&str>, app_key: Option<&str>, category_id: Option<&str>, category_ids: Option<&str>, parent_category_ids: Option<&str>, root_only: Option<bool>, sort_field: Option<&str>, response_group: Option<&str>, descending: Option<bool>, start: Option<i32>, limit: Option<i32>, active_only: Option<bool>, return_external: Option<bool>, exact_match: Option<bool>, r#type: Option<&str>, external_type: Option<&str>, exclude_external_type: Option<bool>, min_offer_count: Option<i32>, search_depth: Option<i32>, search_mode: Option<&str>) -> Result<Vec<models::CategoryResponse>, Error<SearchCategoriesError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_keyword = keyword;
     let p_query_app_key = app_key;
@@ -430,7 +424,7 @@ pub async fn search_categories(configuration: &configuration::Configuration, ver
     let p_query_search_depth = search_depth;
     let p_query_search_mode = search_mode;
 
-    let uri_str = format!("{}/api/{version}/category/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {
@@ -526,9 +520,8 @@ pub async fn search_categories(configuration: &configuration::Configuration, ver
 }
 
 /// Update a category.
-pub async fn update_category(configuration: &configuration::Configuration, version: f64, account_id: i64, category_id: i64, parent_category_id: Option<i64>, name: Option<&str>, description: Option<&str>, r#type: Option<&str>, asset_id: Option<i64>, external_id: Option<&str>, external_type: Option<&str>, external_category_slug: Option<&str>, sqoot_slug: Option<&str>, active: Option<bool>, meta_data: Option<&str>, search_tags: Option<&str>) -> Result<models::CategoryTreeResponse, Error<UpdateCategoryError>> {
+pub async fn update_category(configuration: &configuration::Configuration, account_id: i64, category_id: i64, parent_category_id: Option<i64>, name: Option<&str>, description: Option<&str>, r#type: Option<&str>, asset_id: Option<i64>, external_id: Option<&str>, external_type: Option<&str>, external_category_slug: Option<&str>, sqoot_slug: Option<&str>, active: Option<bool>, meta_data: Option<&str>, search_tags: Option<&str>) -> Result<models::CategoryTreeResponse, Error<UpdateCategoryError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_category_id = category_id;
     let p_query_parent_category_id = parent_category_id;
@@ -544,7 +537,7 @@ pub async fn update_category(configuration: &configuration::Configuration, versi
     let p_query_meta_data = meta_data;
     let p_query_search_tags = search_tags;
 
-    let uri_str = format!("{}/api/{version}/category/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/category/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

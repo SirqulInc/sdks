@@ -52,9 +52,8 @@ pub enum UpdatePersonaError {
 
 
 /// Creates a new persona. If the given params are null those attributes will be override by null.
-pub async fn create_persona(configuration: &configuration::Configuration, version: f64, account_id: i64, title: &str, preview_accounts: Option<&str>, date: Option<i64>, age: Option<i32>, gender: Option<&str>, game_experience_level: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PreviewPersonaResponse, Error<CreatePersonaError>> {
+pub async fn create_persona(configuration: &configuration::Configuration, account_id: i64, title: &str, preview_accounts: Option<&str>, date: Option<i64>, age: Option<i32>, gender: Option<&str>, game_experience_level: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PreviewPersonaResponse, Error<CreatePersonaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_title = title;
     let p_query_preview_accounts = preview_accounts;
@@ -65,7 +64,7 @@ pub async fn create_persona(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/persona/create", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/persona/create", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -121,13 +120,12 @@ pub async fn create_persona(configuration: &configuration::Configuration, versio
 }
 
 /// Mark the persona for deletion.
-pub async fn delete_persona(configuration: &configuration::Configuration, version: f64, account_id: i64, persona_id: i64) -> Result<models::SirqulResponse, Error<DeletePersonaError>> {
+pub async fn delete_persona(configuration: &configuration::Configuration, account_id: i64, persona_id: i64) -> Result<models::SirqulResponse, Error<DeletePersonaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_persona_id = persona_id;
 
-    let uri_str = format!("{}/api/{version}/persona/delete", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/persona/delete", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -162,13 +160,12 @@ pub async fn delete_persona(configuration: &configuration::Configuration, versio
 }
 
 /// Get the persona by the given persona ID. If the persona cannot be found, a invalid response is returned.
-pub async fn get_persona_list(configuration: &configuration::Configuration, version: f64, account_id: i64, persona_id: i64) -> Result<models::PreviewPersonaResponse, Error<GetPersonaListError>> {
+pub async fn get_persona_list(configuration: &configuration::Configuration, account_id: i64, persona_id: i64) -> Result<models::PreviewPersonaResponse, Error<GetPersonaListError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_persona_id = persona_id;
 
-    let uri_str = format!("{}/api/{version}/persona/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/persona/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -203,14 +200,13 @@ pub async fn get_persona_list(configuration: &configuration::Configuration, vers
 }
 
 /// Search for persona that the account owns by the given account ID.
-pub async fn search_persona(configuration: &configuration::Configuration, version: f64, account_id: i64, start: i32, limit: i32) -> Result<models::PreviewPersonaResponse, Error<SearchPersonaError>> {
+pub async fn search_persona(configuration: &configuration::Configuration, account_id: i64, start: i32, limit: i32) -> Result<models::PreviewPersonaResponse, Error<SearchPersonaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_start = start;
     let p_query_limit = limit;
 
-    let uri_str = format!("{}/api/{version}/persona/search", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/persona/search", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);
@@ -246,9 +242,8 @@ pub async fn search_persona(configuration: &configuration::Configuration, versio
 }
 
 /// Update the persona by the given personaId. If the given params are null those attributes will be override by null. If active is assigned, all other params will be ignored.
-pub async fn update_persona(configuration: &configuration::Configuration, version: f64, account_id: i64, persona_id: i64, title: Option<&str>, preview_accounts: Option<&str>, active: Option<bool>, date: Option<i64>, age: Option<i32>, gender: Option<&str>, game_experience_level: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PreviewPersonaResponse, Error<UpdatePersonaError>> {
+pub async fn update_persona(configuration: &configuration::Configuration, account_id: i64, persona_id: i64, title: Option<&str>, preview_accounts: Option<&str>, active: Option<bool>, date: Option<i64>, age: Option<i32>, gender: Option<&str>, game_experience_level: Option<&str>, latitude: Option<f64>, longitude: Option<f64>) -> Result<models::PreviewPersonaResponse, Error<UpdatePersonaError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_persona_id = persona_id;
     let p_query_title = title;
@@ -261,7 +256,7 @@ pub async fn update_persona(configuration: &configuration::Configuration, versio
     let p_query_latitude = latitude;
     let p_query_longitude = longitude;
 
-    let uri_str = format!("{}/api/{version}/persona/update", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/persona/update", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     req_builder = req_builder.query(&[("accountId", &p_query_account_id.to_string())]);

@@ -38,9 +38,8 @@ pub enum RegenAppDataError {
 
 
 /// Get the application data structure.  The basic structure is a   node tree, with the root node being a AppResponse.  The response contains   the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.     Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application.
-pub async fn get_app_data(configuration: &configuration::Configuration, version: f64, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, include_game_data: Option<bool>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, _l: Option<i32>, game_object_count: Option<bool>, filter: Option<&str>, date_created: Option<i64>, owner_id: Option<i64>, mission_ids: Option<&str>, game_ids: Option<&str>, pack_ids: Option<&str>, game_level_ids: Option<&str>, app_version: Option<&str>, include_higher_version_packs: Option<bool>, include_higher_version_levels: Option<bool>, response_groups: Option<&str>, purchase_type: Option<&str>) -> Result<models::AppResponse, Error<GetAppDataError>> {
+pub async fn get_app_data(configuration: &configuration::Configuration, start: i32, limit: i32, device_id: Option<&str>, account_id: Option<i64>, game_type: Option<&str>, include_game_data: Option<bool>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, _l: Option<i32>, game_object_count: Option<bool>, filter: Option<&str>, date_created: Option<i64>, owner_id: Option<i64>, mission_ids: Option<&str>, game_ids: Option<&str>, pack_ids: Option<&str>, game_level_ids: Option<&str>, app_version: Option<&str>, include_higher_version_packs: Option<bool>, include_higher_version_levels: Option<bool>, response_groups: Option<&str>, purchase_type: Option<&str>) -> Result<models::AppResponse, Error<GetAppDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_start = start;
     let p_query_limit = limit;
     let p_query_device_id = device_id;
@@ -67,7 +66,7 @@ pub async fn get_app_data(configuration: &configuration::Configuration, version:
     let p_query_response_groups = response_groups;
     let p_query_purchase_type = purchase_type;
 
-    let uri_str = format!("{}/api/{version}/app/get", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/app/get", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::GET, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -171,9 +170,8 @@ pub async fn get_app_data(configuration: &configuration::Configuration, version:
 }
 
 /// Publish the application data structure.  Can be used to save levels   and scores.  It then returns the application data structure.  The basic   structure is a node tree, with the root node being a AppResponse.  The response   contains the user's profile, messages from the system, and a list of MissionResponse.    A mission can have any number of GameResponses but typically is a single   game type.  A game then has any number of PackResponses which help group   the game levels. Packs are then composed of any number of GameLevelResponses.      Using the various parameters can return the applications default mission   (built-in packs to play), the list of community levels published, the user's   saved levels, or explicity levels desired.  You can choose to include the   profile or not, or just return parts of the profile.  You can also filter   out game levels that have been published with a higher version of the application
-pub async fn post_app_data(configuration: &configuration::Configuration, version: f64, game_type: &str, start: i32, limit: i32, data: &str, device_id: Option<&str>, account_id: Option<i64>, include_game_data: Option<bool>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, _l: Option<i32>, game_object_count: Option<bool>, filter: Option<&str>, date_created: Option<i64>, owner_id: Option<i64>, mission_ids: Option<&str>, game_ids: Option<&str>, pack_ids: Option<&str>, game_level_ids: Option<&str>, app_version: Option<&str>, include_higher_version_packs: Option<bool>, include_higher_version_levels: Option<bool>, response_groups: Option<&str>, purchase_type: Option<&str>) -> Result<models::AppResponse, Error<PostAppDataError>> {
+pub async fn post_app_data(configuration: &configuration::Configuration, game_type: &str, start: i32, limit: i32, data: &str, device_id: Option<&str>, account_id: Option<i64>, include_game_data: Option<bool>, q: Option<&str>, keyword: Option<&str>, sort_field: Option<&str>, descending: Option<bool>, _i: Option<i32>, _l: Option<i32>, game_object_count: Option<bool>, filter: Option<&str>, date_created: Option<i64>, owner_id: Option<i64>, mission_ids: Option<&str>, game_ids: Option<&str>, pack_ids: Option<&str>, game_level_ids: Option<&str>, app_version: Option<&str>, include_higher_version_packs: Option<bool>, include_higher_version_levels: Option<bool>, response_groups: Option<&str>, purchase_type: Option<&str>) -> Result<models::AppResponse, Error<PostAppDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_game_type = game_type;
     let p_query_start = start;
     let p_query_limit = limit;
@@ -201,7 +199,7 @@ pub async fn post_app_data(configuration: &configuration::Configuration, version
     let p_query_response_groups = response_groups;
     let p_query_purchase_type = purchase_type;
 
-    let uri_str = format!("{}/api/{version}/app/post", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/app/post", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_device_id {
@@ -304,15 +302,14 @@ pub async fn post_app_data(configuration: &configuration::Configuration, version
 }
 
 /// Regenerate the app data cache for apps
-pub async fn regen_app_data(configuration: &configuration::Configuration, version: f64, account_id: Option<i64>, app_key: Option<&str>, build_version: Option<&str>, api_version: Option<&str>) -> Result<models::SirqulResponse, Error<RegenAppDataError>> {
+pub async fn regen_app_data(configuration: &configuration::Configuration, account_id: Option<i64>, app_key: Option<&str>, build_version: Option<&str>, api_version: Option<&str>) -> Result<models::SirqulResponse, Error<RegenAppDataError>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_query_account_id = account_id;
     let p_query_app_key = app_key;
     let p_query_build_version = build_version;
     let p_query_api_version = api_version;
 
-    let uri_str = format!("{}/api/{version}/app/regen", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/app/regen", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref param_value) = p_query_account_id {

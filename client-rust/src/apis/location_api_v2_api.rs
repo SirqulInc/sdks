@@ -31,12 +31,11 @@ pub enum UpdateLocationV2Error {
 
 
 /// Create a new location from a real object location.
-pub async fn create_location_v2(configuration: &configuration::Configuration, version: f64, body: Option<models::Location>) -> Result<models::SirqulResponse, Error<CreateLocationV2Error>> {
+pub async fn create_location_v2(configuration: &configuration::Configuration, body: Option<models::Location>) -> Result<models::SirqulResponse, Error<CreateLocationV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/location", configuration.base_path, version=p_path_version);
+    let uri_str = format!("{}/location", configuration.base_path);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
@@ -70,13 +69,12 @@ pub async fn create_location_v2(configuration: &configuration::Configuration, ve
 }
 
 /// Update an existing location
-pub async fn update_location_v2(configuration: &configuration::Configuration, version: f64, id: i64, body: Option<models::Location>) -> Result<models::SirqulResponse, Error<UpdateLocationV2Error>> {
+pub async fn update_location_v2(configuration: &configuration::Configuration, id: i64, body: Option<models::Location>) -> Result<models::SirqulResponse, Error<UpdateLocationV2Error>> {
     // add a prefix to parameters to efficiently prevent name collisions
-    let p_path_version = version;
     let p_path_id = id;
     let p_body_body = body;
 
-    let uri_str = format!("{}/api/{version}/location/{id}", configuration.base_path, version=p_path_version, id=p_path_id);
+    let uri_str = format!("{}/location/{id}", configuration.base_path, id=p_path_id);
     let mut req_builder = configuration.client.request(reqwest::Method::POST, &uri_str);
 
     if let Some(ref user_agent) = configuration.user_agent {
